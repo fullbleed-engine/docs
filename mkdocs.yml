@@ -1,0 +1,113 @@
+site_name: Fullbleed Docs
+site_url: https://docs.fullbleed.dev
+site_description: Deterministic, dependency-free HTML/CSS-to-PDF generation in Rust with Python bindings.
+site_author: Fullbleed Engine
+
+repo_url: https://github.com/fullbleed-engine/fullbleed-official
+repo_name: fullbleed-engine/fullbleed-official
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/fullbleed-engine/fullbleed-official
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/fullbleed/
+  generator: false
+
+copyright: "&copy; 2024–2026 Fullbleed Engine. AGPL-3.0 / Commercial dual license."
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Your First PDF: getting-started/first-pdf.md
+  - Engine:
+    - Overview: engine/overview.md
+    - PdfEngine API: engine/pdf-engine.md
+    - Headers & Footers: engine/headers-footers.md
+    - Paginated Context: engine/paginated-context.md
+    - Page Margins: engine/page-margins.md
+    - Watermarks: engine/watermarks.md
+    - Asset Bundles: engine/assets.md
+    - Batch Rendering: engine/batch.md
+    - Template Composition: engine/template-composition.md
+  - CLI:
+    - Commands: cli/commands.md
+    - Scaffolding: cli/scaffolding.md
+    - Diagnostics: cli/diagnostics.md
+  - UI Components:
+    - Overview: ui/overview.md
+    - Primitives: ui/primitives.md
+    - Accessibility: ui/accessibility.md
+    - Style System: ui/style.md
+  - Accessibility:
+    - Overview: accessibility/overview.md
+    - AccessibilityEngine: accessibility/engine.md
+    - Evidence Bundles: accessibility/evidence-bundles.md
+    - WCAG & Section 508: accessibility/coverage.md
+  - CSS Coverage: css-coverage.md
+  - Guides:
+    - Invoices: guides/invoices.md
+    - Bank Statements: guides/bank-statements.md
+    - AI Agent Integration: guides/ai-agents.md
+    - Comparison: guides/comparison.md
+  - FAQ: faq.md
