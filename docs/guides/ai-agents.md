@@ -1,137 +1,262 @@
 # AI Agent Integration
 
-Fullbleed was accidentally designed to be the perfect PDF engine for AI agents. Here's why and how.
+Fullbleed was designed for deterministic, observable document rendering — which accidentally makes it the ideal PDF engine for AI agents.
 
-## Why Fullbleed + AI Agents?
+## Why Agents Love Fullbleed
 
-Most PDF generation tools are black boxes — you feed in HTML, get a PDF, and if something's wrong, you're debugging blind. Fullbleed was built with extreme observability, and it turns out that's exactly what AI agents need to iterate effectively.
+Most PDF tools are black boxes: HTML in, PDF out, good luck debugging. Fullbleed produces **15+ machine-readable artifacts per render**, giving agents the structured feedback they need to iterate autonomously.
 
-**What makes Fullbleed agent-friendly:**
+| What agents need | What Fullbleed provides |
+|---|---|
+| Visual feedback | Preview PNGs per page at configurable DPI |
+| Structured errors | JSON diagnostic reports (glyph misses, CSS selector misses, layout warnings) |
+| Accessibility validation | PMR scores, PDF/UA verification, reading order traces |
+| Determinism | Same input = same output, every time (SHA256 verified) |
+| Machine-parseable everything | `--json-only`, `--schema` flags; all reports in JSON |
+| Fast iteration | No browser startup, no Chromium binary, sub-second renders |
 
-1. **Structured JSON output** for every diagnostic — glyph misses, CSS selector misses, layout warnings, JIT compiler draw reports
-2. **Image preview rendering** — agents can "see" the PDF without opening it
-3. **Deterministic rendering** — same input = same output, making automated testing trivial
-4. **Component-level validation** — errors are emitted per-component, not per-document
-5. **CLI with `--json-only` and `--schema`** — machine-readable everything
-
-## Quick Setup for Agents
+## Quick Start for Agents
 
 ```python
 import fullbleed
-
-engine = fullbleed.PdfEngine(
-    page_width="8.5in",
-    page_height="11in",
-    margin="0.75in",
-    jit_mode=True,     # Enable JIT diagnostics
-    debug=True,        # Enable debug output
-    debug_out="debug.json",
-)
-
-# Render PDF + preview images in one pass
-pdf_bytes = engine.render_pdf(html, css)
-previews = engine.render_image_pages(html, css, dpi=150)
-
-# Agent can now:
-# 1. Inspect debug.json for layout issues
-# 2. View preview PNGs to verify visual output
-# 3. Iterate on HTML/CSS based on structured feedback
-```
-
-## CLI for Agent Pipelines
-
-```bash
-# Render with full diagnostics as JSON
-fullbleed render \
-    --html document.html \
-    --css style.css \
-    --out output.pdf \
-    --emit-image \
-    --json-only \
-    --debug
-
-# Get the JSON schema for structured output
-fullbleed render --schema
-```
-
-The `--json-only` flag ensures all output is machine-parseable JSON — no human-formatted text that agents need to parse.
-
-## The Agent Loop
-
-The typical AI agent workflow with Fullbleed:
-
-```
-1. Agent generates HTML/CSS from data + template
-2. Agent calls render_pdf() + render_image_pages()
-3. Agent inspects:
-   - Preview images (visual check)
-   - Debug JSON (layout warnings, glyph misses)
-   - Component mount validation (accessibility)
-4. Agent adjusts HTML/CSS based on feedback
-5. Repeat until output passes all checks
-```
-
-This is exactly how Fullbleed was used to autonomously generate IRS tax form layouts from publications 1141, 1167, and 1179 — the agent iterated on each form until it matched the specification.
-
-## Accessibility Engine for Agents
-
-The `AccessibilityEngine` is particularly powerful for agent workflows because it produces a full evidence bundle:
-
-```python
 from fullbleed.accessibility import AccessibilityEngine
 
+# Create an accessibility-aware engine
 engine = AccessibilityEngine(
     page_size="letter",
     document_lang="en",
-    document_title="Accessible Report",
-    strict=True,
+    document_title="Sales Report Q4 2025",
+    footer_each="Page {page} of {pages} | Confidential",
+    footer_x="0.75in",
+    footer_y_from_bottom="0.3in",
+    footer_font_size=8.0,
+    footer_color="#888888",
+    margin="0.75in",
 )
 
-engine.render_bundle(
+# Agent generates semantic HTML from data
+html = """
+<main role="main" aria-label="Sales Report">
+  <h1>Q4 2025 Sales Report</h1>
+  <section role="region" aria-label="Summary">
+    <h2>Summary</h2>
+    <p>Revenue exceeded targets by 12%.</p>
+  </section>
+  <section role="region" aria-label="Revenue">
+    <h2>Revenue by Segment</h2>
+    <table>
+      <caption>Q3 vs Q4 revenue comparison</caption>
+      <thead>
+        <tr>
+          <th scope="col">Segment</th>
+          <th scope="col">Q3</th>
+          <th scope="col">Q4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Enterprise</th>
+          <td>$1.2M</td>
+          <td>$1.45M</td>
+        </tr>
+        <tr>
+          <th scope="row">SMB</th>
+          <td>$680K</td>
+          <td>$720K</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+"""
+
+css = """
+body { font-family: 'Noto Sans', sans-serif; font-size: 10pt; color: #1a202c; }
+h1 { font-size: 20pt; color: #1a365d; border-bottom: 2pt solid #2b6cb0; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6pt 8pt; border-bottom: 1pt solid #e2e8f0; }
+thead th { background: #edf2f7; }
+"""
+
+# One call produces everything the agent needs
+result = engine.render_bundle(
     body_html=html,
     css_text=css,
     out_dir="./output",
     stem="report",
-    run_verifier=True,
-    run_pmr=True,
+    run_verifier=True,        # Accessibility verification
+    run_pmr=True,             # PMR quality score
+    render_preview_png=True,  # Visual preview per page
     emit_reading_order_trace=True,
     emit_pdf_structure_trace=True,
-    render_preview_png=True,
 )
 ```
 
-This produces 13+ artifacts that an agent can inspect:
+## What `render_bundle` Produces
 
-- Tagged PDF
-- Accessibility verifier report (JSON)
-- PMR score report (JSON)
-- Reading order trace + visualization
-- PDF structure trace + visualization
-- Component mount validation
-- Preview PNGs
+A single call generates up to **15 artifacts**:
 
-Each artifact gives the agent specific, actionable feedback for iteration.
+```
+output/
+├── report.pdf                              # Tagged PDF (PDF/UA targeted)
+├── report.html                             # HTML artifact
+├── report.css                              # CSS artifact
+├── report_page1.png                        # Preview image (page 1)
+├── report_a11y_verify_engine.json          # Accessibility verifier report
+├── report_pmr_engine.json                  # PMR quality score
+├── report_pdf_ua_seed_verify.json          # PDF/UA structural checks
+├── report_reading_order_trace.json         # Reading order (lopdf extraction)
+├── report_reading_order_trace_render.json  # Reading order (render-time)
+├── report_pdf_structure_trace.json         # Tag tree (lopdf extraction)
+├── report_pdf_structure_trace_render.json  # Tag tree (render-time)
+├── report_asset_resolution_trace.json      # Image/asset resolution
+├── report_font_resolution_trace.json       # Font resolution
+├── report_pagination_trace.json            # Page layout trace
+└── report_run_report.json                  # Overall status
+```
 
-## Batch Processing
+## The Agent Feedback Loop
 
-For agents processing many documents:
+Each artifact gives agents specific, actionable feedback:
+
+### 1. Visual Preview (PNGs)
 
 ```python
-# Parallel rendering across all CPU cores
-results = engine.render_pdf_batch_parallel(
-    items=[{"html": h, "css": c} for h, c in document_pairs]
-)
+# Agent can "see" the output without opening the PDF
+pages = engine._engine.render_image_pages(html, css, dpi=150)
+# Returns list of PNG bytes, one per page
 ```
 
-The GIL is released during rendering, so Python-based agents can render PDFs in parallel threads without blocking.
+### 2. PMR Score
 
-## Schema Output
+```json
+{
+  "score": {"score": 100.0, "confidence": 97.5, "band": "excellent"},
+  "profile": "cav"
+}
+```
 
-For tool-using AI agents (function calling, tool use), get the full schema:
+PMR (Pagination/Markup/Readability) quantifies accessibility quality on a 0-100 scale with confidence bands. Not just pass/fail — agents can optimize toward a target score.
+
+### 3. PDF/UA Seed Verification
+
+```json
+{
+  "ok": true,
+  "checks": [
+    {"id": "pdf.mark_info.present", "verdict": "pass"},
+    {"id": "pdf.structure_root.present", "verdict": "pass"},
+    {"id": "pdf.catalog.lang.present_seed", "verdict": "pass"},
+    {"id": "pdf.trace.reading_order.cross_check_seed", "verdict": "pass"}
+  ]
+}
+```
+
+14 structural checks verify the PDF's tag tree, reading order, and metadata. Cross-checks compare render-time output against post-hoc PDF extraction — if they disagree, you know something went wrong.
+
+### 4. Reading Order Trace
+
+```json
+{
+  "pages": [{
+    "page": 1,
+    "blocks": [
+      {"index": 0, "text": "Q4 2025 Sales Report"},
+      {"index": 1, "text": "Summary"},
+      {"index": 2, "text": "Revenue exceeded targets by 12%."}
+    ]
+  }]
+}
+```
+
+The reading order trace shows exactly what a screen reader would encounter, in order. Agents can verify logical reading flow without running a screen reader.
+
+### 5. Accessibility Verifier
+
+```json
+{
+  "gate": {"ok": true, "error_count": 0, "warn_count": 3},
+  "summary": {"pass_count": 11, "fail_count": 0, "warn_count": 3, "manual_needed_count": 4}
+}
+```
+
+Rule-level pass/fail with severity, mapped to WCAG 2.0 AA and Section 508 criteria.
+
+## CLI for Agent Pipelines
 
 ```bash
-fullbleed render --schema > render_schema.json
-fullbleed capabilities --json > capabilities.json
+# Render with all diagnostics as JSON
+fullbleed render \
+    --html doc.html \
+    --css style.css \
+    --out output.pdf \
+    --emit-image \
+    --json-only
+
+# Get schema for tool definitions
+fullbleed render --schema
+fullbleed capabilities --json
 ```
 
-These JSON schemas can be fed directly into an agent's tool definition.
+`--json-only` ensures all output is machine-parseable. `--schema` produces JSON schemas suitable for agent tool definitions (function calling).
+
+## The IRS Tax Forms Story
+
+Fullbleed was used to autonomously generate IRS tax form layouts from Publications 1141, 1167, and 1179. An AI agent:
+
+1. Parsed the IRS specification documents
+2. Generated semantic HTML + CSS for each form
+3. Rendered with `render_bundle()` and inspected the artifacts
+4. Iterated on layout based on PMR scores and visual preview feedback
+5. Achieved specification compliance without human intervention
+
+This is the workflow Fullbleed was built for: agents that can render, inspect, and iterate on documents autonomously.
+
+## Component System for Agents
+
+For agents that prefer structured document building over raw HTML, Fullbleed's UI component system provides accessibility-by-construction:
+
+```python
+from fullbleed.ui import *
+from fullbleed.ui.accessibility import *
+
+@Document(page="letter", margin="0.75in", title="Report", bootstrap=True)
+def report():
+    return Stack(
+        Heading("Quarterly Report", level=1),
+        Region(
+            FieldGrid(
+                FieldItem("Revenue", "$2.8M"),
+                FieldItem("Target", "$2.5M"),
+            ),
+            label="Summary",
+        ),
+        Section(
+            SemanticTable(
+                caption="Revenue by segment",
+                head=SemanticTableHead(
+                    SemanticTableRow(
+                        ColumnHeader("Segment"),
+                        ColumnHeader("Amount"),
+                    )
+                ),
+                body=SemanticTableBody(
+                    SemanticTableRow(
+                        RowHeader("Enterprise"),
+                        DataCell("$1.45M"),
+                    ),
+                ),
+            ),
+            label="Revenue",
+        ),
+        Alert("Board review March 15."),
+    )
+
+# Validate accessibility contract before render
+artifact = report()
+contract = A11yContract()
+issues = contract.validate(artifact, mode="warn")
+# issues["ok"] == True, issues["error_count"] == 0
+```
+
+Components like `SemanticTable`, `ColumnHeader`, `RowHeader`, `Region`, and `Alert` emit correct ARIA attributes and semantic HTML automatically. It's impossible to produce inaccessible output if you use the component system correctly.
