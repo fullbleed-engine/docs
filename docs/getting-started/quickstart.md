@@ -3,6 +3,9 @@ description: Copy a small Python script to create your first PDF, then try a com
 ---
 # Create your first PDF
 
+Prefer to try it before setting up Python? [Open the editable invoice notebook](notebook.md)
+to render, preview, and download a PDF in Colab.
+
 Install Fullbleed into your Python environment:
 
 ```bash
