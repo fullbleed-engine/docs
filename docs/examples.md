@@ -10,6 +10,9 @@ These PDFs were generated with the public Fullbleed 2.4.0 wheel. The five compac
 [Try the editable invoice notebook](getting-started/notebook.md) to generate and
 download your own PDF before setting up a local project.
 
+[Serve an invoice in FastAPI, Flask, or Django](guides/web-frameworks.md) with the
+runnable web app examples.
+
 ## Styled invoice
 
 ![An Acme invoice with itemized services and a total.](assets/examples/acme-invoice.png){ width="400" }

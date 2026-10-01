@@ -73,6 +73,7 @@ nav:
     - Examples and downloads: examples.md
   - Build a document:
     - Invoices from data: guides/invoices.md
+    - FastAPI, Flask, and Django: guides/web-frameworks.md
     - Variable-data documents: guides/bank-statements.md
     - Tagged PDF and accessibility: accessibility/overview.md
     - Print output and PDF/VT: guides/print-output.md

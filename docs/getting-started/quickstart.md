@@ -61,4 +61,4 @@ python -m fullbleed render --html invoice.html --css invoice.css --out invoice.p
 
 Use explicit local assets. See [supported CSS and known gaps](../css-coverage.md) when adapting an existing template.
 
-[Examples and generated PDFs](../examples.md) · [Python API](../engine/pdf-engine.md) · [CLI reference](../cli/commands.md)
+[Examples and generated PDFs](../examples.md) · [Web framework examples](../guides/web-frameworks.md) · [Python API](../engine/pdf-engine.md) · [CLI reference](../cli/commands.md)

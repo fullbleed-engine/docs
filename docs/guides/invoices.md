@@ -8,6 +8,8 @@ Choose the smallest example that matches your application.
 For an interactive introduction, [try the invoice notebook](../getting-started/notebook.md).
 Edit the sample data, render a preview, and download the PDF in Colab or local Jupyter.
 
+To return an invoice from your app, see the [FastAPI, Flask, and Django examples](web-frameworks.md).
+
 ## A compact JSON invoice
 
 The [agent-workflow invoice](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/agent_workflows) loads JSON, escapes text, builds an HTML table, embeds Inter, writes a PDF, and checks that the invoice ID, customer, and total survived rendering.
