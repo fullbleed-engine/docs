@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-01T14:00:14.283656+00:00",
+  "notebook_sha256": "3c403a960baed2d9bc1252c1e5f38bad90a038cd012913387b8b91e53bf56946",
+  "install_cell": "executed",
+  "executed_code_cells": 6,
+  "embedded_font_count": 1,
+  "fullbleed_version": "2.4.0",
+  "page_count": 1,
+  "bytes": 131420,
+  "sha256": "ca51ad659bb1afe11c76f942bd79afbf6b7b252ea49fa4197096b8a0a2bfb668",
+  "text_checks": "passed",
+  "repeat_render_identical": true,
+  "scope": "Jupyter execution and artifact checks; hosted Colab UI and standards conformance not evaluated.",
+  "notebook": "https://github.com/fullbleed-engine/fullbleed-official/blob/master/examples/notebooks/first_invoice.ipynb",
+  "preview_sha256": "194f66c74d6266d483911bc1242afec5db1f889c0021848b4dfbda63ce37ac57",
+  "visual_review": "Passed: one-page invoice, all three rows and total readable, no visible clipping.",
+  "source_commit": "ae4e86dc4ec148561107ce70b02dae40c322dc6d"
+}

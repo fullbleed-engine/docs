@@ -7,6 +7,9 @@ description: Download generated Fullbleed invoices, reports, tagged notices, and
 
 These PDFs were generated with the public Fullbleed 2.4.0 wheel. The five compact workflows passed their expected-content and internal inspection checks. Their [verification manifest](assets/examples/verification.json) records page counts, hashes, and the scope of the checks.
 
+[Try the editable invoice notebook](getting-started/notebook.md) to generate and
+download your own PDF before setting up a local project.
+
 ## Styled invoice
 
 ![An Acme invoice with itemized services and a total.](assets/examples/acme-invoice.png){ width="400" }
