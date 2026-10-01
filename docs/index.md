@@ -87,6 +87,6 @@ Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](c
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.0 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.0) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.1 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.1) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
 
 [Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues)
