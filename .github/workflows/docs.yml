@@ -24,6 +24,21 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
+      - name: Include search notification ownership file
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+          key = os.environ.get("INDEXNOW_KEY", "")
+          if key:
+              if not re.fullmatch(r"[A-Za-z0-9-]{8,128}", key):
+                  raise SystemExit("Invalid IndexNow ownership key format")
+              Path("site", key + ".txt").write_text(key, encoding="utf-8")
+          PY
       - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
