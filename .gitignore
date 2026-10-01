@@ -7,3 +7,7 @@ docs/assets/playground/fonts.zip
 docs/assets/playground/wasi/
 docs/assets/playground/build.json
 docs/assets/playground/verification.json
+examples/rust/target/
+examples/rust/verification/
+/output/
+/invoice.pdf
