@@ -52,6 +52,7 @@ For the other examples, replace `invoice` in the input filenames with `report`
 or `notice`. You can keep editing and add `--watch` to rebuild after each save.
 
 [Use Fullbleed in Python](getting-started/quickstart.md){ .md-button .md-button--primary }
+[Use Fullbleed in Rust](getting-started/rust.md){ .md-button }
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
 

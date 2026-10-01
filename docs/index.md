@@ -21,6 +21,8 @@ python -m pip install fullbleed
 ```
 
 Python 3.10–3.14 · Windows, macOS, Linux
+
+Using Rust? [Start with the native crate](getting-started/rust.md).
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)

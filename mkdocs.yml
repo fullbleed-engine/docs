@@ -70,6 +70,7 @@ nav:
     - Python notebook: getting-started/notebook.md
     - Install: getting-started/installation.md
     - Your first PDF: getting-started/quickstart.md
+    - Use Rust: getting-started/rust.md
     - Fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
   - Build a document:

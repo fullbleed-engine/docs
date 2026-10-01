@@ -28,9 +28,16 @@ jobs:
         with:
           toolchain: '1.97.0'
           targets: wasm32-wasip1
+          components: rustfmt
       - run: python -m pip install -r requirements.txt
       - run: python tools/build_playground.py
       - run: node tools/verify_playground.mjs
+      - name: Compile and render the Rust quickstart examples
+        run: python tools/verify_rust_examples.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rust-quickstart-verification
+          path: examples/rust/verification
       - uses: actions/upload-artifact@v4
         with:
           name: playground-verification
