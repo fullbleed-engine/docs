@@ -1,0 +1,3 @@
+# Preserve the exact upstream font license bytes and their original whitespace.
+docs/assets/playground/fonts/*-OFL.txt -text whitespace=-blank-at-eol
+docs/assets/playground/LICENSES.txt text eol=lf whitespace=-blank-at-eol

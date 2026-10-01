@@ -21,7 +21,22 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.97.0'
+          targets: wasm32-wasip1
       - run: python -m pip install -r requirements.txt
+      - run: python tools/build_playground.py
+      - run: node tools/verify_playground.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: playground-verification
+          path: |
+            docs/assets/playground/build.json
+            docs/assets/playground/verification.json
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
       - name: Include search notification ownership file

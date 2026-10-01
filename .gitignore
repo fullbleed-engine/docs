@@ -1,1 +1,9 @@
 site/
+playground/node_modules/
+playground/engine/target/
+playground/verification/
+docs/assets/playground/fullbleed.wasm
+docs/assets/playground/fonts.zip
+docs/assets/playground/wasi/
+docs/assets/playground/build.json
+docs/assets/playground/verification.json
