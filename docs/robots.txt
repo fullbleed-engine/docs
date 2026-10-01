@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fullbleed-engine.github.io/docs/sitemap.xml
+Sitemap: https://docs.fullbleed.dev/sitemap.xml

@@ -1,5 +1,5 @@
 site_name: Fullbleed
-site_url: https://fullbleed-engine.github.io/docs/
+site_url: https://docs.fullbleed.dev/
 site_description: Create PDF invoices, reports, and variable-data documents from Python and HTML/CSS with a deterministic Rust engine. MIT licensed.
 site_author: Fullbleed Engine
 repo_url: https://github.com/fullbleed-engine/fullbleed-official

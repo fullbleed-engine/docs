@@ -1,6 +1,6 @@
 # Fullbleed documentation site
 
-Published at https://fullbleed-engine.github.io/docs/ using GitHub Pages.
+Published at https://docs.fullbleed.dev/ using GitHub Pages.
 
 ```bash
 python -m pip install -r requirements.txt
