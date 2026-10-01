@@ -39,6 +39,18 @@ hide:
 
 ## Keep building
 
+Save your HTML and CSS with the links in the editor. [Download the bundled fonts](assets/playground/fonts.zip)
+and extract the ZIP beside those files; it creates a `fonts` folder with the font
+files and their licenses. For the invoice example, run:
+
+```bash
+python -m pip install fullbleed
+python -m fullbleed render --html fullbleed-invoice.html --css fullbleed-invoice.css --out invoice.pdf --asset fonts/Inter-Variable.ttf --asset fonts/DMSerifDisplay-Regular.ttf --asset fonts/DMSerifDisplay-Italic.ttf --asset fonts/BebasNeue-Regular.ttf
+```
+
+For the other examples, replace `invoice` in the input filenames with `report`
+or `notice`. You can keep editing and add `--watch` to rebuild after each save.
+
 [Use Fullbleed in Python](getting-started/quickstart.md){ .md-button .md-button--primary }
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
