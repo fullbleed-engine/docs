@@ -1,141 +1,284 @@
-# CSS Coverage
+# CSS Coverage and Parity Status
 
-Fullbleed implements a CSS rendering engine in Rust. It supports the most commonly used CSS properties for document layout, with a focus on print-oriented features.
+Reference imported from [v2.4.0](https://github.com/fullbleed-engine/fullbleed-official/blob/56850a6536f9369e17b2344cbf62848c1c783e10/docs/css-coverage.md). Check the installed runtime for your exact version.
 
-## Supported Properties
+This document is the canonical statement of validated CSS coverage for Fullbleed's deterministic HTML/CSS-to-PDF engine.
 
-### Layout
+Scope baseline: static, paged document rendering (transactional/report workflows), not a live browser runtime.
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `display` | ✅ `block`, `inline`, `inline-block`, `flex`, `none` | No `grid` yet |
-| `position` | ✅ `static`, `relative`, `absolute` | No `fixed`, `sticky` |
-| `width`, `height` | ✅ | Including `min-*`, `max-*` |
-| `margin` | ✅ | All sides, auto centering |
-| `padding` | ✅ | All sides |
-| `float` | ✅ `left`, `right` | Basic float layout |
-| `clear` | ✅ | `left`, `right`, `both` |
-| `overflow` | ✅ `visible`, `hidden` | No scroll |
-| `box-sizing` | ✅ | `content-box`, `border-box` |
+Source taxonomy: https://developer.mozilla.org/en-US/docs/Web/CSS
 
-### Flexbox
+## Validation Basis
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `display: flex` | ✅ | |
-| `flex-direction` | ✅ | `row`, `column`, `row-reverse`, `column-reverse` |
-| `justify-content` | ✅ | All standard values |
-| `align-items` | ✅ | All standard values |
-| `flex-wrap` | ✅ | `nowrap`, `wrap` |
-| `flex-grow`, `flex-shrink` | ✅ | |
-| `flex-basis` | ✅ | |
-| `gap` | ✅ | |
-| `order` | ✅ | |
+As of May 25, 2026:
 
-### Typography
+- Fixture suite: `86/86` fixtures passing with `603` assertion/paint checks (`_css_working/tmp/fixture_full_latest.json`)
+- Parity status check: green (`.venv\Scripts\python.exe tools/generate_css_parity_status.py --check --json`)
+- Canonical benchmark lane: `examples/css_parity_canonical_100`
+- Visual stress lane: `examples/css_visual_charts_showcase`
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `font-family` | ✅ | With font embedding |
-| `font-size` | ✅ | `px`, `pt`, `em`, `rem`, `%` |
-| `font-weight` | ✅ | Numeric and named |
-| `font-style` | ✅ | `normal`, `italic`, `oblique` |
-| `line-height` | ✅ | |
-| `text-align` | ✅ | `left`, `right`, `center`, `justify` |
-| `text-decoration` | ✅ | `underline`, `overline`, `line-through` |
-| `text-transform` | ✅ | `uppercase`, `lowercase`, `capitalize` |
-| `letter-spacing` | ✅ | |
-| `word-spacing` | ✅ | |
-| `white-space` | ✅ | `normal`, `nowrap`, `pre`, `pre-wrap` |
-| `text-indent` | ✅ | |
-| `vertical-align` | ✅ | |
+Primary generated artifacts:
 
-### Colors & Backgrounds
+- `_css_working/css_parity_status.json`
+- `_css_working/css_broad_coverage_sprint_s14.md`
+- `_css_working/tmp/fixture_full_latest.json`
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `color` | ✅ | Hex, RGB, named colors |
-| `background-color` | ✅ | |
-| `background-image` | ✅ | `url()`, gradients (limited) |
-| `opacity` | ✅ | |
+### Official Wheel265 closeout (August 9, 2026)
 
-### Borders
+The complete pinned independent IronPress gate finished with `1,642 PASS`, `0 FAIL`, and
+`20 REFERENCE-DISPUTED` across 1,662 fixtures. Strict parity is therefore `100%` for every
+adjudicable fixture in this corpus. Native parity has the same zero-failure implementation result;
+the 20 disputed references remain separately visible and are not silently counted as passes.
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `border` | ✅ | All shorthand and longhand |
-| `border-width` | ✅ | Per side |
-| `border-style` | ✅ | `solid`, `dashed`, `dotted`, `none` |
-| `border-color` | ✅ | |
-| `border-radius` | ✅ | |
-| `border-collapse` | ✅ | For tables |
-| `border-spacing` | ✅ | |
+The durable report records invocation `78173eed3cd2bf2c70127eef63092119` with
+`run_complete=True`. This is a 100% result for the named, pinned Wheel265 corpus—not a claim that
+every CSS feature in the web platform is implemented. The module table below continues to describe
+the engine's broader standards surface and known boundaries.
 
-### Tables
+### Flow/reflow hardening (August 5, 2026)
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `table-layout` | ✅ | `auto`, `fixed` |
-| `border-collapse` | ✅ | |
-| `border-spacing` | ✅ | |
-| `caption-side` | ✅ | |
+The independent review's 18-case flow/reflow failure cluster now passes `18/18`
+in the pinned Chromium-oracle diagnostic lane. Thirteen cases are pixel-exact;
+the largest remaining above-floor difference is `0.97030199%`. This is a
+filtered regression result, not a claim that the complete external corpus is at
+100% parity.
 
-### Lists
+The verified behavior added in this pass includes:
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `list-style-type` | ✅ | `disc`, `circle`, `square`, `decimal`, `none`, etc. |
-| `list-style-position` | ✅ | `inside`, `outside` |
+- slicing the unused painted tail of fixed-height block, one-column grid, and
+  column-flex items across fragmentainers without duplicating their content;
+- resetting fragmented flex-item basis and preserving auto-grid row
+  continuations so later fragments remain measurable and drawable;
+- retaining `display: contents` grid descendants, metadata, and absolute paint
+  phase across page continuations;
+- constructing `figure` and `figcaption` as UA block boxes so
+  `break-inside: avoid` retains an empty, styled fixed-height caption; and
+- keeping fixed-height positioned containing blocks atomic, because clearing a
+  continuation could otherwise detach nested absolute descendants.
 
-### Print
+### Generated-content interaction closeout (August 6, 2026)
 
-| Property | Support | Notes |
-|----------|---------|-------|
-| `page-break-before` | ✅ | `always`, `auto` |
-| `page-break-after` | ✅ | `always`, `auto` |
-| `page-break-inside` | ⚠️ | `avoid` may not always be respected |
-| `break-before` | ✅ | `page`, `auto` |
-| `break-after` | ✅ | `page`, `auto` |
-| `break-inside` | ⚠️ | `avoid` may not always be respected |
+A follow-up run of the pinned 62-fixture generated-content and interaction
+slice produced 60 official comparator passes, zero implementation failures,
+and two reference-disputed cases. The disputed references are
+`generated-content-first-letter-dropcap` (the reference omits authored box
+paint and uses a different content width) and
+`generated-content-string-set-running-header` (the reference clips and
+mangles the running-header text). They remain visible in the evidence set and
+are not counted as comparator passes.
 
-### Units
+The formerly failing positioning, anonymous-table, and filtered generated-
+content cases now measure `0.05238154%`, `0.39256615%`, and `0.90102154%`
+above-floor difference, respectively. Filtered forms use a scoped 8x8 native
+coverage pass to match Skia edge quantization; ordinary vector and variable-
+data rendering stays on the existing 4x4 raster path. Core layout geometry
+continues to use signed Q32.32 fixed-point arithmetic.
 
-| Unit | Support |
-|------|---------|
-| `px` | ✅ (96 DPI) |
-| `pt` | ✅ (1/72 inch) |
-| `in` | ✅ |
-| `cm` | ✅ |
-| `mm` | ✅ |
-| `em` | ✅ |
-| `rem` | ✅ |
-| `%` | ✅ |
-| `vw`, `vh` | ❌ (no viewport concept) |
+This targeted result does not replace the complete external-corpus report or
+claim 100% parity for every CSS fixture.
 
-## Not Supported
+### Independent compiled-reflow QA hardening (August 10, 2026)
 
-These CSS features are **not available**:
+Fullbleed 2.2.5 addresses the three pagination/generated-content issues
+reported by the independent 1,750-page compiled-reflow review:
 
-- `display: grid` — Use flexbox or table layout instead
-- `position: fixed` / `position: sticky` — Use headers/footers engine params instead
-- CSS `@page` margin boxes — Use `header_each` / `footer_each` engine params
-- CSS `@media` queries — Single output format (print)
-- CSS animations / transitions — Static output
-- `calc()` — Not yet implemented
-- CSS variables (`var()`) — Not yet implemented
-- `transform` — Not yet implemented
+- a table taller than a fresh frame now fragments in the current remainder, so
+  a `break-after: avoid` heading stays with the initial table fragment;
+- an oversized `break-inside: avoid` box relaxes avoidance before a fresh-page
+  retry, preventing an avoidable underfilled heading page; and
+- `string-set` accepts both `content()` and `content(text)`, including rules
+  whose only declaration is `string-set`, and carries the value through
+  `string(name)` continuation-page margin boxes.
 
-## Tips for Best Results
+Focused Rust regressions cover all three paths. The ordinary layout and compiled
+reflow lanes share this pagination and named-string implementation.
 
-1. **Use `page-break-before: always`** for explicit page breaks (more reliable than `break-inside: avoid`)
-2. **Use flexbox** for layout — it's well-supported and handles most document layouts
-3. **Use tables** for tabular data — Fullbleed's table layout is solid
-4. **Avoid CSS Grid** — rewrite with flexbox
-5. **Set explicit widths** on table columns for predictable layout
-6. **Use pt/in** for print dimensions, `px` for screen-like content
+## Current Coverage Summary
 
-## Next Steps
+Tracked CSS modules: `22`
 
-- [PdfEngine API →](engine/pdf-engine.md) — Engine parameters that complement CSS
-- [Headers & Footers →](engine/headers-footers.md) — Replacing CSS @page features
-- [Comparison Guide →](guides/comparison.md) — CSS support vs. other tools
+- Module status: `22/22 in_progress`
+- Parser stage: `22/22 partial`
+- Compute stage: `22/22 partial`
+- Layout stage: `16/22 partial`, `6/22 n/a`
+- Paint stage: `10/22 partial`, `12/22 n/a`
+
+## Static PDF Library Readiness
+
+Assessment: this epoch is ready to close for the static PDF library use case.
+Fullbleed is not claiming browser-equivalent CSS parity, but it now has enough
+validated breadth, deterministic fallback behavior, and diagnostics to be useful
+as a production library for transactional, report, VDP, form, invoice,
+statement, menu, and chart-style static PDFs.
+
+The release-quality contract for this stage is:
+
+- Supported CSS/HTML behavior should render deterministically and stay covered by
+  fixtures.
+- Unsupported or intentionally degraded behavior should be deterministic,
+  diagnosable, and tracked as known-loss/fallback work rather than silently
+  drifting.
+- Static paged output is the product target; interactive browser runtime
+  behavior is out of scope.
+
+Ready now:
+
+- Static paged layout with core block/inline/flex/table/grid-like lowering,
+  positioned/fixed content, forced breaks, `@page` sizing, and core
+  fragmentation controls.
+- Production document styling breadth: typography, generated content, counters,
+  lists, tables, backgrounds, borders, outlines, overflow clipping, images,
+  object-fit/object-position, 2D transforms, color functions, and broad cascade
+  rollback coverage.
+- Static visual polish features with defined boundaries: background images and
+  blends, box shadows, clip-path subsets, filters/backdrop-filters, blend modes,
+  opacity grouping, isolation, and backdrop-root behavior.
+- Operational safety: full fixture lane, parity status artifact, deterministic
+  diagnostics, reproducibility tooling, and benchmark/stress examples.
+
+Not claimed in this epoch:
+
+- Full browser/CSS compatibility, exact browser print fidelity, JavaScript or
+  interactive layout behavior.
+- True multi-column layout, full grid/flex/table edge parity, full vertical text
+  layout, sticky positioning, 3D transforms/perspective, complete SVG filter and
+  clip-source semantics, and all advanced CSS value/color/effect grammar.
+- Pixel-identical parity for every advanced visual effect; remaining gaps are
+  backlog items for the next parity push.
+
+Closeout decision: there are no remaining blockers that should hold this broad
+coverage epoch open for static PDF library usefulness. The remaining work belongs
+in the next epoch as parity-depth hardening.
+
+## Module Matrix (22 Tracked)
+
+Legend: `p` parser, `c` compute, `l` layout, `pa` paint.
+
+| Module | Stage footprint | Validated now | Backlog focus |
+| --- | --- | --- | --- |
+| Syntax and at-rules | p:`partial` c:`partial` l:`n/a` pa:`n/a` | Typed + unparsed declaration paths plus `@media` print/all/list/not media-type handling, device-posture, shape, deprecated device-width/height/aspect-ratio aliases, WebKit extension Boolean media features, Level 5 static-output descriptor defaults, WebKit/Mozilla device-pixel-ratio aliases, scan, video-dynamic-range, display-mode, resolution, color capability/range, user-preference, input-device, viewport-segment, static-output environment, width/height, aspect-ratio, and orientation gating, `@supports` declaration/selector feature-query gating with `not`/`and`/`or` conditions, `@property` registered initial/inheritance/syntax-check behavior, `@starting-style`, `@keyframes`, and `@view-transition` static-output no-op handling, `@container` size-query gating for explicit named/unnamed query containers, and `@scope` subtree/limit gating | Advanced at-rule breadth and edge grammar |
+| Selectors | p:`partial` c:`partial` l:`n/a` pa:`n/a` | Deterministic selector parser/indexing baseline plus `::before`/`::after` string, `::marker` generated-content marker overrides, `::marker content:none` marker suppression, `::marker` gating to list-item origins, `attr(...)`, explicit `quotes`, styled `counter(...)`/`counters(...)`, `counter-set`, duplicate-reset, reversed-counter-set generated-content text flow, and `display:none` pseudo-element counter suppression | Broader selector/pseudo-class and generated-content parity |
+| Cascade and inheritance | p:`partial` c:`partial` l:`n/a` pa:`n/a` | Specificity + source order + `!important` channels plus `@layer` statement/block precedence, unlayered normal priority, reversed important layer priority, and fixture-backed `revert-layer` rollback for `color`, `background-color`, `width`, `height`, `box-sizing`, `display`, `visibility`, `position`, `z-index`, `direction`, `writing-mode`, `opacity`, `filter`, `backdrop-filter`, `clip-path`, `box-shadow`, `text-shadow`, text-decoration line/color/thickness/style, text underline offset/position, `text-overflow`, `text-indent`, `letter-spacing`, `word-spacing`, `tab-size`, `text-align`, `text-align-last`, `text-justify`, `text-transform`, `vertical-align`, `list-style-position`, `list-style-type`, `list-style-image`, `line-break`, `hyphens`, `hyphenate-character`, `overflow-wrap`, `word-break`, `word-wrap`, `white-space`, `white-space-collapse`, `text-wrap`, `text-wrap-mode`, `text-wrap-style`, `overflow`, `mix-blend-mode`, `isolation`, physical/logical inset offsets, physical/logical margin/padding edges, physical/logical `border-color`/`border-width`/`border-style` edges, outline shorthand plus width/style/color longhands, and `outline-offset` | Broader `revert`/`revert-layer` keyword breadth and deeper layer/import interactions |
+| Values and units | p:`partial` c:`partial` l:`n/a` pa:`n/a` | Canonical calc path with var-chain, `min/max/clamp` subsets | Wider value grammar/function breadth |
+| Box model | p:`partial` c:`partial` l:`partial` pa:`partial` | Margin/padding/border/box-sizing baseline plus `box-sizing` cascade rollback, `outline` shorthand, `outline-offset` outside/inside paint, dashed/dotted/double outline styles, groove/ridge/inset/outset shaded square-outline paint, and rounded plus non-uniform groove/ridge/inset/outset 3D outline paint | Edge-case constraint and interaction hardening |
+| Display and formatting contexts | p:`partial` c:`partial` l:`partial` pa:`n/a` | Block/inline/flex/table/grid-like lowering baseline, `display:list-item` marker generation with implicit `list-item` counter support, including non-`li` children inside list containers, `display: contents` child rendering with no wrapper counter mutation, `visibility:hidden`/`collapse` paint suppression with retained layout plus explicit visible descendant paint, HTML table-row `visibility:collapse` slot removal while `visibility:hidden` keeps the row slot, HTML table-row-group group-wide `visibility:collapse` slot removal even when a child row computes visible, HTML table-column `visibility:collapse` slot removal while preserving non-collapsed column sizing, CSS `display:table-row` `visibility:collapse` slot removal while `visibility:hidden` keeps the row slot, CSS `display:table-row-group` group-wide `visibility:collapse` slot removal even when a child row computes visible, CSS `display:table-header-group`/`display:table-footer-group` ordering before/after body groups, CSS `display:table-column` `visibility:collapse` slot removal plus `display:table-column-group` group-wide collapse while preserving non-collapsed column sizing, CSS `display:table-caption` `caption-side: bottom` placement, plus `<img>` replaced-content intrinsic raster sizing, `object-fit: contain`/`cover`/`none`/`scale-down` paint, and `object-position` percentage/edge-offset paint | Broader formatting-context parity |
+| Positioning | p:`partial` c:`partial` l:`partial` pa:`n/a` | Relative/absolute/fixed deterministic baseline plus `position`, `z-index`, and inset cascade rollback | Sticky/edge semantic breadth and interactions |
+| Sizing | p:`partial` c:`partial` l:`partial` pa:`n/a` | Width/height/min/max core coverage plus `<img>` intrinsic raster dimensions, aspect-ratio preservation for missing paired dimensions, `object-fit: contain`/`cover`/`none`/`scale-down` image-box fitting, and `object-position` alignment inside image boxes | Remaining intrinsic sizing and pressure edge cases |
+| Text and fonts | p:`partial` c:`partial` l:`partial` pa:`partial` | Text styling, fallback, shaping hooks baseline plus `font-family` quoted-name versus generic-family custom-property fallback and cascade override behavior, `font` shorthand core longhand set/reset behavior with system-font and `var()` custom-property fallback coverage, `line-height` unitless/length/percentage/custom-property inheritance behavior, `font-size` keyword/relative/custom-property computed sizing, `font-weight` relative keyword resolution, `font-style` italic/oblique-angle resolution, `vertical-align` MDN keyword/custom-property table-cell paint behavior plus cascade rollback, `white-space` keyword parsing and preserved-space wrapping plus cascade rollback, `white-space-collapse` longhand plus modern `white-space` collapse/wrap shorthand behavior plus cascade rollback, `text-wrap` shorthand/longhand keyword and custom-property wrapping mode behavior plus cascade rollback, `line-break:anywhere` wrapping, `hyphens` soft-hyphen wrapping, `hyphenate-character` soft-hyphen marker replacement, `word-spacing` length/percentage wrapping plus cascade rollback, `letter-spacing` percentage wrapping plus cascade rollback, `overflow-wrap`/`word-wrap`/`word-break` long-word splitting plus cascade rollback, `text-transform` core case rendering, `text-overflow` ellipsis gating plus cascade rollback, `text-decoration-color` currentColor/longhand/shorthand/custom-property paint plus cascade rollback, `text-decoration-thickness` length/percentage/shorthand/custom-property paint plus cascade rollback, `text-decoration-style` solid/double/dotted/dashed/wavy paint plus cascade rollback, `text-underline-offset` auto/length/percentage/negative/custom-property/inherited paint plus cascade rollback, `text-underline-position` auto/under/side-keyword/custom-property paint plus cascade rollback, `text-shadow` list/custom-property text and decoration paint plus cascade rollback, `text-indent` length/percentage/keyword wrapping plus cascade rollback, `tab-size` number/length preserved-tab drawing plus cascade rollback, text alignment cascade rollback, text transform, vertical alignment, and hyphenation cascade rollback, `text-align-last` final/forced-break alignment, `text-align: justify` word-gap distribution, and `text-justify` core justification modes | Typographic edge behavior breadth |
+| Backgrounds and borders | p:`partial` c:`partial` l:`partial` pa:`partial` | Solid + shorthand/longhand gradient backgrounds, sized no-repeat multi-layer gradient backgrounds, repeat-x tiled sized gradients, `space`/`round` repeat semantics for sized gradients, explicit-size PNG `url(...)` backgrounds, auto-auto intrinsic PNG sizing, invalid negative `background-size` rejection, `contain`/`cover`/auto-dimension/single-value intrinsic-ratio PNG sizing, alpha-stacked PNG `url(...)` layers, default and explicit `repeat repeat` tiling, PNG `repeat-y`, two-axis `repeat`, `repeat no-repeat`, `no-repeat repeat`, single-value `space`/`round`, `round space`, `space round`, `round repeat`, `round no-repeat`, `no-repeat round`, `no-repeat space`, `space no-repeat`, `repeat space`, `repeat round`, `space repeat` tiling, horizontal-tb logical repeat aliases (`repeat-inline`/`repeat-block`), multi-layer PNG repeat-axis mapping plus shorter size/repeat/position list repetition, percentage/edge-offset/logical-alias `background-position` anchoring, shorthand URL position/size/repeat propagation, content-box `background-origin`/`background-clip`, multi-layer origin/clip list mapping, `background-blend-mode` normal/multiply/screen/difference/overlay/exclusion/hard-light/darken/lighten/color-dodge/color-burn/soft-light/hue/saturation/color/luminosity/plus-lighter over element background color, raster PNG background-blend multiply, multi-layer raster and bidirectional mixed raster/gradient background-blend mapping, multi-layer background-blend-mode list repetition, and extra-value truncation, border color propagation plus four-value color shorthand mapping, keyword border widths, four-value circular, slash-syntax elliptical, dashed/dotted rounded border-radius paint, rounded double border-radius paint, uniform and non-uniform rounded 3D border-radius paint, dashed/dotted/double, four-value side-specific style shorthand mapping, `none`/`hidden` width suppression, omitted-style `border` shorthand invisibility, groove/ridge/inset/outset square-border paint, collapsed-table `hidden` border conflict suppression, collapsed-table `inset`/`outset` alias paint, equal-width collapsed-table border-style precedence, authored-style collapsed-table precedence before `outset`/`groove` paint aliasing, RTL equal-style cell color/source precedence, collapsed table-level hidden outer border suppression, collapsed row-source border precedence, collapsed rowgroup-source border precedence, collapsed column-source vertical border precedence, and collapsed colgroup-source vertical border precedence, strict `box-shadow` length/color grammar plus modern `rgb()`/absolute-unit shadow paint, softened blurred inset edge paint, directional inset offset edge paint, and `box-shadow` cascade rollback | Remaining multi-layer image edge semantics, broader mixed raster asset stacks, and deeper border/background edge cases |
+| Lists and counters | p:`partial` c:`partial` l:`partial` pa:`partial` | List rendering baseline + predefined/string `list-style-type` marker subset, including marker suppression, roman, Armenian/Georgian/Hebrew additive markers, leading-zero, broad numeric script markers, CJK fixed markers, Japanese/Korean/Chinese longhand markers, the `cjk-ideographic` legacy alias, string-based `symbols()` anonymous markers, string-symbol `@counter-style` rule resolution, unknown custom-ident decimal fallback, Ethiopic numeric markers, Japanese alphabetic markers, positive `<ol start>` numbering, upper-alpha, lower-greek, latin alias, disclosure markers, `display:list-item` marker generation with implicit `list-item` counter support, including non-`li` children inside list containers, inherited URL, `linear-gradient`, `radial-gradient`, and `conic-gradient` `list-style-image` marker rendering with `none` fallback to `list-style-type`, `::marker` generated content marker overrides, `::marker content:none` marker suppression with `content:normal` fallback, baseline `counter-reset`/`counter-increment` plus `counter(...)`/`counters(...)` generated content over nested reset scopes, duplicate same-name `counter-reset` last-entry behavior before `counters(...)` output, MDN `counter-set` ordering/default-zero behavior, MDN `reversed(...)` automatic initial values for decrementing generated content including first same-scope `counter-set` handling, CSS Lists `display:none`/`display:contents` element counter-mutation suppression and `display:none` pseudo-element counter-mutation suppression, and inherited `list-style-position` inside/outside placement plus `list-style-position`/`list-style-type`/`list-style-image` cascade rollback | Deeper counter-scope/generated-content edge breadth |
+| Overflow | p:`partial` c:`partial` l:`partial` pa:`partial` | `visible`/`hidden`/`clip`/`scroll`/`auto` static clipping and bleed fixtures plus `overflow-x`/`overflow-y` axis combination and logical `overflow-inline`/`overflow-block` static clipping coverage plus overflow cascade rollback | Scroll-container semantics beyond static clipping |
+| Flexbox | p:`partial` c:`partial` l:`partial` pa:`n/a` | Core flex flow/alignment subsets plus fixed-height column-item slicing across pages with continuation-basis reset | Spec edge cases and distribution pressure |
+| Grid | p:`partial` c:`partial` l:`partial` pa:`n/a` | Deterministic baseline placement and repeat counting plus one-column fixed-height auto-row fragmentation and `display: contents` continuation paint propagation | Dedicated solver breadth (autoplacement/track sizing/span) |
+| Tables | p:`partial` c:`partial` l:`partial` pa:`partial` | Table baseline + header repeat across pages + fixed-layout first-row/`<col>` hints, fixed-layout first-row colspan width distribution, fixed-layout over-constrained first-row and `<col>` width preservation, auto-width fallback plus auto-layout colspan and `<col>` minimum-width expansion, `empty-cells`, `border-spacing`, caption-side bottom placement paint for HTML captions and CSS `display:table-caption`, invalid caption-side inheritance behavior, HTML table-row/table-row-group/table-column plus CSS `display:table-row`, `display:table-row-group`, `display:table-column`, and `display:table-column-group` `visibility:collapse` slot removal, CSS `display:table-header-group`/`display:table-footer-group` ordering, collapsed `hidden` border-style conflict suppression, collapsed `inset`/`outset` alias paint, equal-width collapsed border-style precedence, raw-style precedence before collapsed `outset`/`groove` paint aliasing, RTL equal-style cell color/source precedence, collapsed table-level hidden outer border suppression, collapsed row-source border precedence, collapsed rowgroup-source border precedence, collapsed column-source vertical border precedence, and collapsed colgroup-source vertical border precedence | Remaining deeper `table-layout:auto/fixed` pressure edges and broader caption/writing-mode interactions |
+| Transforms and coordinate spaces | p:`partial` c:`partial` l:`n/a` pa:`partial` | 2D transforms + transform-origin + composition | 3D/perspective breadth |
+| Filters/effects/compositing | p:`partial` c:`partial` l:`partial` pa:`partial` | Effects subset (`filter` foreground group blur, repeated/currentColor/two-length currentColor/color-first/interleaved-color relative-length/two-length negative-offset, MDN color-first rem-offset third-length blur, MDN px-offset hex third-length blur, and MDN negative-mm plus zero-offset rem/named-color third-length blur drop-shadow with modern `rgb()`/named-color and absolute-unit/rem coverage plus duplicate-color, negative-blur, and inset/spread rejection diagnostics, empty optional filter-function defaults including `grayscale()`/`sepia()` full-effect defaults, plus saturate/grayscale/brightness/contrast/invert/sepia/hue-rotate/opacity and cascade rollback, fixture-backed `backdrop-filter` empty optional filter-function defaults including `grayscale()`/`sepia()` full-effect defaults, explicit/currentColor/two-length currentColor/modern-color-order absolute-unit, MDN px-offset hex third-length blur, MDN negative-mm modern-rgb third-length blur, color-first rem-offset third-length blur, repeated, two-length negative-offset, zero-offset rem/named-color third-length blur, semi-transparent third-length blur, and negative-blur and inset/spread fallback diagnostics for drop-shadow plus blur/brightness/contrast/grayscale/hue-rotate/invert/saturate/sepia/opacity-blended adjustment and drop-shadow/blur/saturate/brightness/contrast/invert/sepia/hue-rotate/opacity compute path plus cascade rollback and opacity-, filter-, backdrop-filter-, clip-path-, mask-/mask-image-/mask-border-, mix-blend-mode-, and will-change-established backdrop-root boundary coverage, standard blend-mode keywords plus raster `plus-lighter`/`plus-darker`, element-level `mix-blend-mode` group compositing, element-level `opacity` group compositing, opacity, `mix-blend-mode`, `box-shadow`, and `isolation` cascade rollback, `isolation: isolate` group containment for child blending, clip-path cascade rollback, clip-path inset/circle/ellipse/rect/xywh/polygon/path plus polygon evenodd self-overlap holes and explicit nonzero default-fill behavior, path evenodd holes, explicit nonzero same-winding fills, and `content-box path(...)` reference-origin/order coverage, and shape() line/curve/smooth/arc/relative-command/evenodd move-subpath plus explicit nonzero moved-subpath coverage with margin/border/half-border/padding/content boxes, one-token/four-token circle/ellipse positions, closest/farthest-side circle/ellipse radial extents, circle closest/farthest-corner radial extents, and rounded rect/xywh/reference-box clips) | Remaining function breadth, PDF-native foreground filters, advanced clip-path grammar, and deeper nested compositing/isolation breadth |
+| Multi-column | p:`partial` c:`partial` l:`partial` pa:`partial` | Deterministic single-column fallback contract | True multicol balancing/span/rule semantics |
+| Fragmentation | p:`partial` c:`partial` l:`partial` pa:`n/a` | Core break controls across block/flex/table subsets, including forced `break-before`/`break-after` page aliases, MDN column/region keyword compute, `break-inside` page avoidance, inherited `orphans`/`widows` line-count controls, fixed-height painted-tail slicing without content duplication, positioned-containing-block exclusion, and avoided `figure`/`figcaption` retention | Deeper fragmentation edge behavior |
+| Paged media | p:`partial` c:`partial` l:`partial` pa:`n/a` | Core `@page` + forced break control subsets, including legacy page-break aliases for before/after/inside breaks | Named pages/margin-box breadth |
+| Writing modes and logical properties | p:`partial` c:`partial` l:`partial` pa:`partial` | Horizontal-tb/LTR logical mapping baseline plus `direction: rtl` inherited inline inset, margin/padding, and border remapping; vertical writing-mode `direction: rtl` inline inset remapping; `direction`/`writing-mode` cascade rollback; vertical-rl logical sizing, min/max constraint, positioned inset, margin, padding, and border axis remaps; vertical-lr logical sizing, min/max constraint, inset, margin, padding, and border edge remaps; and basic vertical text-column paint/trace output with `vertical-rl` leftward and `vertical-lr` rightward line progression | Full vertical text/layout flow beyond the current static-layout and basic wrapped text-column subset |
+| Custom properties and API-adjacent parsing | p:`partial` c:`partial` l:`n/a` pa:`n/a` | Deterministic custom-property resolution baseline | Broader API-adjacent grammar/interop lanes |
+
+Interpretation:
+
+- Fullbleed has broad, validated baseline coverage across all tracked modules.
+- "Partial" means implemented, fixture-validated subsets with deterministic fallback/diagnostic policy for unsupported forms.
+- Near-parity for static reporting is practical; full browser-level CSS parity is not yet claimed.
+
+## Validated Feature Areas
+
+Validated means parser -> evaluator -> calculator -> layout/paint is exercised by tests/fixtures in the current lane.
+
+- Syntax/at-rule baseline including typed + unparsed declaration paths, `@media` print/all/list/not media-type handling, deterministic continuous `device-posture` matching, deterministic rectangular `shape` matching, deprecated `device-width`/`device-height`/`device-aspect-ratio` aliases against the paged rendering surface, WebKit extension Boolean media features against static engine support, Level 5 static-output descriptor defaults for `environment-blending`, `nav-controls`, and `video-color-gamut`, WebKit/Mozilla `device-pixel-ratio` aliases against the deterministic `1dppx` reference-pixel density, deterministic progressive matching for `scan`, deterministic standard visual-output matching for `video-dynamic-range`, deterministic browser-mode matching for `display-mode`, CSS reference-pixel density matching for `resolution`, color-capability queries for `color`, `monochrome`, `grid`, `color-index`, `color-gamut`, and `dynamic-range`, deterministic user-preference defaults for `prefers-color-scheme`, `prefers-reduced-motion`, `prefers-reduced-transparency`, `prefers-reduced-data`, `prefers-contrast`, `forced-colors`, and `inverted-colors`, deterministic no-input defaults for `hover`, `any-hover`, `pointer`, and `any-pointer`, single-segment defaults for `horizontal-viewport-segments` and `vertical-viewport-segments`, static-output environment defaults for `overflow-block`, `overflow-inline`, `update`, and `scripting`, width/height media-query gating, paged viewport/page-box `aspect-ratio` range matching, and `orientation` matching, `@supports` feature-query gating for declaration support, `selector(...)`, and `not`/`and`/`or` conditions over the engine-supported subset, `@property` registered custom-property initial-value, `inherits: false`, and invalid registered `<color>`/`<length>` assignment reset behavior, `@starting-style`, `@keyframes`, and `@view-transition` static-output no-op handling with debug counters, plus `@container` size-query gating for explicit named/unnamed query containers with `container-name`, `container-type`, and `container` shorthand coverage, and `@scope` scope-root/scope-limit subtree gating
+- Cascade and specificity ordering with typed + unparsed declaration paths, including `@layer` named/anonymous statement/block ordering, unlayered normal priority above layered normal declarations, reversed `!important` layer priority, and `revert-layer` current-layer rollback for `color`, `background-color`, `width`, `height`, `box-sizing`, `display`, `visibility`, `position`, `z-index`, `direction`, `writing-mode`, `opacity`, `filter`, `backdrop-filter`, `clip-path`, `box-shadow`, `text-shadow`, text-decoration line/color/thickness/style, text underline offset/position, `text-overflow`, `text-indent`, `letter-spacing`, `word-spacing`, `tab-size`, `text-align`, `text-align-last`, `text-justify`, `text-transform`, `vertical-align`, `list-style-position`, `list-style-type`, `list-style-image`, `line-break`, `hyphens`, `hyphenate-character`, `overflow-wrap`, `word-break`, `word-wrap`, `white-space`, `white-space-collapse`, `text-wrap`, `text-wrap-mode`, `text-wrap-style`, `overflow`, `mix-blend-mode`, `isolation`, physical/logical inset offsets, physical/logical margin/padding edges, physical/logical `border-color`/`border-width`/`border-style` edges, outline shorthand plus width/style/color longhands, and `outline-offset`
+- Custom properties and var-chain resolution with fallback and cycle-safe behavior
+- Length math including `calc()`, `min()`, `max()`, `clamp()`, additive mixed-unit paths
+- Color value coverage for modern `rgb()`/`rgba()`, `hsl()`/`hsla()`, and `hwb()` syntax (space-separated components, slash alpha, percentage channels where applicable, custom-property triplets, and HWB whiteness/blackness normalization), absolute `lab()`/`lch()`/`oklab()`/`oklch()` and `color(srgb ...)` alpha preservation, relative color syntax with origin-channel reuse plus custom-property origin/alpha substitution, `background-color: currentColor`, `background: currentColor`, and `color-mix(in srgb, ...)` compatibility coverage for percentage normalization, underfilled alpha multiplier behavior, `var()` operands, and `currentColor`
+- Box model and border propagation, including `box-sizing` compute and cascade rollback, side-specific border color paint behavior, four-value circular, slash-syntax elliptical, dashed/dotted rounded, double rounded, uniform and non-uniform 3D rounded `border-radius` background/border paint, `outline` shorthand outside-border paint, positive/negative `outline-offset`, dashed/dotted outline-style gaps, double outline two-line separation, groove/ridge/inset/outset shaded square-outline paint, and rounded plus non-uniform groove/ridge/inset/outset 3D outline paint
+- Positioning baseline (`relative`, `absolute`, `fixed`) with deterministic containing-block behavior plus `position`, `z-index`, and inset cascade rollback
+- Overflow baseline (`visible`, `hidden`, `clip`, `scroll`, and `auto`) with static clipping/bleed fixtures plus physical axis and logical `overflow-inline`/`overflow-block` clipping coverage plus overflow cascade rollback
+- Flex baseline including wrapped-line/content alignment subsets
+- Grid baseline including explicit row/column start placement, repeat track counting, deterministic slot fallback
+- HTML replaced-content baseline including raster `<img>` intrinsic dimensions for undimensioned images, intrinsic aspect-ratio preservation when one dimension is authored, `object-fit: contain`/`cover`/`none`/`scale-down` fitting inside an authored image box, and `object-position` percentage plus edge-offset alignment
+- Text/font baseline including inherited text styling, `text-overflow: ellipsis` gated by clipped overflow plus `text-overflow` cascade rollback, `font-family` quoted family names preserved as literal names across `var()` fallbacks and custom properties while unquoted generic families map to configured generic fallbacks, later `font-family: var(...)` declarations correctly overriding earlier concrete declarations, `font` shorthand setting and resetting `font-style`/`font-weight`/`font-size`/`line-height`/`font-family`, deterministic system-font keyword fallback, quoted-family semantics, custom-property shorthand values, fallbacks, cycle fallbacks, and later component longhand overrides, `line-height` `normal`/unitless/length/percentage behavior, custom-property fallback resolution, invalid negative custom values falling back to inherited line height, and MDN unitless-number inheritance versus computed length inheritance, `font-size` absolute/relative keywords, percentages, `em`/`rem`, custom-property fallback resolution, invalid negative custom values falling back to inherited size, and HTML `:root` font-size basis for `rem`, `font-weight` `normal`/`bold`/numeric plus `bolder`/`lighter` parent-relative computed resolution with custom-property fallback coverage, `font-style` `normal`/`italic`/`oblique <angle>` computed resolution with inheritance and custom-property fallback coverage, `vertical-align` `baseline`/`sub`/`super`/`text-top`/`middle`/`text-bottom`/`top`/`bottom` keyword parsing plus `var()` fallback resolution, table-cell paint placement, and cascade rollback, `white-space` `normal`/`pre`/`nowrap`/`pre-wrap`/`break-spaces`/`pre-line` parsing with inherited/custom-property/fallback resolution, preserved-space wrapping impact, and cascade rollback, `white-space-collapse` `collapse`/`preserve`/`preserve-breaks`/`preserve-spaces`/`break-spaces` parsing plus modern `white-space` collapse/wrap shorthand values such as `wrap`, `collapse`, and `preserve nowrap` with cascade rollback, `text-wrap` shorthand and `text-wrap-mode`/`text-wrap-style` longhand parsing for `wrap`, `nowrap`, `balance`, `stable`, `pretty`, and `avoid-orphans` with custom-property fallback, render-time no-wrap behavior independent from whitespace preservation, and cascade rollback, `line-break` `auto`/`loose`/`normal`/`strict`/`anywhere` parsing with inherited/custom-property resolution and `anywhere` wrapping impact, `hyphens` `none`/`manual`/`auto` parsing with inherited/custom-property resolution and soft-hyphen wrapping behavior, `hyphenate-character` `auto`/string parsing with inherited/custom-property resolution and WebKit-prefixed spelling, plus soft-hyphen marker replacement, `word-spacing` `normal`/length/percentage parsing plus cascade rollback, `letter-spacing` percentage parsing against the element font size with wrapping impact plus cascade rollback, `overflow-wrap` `normal`/`anywhere`/`break-word`, `word-wrap` aliasing, and `word-break: break-all` long-word split behavior plus `overflow-wrap`, `word-wrap`, and `word-break` cascade rollback, `text-transform` core `uppercase`/`lowercase`/`capitalize` rendering, `text-decoration-color` `currentColor` default, longhand, shorthand, custom-property resolution, underline paint coverage, and cascade rollback, `text-decoration-line`, `text-decoration-thickness`, `text-decoration-style`, `text-underline-offset`, and `text-underline-position` cascade rollback, `text-decoration-thickness` length, MDN percentage, shorthand, and custom-property resolution with underline stroke-width paint coverage, `text-decoration-style` `solid`/`double`/`dotted`/`dashed`/`wavy` resolution with underline paint coverage, `text-underline-offset` `auto`, length, MDN percentage, negative length, inherited, and custom-property resolution with underline-only paint coverage, `text-underline-position` `auto`, `under`, side-keyword combinations, inherited, and custom-property resolution with horizontal `under` underline paint coverage, `text-shadow` offset/blur/color list syntax, inherited/currentColor/custom-property resolution, front-to-back shadow ordering, glyph plus text-decoration paint coverage, and cascade rollback, `text-indent` length/percentage plus `hanging`/`each-line` keyword behavior with wrapping impact and cascade rollback, `tab-size` number/length/inheritance behavior for preserved tabs and cascade rollback, `text-align`, `text-align-last`, and `text-justify` cascade rollback, `text-transform`, `vertical-align`, `line-break`, `hyphens`, and `hyphenate-character` cascade rollback, `overflow-wrap`, `word-wrap`, and `word-break` cascade rollback, `white-space`, `white-space-collapse`, `text-wrap`, `text-wrap-mode`, and `text-wrap-style` cascade rollback, `text-align-last` final/forced-break line alignment, `text-align: justify` plus `text-align-last: justify` word-gap distribution, and `text-justify` `auto`/`none`/`inter-word`/`inter-character` behavior verified by render-time text trace
+- Selector and pseudo-element baseline including deterministic selector parser/indexing and `::before`/`::after` string `content` insertion around inline paragraph text, `::marker` generated-content list marker overrides, `::marker content:none` marker suppression with `content:normal` list-style fallback, `::marker` suppression on non-list-item origins plus generated marker text on list-container non-`li` `display:list-item` children, `content: none`/`normal` suppression for generated pseudo-elements, `display:none` pseudo-element rendering/counter-mutation suppression, generated `content: attr(...)` resolution from originating element attributes, explicit inherited `quotes` pairs for `open-quote`/`close-quote` with no-output quote keywords, and styled `counter(...)` plus nested `counters(...)` generated text backed by `counter-reset`/`counter-increment`/`counter-set`, including duplicate `counter-reset` last-entry behavior and reversed automatic initial values with same-scope `counter-set`
+- Display and formatting baseline including `visibility:hidden`/`collapse` paint and render-time text suppression while preserving layout slots, explicit `visibility:visible` descendants inside hidden ancestors still painting, HTML table-row `visibility:collapse` removing the row slot while `visibility:hidden` keeps it, HTML table-row-group group-wide `visibility:collapse` removing every row even when a child row computes visible, HTML table-column `visibility:collapse` removing the column slot while preserving non-collapsed column sizing, CSS `display:table-row` `visibility:collapse` removing the row slot while `visibility:hidden` keeps it, CSS `display:table-row-group` group-wide `visibility:collapse` removing every row even when a child row computes visible, CSS `display:table-header-group`/`display:table-footer-group` ordering before/after body groups, CSS `display:table-column` `visibility:collapse` removing the column slot plus `display:table-column-group` group-wide collapse while preserving non-collapsed column sizing, and CSS `display:table-caption` honoring `caption-side: bottom` placement
+- List rendering baseline including `list-style-type` marker subset coverage for `none` marker suppression, square unordered markers, lower-alpha ordered markers, string markers, string-based `symbols()` anonymous markers for symbolic/cyclic/fixed/numeric/alphabetic systems, string-symbol `@counter-style` rule resolution for named cyclic/fixed styles with suffix and fixed-start handling, unknown custom-ident counter-style decimal fallback, `decimal-leading-zero`, `lower-roman`, `upper-roman`, Armenian additive markers (`armenian`, `upper-armenian`, and `lower-armenian`), Georgian additive markers, Hebrew additive markers including the 15/16 special cases, broad CSS Counter Styles numeric scripts (`arabic-indic`, `bengali`, `cambodian`/`khmer`, `cjk-decimal`, `devanagari`, `gujarati`, `gurmukhi`, `kannada`, `lao`, `malayalam`, `mongolian`, `myanmar`, `oriya`, `persian`, `tamil`, `telugu`, `thai`, and `tibetan`), fixed CJK markers (`cjk-earthly-branch` and `cjk-heavenly-stem`), Japanese alphabetic markers (`hiragana`, `hiragana-iroha`, `katakana`, and `katakana-iroha`), Japanese longhand markers (`japanese-informal` and `japanese-formal`) with CJK-decimal fallback outside the supported additive range, Korean longhand markers (`korean-hangul-formal`, `korean-hanja-informal`, and `korean-hanja-formal`), Chinese longhand markers (`simp-chinese-informal`, `simp-chinese-formal`, `trad-chinese-informal`, and `trad-chinese-formal`) with zero-collapse behavior, the MDN `cjk-ideographic` legacy alias to `trad-chinese-informal`, Ethiopic numeric markers (`ethiopic-numeric`) with grouped hundred/myriad separators, positive `<ol start>` marker numbering, `upper-alpha`, `lower-greek`, the `lower-latin`/`upper-latin` aliases, `disclosure-open`/`disclosure-closed`, `display:list-item` marker generation with implicit `list-item` counter support, including non-`li` children inside list containers, inherited URL, `linear-gradient`, `radial-gradient`, and `conic-gradient` `list-style-image` marker rendering with `none` fallback to `list-style-type`, `::marker` generated-content marker overrides, `::marker content:none` marker suppression with `content:normal` fallback, and baseline `counter-reset`/`counter-increment` plus styled `counter(...)`, nested `counters(...)`, duplicate reset last-entry behavior, `counter-set`, and `reversed(...)` generated content including same-scope `counter-set`, CSS Lists `display:none` list-item counter-mutation suppression, `display:contents` child rendering with wrapper counter-mutation suppression, and `display:none` pseudo-element counter-mutation suppression, plus inherited `list-style-position` inside/outside placement, `list-style` shorthand position reset behavior, and `list-style-position`/`list-style-type`/`list-style-image` cascade rollback
+- Writing-mode/logical-property baseline including horizontal-tb/LTR logical sizing/inset/margin/padding mapping, horizontal-tb logical overflow mapping, horizontal-tb RTL inline inset/margin/padding/border remapping, vertical writing-mode RTL inline inset remapping, `direction`/`writing-mode` cascade rollback with logical side mapping preserved, vertical-rl logical sizing/min-max/inset/margin/padding/border remapping, vertical-lr logical sizing/min-max/inset/margin/padding/border remapping, basic vertical-rl text-column paint/trace output with overflow wrapping into the next leftward vertical line, and basic vertical-lr text-column paint/trace output with overflow wrapping into the next rightward vertical line
+- Table baseline including split behavior, header repeat coverage across pages, fixed-layout first-row plus `<col>` width hint behavior, fixed-layout first-row colspan width distribution, fixed-layout over-constrained first-row and `<col>` width preservation, `table-layout: fixed` auto-width fallback to auto layout, auto-layout colspan minimum-width expansion beyond undersized authored table width, auto-layout `<col>` minimum-width expansion beyond undersized authored table width, `empty-cells: hide` separated-border paint suppression, two-axis `border-spacing` including outside table edge spacing, `caption-side: bottom` placement when applied to HTML and CSS table-caption boxes, invalid `caption-side` values ignored without overriding inherited caption side, HTML table-row/table-row-group/table-column plus CSS `display:table-row`, `display:table-row-group`, `display:table-column`, and `display:table-column-group` `visibility:collapse` slot removal, CSS `display:table-header-group`/`display:table-footer-group` ordering, collapsed `border-style: hidden` suppression of conflicting adjacent borders, collapsed `inset`/`outset` border-style aliases to `ridge`/`groove`, equal-width collapsed border-style precedence, raw-style precedence before collapsed `outset`/`groove` paint aliasing, RTL equal-style cell color/source precedence, collapsed table-level `hidden` outer border suppression, collapsed row-source border precedence, collapsed rowgroup-source border precedence, collapsed column-source vertical border precedence, and collapsed colgroup-source vertical border precedence
+- Paged-media fragmentation baseline (`break-before`, `break-after`, legacy `page-break-*` aliases, MDN column/region keyword compute, `break-inside` `avoid`/`avoid-page` core paths, and inherited positive-integer `orphans`/`widows` controls)
+- 2D transforms (`translate`, `scale`, `rotate`, `skew`, `matrix`) with transform-origin and composition model
+- Background image paint baseline including `linear-gradient`, `radial-gradient`, conic gradient support paths, `background-image` longhand gradient paint, sized no-repeat multi-layer `background-image` gradient compositing, `repeat-x` tiling for sized gradient background layers, `space`/`round` repeat semantics for sized gradients, explicit-size PNG `url(...)` background layers, auto-auto intrinsic PNG sizing, invalid negative `background-size` fallback to intrinsic sizing, `contain`/`cover`/auto-dimension/single-value intrinsic-ratio sizing for PNG backgrounds, alpha-stacked PNG `url(...)` background layers, plus default and explicit `repeat repeat`, `repeat-y`, two-axis `repeat`, `repeat no-repeat`, `no-repeat repeat`, single-value `space`/`round`, `round space`, `space round`, `round repeat`, `round no-repeat`, `no-repeat round`, `no-repeat space`, `space no-repeat`, `repeat space`, `repeat round`, `space repeat`, horizontal-tb `repeat-inline`/`repeat-block` logical aliases, multi-layer repeat-axis mapping, shorter background size/repeat/position list repetition across layers, percentage, edge-offset, and horizontal-tb logical-alias `background-position` anchoring for sized PNG backgrounds, shorthand URL position/size/repeat propagation, content-box `background-origin`/`background-clip`, multi-layer origin/clip list mapping, `background-blend-mode` normal/multiply/screen/difference/overlay/exclusion/hard-light/darken/lighten/color-dodge/color-burn/soft-light/hue/saturation/color/luminosity/plus-lighter over element background color, raster PNG background-blend multiply, multi-layer raster and bidirectional mixed raster/gradient background-blend mapping, background-blend-mode list repetition across multiple image layers, and background-blend-mode extra-value truncation
+- Effects subset with deterministic behavior in current lane: `filter: blur(...)`, repeated/currentColor/two-length currentColor/color-first/interleaved-color relative-length, two-length negative-offset, MDN color-first rem-offset third-length blur, MDN px-offset hex third-length blur, and MDN negative-mm plus zero-offset rem/named-color third-length blur `filter: drop-shadow(...)` with modern `rgb()`/named-color and absolute-unit/rem coverage plus duplicate-color, negative-blur, and inset/spread rejection diagnostics, empty optional filter-function argument defaults including `grayscale()`/`sepia()` full-effect defaults, `filter: saturate(...)`, `filter: grayscale(...)`, `filter: brightness(...)`, `filter: contrast(...)`, `filter: invert(...)`, `filter: sepia(...)`, `filter: hue-rotate(...)`, `filter: opacity(...)`, and `filter` cascade rollback
+- Effects subset with deterministic behavior in current lane: empty optional filter-function defaults including `grayscale()`/`sepia()` full-effect defaults, explicit-color, currentColor, two-length currentColor, modern-color-order absolute-unit, MDN px-offset hex third-length blur, MDN negative-mm modern-rgb third-length blur, color-first rem-offset third-length blur, repeated, two-length negative-offset, zero-offset rem/named-color third-length blur, semi-transparent third-length blur, and negative-blur and inset/spread fallback diagnostics for `backdrop-filter: drop-shadow(...)`, `blur(...)`, `brightness(...)`, `contrast(...)`, `grayscale(...)`, `hue-rotate(...)`, `invert(...)`, `saturate(...)`, `sepia(...)`, and opacity-blended adjustment paint coverage plus `drop-shadow(...) blur(...) saturate(...) brightness(...) contrast(...) invert(...) sepia(...) hue-rotate(...) opacity(...)` compute/raster path coverage, `backdrop-filter` cascade rollback, and opacity-, filter-, backdrop-filter-, clip-path-, mask-/mask-image-/mask-border-, mix-blend-mode-, and will-change-established backdrop-root boundary coverage
+- Effects subset with deterministic behavior in current lane: `mix-blend-mode` standard blend keywords (`normal`, `multiply`, `screen`, `overlay`, `darken`, `lighten`, `color-dodge`, `color-burn`, `hard-light`, `soft-light`, `difference`, `exclusion`, `hue`, `saturation`, `color`, `luminosity`) plus raster `plus-lighter`/`plus-darker`, element-level blend group compositing, element-level `opacity` group compositing, opacity, `mix-blend-mode`, and `isolation` cascade rollback, and `isolation: isolate` group containment for child blending
+- Effects subset with deterministic behavior in current lane: `clip-path` cascade rollback, `clip-path: inset(...)`, `clip-path: circle(...)`, `clip-path: ellipse(...)` including one-token and four-token edge-offset positions plus closest/farthest-side radial extent keywords and circle closest/farthest-corner radial extents, `clip-path: rect(...)`, `clip-path: xywh(...)`, `clip-path: polygon(...)` including evenodd self-overlap holes and explicit nonzero default-fill behavior, `clip-path: path(...)` including evenodd subpath holes, explicit nonzero same-winding fills, and `content-box` reference-origin coverage for both geometry-box/basic-shape orders, `clip-path: shape(...)` line/curve/smooth/arc commands, relative `by` commands, evenodd move-subpath hole behavior, explicit nonzero moved-subpath fill behavior, length-percentage relative control-point anchors, and basic/four-value position keywords, and 1-4 value circular/elliptical `round <border-radius>` corners for rectangle clips
+- Effects subset with deterministic behavior in current lane: `clip-path` visual geometry boxes (`margin-box`, `border-box`, `half-border-box`, `padding-box`, `content-box`) alone or combined with supported basic shapes, including rounded reference-box clipping, plus fallback diagnostics for SVG clip sources (`url(...)`) and standalone SVG-specific geometry boxes (`fill-box`, `stroke-box`, and `view-box`)
+- Box-shadow baseline with weighted blur hardening, negative spread support, currentColor default/explicit color resolution, multi-shadow list rendering, strict 2-4 length/color grammar rejection for unsupported forms, modern `rgb()` plus absolute-unit paint coverage, crisp inset spread rings above element backgrounds, softened blurred inset edge paint, directional inset offset edge paint, and cascade rollback
+
+## Known Gaps (Active Backlog)
+
+These are known, tracked gaps for final parity push:
+
+- Broader `filter` and `backdrop-filter` function coverage beyond current subset, including SVG `url()` filters, advanced `drop-shadow()` forms beyond current flexible-color-order, two-length negative-offset, MDN px-offset hex third-length blur, MDN negative-mm plus zero-offset rem/named-color third-length blur, and negative-blur and inset/spread diagnostic foreground coverage plus explicit/currentColor/modern-color-order, MDN px-offset hex third-length blur, MDN negative-mm modern-rgb third-length blur, color-first rem-offset third-length blur, repeated, two-length negative-offset, zero-offset rem/named-color third-length blur, semi-transparent third-length blur, and negative-blur and inset/spread diagnostic backdrop coverage, and PDF-native foreground filters
+- Advanced `clip-path` grammar beyond the current `inset(...)`/`circle(...)`/`ellipse(...)`/`rect(...)`/`xywh(...)`/`polygon(...)`/`path(...)`, line/curve/smooth/arc/relative-command `shape(...)` plus evenodd holes and explicit nonzero moved-subpath fills, and visual-box subset (SVG clip sources, SVG-specific geometry boxes, and advanced basic-shape edge options)
+- Plus-lighter PDF-native parity and deeper nested compositing/isolation semantics breadth
+- Deeper blurred inset shadow edge fidelity parity
+- Broader outline parity beyond the current solid/dashed/dotted/double, shaded groove/ridge/inset/outset square-outline, and rounded/non-uniform 3D outline baselines, including UA-specific edge fidelity
+- Broader multi-layer background image compositing semantics beyond the current sized gradient-layer repeat-x/space/round and PNG `url(...)` explicit-size/auto-auto-intrinsic/negative-size-invalid/contain/cover/auto-dimension-size/single-value-size/alpha-stack/default-repeat-repeat/repeat-y/repeat/repeat-no-repeat/no-repeat-repeat/space-space/round-round/round-space/space-round/round-repeat/round-no-repeat/no-repeat-round/no-repeat-space/space-no-repeat/repeat-space/repeat-round/space-repeat/logical-repeat-aliases/multi-layer-repeat-axis/background-list-repetition/percentage-position/edge-offset-position/logical-position-aliases/shorthand-position-size-repeat/content-box-origin-clip/multi-layer-origin-clip/background-blend-normal/background-blend-multiply/screen-mode/overlay-mode/exclusion-mode/hard-light-mode/darken-mode/lighten-mode/color-dodge-mode/color-burn-mode/soft-light-mode/hue-mode/saturation-mode/color-mode/luminosity-mode/plus-lighter-mode/list-repetition/truncation/raster-blend/raster-layer-mapping/mixed-raster-gradient-mapping/mixed-gradient-raster-mapping subset, including broader mixed raster asset combinations
+- Table layout and border edge semantics hardening beyond the current fixed-layout width-hint, first-row colspan width distribution, over-constrained first-row and `<col>` width, auto-width fallback, auto-layout colspan minimum expansion, auto-layout `<col>` minimum expansion, caption-side bottom, invalid caption-side inheritance, HTML table-row/table-row-group/table-column and CSS `display:table-row`, `display:table-row-group`, `display:table-column`, and `display:table-column-group` `visibility:collapse`, collapsed `hidden` cell conflict, collapsed `inset`/`outset` alias, equal-width style-precedence, raw-style alias-precedence, RTL cell color/source, table-level `hidden` outer-border, row-source, rowgroup-source, column-source, and colgroup-source lanes (deeper `table-layout:auto/fixed` pressure edges and broader caption/writing-mode interactions)
+- Writing-mode/direction remapping breadth beyond current horizontal-tb LTR plus fixture-backed RTL inline inset/margin/padding/border, vertical RTL inline inset remapping, vertical-rl logical sizing/min-max/inset/margin/padding/border, vertical-lr logical sizing/min-max/inset/margin/padding/border edges, and basic vertical-rl/vertical-lr wrapped text-column baselines
+- Advanced color-function breadth beyond the current modern `rgb()`/`rgba()`, `hsl()`/`hsla()`, `hwb()`, absolute Lab/Oklab/predefined-color alpha, relative color, and `srgb` `color-mix(...)` compatibility lanes
+
+## Iteration Progress Snapshot (S14)
+
+Resolved during this sprint's visual-iteration loop:
+
+- Build-path drift removed by requiring release-feature builds with
+  `python,svg_raster` before parity diagnosis.
+- Parser -> evaluator -> calculator path hardened for pending var-length math (`calc(var(--x) * scalar)` and additive mixed-unit forms).
+- Empty-element fill paint path revalidated on latest build (no stale-runtime false negatives).
+- Conic gradients moved from fallback-only behavior to first-class parser + painter support (with deterministic diagnostics retained for unsupported forms).
+- Property-rule/view-transition/keyframes/starting-style/media-level5-output/media-webkit-extension/media-device-posture/media-shape/media-vendor-pixel-ratio/media-device-alias/media-video-dynamic-range/media-scan/media-resolution/media-display-mode/media-color-range-output/media-viewport-segments/media-input-device-defaults/media-static-output-environment/media-additional-user-preferences/media-user-preferences/media-prefers-color-scheme/media-color-capability/media-type/media-aspect-ratio/media-orientation/scope/container/supports/cascade-layer/revert-layer/border/outline/overflow/overflow-inline/overflow-block/grid/paged-media/fragmentation/color-function/background-image/filter/backdrop-filter/clip-path/blend-mode/isolation/opacity/box-shadow/table-layout/table-border-style/list-marker/list-marker-generated-content/list-marker-content-none/display-list-item/list-container-display-list-item/list-style-position/list-style-type/list-style-image/list-style-image-gradient/list-style-image-radial-conic/cascade-list-style-image/cascade-visibility/table-visibility-collapse/table-rowgroup-visibility-collapse/display-table-rowgroup-visibility-collapse/display-table-header-footer-group-order/display-table-column-visibility-collapse/display-table-caption-side/list-display-none-counter-mutation/display-contents-counter-scope/visibility/generated-content/generated-content-counter/generated-content-counters/generated-content-counter-set/generated-content-duplicate-counter/generated-content-reversed-counter/generated-content-reversed-counter-set/generated-content-pseudo-display-none-counter/text-overflow/font-family/font/line-height/font-size/font-weight/font-style/vertical-align/white-space/white-space-collapse/text-wrap/line-break/hyphens/hyphenate-character/word-spacing/letter-spacing/overflow-wrap/word-break/text-transform/text-decoration-color/text-decoration-thickness/text-decoration-style/text-underline-offset/text-underline-position/text-shadow/text-indent/tab-size/text-align/text-align-last/text-justify/direction/writing-mode/HTML-replaced-content baseline fixture matrix expanded and green in the full fixture lane (`86/86` fixtures, `603` assertion/paint checks).
+
+Still open for final parity push:
+
+- Effects breadth beyond current subset (`filter`/`backdrop-filter`, plus PDF-native foreground filters and deeper nested compositing/isolation breadth).
+- Clip-path shape breadth beyond the current `inset(...)`/`circle(...)`/`ellipse(...)`/`rect(...)`/`xywh(...)`/`polygon(...)`/`path(...)`, line/curve/smooth/arc/relative-command `shape(...)`, and moved-subpath hole/fill lanes.
+- Deeper blurred inset shadow edge fidelity.
+- Broader multi-layer background compositing semantics beyond the current sized gradient-layer repeat-x/space/round and PNG `url(...)` explicit-size/auto-auto-intrinsic/negative-size-invalid/contain/cover/auto-dimension-size/single-value-size/alpha-stack/default-repeat-repeat/repeat-y/repeat/repeat-no-repeat/no-repeat-repeat/space-space/round-round/round-space/space-round/round-repeat/round-no-repeat/no-repeat-round/no-repeat-space/space-no-repeat/repeat-space/repeat-round/space-repeat/logical-repeat-aliases/multi-layer-repeat-axis/background-list-repetition/edge-offset-position/logical-position-aliases/background-blend-normal/background-blend-multiply/screen-mode/overlay-mode/exclusion-mode/hard-light-mode/darken-mode/lighten-mode/color-dodge-mode/color-burn-mode/soft-light-mode/hue-mode/saturation-mode/color-mode/luminosity-mode/plus-lighter-mode/list-repetition/truncation/raster-blend/raster-layer-mapping/mixed-raster-gradient-mapping/mixed-gradient-raster-mapping subset, including broader mixed raster asset combinations.
+- Deeper table-layout pressure beyond the current fixed first-row, first-row colspan distribution, `<col>` precedence, over-constrained first-row and `<col>` width, auto-width fallback, auto-layout colspan minimum expansion, auto-layout `<col>` minimum expansion, `hidden` cell/table, `inset`/`outset` alias, equal-width style-precedence, raw-style alias-precedence, RTL cell color/source, row-source, rowgroup-source, column-source, and colgroup-source lanes.
+- Advanced color-function breadth beyond the current modern `rgb()`/`rgba()`, `hsl()`/`hsla()`, `hwb()`, absolute Lab/Oklab/predefined-color alpha, relative color, and `srgb` `color-mix(...)` compatibility lanes.
+
+## Deterministic Compatibility Contract
+
+When CSS is not supported, behavior must be:
+
+- Deterministic (no random/non-reproducible geometry or paint drift)
+- Diagnosable (structured known-loss/fallback signals)
+- Fixture-covered (repro + regression assertions)
+
+Recent visual stress runs show the effects fallback lane is materially reduced; the primary known-loss signal observed in the current showcase debug output is `PAGE_SIZE_OVERRIDDEN` for explicit runtime page size precedence.
+
+## How To Re-Validate
+
+Run from repo root with the project venv:
+
+```powershell
+.\.venv\Scripts\python tools\run_css_fixture_suite.py --labels full --jobs 4 --out _css_working\tmp\fixture_full_latest.json
+.\.venv\Scripts\python tools\generate_css_parity_status.py --check --json
+```
+
+Optional visual stress lane:
+
+```powershell
+$env:FULLBLEED_DEBUG='1'
+$env:FULLBLEED_PERF='1'
+$env:FULLBLEED_FANCY='1'
+$env:FULLBLEED_EMIT_PNG='1'
+.\.venv\Scripts\python examples\css_visual_charts_showcase\run_example.py
+```
+
+## Notes on Bootstrap
+
+Bootstrap remains a vendored asset baseline for scaffolded workflows, but Bootstrap preflight screenshots are no longer treated as the canonical coverage definition. Canonical CSS coverage claims are now derived from parity fixtures and status artifacts in `_css_working/`.

@@ -1,0 +1,48 @@
+{
+  "fullbleed_version": "2.4.0",
+  "source_commit": "56850a6536f9369e17b2344cbf62848c1c783e10",
+  "checks": "Expected text, page counts, and internal PDF inspection; tagged example also checks profile structure markers. This is not an independent conformance certificate.",
+  "examples": [
+    {
+      "name": "invoice",
+      "page_count": 1,
+      "checks_passed": true,
+      "bytes": 112836,
+      "sha256": "74855bd5b7accc416d2e9b6bfe35989a3c9765b7a27906ca6fe18a719e880a84"
+    },
+    {
+      "name": "business-report",
+      "page_count": 5,
+      "checks_passed": true,
+      "bytes": 139027,
+      "sha256": "b857eb5b4531138c3a22ae2c4e6b96783c02a67797847dc85b404c83efb62d19"
+    },
+    {
+      "name": "accessible",
+      "page_count": 1,
+      "checks_passed": true,
+      "bytes": 100836,
+      "sha256": "e62326c73b66cfbfdd87b7335c221d747d80d246b74bb5b7af0c5ce90522d91b"
+    },
+    {
+      "name": "compiled-vdp",
+      "page_count": 100,
+      "checks_passed": true,
+      "bytes": 52013,
+      "sha256": "a2e52fde2cecfdd2b5381e2288261d375ebb13cd4e182256f22cb5e8e34a1b1d"
+    },
+    {
+      "name": "compiled-reflow",
+      "page_count": 41,
+      "checks_passed": true,
+      "bytes": 18236,
+      "sha256": "82286ebf13e3faf405c696b9d9b5fa1f2bf14e0835b43e0616da845794f17862"
+    },
+    {
+      "name": "acme-invoice",
+      "bytes": 149431,
+      "sha256": "7a025d57da2503277e7792b35ab4cb4c68b6aa39843f71bf84c44e633fe74420",
+      "checks": "Component mount diagnostics retained; visual review performed separately."
+    }
+  ]
+}

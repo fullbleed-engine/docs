@@ -1,148 +1,33 @@
-# Accessibility Overview
+---
+description: Author semantic documents, generate tagged PDF output, and retain accessibility checks with Fullbleed.
+---
+# Tagged PDFs and accessibility checks
 
-Fullbleed treats accessibility as a first-class engineering constraint, not an afterthought. The engine produces tagged PDF/UA output with built-in verification, scoring, and evidence bundles.
+Fullbleed provides semantic Python components, tagged PDF output profiles, inspection, and accessibility verification tools. Start with clear headings, logical reading order, meaningful table headers, document language, and appropriate alternative text.
 
-## Why This Matters
+## Try the checked example
 
-The ADA Title II deadline (April 24, 2026) requires state and local government web content — including PDFs — to meet WCAG 2.0 AA. Most organizations are scrambling to remediate existing PDFs. Fullbleed takes a different approach: **author accessible documents correctly from the start.**
+[Open the service-notice PDF](../assets/examples/accessible.pdf) · [View HTML](../assets/examples/accessible.html) · [View CSS](../assets/examples/accessible.css)
 
-## The Fullbleed Accessibility Stack
+The [workflow suite](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/agent_workflows) creates this notice with the `pdfua1` profile and an embedded Inter font. Its checks cover expected text, profile markers, structure-tree and language presence, and reported seed blockers.
 
-```
-┌──────────────────────────────────────────────────┐
-│              UI Component System                  │
-│  SemanticTable · Region · FieldGrid · Alert       │
-│  (Accessibility by construction)                  │
-├──────────────────────────────────────────────────┤
-│            A11y Contract Validation               │
-│  Validate component tree BEFORE rendering         │
-│  (Catch issues early, not in PDF output)          │
-├──────────────────────────────────────────────────┤
-│           AccessibilityEngine                     │
-│  Wraps PdfEngine with PDF/UA-targeted output      │
-│  Tagged structure, reading order, metadata        │
-├──────────────────────────────────────────────────┤
-│              Evidence Bundles                      │
-│  PMR scores · Verifier reports · Reading order    │
-│  Structure traces · PDF/UA checks · Previews      │
-│  (15+ artifacts per render)                       │
-└──────────────────────────────────────────────────┘
+```bash
+python examples/agent_workflows/run_examples.py --out output/examples --json
+python -m fullbleed inspect pdf output/examples/accessible/document.pdf --json
 ```
 
-## Three Levels of Accessibility
+## Author, inspect, and verify
 
-### Level 1: Semantic HTML → Tagged PDF
+1. Create semantic content with the [component and accessibility API](../ui/overview.md).
+2. Choose the output profile and register embeddable fonts.
+3. Render and inspect the finalized PDF and every page preview.
+4. Run the applicable validation tools and retain their reports alongside the exact PDF.
+5. Review content-dependent requirements such as reading order, alternative text, and contrast.
 
-Write clean, semantic HTML and Fullbleed handles the rest:
+Selecting a profile or receiving a passing structural check does not establish full PDF/UA, WCAG, or legal compliance for every document. Validate your final artifact against the requirements that apply to your use case.
 
-```html
-<main role="main" aria-label="Report">
-  <h1>Annual Report</h1>
-  <section role="region" aria-label="Revenue">
-    <h2>Revenue</h2>
-    <table>
-      <caption>Revenue by quarter</caption>
-      <thead>
-        <tr><th scope="col">Quarter</th><th scope="col">Amount</th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">Q1</th><td>$1.2M</td></tr>
-      </tbody>
-    </table>
-  </section>
-</main>
-```
+## Evidence and current scope
 
-This produces a tagged PDF with:
-- Document structure tags (H1, H2, Table, TH, TD, etc.)
-- Reading order that matches visual order
-- Language metadata
-- Document title
+The [2.4.0 validation report](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.4.0/docs/release/2.4.0-validation-report.md) records the release's profile checks. Download the retained evidence from the [release assets](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.4.0).
 
-### Level 2: UI Components (Accessibility by Construction)
-
-Use Fullbleed's component system to make inaccessible output structurally impossible:
-
-```python
-from fullbleed.ui import *
-from fullbleed.ui.accessibility import *
-
-# These components ALWAYS emit correct ARIA and semantic HTML
-SemanticTable(
-    caption="Revenue by quarter",
-    head=SemanticTableHead(
-        SemanticTableRow(ColumnHeader("Quarter"), ColumnHeader("Amount"))
-    ),
-    body=SemanticTableBody(
-        SemanticTableRow(RowHeader("Q1"), DataCell("$1.2M"))
-    ),
-)
-```
-
-Available accessibility components:
-- `Region`, `Section`, `Main`, `Nav`, `Aside` — landmark regions
-- `Heading` — properly leveled headings
-- `SemanticTable`, `SemanticTableHead/Body/Foot/Row`, `ColumnHeader`, `RowHeader`, `DataCell` — fully accessible tables
-- `Alert`, `Status`, `LiveRegion` — dynamic content roles
-- `FieldGrid`, `FieldItem`, `FieldSet`, `Legend` — form-like data display
-- `Figure`, `FigCaption` — captioned images
-- `DefinitionList`, `DefinitionTerm`, `DefinitionDescription` — definition lists
-- `ScreenReaderText`, `Decorative` — screen reader hints
-
-### Level 3: Evidence Bundles (Prove Compliance)
-
-The `AccessibilityEngine.render_bundle()` produces verifiable evidence:
-
-```python
-from fullbleed.accessibility import AccessibilityEngine
-
-engine = AccessibilityEngine(
-    page_size="letter",
-    document_lang="en",
-    document_title="Annual Report 2025",
-    margin="0.75in",
-)
-
-result = engine.render_bundle(
-    body_html=html,
-    css_text=css,
-    out_dir="./output",
-    stem="annual-report",
-    run_verifier=True,
-    run_pmr=True,
-    render_preview_png=True,
-    emit_reading_order_trace=True,
-    emit_pdf_structure_trace=True,
-)
-
-# result.ok == True
-# result.pmr_report["score"]["score"] == 100.0
-# result.pdf_ua_seed_report["ok"] == True (14/14 checks pass)
-# result.verifier_report["gate"]["error_count"] == 0
-```
-
-This isn't just a PDF — it's a PDF with a complete evidence trail that proves it meets accessibility standards. Every artifact is JSON, machine-parseable, and auditable.
-
-## Coverage
-
-| Standard | Coverage |
-|----------|----------|
-| WCAG 2.0 AA | 100% of applicable success criteria |
-| Section 508 E205 | 100% |
-| PDF/UA-1 (ISO 14289-1) | Targeted (seed verification) |
-
-See [WCAG & Section 508 Coverage →](coverage.md) for detailed per-criterion mapping.
-
-## Key Concepts
-
-- **PMR Score**: Pagination/Markup/Readability quality score (0-100) with confidence bands. Quantifies how well a document meets accessibility standards.
-- **Evidence Bundle**: The collection of artifacts produced by `render_bundle()` — verifier reports, PMR scores, traces, previews.
-- **CAV Profile**: Compliant Alternative Version — the default accessibility profile that targets full WCAG 2.0 AA + Section 508 compliance.
-- **Reading Order Trace**: A record of every text block in the order a screen reader would encounter it, cross-checked between render-time and PDF extraction.
-- **Cross-Checking**: Fullbleed verifies its own output from two independent paths. If the render-time reading order doesn't match the lopdf-extracted reading order, a warning is raised.
-
-## Next Steps
-
-- [AccessibilityEngine API →](engine.md)
-- [Evidence Bundles →](evidence-bundles.md)
-- [WCAG & Section 508 Coverage →](coverage.md)
+Use `python -m fullbleed agent-contract --format json` to discover the profiles and verification commands supported by your installed version.

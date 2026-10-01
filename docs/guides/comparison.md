@@ -1,147 +1,40 @@
-# Fullbleed vs Other PDF Generators
+---
+title: Choose a Python PDF library
+description: Match your PDF task to Fullbleed, WeasyPrint, Playwright, ReportLab, or pypdf using each project's documented scope.
+---
+# Choose a PDF library for your task
 
-A practical comparison for developers evaluating HTML-to-PDF tools.
+Start with the job: authoring a new document, printing browser content, and modifying an existing PDF need different APIs. This guide is maintained by Fullbleed and describes selection considerations, not a measured performance ranking.
 
-## Quick Comparison
+| Your main task | Tools to evaluate | What to check |
+| --- | --- | --- |
+| Generate structured documents from Python and static HTML/CSS | Fullbleed, WeasyPrint | Template coverage, pagination, font handling, installation, and output validation |
+| Print content whose JavaScript and browser layout matter | Playwright | Browser environment, print CSS, asset loading, and page readiness |
+| Build documents through Python drawing and layout primitives | ReportLab | Canvas/Platypus APIs and the amount of layout code your team wants to own |
+| Merge, split, crop, or extract text from existing PDFs | pypdf | The existing files' structures and the operations you need |
 
-| | Fullbleed | wkhtmltopdf | Puppeteer / Playwright | WeasyPrint | Prince |
-|---|---|---|---|---|---|
-| **Engine** | Native Rust | Qt WebKit | Chromium | Custom Python | Custom C++ |
-| **Browser required** | No | Yes (bundled) | Yes (downloads) | No | No |
-| **Install** | `pip install` | System package | npm + browser binary | `pip install` | Paid installer |
-| **Deterministic** | ✅ SHA256 | ❌ | ❌ | ❌ | ❌ |
-| **Python GIL release** | ✅ | N/A | N/A | ❌ | N/A |
-| **Parallel rendering** | ✅ Native Rayon | ❌ | Process pool | ❌ | ❌ |
-| **Headers/footers** | Built-in engine | `--header-html` flag | JS injection | CSS `@page` | CSS `@page` |
-| **Per-page running totals** | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **PDF template overlay** | ✅ Native | ❌ | ❌ | ❌ | ❌ |
-| **Tagged PDF/UA** | ✅ | ❌ | ❌ | Partial | ✅ |
-| **CSS coverage** | Broad subset | WebKit full | Chromium full | Good subset | Excellent |
-| **JavaScript** | None (by design) | Yes | Yes | None | Yes |
-| **License** | AGPL + Commercial | LGPL | Apache-2.0 | BSD | Commercial ($3,800) |
-| **Maintenance** | Active | Deprecated | Active | Active | Active |
+## When Fullbleed is a useful fit
 
-## Fullbleed vs wkhtmltopdf
+Fullbleed combines a Rust document engine with a Python API, self-contained wheels, explicit assets, deterministic rendering, PNG previews, and structured diagnostics. Its compiled fixed and reflowing binding APIs support repeated document families. The current release is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.4.0/LICENSE).
 
-**wkhtmltopdf** was the go-to for years but is now **deprecated and unmaintained**. It uses an old Qt WebKit build with known security vulnerabilities.
+Try your own HTML/CSS against the [coverage report](../css-coverage.md). Include long content, page breaks, glyph coverage, and every required output profile in the evaluation. Use the [complete examples](../examples.md) to establish a working baseline.
 
-**Choose Fullbleed when:**
+## Other projects' documented scope
 
-- You need a maintained, actively developed solution
-- You want deterministic output for CI/testing
-- You need per-page data aggregation (running totals)
-- You want a pure Python install with no system dependencies
-- You need tagged PDF output for accessibility
+- [WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/) is a Python HTML/CSS rendering engine designed for paginated documents and distributed under a BSD license. It is another browser-independent option to evaluate for static print content.
+- [Playwright's PDF API](https://playwright.dev/python/docs/api/class-page#page-pdf) exposes PDF generation from a browser page, including print settings. It is relevant when browser behavior forms part of the required output.
+- [ReportLab's documentation](https://docs.reportlab.com/reportlab/userguide/ch1_intro/) describes its Python PDF generation and document-layout APIs.
+- [pypdf](https://pypdf.readthedocs.io/en/stable/) focuses on operations on existing PDFs, including page transformations, merging, splitting, text, and metadata extraction.
 
-**wkhtmltopdf still wins if:**
+Check each project's current documentation for detailed capability and license terms. These descriptions were reviewed on October 1, 2026.
 
-- You need full browser-grade CSS/JS rendering of arbitrary web pages (but consider Puppeteer instead)
+## A practical migration check
 
-## Fullbleed vs Puppeteer / Playwright
+1. Collect representative documents and their input data.
+2. Pin versions and font/image assets for both implementations.
+3. Match page size, margins, headers, footers, and required metadata.
+4. Compare page images and extracted content, including the longest records.
+5. Run the relevant standards validators on the final files.
+6. Measure complete jobs, including startup, compilation, and file writes.
 
-**Puppeteer/Playwright** use a real Chromium browser for rendering. They produce pixel-perfect web-to-print output but carry significant overhead.
-
-**Choose Fullbleed when:**
-
-- You're generating **documents** (invoices, statements, reports), not printing web pages
-- You need deterministic output (Chromium rendering varies across versions)
-- You don't want to manage browser binary downloads in CI/Docker
-- You need parallel rendering without spawning multiple browser processes
-- You need built-in headers/footers with page data, not JS injection hacks
-- Container/serverless size matters (Chromium adds ~300MB)
-
-**Puppeteer/Playwright still win if:**
-
-- You need full web rendering (JavaScript execution, complex CSS animations, web fonts via `@import`)
-- You're literally printing a web page as-is
-- CSS coverage is more important than determinism
-
-## Fullbleed vs WeasyPrint
-
-**WeasyPrint** is the closest alternative — also a Python library that doesn't need a browser. It's well-maintained and has good CSS support.
-
-**Choose Fullbleed when:**
-
-- You need **speed**. Fullbleed's Rust core is significantly faster, especially for batch rendering.
-- You need parallel rendering. WeasyPrint holds the GIL during rendering; Fullbleed releases it.
-- You need per-page running totals, subtotals, or data aggregation
-- You need PDF template composition (overlay onto existing PDFs)
-- You need tagged PDF/UA output for accessibility compliance
-- You need deterministic, reproducible output
-
-**WeasyPrint still wins if:**
-
-- You need better CSS `@page` margin-box support (Fullbleed doesn't implement `@bottom-center` etc.)
-- You prefer a pure Python dependency chain
-- You need `position: sticky` or multi-column layout
-
-## Fullbleed vs Prince
-
-**Prince** is the gold standard for CSS-to-PDF quality. It has the best CSS Paged Media support of any tool. It's also $3,800 per server.
-
-**Choose Fullbleed when:**
-
-- Budget matters. Fullbleed is free for open source (AGPL) and commercial licenses are far cheaper.
-- You need an API-first workflow (Python bindings, batch APIs) rather than CLI-only
-- You need per-page data aggregation
-- You need PDF template composition
-- You need AI/agent-ready JSON diagnostics
-
-**Prince still wins if:**
-
-- You need the absolute best CSS Paged Media spec compliance
-- You need advanced CSS features like `@footnote`, named strings, cross-references
-- Budget is not a concern and CSS quality is paramount
-
-## Migration Guides
-
-### From wkhtmltopdf
-
-```python
-# Before (wkhtmltopdf via subprocess)
-import subprocess
-subprocess.run(["wkhtmltopdf", "--header-right", "Page [page] of [toPage]",
-                "input.html", "output.pdf"])
-
-# After (Fullbleed)
-import fullbleed
-engine = fullbleed.PdfEngine(
-    page_width="8.5in", page_height="11in", margin="0.75in",
-    header_each="Page {page} of {pages}",
-    header_x="6in", header_y_from_top="0.3in",
-)
-with open("input.html") as f:
-    html = f.read()
-engine.render_pdf_to_file(html, "", "output.pdf")
-```
-
-### From WeasyPrint
-
-```python
-# Before (WeasyPrint)
-from weasyprint import HTML
-HTML(string=html_string).write_pdf("output.pdf")
-
-# After (Fullbleed)
-import fullbleed
-engine = fullbleed.PdfEngine(page_width="8.5in", page_height="11in", margin="0.75in")
-engine.render_pdf_to_file(html_string, css_string, "output.pdf")
-```
-
-### From Puppeteer
-
-```javascript
-// Before (Puppeteer)
-const browser = await puppeteer.launch();
-const page = await browser.newPage();
-await page.setContent(html);
-await page.pdf({ path: 'output.pdf', format: 'Letter' });
-await browser.close();
-```
-
-```python
-# After (Fullbleed) — no browser, no Node.js
-import fullbleed
-engine = fullbleed.PdfEngine(page_width="8.5in", page_height="11in", margin="0.75in")
-engine.render_pdf_to_file(html, css, "output.pdf")
-```
+Fullbleed's [retained performance evidence](performance.md) covers specified Fullbleed versions and fixtures. It does not establish speed or quality superiority over the tools listed here.

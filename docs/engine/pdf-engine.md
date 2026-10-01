@@ -1,178 +1,351 @@
-# PdfEngine API
+# Python API Reference
 
-The `PdfEngine` is the primary interface for rendering HTML/CSS to PDF.
+Reference imported from [v2.4.0](https://github.com/fullbleed-engine/fullbleed-official/blob/56850a6536f9369e17b2344cbf62848c1c783e10/docs/python-api.md). Check the installed runtime for your exact version.
 
-## Constructor
+Primary import:
 
 ```python
 import fullbleed
+```
 
-engine = fullbleed.PdfEngine(
-    # Page geometry
-    page_width="8.5in",
-    page_height="11in",
-    margin="0.75in",
+`fullbleed` re-exports the Rust extension API plus license helpers in `python/fullbleed/__init__.py`.
+`build_features()` reports `compiled_reflow=True` and the supported
+`compiled_flow_compression_modes` so long-lived services can inspect this surface without compiling
+a probe document.
 
-    # Optional: per-page margin overrides
-    page_margins={
-        1: {"top": "0.5in", "right": "0.75in", "bottom": "0.75in", "left": "0.75in"},
-        "n": {"top": "1in", "right": "0.75in", "bottom": "0.75in", "left": "0.75in"},
-    },
+## `fullbleed.ui` (component-first authoring)
 
-    # Fonts
-    font_dirs=["./fonts"],
-    font_files=["./fonts/Inter-Regular.ttf"],
+Secondary import surface for component/document authoring:
 
-    # PDF output
-    pdf_version="1.7",          # "1.7" or "2.0"
-    pdf_profile="none",         # "none", "pdfa2b", "pdfx4", "tagged"
-    color_space="rgb",          # "rgb" or "cmyk"
+```python
+from fullbleed.ui import el, to_html
+from fullbleed.ui.core import Document
+```
 
-    # Rendering
-    reuse_xobjects=True,        # Deduplicate repeated images
-    unicode_support=True,
-    shape_text=True,
+Key modules:
 
-    # Document metadata
-    document_title="My Document",
-    document_lang="en",
+- `fullbleed.ui.core`: `Element`, `DocumentArtifact`, `Document`, `to_html`, `mount_component_html`
+- `fullbleed.ui.primitives`: engine-safe layout/presentation primitives
+- `fullbleed.ui.style`: inline style composition (`Style`, `style(...)`)
+- `fullbleed.ui.accessibility`: semantic/a11y wrappers + `A11yContract` validator
+
+For the accessibility-first authoring workflow (semantic tables, field grids,
+signature semantics, and validation), see `docs/ui-accessibility.md`.
+
+## `fullbleed.accessibility` (runtime/output accessibility stack)
+
+Runtime surface for PDF/UA-targeted rendering workflows and accessibility
+artifact emission:
+
+```python
+from fullbleed.accessibility import AccessibilityEngine
+```
+
+Key behavior:
+
+- wraps `PdfEngine` with an accessibility-focused configuration surface
+- emits HTML/CSS/PDF bundles with audit artifacts (`render_bundle(...)`)
+- can emit engine verifier + PMR reports and PDF/UA seed checks
+- emits non-visual traces (reading-order / structure) for CI and manual review support
+
+This is the recommended runtime surface for accessibility-first projects created
+with `fullbleed new accessible`.
+
+## Main classes and helpers
+
+## `PdfEngine`
+
+Main render entrypoint.
+
+Common constructor options:
+
+- page geometry: `page_width`, `page_height`, `margin`, `page_margins`
+- rendering toggles: `reuse_xobjects`, `svg_form_xobjects`, `svg_raster_fallback`
+- text controls: `unicode_support`, `shape_text`, `unicode_metrics`
+- PDF config: `pdf_version`, `pdf_profile`, `color_space`, output intent fields
+  (`pdf_profile` accepts `none`, `pdfa1a`, `pdfa1b`, `pdfa2a`, `pdfa2b`,
+  `pdfa2u`, `pdfa3a`, `pdfa3b`, `pdfa3u`, `pdfa4`, `pdfa4e`, `pdfa4f`, `pdfx4`, `pdfua1`,
+  `pdfua2`, `pdfvt1`, `wtpdf1r`, `wtpdf1a`, `tagged`, plus aliases such as `a`, `ua`, `vt`, `wt1r`, and `wt1a`)
+  `pdfa4`, `pdfa4e`, `pdfa4f`, `pdfua2`, `wtpdf1r`, and `wtpdf1a` emit PDF 2.0 automatically.
+  PDF/A, PDF/X/VT, PDF/UA, and WTPDF text output requires embeddable font assets.
+  Use `tools/validate_pdf_profiles.py` for the repeatable external/internal
+  profile gate; `inspect_pdf()` exposes profile markers, seed blockers,
+  embedded font counts, PDF/UA structure markers, and granular PDF/VT DPart
+  graph markers. The harness includes a supplemental multipage PDF/VT specimen
+  for `/Start` and `/End` range evidence.
+- document metadata: `document_lang`, `document_title`, `document_timestamp`
+- PDF/VT composition: `pdf_vt_job` with ordered records, documents, and private
+  DPM. `pdfx4`/`pdfvt1` force PDF 1.6 and require a title and explicit timestamp.
+  See [PDF/VT composition](../guides/print-output.md) for the full input and validation contract.
+- page template decorations: header/footer text and HTML variants
+- watermark controls: `watermark_*` fields or `watermark=WatermarkSpec(...)`
+- diagnostics: `jit_mode`, `debug/debug_out`, `perf/perf_out`
+- paginated substitutions: `paginated_context={"key": "op"}`
+
+Key methods:
+
+- `register_bundle(bundle)`
+- `compile_pdf(html, css) -> CompiledDocument`
+- `render_pdf(html, css, deterministic_hash=None) -> bytes`
+- `render_pdf_to_file(html, css, path, deterministic_hash=None) -> int`
+- `render_pdf_with_page_data(html, css) -> (bytes, dict|None)`
+- `render_pdf_with_page_data_and_glyph_report(html, css) -> (bytes, dict|None, list[dict])`
+- `plan_template_compose(html, css, templates, dx=0.0, dy=0.0) -> dict`
+- `render_pdf_with_glyph_report(html, css) -> (bytes, list[dict])`
+- `render_pdf_with_page_data_and_template_bindings_and_glyph_report(html, css) -> (bytes, dict|None, list[dict]|None, list[dict])`
+- `render_image_pages(html, css, dpi=150) -> list[bytes]`
+- `render_image_pages_to_dir(html, css, out_dir, dpi=150, stem=None) -> list[str]`
+- `render_finalized_pdf_image_pages(pdf_path, dpi=150) -> list[bytes]`
+- `render_finalized_pdf_image_pages_to_dir(pdf_path, out_dir, dpi=150, stem=None) -> list[str]`
+- batch APIs:
+  - `render_pdf_batch(..., deterministic_hash=None)`
+  - `render_pdf_batch_to_file(..., deterministic_hash=None)`
+  - `render_pdf_batch_with_css(..., deterministic_hash=None)`
+  - `render_pdf_batch_with_css_to_file(..., deterministic_hash=None)`
+  - `render_pdf_batch_parallel(..., deterministic_hash=None)`
+  - `render_pdf_batch_to_file_parallel(..., deterministic_hash=None)`
+  - `render_pdf_batch_to_file_parallel_with_page_data(..., deterministic_hash=None)`
+
+`deterministic_hash` writes SHA-256 of the produced PDF bytes to the given file path.
+
+## `CompiledDocument`
+
+`PdfEngine.compile_pdf(html, css)` now lowers one template into two complementary programs:
+
+- a fixed-point paint/link program for immutable copies and fixed-geometry text overlays; and
+- a flow compiler that retains the recovered template tree, binding programs, CSS/page/font state,
+  guarded structural flow variants, and cached PDF page-paint programs.
+
+The reflow API described below was introduced in Fullbleed 2.2.4 and hardened in 2.2.5 with
+per-call compression, named-string, and fragmentation fixes. The fixed paint/link methods remain
+unchanged.
+
+```python
+compiled = engine.compile_pdf(html, css)
+pdf = compiled.render_pdf()
+print(compiled.stats())
+
+# One ordered PDF containing 1,000 identical compiled copies. Untagged output
+# virtualizes each source page to one shared content stream.
+print_run = compiled.render_pdf_batch(1_000)
+
+# Distinct fixed-geometry records. Every column must have the same non-zero
+# length, and its key must match a {{slot_name}} found in compiled text.
+invoice_template = engine.compile_pdf(
+    "<p>Invoice: {{invoice_id}}</p><p>Customer: {{customer}}</p>",
+    "body { font-family: Helvetica, sans-serif; }",
+)
+records = {
+    "invoice_id": ["INV-0001", "INV-0002", "INV-0003"],
+    "customer": ["Ada", "Grace", "Katherine"],
+}
+variable_pdf = invoice_template.render_pdf_bindings(records)
+invoice_template.render_pdf_bindings_to_file(records, "invoices.pdf")
+
+# Content-driven records. Ordinary {{slot}} values have literal-DOM semantics.
+# Encountered flow shapes compile on demand; matching later records bind and
+# execute guarded fixed-point programs without repeating layout.
+reflow_css = "body { font-family: Helvetica, sans-serif; }"
+reflow_template = engine.compile_pdf(
+    """
+    <article>
+      <h1>{{account_name}}</h1>
+      <div class="narrative">{{narrative}}</div>
+      <table>
+        <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+        <tbody data-fb-bind-html="rows"></tbody>
+      </table>
+    </article>
+    """,
+    reflow_css,
+)
+reflow_records = {
+    "account_name": ["North", "South"],
+    "narrative": ["Short review.", "A much longer review that may wrap or paginate."],
+    # Explicit structural slots are trusted HTML. They may change child count
+    # and element structure. Generate them from escaped fields or sanitize them
+    # with an allowlist; never pass untrusted HTML directly.
+    "rows": [
+        "<tr><td>A</td><td>$10</td></tr>",
+        "<tr><td>B</td><td>$20</td></tr><tr><td>C</td><td>$30</td></tr>",
+    ],
+}
+reflow_template.render_pdf_reflow_bindings_to_file(
+    reflow_records,
+    "reflow-records.pdf",
+    compression=fullbleed.CompiledFlowCompression.Throughput,
+)
+
+# Choose smaller streams for an archival/file-size-sensitive job. This is a
+# per-call policy and may be mixed safely with throughput jobs in one process.
+compact_pdf = reflow_template.render_pdf_reflow_bindings(
+    reflow_records,
+    compression=fullbleed.CompiledFlowCompression.Compact,
 )
 ```
 
-## Page Geometry Parameters
+Methods:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `page_width` | `str` | Page width as length string (e.g., `"8.5in"`, `"210mm"`) |
-| `page_height` | `str` | Page height as length string |
-| `margin` | `str \| int` | **Single value** margin applied to all sides. Does not accept shorthand. |
-| `page_margins` | `dict` | Per-page margin overrides. Keys: page number (int) or `"n"` for default. Values: dict with `top`, `right`, `bottom`, `left`. |
+- `stats() -> dict` with fixed-program `page_count`, `command_count`, `compile_ms`,
+  `binding_slot_count`, and sorted `binding_slots`, plus `reflow_program_ready`,
+  `reflow_program_error`, `reflow_binding_slot_count`, sorted `reflow_binding_slots`,
+  `reflow_program_node_count`, `reflow_program_binding_text_node_count`, and
+  `reflow_program_html_binding_node_count`, plus `reflow_compression_modes` and
+  `reflow_default_compression`
+- `render_pdf(deterministic_hash=None) -> bytes`
+- `render_pdf_to_file(path, deterministic_hash=None) -> int`
+- `render_pdf_batch(copies, deterministic_hash=None) -> bytes`
+- `render_pdf_bindings(bindings, deterministic_hash=None) -> bytes`
+- `render_pdf_bindings_to_file(bindings, path, deterministic_hash=None) -> int`
+- `render_pdf_reflow_bindings(bindings, deterministic_hash=None, *, compression="throughput") -> bytes`
+- `render_pdf_reflow_bindings_to_file(bindings, path, deterministic_hash=None, *, compression="throughput") -> int`
 
-!!! warning "Margin is a single value"
-    `margin="0.75in"` ✅  
-    `margin="0.75in 1in"` ❌ — shorthand is not supported.  
-    Use `page_margins` for per-side control.
+`CompiledFlowCompression.Throughput` uses a bounded four-step match search for large compiled-flow
+page streams. `CompiledFlowCompression.Compact` uses the deterministic 64-step search. The choice
+is job-local, is included in native performance counters, and does not mutate the engine or process.
 
-## Render Methods
+`render_pdf_batch` is a fixed-copy virtualization API, not a dynamic template-binding API. Each
+page dictionary is distinct and ordered, while identical untagged page content/resources are
+linked once and referenced by every copy. Tagged profiles deliberately use page-specific streams
+so their structure-parent records remain correct. A compiled object is immutable and may be
+rendered concurrently from multiple Python threads.
 
-### `render_pdf(html, css, deterministic_hash=None) → bytes`
+`render_pdf_bindings` is a compiled fixed-geometry variable-data API. Parsing, selector matching,
+layout, pagination, and static page paint run once. The linker shares the static page stream and
+writes one text overlay stream for every record page. Base-14/WinAnsi text uses a compact byte-patch
+program; registered fonts use the preserved command overlay so bound values are shaped and included
+in the embedded subset. It does not copy one immutable page: each binding row produces distinct PDF
+text content.
 
-Renders HTML/CSS to PDF bytes.
+The current binding contract is deliberately narrow:
+
+- slot markers use `{{name}}`, where `name` is at most 64 ASCII letters, digits, `_`, `-`, or `.`;
+- a marker may be embedded in an ordinary text run such as `Invoice: {{invoice_id}}`;
+- the mapping must contain exactly every compiled slot, and all columns must have equal non-zero
+  lengths;
+- slots must lower to page-local text outside form XObjects; immutable page-space transforms and
+  rectangular/path clips are compiled into the dynamic overlay program, while tagged PDF profiles
+  are not accepted by this path;
+- values replace paint text only. Registered-font values are shaped, but no value triggers layout
+  or reflow, so templates must reserve sufficient geometry.
+
+Use `render_pdf_reflow_bindings` when a value can change line wrapping, element dimensions,
+pagination, or complex-script shaping. It preserves the parsed/recovered template blueprint and
+compiles encountered structural/input shapes into guarded fixed-point flow programs. A matching
+record binds its text directly, validates width/spacing/alignment and parent-fit constraints,
+shapes dynamic glyph runs, executes a cached PDF page-paint program, and compresses its page stream
+on the worker. If no candidate is safe, one worker materializes its private DOM and runs full
+layout/fragmentation/pagination once to add a program variant.
+
+Execution uses native Rust scoped threads, not Python multiprocessing, and releases the GIL. The
+default worker count follows available parallelism (`FULLBLEED_THREADS` can override it), the
+in-flight record window is four times the worker count with a hard bound of 256, and the ordered
+linker flushes at most 512 pending flow pages at a time. Completion order therefore cannot change
+record/page order or deterministic bytes.
+
+The reflow binding contract is:
+
+- ordinary `{{name}}` markers are valid only in body text nodes. Values are literal text: `<`, `&`,
+  and other untrusted characters cannot create markup;
+- an empty element may opt into application-generated markup with
+  `data-fb-bind-html="name"`. This trusted structural value replaces the element's children and may
+  contain paragraphs, table rows, options, or other context-appropriate HTML;
+- `data-fb-bind-html` is a security boundary, not an escaping helper. Build structural fragments
+  from escaped scalar fields or pass them through an application-approved HTML allowlist sanitizer.
+  Prefer ordinary `{{name}}` slots for user-controlled values because those bindings remain literal
+  text and cannot introduce elements, scripts, remote resources, or CSS;
+- structural targets must be inside the document body, empty apart from whitespace/comments, and
+  cannot be `script` or `style`; the reserved compiler-root attribute is rejected inside supplied
+  markup;
+- the mapping must contain exactly every reflow slot, and all columns must have equal non-zero
+  lengths;
+- a record executes full layout only when it cannot safely instantiate an existing flow variant.
+  The compiler does not yet use a dependency DAG to limit that miss to the smallest affected
+  subtree, and it does not virtualize repeated variable rows;
+- each record has the same semantics as rendering the fully substituted HTML through the ordinary
+  API. The compiler may therefore produce a different page count for every row.
+
+Use `render_pdf_bindings` for validated paint-only fields where hundreds of thousands of pages per
+second matter and geometry is fixed. Use `render_pdf_reflow_bindings` for compiled template reuse
+with genuine content-driven pagination. Use the ordinary HTML/batch renderer for dynamic
+attributes, selectors, document metadata, or other template changes outside these binding
+contracts. Direct-to-file methods use buffered writers and flush before returning.
+
+Compiled flow pages of at least 4 KiB default to the deterministic four-step Deflate search used by
+the throughput lane; smaller streams retain the compact 64-step encoder. Select
+`CompiledFlowCompression.Compact` per call when smaller large-page output is more important. On the
+independent 1,750-page workload compact mode produced exact ordinary-renderer bytes while throughput
+mode was faster. The former `FULLBLEED_COMPILED_FLOW_DEFLATE_CHAIN` process-global switch is no
+longer needed by the current source API.
+
+Paged-media named strings accept both `string-set: title content()` and the commonly authored
+`string-set: title content(text)` form. `content: string(title)` in an `@page` margin box carries the
+most recent value onto continuation pages. Oversized `break-inside: avoid` boxes relax avoidance in
+the current fragmentainer, and long splittable tables can start in the remainder after a kept
+heading instead of being retried wholesale on a fresh page.
+
+## `AssetBundle`
+
+Container for CSS/font/image/PDF/SVG assets.
+
+- `add(asset)`
+- `add_file(path, kind, name=None, trusted=False, remote=False)`
+- `css() -> str`
+- `assets_info() -> list[dict]`
+
+## `AssetKind`
+
+Class attributes:
+
+- `AssetKind.Css`
+- `AssetKind.Font`
+- `AssetKind.Image`
+- `AssetKind.Pdf`
+- `AssetKind.Svg`
+- `AssetKind.Other`
+
+`Asset.info()` includes kind-specific metadata:
+- `font`: primary font name (font assets)
+- `pdf_version`, `page_count`, `encrypted` (PDF assets)
+- `composition_supported`, `composition_issues` (PDF assets)
+
+## `WatermarkSpec`
+
+Constructor:
 
 ```python
-pdf_bytes = engine.render_pdf(html_string, css_string)
-
-with open("output.pdf", "wb") as f:
-    f.write(pdf_bytes)
-```
-
-### `render_pdf_to_file(html, css, path, deterministic_hash=None) → int`
-
-Renders directly to a file. Returns page count.
-
-```python
-pages = engine.render_pdf_to_file(html, css, "output.pdf")
-print(f"Rendered {pages} pages")
-```
-
-### `render_pdf_with_page_data(html, css) → (bytes, dict | None)`
-
-Renders PDF and returns paginated context data (running totals, counts, etc.).
-
-```python
-pdf_bytes, page_data = engine.render_pdf_with_page_data(html, css)
-# page_data contains per-page aggregated values from paginated_context
-```
-
-### `render_image_pages(html, css, dpi=150) → list[bytes]`
-
-Renders each page as a PNG image. Useful for previews and AI agent workflows.
-
-```python
-pages = engine.render_image_pages(html, css, dpi=150)
-for i, png_bytes in enumerate(pages):
-    with open(f"page_{i+1}.png", "wb") as f:
-        f.write(png_bytes)
-```
-
-### `render_image_pages_to_dir(html, css, out_dir, dpi=150, stem=None) → list[str]`
-
-Renders page images directly to a directory. Returns file paths.
-
-```python
-paths = engine.render_image_pages_to_dir(html, css, "./previews", dpi=200, stem="invoice")
-# paths = ["./previews/invoice_1.png", "./previews/invoice_2.png", ...]
-```
-
-## Batch Rendering
-
-For high-volume rendering, use the parallel batch methods:
-
-### `render_pdf_batch_parallel(...)`
-
-Renders multiple documents in parallel using Rayon threads:
-
-```python
-results = engine.render_pdf_batch_parallel(
-    items=[
-        {"html": html1, "css": css1},
-        {"html": html2, "css": css2},
-        # ...
-    ]
+fullbleed.WatermarkSpec(
+    kind,
+    value,
+    layer="overlay",
+    semantics=None,
+    opacity=0.15,
+    rotation_deg=0.0,
+    font_name=None,
+    font_size=None,
+    color=None,
 )
-# results = [bytes, bytes, ...]
 ```
 
-### `render_pdf_batch_to_file_parallel(...)`
+`kind` is one of: `text`, `html`, `image`.
 
-Same as above but writes directly to files.
+## Helper functions
 
-## PDF Output Options
+- `vendored_asset(source, kind, name=None, trusted=False, remote=False)`
+- `inspect_pdf(path) -> dict`
+- `inspect_template_catalog(templates) -> dict`
+- `fetch_asset(url) -> bytes`
+- `concat_css(parts: list[str]) -> str`
+- `finalize_stamp_pdf(template, overlay, out, page_map=None, dx=0.0, dy=0.0) -> dict`
+- `finalize_compose_pdf(templates, plan, overlay, out) -> dict`
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `pdf_version` | `"1.7"` | PDF version. `"2.0"` enables newer features. |
-| `pdf_profile` | `"none"` | Output profile: `"none"`, `"pdfa2b"`, `"pdfx4"`, `"tagged"` |
-| `color_space` | `"rgb"` | Color space: `"rgb"` or `"cmyk"` |
-| `reuse_xobjects` | `False` | Deduplicate repeated images across pages |
+## Component-driven project pattern
 
-## Font Options
+For component-style reporting:
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `font_dirs` | `list[str]` | Directories to scan for font files |
-| `font_files` | `list[str]` | Specific font file paths to register |
-| `unicode_support` | `bool` | Enable Unicode text support |
-| `shape_text` | `bool` | Enable text shaping (for complex scripts) |
-| `unicode_metrics` | `bool` | Use Unicode metrics for text measurement |
+1. Keep components in `components/`
+2. Keep CSS close to each component (component styles) and compose explicitly
+3. Use a report entry module that builds HTML and CSS deterministically
+4. Render through `PdfEngine` from that entrypoint
 
-## Rendering Options
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `svg_form_xobjects` | `bool` | Render SVGs as PDF form XObjects |
-| `svg_raster_fallback` | `bool` | Rasterize SVGs that can't be vectorized |
-| `jit_mode` | `bool` | Enable JIT compiler diagnostics |
-| `debug` | `bool` | Enable debug output |
-| `debug_out` | `str` | Debug output file path |
-| `perf` | `bool` | Enable performance profiling |
-| `perf_out` | `str` | Performance output file path |
-| `layout_strategy` | `str` | Layout strategy selection |
-
-## Deterministic Hash
-
-Pass a `deterministic_hash` to any render method to get byte-identical output:
-
-```python
-pdf1 = engine.render_pdf(html, css, deterministic_hash="abc123")
-pdf2 = engine.render_pdf(html, css, deterministic_hash="abc123")
-assert pdf1 == pdf2  # Always true
-```
-
-## See Also
-
-- [Headers & Footers →](headers-footers.md)
-- [Paginated Context →](paginated-context.md)
-- [Page Margins →](page-margins.md)
-- [Watermarks →](watermarks.md)
-- [Asset Bundles →](assets.md)
+See scaffold template docs in `python/fullbleed_cli/scaffold_templates/init/SCAFFOLDING.md`.

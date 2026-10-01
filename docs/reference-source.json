@@ -1,0 +1,14 @@
+{
+  "release": "v2.4.0",
+  "commit": "56850a6536f9369e17b2344cbf62848c1c783e10",
+  "pages": {
+    "docs/python-api.md": "engine/pdf-engine.md",
+    "docs/engine.md": "engine/overview.md",
+    "docs/cli.md": "cli/commands.md",
+    "docs/ui-accessibility.md": "ui/overview.md",
+    "docs/css-coverage.md": "css-coverage.md",
+    "docs/pdf-templates.md": "engine/template-composition.md",
+    "docs/pdf-vt.md": "guides/print-output.md",
+    "docs/performance-pass-2026-08-04.md": "guides/performance.md"
+  }
+}
