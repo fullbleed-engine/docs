@@ -1,98 +1,61 @@
-# Quick Start
+---
+description: Copy a small Python script to create your first PDF, then try a complete Fullbleed project with bundled fonts and previews.
+---
+# Create your first PDF
 
-Generate your first PDF in under a minute.
-
-## Option 1: CLI Scaffold
-
-The fastest way to see Fullbleed in action:
+Install Fullbleed into your Python environment:
 
 ```bash
-mkdir my-first-fullbleed
-cd my-first-fullbleed
-fullbleed init .
-python report.py
+python -m pip install fullbleed
 ```
 
-This creates a scaffold project with a sample `report.py` and outputs `output/report.pdf`.
-
-## Option 2: Python Script
-
-Create a file called `hello.py`:
+Save this as `hello.py`:
 
 ```python
+from pathlib import Path
 import fullbleed
 
-engine = fullbleed.PdfEngine(
-    page_width="8.5in",
-    page_height="11in",
-    margin="0.75in",
-)
-
-html = """
-<h1>Invoice #1042</h1>
-<p>Date: March 9, 2026</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Qty</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Widget A</td><td>10</td><td>$25.00</td></tr>
-    <tr><td>Widget B</td><td>5</td><td>$42.00</td></tr>
-    <tr><td>Consulting</td><td>8 hrs</td><td>$150.00</td></tr>
-  </tbody>
-</table>
-
-<p><strong>Total: $1,660.00</strong></p>
-"""
-
-css = """
-body { font-family: Helvetica, sans-serif; color: #1a202c; }
-h1 { color: #2d3748; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th { background: #edf2f7; text-align: left; padding: 8px; border-bottom: 2px solid #cbd5e0; }
-td { padding: 8px; border-bottom: 1px solid #e2e8f0; }
-"""
-
-pdf_bytes = engine.render_pdf(html, css)
-
-with open("invoice.pdf", "wb") as f:
-    f.write(pdf_bytes)
-
-print(f"Generated invoice.pdf ({len(pdf_bytes):,} bytes)")
+html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
+css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }"
+pdf = fullbleed.PdfEngine().render_pdf(html, css)
+Path("invoice.pdf").write_bytes(pdf)
 ```
 
-Run it:
+Run it and open the resulting file:
 
 ```bash
 python hello.py
+python -m fullbleed inspect pdf invoice.pdf --json
 ```
 
-Open `invoice.pdf` — you've just generated a PDF with zero browser dependencies.
+The [font and preview walkthrough](first-pdf.md) shows how to embed the bundled Inter font and preview the finalized PDF.
 
-## Option 3: CLI Render
+## Start with a complete project
 
-If you have separate HTML and CSS files:
+For a component-based report with vendored assets and verification output, run these commands in a new directory:
 
 ```bash
-fullbleed render --html invoice.html --css style.css --out invoice.pdf
+mkdir my-report
+cd my-report
+python -m fullbleed init .
+python report.py
 ```
 
-## What's Different?
+Open `output/report.pdf`. The project includes Python components, CSS, bundled Inter, Bootstrap assets, a PNG preview, and structured diagnostics. Read its `SCAFFOLDING.md` before reorganizing the project.
 
-If you've used wkhtmltopdf, Puppeteer, or WeasyPrint before, here's what you'll notice:
+For a task-specific starter:
 
-1. **No browser process.** Fullbleed renders natively — there's no Chromium download, no headless browser startup time.
-2. **Deterministic output.** Run it twice with the same input, get the same bytes. Every time.
-3. **Page-aware features.** Headers, footers, per-page running totals, and page margins are built into the engine, not CSS hacks.
+```bash
+python -m fullbleed new local invoice my-invoice
+python -m fullbleed new local accessible my-accessible-document
+```
 
-## Next Steps
+## Bring your own HTML and CSS
 
-- [Your First PDF (detailed walkthrough) →](first-pdf.md)
-- [PdfEngine API →](../engine/pdf-engine.md)
-- [Headers & Footers →](../engine/headers-footers.md)
-- [Comparison with other tools →](../guides/comparison.md)
+```bash
+python -m fullbleed render --html invoice.html --css invoice.css --out invoice.pdf
+```
+
+Use explicit local assets. See [supported CSS and known gaps](../css-coverage.md) when adapting an existing template.
+
+[Examples and generated PDFs](../examples.md) · [Python API](../engine/pdf-engine.md) · [CLI reference](../cli/commands.md)

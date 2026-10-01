@@ -1,83 +1,56 @@
-# Installation
+---
+description: Install Fullbleed on Python 3.10–3.14 for Windows, macOS, or Linux using a prebuilt wheel.
+---
+# Install Fullbleed
 
-## Requirements
-
-- **Python 3.8+** (3.11 recommended)
-- **64-bit OS**: Windows, macOS, or Linux
-- No other system dependencies required
-
-## Install via pip
+Fullbleed supports Python 3.10–3.14. Published wheels cover Windows, macOS, and Linux, including the architectures listed below.
 
 ```bash
-pip install fullbleed
+python -m pip install fullbleed
+python -m fullbleed --version
+python -m fullbleed doctor --strict --json
 ```
 
-That's it. No browser binaries, no system font packages, no native compilation required. The package includes pre-built Rust binaries for all major platforms.
+Use `python3` if that is your Python command. The wheel bundles the engine and fonts; the core package has no required third-party Python runtime dependencies.
 
-## Verify Installation
+## Use a virtual environment
 
 ```bash
-fullbleed --help
+python -m venv .venv
 ```
 
-If `fullbleed` is not found in your PATH, try:
+On Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+python -m pip install fullbleed
+```
+
+On macOS or Linux:
 
 ```bash
-python -m fullbleed --help
+source .venv/bin/activate
+python -m pip install fullbleed
 ```
 
-You should see the CLI help output with available commands.
+## Published platforms
 
-## Platform Notes
+| Platform | Wheel targets |
+| --- | --- |
+| Windows | x86-64, x86, ARM64 |
+| macOS | Intel, Apple silicon |
+| Linux, manylinux2014 | x86-64, x86, ARM64, ARMv7, s390x, ppc64le |
+| Linux, musllinux 1.2 | x86-64, x86, ARM64, ARMv7 |
 
-=== "Windows"
-
-    ```bash
-    python -m pip install --upgrade pip
-    python -m pip install fullbleed
-    ```
-
-    Use `python` (not `python3`) on Windows. Make sure you have the 64-bit version of Python.
-
-=== "macOS"
-
-    ```bash
-    python3 -m pip install --upgrade pip
-    python3 -m pip install fullbleed
-    ```
-
-=== "Linux"
-
-    ```bash
-    python3 -m pip install --upgrade pip
-    python3 -m pip install fullbleed
-    ```
-
-    On Ubuntu/Debian, you may need `python3-pip`:
-
-    ```bash
-    sudo apt install -y python3-pip
-    ```
+The stable-ABI wheels cover supported CPython versions. For an unsupported target, a source build requires Rust; [source build instructions](https://github.com/fullbleed-engine/fullbleed-official#install) are in the engine repository.
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| `python: command not found` | Use `python3`, or re-install Python with "Add to PATH" checked |
-| `No module named pip` | Run `python -m ensurepip --upgrade` |
-| Error mentions Rust/cargo/wheel | Upgrade pip first: `pip install --upgrade pip` then retry |
-| Permission errors | Use `pip install --user fullbleed` or a virtual environment |
+| Symptom | Next step |
+| --- | --- |
+| `fullbleed` command is not found | Use `python -m fullbleed` from the environment where you installed it. |
+| pip starts a Rust build | Upgrade pip and check that your Python/platform has a published wheel. |
+| Permission or externally managed environment error | Install inside a virtual environment. |
+| Missing characters | Register a font containing those characters; see [fonts and assets](../engine/assets.md). |
 
-## Virtual Environment (Recommended)
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate  # Linux/macOS
-# .venv\Scripts\activate   # Windows
-pip install fullbleed
-```
-
-## What's Next?
-
-- [Quick Start →](quickstart.md) — Generate your first PDF in 3 commands
-- [PdfEngine API →](../engine/pdf-engine.md) — Full API reference
+[Create your first PDF →](quickstart.md)

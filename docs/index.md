@@ -1,100 +1,87 @@
-# Fullbleed
+---
+title: Python PDF generation with HTML and CSS
+description: Create invoices, reports, and variable-data PDFs with Fullbleed. A deterministic Rust engine, a Python API, prebuilt wheels, and an MIT license.
+hide:
+  - toc
+---
 
-**Deterministic, dependency-free HTML/CSS-to-PDF generation in Rust, with Python-first bindings.**
+<div class="hero" markdown>
+<div markdown>
+<p class="eyebrow">Python + Rust · MIT licensed</p>
+
+# Your data. Your design. Your PDF.
+
+<p class="lead">Turn Python data and HTML/CSS into invoices, reports, and print documents. Start with one install, then grow from a single PDF to a compiled variable-data workflow.</p>
+
+[Make your first PDF](getting-started/quickstart.md){ .md-button .md-button--primary }
+[Explore examples](examples.md){ .md-button }
+
+```bash
+python -m pip install fullbleed
+```
+
+Python 3.10–3.14 · Windows, macOS, Linux
+</div>
+<figure markdown>
+[![An invoice generated with Fullbleed showing itemized services, amounts, and a total.](assets/examples/acme-invoice.png)](assets/examples/acme-invoice.pdf)
+<figcaption>A real generated PDF. <a href="assets/examples/acme-invoice.pdf">Open it</a> · <a href="https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/acme_invoice">Get the source</a></figcaption>
+</figure>
+</div>
+
+<p class="facts">Self-contained wheels &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
+
+## A small first step
+
+Save this as `hello.py`, run `python hello.py`, and open `invoice.pdf`.
+
+```python
+from pathlib import Path
+import fullbleed
+
+html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
+css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }"
+pdf = fullbleed.PdfEngine().render_pdf(html, css)
+Path("invoice.pdf").write_bytes(pdf)
+```
+
+## Pick a document to build
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch:{ .lg .middle } **Get Started in 5 Minutes**
+- **Invoices from your data**
 
-    ---
+    Turn JSON or CSV into itemized invoices. Keep data, layout, and font assets explicit.
 
-    Install Fullbleed and generate your first PDF with three commands.
+    [Invoice guide →](guides/invoices.md)
 
-    [:octicons-arrow-right-24: Quick Start](getting-started/quickstart.md)
+- **Reports that flow across pages**
 
-- :material-code-braces:{ .lg .middle } **Python API**
+    Use headings, tables, page margins, headers, and footers for a document that grows with its content.
 
-    ---
+    [See a five-page report →](examples.md#business-report)
 
-    Full control over page geometry, headers, footers, pagination, and rendering.
+- **One template, many records**
 
-    [:octicons-arrow-right-24: PdfEngine API](engine/pdf-engine.md)
+    Bind stable fields or let changing content reflow through a compiled template.
 
-- :material-file-document-check:{ .lg .middle } **Accessibility**
+    [Variable-data guide →](guides/bank-statements.md)
 
-    ---
+- **Tagged and print-oriented output**
 
-    Built-in tagged PDF/UA output, WCAG 2.0 AA coverage, and evidence bundles.
+    Author semantic content, inspect the output, and retain evidence for the profile checks you run.
 
-    [:octicons-arrow-right-24: Accessibility](accessibility/overview.md)
-
-- :material-robot:{ .lg .middle } **Agent-Ready**
-
-    ---
-
-    JSON schemas, structured diagnostics, and image previews designed for AI agent workflows.
-
-    [:octicons-arrow-right-24: AI Agent Guide](guides/ai-agents.md)
+    [Accessibility →](accessibility/overview.md) · [Print output →](guides/print-output.md)
 
 </div>
 
-## What is Fullbleed?
+## Built for a document pipeline
 
-Fullbleed is an HTML/CSS-to-PDF rendering engine built from scratch in Rust. It uses HTML and CSS as a familiar design language for document layout — but there's **no browser under the hood**. No Chrome, no WebKit, no Puppeteer, no headless anything.
+The wheel bundles a Rust rendering engine, a Python API, a CLI, and fonts. It requires no third-party Python runtime packages. You can render, preview, inspect, and verify in the same workflow.
 
-```bash
-pip install fullbleed
-```
+Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](css-coverage.md) for your templates, and the [tool selection guide](guides/comparison.md) when you also need live browser rendering or general PDF editing.
 
-```python
-import fullbleed
+## Open source, with inspectable evidence
 
-engine = fullbleed.PdfEngine(
-    page_width="8.5in",
-    page_height="11in",
-    margin="0.75in",
-)
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.4.0 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.4.0) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
 
-pdf_bytes = engine.render_pdf(
-    html='<h1>Hello, Fullbleed</h1><p>Your first PDF.</p>',
-    css='h1 { color: #2d3748; font-family: Inter; }',
-)
-
-with open("output.pdf", "wb") as f:
-    f.write(pdf_bytes)
-```
-
-## Why Fullbleed?
-
-| Feature | Fullbleed | wkhtmltopdf | Puppeteer/Playwright | WeasyPrint | Prince |
-|---------|-----------|-------------|---------------------|------------|--------|
-| No browser dependency | ✅ | ❌ Qt WebKit | ❌ Chromium | ✅ | ✅ |
-| Deterministic output | ✅ SHA256 verified | ❌ | ❌ | ❌ | ❌ |
-| Native Rust performance | ✅ | ❌ | ❌ | ❌ (Python) | ❌ (C++) |
-| Python GIL release | ✅ | N/A | N/A | ❌ | N/A |
-| Parallel batch rendering | ✅ Rayon | ❌ | Manual | ❌ | ❌ |
-| Tagged PDF/UA | ✅ | ❌ | ❌ | Partial | ✅ |
-| PDF template composition | ✅ Native | ❌ | ❌ | ❌ | ❌ |
-| Headers/footers w/ page data | ✅ Built-in | Basic | JS injection | CSS @page | CSS @page |
-| Per-page running totals | ✅ | ❌ | ❌ | ❌ | ❌ |
-| AI/agent-safe JSON output | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Free / OSS | ✅ AGPL | ✅ | ✅ | ✅ | ❌ $3,800 |
-
-## Key Features
-
-- **No system dependencies.** `pip install fullbleed` and you're done. No browser binaries, no system font packages, no Docker workarounds.
-- **Deterministic rendering.** Same input = same output, byte-for-byte. Verify with `--repro-record` / `--repro-check`.
-- **Built for documents, not web pages.** Page geometry, margins, headers/footers, paginated context (running totals, subtotals per page), watermarks — all first-class.
-- **PDF template composition.** Overlay rendered content onto existing PDF templates without a separate composition library.
-- **Parallel batch rendering.** Rayon-backed concurrency. Python GIL released on every render call.
-- **Accessibility built in.** Tagged PDF output, WCAG 2.0 AA coverage, Section 508 support, evidence bundles.
-- **Agent-ready.** Structured JSON diagnostics, image preview rendering, schema output for CI and AI agents.
-
-## License
-
-Fullbleed is dual-licensed:
-
-- **AGPL-3.0** for open source use
-- **Commercial license** available for proprietary/closed-source production
-
-[Contact us](https://fullbleed.dev/contact) for commercial licensing.
+[Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues)
