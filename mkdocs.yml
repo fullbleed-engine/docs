@@ -66,7 +66,8 @@ copyright: 'Fullbleed Engine · MIT licensed'
 nav:
   - Home: index.md
   - Get started:
-    - Try in your browser: getting-started/notebook.md
+    - Try in your browser: playground.md
+    - Python notebook: getting-started/notebook.md
     - Install: getting-started/installation.md
     - Your first PDF: getting-started/quickstart.md
     - Fonts and previews: getting-started/first-pdf.md

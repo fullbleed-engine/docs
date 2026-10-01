@@ -7,6 +7,8 @@ description: Edit invoice data, generate a PDF, preview it, and download it in a
 Make a real PDF invoice in a notebook. Edit the customer and line items, change
 the HTML/CSS, then render, preview, and download the result.
 
+For an instant HTML/CSS editor with no sign-in, [try the local browser playground](../playground.md).
+
 [Open the notebook in Colab](https://colab.research.google.com/github/fullbleed-engine/fullbleed-official/blob/master/examples/notebooks/first_invoice.ipynb){ .md-button .md-button--primary }
 [View the source](https://github.com/fullbleed-engine/fullbleed-official/blob/master/examples/notebooks/first_invoice.ipynb){ .md-button }
 

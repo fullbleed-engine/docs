@@ -4,12 +4,20 @@ Published at https://docs.fullbleed.dev/ using GitHub Pages.
 
 ```bash
 python -m pip install -r requirements.txt
+rustup target add wasm32-wasip1
+python tools/build_playground.py
+node tools/verify_playground.mjs
 python -m mkdocs build --strict
 python tools/check_site.py site
 python -m mkdocs serve
 ```
 
 Changes to `main` build, check internal links and metadata, then deploy through `.github/workflows/docs.yml`. Pull requests run the same build checks without deployment.
+
+The browser playground build needs Rust and Node 20 or newer. CI uses Rust
+1.97.0 and Node 22. Its locked adapter compiles the published engine; it does not
+modify or vendor the engine source. See [playground/README.md](playground/README.md)
+for limits, privacy behavior, and native/WASI verification.
 
 ## Updating a release
 

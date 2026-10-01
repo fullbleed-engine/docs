@@ -15,6 +15,8 @@ public **Fullbleed 2.4.0** wheel. All sample data and organizations are fictiona
 [Download all template sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
 
+[Edit these designs in your browser](playground.md){ .md-button }
+
 ## Northstar Studio invoice { #styled-invoice }
 
 <div class="showcase-entry" markdown>

@@ -13,7 +13,7 @@ hide:
 
 <p class="lead">Turn Python data and HTML/CSS into invoices, reports, and print documents. Start with one install, then grow from a single PDF to a compiled variable-data workflow.</p>
 
-[Try in your browser](getting-started/notebook.md){ .md-button .md-button--primary }
+[Try in your browser](playground.md){ .md-button .md-button--primary }
 [Install locally](getting-started/quickstart.md){ .md-button }
 
 ```bash
