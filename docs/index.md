@@ -23,8 +23,8 @@ python -m pip install fullbleed
 Python 3.10–3.14 · Windows, macOS, Linux
 </div>
 <figure markdown>
-[![An invoice generated with Fullbleed showing itemized services, amounts, and a total.](assets/examples/acme-invoice.png)](assets/examples/acme-invoice.pdf)
-<figcaption>A real generated PDF. <a href="assets/examples/acme-invoice.pdf">Open it</a> · <a href="https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/acme_invoice">Get the source</a></figcaption>
+[![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
+<figcaption>A real generated PDF. <a href="assets/showcase/invoice.pdf">Open it</a> · <a href="examples/">Explore the designed showcase</a></figcaption>
 </figure>
 </div>
 
@@ -58,7 +58,7 @@ Path("invoice.pdf").write_bytes(pdf)
 
     Use headings, tables, page margins, headers, and footers for a document that grows with its content.
 
-    [See a five-page report →](examples.md#business-report)
+    [See the illustrated report →](examples.md#business-report)
 
 - **One template, many records**
 

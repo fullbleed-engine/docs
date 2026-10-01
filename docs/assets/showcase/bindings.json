@@ -1,0 +1,42 @@
+{
+  "member_name": [
+    "Jordan Ellis",
+    "Maya Chen",
+    "Avery Morgan"
+  ],
+  "address": [
+    "742 Summit Lane, Riverton",
+    "18 Willow Court, Riverton",
+    "96 Orchard Road, Riverton"
+  ],
+  "account_id": [
+    "HC-104829",
+    "HC-104830",
+    "HC-104831"
+  ],
+  "opening_balance": [
+    "$320.00",
+    "$650.00",
+    "$910.00"
+  ],
+  "first_balance": [
+    "$445.00",
+    "$775.00",
+    "$1,035.00"
+  ],
+  "second_balance": [
+    "$570.00",
+    "$900.00",
+    "$1,160.00"
+  ],
+  "closing_balance": [
+    "$520.00",
+    "$850.00",
+    "$1,110.00"
+  ],
+  "bal": [
+    "$520.00",
+    "$850.00",
+    "$1,110.00"
+  ]
+}

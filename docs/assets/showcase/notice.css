@@ -1,0 +1,51 @@
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: Inter; font-size: 10pt; line-height: 1.45; color: #17382e; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+.page { width: 210mm; height: 296.9mm; padding: 15mm 16mm; position: relative; break-after: page; background: #f8f5ec; }
+.page:last-child { break-after: auto; }
+.kicker { font-size: 7.2pt; font-weight: 600; letter-spacing: 1.4pt; text-transform: uppercase; }
+.serif { font-family: 'DM Serif Display'; font-weight: 400; }
+.display { font-family: 'Bebas Neue'; font-weight: 400; }
+.muted { color: #5b6c64; }
+.small { font-size: 8pt; }
+.rule { border-top: .6pt solid #9eafa4; }
+.row { display: flex; justify-content: space-between; gap: 16pt; }
+.grid-2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24pt; }
+.grid-2 > * { min-width: 0; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16pt; }
+.footer { position: absolute; left: 16mm; right: 16mm; bottom: 12mm; border-top: .6pt solid #9eafa4; padding-top: 8pt; display: flex; justify-content: space-between; gap: 12pt; font-size: 6.6pt; letter-spacing: .45pt; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th { font-size: 7.5pt; font-weight: 600; text-align: left; }
+th, td { padding: 10pt 0; border-bottom: .55pt solid #bdc8bf; vertical-align: top; }
+.number { text-align: right; white-space: nowrap; }
+.money { font-variant-numeric: tabular-nums; }
+strong { font-weight: 600; }
+a { color: inherit; }
+
+.notice { color: #123c79; background: #f6f5ef; }
+.notice .masthead { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18pt; border-bottom: 1pt solid #426eaa; }
+.notice .brand { font: 26pt/1.05 'DM Serif Display'; }
+.notice .masthead .kicker { font-size: 6.6pt; line-height: 1.7; }
+.notice .notice-title { display: grid; grid-template-columns: 2.3fr 1fr; gap: 22pt; padding: 23pt 0 18pt; }
+.notice h1 { font: 47pt/.95 'Bebas Neue'; margin-top: 9pt; }
+.notice .date { border-left: 1pt solid #6485b2; padding-left: 18pt; }
+.notice .date strong { font: 34pt/1 'Bebas Neue'; display: block; }
+.notice .date strong span { display: block; line-height: 1; }
+.notice .date .time { font: 14pt/1.2 'Bebas Neue'; margin-top: 9pt; }
+.notice .intro { font: 18pt/1.18 'DM Serif Display'; margin-bottom: 20pt; }
+.notice .alert { background: #143e7b; color: white; padding: 20pt 22pt; border-left: 5pt solid #dcb845; margin-bottom: 23pt; }
+.notice .alert p { font-size: 11pt; margin-top: 7pt; line-height: 1.5; }
+.notice h2 { font-size: 8.5pt; font-weight: 600; letter-spacing: 1.2pt; text-transform: uppercase; margin-bottom: 10pt; }
+.notice .details { font-size: 9.5pt; line-height: 1.55; }
+.notice .details > div + div { border-left: .65pt solid #8ba2bd; padding-left: 22pt; }
+.notice ul { padding-left: 13pt; margin: 0; }
+.notice li { margin-bottom: 7pt; }
+.notice .help { background: #e0e9f2; padding: 15pt; margin-top: 17pt; }
+.notice .help p { font-size: 8.5pt; line-height: 1.6; }
+.notice .timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12pt; margin-top: 28pt; padding-top: 13pt; border-top: 2pt solid #1c4a86; }
+.notice .timeline strong { display: block; font: 16pt 'Bebas Neue'; }
+.notice .timeline p { font-size: 8pt; margin-top: 4pt; }
+.notice .footer { border-color: #7d9bbf; }
