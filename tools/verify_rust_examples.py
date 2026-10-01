@@ -13,7 +13,10 @@ ASSETS = ROOT / "docs/assets"
 
 
 def run(args, cwd=ROOT):
-    return subprocess.run(args, cwd=cwd, check=True, text=True, capture_output=True)
+    result = subprocess.run(args, cwd=cwd, text=True, capture_output=True, encoding="utf-8")
+    if result.returncode:
+        raise SystemExit(f"{' '.join(args)} failed:\n{result.stdout}\n{result.stderr}")
+    return result
 
 
 def sha256(path):
