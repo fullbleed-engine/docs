@@ -1,6 +1,6 @@
 # CLI Reference
 
-Reference imported from [v2.5.0](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.0/docs/cli.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.0](https://github.com/fullbleed-engine/fullbleed-official/blob/c2f14da5b475d721e48a648462ca7852e26c5aec/docs/cli.md). Check the installed runtime for your exact version.
 
 Executable entrypoint:
 
@@ -96,7 +96,6 @@ High-value options:
 
 - input: `--html` / `--html-str`, `--css`, `--css-str`
 - output: `--out`
-- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](../guides/render-watch.md)
 - assets: `--asset`, `--asset-kind`, `--asset-name`, `--asset-trusted`
 - template compose (auto-finalize): `--template-binding`, `--templates`, `--template-dx`, `--template-dy`
 - page/pdf: `--page-size`, `--page-width`, `--page-height`, `--margin`, `--pdf-version`, `--pdf-profile`
@@ -104,6 +103,7 @@ High-value options:
 - image artifacts: `--emit-image`, `--image-dpi`
 - policy: `--profile`, `--fail-on`, `--allow-fallbacks`, budget flags
 - reproducibility: `--deterministic-hash`, `--repro-record`, `--repro-check`
+- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](https://github.com/fullbleed-engine/fullbleed-official/blob/c2f14da5b475d721e48a648462ca7852e26c5aec/docs/render-watch.md)
 
 Template auto-compose notes:
 - When `--templates` is set on `render`, CLI renders overlay, resolves template bindings, and finalizes via Rust compose in one command.

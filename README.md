@@ -16,7 +16,7 @@ Changes to `main` build, check internal links and metadata, then deploy through 
 Reference pages come from the engine repository's release tag. Keep hand-authored introductions and guides here; import API, CLI, CSS, architecture, print, and performance references with:
 
 ```bash
-python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.4.0
+python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.5.0
 ```
 
 `docs/reference-source.json` records the exact source commit. Use a built, installed release wheel to rerun examples and review the final PDFs and previews before replacing downloadable artifacts. `docs/assets/examples/verification.json` records the checks performed on published examples.
