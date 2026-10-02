@@ -7,7 +7,9 @@ const examples = new Set(['invoice', 'report', 'notice']);
 
 async function fetchBytes(path) {
   let response;
-  try { response = await fetch(new URL(path, import.meta.url)); }
+  const url = new URL(path, import.meta.url);
+  url.search = new URL(import.meta.url).search;
+  try { response = await fetch(url); }
   catch { throw new Error('Could not load the project files. Check your connection and try Download project again.'); }
   if (!response.ok) throw new Error('Could not load the project files. Check your connection and try Download project again.');
   return new Uint8Array(await response.arrayBuffer());

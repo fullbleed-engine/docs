@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { buildProject } from '../docs/assets/playground/project-export.js';
 import { storeZip } from '../docs/assets/playground/zip-store.js';
 import { render } from '../docs/assets/playground/renderer.js';
@@ -65,8 +65,24 @@ await assert.rejects(buildProject(snapshot, async path => {
   if (path === 'project/render.py') throw new Error('Simulated asset download failure');
   return load(path);
 }), /Simulated asset download failure/);
-await buildProject(snapshot, load); // A failed download must not poison a later attempt.
+const recovered = await buildProject(snapshot, load); // A failed download must not poison a later attempt.
+// Exercise the production fetch path with a versioned module, as used by the page.
+const { buildProject: versionedBuild } = await import('../docs/assets/playground/project-export.js?v=cache-check');
+const originalFetch = globalThis.fetch;
+const fetched = [];
+try {
+  globalThis.fetch = async value => {
+    const url = new URL(value);
+    fetched.push(url);
+    return new Response(await load(relative(assets, fileURLToPath(url))), { status: 200 });
+  };
+  assert.deepEqual(await versionedBuild(snapshot), recovered, 'Versioned asset URLs changed the project bytes');
+  assert(fetched.length > 0 && fetched.every(url => url.search === '?v=cache-check'), 'Project assets lost their cache generation');
+} finally {
+  globalThis.fetch = originalFetch;
+}
 const result = { ok: true, cases, checks: ['ZIP replay is byte-identical', 'Unsafe and duplicate archive filenames are rejected',
-  'Changed font bytes reject the export', 'Asset failure rejects the export and a subsequent attempt succeeds'] };
+  'Changed font bytes reject the export', 'Asset failure rejects the export and a subsequent attempt succeeds',
+  'Project assets preserve the module URL cache generation'] };
 await writeFile(join(output, 'export-verification.json'), JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify(result));

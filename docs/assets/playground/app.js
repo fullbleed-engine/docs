@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
-import { buildProject } from './project-export.js';
 import { prepareExample } from './examples.js';
+
+const assetGeneration = new URL(import.meta.url).search;
+const { buildProject } = await import(`./project-export.js${assetGeneration}`);
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
@@ -83,7 +85,9 @@ function startRender() {
   document.querySelector('.pg-output').setAttribute('aria-busy', 'true');
   status('Loading the engine and fonts…');
   try {
-    worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
+    const workerUrl = new URL('./worker.js', import.meta.url);
+    workerUrl.search = assetGeneration;
+    worker = new Worker(workerUrl, { type: 'module' });
     // Asset downloads have a separate allowance from the 30-second render limit.
     deadline = setTimeout(() => fail('The engine download took too long. Check your connection and retry.'), 90000);
     worker.onerror = () => fail('The playground could not start. Reload this page or use the Python quickstart below.');
