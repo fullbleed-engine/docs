@@ -8,7 +8,7 @@ Fullbleed's optional Node package renders static HTML/CSS into PDFs using a
 bundled WebAssembly build of the Rust engine. It includes fonts and runs locally;
 you do not need Python, Rust, or a browser to use the installed package.
 
-This guide uses **Node package 0.1.0**, powered by **Fullbleed 2.5.4**. The
+This guide uses **Node package 0.1.1**, powered by **Fullbleed 2.5.5**. The
 integration and core engine have separate versions.
 
 ## Create your first PDF
@@ -16,7 +16,7 @@ integration and core engine have separate versions.
 With Node.js 22 or newer, install the versioned GitHub release:
 
 ```bash
-npm install https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.0/fullbleed-0.1.0.tgz
+npm install https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.1/fullbleed-0.1.1.tgz
 ```
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -63,7 +63,18 @@ customer name before inserting it into the document. All example data is fiction
 The lockfile pins the package tarball and its integrity hash.
 
 The layout uses the bundled Inter, DM Serif Display, and Bebas Neue families.
-You can also explore the [three-page report sources](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.1.0/examples/report.html).
+
+## Style a report with gradients
+
+[![Report page with serif headings, large summary figures, gradient chart bars, and a numbered footer.](../assets/node/report-2.png)](../assets/node/report.pdf)
+
+This page comes from the package's three-page report. The chart uses CSS
+`linear-gradient(180deg, #d9bc77, #a9b884)`; the image above is a native preview
+of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing from
+these PNG previews in earlier releases.
+
+[Open the report PDF](../assets/node/report.pdf){ .md-button }
+[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.1/examples){ .md-button }
 
 ## Bring fonts and image assets
 
@@ -74,7 +85,7 @@ in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
 
 The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
-[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.0#fonts-and-assets)
+[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.1#fonts-and-assets)
 includes a complete font and asset example.
 
 ## Use it in an application
@@ -90,9 +101,6 @@ rejected. Use registered font families: unavailable CSS families can fall back,
 and the engine's glyph report does not establish visual correctness. Review the
 final PDF and previews when adapting a design.
 
-Linear-gradient fills can appear in the PDF but be absent from PNG previews in
-this engine version. Use solid fills when both outputs need to match.
-
 This first Node API covers ordinary PDF rendering and previews. Use the
 [Python API](../engine/pdf-engine.md) or [Rust crate](rust.md) for profiles,
 template overlays, and compiled variable-data workflows. Unknown Node options
@@ -106,5 +114,5 @@ fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
-[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.0) ·
+[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.1) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)
