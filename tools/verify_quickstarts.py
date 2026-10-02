@@ -14,11 +14,11 @@ import fullbleed
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = [
-    ("index.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], False),
-    ("getting-started/quickstart.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], False),
+    ("index.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
+    ("getting-started/quickstart.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
     ("getting-started/first-pdf.md", "output/invoice.pdf", [("Service invoice", "INV-1042", "USD 1,200.00")], True),
     ("engine/assets.md", "registered-font.pdf", [("Quarterly statement",)], True),
-    ("guides/bank-statements.md", "statements.pdf", [("ST-001", "Ada"), ("ST-002", "Grace")], False),
+    ("guides/bank-statements.md", "statements.pdf", [("ST-001", "Ada"), ("ST-002", "Grace")], True),
 ]
 
 

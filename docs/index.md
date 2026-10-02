@@ -37,14 +37,23 @@ Using Rust? [Start with the native crate](getting-started/rust.md).
 Save this as `hello.py`, run `python hello.py`, and open `invoice.pdf`.
 
 ```python
+from importlib.resources import files
 from pathlib import Path
 import fullbleed
 
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
 html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
-css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }"
-pdf = fullbleed.PdfEngine().render_pdf(html, css)
+css = """
+@page { size: A4; margin: 20mm; }
+body { font-family: Inter; color: #203a36; }
+h1 { color: #175c52; }
+"""
+pdf = engine.render_pdf(html, css)
 Path("invoice.pdf").write_bytes(pdf)
 ```
+
+The example embeds the Inter font included with Fullbleed.
 
 ## Pick a document to build
 
