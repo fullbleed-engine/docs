@@ -52,12 +52,12 @@
       "sha256": "9dcfaa3cda453c6902629293e2a24ece7205cae71b1aa3877da8cda1c712cc3b"
     },
     "report.css": {
-      "bytes": 2781,
-      "sha256": "656cda437f5572dc80667f1d2845ed7eaa1e415bb4ef1cd44018ebd20de904e0"
+      "bytes": 2744,
+      "sha256": "882d2c6096bbe90adbff71d3687aef8c4489af79d102d89662b52b49b71a1d1f"
     },
     "report.html": {
-      "bytes": 9407,
-      "sha256": "8f0f8bd45eb9dfa39889b43e8e1fe43e606ed33b6a4624eaecf09785e43204c0"
+      "bytes": 9060,
+      "sha256": "08fbf49aeeb9f270ac6e6347ff247dd0b58d252300932943d722f9a4519fbef5"
     },
     "report.pdf": {
       "bytes": 196969,
