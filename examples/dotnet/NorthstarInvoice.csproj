@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FullBleed.DotNet" Version="0.1.1" />
+    <None Include="../../docs/assets/showcase/invoice.html" Link="Assets/invoice.html" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../docs/assets/showcase/invoice.css" Link="Assets/invoice.css" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../docs/assets/playground/fonts/*" Link="Assets/fonts/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

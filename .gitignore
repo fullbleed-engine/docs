@@ -11,3 +11,5 @@ examples/rust/target/
 examples/rust/verification/
 /output/
 /invoice.pdf
+examples/dotnet/bin/
+examples/dotnet/obj/
