@@ -1,7 +1,7 @@
 # A designed invoice from Node.js
 
-This fictional Northstar Studio invoice uses Fullbleed's Node package 0.1.0,
-which bundles the Fullbleed 2.5.4 engine and Inter, DM Serif Display, and Bebas
+This fictional Northstar Studio invoice uses Fullbleed's Node package 0.1.1,
+which bundles the Fullbleed 2.5.5 engine and Inter, DM Serif Display, and Bebas
 Neue fonts. You need Node.js 22 or newer; no Python or Rust installation is needed.
 
 ```bash
