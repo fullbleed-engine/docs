@@ -61,6 +61,18 @@ jobs:
           python -m venv output/reference-env
           output/reference-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.4
           output/reference-env/bin/python -I tools/verify_quickstarts.py
+      - name: Verify the downloadable Node invoice and guide
+        run: python tools/verify_node_examples.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: node-guide-verification
+          path: |
+            output/node-verification/*.json
+            output/node-verification/*.txt
+            output/node-verification/**/*.pdf
+            output/node-verification/**/*.png
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
