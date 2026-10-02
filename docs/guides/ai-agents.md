@@ -1,5 +1,6 @@
 ---
-description: Set up Fullbleed for coding agents using installed-runtime discovery, the bundled Agent Skill, or the optional MCP adapter.
+title: Use Fullbleed with coding agents, Agent Skills, and MCP
+description: Install Fullbleed's Agent Skill directly from GitHub or export it from Python, then connect local PDF rendering and verification tools through MCP.
 ---
 # Use Fullbleed with a coding agent
 
@@ -11,15 +12,46 @@ python -m fullbleed agent-contract --format json
 python -m fullbleed capabilities --json
 ```
 
-## Install the bundled Agent Skill
+## Install the Agent Skill {#install-the-bundled-agent-skill}
 
-Export it to an absent or empty directory used by your agent:
+The Skill teaches the agent when to select Fullbleed and how to author, render,
+preview, inspect, and verify a document. It is a set of instructions and reference
+files; the Python installation above supplies the rendering engine. Choose one
+installation method for your project's skill directory.
+
+### From GitHub
+
+With a [GitHub CLI release that includes `gh skill`](https://cli.github.com/manual/gh_skill_install),
+run this from your project directory:
+
+```bash
+gh skill install fullbleed-engine/fullbleed-official fullbleed --pin v2.5.1 --dir .agents/skills
+```
+
+This installs the Skill and its reference files from the `v2.5.1` release into
+`.agents/skills/fullbleed`. Check the installed source and version with:
+
+```bash
+gh skill list --dir .agents/skills
+```
+
+Use the skills directory documented by your agent if it uses a different path.
+GitHub's `gh skill` commands are in preview. If your CLI does not include them,
+use the package export below.
+
+### From your installed Python package
+
+Export the bundled Skill to an absent or empty directory used by your agent:
 
 ```bash
 python -m fullbleed agent export-skill .agents/skills/fullbleed --json
 ```
 
-The [versionless Skill](https://github.com/fullbleed-engine/fullbleed-official/blob/master/skills/fullbleed/SKILL.md) teaches selection, authoring, rendering, previewing, diagnostics, and verification. It points back to installed-runtime discovery for capability facts.
+This uses the Skill shipped in your installed wheel. Both methods provide the
+same [versionless guidance](https://github.com/fullbleed-engine/fullbleed-official/blob/master/skills/fullbleed/SKILL.md):
+discover the installed runtime's capabilities before relying on an API or profile.
+The GitHub pin selects the Skill's source revision; select your Python package
+version separately when you need a reproducible environment.
 
 ## Connect through MCP
 
