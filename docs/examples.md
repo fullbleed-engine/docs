@@ -9,10 +9,11 @@ Four document families. Four visual identities. These examples use Fullbleed's
 embedded typography, grids, tables, color, and vector graphics to turn structured
 data into finished pages.
 
-Every preview below comes from the actual downloadable PDF, generated with the
-public **Fullbleed 2.4.0** wheel. All sample data and organizations are fictional.
+Every preview comes from the actual downloadable PDF. The first four examples
+were generated with the public **Fullbleed 2.4.0** wheel; the pandas report below
+uses **2.5.2**. All sample data and organizations are fictional.
 
-[Download all template sources](assets/showcase/source.zip){ .md-button .md-button--primary }
+[Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
 
 [Edit these designs in your browser](playground.md){ .md-button }
@@ -145,6 +146,31 @@ visually reviewed.
 
 These templates have deliberate page budgets. Review the rendered pages after
 changing content, fonts, or row counts.
+
+## Gridline product report from pandas
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Gridline product report with summary metrics, orange SVG category bars, and a striped product ledger.](assets/pandas-report/report-1.png)](assets/pandas-report/report.pdf)
+</figure>
+<div markdown>
+
+**Two pages · 40 DataFrame rows · Repeated table headers**
+
+Turn a pandas DataFrame or CSV into a landscape report with a large headline,
+summary panels, category comparisons, and a paginated product ledger. Integer
+cents become formatted amounts; missing dates become em dashes. Page numbers
+and repeated headers keep the ledger readable across pages.
+
+Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample data.
+
+[Open the PDF](assets/pandas-report/report.pdf){ .md-button }
+[Build this report](guides/pandas-to-pdf.md){ .md-button }
+
+[Complete source](assets/pandas-report/source.zip) · [Preview page 2](assets/pandas-report/report-2.png)
+
+</div>
+</div>
 
 ## Smaller starting points
 

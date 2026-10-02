@@ -1,0 +1,201 @@
+{
+  "ok": true,
+  "engine": "2.5.2",
+  "pandas": "3.0.6",
+  "sample_pages": 2,
+  "long_pages": 6,
+  "sample_rows": 40,
+  "long_rows": 120,
+  "sample_sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98",
+  "checks": [
+    "40 rows preserved in order",
+    "two-page sample with repeated headers and footers",
+    "sample totals and Unicode text",
+    "identical PDF bytes across separate processes",
+    "nullable values normalize without mutating the DataFrame",
+    "literal markup, accented text, negative amounts, and missing dates survive rendering",
+    "120 rows with wrapped names paginate without dropping or duplicating records",
+    "empty data, duplicate SKUs, and missing columns are rejected",
+    "source overflow, missing-glyph, and font-substitution gates pass"
+  ],
+  "scope": "These fixtures, fonts, and versions; inspect previews after changing data or CSS. No standards-conformance claim.",
+  "source_repository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "source_commit": "0e5a8650ac2fee9bbe42e1a60272e8974595c998",
+  "checked_at": "2026-10-02T04:17:04.493596+00:00",
+  "font_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+  "local_environment": {
+    "os": "Windows",
+    "python": "3.11",
+    "engine": "2.5.2",
+    "pandas": "3.0.6"
+  },
+  "visual_review": {
+    "sample_pages": 2,
+    "edge_pages": 1,
+    "long_pages": 6,
+    "total_pages": 9,
+    "result": "All nine distinct fixture pages reviewed; no clipped text, overlap, or orphan source-note page."
+  },
+  "guide_script_executed": true,
+  "extracted_download_reproduced_pdf": true,
+  "artifacts": {
+    "products.csv": {
+      "bytes": 2420,
+      "sha256": "559901ddf863989e1498ac8a7fa725f2f77c7547232781c58b0e84b737b10265"
+    },
+    "report-1.png": {
+      "bytes": 231464,
+      "sha256": "a190ab390bd4b24d8821ebdff89f11bae57bc2fbba894fa2f48cc717236063f7"
+    },
+    "report-2.png": {
+      "bytes": 262512,
+      "sha256": "9dcfaa3cda453c6902629293e2a24ece7205cae71b1aa3877da8cda1c712cc3b"
+    },
+    "report.css": {
+      "bytes": 2781,
+      "sha256": "656cda437f5572dc80667f1d2845ed7eaa1e415bb4ef1cd44018ebd20de904e0"
+    },
+    "report.html": {
+      "bytes": 9407,
+      "sha256": "8f0f8bd45eb9dfa39889b43e8e1fe43e606ed33b6a4624eaecf09785e43204c0"
+    },
+    "report.pdf": {
+      "bytes": 196969,
+      "sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98"
+    },
+    "source.zip": {
+      "bytes": 10391,
+      "sha256": "ed7c5d04c5fd6f669f7f6962d69bc87a76200399b700456fe183754d32abfeda"
+    }
+  },
+  "source_files": {
+    "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "examples/pandas_report/README.md": "5fdb8b9946120eb188f9915bcc8f36848581c26c14ec8cf9b29d2dda633c1020",
+    "examples/pandas_report/products.csv": "559901ddf863989e1498ac8a7fa725f2f77c7547232781c58b0e84b737b10265",
+    "examples/pandas_report/report.py": "3b439d594044de2b40aae8a3f8f6cea87e0cac1b1c7df1c05f6116ed57aaefcf",
+    "examples/pandas_report/report.css": "882d2c6096bbe90adbff71d3687aef8c4489af79d102d89662b52b49b71a1d1f",
+    "examples/pandas_report/requirements.txt": "8636c6dc9cfe0a90a0de3669ca40fa0bea22d41e75d72171fc4512d6d47f67a5",
+    "examples/pandas_report/verify.py": "3805efbd0e4cedfd54f634eb26ba95f6e2621b709af63f7aee944456a07fe175"
+  },
+  "ci": {
+    "url": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/36963830351",
+    "source_commit": "0e5a8650ac2fee9bbe42e1a60272e8974595c998",
+    "conclusion": "success",
+    "python": "3.11",
+    "matrix": [
+      {
+        "artifact": "pandas-report-Linux-2.3.3",
+        "ok": true,
+        "engine": "2.5.2",
+        "pandas": "2.3.3",
+        "sample_pages": 2,
+        "long_pages": 6,
+        "sample_rows": 40,
+        "long_rows": 120,
+        "sample_sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98",
+        "checks": [
+          "40 rows preserved in order",
+          "two-page sample with repeated headers and footers",
+          "sample totals and Unicode text",
+          "identical PDF bytes across separate processes",
+          "nullable values normalize without mutating the DataFrame",
+          "literal markup, accented text, negative amounts, and missing dates survive rendering",
+          "120 rows with wrapped names paginate without dropping or duplicating records",
+          "empty data, duplicate SKUs, and missing columns are rejected",
+          "source overflow, missing-glyph, and font-substitution gates pass"
+        ],
+        "scope": "These fixtures, fonts, and versions; inspect previews after changing data or CSS. No standards-conformance claim."
+      },
+      {
+        "artifact": "pandas-report-Linux-3.0.6",
+        "ok": true,
+        "engine": "2.5.2",
+        "pandas": "3.0.6",
+        "sample_pages": 2,
+        "long_pages": 6,
+        "sample_rows": 40,
+        "long_rows": 120,
+        "sample_sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98",
+        "checks": [
+          "40 rows preserved in order",
+          "two-page sample with repeated headers and footers",
+          "sample totals and Unicode text",
+          "identical PDF bytes across separate processes",
+          "nullable values normalize without mutating the DataFrame",
+          "literal markup, accented text, negative amounts, and missing dates survive rendering",
+          "120 rows with wrapped names paginate without dropping or duplicating records",
+          "empty data, duplicate SKUs, and missing columns are rejected",
+          "source overflow, missing-glyph, and font-substitution gates pass"
+        ],
+        "scope": "These fixtures, fonts, and versions; inspect previews after changing data or CSS. No standards-conformance claim."
+      },
+      {
+        "artifact": "pandas-report-Windows-2.3.3",
+        "ok": true,
+        "engine": "2.5.2",
+        "pandas": "2.3.3",
+        "sample_pages": 2,
+        "long_pages": 6,
+        "sample_rows": 40,
+        "long_rows": 120,
+        "sample_sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98",
+        "checks": [
+          "40 rows preserved in order",
+          "two-page sample with repeated headers and footers",
+          "sample totals and Unicode text",
+          "identical PDF bytes across separate processes",
+          "nullable values normalize without mutating the DataFrame",
+          "literal markup, accented text, negative amounts, and missing dates survive rendering",
+          "120 rows with wrapped names paginate without dropping or duplicating records",
+          "empty data, duplicate SKUs, and missing columns are rejected",
+          "source overflow, missing-glyph, and font-substitution gates pass"
+        ],
+        "scope": "These fixtures, fonts, and versions; inspect previews after changing data or CSS. No standards-conformance claim."
+      },
+      {
+        "artifact": "pandas-report-Windows-3.0.6",
+        "ok": true,
+        "engine": "2.5.2",
+        "pandas": "3.0.6",
+        "sample_pages": 2,
+        "long_pages": 6,
+        "sample_rows": 40,
+        "long_rows": 120,
+        "sample_sha256": "1db0dd18ddcd25e2a88329dfa181689994fcb9969d52f6cb2d11ece73fac8d98",
+        "checks": [
+          "40 rows preserved in order",
+          "two-page sample with repeated headers and footers",
+          "sample totals and Unicode text",
+          "identical PDF bytes across separate processes",
+          "nullable values normalize without mutating the DataFrame",
+          "literal markup, accented text, negative amounts, and missing dates survive rendering",
+          "120 rows with wrapped names paginate without dropping or duplicating records",
+          "empty data, duplicate SKUs, and missing columns are rejected",
+          "source overflow, missing-glyph, and font-substitution gates pass"
+        ],
+        "scope": "These fixtures, fonts, and versions; inspect previews after changing data or CSS. No standards-conformance claim."
+      }
+    ],
+    "downloaded_sample_pdfs_match_published_sha256": true
+  },
+  "browser_checks": [
+    {
+      "viewport": "desktop",
+      "guide_status": 200,
+      "examples_status": 200,
+      "canonical": true,
+      "images_loaded": true,
+      "root_overflow": false,
+      "errors": []
+    },
+    {
+      "viewport": "mobile",
+      "guide_status": 200,
+      "examples_status": 200,
+      "canonical": true,
+      "images_loaded": true,
+      "root_overflow": false,
+      "errors": []
+    }
+  ]
+}
