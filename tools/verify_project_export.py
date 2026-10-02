@@ -63,7 +63,8 @@ result = dict(ok=True, platform=sys.platform, python=sys.version.split()[0],
               engine=metadata.version('fullbleed'), cases=records,
               source_revision=os.environ.get('GITHUB_SHA'), ci_run_id=os.environ.get('GITHUB_RUN_ID'),
               archive_checks=json.loads((OUT / 'export-verification.json').read_text())['checks'],
-              scope='These four fixtures and bundled assets; no universal parity or standards-conformance claim.')
+              preview_source='finalized_pdf',
+              scope='These seven fixtures and bundled assets; no universal parity or standards-conformance claim.')
 (OUT / 'python-verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
 (assets / 'project-verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(result))

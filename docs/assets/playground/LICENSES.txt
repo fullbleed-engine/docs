@@ -1,4 +1,4 @@
-fullbleed 2.5.0 — MIT
+fullbleed 2.5.5 — MIT
 
 MIT License
 

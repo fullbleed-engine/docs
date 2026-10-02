@@ -1,9 +1,10 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.0`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.5`
 Rust crate. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
-the core Rust crate. The engine produces both the PDF and PNG page previews.
+the core Rust crate. The engine produces the PDF, then renders PNG page previews
+from that finalized file. Downloaded Python projects use the same preview path.
 
 The browser fetches fixed engine/font/example assets from the docs site. User
 HTML/CSS is passed to a worker and an in-memory filesystem; it is never inserted
@@ -27,7 +28,8 @@ python tools/check_site.py site
 The build uses both lockfiles, publishes a toolchain/hash record, and retains
 the generated verification report next to the browser assets. The verification
 script compares native and WASI PDF and PNG bytes for the invoice, report, and
-notice; checks an edit changes the output; and exercises source/page limits and
+notice, an edited invoice, and three gradient cases; checks expected gradient
+colors and that an edit changes the output; and exercises source/page limits and
 recovery. The browser UI is additionally reviewed with actual downloaded PDFs.
 These checks establish the recorded fixtures only, not universal platform parity
 or ISO conformance.
@@ -47,14 +49,14 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.0
+python -m pip install fullbleed==2.5.5
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
 replay, failure recovery, and Python/WASI PDF and PNG equality for the invoice,
-report, notice, and an edited invoice. Extracted projects run from paths with
+report, notice, an edited invoice, and three gradient cases. Extracted projects run from paths with
 spaces and a different current working directory. Results are retained in
 `playground/project-verification`.
 

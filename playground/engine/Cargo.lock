@@ -4,9 +4,9 @@ version = 4
 
 [[package]]
 name = "fullbleed"
-version = "2.5.0"
+version = "2.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4de9dd07c55333d71b567e987bf01d342d61b22f66ff8e923d07ab94c993c132"
+checksum = "9bef241f4b90a7d69ec1729161e5faa5f3a2f6d65a3fe32b547d8120c3e9ac05"
 dependencies = [
  "fullbleed_audit_contract",
  "subsetter",

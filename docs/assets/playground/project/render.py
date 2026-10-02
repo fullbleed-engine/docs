@@ -21,7 +21,7 @@ def main():
     engine = fullbleed.PdfEngine(font_files=[str(ROOT / "fonts" / name) for name in FONTS])
     pdf = output / "document.pdf"
     engine.render_pdf_to_file(html, css, str(pdf))
-    previews = engine.render_image_pages_to_dir(html, css, str(output / "preview"), 96, "page")
+    previews = engine.render_finalized_pdf_image_pages_to_dir(str(pdf), str(output / "preview"), 96, "page")
     report = dict(engine=metadata.version("fullbleed"), pdf=str(pdf), pages=len(previews),
                   previews=list(previews), sha256=hashlib.sha256(pdf.read_bytes()).hexdigest())
     (output / "render.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
