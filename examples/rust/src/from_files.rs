@@ -24,9 +24,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !glyphs.missing().is_empty() {
         return Err("The supplied fonts do not cover all document characters.".into());
     }
-    let pages = engine.render_image_pages(&html, &css, 96)?;
     fs::create_dir_all(output_dir)?;
     fs::write(output_dir.join("document.pdf"), pdf)?;
+    let pages = engine.render_finalized_pdf_image_pages(output_dir.join("document.pdf"), 96)?;
     for (index, png) in pages.iter().enumerate() {
         fs::write(output_dir.join(format!("page-{}.png", index + 1)), png)?;
     }
