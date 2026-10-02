@@ -94,6 +94,9 @@ refreshes a manifest on each cycle. JSON-only mode emits no watch status lines.
 - Run one watcher per output path.
 - Use a one-shot `render` or `verify` command for a delivery or CI gate. A watch process continues after failures and exits when interrupted.
 
+For pull requests, use the [PDF regression starter](pdf-regression-ci.md) to
+compare a one-shot render with a reviewed baseline and retain previews on failure.
+
 See the [CLI reference](../cli/commands.md) for render flags and the
 [source guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.0/docs/render-watch.md)
 for the full contract. [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues)
