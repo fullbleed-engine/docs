@@ -56,6 +56,17 @@ jobs:
           name: pdf-regression-download-verification
           path: output/pdf-regression-verification
           retention-days: 7
+      - name: Verify the introductory Python examples
+        run: |
+          python -m venv output/reference-env
+          output/reference-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.4
+          output/reference-env/bin/python -I tools/verify_quickstarts.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quickstart-verification
+          path: output/quickstart-verification
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         with:
           name: rust-quickstart-verification

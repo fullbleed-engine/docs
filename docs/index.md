@@ -60,7 +60,7 @@ Path("invoice.pdf").write_bytes(pdf)
 
     Use headings, tables, page margins, headers, and footers for a document that grows with its content.
 
-    [See the illustrated report →](examples.md#business-report)
+    [DataFrame to PDF →](guides/pandas-to-pdf.md) · [See the illustrated report →](examples.md#business-report)
 
 - **One template, many records**
 
@@ -82,11 +82,13 @@ The wheel bundles a Rust rendering engine, a Python API, a CLI, and fonts. It re
 
 While editing HTML and CSS, [watch mode](guides/render-watch.md) rebuilds your
 PDF and PNG previews after saves. It is available in Fullbleed 2.5.0 and newer.
+Use the [PDF regression starter](guides/pdf-regression-ci.md) to compare a new
+render with a reviewed baseline in GitHub Actions and retain previews on failure.
 
 Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](css-coverage.md) for your templates, and the [tool selection guide](guides/comparison.md) when you also need live browser rendering or general PDF editing.
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.1 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.1) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.4 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.4) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
 
 [Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues)
