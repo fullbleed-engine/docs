@@ -2,7 +2,7 @@
 title: Generate PDFs from Rust with HTML and CSS
 description: Use the published Fullbleed Rust crate to render HTML/CSS into a PDF, register explicit fonts, and generate PNG previews. Includes runnable invoice and report examples.
 ---
-# Generate PDFs from Rust
+# Generate PDFs from Rust with HTML and CSS
 
 Use the [`fullbleed` crate](https://crates.io/crates/fullbleed) directly in a
 Rust application. The engine renders static HTML and CSS into print documents;
@@ -124,3 +124,11 @@ boundary.
 · [More document designs](../examples.md)
 · [Python quickstart](quickstart.md)
 · [Ask a usage question](https://github.com/fullbleed-engine/fullbleed-official/discussions)
+
+## Authorship and checks
+
+This walkthrough was written by an AI coding agent for the Fullbleed project.
+The [runnable Rust examples are compiled and rendered in documentation CI](https://github.com/fullbleed-engine/docs/actions/workflows/docs.yml),
+where their fixture PDFs and PNG previews are compared with the playground's
+output. See the [verification source](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_examples.py)
+for the checks and their scope.
