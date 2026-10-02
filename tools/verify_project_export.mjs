@@ -39,9 +39,11 @@ for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1], ['inv
   await writeFile(join(expected, 'input.html'), html);
   await writeFile(join(expected, 'style.css'), css);
   const result = await render(module, { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) });
-  assert.equal(JSON.parse(Buffer.from(result.outputs['result.json']).toString()).pages, pages);
+  const inspection = JSON.parse(Buffer.from(result.outputs['result.json']).toString());
+  assert.equal(inspection.pages, pages);
+  assert.equal(inspection.missing_glyphs, 0, `${name}: missing glyphs`);
   for (const [file, bytes] of Object.entries(result.outputs)) await writeFile(join(expected, file), bytes);
-  cases.push({ name, pages, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
+  cases.push({ name, pages, missing_glyphs: 0, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
 }
 
 for (const name of ['../escape', '/absolute', 'C:/drive', 'fonts/../escape', 'fonts\\escape', 'bad\0name']) {

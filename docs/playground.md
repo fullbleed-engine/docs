@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=project-download-1">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -88,4 +88,4 @@ fictional.
 · [Project download checks](assets/playground/project-verification.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js"></script>
+<script type="module" src="../assets/playground/app.js?v=project-download-1"></script>
