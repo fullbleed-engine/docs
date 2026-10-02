@@ -1,0 +1,64 @@
+// SPDX-License-Identifier: MIT
+// Build actual downloadable projects and independent WASI reference outputs.
+import assert from 'node:assert/strict';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { buildProject } from '../docs/assets/playground/project-export.js';
+import { storeZip } from '../docs/assets/playground/zip-store.js';
+import { render } from '../docs/assets/playground/renderer.js';
+import { prepareExample } from '../docs/assets/playground/examples.js';
+
+const root = fileURLToPath(new URL('../', import.meta.url));
+const assets = join(root, 'docs/assets/playground');
+const output = join(root, 'playground/project-verification');
+await mkdir(output, { recursive: true });
+const load = path => readFile(join(assets, path));
+const hash = data => createHash('sha256').update(data).digest('hex');
+const module = await WebAssembly.compile(await load('fullbleed.wasm'));
+const fonts = Object.fromEntries(await Promise.all([
+  'Inter-Variable.ttf', 'DMSerifDisplay-Regular.ttf', 'DMSerifDisplay-Italic.ttf', 'BebasNeue-Regular.ttf',
+].map(async name => [name, await load(`fonts/${name}`)])));
+const cases = [];
+for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1], ['invoice-edited', 1]]) {
+  const example = name === 'invoice-edited' ? 'invoice' : name;
+  let { html, css } = prepareExample(example,
+    await readFile(join(root, `docs/assets/showcase/${example}.html`), 'utf8'),
+    await readFile(join(root, `docs/assets/showcase/${example}.css`), 'utf8'));
+  if (name === 'invoice-edited') {
+    html = html.replace('Maple &amp; Finch', 'Cedar &amp; Stone café') + '\n<!-- Saved UTF-8: München & <draft> 😀 -->\n';
+    css = css.replaceAll('#17382e', '#17315a');
+  }
+  const snapshot = { name: example, html, css };
+  const zip = await buildProject(snapshot, load);
+  assert.deepEqual(zip, await buildProject(snapshot, load), `${name}: identical sources changed the ZIP`);
+  await writeFile(join(output, `${name}.zip`), zip);
+  const expected = join(output, `${name}-expected`);
+  await mkdir(expected, { recursive: true });
+  await writeFile(join(expected, 'input.html'), html);
+  await writeFile(join(expected, 'style.css'), css);
+  const result = await render(module, { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) });
+  assert.equal(JSON.parse(Buffer.from(result.outputs['result.json']).toString()).pages, pages);
+  for (const [file, bytes] of Object.entries(result.outputs)) await writeFile(join(expected, file), bytes);
+  cases.push({ name, pages, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
+}
+
+for (const name of ['../escape', '/absolute', 'C:/drive', 'fonts/../escape', 'fonts\\escape', 'bad\0name']) {
+  assert.throws(() => storeZip([{ name, bytes: new Uint8Array() }]), /filename/);
+}
+assert.throws(() => storeZip([{ name: 'same', bytes: new Uint8Array() }, { name: 'same', bytes: new Uint8Array() }]), /filename/);
+const snapshot = { name: 'invoice', html: '<p>Saved text</p>', css: '' };
+await assert.rejects(buildProject(snapshot, async path => {
+  const bytes = await load(path);
+  return path === 'fonts/Inter-Variable.ttf' ? bytes.subarray(1) : bytes;
+}), /bundled fonts changed/);
+await assert.rejects(buildProject(snapshot, async path => {
+  if (path === 'project/render.py') throw new Error('Simulated asset download failure');
+  return load(path);
+}), /Simulated asset download failure/);
+await buildProject(snapshot, load); // A failed download must not poison a later attempt.
+const result = { ok: true, cases, checks: ['ZIP replay is byte-identical', 'Unsafe and duplicate archive filenames are rejected',
+  'Changed font bytes reject the export', 'Asset failure rejects the export and a subsequent attempt succeeds'] };
+await writeFile(join(output, 'export-verification.json'), JSON.stringify(result, null, 2) + '\n');
+console.log(JSON.stringify(result));

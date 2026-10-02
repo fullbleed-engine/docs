@@ -32,6 +32,32 @@ recovery. The browser UI is additionally reviewed with actual downloaded PDFs.
 These checks establish the recorded fixtures only, not universal platform parity
 or ISO conformance.
 
+## Continue locally
+
+**Download project** captures the current editor values into a ZIP with the
+fonts and their licenses, requirements pinned to the built engine version, a
+Python runner, and a file-hash manifest. Exporting uses only static GET requests
+for bundled assets; the document stays in the browser. It captures source at the
+click, including edits that have not been rendered. Later edits do not change an
+export already in progress. A separate download status leaves rendering usable
+when a project asset fails to load.
+
+The ZIP uses stored entries and requires no extra browser library. Font bytes
+are checked against the existing attribution manifest before export. After
+building the playground, verify the complete handoff with:
+
+```sh
+python -m pip install fullbleed==2.5.0
+node tools/verify_project_export.mjs
+python -I tools/verify_project_export.py
+```
+
+The verifier checks ZIP integrity, exact source and font/license bytes, export
+replay, failure recovery, and Python/WASI PDF and PNG equality for the invoice,
+report, notice, and an edited invoice. Extracted projects run from paths with
+spaces and a different current working directory. Results are retained in
+`playground/project-verification`.
+
 The adapter limits sources to 200,000 UTF-8 bytes, documents to six pages, WASM
 linear memory to 256 MiB, and each render to 30 seconds. The browser terminates
 the worker after completion, cancellation, timeout, or an error. Font downloads

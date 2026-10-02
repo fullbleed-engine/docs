@@ -32,6 +32,17 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python tools/build_playground.py
       - run: node tools/verify_playground.mjs
+      - name: Verify downloadable playground projects
+        run: |
+          python -m pip install fullbleed==2.5.0
+          node tools/verify_project_export.mjs
+          python -I tools/verify_project_export.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-project-verification
+          path: playground/project-verification
+          retention-days: 7
       - name: Compile and render the Rust quickstart examples
         run: python tools/verify_rust_examples.py
       - uses: actions/upload-artifact@v4

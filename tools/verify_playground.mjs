@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { render } from '../docs/assets/playground/renderer.js';
+import { prepareExample } from '../docs/assets/playground/examples.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const engine = join(root, 'playground/engine');
@@ -69,8 +70,9 @@ async function fixture(name, html, css, expectedPages) {
 
 let invoice;
 for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1]]) {
-  const html = await readFile(join(root, `docs/assets/showcase/${name}.html`), 'utf-8');
-  const css = await readFile(join(root, `docs/assets/showcase/${name}.css`), 'utf-8');
+  const { html, css } = prepareExample(name,
+    await readFile(join(root, `docs/assets/showcase/${name}.html`), 'utf-8'),
+    await readFile(join(root, `docs/assets/showcase/${name}.css`), 'utf-8'));
   const result = await fixture(name, html, css, pages);
   if (name === 'invoice') {
     invoice = { ...result, html, css };
