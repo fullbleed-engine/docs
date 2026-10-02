@@ -12,4 +12,5 @@ docs/assets/playground/project-verification.json
 examples/rust/target/
 examples/rust/verification/
 /output/
+/target/
 /invoice.pdf
