@@ -1,0 +1,15 @@
+{
+  "name": "fullbleed-node-invoice",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "fullbleed": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.0/fullbleed-0.1.0.tgz"
+  }
+}

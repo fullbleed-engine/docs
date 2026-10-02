@@ -1,0 +1,19 @@
+{
+  "package_version": "0.1.0",
+  "engine_version": "2.5.4",
+  "source_commit": "4ffc9868e3f76d6981d409f5731dc69bfb994a99",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.0/fullbleed-0.1.0.tgz",
+  "package_integrity": "sha512-ainiUR8dB+ZTkTVsLWlx7TuwwusfxqcrHs7IeF1l1VKkuaf7qY7JYDY5xEsb+D/flnm4TlFAfQjo91HXZBqtCg==",
+  "package_sha256": "9f1c22ff3ab1037449c531a8f3613589e424f438fef416962ac42fd6ca4f039f",
+  "rendered": {
+    "invoice.pdf": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+    "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+  },
+  "quickstart": {
+    "invoice.pdf": "59943fee94a46e163f264fd8ed222110c8c564378b29446717bdd230581f04bb",
+    "invoice.png": "0c2954c1ab10608c603288ddc8bda8fa85e2c8dcc185ed8b07ed349e31a2307d"
+  },
+  "fictional_data": true,
+  "license": "MIT",
+  "verification_scope": "Reviewed invoice and quickstart, installed from the published GitHub package. No PDF standards certification."
+}
