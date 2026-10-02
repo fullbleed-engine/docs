@@ -11,7 +11,7 @@ rendering needs neither Python nor a browser.
 
 ## Install and render your first PDF
 
-With the .NET 8 SDK or a compatible later SDK:
+With the .NET 8 SDK installed:
 
 ```bash
 dotnet new console -n InvoiceDemo --framework net8.0
