@@ -24,10 +24,16 @@ for limits, privacy behavior, and native/WASI verification.
 Reference pages come from the engine repository's release tag. Keep hand-authored introductions and guides here; import API, CLI, CSS, architecture, print, and performance references with:
 
 ```bash
-python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.5.0
+python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.5.4
 ```
 
 `docs/reference-source.json` records the exact source commit. Use a built, installed release wheel to rerun examples and review the final PDFs and previews before replacing downloadable artifacts. `docs/assets/examples/verification.json` records the checks performed on published examples.
+
+Run `python -I tools/verify_quickstarts.py` in an environment with that reference
+release installed. It executes the Python snippets directly from five introductory
+pages, checks their PDF text and page counts, and exercises the documented project
+commands. CI retains the PDFs, previews, and structured report. Older showcase,
+playground, and tutorial downloads keep their own verified release pins.
 
 When changing the canonical domain, update `site_url`, `docs/robots.txt`, and this README, configure GitHub Pages, and verify DNS, HTTPS, sitemap URLs, and redirects. Keep the GitHub Pages URL until the custom domain is working.
 

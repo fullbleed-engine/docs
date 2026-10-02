@@ -1,0 +1,172 @@
+{
+  "ok": true,
+  "source_commit": "aaaaae153f4ef7f29bb410713561eb17ebdb937f",
+  "run": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/36973286538",
+  "reports": {
+    "Linux": {
+      "ok": true,
+      "platform": "linux",
+      "python": "3.11.16 (main, Aug 13 2026, 02:46:14) [GCC 13.3.0]",
+      "engine": "2.5.3",
+      "cases": [
+        {
+          "case": "unchanged-relocated",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b"
+        },
+        {
+          "case": "changed-style",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_HASH_MISMATCH",
+            "REPRO_INPUT_DRIFT"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "record-intentional-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "accepted-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "malformed-baseline",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_RECORD_INVALID"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "recovered",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        }
+      ],
+      "source_baseline_unchanged": true,
+      "scope": "This invoice and six starter workflows, not general visual or standards validation."
+    },
+    "Windows": {
+      "ok": true,
+      "platform": "win32",
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "engine": "2.5.3",
+      "cases": [
+        {
+          "case": "unchanged-relocated",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b"
+        },
+        {
+          "case": "changed-style",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_HASH_MISMATCH",
+            "REPRO_INPUT_DRIFT"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "record-intentional-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "accepted-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "malformed-baseline",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_RECORD_INVALID"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "recovered",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        }
+      ],
+      "source_baseline_unchanged": true,
+      "scope": "This invoice and six starter workflows, not general visual or standards validation."
+    }
+  },
+  "pdf_and_png_bytes_match_across_ci_platforms": true,
+  "cases_match_fresh_public_windows_install": true,
+  "schema": "fullbleed.ci_starter_verification.v1",
+  "engine": "2.5.3",
+  "source_pull_request": "https://github.com/fullbleed-engine/fullbleed-official/pull/25",
+  "scope": "Six fixed invoice workflows with the public 2.5.3 wheel, not general visual or PDF standards validation.",
+  "local_download": {
+    "ok": true,
+    "source_commit": "aaaaae153f4ef7f29bb410713561eb17ebdb937f",
+    "archive_files": 20,
+    "downloads_verified": 6,
+    "rendered": {
+      "ok": true,
+      "platform": "win32",
+      "python": "3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)]",
+      "engine": "2.5.3",
+      "cases": [
+        {
+          "case": "unchanged-relocated",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b"
+        },
+        {
+          "case": "changed-style",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_HASH_MISMATCH",
+            "REPRO_INPUT_DRIFT"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "record-intentional-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "accepted-change",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "malformed-baseline",
+          "exit_code": 1,
+          "codes": [
+            "REPRO_RECORD_INVALID"
+          ],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        },
+        {
+          "case": "recovered",
+          "exit_code": 0,
+          "codes": [],
+          "pdf_sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+        }
+      ],
+      "source_baseline_unchanged": true,
+      "scope": "This invoice and six starter workflows, not general visual or standards validation."
+    }
+  }
+}

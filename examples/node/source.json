@@ -1,0 +1,23 @@
+{
+  "package_version": "0.1.1",
+  "engine_version": "2.5.5",
+  "source_commit": "771dfa440b0402801c79145ecd77fe844f15e822",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.1/fullbleed-0.1.1.tgz",
+  "package_integrity": "sha512-kWVXlLp0ZYlXRcaiOg0GMJyM8ll0+1R1dV5LokzaoBZwzsNZ2Lz84g5ZH0/PvIN3kFd5An4ZvwGKn5VUR00TtA==",
+  "package_sha256": "75db9107ea7205a89a7ced018becc669b29466d691ed6b1475d904c99e4c8209",
+  "rendered": {
+    "invoice.pdf": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+    "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+  },
+  "quickstart": {
+    "invoice.pdf": "59943fee94a46e163f264fd8ed222110c8c564378b29446717bdd230581f04bb",
+    "invoice.png": "0c2954c1ab10608c603288ddc8bda8fa85e2c8dcc185ed8b07ed349e31a2307d"
+  },
+  "fictional_data": true,
+  "license": "MIT",
+  "verification_scope": "Reviewed invoice and quickstart, installed from the published GitHub package. No PDF standards certification.",
+  "report": {
+    "report.pdf": "a93e4df3f5af6cc010e0611f95c4c24588d0d27627d1571daddec4eb92b31105",
+    "report-2.png": "3e31e42b3c7cac8b01633e5675cb1446feec553afb392d4d6a7b73f8c8582ad9"
+  }
+}

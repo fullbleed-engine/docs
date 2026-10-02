@@ -31,7 +31,7 @@ Open `output/invoice.pdf` and the images under `output/preview`. Inspect every p
 
 ## Repeatable output
 
-Keep the engine version, HTML/CSS, fonts, images, and explicit metadata fixed. Compare output bytes or SHA-256 hashes in your own workflow. The CLI's `--repro-record` and `--repro-check` options support retained reproducibility records; consult [the render reference](../cli/commands.md#render).
+Keep the engine version, HTML/CSS, fonts, images, and explicit metadata fixed. Compare output bytes or SHA-256 hashes in your own workflow. The CLI's `--repro-record` and `--repro-check` options support retained reproducibility records. Use **Fullbleed 2.5.3 or newer** for this gate; earlier versions could accept a record with missing hashes. Follow the [PDF regression starter](../guides/pdf-regression-ci.md) or consult [the render reference](../cli/commands.md#reproducibility-checks).
 
 ## Structured data
 

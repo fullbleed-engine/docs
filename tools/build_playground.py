@@ -22,6 +22,9 @@ shim = ROOT / 'playground/node_modules/@bjorn3/browser_wasi_shim'
 for path in (shim / 'dist').glob('*.js'):
     shutil.copyfile(path, ASSETS / 'wasi' / path.name)
 metadata = json.loads(subprocess.check_output(['cargo', 'metadata', '--format-version', '1', '--locked'], cwd=ENGINE, text=True, encoding='utf-8'))
+core = next(package for package in metadata['packages'] if package['name'] == 'fullbleed')
+if not core['source'] or not core['source'].startswith('registry+'):
+    raise SystemExit('The playground must use the unchanged published Fullbleed crate.')
 license_parts = []
 for package in metadata['packages']:
     if package['source'] is None:
@@ -44,9 +47,10 @@ with zipfile.ZipFile(ASSETS / 'fonts.zip', 'w', compression=zipfile.ZIP_DEFLATED
         info.external_attr = 0o644 << 16
         archive.writestr(info, path.read_bytes())
 record = {
-    'engine': {'name': 'fullbleed', 'version': '2.5.0', 'source': 'https://crates.io/crates/fullbleed/2.5.0', 'core_changes': False},
+    'engine': {'name': 'fullbleed', 'version': core['version'], 'source': f"https://crates.io/crates/fullbleed/{core['version']}", 'core_changes': False},
     'adapter': 'playground/engine',
     'target': 'wasm32-wasip1',
+    'preview_source': 'finalized_pdf',
     'rustc': subprocess.check_output(['rustc', '--version'], text=True).strip(),
     'wasi_shim': {'name': '@bjorn3/browser_wasi_shim', 'version': '0.4.2'},
     'limits': {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30},

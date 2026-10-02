@@ -2,8 +2,15 @@ site/
 playground/node_modules/
 playground/engine/target/
 playground/verification/
+playground/project-verification/
 docs/assets/playground/fullbleed.wasm
 docs/assets/playground/fonts.zip
 docs/assets/playground/wasi/
 docs/assets/playground/build.json
 docs/assets/playground/verification.json
+docs/assets/playground/project-verification.json
+examples/rust/target/
+examples/rust/verification/
+/output/
+/target/
+/invoice.pdf

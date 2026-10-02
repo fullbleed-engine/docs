@@ -1,0 +1,115 @@
+{
+  "schema": "fullbleed.ci_starter_download.v1",
+  "engine": "2.5.3",
+  "source_commit": "aaaaae153f4ef7f29bb410713561eb17ebdb937f",
+  "source_url": "https://github.com/fullbleed-engine/fullbleed-official/tree/aaaaae153f4ef7f29bb410713561eb17ebdb937f/examples/pdf_regression",
+  "zip_root": "fullbleed-pdf-regression",
+  "project_files": {
+    ".gitattributes": {
+      "bytes": 239,
+      "sha256": "b43d31d8cb7523a83dd89048e2065390932bcf0cc68b28c43edd5ab375fdf1f3"
+    },
+    ".github/workflows/pdf.yml": {
+      "bytes": 791,
+      "sha256": "6e3d185471ab6889c8b3276a369607ee13e6d9c2f620f13de6f542208cb93de0"
+    },
+    ".gitignore": {
+      "bytes": 30,
+      "sha256": "8e3fd28d44d12db92bdde87f1454cf4dd7bebd6038ffb290bfb23335a62fa445"
+    },
+    "LICENSE.txt": {
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    "README.md": {
+      "bytes": 2893,
+      "sha256": "25aa0ae2de07b6a4ab2335cc9aff15e033e1c4bd539f092779ba6288d0c3c7d8"
+    },
+    "baseline.json": {
+      "bytes": 506,
+      "sha256": "25a74e28f77ca5d06c0e5542b8617dcba21c36cb97840ff1445ed970f6bfb1ea"
+    },
+    "baseline.pdf": {
+      "bytes": 91590,
+      "sha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b"
+    },
+    "check.py": {
+      "bytes": 2572,
+      "sha256": "0d30126ead33ee80f40a737c8e17b5746e5ec5d974e9fbe1ef08e44f763cdb0c"
+    },
+    "fonts/BebasNeue-OFL.txt": {
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    "fonts/BebasNeue-Regular.ttf": {
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    "fonts/DMSerifDisplay-Italic.ttf": {
+      "bytes": 71208,
+      "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+    },
+    "fonts/DMSerifDisplay-OFL.txt": {
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    "fonts/DMSerifDisplay-Regular.ttf": {
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    "fonts/Inter-OFL.txt": {
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    "fonts/Inter-Variable.ttf": {
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    "fonts/font-sources.json": {
+      "bytes": 2149,
+      "sha256": "67932632cdda377ac9ea6f076abbd234db9b61d6c98b6f41266642f3a9f8fd0a"
+    },
+    "input.html": {
+      "bytes": 2933,
+      "sha256": "195725eeeb32c521e19b47dbacbb55048bebb6df8566ab135cdc41fbf33fe57a"
+    },
+    "requirements.txt": {
+      "bytes": 17,
+      "sha256": "cbcfd2d4c2ed418203c2ede7cdb35ef3ecb6f920eee792ef922554f84928fbfd"
+    },
+    "style.css": {
+      "bytes": 3546,
+      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+    },
+    "verify.py": {
+      "bytes": 3753,
+      "sha256": "f6af939572c8102c69809c3871873b14bbac33195b7ea8ef640d17e908e8912f"
+    }
+  },
+  "downloads": {
+    "changed-invoice-1.png": {
+      "bytes": 107234,
+      "sha256": "a77ba784f302ae12dff67f2f7fb76328d73dbb1fccb4a5de8820582e0cafa9f5"
+    },
+    "changed-invoice.pdf": {
+      "bytes": 91608,
+      "sha256": "f8341123a0f94d6d05916d472398016f406e216d0d88ba708fde75540d8eedea"
+    },
+    "invoice-1.png": {
+      "bytes": 107355,
+      "sha256": "ccee8a076751951d61429b770e3fd9a5ae8387b8ebbf69dac59e8398c0a1ad76"
+    },
+    "invoice.pdf": {
+      "bytes": 91590,
+      "sha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b"
+    },
+    "project.zip": {
+      "bytes": 669134,
+      "sha256": "b2177ca7242f91ae5b2bbb9396508cb4312c58cace26df298d9c151a9fdd2398"
+    },
+    "verification.json": {
+      "bytes": 5757,
+      "sha256": "ba2b810617b356f58f3d4e265b7001c9b0647e07ae3f1206ee8043b12f82f4a0"
+    }
+  }
+}

@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=project-download-1">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -16,7 +16,7 @@ hide:
   </div>
   <div class="pg-toolbar">
     <div class="pg-picker"><label for="pg-example">Start with</label><select id="pg-example" disabled><option value="invoice">Northstar invoice</option><option value="report">Common Ground report</option><option value="notice">Riverton notice</option></select></div>
-    <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a></div>
+    <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a><button id="pg-project" disabled>Download project</button></div>
   </div>
   <div class="pg-workspace">
     <section class="pg-editor" aria-label="Document source">
@@ -28,10 +28,11 @@ hide:
     <section class="pg-output" aria-label="PDF preview" aria-busy="true">
       <div class="pg-pane-top"><span class="pg-output-label">THE PRINTED PAGE</span><div class="pg-pagination"><button id="pg-previous" aria-label="Previous PDF page" disabled>←</button><span id="pg-page-count">—</span><button id="pg-next" aria-label="Next PDF page" disabled>→</button></div></div>
       <div class="pg-canvas"><p id="pg-placeholder">Preparing your first PDF…</p><img id="pg-preview" alt="" hidden></div>
-      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.0</span><a href="../examples/">Explore the full gallery ↗</a></div>
+      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.5</span><a href="../examples/">Explore the full gallery ↗</a></div>
     </section>
   </div>
   <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
+  <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
   <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download any files you want to keep before leaving. The first render downloads the engine and bundled fonts.</p>
 </div>
 
@@ -39,9 +40,24 @@ hide:
 
 ## Keep building
 
-Save your HTML and CSS with the links in the editor. [Download the bundled fonts](assets/playground/fonts.zip)
-and extract the ZIP beside those files; it creates a `fonts` folder with the font
-files and their licenses. For the invoice example, run:
+Choose **Download project** to keep your current HTML/CSS, all bundled fonts and
+licenses, pinned requirements, and a Python renderer in one ZIP. Extract it into
+a folder, open a terminal there, and run:
+
+```bash
+python -m pip install -r requirements.txt
+python render.py
+```
+
+Open `output/document.pdf`; PNG previews are in `output/preview/`. Edit
+`input.html` or `style.css`, then run the script again. The project uses Fullbleed
+2.5.5 to match this demo. Use a Python 3.10 or newer virtual environment. The ZIP
+is assembled on your device, using the source present when you click the button.
+It does not upload your document.
+
+The individual **Save HTML** and **Save CSS** links remain useful for an existing
+project. [Download the bundled fonts](assets/playground/fonts.zip) and extract
+them beside those files; for the invoice example, run:
 
 ```bash
 python -m pip install fullbleed
@@ -52,11 +68,13 @@ For the other examples, replace `invoice` in the input filenames with `report`
 or `notice`. You can keep editing and add `--watch` to rebuild after each save.
 
 [Use Fullbleed in Python](getting-started/quickstart.md){ .md-button .md-button--primary }
+[Use Fullbleed in Rust](getting-started/rust.md){ .md-button }
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
 
-The playground uses the released **Fullbleed 2.5.0** Rust engine, compiled to
-WebAssembly. The PDF and page previews come from Fullbleed. It accepts static
+The playground uses the released **Fullbleed 2.5.5** Rust engine, compiled to
+WebAssembly. Page previews are rendered from the same PDF you download, including
+the report's gradient chart fills. It accepts static
 HTML/CSS, with Inter, DM Serif Display, and Bebas Neue embedded fonts. JavaScript
 inside your document is not executed, and remote assets are not loaded. Use inline SVG for artwork.
 
@@ -68,6 +86,7 @@ fictional.
 [Playground source and verification](https://github.com/fullbleed-engine/docs/tree/main/playground)
 · [Build record](assets/playground/build.json)
 · [Native/WASI fixture checks](assets/playground/verification.json)
+· [Project download checks](assets/playground/project-verification.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js"></script>
+<script type="module" src="../assets/playground/app.js?v=pdf-preview-255"></script>

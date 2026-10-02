@@ -6,6 +6,8 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { render } from '../docs/assets/playground/renderer.js';
+import { prepareExample } from '../docs/assets/playground/examples.js';
+import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const engine = join(root, 'playground/engine');
@@ -41,16 +43,21 @@ assert.equal(memoryMaximum, 268435456, 'WASM memory limit missing or incorrect')
 const hash = data => createHash('sha256').update(data).digest('hex');
 const fonts = Object.fromEntries(await Promise.all(['Inter-Variable.ttf', 'DMSerifDisplay-Regular.ttf', 'DMSerifDisplay-Italic.ttf', 'BebasNeue-Regular.ttf']
   .map(async name => [name, await readFile(join(assets, 'fonts', name))])));
-const report = { engine: '2.5.0', platform: process.platform, node: process.version, wasm_sha256: hash(wasmBytes), wasm_memory_maximum: memoryMaximum, fixtures: [], checks: ['Module declares a 256 MiB memory ceiling and no socket imports'] };
+const manifest = JSON.parse(await readFile(join(assets, 'build.json'), 'utf8'));
+const report = { engine: manifest.engine.version, preview_source: 'finalized_pdf', platform: process.platform, node: process.version, wasm_sha256: hash(wasmBytes), wasm_memory_maximum: memoryMaximum, fixtures: [], checks: ['Module declares a 256 MiB memory ceiling and no socket imports'] };
 
-async function fixture(name, html, css, expectedPages) {
+async function fixture(name, html, css, expectedPages, gradient) {
   const files = { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
+  // Retain the exact prepared inputs for other language bindings to replay.
+  await writeFile(join(evidence, `${name}.html`), html);
+  await writeFile(join(evidence, `${name}.css`), css);
   const nativeDir = await mkdtemp(join(evidence, `${name}-native-`));
   for (const [file, data] of Object.entries(files)) await writeFile(join(nativeDir, file), data);
   const native = spawnSync(exe, [], { cwd: nativeDir, encoding: 'utf-8', timeout: 30000 });
   assert.equal(native.status, 0, native.stderr);
   const result = await render(module, files);
   const info = JSON.parse(new TextDecoder().decode(result.outputs['result.json']));
+  assert.equal(info.engine, manifest.engine.version, `${name} engine version`);
   assert.equal(info.pages, expectedPages, `${name} page count`);
   assert.equal(info.missing_glyphs, 0, `${name} glyph coverage`);
   const hashes = {};
@@ -62,15 +69,21 @@ async function fixture(name, html, css, expectedPages) {
   const pdf = result.outputs['output.pdf'];
   assert.equal(new TextDecoder().decode(pdf.slice(0, 5)), '%PDF-');
   const rerun = await render(module, files);
-  assert.equal(hash(pdf), hash(rerun.outputs['output.pdf']), `${name}: nondeterministic rerender`);
-  report.fixtures.push({ name, pages: expectedPages, missing_glyphs: 0, native_wasi_equal: true, repeat_equal: true, hashes });
+  for (const [file, expectedHash] of Object.entries(hashes)) {
+    assert.equal(hash(rerun.outputs[file]), expectedHash, `${name}/${file}: nondeterministic rerender`);
+  }
+  const color_probes = gradient ? checkGradient(gradient, result.outputs['page-1.png']) : [];
+  report.fixtures.push({ name, pages: expectedPages, missing_glyphs: 0, native_wasi_equal: true, repeat_equal: true, hashes,
+    color_probes, memory_bytes: result.memory,
+    source_files: { html: `${name}.html`, css: `${name}.css`, html_sha256: hash(Buffer.from(html)), css_sha256: hash(Buffer.from(css)) } });
   return { files, pdfHash: hash(pdf), memory: result.memory };
 }
 
 let invoice;
 for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1]]) {
-  const html = await readFile(join(root, `docs/assets/showcase/${name}.html`), 'utf-8');
-  const css = await readFile(join(root, `docs/assets/showcase/${name}.css`), 'utf-8');
+  const { html, css } = prepareExample(name,
+    await readFile(join(root, `docs/assets/showcase/${name}.html`), 'utf-8'),
+    await readFile(join(root, `docs/assets/showcase/${name}.css`), 'utf-8'));
   const result = await fixture(name, html, css, pages);
   if (name === 'invoice') {
     invoice = { ...result, html, css };
@@ -79,6 +92,10 @@ for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1]]) {
     report.checks.push('Text and palette edits change output and preserve native/WASI equality');
   }
 }
+for (const gradient of gradientFixtures) {
+  await fixture(gradient.name, gradient.html, gradient.css, gradient.pages, gradient);
+}
+report.checks.push('Linear, translucent, and hard radial gradient interiors match expected colors');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
 report.checks.push('Oversized source rejected by the Rust adapter');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('<div>Page</div>'.repeat(7)), 'style.css': Buffer.from('@page {size:A4} div{break-after:page}') }), /1 to 6 pages/);

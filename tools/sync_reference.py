@@ -23,7 +23,7 @@ PAGES = {
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True)
-    parser.add_argument("--ref", default="v2.4.0")
+    parser.add_argument("--ref", required=True, help="Verified release tag or commit to import")
     args = parser.parse_args()
     docs = Path(__file__).resolve().parents[1] / "docs"
     commit = subprocess.check_output(
@@ -56,6 +56,7 @@ def main() -> None:
     (docs / "reference-source.json").write_text(
         json.dumps({"release": args.ref, "commit": commit, "pages": PAGES}, indent=2) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     print(f"Imported {len(PAGES)} reference pages from {args.ref} ({commit[:12]})")
 

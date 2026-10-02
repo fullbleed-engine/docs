@@ -3,8 +3,9 @@ description: Copy a small Python script to create your first PDF, then try a com
 ---
 # Create your first PDF
 
-Prefer to try it before setting up Python? [Open the editable invoice notebook](notebook.md)
-to render, preview, and download a PDF in Colab.
+Prefer to try it before setting up Python? [Open the browser playground](../playground.md)
+to edit HTML/CSS and download a PDF or runnable project. Use the
+[invoice notebook](notebook.md) to work with Python data in Colab.
 
 Install Fullbleed into your Python environment:
 
@@ -15,14 +16,23 @@ python -m pip install fullbleed
 Save this as `hello.py`:
 
 ```python
+from importlib.resources import files
 from pathlib import Path
 import fullbleed
 
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
 html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
-css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }"
-pdf = fullbleed.PdfEngine().render_pdf(html, css)
+css = """
+@page { size: A4; margin: 20mm; }
+body { font-family: Inter; color: #203a36; }
+h1 { color: #175c52; }
+"""
+pdf = engine.render_pdf(html, css)
 Path("invoice.pdf").write_bytes(pdf)
 ```
+
+The example embeds the Inter font included with Fullbleed.
 
 Run it and open the resulting file:
 
@@ -31,7 +41,7 @@ python hello.py
 python -m fullbleed inspect pdf invoice.pdf --json
 ```
 
-The [font and preview walkthrough](first-pdf.md) shows how to embed the bundled Inter font and preview the finalized PDF.
+For a PNG preview of the finalized PDF, continue to the [font and preview walkthrough](first-pdf.md).
 
 ## Start with a complete project
 

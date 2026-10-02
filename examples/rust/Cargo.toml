@@ -1,0 +1,18 @@
+[package]
+name = "fullbleed-rust-examples"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+publish = false
+
+[dependencies]
+fullbleed = "=2.5.5"
+
+[[bin]]
+name = "hello"
+path = "src/hello.rs"
+
+[[bin]]
+name = "from-files"
+path = "src/from_files.rs"
