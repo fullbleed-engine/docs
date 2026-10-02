@@ -1,4 +1,7 @@
 // SPDX-License-Identifier: MIT
+import { buildProject } from './project-export.js';
+import { prepareExample } from './examples.js';
+
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
 const originals = new Map(), edits = new Map();
@@ -157,6 +160,30 @@ el('render').addEventListener('click', startRender);
 el('cancel').addEventListener('click', () => { finish(); status('Rendering canceled. Your source is still here.'); setDownload(!changedSinceRender()); });
 el('previous').addEventListener('click', () => showPage(pageIndex - 1));
 el('next').addEventListener('click', () => showPage(pageIndex + 1));
+el('project').addEventListener('click', async () => {
+  const button = el('project'), message = el('project-status');
+  // Capture edits before downloading assets, even if the user keeps typing or switches examples.
+  const snapshot = { name: current, html: html.value, css: css.value };
+  button.disabled = true;
+  button.textContent = 'Preparing project…';
+  message.hidden = false;
+  message.dataset.error = 'false';
+  message.textContent = 'Preparing your HTML, CSS, fonts, and Python renderer…';
+  try {
+    const bytes = await buildProject(snapshot);
+    saveText(`fullbleed-${snapshot.name}-project.zip`, bytes, 'application/zip');
+    const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css;
+    message.textContent = newerEdits
+      ? 'Project downloaded with the source from when you clicked. Download again to include newer edits.'
+      : 'Project downloaded. Extract the ZIP and follow its README to render locally.';
+  } catch (error) {
+    message.textContent = error.message || 'Could not download the project. Try again.';
+    message.dataset.error = 'true';
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Download project';
+  }
+});
 el('reset').addEventListener('click', () => {
   if (worker) finish();
   edits.delete(current);
@@ -180,13 +207,13 @@ try {
       if (!response.ok) throw new Error('Could not load the examples. Reload this page to try again.');
       return response.text();
     }));
-    originals.set(name, { html: parts[0], css: parts[1] });
+    originals.set(name, prepareExample(name, parts[0], parts[1]));
   }));
   const hashExample = location.hash.slice(1);
   if (originals.has(hashExample)) current = hashExample;
   picker.value = current;
   html.value = originals.get(current).html; css.value = originals.get(current).css;
-  for (const control of [html, css, picker, el('reset'), el('render')]) control.disabled = false;
+  for (const control of [html, css, picker, el('reset'), el('render'), el('project')]) control.disabled = false;
   for (const language of ['html', 'css']) { el(`save-${language}`).href = '#'; el(`save-${language}`).setAttribute('aria-disabled', 'false'); }
   startRender();
 } catch (error) { status(error.message, true); document.querySelector('.pg-output').setAttribute('aria-busy', 'false'); }
