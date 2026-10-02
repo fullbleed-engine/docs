@@ -25,10 +25,10 @@ With a [GitHub CLI release that includes `gh skill`](https://cli.github.com/manu
 run this from your project directory:
 
 ```bash
-gh skill install fullbleed-engine/fullbleed-official fullbleed --pin v2.5.1 --dir .agents/skills
+gh skill install fullbleed-engine/fullbleed-official fullbleed --pin v2.5.2 --dir .agents/skills
 ```
 
-This installs the Skill and its reference files from the `v2.5.1` release into
+This installs the Skill and its reference files from the `v2.5.2` release into
 `.agents/skills/fullbleed`. Check the installed source and version with:
 
 ```bash
@@ -56,12 +56,13 @@ version separately when you need a reproducible environment.
 ## Connect through MCP
 
 The optional stdio adapter runs locally and uses the same engine as the CLI.
-Use **Fullbleed 2.5.1 or newer**: that release corrects the tool schemas rejected
-by strict MCP clients in 2.5.0. Install in your
+Use **Fullbleed 2.5.2 or newer** for complete parameter guidance and corrected
+tool side-effect hints. The strict-client schema fix introduced in 2.5.1 is
+included. Install in your
 [virtual environment](../getting-started/installation.md#use-a-virtual-environment):
 
 ```bash
-python -m pip install --upgrade "fullbleed>=2.5.1,<3" fullbleed-mcp
+python -m pip install --upgrade "fullbleed>=2.5.2,<3" fullbleed-mcp
 python -m fullbleed --version
 python -c "import sys; print(sys.executable)"
 ```
@@ -96,6 +97,11 @@ constructing requests.
 | Render a PDF and page images | `fullbleed_render_preview` |
 | Inspect the generated PDF | `fullbleed_inspect` |
 | Check a document against selected diagnostics | `fullbleed_verify` |
+
+For `fullbleed_verify`, select checks explicitly with `fail_on`, for example
+`["overflow", "missing-glyphs"]`. It renders the HTML/CSS source and returns
+diagnostics; `fullbleed_inspect` reads an existing PDF. Review the PNG previews
+as well as those results before delivering a document.
 
 The [adapter README](https://github.com/fullbleed-engine/fullbleed-official/tree/master/packages/fullbleed-mcp)
 also covers Docker and registry metadata. Its development checks use the official
