@@ -46,6 +46,9 @@ const report = { engine: '2.5.0', platform: process.platform, node: process.vers
 
 async function fixture(name, html, css, expectedPages) {
   const files = { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
+  // Retain the exact prepared inputs for other language bindings to replay.
+  await writeFile(join(evidence, `${name}.html`), html);
+  await writeFile(join(evidence, `${name}.css`), css);
   const nativeDir = await mkdtemp(join(evidence, `${name}-native-`));
   for (const [file, data] of Object.entries(files)) await writeFile(join(nativeDir, file), data);
   const native = spawnSync(exe, [], { cwd: nativeDir, encoding: 'utf-8', timeout: 30000 });
@@ -64,7 +67,8 @@ async function fixture(name, html, css, expectedPages) {
   assert.equal(new TextDecoder().decode(pdf.slice(0, 5)), '%PDF-');
   const rerun = await render(module, files);
   assert.equal(hash(pdf), hash(rerun.outputs['output.pdf']), `${name}: nondeterministic rerender`);
-  report.fixtures.push({ name, pages: expectedPages, missing_glyphs: 0, native_wasi_equal: true, repeat_equal: true, hashes });
+  report.fixtures.push({ name, pages: expectedPages, missing_glyphs: 0, native_wasi_equal: true, repeat_equal: true, hashes,
+    source_files: { html: `${name}.html`, css: `${name}.css`, html_sha256: hash(Buffer.from(html)), css_sha256: hash(Buffer.from(css)) } });
   return { files, pdfHash: hash(pdf), memory: result.memory };
 }
 

@@ -65,13 +65,19 @@ cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from
 ```
 
 Open `output/rust-invoice/document.pdf` or `page-1.png` in the same directory.
-Replace both `invoice` input filenames with `report` or `notice` for the
-other designs, and choose a new output directory. The report produces three
+Replace both `invoice` input filenames with `report` for the report design,
+and choose a new output directory. The report produces three
 pages. These examples pin Fullbleed 2.5.0 and include a Cargo lockfile.
 
-You can also use **Save HTML**, **Save CSS**, and **Download the bundled fonts**
-in the playground. Extract the fonts ZIP, then pass your saved HTML, CSS,
-`fonts` directory, and a fresh output directory to `from-files`.
+For the service notice or your own edits, choose **Download project** in the
+playground. Extract the ZIP into `my-project` in this repository, then run:
+
+```bash
+cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from-files -- my-project/input.html my-project/style.css my-project/fonts output/my-project
+```
+
+The Rust example reads the exported HTML, CSS, and fonts directly. The individual
+**Save HTML** and **Save CSS** links also work with an existing fonts directory.
 
 ## Register fonts and create previews
 

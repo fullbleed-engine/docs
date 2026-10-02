@@ -51,10 +51,16 @@ for fixture in playground["fixtures"]:
     if name not in {"invoice", "report", "notice"}:
         continue
     output = EVIDENCE / name
+    # Replay the actual playground inputs, including its ordinary-output notice label.
+    prepared = ROOT / "playground/verification"
+    html_path = prepared / fixture["source_files"]["html"]
+    css_path = prepared / fixture["source_files"]["css"]
+    assert sha256(html_path) == fixture["source_files"]["html_sha256"]
+    assert sha256(css_path) == fixture["source_files"]["css_sha256"]
     result = run([
         str(bin_dir / ("from-files" + suffix)),
-        str(ASSETS / f"showcase/{name}.html"),
-        str(ASSETS / f"showcase/{name}.css"),
+        str(html_path),
+        str(css_path),
         str(ASSETS / "playground/fonts"),
         str(output),
     ])
