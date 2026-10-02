@@ -77,6 +77,7 @@ nav:
     - Invoices from data: guides/invoices.md
     - pandas DataFrame to PDF: guides/pandas-to-pdf.md
     - Rebuild as you edit: guides/render-watch.md
+    - Check PDFs in CI: guides/pdf-regression-ci.md
     - FastAPI, Flask, and Django: guides/web-frameworks.md
     - Variable-data documents: guides/bank-statements.md
     - Tagged PDF and accessibility: accessibility/overview.md

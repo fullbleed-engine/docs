@@ -45,6 +45,17 @@ jobs:
           retention-days: 7
       - name: Compile and render the Rust quickstart examples
         run: python tools/verify_rust_examples.py
+      - name: Verify the downloadable PDF regression starter
+        run: |
+          python -m venv output/pdf-regression-env
+          output/pdf-regression-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.3
+          python tools/check_ci_starter.py --python "$PWD/output/pdf-regression-env/bin/python"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pdf-regression-download-verification
+          path: output/pdf-regression-verification
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         with:
           name: rust-quickstart-verification
