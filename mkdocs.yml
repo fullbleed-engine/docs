@@ -62,7 +62,7 @@ markdown_extensions:
       permalink: true
 extra:
   generator: false
-copyright: 'Fullbleed Engine · MIT licensed'
+copyright: 'Fullbleed Engine · MIT licensed · <a href="https://docs.fullbleed.dev/support/">Support Fullbleed</a>'
 nav:
   - Home: index.md
   - Get started:
@@ -96,3 +96,4 @@ nav:
     - Choose a PDF library: guides/comparison.md
     - Performance evidence: guides/performance.md
     - FAQ: faq.md
+  - Contribute and support: support.md
