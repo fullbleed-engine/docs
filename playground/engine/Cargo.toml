@@ -6,7 +6,7 @@ license = "MIT"
 publish = false
 
 [dependencies]
-fullbleed = "=2.5.0"
+fullbleed = "=2.5.5"
 
 [profile.release]
 lto = true

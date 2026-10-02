@@ -15,7 +15,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.0
+cargo add fullbleed@=2.5.5
 ```
 
 Replace `src/main.rs` with:
@@ -67,7 +67,7 @@ cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from
 Open `output/rust-invoice/document.pdf` or `page-1.png` in the same directory.
 Replace both `invoice` input filenames with `report` for the report design,
 and choose a new output directory. The report produces three
-pages. These examples pin Fullbleed 2.5.0 and include a Cargo lockfile.
+pages. These examples pin Fullbleed 2.5.5 and include a Cargo lockfile.
 
 For the service notice or your own edits, choose **Download project** in the
 playground. Extract the ZIP into `my-project` in this repository, then run:
@@ -100,21 +100,20 @@ Keep font license notices with redistributed assets. Register the additional
 families and styles used by your CSS; the designed example registers all four
 playground font files.
 
-For one PNG per page, render the same source at your chosen DPI:
+For one PNG per page, preview the PDF you just wrote at your chosen DPI:
 
 ```rust
-for (index, png) in engine.render_image_pages(html, css, 96)?.iter().enumerate() {
+for (index, png) in engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?.iter().enumerate() {
     std::fs::write(format!("page-{}.png", index + 1), png)?;
 }
 ```
 
-The PDF and PNG calls are separate render operations. To preview an existing
-Fullbleed PDF file, use
-`engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?`.
+This previews the finalized PDF, including its supported gradient fills. The
+designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
-Use [the published Rust API reference](https://docs.rs/fullbleed/2.5.0/fullbleed/)
+Use [the published Rust API reference](https://docs.rs/fullbleed/2.5.5/fullbleed/)
 for `FullBleed`, its builder, compiled templates, and document types. Check
 [CSS coverage](../css-coverage.md) before adapting a web layout, and inspect
 your actual output when changing fonts or content. These examples use trusted

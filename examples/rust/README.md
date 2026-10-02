@@ -1,6 +1,6 @@
 # Fullbleed from Rust
 
-These examples use the published `fullbleed` 2.5.0 crate. They require Rust
+These examples use the published `fullbleed` 2.5.5 crate. They require Rust
 1.85 or newer and a working native Rust toolchain; they do not require Python.
 
 From the root of this documentation repository:
@@ -11,8 +11,8 @@ cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from
 ```
 
 The first command writes `invoice.pdf`. The second writes the designed
-Northstar invoice to `output/rust-invoice/document.pdf`, plus a 96-DPI PNG for
-each page. Replace both `invoice` input filenames with `report` to render the
+Northstar invoice to `output/rust-invoice/document.pdf`, plus a 96-DPI PNG rendered
+from each PDF page. Replace both `invoice` input filenames with `report` to render the
 report design. Use a new output directory for each
 document so previews from an earlier, longer document do not remain there.
 
