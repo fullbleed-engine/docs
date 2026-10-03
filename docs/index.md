@@ -22,7 +22,8 @@ python -m pip install fullbleed
 
 Python 3.10–3.14 · Windows, macOS, Linux
 
-[Use the Rust crate](getting-started/rust.md) or [generate PDFs in Node.js](getting-started/node.md).
+Generate PDFs with [Rust](getting-started/rust.md), [Node.js](getting-started/node.md),
+or [C# and .NET](getting-started/dotnet.md).
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
