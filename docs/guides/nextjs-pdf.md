@@ -35,8 +35,9 @@ Open `http://127.0.0.1:3000` and select **Download sample PDF**. The route
 on the starter page. Use `npm run dev` while editing the app.
 
 The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.1, powered
-by engine 2.5.5. Fullbleed is installed from its versioned GitHub tarball;
-`npm install fullbleed` is not yet a verified registry installation command.
+by engine 2.5.5. Fullbleed is installed from npm. The registry tarball is
+byte-identical to the verified GitHub release. For an existing Node application,
+start with the [Node.js quickstart](../getting-started/node.md).
 
 ## Keep Fullbleed on the Node server
 
