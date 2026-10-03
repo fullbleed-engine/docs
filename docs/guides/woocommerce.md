@@ -13,7 +13,7 @@ browser; it needs no Fullbleed account, quota, watermark or server renderer.
 sales, update subscriptions and marketplace listings are not live.
 
 [Try a sample store](https://playground.wordpress.net/?storage=temp&blueprint-url=https://raw.githubusercontent.com/fullbleed-engine/fullbleed-commerce/main/playground/blueprint.json){ .md-button .md-button--primary }
-[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.0-alpha.3/fullbleed-commerce-0.1.0-alpha.3.zip){ .md-button }
+[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.1/fullbleed-commerce-0.1.1.zip){ .md-button }
 
 ## Make your first document
 
@@ -57,15 +57,19 @@ for supported fields and print CSS.
 
 ## Upgrade from an earlier preview
 
-Back up your staging store and export your templates. Upload the alpha.3 free
+Back up your staging store and export your templates. Upload the 0.1.1 free
 ZIP through **Plugins → Add New → Upload Plugin** and choose **Replace current
 with uploaded**. If you use Pro, replace its ZIP next and keep both packages on
 the same version. Saved templates, revisions and automation settings are retained;
 there is no automatic updater in this preview.
 
 An enabled workflow stays enabled. Check the renderer connection and a fictional
-order after updating. The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.0-alpha.3)
-covers the actual alpha.2-to-alpha.3 package replacement in HPOS and legacy storage.
+order after updating. New administrator failure alerts stay disabled until you
+enable them. The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.1)
+covers replacement of the actual alpha.3 packages in HPOS and legacy storage.
+
+Version 0.1.1 includes the Fullbleed 2.5.6 renderer correction: customized bold
+headings keep their appearance and extract once when copied from the PDF.
 
 ## Automate the recurring work
 
@@ -79,11 +83,16 @@ so they can run without a staff browser open.
 | Processing or completed order email | Attach a generated summary to selected existing messages. If rendering fails, preserve the original email and show a staff-visible error. Recovery uses an explicit merchant resend. |
 | Customer account | Let the signed-in owner download a current summary for an eligible order. Recheck ownership, order state and renderer availability on each request. |
 | Staff batch | Download up to 25 selected orders as a ZIP with the Pro add-on. |
+| Administrator failure summary | Opt into hourly checks and at most one email attempt per 24 hours for unresolved failures. The summary contains counts and a recovery link, without customer details or PDFs. |
 
-Alpha.3 adds **WooCommerce → Fullbleed activity** in Pro. Review the latest
+Open **WooCommerce → Fullbleed activity** in Pro to review the latest
 email-attachment and customer-download results, filter failures, and follow the
 order link and recovery guidance. A successful retry clears the earlier failure.
 The result reports PDF preparation, not whether the customer received an email.
+
+An administrator can enable failure summaries from the automation settings.
+They require working WordPress scheduled jobs and site mail. They never resend
+customer messages automatically; recovery remains an explicit merchant action.
 
 The [automation guide](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/automation/README.md)
 covers the renderer, configuration and data flow. These features are not enabled
@@ -130,7 +139,7 @@ Order summaries are not fiscal invoices. The preview rejects refunded orders
 and unsupported glyphs, preserves the platform's amounts and does not recalculate
 tax. Validate your own order shapes and language coverage on staging.
 
-The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.0-alpha.3)
+The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.1)
 includes checksums, readable source and license notices. WordPress plugin code
 is GPL-compatible; Fullbleed core remains MIT. The
 [verification record](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/verification.md)
