@@ -34,8 +34,8 @@ Open `http://127.0.0.1:3000` and select **Download sample PDF**. The route
 `/api/invoices/NS-1042` returns the invoice as an attachment. The browser stays
 on the starter page. Use `npm run dev` while editing the app.
 
-The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.1, powered
-by engine 2.5.5. Fullbleed is installed from npm. The registry tarball is
+The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.2, powered
+by engine 2.5.6. Fullbleed is installed from npm. The registry tarball is
 byte-identical to the verified GitHub release. For an existing Node application,
 start with the [Node.js quickstart](../getting-started/node.md).
 
