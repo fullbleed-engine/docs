@@ -13,11 +13,14 @@ integration and core engine have separate versions.
 
 ## Create your first PDF
 
-With Node.js 22 or newer, install the versioned GitHub release:
+With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/package/fullbleed):
 
 ```bash
-npm install https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.1/fullbleed-0.1.1.tgz
+npm install fullbleed
 ```
+
+To pin this guide's version, use `npm install --save-exact fullbleed@0.1.1`.
+The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
 
@@ -60,7 +63,7 @@ npm run render
 Open `output/invoice/invoice.pdf` and `output/invoice/page-1.png`. Edit the
 `customer` value in `render.mjs` or change the HTML/CSS. The script escapes the
 customer name before inserting it into the document. All example data is fictional.
-The lockfile pins the package tarball and its integrity hash.
+The lockfile pins the npm package version and its integrity hash.
 
 The layout uses the bundled Inter, DM Serif Display, and Bebas Neue families.
 
@@ -117,6 +120,12 @@ TypeScript. Its release evidence compares retained native and WebAssembly
 fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
+The [npm publication record](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.1/npm-publication-0.1.1.json)
+confirms the registry tarball matches that release. A fresh registry install on
+Windows / Node 24 reproduces its PDF/PNG hashes, including ESM/CommonJS and
+recovery after a cold timeout.
+
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
+[npm package](https://www.npmjs.com/package/fullbleed) ·
 [Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.1) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)

@@ -1,12 +1,12 @@
 {
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "sourceCommit": "b78f643836bc724a1b2f678df442f08ed38f7b58",
+  "sourceCommit": "ad02385e3c9fac920190e568ef23fb69a644245b",
   "files": 18,
   "assets": [
     {
       "file": "project.zip",
-      "sha256": "75f58804ce6a28889cb3b621e9b6e5ecd9ed6a5607477f0c784bf5842c747a6f",
-      "bytes": 104396
+      "sha256": "165fa617ae16cc14dfdc80663f892ed1035d5a3e8ccaffab665c946e9fd22737",
+      "bytes": 104300
     },
     {
       "file": "invoice.pdf",
