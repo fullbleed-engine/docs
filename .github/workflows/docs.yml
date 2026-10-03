@@ -74,6 +74,19 @@ jobs:
           output/reference-env/bin/python -I tools/verify_quickstarts.py
       - name: Verify the downloadable Node invoice and guide
         run: python tools/verify_node_examples.py
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Install and execute the C# guide and invoice from NuGet
+        run: |
+          python -m pip install pypdf==6.1.1
+          python tools/verify_dotnet_examples.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dotnet-guide-verification
+          path: output/dotnet-verification
+          retention-days: 14
       - name: Build and exercise the downloadable Next.js starter
         run: python tools/verify_nextjs_starter.py
       - uses: actions/upload-artifact@v4
