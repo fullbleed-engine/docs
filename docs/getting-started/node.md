@@ -90,6 +90,10 @@ includes a complete font and asset example.
 
 ## Use it in an application
 
+For a working web-app integration, use the [Next.js PDF download starter](../guides/nextjs-pdf.md).
+It includes an App Router handler, designed invoice, bundled-asset configuration
+and an isolated check of the production standalone server.
+
 Rendering runs in a worker, with separate document state for concurrent calls.
 Use `timeoutMs`, `maxPages`, and an `AbortSignal` to bound a job. Limit concurrent
 calls to fit your server's memory; each worker's WebAssembly memory ceiling is

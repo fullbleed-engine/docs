@@ -74,6 +74,19 @@ jobs:
           output/reference-env/bin/python -I tools/verify_quickstarts.py
       - name: Verify the downloadable Node invoice and guide
         run: python tools/verify_node_examples.py
+      - name: Build and exercise the downloadable Next.js starter
+        run: python tools/verify_nextjs_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nextjs-download-verification
+          path: |
+            output/nextjs-verification/*.json
+            output/nextjs-verification/*.txt
+            output/nextjs-verification/*.log
+            output/nextjs-verification/*.pdf
+            output/nextjs-verification/*.png
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
