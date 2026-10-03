@@ -1,6 +1,6 @@
 # Performance pass results: 2026-08-04
 
-Reference imported from [v2.5.5](https://github.com/fullbleed-engine/fullbleed-official/blob/45da0f9561490aa950f35598d93b9e213bfc5fd2/docs/performance-pass-2026-08-04.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.6](https://github.com/fullbleed-engine/fullbleed-official/blob/a34344fed5b91ace5e1b6798f45aae271177273a/docs/performance-pass-2026-08-04.md). Check the installed runtime for your exact version.
 
 This report compares the Fullbleed 2.1.0 release source with the independently measured Fullbleed
 2.0.0 baseline on the same Windows AMD64 host. The independent Python harness used 20 latency
