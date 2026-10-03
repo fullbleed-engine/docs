@@ -21,6 +21,9 @@ args = parser.parse_args()
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=True)
 workspace = Path(tempfile.mkdtemp(prefix='fullbleed dotnet docs ')).resolve()
+(workspace / 'global.json').write_text(json.dumps({
+    'sdk': {'version': '8.0.100', 'rollForward': 'latestFeature'}
+}) + '\n', encoding='utf-8')
 cache = workspace / 'nuget-cache'
 env = dict(os.environ, NUGET_PACKAGES=str(cache))
 env.pop('FULLBLEED_NATIVE_LIBRARY', None)
@@ -95,7 +98,7 @@ assert text.count('Maple & Finch') == 1 and text.count('$1,870.00') == 2
 package = installed / f'fullbleed.dotnet.{version}.nupkg'
 report = {
     'ok': True,
-    'sdk': subprocess.check_output(['dotnet', '--version'], text=True).strip(),
+    'sdk': subprocess.check_output(['dotnet', '--version'], cwd=workspace, text=True).strip(),
     'package_version': version,
     'engine_version': engine['version'],
     'package_source': args.package_source,
