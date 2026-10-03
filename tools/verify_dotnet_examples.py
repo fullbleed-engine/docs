@@ -25,7 +25,8 @@ workspace = Path(tempfile.mkdtemp(prefix='fullbleed dotnet docs ')).resolve()
     'sdk': {'version': '8.0.100', 'rollForward': 'latestFeature'}
 }) + '\n', encoding='utf-8')
 cache = workspace / 'nuget-cache'
-env = dict(os.environ, NUGET_PACKAGES=str(cache))
+env = dict(os.environ, NUGET_PACKAGES=str(cache),
+           NUGET_HTTP_CACHE_PATH=str(workspace / 'nuget-http-cache'))
 env.pop('FULLBLEED_NATIVE_LIBRARY', None)
 commands = []
 
@@ -105,6 +106,7 @@ report = {
     'package_sha256': hashlib.sha256(package.read_bytes()).hexdigest(),
     'workspace': str(workspace),
     'fresh_nuget_cache': True,
+    'fresh_nuget_http_cache': True,
     'native_library_override': False,
     'commands': commands,
     'outputs': outputs,
