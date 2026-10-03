@@ -2,7 +2,7 @@
 title: Generate PDFs from Rust with HTML and CSS
 description: Use the published Fullbleed Rust crate to render HTML/CSS into a PDF, register explicit fonts, and generate PNG previews. Includes runnable invoice and report examples.
 ---
-# Generate PDFs from Rust
+# Generate PDFs from Rust with HTML and CSS
 
 Use the [`fullbleed` crate](https://crates.io/crates/fullbleed) directly in a
 Rust application. The engine renders static HTML and CSS into print documents;
@@ -15,7 +15,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.0
+cargo add fullbleed@=2.5.6
 ```
 
 Replace `src/main.rs` with:
@@ -65,13 +65,19 @@ cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from
 ```
 
 Open `output/rust-invoice/document.pdf` or `page-1.png` in the same directory.
-Replace both `invoice` input filenames with `report` or `notice` for the
-other designs, and choose a new output directory. The report produces three
-pages. These examples pin Fullbleed 2.5.0 and include a Cargo lockfile.
+Replace both `invoice` input filenames with `report` for the report design,
+and choose a new output directory. The report produces three
+pages. These examples pin Fullbleed 2.5.6 and include a Cargo lockfile.
 
-You can also use **Save HTML**, **Save CSS**, and **Download the bundled fonts**
-in the playground. Extract the fonts ZIP, then pass your saved HTML, CSS,
-`fonts` directory, and a fresh output directory to `from-files`.
+For the service notice or your own edits, choose **Download project** in the
+playground. Extract the ZIP into `my-project` in this repository, then run:
+
+```bash
+cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from-files -- my-project/input.html my-project/style.css my-project/fonts output/my-project
+```
+
+The Rust example reads the exported HTML, CSS, and fonts directly. The individual
+**Save HTML** and **Save CSS** links also work with an existing fonts directory.
 
 ## Register fonts and create previews
 
@@ -94,21 +100,20 @@ Keep font license notices with redistributed assets. Register the additional
 families and styles used by your CSS; the designed example registers all four
 playground font files.
 
-For one PNG per page, render the same source at your chosen DPI:
+For one PNG per page, preview the PDF you just wrote at your chosen DPI:
 
 ```rust
-for (index, png) in engine.render_image_pages(html, css, 96)?.iter().enumerate() {
+for (index, png) in engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?.iter().enumerate() {
     std::fs::write(format!("page-{}.png", index + 1), png)?;
 }
 ```
 
-The PDF and PNG calls are separate render operations. To preview an existing
-Fullbleed PDF file, use
-`engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?`.
+This previews the finalized PDF, including its supported gradient fills. The
+designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
-Use [the published Rust API reference](https://docs.rs/fullbleed/2.5.0/fullbleed/)
+Use [the published Rust API reference](https://docs.rs/fullbleed/2.5.6/fullbleed/)
 for `FullBleed`, its builder, compiled templates, and document types. Check
 [CSS coverage](../css-coverage.md) before adapting a web layout, and inspect
 your actual output when changing fonts or content. These examples use trusted
@@ -119,3 +124,11 @@ boundary.
 · [More document designs](../examples.md)
 · [Python quickstart](quickstart.md)
 · [Ask a usage question](https://github.com/fullbleed-engine/fullbleed-official/discussions)
+
+## Authorship and checks
+
+This walkthrough was written by an AI coding agent for the Fullbleed project.
+The [runnable Rust examples are compiled and rendered in documentation CI](https://github.com/fullbleed-engine/docs/actions/workflows/docs.yml),
+where their fixture PDFs and PNG previews are compared with the playground's
+output. See the [verification source](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_examples.py)
+for the checks and their scope.

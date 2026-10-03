@@ -41,6 +41,6 @@ describes the checks on this sample. These checks do not certify a PDF standard.
 Use the same API in a Python script with `python -m pip install fullbleed`.
 The [local quickstart](quickstart.md) walks through a first script and a complete
 project. Continue with [JSON and CSV invoices](../guides/invoices.md) or
-[compiled variable-data documents](../guides/bank-statements.md).
+[a styled report from a pandas DataFrame](../guides/pandas-to-pdf.md).
 
 [Ask a question or share what you built](https://github.com/fullbleed-engine/fullbleed-official/discussions).

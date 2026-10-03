@@ -36,10 +36,14 @@ run([str(bin_dir / ("hello" + suffix))], hello_dir)
 assert (hello_dir / "invoice.pdf").read_bytes().startswith(b"%PDF-1.7")
 
 playground = json.loads((ASSETS / "playground/verification.json").read_text())
-assert playground["ok"] and playground["engine"] == "2.5.0"
+metadata = json.loads(run(["cargo", "metadata", "--format-version", "1", "--locked", "--manifest-path", str(EXAMPLES / "Cargo.toml")]).stdout)
+core = next(package for package in metadata["packages"] if package["name"] == "fullbleed")
+assert core["source"].startswith("registry+")
+assert playground["ok"] and playground["engine"] == core["version"]
 report = {
     "ok": True,
-    "engine": "2.5.0",
+    "engine": core["version"],
+    "preview_source": "finalized_pdf",
     "rustc": run(["rustc", "--version"]).stdout.strip(),
     "platform": os.name,
     "hello_pdf_sha256": sha256(hello_dir / "invoice.pdf"),
@@ -48,13 +52,17 @@ report = {
 }
 for fixture in playground["fixtures"]:
     name = fixture["name"]
-    if name not in {"invoice", "report", "notice"}:
-        continue
     output = EVIDENCE / name
+    # Replay the actual playground inputs, including its ordinary-output notice label.
+    prepared = ROOT / "playground/verification"
+    html_path = prepared / fixture["source_files"]["html"]
+    css_path = prepared / fixture["source_files"]["css"]
+    assert sha256(html_path) == fixture["source_files"]["html_sha256"]
+    assert sha256(css_path) == fixture["source_files"]["css_sha256"]
     result = run([
         str(bin_dir / ("from-files" + suffix)),
-        str(ASSETS / f"showcase/{name}.html"),
-        str(ASSETS / f"showcase/{name}.css"),
+        str(html_path),
+        str(css_path),
         str(ASSETS / "playground/fonts"),
         str(output),
     ])
@@ -70,6 +78,6 @@ for fixture in playground["fixtures"]:
         "name": name, "pages": expected_pages,
         "matches_playground_pdf_and_pngs": True, "sha256": hashes,
     })
-assert len(report["fixtures"]) == 3
+assert len(report["fixtures"]) == len(playground["fixtures"]) == 7
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

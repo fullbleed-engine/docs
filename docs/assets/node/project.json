@@ -1,0 +1,54 @@
+{
+  "package_version": "0.1.2",
+  "engine_version": "2.5.6",
+  "source_commit": "efcc5afbf3bbd37894194472e35dea209a54ec0f",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.2/fullbleed-0.1.2.tgz",
+  "package_integrity": "sha512-mAwvG4R4YgXPW0b5dT/ne7HUTBUKQcmwaDkvtYPK/bMkBhoU/mTGXQFjh4AwLCv0aWV2vgNpmguhgGW48iDKHQ==",
+  "package_sha256": "df08fc22c578f2653bed4adc5cf9ac66603bfeb34aa6b8812ebe3cbeb842933f",
+  "rendered": {
+    "invoice.pdf": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+    "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+  },
+  "quickstart": {
+    "invoice.pdf": "312fa31eda11a9e028a85646a45e8afad49f45c996a9b67994ac9816bcab1627",
+    "invoice.png": "b6dc87279d114dd2f0fb4ecccc48b829bd3babb22ba7d71e7fccfeaeab242116"
+  },
+  "fictional_data": true,
+  "license": "MIT",
+  "verification_scope": "Reviewed invoice and quickstart, installed from the published GitHub package. No PDF standards certification.",
+  "report": {
+    "report.pdf": "a93e4df3f5af6cc010e0611f95c4c24588d0d27627d1571daddec4eb92b31105",
+    "report-2.png": "3e31e42b3c7cac8b01633e5675cb1446feec553afb392d4d6a7b73f8c8582ad9"
+  },
+  "files": {
+    "LICENSE": {
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    "README.md": {
+      "bytes": 902,
+      "sha256": "12f9720d0c3a45c78abada2a45eef5e32f9ba8ca461fde4aa6141d529f56329d"
+    },
+    "invoice.css": {
+      "bytes": 3546,
+      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+    },
+    "invoice.html": {
+      "bytes": 2933,
+      "sha256": "195725eeeb32c521e19b47dbacbb55048bebb6df8566ab135cdc41fbf33fe57a"
+    },
+    "package-lock.json": {
+      "bytes": 1075,
+      "sha256": "38d6bf751b44d45a80321dc028601111512572d6e45d89a6b16300e5f1278284"
+    },
+    "package.json": {
+      "bytes": 241,
+      "sha256": "e66c93ef51a9057492db8f601771f1c4f8a4d460c5f497fcc02ea875b5bc5e01"
+    },
+    "render.mjs": {
+      "bytes": 1064,
+      "sha256": "dd63e83658800df2672c8c5ca1b176dbe49fc0d5c49b8c2b79af91515a68e776"
+    }
+  },
+  "zip_sha256": "44a337e3a336e1e945ab44438797a8569c7b330a1a742c35bd4c106261fe2b5e"
+}

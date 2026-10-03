@@ -3,7 +3,9 @@ import { render } from './renderer.js';
 
 async function bytes(path) {
   let response;
-  try { response = await fetch(new URL(path, import.meta.url)); }
+  const url = new URL(path, import.meta.url);
+  url.search = new URL(import.meta.url).search;
+  try { response = await fetch(url); }
   catch { throw new Error('Could not load the engine or fonts. Check your connection and render again.'); }
   if (!response.ok) throw new Error(`Could not load a playground asset (${response.status}). Please retry.`);
   return new Uint8Array(await response.arrayBuffer());

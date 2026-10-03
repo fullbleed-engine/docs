@@ -44,7 +44,7 @@ The first example uses standard PDF fonts; register explicit font files for
 your document's typography and character coverage.
 
 The package targets `net8.0` and contains native libraries for Windows x64,
-Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.1.
+Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.6.
 The managed assembly has no third-party NuGet runtime dependencies.
 
 ## Run a designed invoice

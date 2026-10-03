@@ -15,12 +15,14 @@ Fullbleed offers ordinary batch rendering and compiled document APIs. Choose bas
 ## Fixed fields
 
 ```python
+from importlib.resources import files
 import fullbleed
 
-engine = fullbleed.PdfEngine()
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
 template = engine.compile_pdf(
     "<h1>Statement {{statement_id}}</h1><p>{{customer}}</p>",
-    "body { font-family: Helvetica; }",
+    "body { font-family: Inter; }",
 )
 template.render_pdf_bindings_to_file(
     {"statement_id": ["ST-001", "ST-002"], "customer": ["Ada", "Grace"]},

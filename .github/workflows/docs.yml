@@ -32,8 +32,77 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python tools/build_playground.py
       - run: node tools/verify_playground.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-native-evidence
+          path: |
+            playground/verification/*.json
+            playground/verification/*.html
+            playground/verification/*.css
+            playground/verification/**/*.pdf
+            playground/verification/**/*.png
+          retention-days: 7
+      - name: Verify downloadable playground projects
+        run: |
+          python -m pip install fullbleed==2.5.6
+          node tools/verify_project_export.mjs
+          python -I tools/verify_project_export.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-project-verification
+          path: playground/project-verification
+          retention-days: 7
       - name: Compile and render the Rust quickstart examples
         run: python tools/verify_rust_examples.py
+      - name: Verify the downloadable PDF regression starter
+        run: |
+          python -m venv output/pdf-regression-env
+          output/pdf-regression-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.3
+          python tools/check_ci_starter.py --python "$PWD/output/pdf-regression-env/bin/python"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pdf-regression-download-verification
+          path: output/pdf-regression-verification
+          retention-days: 7
+      - name: Verify the introductory Python examples
+        run: |
+          python -m venv output/reference-env
+          output/reference-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.6
+          output/reference-env/bin/python -I tools/verify_quickstarts.py
+      - name: Verify the downloadable Node invoice and guide
+        run: python tools/verify_node_examples.py
+      - name: Build and exercise the downloadable Next.js starter
+        run: python tools/verify_nextjs_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nextjs-download-verification
+          path: |
+            output/nextjs-verification/*.json
+            output/nextjs-verification/*.txt
+            output/nextjs-verification/*.log
+            output/nextjs-verification/*.pdf
+            output/nextjs-verification/*.png
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: node-guide-verification
+          path: |
+            output/node-verification/*.json
+            output/node-verification/*.txt
+            output/node-verification/**/*.pdf
+            output/node-verification/**/*.png
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quickstart-verification
+          path: output/quickstart-verification
+          retention-days: 7
       - uses: actions/upload-artifact@v4
         with:
           name: rust-quickstart-verification

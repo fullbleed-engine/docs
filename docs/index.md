@@ -22,8 +22,8 @@ python -m pip install fullbleed
 
 Python 3.10–3.14 · Windows, macOS, Linux
 
-Using Rust? [Start with the native crate](getting-started/rust.md).
-Using C#? [Start with the .NET package](getting-started/dotnet.md).
+Generate PDFs with [Rust](getting-started/rust.md), [Node.js](getting-started/node.md),
+or [C# and .NET](getting-started/dotnet.md).
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
@@ -33,19 +33,32 @@ Using C#? [Start with the .NET package](getting-started/dotnet.md).
 
 <p class="facts">Self-contained wheels &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
 
+Building a store? [Try the WooCommerce editor in a sample store](guides/woocommerce.md),
+then [evaluate an automated order workflow](guides/woocommerce.md#evaluate-an-automated-workflow)
+for email attachments or customer downloads.
+
 ## A small first step
 
 Save this as `hello.py`, run `python hello.py`, and open `invoice.pdf`.
 
 ```python
+from importlib.resources import files
 from pathlib import Path
 import fullbleed
 
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
 html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
-css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }"
-pdf = fullbleed.PdfEngine().render_pdf(html, css)
+css = """
+@page { size: A4; margin: 20mm; }
+body { font-family: Inter; color: #203a36; }
+h1 { color: #175c52; }
+"""
+pdf = engine.render_pdf(html, css)
 Path("invoice.pdf").write_bytes(pdf)
 ```
+
+The example embeds the Inter font included with Fullbleed.
 
 ## Pick a document to build
 
@@ -61,7 +74,7 @@ Path("invoice.pdf").write_bytes(pdf)
 
     Use headings, tables, page margins, headers, and footers for a document that grows with its content.
 
-    [See the illustrated report →](examples.md#business-report)
+    [DataFrame to PDF →](guides/pandas-to-pdf.md) · [See the illustrated report →](examples.md#business-report)
 
 - **One template, many records**
 
@@ -83,11 +96,13 @@ The wheel bundles a Rust rendering engine, a Python API, a CLI, and fonts. It re
 
 While editing HTML and CSS, [watch mode](guides/render-watch.md) rebuilds your
 PDF and PNG previews after saves. It is available in Fullbleed 2.5.0 and newer.
+Use the [PDF regression starter](guides/pdf-regression-ci.md) to compare a new
+render with a reviewed baseline in GitHub Actions and retain previews on failure.
 
 Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](css-coverage.md) for your templates, and the [tool selection guide](guides/comparison.md) when you also need live browser rendering or general PDF editing.
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.1 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.1) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.6 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.6) includes downloadable wheels and retained engineering evidence. The [performance report](guides/performance.md) describes specific measured workloads and their limits.
 
-[Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues)
+[Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues) · [Support Fullbleed](support.md)

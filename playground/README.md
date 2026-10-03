@@ -1,9 +1,10 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.0`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.6`
 Rust crate. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
-the core Rust crate. The engine produces both the PDF and PNG page previews.
+the core Rust crate. The engine produces the PDF, then renders PNG page previews
+from that finalized file. Downloaded Python projects use the same preview path.
 
 The browser fetches fixed engine/font/example assets from the docs site. User
 HTML/CSS is passed to a worker and an in-memory filesystem; it is never inserted
@@ -27,10 +28,37 @@ python tools/check_site.py site
 The build uses both lockfiles, publishes a toolchain/hash record, and retains
 the generated verification report next to the browser assets. The verification
 script compares native and WASI PDF and PNG bytes for the invoice, report, and
-notice; checks an edit changes the output; and exercises source/page limits and
+notice, an edited invoice, and three gradient cases; checks expected gradient
+colors and that an edit changes the output; and exercises source/page limits and
 recovery. The browser UI is additionally reviewed with actual downloaded PDFs.
 These checks establish the recorded fixtures only, not universal platform parity
 or ISO conformance.
+
+## Continue locally
+
+**Download project** captures the current editor values into a ZIP with the
+fonts and their licenses, requirements pinned to the built engine version, a
+Python runner, and a file-hash manifest. Exporting uses only static GET requests
+for bundled assets; the document stays in the browser. It captures source at the
+click, including edits that have not been rendered. Later edits do not change an
+export already in progress. A separate download status leaves rendering usable
+when a project asset fails to load.
+
+The ZIP uses stored entries and requires no extra browser library. Font bytes
+are checked against the existing attribution manifest before export. After
+building the playground, verify the complete handoff with:
+
+```sh
+python -m pip install fullbleed==2.5.6
+node tools/verify_project_export.mjs
+python -I tools/verify_project_export.py
+```
+
+The verifier checks ZIP integrity, exact source and font/license bytes, export
+replay, failure recovery, and Python/WASI PDF and PNG equality for the invoice,
+report, notice, an edited invoice, and three gradient cases. Extracted projects run from paths with
+spaces and a different current working directory. Results are retained in
+`playground/project-verification`.
 
 The adapter limits sources to 200,000 UTF-8 bytes, documents to six pages, WASM
 linear memory to 256 MiB, and each render to 30 seconds. The browser terminates
