@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.5`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.6`
 Rust crate. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -49,7 +49,7 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.5
+python -m pip install fullbleed==2.5.6
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 ```

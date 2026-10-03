@@ -1,6 +1,6 @@
 # PDF Templates and XObjects
 
-Reference imported from [v2.5.5](https://github.com/fullbleed-engine/fullbleed-official/blob/45da0f9561490aa950f35598d93b9e213bfc5fd2/docs/pdf-templates.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.6](https://github.com/fullbleed-engine/fullbleed-official/blob/a34344fed5b91ace5e1b6798f45aae271177273a/docs/pdf-templates.md). Check the installed runtime for your exact version.
 
 This document defines the Fullbleed template-composition path for source PDF workflows.
 
