@@ -72,6 +72,7 @@ nav:
     - Your first PDF: getting-started/quickstart.md
     - Use Rust: getting-started/rust.md
     - Use Node.js: getting-started/node.md
+    - Use WooCommerce: guides/woocommerce.md
     - Fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
   - Build a document:
