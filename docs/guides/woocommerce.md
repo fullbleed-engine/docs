@@ -13,7 +13,7 @@ browser; it needs no Fullbleed account, quota, watermark or server renderer.
 sales, update subscriptions and marketplace listings are not live.
 
 [Try a sample store](https://playground.wordpress.net/?storage=temp&blueprint-url=https://raw.githubusercontent.com/fullbleed-engine/fullbleed-commerce/main/playground/blueprint.json){ .md-button .md-button--primary }
-[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.1/fullbleed-commerce-0.1.1.zip){ .md-button }
+[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.2/fullbleed-commerce-0.1.2.zip){ .md-button }
 
 ## Make your first document
 
@@ -57,19 +57,29 @@ for supported fields and print CSS.
 
 ## Upgrade from an earlier preview
 
-Back up your staging store and export your templates. Upload the 0.1.1 free
+Back up your staging store and export your templates. Upload the 0.1.2 free
 ZIP through **Plugins → Add New → Upload Plugin** and choose **Replace current
 with uploaded**. If you use Pro, replace its ZIP next and keep both packages on
 the same version. Saved templates, revisions and automation settings are retained;
 there is no automatic updater in this preview.
 
 An enabled workflow stays enabled. Check the renderer connection and a fictional
-order after updating. New administrator failure alerts stay disabled until you
-enable them. The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.1)
-covers replacement of the actual alpha.3 packages in HPOS and legacy storage.
+order after updating. Administrator failure alerts are a separate opt-in.
+The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.2)
+covers replacement of the actual 0.1.1 packages in HPOS and legacy storage.
 
-Version 0.1.1 includes the Fullbleed 2.5.6 renderer correction: customized bold
-headings keep their appearance and extract once when copied from the PDF.
+Version 0.1.2 keeps the totals and closing note together on long summaries in
+the built-in designs and new starter templates. Existing saved templates retain
+their own CSS. If you previously saved a built-in summary, add these rules in
+**HTML / CSS**, preview a long order, then save:
+
+```css
+.totals { break-after: avoid; }
+.footer { break-before: avoid; }
+```
+
+The included Fullbleed 2.5.6 renderer also keeps customized bold headings
+extractable once when copied from the PDF.
 
 ## Automate the recurring work
 
@@ -139,7 +149,7 @@ Order summaries are not fiscal invoices. The preview rejects refunded orders
 and unsupported glyphs, preserves the platform's amounts and does not recalculate
 tax. Validate your own order shapes and language coverage on staging.
 
-The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.1)
+The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.2)
 includes checksums, readable source and license notices. WordPress plugin code
 is GPL-compatible; Fullbleed core remains MIT. The
 [verification record](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/verification.md)
