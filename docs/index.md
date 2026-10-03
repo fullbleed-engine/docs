@@ -32,6 +32,9 @@ Python 3.10–3.14 · Windows, macOS, Linux
 
 <p class="facts">Self-contained wheels &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
 
+Building a store? [Try the WooCommerce editor in a sample store](guides/woocommerce.md),
+then explore automatic order-email attachments and customer downloads.
+
 ## A small first step
 
 Save this as `hello.py`, run `python hello.py`, and open `invoice.pdf`.
