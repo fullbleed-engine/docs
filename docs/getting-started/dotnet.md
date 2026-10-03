@@ -4,7 +4,7 @@ description: Install FullBleed.DotNet from NuGet, render a PDF from C#, and run 
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.1)
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.2)
 brings Fullbleed's Rust rendering engine into a .NET process. Use static HTML
 and CSS to create invoices, reports, and variable-data documents. Native
 rendering needs neither Python nor a browser.
@@ -16,7 +16,7 @@ With the .NET 8 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net8.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.1.1
+dotnet add package FullBleed.DotNet --version 0.1.2
 ```
 
 Replace `Program.cs` with:
@@ -118,8 +118,8 @@ Selecting an output profile is not proof of conformance. Check the actual
 document and retain the relevant verification evidence before making an
 accessibility, archival, or print-standard claim.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.1/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.1/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.2/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.2/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)
