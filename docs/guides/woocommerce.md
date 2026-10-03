@@ -78,6 +78,35 @@ expiring document links and expose activity, retries, pause and revocation.
 See the [tested order-arrival recipe](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/shopify/recipes/order-documents.md).
 It is a development-store integration, not a published App Store listing.
 
+## Evaluate an automated workflow
+
+If you run a store or build stores for clients, help shape the first automated
+workflows around a task you repeat today. Start with the free editor demo, then
+tell us what should happen after an order: which document, for whom, and through
+which email, account page or Flow step.
+
+[Describe your workflow](https://github.com/fullbleed-engine/fullbleed-commerce/issues/new?template=commerce-pilot.yml){ .md-button .md-button--primary }
+[Contact privately](https://www.fullbleed.dev/contact){ .md-button }
+
+The GitHub form is public and requires a GitHub account. Use fictional examples;
+keep customer records, passwords and private store details out of the request.
+The contact page is available without GitHub. Neither path purchases a service
+or reserves a release date.
+
+A useful first evaluation is small:
+
+1. Save a design that fits your brand, then check a normal order and a long order.
+2. On staging, test one automatic path: an existing WooCommerce order email, a
+   customer account download, or a Shopify Flow action in a development store.
+3. Make the renderer unavailable and check what staff see and how they recover.
+4. Tell us what blocked setup, what still needed manual work, and what would
+   justify paying for the workflow, updates or support.
+
+WooCommerce automation currently requires a private server renderer that you or
+your agency operate. Tell us if you need managed hosting instead; a managed plan
+is not live yet. The free editor and browser downloads work independently of
+that renderer. No production store access is needed to describe your workflow.
+
 ## Scope and evidence
 
 Order summaries are not fiscal invoices. The preview rejects refunded orders
