@@ -58,14 +58,15 @@ including previews, automation, and downloads. Failed work does not count.
 
 ## Retention and deletion
 
-### Access history in the next preview update
+### Access history
 
-The next preview deployment adds **Access history**, available to authenticated
+The Shopify preview includes **Access history**, available to authenticated
 store staff even without a paid plan. It records requests for order lists,
 document previews and PDFs, automation activity, privacy exports and access
 history itself. It also records Flow document preparation and private-link
-downloads. This update has passed local synthetic-store checks; it is not yet
-running on the hosted preview.
+downloads. An attended hosted test verified these records, privacy deletion,
+uninstall and backup restoration using synthetic store data. The preview is
+stopped between attended tests and remains closed to production merchants.
 
 Each entry contains the store, action, time, outcome and relevant order, job or
 privacy-request reference. Staff requests include the staff ID from the verified
@@ -91,12 +92,12 @@ restoration and deletion process below.
 | Plan usage | The billing period plus 30 days. Customer erasure removes affected order references while retaining the period's aggregate count. Uninstall and shop erasure remove all of the store's usage records. |
 | Outstanding customer-data exports | Until the merchant marks the request handled or Shopify requests erasure. Overdue requests remain visible and require action. |
 | Completed or erased privacy-request receipts | 30 days after completion or erasure, without the live export, customer identity hashes, or order references. |
-| Access history (next preview update) | 30 days, with earlier deletion of the corresponding order, privacy-export or store references as described above. |
+| Access history | 30 days, with earlier deletion of the corresponding order, privacy-export or store references as described above. |
 
 Cleanup runs at startup and hourly while the app is running. An outage or a
 paused preview can delay removal. Authenticated uninstall and shop-erasure
 notifications clear the store's live sessions, preferences, templates,
-automation, usage, and privacy-request records. Encrypted recovery copies have
+automation, usage, privacy-request records, and access history. Encrypted recovery copies have
 the separate retention described below.
 
 ## Customer privacy requests
@@ -106,8 +107,8 @@ export of retained automation and order-usage metadata, including the customer
 ID or email supplied to identify the request. Requested order references and
 keyed identity hashes support subsequent deletion.
 
-The next preview update also includes retained access to the requested orders
-in this export, without staff identifiers or unrelated-store records.
+The export also includes retained access history for the requested orders,
+without staff identifiers or unrelated-store records.
 
 Authorized store staff can download the export from **Privacy requests**
 without a paid plan, then respond through the store's privacy process.
