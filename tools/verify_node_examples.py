@@ -50,6 +50,11 @@ def run(label, command, cwd=workspace):
     return result.stdout
 
 run("install", [npm, "ci", "--ignore-scripts", "--no-audit", "--no-fund"])
+installed = json.loads((workspace / "node_modules/fullbleed/package.json").read_text(encoding="utf8"))
+assert installed["version"] == manifest["package_version"], "Installed package version differs from the guide."
+assert installed["fullbleed"]["engineVersion"] == manifest["engine_version"]
+lock = json.loads((workspace / "package-lock.json").read_text(encoding="utf8"))
+assert lock["packages"]["node_modules/fullbleed"]["integrity"] == manifest["package_integrity"]
 result = json.loads(run("render", ["render.mjs"]))
 assert result["pages"] == 1 and result["missingGlyphs"] == 0 and result["engine"] == manifest["engine_version"]
 outputs = {}
@@ -77,7 +82,8 @@ for name in ["invoice.pdf", "invoice.png"]:
     data = (snippet / name).read_bytes()
     assert digest(data) == manifest["quickstart"][name], name
 report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], text=True).strip(),
-          "platform": os.name, "package_version": manifest["package_version"], "engine_version": manifest["engine_version"],
+          "platform": os.name, "package_version": installed["version"], "engine_version": installed["fullbleed"]["engineVersion"],
+          "installed_package_matches_manifest": True,
           "source_commit": manifest["source_commit"], "commands": commands, "download_files": len(manifest["files"]),
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
           "homepage_snippet_matches_executed_guide": True,
