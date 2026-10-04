@@ -107,11 +107,19 @@ Use `timeoutMs`, `maxPages`, and an `AbortSignal` to bound a job. Limit concurre
 calls to fit your server's memory; each worker's WebAssembly memory ceiling is
 512 MiB. Preview images can use more memory than PDF-only rendering.
 
-Failures reject with a `FullbleedError` and a code such as `INVALID_INPUT`,
+Rendering errors reject with a `FullbleedError` and a code such as `INVALID_INPUT`,
 `MISSING_GLYPHS`, `PAGE_LIMIT`, `TIMEOUT`, or `ABORTED`. Invalid font data is
 rejected. Use registered font families: unavailable CSS families can fall back,
 and the engine's glyph report does not establish visual correctness. Review the
 final PDF and previews when adapting a design.
+
+An intermittent process crash on Linux with Node 24.21.0 was observed with
+`fullbleed@0.1.2`; [issue #7](https://github.com/fullbleed-engine/fullbleed-node/issues/7)
+remains open. Version 0.1.3 fixes worker shutdown timing, but has not established
+that this native crash is resolved. See the
+[runtime investigation](https://github.com/fullbleed-engine/fullbleed-node/blob/main/docs/runtime-diagnostics.md)
+for the observed scope and synthetic diagnostic. A process crash can occur
+before JavaScript can return an error.
 
 This first Node API covers ordinary PDF rendering and previews. Use the
 [Python API](../engine/pdf-engine.md) or [Rust crate](rust.md) for profiles,
