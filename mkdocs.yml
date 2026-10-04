@@ -86,6 +86,7 @@ nav:
     - Check PDFs in CI: guides/pdf-regression-ci.md
     - FastAPI, Flask, and Django: guides/web-frameworks.md
     - Next.js PDF downloads: guides/nextjs-pdf.md
+    - ASP.NET Core PDF downloads: guides/aspnet-pdf.md
     - Variable-data documents: guides/bank-statements.md
     - Tagged PDF and accessibility: accessibility/overview.md
     - Print output and PDF/VT: guides/print-output.md

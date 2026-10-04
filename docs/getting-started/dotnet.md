@@ -127,6 +127,10 @@ Selecting an output profile is not proof of conformance. Check the actual
 document and retain the relevant verification evidence before making an
 accessibility, archival, or print-standard claim.
 
+For a web application, download the [ASP.NET Core PDF starter](../guides/aspnet-pdf.md).
+It includes a download page, styled invoice, private responses, and checks against
+the published application artifact.
+
 [.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.2/docs/api.md)
 · [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.2/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)

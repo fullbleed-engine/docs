@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar invoice · Fullbleed for ASP.NET Core</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f3f0e7; color: #17382e; font: 17px/1.6 system-ui, sans-serif; }
+    main { max-width: 1120px; padding: 64px 32px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .label { text-transform: uppercase; font-size: 12px; letter-spacing: .12em; font-weight: 700; }
+    h1 { font: 500 clamp(42px, 6vw, 72px)/1.05 Georgia, serif; margin: 26px 0; letter-spacing: -.035em; }
+    p { max-width: 440px; }
+    .download { display: inline-block; background: #17382e; color: #fff8e8; padding: 14px 22px; border-radius: 4px; font-weight: 700; text-decoration: none; margin: 18px 0; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #b44123; outline-offset: 5px; }
+    .note { font-size: 14px; color: #53675d; }
+    figure { margin: 0; }
+    img { display: block; width: 100%; height: auto; border: 1px solid #bac6ba; box-shadow: 0 12px 30px #17382e18; }
+    figcaption { font-size: 13px; margin-top: 12px; }
+    @media (max-width: 720px) { main { grid-template-columns: 1fr; padding: 32px 22px; gap: 30px; } h1 { max-width: 400px; } }
+  </style>
+</head>
+<body><main>
+  <section>
+    <div class="label">Fullbleed / ASP.NET Core</div>
+    <h1>Good work.<br>Clear details.</h1>
+    <p>A designed invoice, generated from HTML and CSS by your C# application.</p>
+    <a class="download" href="/invoices/NS-1042/pdf">Download sample PDF</a>
+    <p class="note">Northstar Studio is fictional. This demo serves one sample invoice; it contains no customer records.</p>
+    <p class="note"><a href="https://docs.fullbleed.dev/guides/aspnet-pdf/">Read the integration guide</a> · <a href="https://github.com/fullbleed-engine/fullbleed-dotnet">C# package source</a></p>
+  </section>
+  <figure><img src="/invoice.png" alt="Northstar Studio invoice with green display typography, an itemized table, and a highlighted total of $1,870.00."><figcaption>Preview rendered from the actual sample PDF.</figcaption></figure>
+</main></body></html>

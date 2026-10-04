@@ -1,0 +1,103 @@
+{
+  "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/aspnet",
+  "framework": "net10.0",
+  "package": "FullBleed.DotNet",
+  "packageVersion": "0.1.2",
+  "projectZipSha256": "7453f53eb2121ab257fe1e5b703bac8b1b2d7b895191ff662759122c91a1e6f6",
+  "files": [
+    {
+      "path": "Assets/fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "Assets/fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "Assets/fonts/DMSerifDisplay-Italic.ttf",
+      "bytes": 71208,
+      "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+    },
+    {
+      "path": "Assets/fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "Assets/fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "Assets/fonts/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "Assets/fonts/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "Assets/home.html",
+      "bytes": 2286,
+      "sha256": "c2e36f14b00e560fb68d417137cacd6c26975baec028a131bc6da28de235a826"
+    },
+    {
+      "path": "Assets/invoice.css",
+      "bytes": 3546,
+      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+    },
+    {
+      "path": "Assets/invoice.html",
+      "bytes": 2933,
+      "sha256": "195725eeeb32c521e19b47dbacbb55048bebb6df8566ab135cdc41fbf33fe57a"
+    },
+    {
+      "path": "Assets/invoice.png",
+      "bytes": 108712,
+      "sha256": "2a3a685a708fe604d91516c91e70ca92d747866c2bbbaeefa8523b760065f29c"
+    },
+    {
+      "path": "FullbleedWeb.csproj",
+      "bytes": 534,
+      "sha256": "f64aa242d7575de2c0803f465021dd9912abae52d2ab521cbdb3616245023c41"
+    },
+    {
+      "path": "InvoiceRenderer.cs",
+      "bytes": 2723,
+      "sha256": "f1aed6808c5dc0d0aa3b9acf4b317bad64b3a9c738fe517ed6cda5c400e46c99"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "Program.cs",
+      "bytes": 2410,
+      "sha256": "9670af012dfa983b453b47a171c25374087202d35f45119cc2818ebdbe4c7d61"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2459,
+      "sha256": "600508b69ecbecc4deb20e00af0bf87fe66dcc5c7b67a4f5a32de3cc063f6f26"
+    },
+    {
+      "path": "global.json",
+      "bytes": 111,
+      "sha256": "20c93ca7812d0a9825eef71217156f95ab2f4fe5aadfeb22ebc1c24b630018d3"
+    },
+    {
+      "path": "packages.lock.json",
+      "bytes": 305,
+      "sha256": "11d689f8dc1dc405d4ffe440bfa510c82d89acfa42e23dbba9472f3dd680eac4"
+    }
+  ],
+  "outputs": {
+    "invoice.pdf": "a905ab88b41d42ffcdf8c9dd97b3d3dc01da46fb80ce637f6ab6f4abc7c4ffba",
+    "invoice.png": "2a3a685a708fe604d91516c91e70ca92d747866c2bbbaeefa8523b760065f29c"
+  }
+}

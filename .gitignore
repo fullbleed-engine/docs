@@ -13,6 +13,10 @@ examples/rust/target/
 examples/rust/verification/
 /output/
 /target/
+__pycache__/
 /invoice.pdf
 examples/dotnet/bin/
 examples/dotnet/obj/
+examples/aspnet/bin/
+examples/aspnet/obj/
+examples/aspnet/output/
