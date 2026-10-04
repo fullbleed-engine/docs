@@ -1,29 +1,22 @@
 ---
-title: Python PDF generation with HTML and CSS
-description: Create invoices, reports, and variable-data PDFs with Fullbleed. A deterministic Rust engine, a Python API, prebuilt wheels, and an MIT license.
+title: HTML/CSS to PDF for Python, Rust, Node.js, and C#
+description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, or C#. Choose your language, copy a runnable example, and explore designed invoices and reports.
 hide:
   - toc
 ---
 
 <div class="hero" markdown>
 <div markdown>
-<p class="eyebrow">Python + Rust · MIT licensed</p>
+<p class="eyebrow">HTML/CSS to PDF · MIT licensed</p>
 
 # Your data. Your design. Your PDF.
 
-<p class="lead">Turn Python data and HTML/CSS into invoices, reports, and print documents. Start with one install, then grow from a single PDF to a compiled variable-data workflow.</p>
+<p class="lead">Create invoices, reports, and print documents with HTML/CSS. Bring your data from Python, Rust, Node.js, or C# and render with the Fullbleed Rust engine.</p>
 
 [Try in your browser](playground.md){ .md-button .md-button--primary }
-[Install locally](getting-started/quickstart.md){ .md-button }
+[Choose your language](#choose-your-language){ .md-button }
 
-```bash
-python -m pip install fullbleed
-```
-
-Python 3.10–3.14 · Windows, macOS, Linux
-
-Generate PDFs with [Rust](getting-started/rust.md), [Node.js](getting-started/node.md),
-or [C# and .NET](getting-started/dotnet.md).
+Four ways to build. One print engine.
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
@@ -31,34 +24,163 @@ or [C# and .NET](getting-started/dotnet.md).
 </figure>
 </div>
 
-<p class="facts">Self-contained wheels &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
+<p class="facts">HTML/CSS templates &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
 
 Building a store? [Try the WooCommerce editor in a sample store](guides/woocommerce.md),
 then [evaluate an automated order workflow](guides/woocommerce.md#evaluate-an-automated-workflow)
 for email attachments or customer downloads.
 
-## A small first step
+<span id="a-small-first-step"></span>
 
-Save this as `hello.py`, run `python hello.py`, and open `invoice.pdf`.
+## Choose your language
 
-```python
-from importlib.resources import files
-from pathlib import Path
-import fullbleed
+Pick your application stack. Each example writes an `invoice.pdf` you can open locally.
 
-font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
-engine = fullbleed.PdfEngine(font_files=[str(font)])
-html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
-css = """
-@page { size: A4; margin: 20mm; }
-body { font-family: Inter; color: #203a36; }
-h1 { color: #175c52; }
-"""
-pdf = engine.render_pdf(html, css)
-Path("invoice.pdf").write_bytes(pdf)
-```
+=== "Python"
 
-The example embeds the Inter font included with Fullbleed.
+    Use Python 3.10–3.14. The wheel includes the engine, CLI, and fonts.
+
+    ```bash
+    python -m pip install fullbleed
+    ```
+
+    Save as `hello.py`:
+
+    ```python
+    from importlib.resources import files
+    from pathlib import Path
+    import fullbleed
+
+    font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+    engine = fullbleed.PdfEngine(font_files=[str(font)])
+    html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
+    css = """
+    @page { size: A4; margin: 20mm; }
+    body { font-family: Inter; color: #203a36; }
+    h1 { color: #175c52; }
+    """
+    pdf = engine.render_pdf(html, css)
+    Path("invoice.pdf").write_bytes(pdf)
+    ```
+
+    Run:
+
+    ```bash
+    python hello.py
+    ```
+
+    Open `invoice.pdf`. This example embeds the bundled Inter font.
+
+    [Python quickstart →](getting-started/quickstart.md) · [FastAPI, Flask, and Django](guides/web-frameworks.md)
+
+=== "Node.js"
+
+    Use Node.js 22 or newer. The npm package includes the WebAssembly engine, fonts, and TypeScript declarations.
+
+    ```bash
+    npm install fullbleed
+    ```
+
+    Save as `invoice.mjs`:
+
+    ```javascript
+    import { writeFile } from 'node:fs/promises';
+    import { renderPdf } from 'fullbleed';
+
+    const result = await renderPdf({
+      html: '<h1>Invoice NS-1042</h1><p>Consulting: USD 1,200.00</p>',
+      css: '@page { size: A4; margin: 20mm } h1 { color: #175c52 }',
+      previewDpi: 96,
+    });
+
+    await writeFile('invoice.pdf', result.pdf);
+    await writeFile('invoice.png', result.previews[0]);
+    console.log(`${result.pages} page; engine ${result.engineVersion}`);
+    ```
+
+    Run:
+
+    ```bash
+    node invoice.mjs
+    ```
+
+    Open `invoice.pdf` or its `invoice.png` preview. This API covers ordinary PDF rendering and previews.
+
+    [Node.js quickstart →](getting-started/node.md) · [Next.js PDF downloads](guides/nextjs-pdf.md)
+
+=== "Rust"
+
+    Use a native Rust toolchain and the published crate.
+
+    ```bash
+    cargo new invoice-demo
+    cd invoice-demo
+    cargo add fullbleed@=2.5.6
+    ```
+
+    Replace `src/main.rs` with:
+
+    ```rust
+    use fullbleed::FullBleed;
+
+    fn main() -> Result<(), Box<dyn std::error::Error>> {
+        let html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>";
+        let css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }";
+        let engine = FullBleed::builder().build()?;
+        let pdf = engine.render_to_buffer(html, css)?;
+        std::fs::write("invoice.pdf", pdf)?;
+        Ok(())
+    }
+    ```
+
+    Run:
+
+    ```bash
+    cargo run --release
+    ```
+
+    Open `invoice.pdf`. This first example uses standard PDF fonts; the guide adds explicit fonts and a designed invoice.
+
+    [Rust quickstart →](getting-started/rust.md) · [Rust API reference](https://docs.rs/fullbleed/2.5.6/fullbleed/)
+
+=== "C# / .NET"
+
+    Start a new application with the .NET 10 SDK. The NuGet package includes native rendering libraries.
+
+    ```bash
+    dotnet new console -n InvoiceDemo --framework net10.0
+    cd InvoiceDemo
+    dotnet add package FullBleed.DotNet --version 0.1.2
+    ```
+
+    Replace `Program.cs` with:
+
+    ```csharp
+    using FullBleed.DotNet;
+
+    using var engine = new FullBleedEngine(new FullBleedEngineOptions
+    {
+        DocumentLanguage = "en-US",
+        DocumentTitle = "Invoice INV-1042",
+    });
+
+    var html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>";
+    var css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }";
+    File.WriteAllBytes("invoice.pdf", engine.RenderPdf(html, css));
+
+    var inspection = FullBleedEngine.InspectPdf("invoice.pdf");
+    Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
+    ```
+
+    Run:
+
+    ```bash
+    dotnet run
+    ```
+
+    Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
+
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.2/samples/FullBleed.DotNet.LinqVdp)
 
 ## Pick a document to build
 
@@ -92,7 +214,9 @@ The example embeds the Inter font included with Fullbleed.
 
 ## Built for a document pipeline
 
-The wheel bundles a Rust rendering engine, a Python API, a CLI, and fonts. It requires no third-party Python runtime packages. You can render, preview, inspect, and verify in the same workflow.
+Keep document structure in HTML and design in CSS, then generate PDF bytes in your application. The language guides explain each integration’s fonts, previews, API coverage, and deployment requirements.
+
+For command-line document workflows, the Python wheel includes the engine, CLI, and fonts with no required third-party Python runtime packages. Use it to render, preview, inspect, and verify your output.
 
 While editing HTML and CSS, [watch mode](guides/render-watch.md) rebuilds your
 PDF and PNG previews after saves. It is available in Fullbleed 2.5.0 and newer.

@@ -5,6 +5,7 @@ import json
 import os
 import re
 import subprocess
+from textwrap import dedent
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "examples/rust"
@@ -26,6 +27,9 @@ def sha256(path):
 guide = (ROOT / "docs/getting-started/rust.md").read_text(encoding="utf-8")
 hello = (EXAMPLES / "src/hello.rs").read_text(encoding="utf-8").strip()
 assert re.findall(r"```rust\n(.*?)\n```", guide, re.S)[0].strip() == hello
+home = (ROOT / 'docs/index.md').read_text(encoding='utf-8')
+home_code = re.findall(r'```rust\n(.*?)```', home, re.S)
+assert len(home_code) == 1 and dedent(home_code[0]).strip() == hello, 'Homepage Rust example differs from the compiled source.'
 run(["cargo", "fmt", "--manifest-path", str(EXAMPLES / "Cargo.toml"), "--check"])
 run(["cargo", "build", "--release", "--locked", "--manifest-path", str(EXAMPLES / "Cargo.toml")])
 suffix = ".exe" if os.name == "nt" else ""
@@ -48,6 +52,7 @@ report = {
     "platform": os.name,
     "hello_pdf_sha256": sha256(hello_dir / "invoice.pdf"),
     "documented_hello_matches_source": True,
+    "homepage_snippet_matches_compiled_source": True,
     "fixtures": [],
 }
 for fixture in playground["fixtures"]:

@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from textwrap import dedent
 
 import fullbleed
 
@@ -82,7 +83,7 @@ def main():
         assert len(blocks) == 1, (page, len(blocks))
         folder = workspace / page.removesuffix(".md").replace("/", "_")
         folder.mkdir()
-        code = blocks[0]
+        code = dedent(blocks[0])
         # This API snippet returns bytes; retain them without changing its example.
         retained = code
         if page == "engine/assets.md":

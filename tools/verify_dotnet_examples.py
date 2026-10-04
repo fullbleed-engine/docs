@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
+from textwrap import dedent
 
 from pypdf import PdfReader
 
@@ -52,6 +53,9 @@ assert ET.parse(project_source).find('.//TargetFramework').text == framework
 assert f'dotnet add package FullBleed.DotNet --version {version}' in guide
 blocks = re.findall(r'```csharp\n(.*?)```', guide, re.S)
 assert len(blocks) == 2
+home = (ROOT / 'docs/index.md').read_text(encoding='utf-8')
+home_code = re.findall(r'```csharp\n(.*?)```', home, re.S)
+assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage C# example differs from the executed guide.'
 
 run('new-console', ['dotnet', 'new', 'console', '--framework', framework,
                     '--name', 'InvoiceDemo', '--output', 'InvoiceDemo', '--no-restore'])
@@ -116,6 +120,7 @@ report = {
     'fresh_nuget_cache': True,
     'fresh_nuget_http_cache': True,
     'native_library_override': False,
+    'homepage_snippet_matches_executed_guide': True,
     'commands': commands,
     'outputs': outputs,
     'quickstart_pdf_sha256': hashlib.sha256(snippet_pdf.read_bytes()).hexdigest(),

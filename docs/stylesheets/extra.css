@@ -1,5 +1,6 @@
 :root { --md-primary-fg-color: #164d46; --md-accent-fg-color: #157f6c; }
-[data-md-color-scheme="slate"] { --md-primary-fg-color: #153f3b; --md-accent-fg-color: #8edec3; }
+[data-md-color-scheme="slate"] { --md-primary-fg-color: #153f3b; --md-accent-fg-color: #8edec3; --md-typeset-a-color: #8edec3; --md-accent-bg-color: #153f3b; }
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary):not(:hover):not(:focus) { color: var(--md-typeset-a-color); }
 .md-typeset h1 { font-weight: 760; color: var(--md-default-fg-color); letter-spacing: -.035em; }
 .md-typeset .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2.5rem; align-items: center; padding: 1rem 0 2rem; }
 .md-typeset .hero h1 { font-size: 2.7rem; line-height: 1.06; margin: .5rem 0 1rem; }
