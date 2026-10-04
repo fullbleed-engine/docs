@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-10-03T17:39:47.465764+00:00",
+  "checkedAt": "2026-10-04T12:45:55.497353+00:00",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "sourceCommit": "d78e746ce0b78cdc5302019e1222d37db5def521",
-  "mergedCommit": "5faf363d25e6ba9964f03ddd0492e13f14b15af9",
-  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/6",
-  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37141118843",
+  "sourceCommit": "3caa41e5633a2526365b91a2e93eababb8e15d03",
+  "mergedCommit": "418cf144c6595dfd6efa89e892751f7c3b84e1a5",
+  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/10",
+  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37202821832",
   "standaloneChecks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -70,13 +70,13 @@
   "ciResults": [
     {
       "artifact": "nextjs-ubuntu-latest-22",
-      "checkedAt": "2026-10-03T17:36:44.252Z",
+      "checkedAt": "2026-10-04T12:39:10.018Z",
       "node": "v22.23.3",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.2",
+      "nodePackage": "0.1.3",
       "engineVersion": "2.5.6",
-      "packageLockSha256": "8ba757e89fc1d6b6ba688380945fc9d2f3bea399d52de31c1de2509136ce3a88",
+      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
       "pages": 1,
       "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
       "burst": [
@@ -97,13 +97,13 @@
     },
     {
       "artifact": "nextjs-ubuntu-latest-24",
-      "checkedAt": "2026-10-03T17:36:39.862Z",
+      "checkedAt": "2026-10-04T12:39:08.609Z",
       "node": "v24.21.0",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.2",
+      "nodePackage": "0.1.3",
       "engineVersion": "2.5.6",
-      "packageLockSha256": "8ba757e89fc1d6b6ba688380945fc9d2f3bea399d52de31c1de2509136ce3a88",
+      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
       "pages": 1,
       "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
       "burst": [
@@ -124,13 +124,13 @@
     },
     {
       "artifact": "nextjs-windows-latest-24",
-      "checkedAt": "2026-10-03T17:37:09.614Z",
+      "checkedAt": "2026-10-04T12:39:56.510Z",
       "node": "v24.21.0",
       "platform": "win32",
       "next": "16.3.8",
-      "nodePackage": "0.1.2",
+      "nodePackage": "0.1.3",
       "engineVersion": "2.5.6",
-      "packageLockSha256": "8ba757e89fc1d6b6ba688380945fc9d2f3bea399d52de31c1de2509136ce3a88",
+      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
       "pages": 1,
       "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
       "burst": [
@@ -151,12 +151,12 @@
     }
   ],
   "packageChecks": {
-    "run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37141118799",
+    "run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37202821855",
     "jobsPassed": 10,
     "conclusion": "success"
   },
   "browser": {
-    "checkedAt": "2026-10-03T17:34:30.223208+00:00",
+    "checkedAt": "2026-10-04T12:37:39.530517+00:00",
     "browser": "154.0.8037.93",
     "checks": [
       {
@@ -209,14 +209,14 @@
   "scope": "Released Fullbleed tarball in a Next.js standalone example. Byte equality applies to this retained synthetic invoice. Does not establish application authorization, hosting-provider support, or PDF standards compliance.",
   "downloadVerification": {
     "ok": true,
-    "checkedAt": "2026-10-03T17:36:59.918577+00:00",
-    "sourceCommit": "d78e746ce0b78cdc5302019e1222d37db5def521",
+    "checkedAt": "2026-10-04T12:45:29.862196+00:00",
+    "sourceCommit": "3caa41e5633a2526365b91a2e93eababb8e15d03",
     "downloadFiles": 18,
-    "projectZipSha256": "f384a58397fb06a0e0388e35e2211e90f00edf2f367570aab229114d03ccd6d0",
-    "node": "v24.21.0",
+    "projectZipSha256": "92ae3ea2cb41a527b52fc5972f7a1e0fb65f8d73f9271ada9abdb403bae2d6e0",
+    "node": "v26.10.0",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.1.2",
+    "nodePackage": "0.1.3",
     "engineVersion": "2.5.6",
     "commands": [
       {
