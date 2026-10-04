@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "FullBleed.DotNet": {
+        "type": "Direct",
+        "requested": "[0.1.2, )",
+        "resolved": "0.1.2",
+        "contentHash": "s1DNK1leB4IujRdFDh3oImUMAygA8scOQ3vt0/pyE9qJ/EAKCdCH9UT2fM4o03FDeZhHk4N1PKPMWeQYmEOu9g=="
+      }
+    }
+  }
+}

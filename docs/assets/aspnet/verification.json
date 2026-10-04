@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-04T11:17:49.741466+00:00",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "runtime": "10.0.12",
+  "framework": "net10.0",
+  "package": "FullBleed.DotNet",
+  "packageVersion": "0.1.2",
+  "engineVersion": "2.5.6",
+  "packageSha256": "03b9e328166533145d58ececd6b69ea838973e76a71a9ef15b85e0d3b67585f1",
+  "freshNuGetCache": true,
+  "projectZipSha256": "7453f53eb2121ab257fe1e5b703bac8b1b2d7b895191ff662759122c91a1e6f6",
+  "pdfSha256": "a905ab88b41d42ffcdf8c9dd97b3d3dc01da46fb80ce637f6ab6f4abc7c4ffba",
+  "previewSha256": "2a3a685a708fe604d91516c91e70ca92d747866c2bbbaeefa8523b760065f29c",
+  "commands": [
+    "restore",
+    "publish",
+    "preview"
+  ],
+  "checks": [
+    "download matches tracked source and manifest",
+    "fresh NuGet restore with lockfile",
+    "publish artifact runs outside source project",
+    "one-page PDF text and total",
+    "final-PDF preview and PDF match published assets",
+    "download page and preview served by published app",
+    "HTTP attachment headers, private caching, exact PDF bytes",
+    "unknown IDs, encoded path and unsupported method rejected",
+    "concurrent requests bounded, Retry-After sent, next request succeeds",
+    "missing glyph rejected without partial PDF; recovery succeeds",
+    "missing asset returns generic error; permit released and recovery succeeds"
+  ],
+  "concurrentStatuses": {
+    "200": 1,
+    "503": 11
+  },
+  "scope": "Synthetic fixture, released NuGet package, isolated framework-dependent publish output. No authorization, hosted capacity, or PDF standards claim."
+}

@@ -1,4 +1,12 @@
 # Preserve the exact upstream font license bytes and their original whitespace.
 docs/assets/playground/fonts/*-OFL.txt -text whitespace=-blank-at-eol
+examples/aspnet/Assets/fonts/*-OFL.txt -text whitespace=-blank-at-eol
+examples/aspnet/*.cs text eol=lf
+examples/aspnet/*.csproj text eol=lf
+examples/aspnet/*.json text eol=lf
+examples/aspnet/*.md text eol=lf
+examples/aspnet/LICENSE text eol=lf
+examples/aspnet/Assets/*.html text eol=lf
+examples/aspnet/Assets/*.css text eol=lf
 docs/assets/playground/LICENSES.txt text eol=lf whitespace=-blank-at-eol
 docs/assets/pdf-regression/*.json text eol=lf
