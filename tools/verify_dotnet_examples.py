@@ -18,15 +18,19 @@ parser.add_argument('--package-source', default='https://api.nuget.org/v3/index.
 parser.add_argument('--out', type=Path, default=Path('output/dotnet-verification'))
 parser.add_argument('--update-assets', action='store_true')
 args = parser.parse_args()
+guide = (ROOT / 'docs/getting-started/dotnet.md').read_text(encoding='utf-8')
+framework = re.search(r'dotnet new console -n InvoiceDemo --framework (net\d+\.0)', guide).group(1)
+framework_version = framework.removeprefix('net')
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=True)
 workspace = Path(tempfile.mkdtemp(prefix='fullbleed dotnet docs ')).resolve()
 (workspace / 'global.json').write_text(json.dumps({
-    'sdk': {'version': '8.0.100', 'rollForward': 'latestFeature'}
+    'sdk': {'version': framework_version + '.100', 'rollForward': 'latestFeature', 'allowPrerelease': False}
 }) + '\n', encoding='utf-8')
 cache = workspace / 'nuget-cache'
 env = dict(os.environ, NUGET_PACKAGES=str(cache),
-           NUGET_HTTP_CACHE_PATH=str(workspace / 'nuget-http-cache'))
+           NUGET_HTTP_CACHE_PATH=str(workspace / 'nuget-http-cache'),
+           DOTNET_ROLL_FORWARD='LatestPatch')
 env.pop('FULLBLEED_NATIVE_LIBRARY', None)
 commands = []
 
@@ -44,12 +48,12 @@ def run(label, command, cwd=workspace):
 
 project_source = ROOT / 'examples/dotnet/NorthstarInvoice.csproj'
 version = ET.parse(project_source).find('.//PackageReference').attrib['Version']
-guide = (ROOT / 'docs/getting-started/dotnet.md').read_text(encoding='utf-8')
+assert ET.parse(project_source).find('.//TargetFramework').text == framework
 assert f'dotnet add package FullBleed.DotNet --version {version}' in guide
 blocks = re.findall(r'```csharp\n(.*?)```', guide, re.S)
 assert len(blocks) == 2
 
-run('new-console', ['dotnet', 'new', 'console', '--framework', 'net8.0',
+run('new-console', ['dotnet', 'new', 'console', '--framework', framework,
                     '--name', 'InvoiceDemo', '--output', 'InvoiceDemo', '--no-restore'])
 snippet = workspace / 'InvoiceDemo'
 (snippet / 'Program.cs').write_text(blocks[0], encoding='utf-8')
@@ -75,8 +79,10 @@ for name in ['invoice.html', 'invoice.css']:
 shutil.copytree(ROOT / 'docs/assets/playground/fonts', workspace / 'docs/assets/playground/fonts')
 run('restore-sample', ['dotnet', 'restore', '--source', args.package_source,
                        '--packages', str(cache), '--force-evaluate'], sample)
-run('run-sample', ['dotnet', 'run', '-c', 'Release', '--no-restore', '--',
-                   str(out / 'northstar')], sample)
+sample_output = run('run-sample', ['dotnet', 'run', '-c', 'Release', '--no-restore', '--',
+                                  str(out / 'northstar')], sample)
+runtime_version = re.search(r'Rendered with \.NET (\d+\.\d+\.\d+)\.', sample_output).group(1)
+assert runtime_version.startswith(framework_version + '.')
 
 installed = cache / 'fullbleed.dotnet' / version
 provenance = json.loads((installed / 'native-provenance.json').read_text(encoding='utf-8'))
@@ -100,6 +106,8 @@ package = installed / f'fullbleed.dotnet.{version}.nupkg'
 report = {
     'ok': True,
     'sdk': subprocess.check_output(['dotnet', '--version'], cwd=workspace, text=True).strip(),
+    'target_framework': framework,
+    'runtime_version': runtime_version,
     'package_version': version,
     'engine_version': engine['version'],
     'package_source': args.package_source,

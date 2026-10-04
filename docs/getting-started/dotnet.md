@@ -11,10 +11,10 @@ rendering needs neither Python nor a browser.
 
 ## Install and render your first PDF
 
-With the .NET 8 SDK installed:
+With the .NET 10 SDK installed:
 
 ```bash
-dotnet new console -n InvoiceDemo --framework net8.0
+dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
 dotnet add package FullBleed.DotNet --version 0.1.2
 ```
@@ -43,9 +43,18 @@ return the bytes from an HTTP handler or write them to your own storage.
 The first example uses standard PDF fonts; register explicit font files for
 your document's typography and character coverage.
 
-The package targets `net8.0` and contains native libraries for Windows x64,
+The package's managed library targets `net8.0`; your application can target
+`net8.0`, `net9.0`, or `net10.0`. It contains native libraries for Windows x64,
 Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.6.
 The managed assembly has no third-party NuGet runtime dependencies.
+
+Use .NET 10 LTS for a new application. Microsoft lists November 10, 2026 as
+the end of support for .NET 8 and 9 in its
+[support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core).
+Existing .NET 8 and 9 projects can use the same package and C# API.
+The [package verification workflow](https://github.com/fullbleed-engine/fullbleed-dotnet/actions/workflows/ci.yml)
+checks the actual runtime and compares fixture PDFs and previews across all
+three .NET versions and the four native platforms.
 
 ## Run a designed invoice
 
@@ -57,7 +66,7 @@ are fictional.
 
 [Open the PDF generated from C#](../assets/showcase/invoice-dotnet.pdf).
 
-Clone the documentation repository and run the example with .NET 8:
+Clone the documentation repository and run the example with .NET 10:
 
 ```bash
 git clone https://github.com/fullbleed-engine/docs.git fullbleed-docs
