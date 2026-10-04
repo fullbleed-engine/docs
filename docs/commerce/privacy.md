@@ -15,6 +15,12 @@ Fullbleed Commerce is maintained by Keenan Finkelstein in the United States.
 Contact [keenan@fullbleed.dev](mailto:keenan@fullbleed.dev) about privacy, access,
 correction, deletion, or support.
 
+The [merchant agreement](agreements/2026-10-04.md) describes the hosted service
+and processing instructions. The app asks an authorized staff member to accept
+the current version before document processing. Acceptance and any Shopify
+plan approval are separate steps. Privacy requests and access history remain
+available without accepting the agreement or buying a plan.
+
 This notice covers the hosted Shopify integration. The separate
 [free WooCommerce plugin](../guides/woocommerce.md) renders locally in the
 merchant's browser without sending orders to a Fullbleed service.
@@ -88,6 +94,7 @@ restoration and deletion process below.
 | Information | Retention in the live application database |
 | --- | --- |
 | Authorization, branding, and saved templates | Until replaced or deleted where the app offers that action, or until an authenticated uninstall or shop-erasure notification is processed. |
+| Latest merchant-agreement receipt | Store, agreement version and document hash, acceptance time, and verified Shopify staff ID. Replaced by later acceptance; removed on uninstall or shop erasure. No IP address or order details are recorded in the receipt. |
 | Automation job history | 30 days. Customer erasure revokes affected links and clears order references and verification hashes. Empty action-run records can remain for up to 30 days to prevent delayed retries from recreating a document. |
 | Plan usage | The billing period plus 30 days. Customer erasure removes affected order references while retaining the period's aggregate count. Uninstall and shop erasure remove all of the store's usage records. |
 | Outstanding customer-data exports | Until the merchant marks the request handled or Shopify requests erasure. Overdue requests remain visible and require action. |
