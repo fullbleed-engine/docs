@@ -1,7 +1,8 @@
 ---
+title: Install Fullbleed for Python
 description: Install Fullbleed on Python 3.10–3.14 for Windows, macOS, or Linux using a prebuilt wheel.
 ---
-# Install Fullbleed
+# Install Fullbleed for Python
 
 Fullbleed supports Python 3.10–3.14. Published wheels cover Windows, macOS, and Linux, including the architectures listed below.
 

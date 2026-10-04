@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import tempfile
 import zipfile
+from textwrap import dedent
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
@@ -64,6 +65,9 @@ for name, relative in [("invoice.pdf", "output/invoice/invoice.pdf"), ("invoice.
 source = (ROOT / "docs/getting-started/node.md").read_text(encoding="utf8")
 blocks = re.findall(r"```javascript\n(.*?)```", source, re.S)
 assert len(blocks) == 1
+home = (ROOT / 'docs/index.md').read_text(encoding='utf8')
+home_code = re.findall(r'```javascript\n(.*?)```', home, re.S)
+assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage Node example differs from the executed guide.'
 snippet = workspace / "guide-snippet"
 snippet.mkdir()
 (snippet / "invoice.mjs").write_text(blocks[0], encoding="utf8", newline="\n")
@@ -76,6 +80,7 @@ report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], 
           "platform": os.name, "package_version": manifest["package_version"], "engine_version": manifest["engine_version"],
           "source_commit": manifest["source_commit"], "commands": commands, "download_files": len(manifest["files"]),
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
+          "homepage_snippet_matches_executed_guide": True,
           "workspace": workspace.name, "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."}
 (out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
 print(json.dumps({"ok": True, "node": report["node"], "files": report["download_files"], "commands": len(commands)}))

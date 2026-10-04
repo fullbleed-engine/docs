@@ -1,7 +1,8 @@
 ---
+title: Generate PDFs in Python from HTML and CSS
 description: Copy a small Python script to create your first PDF, then try a complete Fullbleed project with bundled fonts and previews.
 ---
-# Create your first PDF
+# Create your first PDF in Python
 
 Prefer to try it before setting up Python? [Open the browser playground](../playground.md)
 to edit HTML/CSS and download a PDF or runnable project. Use the

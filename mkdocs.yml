@@ -1,6 +1,6 @@
 site_name: Fullbleed
 site_url: https://docs.fullbleed.dev/
-site_description: Create PDF invoices, reports, and variable-data documents from Python and HTML/CSS with a deterministic Rust engine. MIT licensed.
+site_description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, and C#. Start with a runnable example and a Rust print engine. MIT licensed.
 site_author: Fullbleed Engine
 repo_url: https://github.com/fullbleed-engine/fullbleed-official
 repo_name: Fullbleed on GitHub
@@ -30,6 +30,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.tabs.link
 extra_css:
   - stylesheets/extra.css
 plugins:
@@ -53,6 +54,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
   - attr_list
@@ -67,14 +70,14 @@ nav:
   - Home: index.md
   - Get started:
     - Try in your browser: playground.md
+    - Python quickstart: getting-started/quickstart.md
+    - Node.js quickstart: getting-started/node.md
+    - Rust quickstart: getting-started/rust.md
+    - C# and .NET quickstart: getting-started/dotnet.md
+    - Python installation: getting-started/installation.md
     - Python notebook: getting-started/notebook.md
-    - Install: getting-started/installation.md
-    - Your first PDF: getting-started/quickstart.md
-    - Use Rust: getting-started/rust.md
-    - Use Node.js: getting-started/node.md
-    - Use C# and .NET: getting-started/dotnet.md
     - Use WooCommerce: guides/woocommerce.md
-    - Fonts and previews: getting-started/first-pdf.md
+    - Python fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
   - Build a document:
     - Invoices from data: guides/invoices.md
