@@ -25,3 +25,4 @@ File.WriteAllBytes(pdfPath, rendered.Pdf);
 var previews = engine.RenderImagePagesToDirectory(html, css, output, dpi: 96, stem: "invoice");
 var inspection = FullBleedEngine.InspectPdf(pdfPath);
 Console.WriteLine($"Created {pdfPath}: {inspection.PageCount} page(s), {previews.Paths.Count} PNG preview(s).");
+Console.WriteLine($"Rendered with .NET {Environment.Version}.");
