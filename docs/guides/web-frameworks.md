@@ -6,23 +6,37 @@ description: Serve downloadable PDF invoices from FastAPI, Flask, or Django with
 
 Fullbleed returns PDF bytes from Python data and HTML/CSS. Pass those bytes to
 your framework's response object to serve an invoice, report, or statement.
-The examples below generate the same one-page invoice and send it as a download.
+The starter below generates a designed one-page invoice and sends it as a
+download. It includes a browser page, editable HTML/CSS, and the same document
+renderer behind three small framework adapters.
 
-[Get the complete examples](https://github.com/fullbleed-engine/fullbleed-official/tree/master/examples/web_frameworks){ .md-button .md-button--primary }
-[Try a PDF in your browser](../getting-started/notebook.md){ .md-button }
+[Download the Python starter](../assets/python-web/project.zip){ .md-button .md-button--primary }
+[Open the sample PDF](../assets/python-web/invoice.pdf){ .md-button }
+
+[![Northstar Studio invoice with large green typography, three line items, and an orange-accented total panel.](../assets/python-web/invoice.png)](../assets/python-web/invoice.pdf)
+
+The [source record and download hashes](../assets/python-web/source.json) identify
+the exact source files, fonts, package version, and generated sample. This is a
+fictional integration example; connect your application's authorized record
+lookup before serving real invoices.
 
 ## Set up the examples
 
-Use a Python 3.10–3.14 virtual environment, then get the example source:
+Use Python 3.10–3.14. Extract the starter, open its `fullbleed-python-invoice`
+directory, and create a virtual environment:
 
 ```bash
-git clone https://github.com/fullbleed-engine/fullbleed-official.git
-cd fullbleed-official/examples/web_frameworks
+python -m venv .venv
 ```
+
+Activate it with `source .venv/bin/activate` on macOS/Linux or
+`.venv\Scripts\Activate.ps1` in Windows PowerShell. A repository checkout also
+works: the [source directory](https://github.com/fullbleed-engine/fullbleed-official/tree/master/examples/web_frameworks)
+is `examples/web_frameworks`.
 
 Choose one framework below. Each requirement file installs that framework;
 `fullbleed` remains a separate package. The examples are checked with Fullbleed
-2.4.0, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
+2.5.6, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
 
 Each app serves this fictional record:
 
@@ -30,14 +44,15 @@ Each app serves this fictional record:
 http://127.0.0.1:8000/invoices/INV-1042.pdf
 ```
 
-Open that URL after starting the app. The browser downloads `invoice.pdf`, which
+Open `http://127.0.0.1:8000/` after starting the app and select **Download invoice**.
+The browser downloads `invoice.pdf`, which
 contains three line items and a total of **USD 1,870.00**. An unknown invoice ID
 returns HTTP 404. Stop the server before trying another framework on the same port.
 
 ## FastAPI
 
 ```bash
-python -m pip install fullbleed -r requirements-fastapi.txt
+python -m pip install fullbleed==2.5.6 -r requirements-fastapi.txt
 python -m uvicorn fastapi_app:app --host 127.0.0.1 --port 8000
 ```
 
@@ -73,7 +88,7 @@ finishes. See [FastAPI's concurrency documentation](https://fastapi.tiangolo.com
 ## Flask
 
 ```bash
-python -m pip install fullbleed -r requirements-flask.txt
+python -m pip install fullbleed==2.5.6 -r requirements-flask.txt
 python -m flask --app flask_app run --host 127.0.0.1 --port 8000
 ```
 
@@ -101,7 +116,7 @@ for response bodies, media types, and headers.
 ## Django
 
 ```bash
-python -m pip install fullbleed -r requirements-django.txt
+python -m pip install fullbleed==2.5.6 -r requirements-django.txt
 python django_app.py runserver 127.0.0.1:8000 --noreload
 ```
 
@@ -134,10 +149,29 @@ for response construction and headers.
 ## The shared document renderer
 
 [`invoice.py`](https://github.com/fullbleed-engine/fullbleed-official/blob/master/examples/web_frameworks/invoice.py)
-contains the fictional record lookup, HTML/CSS template, and `render_invoice()`.
+contains the fictional record lookup and `render_invoice()`.
 It calculates line totals with `Decimal`, escapes text before inserting it into
-HTML, and embeds the Inter font shipped with Fullbleed. A new `PdfEngine` renders
-each request into memory.
+HTML, and registers the Inter font shipped with Fullbleed alongside the included
+DM Serif Display and Bebas Neue families. A new `PdfEngine` renders each request
+into memory. Font licenses and pinned source hashes are included in `fonts/`.
+
+## Edit the HTML and CSS
+
+Change `templates/invoice.html` for document structure and
+`templates/invoice.css` for typography, spacing, columns, and color. The renderer
+reads those files for each request, so a new download uses your edits without
+restarting the server. Its Python `string.Template` placeholders include
+`$customer`, `$number`, `$rows`, and `$total`; write a literal dollar sign as `$$`.
+Text values are escaped before substitution and are not interpreted again as
+template markup.
+
+The included layout is a fixed one-page A4 sample for three line items. Adapt
+its geometry and pagination before using longer records, and review the final
+PDF. This starter leaves tax, discounts, invoice numbering, payment collection,
+and application authentication to your application. `static/index.html` is the
+local demo page; replace it with your application's interface when integrating.
+
+## Return a private PDF attachment
 
 The response headers are shared too:
 
@@ -154,22 +188,36 @@ it does not need JSON or base64 encoding, and requests do not share output files
 
 Replace `load_invoice()` with your application's authorized record lookup. It
 returns an invoice number, customer, date strings, and items with descriptions,
-integer quantities, and unit-price strings. Keep access checks before rendering.
-This sample omits tax and discounts.
+integer quantities, unit-price strings, and an optional item `detail`.
+Keep access checks before rendering.
 
 ## Verify and deploy your workflow
 
-From the repository root, with Fullbleed installed:
+From the extracted starter's directory, with Fullbleed installed:
 
 ```bash
-python -m pip install -r examples/web_frameworks/requirements-check.txt
-python examples/web_frameworks/check_examples.py --out target/web-framework-check
+python -m pip install -r requirements-check.txt
+python check_examples.py --out output/check
 ```
 
-The check exercises each framework's test client, saves its PDF response, and
-verifies the expected text and total, page count, embedded font, HTTP headers,
-404 behavior, and repeated output bytes. It also emits a PNG preview and
-`verification.json`. Review the preview after changing the document's layout.
+The check exercises each framework's test client and starts the documented
+local servers in turn. It verifies actual HTTP downloads, an independent PDF
+reader's text and totals, page count, embedded fonts, headers, 404/405 responses,
+and matching simultaneous downloads. It also checks font/license hashes,
+literal markup and placeholder-like customer text, and the saved preview.
+Servers stop when the checks finish.
+
+Review `output/check/verification.json`, its PDFs, and the PNG preview after a
+layout change. To refresh the download page's saved preview, run:
+
+```bash
+python check_examples.py --out output/check --update-preview
+```
+
+The browser page shows a saved preview of the included invoice. Its **Download
+invoice** link always renders the current HTML/CSS. Verification covers these
+synthetic fixtures and local servers; it does not establish production capacity
+or PDF standards conformance.
 
 The launch commands above run local development servers. Use your framework's
 deployment setup for a public app. For large jobs, render in your job queue and

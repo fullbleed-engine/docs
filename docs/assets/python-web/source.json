@@ -1,0 +1,151 @@
+{
+  "schema": "fullbleed.python-web-starter.v1",
+  "engineVersion": "2.5.6",
+  "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "sourceCommit": "76769ccd58426717c10cf0d988838182c203382f",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 28,
+      "sha256": "d3b4beec83000bfbd6f81222b601d367412f30ef10bf55a6bc51b275bdfd905f"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5145,
+      "sha256": "b70edbd2649dbf4ea64ebeedaba6522ef8b484c02309febfde22be8babd99b78"
+    },
+    {
+      "path": "check_examples.py",
+      "bytes": 6388,
+      "sha256": "2e675d4b0a1d55cba31fa0dd8d4f1eb6ce779af32ade71b90c2a0b2c63988628"
+    },
+    {
+      "path": "check_http.py",
+      "bytes": 4400,
+      "sha256": "740ae2957d1651b17642201df800019eec8521a1f9829c99379449399c98a043"
+    },
+    {
+      "path": "demo.py",
+      "bytes": 394,
+      "sha256": "82eec29da66e5edfb5460cf0c8ea9d5595f499e26b5688c8c61f07ae92a24fb3"
+    },
+    {
+      "path": "django_app.py",
+      "bytes": 1631,
+      "sha256": "90707de21765ba8f72e22e271b6fd0a3a9513b2416056472d01efdc27f7e8f16"
+    },
+    {
+      "path": "fastapi_app.py",
+      "bytes": 1081,
+      "sha256": "c5d94fedf92142755995066be17338da6edbaa7a9b37cc8cd376f64dd47a1202"
+    },
+    {
+      "path": "flask_app.py",
+      "bytes": 808,
+      "sha256": "8195fb6020b1a0c5e53026099860973965a1c643b4c319676fa39047cee023d7"
+    },
+    {
+      "path": "fonts/.gitattributes",
+      "bytes": 120,
+      "sha256": "5de00bfac958cb296380be2135dbbc986dd1f25103ea0f6495231c61affa9c72"
+    },
+    {
+      "path": "fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Italic.ttf",
+      "bytes": 71208,
+      "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "fonts/sources.json",
+      "bytes": 1592,
+      "sha256": "01c23f8e23d039ef6a9945183ff98fd0022975227ae949de4f1669f06ad18db7"
+    },
+    {
+      "path": "invoice.py",
+      "bytes": 2868,
+      "sha256": "45b7ca7f4fd9aa4201aacb295d9b8f03b772244325d0935bb6205806d6b862d6"
+    },
+    {
+      "path": "requirements-check.txt",
+      "bytes": 183,
+      "sha256": "cbfe62b7f173711ea4ba4c165a684ddb2c70c9f7954ab7dac3980977e0a59659"
+    },
+    {
+      "path": "requirements-django.txt",
+      "bytes": 15,
+      "sha256": "56cbd1c0a43496327d9af1bf231abd19bb1b0e2f0a14734319fe3108dda90b13"
+    },
+    {
+      "path": "requirements-fastapi.txt",
+      "bytes": 33,
+      "sha256": "5feb6a8b0c09ed30d831399662a75525ea956cd35c0311ecfa178f87d5a25941"
+    },
+    {
+      "path": "requirements-flask.txt",
+      "bytes": 13,
+      "sha256": "35fde835d2cdf4ccbfb67738c7e5d2f8829fd441d3cbcb34b1f4c948a0a11cd4"
+    },
+    {
+      "path": "static/index.html",
+      "bytes": 4187,
+      "sha256": "acfd0db1efab50b1229ad937e7bd3075a3b7146de0dfddb33247d0b85bc429a3"
+    },
+    {
+      "path": "static/invoice.png",
+      "bytes": 130289,
+      "sha256": "a38d23651c355d1b87bc16fa37fe9121a377a12e6d515b4cd1871750c2241175"
+    },
+    {
+      "path": "templates/invoice.css",
+      "bytes": 3546,
+      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+    },
+    {
+      "path": "templates/invoice.html",
+      "bytes": 2299,
+      "sha256": "c8c522d0f983c9917587083e5472af39c515c447b33ebf3edf2fafcf2f21673e"
+    }
+  ],
+  "checkedAt": "2026-10-04T23:24:23.430920+00:00",
+  "assets": [
+    {
+      "file": "project.zip",
+      "bytes": 230094,
+      "sha256": "6bcd44c551aeace4e658bf96b7528ea7237d386dfebd52de5d48bbdab4712f1c"
+    },
+    {
+      "file": "invoice.pdf",
+      "bytes": 91537,
+      "sha256": "2e908a21e5f9ac5b1fa761d678833c62f3acc772ba7162d8da1b900f861320e6"
+    },
+    {
+      "file": "invoice.png",
+      "bytes": 130289,
+      "sha256": "a38d23651c355d1b87bc16fa37fe9121a377a12e6d515b4cd1871750c2241175"
+    }
+  ]
+}
