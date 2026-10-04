@@ -140,11 +140,23 @@ advertising trackers or storefront tracking scripts. Shopify authentication
 and the hosting platform operate their own necessary session and connection
 mechanisms.
 
+Maintenance activity is recorded separately using the configured operator or
+background-service identity, action, time, purpose, and outcome. These encrypted
+records exclude customer and order references, document contents, command text,
+and credentials. They are scheduled for removal after 30 days through online
+cleanup.
+
 Database backups become ineligible for restoration after seven days and are
 scheduled for removal after eight days. Encrypted erasure and completion
-instructions remain for 35 days so restoring an older backup does not revive
-cleared data. Those instructions contain store and order references and keyed
-customer identifiers, not customer names, addresses, or export contents.
+instructions are also scheduled for removal after eight days, once their changes
+have been applied. They preserve deletion decisions while an older backup can
+still be restored. Those instructions contain store and order references and
+keyed customer identifiers, not customer names, addresses, or export contents.
+
+Restoration must finish within the backup's eligibility period. Earlier backup
+formats are retired when their recovery guarantees can no longer be verified.
+A permanent encrypted recovery-policy record contains the dataset identifier,
+policy, and activation time, without customer or order references.
 
 Recovery cleanup runs at startup and hourly while the app is online, so an
 outage can delay physical removal. Restoration reapplies later erasure
