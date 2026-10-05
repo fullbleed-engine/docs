@@ -165,6 +165,16 @@ jobs:
           path: |
             docs/assets/playground/build.json
             docs/assets/playground/verification.json
+      - name: Verify renderer comparison downloads and published measurements
+        run: |
+          python -m pip install pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python tools/verify_renderer_comparison.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: renderer-comparison-verification
+          path: output/renderer-comparison-verification/verification.json
+          retention-days: 14
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
       - name: Include search notification ownership file

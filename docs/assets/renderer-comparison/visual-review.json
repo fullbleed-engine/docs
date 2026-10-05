@@ -1,0 +1,115 @@
+{
+  "pages": [
+    {
+      "page": "chromium/invoice/page-1.png",
+      "sha256": "1fd8ac6dd503b78ca76f69444996487c66e194c603e1b883ca7b37c8cc8298e5",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/ledger/page-1.png",
+      "sha256": "21297448050f8bcef034230a50e06ad1914171d8bd175b0a63e7e3c79fdf2b74",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/ledger/page-2.png",
+      "sha256": "084f65f1f2d008d2e38dc443c851545b7c4009b7113b9aa46cff66e2337e9aaf",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/ledger/page-3.png",
+      "sha256": "3e26b7e0d0e6f9756e6d2e3874508031672d8d3503725f96e6ce6e6675741ec6",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/ledger/page-4.png",
+      "sha256": "838041fbd570a25dfe3d4f0c850f55b693e3018774c954e9faf6272ccdabf28a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/report/page-1.png",
+      "sha256": "8736f33b88466343e09b0d6cc708a38288eb40ce0e8fe3dea4d3e54c09884a6e",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/report/page-2.png",
+      "sha256": "2c4e2c77ba2a169079f0bbee9f6696f9a8670f527d070f7261f578cacd20f01a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "chromium/report/page-3.png",
+      "sha256": "62a85d1d23df7a0ac661bfc6244806981cd71f0c954847db03d30c343a874c0a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/invoice/page-1.png",
+      "sha256": "d5d14e3719d5610b1f98a01cf91caaf1a25cfea1deeb43a1b1a7e0900019cc91",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/ledger/page-1.png",
+      "sha256": "7521aa5f81bb7210adfe053b1e88aecf2203cbd18b21fb62c478917585f8021e",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/ledger/page-2.png",
+      "sha256": "4f1e2e5dc47253641a9400ed9925312650cfa108c3a9e7e88b0871704752dd96",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/ledger/page-3.png",
+      "sha256": "fd6f0a5ca6f83169f8411c024465a4ecda76dc18873394d0651aee96bbdfbb9a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/report/page-1.png",
+      "sha256": "d4513c02d91a2f7c4a47b2b0ae58b00b0c9d13b519c0a01e891d8bb89e67fbc6",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/report/page-2.png",
+      "sha256": "2b7d24ca15f011bb8141540a66f9b6f5fa6ed63d8f426665f0c2024dcb37849d",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "fullbleed/report/page-3.png",
+      "sha256": "2cbe838ab3d6c9eb1e8d4a1603d9f86945f939765127f1164a371e010c30983f",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/invoice/page-1.png",
+      "sha256": "f068b89ffa7111e6d4163b6e963465891f4ac259f259927e3409913dbbf9f99a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/ledger/page-1.png",
+      "sha256": "66c27805c8ee778040929aa12892a042af50e8c1940b977a745869f612ee0a2d",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/ledger/page-2.png",
+      "sha256": "8bf6720237a37202af03c87886683a2ec8e7aa5598ed4dd4a16a53bcd928efa1",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/ledger/page-3.png",
+      "sha256": "ff1047622797288e10d9e65074830ded47959ed0365b1890b4aafb42ff31db0a",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/report/page-1.png",
+      "sha256": "df6c6a869847ce90f4239448d4d8ea794f2303f6986ff1616d00290f86735c65",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/report/page-2.png",
+      "sha256": "f86cb89f78820018faa2bea5e0a7ead3a4d59f661104749a57ca30b2c339bf04",
+      "matches_inspected_qualification_page": true
+    },
+    {
+      "page": "weasyprint/report/page-3.png",
+      "sha256": "d7bc3e24d1a8311214f6196c766db5b9f095b70fb2ea48cb3c2cbb8d1134b82a",
+      "matches_inspected_qualification_page": true
+    }
+  ],
+  "review": "All 22 page images match the inspected qualification previews byte for byte. No clipped or overlapping content observed. Chromium ledger closing note is on page 4; table and invoice spacing differ slightly."
+}

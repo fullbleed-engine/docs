@@ -1,0 +1,313 @@
+{
+  "schema": "fullbleed.renderer_comparison.v1",
+  "smoke": false,
+  "all_qualified": true,
+  "results": [
+    {
+      "engine": "fullbleed",
+      "fixture": "invoice",
+      "cold_ms": {
+        "n": 5,
+        "median": 73.915637,
+        "min": 60.625044,
+        "max": 92.253373,
+        "q1": 62.729927,
+        "q3": 81.231563
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 12.892807000000001,
+        "min": 10.951137,
+        "max": 21.540902,
+        "q1": 12.03344525,
+        "q3": 14.42500975
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        1
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 52558.0,
+        "min": 52552,
+        "max": 52564,
+        "q1": 52557.0,
+        "q3": 52559.0
+      },
+      "sampled_peak_tree_rss_bytes": 28549120
+    },
+    {
+      "engine": "fullbleed",
+      "fixture": "ledger",
+      "cold_ms": {
+        "n": 5,
+        "median": 161.076359,
+        "min": 140.251548,
+        "max": 407.502735,
+        "q1": 157.261418,
+        "q3": 195.658708
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 87.2428455,
+        "min": 74.288807,
+        "max": 138.216923,
+        "q1": 84.3251435,
+        "q3": 98.5379275
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        3
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 57563.0,
+        "min": 57559,
+        "max": 57567,
+        "q1": 57562.0,
+        "q3": 57564.0
+      },
+      "sampled_peak_tree_rss_bytes": 29540352
+    },
+    {
+      "engine": "fullbleed",
+      "fixture": "report",
+      "cold_ms": {
+        "n": 5,
+        "median": 111.542901,
+        "min": 83.977163,
+        "max": 134.511696,
+        "q1": 103.990166,
+        "q3": 116.998154
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 27.451739500000002,
+        "min": 23.155751,
+        "max": 36.463563,
+        "q1": 25.977579249999998,
+        "q3": 30.99795475
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        3
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 58104.5,
+        "min": 57959,
+        "max": 58248,
+        "q1": 57963.0,
+        "q3": 58120.0
+      },
+      "sampled_peak_tree_rss_bytes": 29016064
+    },
+    {
+      "engine": "weasyprint",
+      "fixture": "invoice",
+      "cold_ms": {
+        "n": 5,
+        "median": 1011.983852,
+        "min": 890.089639,
+        "max": 1238.084758,
+        "q1": 922.09328,
+        "q3": 1201.915657
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 78.46518900000001,
+        "min": 62.508234,
+        "max": 105.08337,
+        "q1": 72.24807200000001,
+        "q3": 86.13786275000001
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        1
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 8875.0,
+        "min": 8870,
+        "max": 8883,
+        "q1": 8874.0,
+        "q3": 8876.0
+      },
+      "sampled_peak_tree_rss_bytes": 62996480
+    },
+    {
+      "engine": "weasyprint",
+      "fixture": "ledger",
+      "cold_ms": {
+        "n": 5,
+        "median": 1274.162006,
+        "min": 1151.265728,
+        "max": 1364.90247,
+        "q1": 1182.617099,
+        "q3": 1303.541178
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 290.74866699999995,
+        "min": 227.291711,
+        "max": 383.75004,
+        "q1": 270.3684075,
+        "q3": 309.63328125
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        3
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 13463.0,
+        "min": 13457,
+        "max": 13467,
+        "q1": 13462.0,
+        "q3": 13465.0
+      },
+      "sampled_peak_tree_rss_bytes": 70881280
+    },
+    {
+      "engine": "weasyprint",
+      "fixture": "report",
+      "cold_ms": {
+        "n": 5,
+        "median": 1023.569112,
+        "min": 996.680671,
+        "max": 1185.267557,
+        "q1": 1000.251512,
+        "q3": 1119.719468
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 164.8735705,
+        "min": 118.939696,
+        "max": 377.77906,
+        "q1": 127.62240924999999,
+        "q3": 183.39368625
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        3
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 13202.0,
+        "min": 13162,
+        "max": 13321,
+        "q1": 13165.0,
+        "q3": 13266.75
+      },
+      "sampled_peak_tree_rss_bytes": 64282624
+    },
+    {
+      "engine": "chromium",
+      "fixture": "invoice",
+      "cold_ms": {
+        "n": 5,
+        "median": 784.576027,
+        "min": 680.100773,
+        "max": 828.05302,
+        "q1": 739.08952,
+        "q3": 798.091566
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 38.7000235,
+        "min": 34.39278,
+        "max": 48.141352,
+        "q1": 36.02901625,
+        "q3": 42.01707175
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        1
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 9755.0,
+        "min": 9752,
+        "max": 9759,
+        "q1": 9754.0,
+        "q3": 9756.75
+      },
+      "sampled_peak_tree_rss_bytes": 658452480
+    },
+    {
+      "engine": "chromium",
+      "fixture": "ledger",
+      "cold_ms": {
+        "n": 5,
+        "median": 909.832075,
+        "min": 703.90335,
+        "max": 1107.074649,
+        "q1": 784.175319,
+        "q3": 933.179338
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 64.5408795,
+        "min": 43.743366,
+        "max": 97.388009,
+        "q1": 54.61024175,
+        "q3": 76.3826235
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        4
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 13757.0,
+        "min": 13751,
+        "max": 13760,
+        "q1": 13754.25,
+        "q3": 13758.0
+      },
+      "sampled_peak_tree_rss_bytes": 669442048
+    },
+    {
+      "engine": "chromium",
+      "fixture": "report",
+      "cold_ms": {
+        "n": 5,
+        "median": 811.294165,
+        "min": 694.549916,
+        "max": 892.617909,
+        "q1": 745.222046,
+        "q3": 822.856224
+      },
+      "warm_ms": {
+        "n": 30,
+        "median": 42.7556235,
+        "min": 37.555767,
+        "max": 121.037918,
+        "q1": 40.33947125,
+        "q3": 46.87561975
+      },
+      "valid": true,
+      "failures": [],
+      "pages": [
+        3
+      ],
+      "bytes": {
+        "n": 46,
+        "median": 14283.5,
+        "min": 14241,
+        "max": 14489,
+        "q1": 14245.25,
+        "q3": 14356.0
+      },
+      "sampled_peak_tree_rss_bytes": 661147648
+    }
+  ]
+}

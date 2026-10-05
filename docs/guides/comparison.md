@@ -4,7 +4,7 @@ description: Match your PDF task to Fullbleed, WeasyPrint, Playwright, ReportLab
 ---
 # Choose a PDF library for your task
 
-Start with the job: authoring a new document, printing browser content, and modifying an existing PDF need different APIs. This guide is maintained by Fullbleed and describes selection considerations, not a measured performance ranking.
+Start with the job: authoring a new document, printing browser content, and modifying an existing PDF need different APIs. This guide is maintained by Fullbleed and describes selection considerations. For a measured example, see the [Fullbleed, WeasyPrint, and Chromium comparison](renderer-comparison.md), including output checks, raw samples, and the cases where each tool did better.
 
 | Your main task | Tools to evaluate | What to check |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ Start with the job: authoring a new document, printing browser content, and modi
 
 ## When Fullbleed is a useful fit
 
-Fullbleed combines a Rust document engine with a Python API, self-contained wheels, explicit assets, deterministic rendering, PNG previews, and structured diagnostics. Its compiled fixed and reflowing binding APIs support repeated document families. The current release is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.4.0/LICENSE).
+Fullbleed combines a Rust document engine with a Python API, self-contained wheels, explicit assets, deterministic rendering, PNG previews, and structured diagnostics. Its compiled fixed and reflowing binding APIs support repeated document families. The current release is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.6/LICENSE).
 
 Try your own HTML/CSS against the [coverage report](../css-coverage.md). Include long content, page breaks, glyph coverage, and every required output profile in the evaluation. Use the [complete examples](../examples.md) to establish a working baseline.
 
@@ -37,4 +37,4 @@ Check each project's current documentation for detailed capability and license t
 5. Run the relevant standards validators on the final files.
 6. Measure complete jobs, including startup, compilation, and file writes.
 
-Fullbleed's [retained performance evidence](performance.md) covers specified Fullbleed versions and fixtures. It does not establish speed or quality superiority over the tools listed here.
+The [three-renderer comparison](renderer-comparison.md) covers three shared static-document fixtures on one WSL host. The [historical performance evidence](performance.md) covers earlier Fullbleed versions and different workloads. Neither establishes a universal speed or quality ranking.

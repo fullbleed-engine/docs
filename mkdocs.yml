@@ -101,6 +101,7 @@ nav:
     - Engine architecture: engine/overview.md
   - Evaluate:
     - Choose a PDF library: guides/comparison.md
+    - Three-renderer comparison: guides/renderer-comparison.md
     - Performance evidence: guides/performance.md
     - FAQ: faq.md
   - Contribute and support: support.md

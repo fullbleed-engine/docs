@@ -1,0 +1,20 @@
+{
+  "schema": "fullbleed.renderer_comparison.v1",
+  "smoke": false,
+  "seed": 20261004,
+  "cold_rounds": 5,
+  "warm_blocks": 3,
+  "warm_samples_per_block": 10,
+  "warmups_per_block": 2,
+  "memory_samples": 3,
+  "engines": [
+    "fullbleed",
+    "weasyprint",
+    "chromium"
+  ],
+  "fixtures": [
+    "invoice",
+    "ledger",
+    "report"
+  ]
+}

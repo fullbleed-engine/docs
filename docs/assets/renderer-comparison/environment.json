@@ -1,0 +1,62 @@
+{
+  "utc": "2026-10-05T00:22:50.404685+00:00",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "machine": "x86_64",
+  "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+  "logical_cpus": 20,
+  "total_memory_bytes": 33521459200,
+  "source_revision": "4ed41e3c48f90144b21e6360464dd1d868a00085",
+  "source_sha256": {
+    "prepare_font.py": "89d69112614e298a18237b0dd6502f383057e33d7549f0d0020a3323f8186946",
+    "README.md": "c1c13f5e82a7c4a28f3fb7e0fa55d59b54ff0349d76faaad9dc49e7d17a62429",
+    "validate.py": "15b6dafe50987b640fe38d4dbb5a708ae243bc768c6d30bc3bc14dea31bca5db",
+    "fixtures.py": "b4d5331218337e5d7f97be299eab4b83e60aefeed64039db1af95cb1d15e8a16",
+    "compare.py": "75800f08731d2cc2a1848046ad807cd7c02a5dc32b460668d5825bdc4d92b601",
+    "requirements.txt": "1a2da83abba0d1efa0a9707e5764b93446c90d1d5acbf2bfcd54a8c9e509d314",
+    "worker.py": "c5b8ea567388a20443831be9a6fcaab8c90df1de4b451005cb22567de662d3f3",
+    "fonts/Inter-OFL.txt": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+    "fonts/Inter-Variable.ttf": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "fonts/sources.json": "43c15ac0a295edc5fbd6de17356439d8f4697529fe9761cbb5bce190079b18b4",
+    "fonts/Inter-Regular.ttf": "0b59f6b6fc9e8a9ad8032802d1797c4237d9288a3e7b7661517070627b577060"
+  },
+  "packages": {
+    "pypdfium2": "5.14.0",
+    "zopfli": "0.4.3",
+    "pydyf": "0.12.1",
+    "cssselect2": "0.10.1",
+    "pyphen": "0.18.1",
+    "cffi": "2.1.1",
+    "tinyhtml5": "2.1.0",
+    "fullbleed": "2.5.6",
+    "tinycss2": "1.5.1",
+    "pillow": "12.3.0",
+    "greenlet": "3.5.6",
+    "fonttools": "4.65.0",
+    "pyee": "13.0.1",
+    "webencodings": "0.6.1",
+    "pycparser": "3.0",
+    "weasyprint": "70.0",
+    "typing_extensions": "4.16.0",
+    "pypdf": "6.19.0",
+    "psutil": "7.2.2",
+    "playwright": "1.63.0",
+    "brotli": "1.2.0"
+  },
+  "path_policy": "venv bin plus standard Linux executable directories; no inherited Windows PATH",
+  "font_sha256": "0b59f6b6fc9e8a9ad8032802d1797c4237d9288a3e7b7661517070627b577060",
+  "input_sha256": {
+    "shared.css": "325e59f83f4ea3f5109ed51ecf88651ae1b21fa67c7e7460043b3cbfbab275ce",
+    "report.json": "e90d33ed9815c061a8fb069a0a5044eb352c4b841b291af589b07adde939c25b",
+    "ledger.html": "a4aa14353048479ba56bd898fbb33677628898f9a87a24f1eef8606cda3c6356",
+    "ledger.json": "6967572ec40b7c1417eaeddd98e411e369c72e062f3b03f1f4730672167ee414",
+    "report.html": "27fd9b769cdfcdfb4494249dcecd4149fef671c3f795e552d3a991e85960fa07",
+    "invoice.json": "3ea566a311ea5d2ac012cc6b07712d6ed8d1a0ea9f519c1e1f65f2d6d65ca2fc",
+    "invoice.html": "d5c0acc02c8a70bd70114929bacd0fe7831db51cff01bd720819f0d58404b988"
+  },
+  "thread_environment": {
+    "FULLBLEED_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "RAYON_NUM_THREADS": null
+  }
+}
