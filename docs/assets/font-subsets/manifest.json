@@ -1,0 +1,86 @@
+{
+  "after/inter-unshaped.pdf": {
+    "bytes": 6524,
+    "sha256": "0618d87aa6a4e8d1e308bd460a54e4f2fe195e10b5c4ee78fd034e3b163d6c27"
+  },
+  "after/inter-variable.pdf": {
+    "bytes": 8253,
+    "sha256": "264f47def54096d944e870583b633a7c7dec6f91e0373fcb92f897087c1551c6"
+  },
+  "after/invoice.pdf": {
+    "bytes": 12032,
+    "sha256": "fca8be19978a7a1e93657e42f38632bbec86aee05ea9a56de5a8d6486e6ea804"
+  },
+  "after/ledger.pdf": {
+    "bytes": 16890,
+    "sha256": "c4bfd19e5dab2fcb70e7a53cb0429697c82b9324a23e09ba8802fb7f5670d00c"
+  },
+  "after/math-static.pdf": {
+    "bytes": 7846,
+    "sha256": "43c600c4ae58813a3498b1e8747eeb25446d33ef12910d0c6142a5517cb8b1e6"
+  },
+  "after/noto-variable.pdf": {
+    "bytes": 7066,
+    "sha256": "ada291263862af4db574cb5a75bff650dd76ab50a919bf24b8a2d6f893e80c9a"
+  },
+  "after/report.pdf": {
+    "bytes": 17469,
+    "sha256": "9eb88aa9ac33f6538e9202c7fa0b942dfb4da30b958bef4c9b2937f9c58373c7"
+  },
+  "after/symbols-static.pdf": {
+    "bytes": 5999,
+    "sha256": "8e2e6dd720aa6d95f6252b998de3191ed641470044159b3035f66afeaf5ec6bf"
+  },
+  "after/symbols2-static.pdf": {
+    "bytes": 4167,
+    "sha256": "2cbb6189a0ed4e80ff744f21204480e956e28dfb5f874ed165c868dacb1f456f"
+  },
+  "before/inter-unshaped.pdf": {
+    "bytes": 47488,
+    "sha256": "375e3645f36b90734ed0afb2b189a9347d7156ae422c209ec809640118a1bb83"
+  },
+  "before/inter-variable.pdf": {
+    "bytes": 49031,
+    "sha256": "a1027f68a9e4ff7b105e483a08146b0b88e85ac2d356f0f2d64a138bf1383069"
+  },
+  "before/invoice.pdf": {
+    "bytes": 52553,
+    "sha256": "6e8496821e6549776ffbf3c0a14a4d23491c32c7c7ef6ae396a40b196ad798d5"
+  },
+  "before/ledger.pdf": {
+    "bytes": 57559,
+    "sha256": "04604517fbf417af77b96a0b7885eaf8c73ff6beeb2d607674fbe3ad76758ef5"
+  },
+  "before/math-static.pdf": {
+    "bytes": 46229,
+    "sha256": "07ef5c962879ee186a01a17aad6e82383174234d2a59b9a3dc54207e8db538fc"
+  },
+  "before/noto-variable.pdf": {
+    "bytes": 53862,
+    "sha256": "b96576178561e5c45a7a270b9a6327f509505d7c09d572e178c2f21c46771ccc"
+  },
+  "before/report.pdf": {
+    "bytes": 57957,
+    "sha256": "8b9a47d18f4002aa1cf1421548881ee916abe7d6eac96fa1072600f51a9f5fd3"
+  },
+  "before/symbols-static.pdf": {
+    "bytes": 22190,
+    "sha256": "c09e62d2a860c5ca7cfdc3cdbf413730b25967b0d34ba26bb75eddb397029112"
+  },
+  "before/symbols2-static.pdf": {
+    "bytes": 35426,
+    "sha256": "6de50bd98d642cb7d1ef992e1a49b7defd5ac8ed51e51838d2490f0daaefb69f"
+  },
+  "evidence.zip": {
+    "bytes": 5327717,
+    "sha256": "0c27a59e1d2a743879cf4cfd9b2780a08629e06c448e60ed711d7da30847625e"
+  },
+  "invoice.png": {
+    "bytes": 64925,
+    "sha256": "feee6329b5d60cfa7aa100eee275c31b9e543924426b7aa50bc0b2c497c3610c"
+  },
+  "verification.json": {
+    "bytes": 33845,
+    "sha256": "7f5f2f098c086abffc9f30b83997b108de0367c7d4cd51fa38cd4f7ab661c973"
+  }
+}
