@@ -115,7 +115,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
     ```bash
     cargo new invoice-demo
     cd invoice-demo
-    cargo add fullbleed@=2.5.6
+    cargo add fullbleed@=2.5.8
     ```
 
     Replace `src/main.rs` with:
@@ -141,7 +141,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
 
     Open `invoice.pdf`. This first example uses standard PDF fonts; the guide adds explicit fonts and a designed invoice.
 
-    [Rust quickstart →](getting-started/rust.md) · [Rust API reference](https://docs.rs/fullbleed/2.5.6/fullbleed/)
+    [Rust quickstart →](getting-started/rust.md) · [Latest hosted Rust API reference](https://docs.rs/fullbleed/latest/fullbleed/)
 
 === "C# / .NET"
 

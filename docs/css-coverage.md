@@ -1,6 +1,6 @@
 # CSS Coverage and Parity Status
 
-Reference imported from [v2.5.6](https://github.com/fullbleed-engine/fullbleed-official/blob/a34344fed5b91ace5e1b6798f45aae271177273a/docs/css-coverage.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/css-coverage.md). Check the installed runtime for your exact version.
 
 This document is the canonical statement of validated CSS coverage for Fullbleed's deterministic HTML/CSS-to-PDF engine.
 
