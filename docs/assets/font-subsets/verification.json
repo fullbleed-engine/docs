@@ -1,0 +1,775 @@
+{
+  "checked_at": "2026-10-05T02:21:05.123597+00:00",
+  "release": {
+    "version": "2.5.7",
+    "tag": "v2.5.7",
+    "tag_object": "0deb8b537d40f2f117524e491d72c6dc622c0f3a",
+    "source_commit": "eb807a3d7a1ee49a34cfa6bb2f4741ca34748cad",
+    "source_tree": "430d0628b65914d0cd5477e47f1198301b5ff5a0",
+    "tested_pr_head": "50af97c313f2c51aae64a624d8b8c3a90c65e35c",
+    "pr": 38,
+    "ci_run": 37252605933,
+    "ci_conclusion": "success",
+    "public_package_verified": true,
+    "started_at": "2026-10-05T02:00:23.550118+00:00",
+    "crates_io": {
+      "workflow_run": 37253657937,
+      "workflow_conclusion": "success",
+      "url": "https://crates.io/crates/fullbleed/2.5.7",
+      "verification": {
+        "ok": true,
+        "checked_at": "2026-10-05T02:10:50.419276+00:00",
+        "version": "2.5.7",
+        "source_commit": "eb807a3d7a1ee49a34cfa6bb2f4741ca34748cad",
+        "crate_sha256": "2c7e5a61d8456e29afd7ceb3028ce4c88e45dee2580a81e47c6eee6c4a385b6a",
+        "source_files_match_tag": {
+          "src/font_subset.rs": "8d289f257d1d7d1d62cdfa50dcad329152c05bff29c5d42588bafa1d8b434a95",
+          "src/font_subset/cmap.rs": "a60be9c78a8cd0a1f66fd1d993e3aecf3e8e51209fb354826b7d40a3da01a99d"
+        },
+        "public_registry_consumer": true,
+        "rust_toolchain": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+        "consumer_lockfile": "fresh",
+        "pdf_bytes": 12032,
+        "pdf_sha256": "fca8be19978a7a1e93657e42f38632bbec86aee05ea9a56de5a8d6486e6ea804",
+        "pdf_and_native_preview_match_candidate": true
+      }
+    },
+    "release_workflow": {
+      "id": 37253657044,
+      "conclusion": "success",
+      "url": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/37253657044",
+      "headSha": "eb807a3d7a1ee49a34cfa6bb2f4741ca34748cad",
+      "jobs": [
+        {
+          "name": "pdfvt-preflight / preflight",
+          "conclusion": "success"
+        },
+        {
+          "name": "pdfvt-preflight / dedicated-pdfvt",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Validate release metadata and source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build source distribution",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-s390x)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-x86)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (musllinux-armv7)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (windows-x86_64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-x86_64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (musllinux-x86_64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (windows-x86)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (musllinux-x86)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-ppc64le)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-aarch64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (manylinux-armv7)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (musllinux-aarch64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (macos-aarch64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (macos-x86_64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build wheel (windows-arm64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke native wheel (windows-x86_64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke native wheel (macos-x86_64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke native wheel (windows-x86, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke native wheel (macos-aarch64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke native wheel (windows-arm64, Python 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86_64, Python 3.11)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86_64, Python 3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86_64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86_64, Python 3.13)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86_64, Python 3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-armv7, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-aarch64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-x86, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (musllinux-x86_64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-s390x, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (musllinux-x86, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (manylinux-ppc64le, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (musllinux-armv7, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Smoke Linux wheel (musllinux-aarch64, Python 3.10)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate distribution set",
+          "conclusion": "success"
+        },
+        {
+          "name": "Publish PyPI distributions",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "public_outputs_match_candidate": true,
+    "checked_at": "2026-10-05T02:19:50.934706+00:00",
+    "host": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.8",
+    "reader_versions": {
+      "fullbleed": "2.5.7",
+      "pypdf": "6.19.0",
+      "pypdfium2": "5.14.0",
+      "fonttools": "4.65.0",
+      "pillow": "12.3.0"
+    },
+    "pypi": {
+      "url": "https://pypi.org/project/fullbleed/2.5.7/",
+      "files": 16,
+      "wheel": "fullbleed-2.5.7-cp310-abi3-win_amd64.whl",
+      "sha256": "995594b6f5d2b189717054365d51b6f15bc5a7eda190eea37bfd464781756904",
+      "download_url": "https://files.pythonhosted.org/packages/7a/9f/fdb5b8c5a13a67292bf65fee3bec2aebfc84b84dae4eec0ef58240d7dcae/fullbleed-2.5.7-cp310-abi3-win_amd64.whl"
+    },
+    "distribution_checksums_verified": true,
+    "github_release": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.7",
+    "release_profile_count": 17,
+    "release_profile_gate_passed": true,
+    "release_font_pdf_hashes_match_local": true
+  },
+  "before_version": "2.5.6",
+  "after_version": "2.5.7",
+  "public_outputs_match_candidate": true,
+  "fixtures": [
+    {
+      "name": "invoice",
+      "pdf_bytes": 12032,
+      "pdf_sha256": "fca8be19978a7a1e93657e42f38632bbec86aee05ea9a56de5a8d6486e6ea804",
+      "font_source_sha256": "0b59f6b6fc9e8a9ad8032802d1797c4237d9288a3e7b7661517070627b577060",
+      "html_sha256": "d5c0acc02c8a70bd70114929bacd0fe7831db51cff01bd720819f0d58404b988",
+      "css_sha256": "325e59f83f4ea3f5109ed51ecf88651ae1b21fa67c7e7460043b3cbfbab275ce",
+      "pages": 1,
+      "text": "NORTHSTAR / STUDIO\nInvoice\nRUN-000000\nIssued 04 October 2026 / Due 18 October 2026\nPrepared for Alder Works\n42 Harbour Lane, Portland, OR 97201\nItem ID Description USD\nINV-01 Document template design 480.00\nINV-02 Data mapping workshop 240.00\nINV-03 Print layout review 180.00\nINV-04 Font asset preparation 120.00\nINV-05 Release handover 160.00\nINV-06 Support session 80.00\nTotal due: USD 1,260.00\nDelivery complete\nSix services supplied under project NS-204.\nSynthetic comparison fixture. No payment is due.",
+      "pdfium_pixel_sha256": [
+        "c3386d680e9972eba20f9ec122d447223a0393fd64f70f6737894ef7a8e4d853"
+      ],
+      "native_png_sha256": [
+        "52ce2fa41f4e6aa8254c9f116115936ebb8e3c874b89ddeaec1ec48282f02a1a"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 341396,
+          "program_bytes": 32212,
+          "encoded_bytes": 6698,
+          "retained_glyphs_and_components": 61,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 1156,
+            "gasp": 8,
+            "glyf": 4974,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 11732,
+            "loca": 11736,
+            "maxp": 32,
+            "name": 2138,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 52553,
+      "pdf_reduction_percent": 77.11,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "ledger",
+      "pdf_bytes": 16890,
+      "pdf_sha256": "c4bfd19e5dab2fcb70e7a53cb0429697c82b9324a23e09ba8802fb7f5670d00c",
+      "font_source_sha256": "0b59f6b6fc9e8a9ad8032802d1797c4237d9288a3e7b7661517070627b577060",
+      "html_sha256": "a4aa14353048479ba56bd898fbb33677628898f9a87a24f1eef8606cda3c6356",
+      "css_sha256": "325e59f83f4ea3f5109ed51ecf88651ae1b21fa67c7e7460043b3cbfbab275ce",
+      "pages": 3,
+      "text": "Service ledger\nOctober 2026 / RUN-000000\nRow ID Description USD\nROW-001 Service entry 001 3.00\nROW-002 Service entry 002 6.00\nROW-003 Service entry 003 9.00\nROW-004 Service entry 004 12.00\nROW-005 Service entry 005 15.00\nROW-006 Service entry 006 18.00\nROW-007 Service entry 007 21.00\nROW-008 Service entry 008 24.00\nROW-009 Service entry 009 27.00\nROW-010 Service entry 010 30.00\nROW-011 Service entry 011 33.00\nROW-012 Service entry 012 36.00\nROW-013 Service entry 013 39.00\nROW-014 Service entry 014 42.00\nROW-015 Service entry 015 45.00\nROW-016 Service entry 016 48.00\nROW-017 Service entry 017 51.00\nROW-018 Service entry 018 54.00\nROW-019 Service entry 019 57.00\nROW-020 Service entry 020 60.00\nROW-021 Service entry 021 63.00\nROW-022 Service entry 022 66.00\nROW-023 Service entry 023 69.00\nROW-024 Service entry 024 72.00\nROW-025 Service entry 025 75.00\nROW-026 Service entry 026 78.00\nROW-027 Service entry 027 81.00\nROW-028 Service entry 028 84.00\nROW-029 Service entry 029 87.00\nROW-030 Service entry 030 90.00\nROW-031 Service entry 031 93.00\nROW-032 Service entry 032 96.00Row ID Description USD\nROW-033 Service entry 033 99.00\nROW-034 Service entry 034 102.00\nROW-035 Service entry 035 105.00\nROW-036 Service entry 036 108.00\nROW-037 Service entry 037 111.00\nROW-038 Service entry 038 114.00\nROW-039 Service entry 039 117.00\nROW-040 Service entry 040 120.00\nROW-041 Service entry 041 123.00\nROW-042 Service entry 042 126.00\nROW-043 Service entry 043 129.00\nROW-044 Service entry 044 132.00\nROW-045 Service entry 045 135.00\nROW-046 Service entry 046 138.00\nROW-047 Service entry 047 141.00\nROW-048 Service entry 048 144.00\nROW-049 Service entry 049 147.00\nROW-050 Service entry 050 150.00\nROW-051 Service entry 051 153.00\nROW-052 Service entry 052 156.00\nROW-053 Service entry 053 159.00\nROW-054 Service entry 054 162.00\nROW-055 Service entry 055 165.00\nROW-056 Service entry 056 168.00\nROW-057 Service entry 057 171.00\nROW-058 Service entry 058 174.00\nROW-059 Service entry 059 177.00\nROW-060 Service entry 060 180.00\nROW-061 Service entry 061 183.00\nROW-062 Service entry 062 186.00\nROW-063 Service entry 063 189.00\nROW-064 Service entry 064 192.00\nROW-065 Service entry 065 195.00\nROW-066 Service entry 066 198.00\nROW-067 Service entry 067 201.00\nROW-068 Service entry 068 204.00Row ID Description USD\nROW-069 Service entry 069 207.00\nROW-070 Service entry 070 210.00\nROW-071 Service entry 071 213.00\nROW-072 Service entry 072 216.00\nROW-073 Service entry 073 219.00\nROW-074 Service entry 074 222.00\nROW-075 Service entry 075 225.00\nROW-076 Service entry 076 228.00\nROW-077 Service entry 077 231.00\nROW-078 Service entry 078 234.00\nROW-079 Service entry 079 237.00\nROW-080 Service entry 080 240.00\nROW-081 Service entry 081 243.00\nROW-082 Service entry 082 246.00\nROW-083 Service entry 083 249.00\nROW-084 Service entry 084 252.00\nROW-085 Service entry 085 255.00\nROW-086 Service entry 086 258.00\nROW-087 Service entry 087 261.00\nROW-088 Service entry 088 264.00\nROW-089 Service entry 089 267.00\nROW-090 Service entry 090 270.00\nROW-091 Service entry 091 273.00\nROW-092 Service entry 092 276.00\nROW-093 Service entry 093 279.00\nROW-094 Service entry 094 282.00\nROW-095 Service entry 095 285.00\nROW-096 Service entry 096 288.00\nROW-097 Service entry 097 291.00\nROW-098 Service entry 098 294.00\nROW-099 Service entry 099 297.00\nROW-100 Service entry 100 300.00\nLedger total: USD 15,150.00\nLEDGER-END / All 100 entries included.",
+      "pdfium_pixel_sha256": [
+        "bea31bf82212761ceb087a09660e1ff2c44ae057c160bf0bf5f1ef699af28f11",
+        "2e0b2f4d63fa494d882bbc53d2a84f00382ebf3e6943064780b4cdc4de4110f2",
+        "dac0f50db14eab3e1560f29a59c25bee09f9a92985fb5559145cd705ac30d140"
+      ],
+      "native_png_sha256": [
+        "801de71634f9aaf24716b8c28a505b0f727cb9fa042a7b6fc8adfe83ecb9661f",
+        "82d6bb1fa3c47901ec0fe9b370e1910869c8c45a9cec5d02a71f8c9b3fb6c3fe",
+        "320d10636288840380650d90e7455fea5669c48108dc789890b7e62c50c68b9e"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 341396,
+          "program_bytes": 31408,
+          "encoded_bytes": 6072,
+          "retained_glyphs_and_components": 51,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 956,
+            "gasp": 8,
+            "glyf": 4372,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 11732,
+            "loca": 11736,
+            "maxp": 32,
+            "name": 2138,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 57559,
+      "pdf_reduction_percent": 70.66,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "report",
+      "pdf_bytes": 17469,
+      "pdf_sha256": "9eb88aa9ac33f6538e9202c7fa0b942dfb4da30b958bef4c9b2937f9c58373c7",
+      "font_source_sha256": "0b59f6b6fc9e8a9ad8032802d1797c4237d9288a3e7b7661517070627b577060",
+      "html_sha256": "27fd9b769cdfcdfb4494249dcecd4149fef671c3f795e552d3a991e85960fa07",
+      "css_sha256": "325e59f83f4ea3f5109ed51ecf88651ae1b21fa67c7e7460043b3cbfbab275ce",
+      "pages": 3,
+      "text": "NORTHSTAR / OPERATIONS / SECTION-01\nDelivery overview\nQuarterly review / Section 1 of 3\nA repeatable document workflow\nThe team prepares structured records, reviews the print layout, and retains the final documents. Each template uses\nexplicit fonts and a fixed paper size so that a reviewer can inspect the same inputs.\nReview note 1\nCheck the longest records, page transitions, and line-item totals before publishing a template update.\nMetric ID Measure Value\nMETRIC-11 Documents delivered 1,248\nMETRIC-12 Templates maintained 12\nMETRIC-13 Review cycles completed 36\nMETRIC-14 Open actions 4\nFollow-up actions\nKeep the source data with the template revision. Record any layout differences and repeat the output checks when\ndependencies change.\nREPORT-END-01 / RUN-000000NORTHSTAR / OPERATIONS / SECTION-02\nQuality review\nQuarterly review / Section 2 of 3\nA repeatable document workflow\nThe team prepares structured records, reviews the print layout, and retains the final documents. Each template uses\nexplicit fonts and a fixed paper size so that a reviewer can inspect the same inputs.\nReview note 2\nCheck the longest records, page transitions, and line-item totals before publishing a template update.\nMetric ID Measure Value\nMETRIC-21 Documents delivered 1,248\nMETRIC-22 Templates maintained 12\nMETRIC-23 Review cycles completed 36\nMETRIC-24 Open actions 4\nFollow-up actions\nKeep the source data with the template revision. Record any layout differences and repeat the output checks when\ndependencies change.\nREPORT-END-02NORTHSTAR / OPERATIONS / SECTION-03\nNext quarter\nQuarterly review / Section 3 of 3\nA repeatable document workflow\nThe team prepares structured records, reviews the print layout, and retains the final documents. Each template uses\nexplicit fonts and a fixed paper size so that a reviewer can inspect the same inputs.\nReview note 3\nCheck the longest records, page transitions, and line-item totals before publishing a template update.\nMetric ID Measure Value\nMETRIC-31 Documents delivered 1,248\nMETRIC-32 Templates maintained 12\nMETRIC-33 Review cycles completed 36\nMETRIC-34 Open actions 4\nFollow-up actions\nKeep the source data with the template revision. Record any layout differences and repeat the output checks when\ndependencies change.\nREPORT-END-03",
+      "pdfium_pixel_sha256": [
+        "d72662d4b6317c60a2cf3c3c39741d60dcd192833a266becb429421a426410a7",
+        "81e2bd6b0c9134e414eb4700560e4169acb372e25ec8f80acffd25077760031d",
+        "791e750a9ec81515660092b45d6a483e0cb2f638bff3b9a65202b6e8203d0482"
+      ],
+      "native_png_sha256": [
+        "e0899969de22d19dbbb278d48540c7fb81c2475e72a9b93d5d50ae08fd52cb26",
+        "0f32e0f41aed9370bbbb756dc45faae7c14d26883f77665fa966ef4f6b7a7aac",
+        "cdfc92575599b394709e1430b74dcccd93bb6abf0fb1f8d235f7804c3400bab0"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 341396,
+          "program_bytes": 32408,
+          "encoded_bytes": 6769,
+          "retained_glyphs_and_components": 60,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 1216,
+            "gasp": 8,
+            "glyf": 5112,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 11732,
+            "loca": 11736,
+            "maxp": 32,
+            "name": 2138,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 57957,
+      "pdf_reduction_percent": 69.86,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "inter-variable",
+      "pdf_bytes": 8253,
+      "pdf_sha256": "264f47def54096d944e870583b633a7c7dec6f91e0373fcb92f897087c1551c6",
+      "font_source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "html_sha256": "fa55ec538b8719dd72214c4b9aebcdeab557ad1f3268519d196742d0754cc269",
+      "css_sha256": "f4edee3cc4f16dc4f4b63f9c09bb57c5c48e442e48cbefb8fb15b68cf698a24e",
+      "pages": 1,
+      "text": "Invoice INV-2042 R\u00e9sum\u00e9 caf\u00e9 \u00c5ngstr\u00f6m \u03a9 \u0416 123.45",
+      "pdfium_pixel_sha256": [
+        "98d472b44811740e7141b4fdd76076552e3c2d133cd43ca6606e441b51570050"
+      ],
+      "native_png_sha256": [
+        "bd3242c0b6fb0b08b736ebf2460ff6a4c37d4dd13cb0f7a0d29c015d06264189"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 876576,
+          "program_bytes": 30520,
+          "encoded_bytes": 5217,
+          "retained_glyphs_and_components": 40,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 796,
+            "gasp": 8,
+            "glyf": 3110,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 11732,
+            "loca": 11736,
+            "maxp": 32,
+            "name": 2670,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 49031,
+      "pdf_reduction_percent": 83.17,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "noto-variable",
+      "pdf_bytes": 7066,
+      "pdf_sha256": "ada291263862af4db574cb5a75bff650dd76ab50a919bf24b8a2d6f893e80c9a",
+      "font_source_sha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
+      "html_sha256": "b225c96a7a3d81c2de56624b33362ad1aa75b9175ddf6012c86c79f7e5e30a04",
+      "css_sha256": "e02f7ae6d55d7112e5d0f2899814bbec18bb108518c77c6b88ed3feefd8c68ff",
+      "pages": 1,
+      "text": "R\u00e9sum\u00e9 caf\u00e9 \u00c5ngstr\u00f6m \u0100 \u0106 \u03a9 \u0416 123.45",
+      "pdfium_pixel_sha256": [
+        "73fd97585f927f049b4876a8aa0cac261b4c44a7f687fd7c9c962f61ec75fac1"
+      ],
+      "native_png_sha256": [
+        "147b28b697d7d0c2a97ec4ac653e2f6ae4c45e9cebd0722dc938fddfd52be6ac"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 2049096,
+          "program_bytes": 42412,
+          "encoded_bytes": 4540,
+          "retained_glyphs_and_components": 34,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 516,
+            "gasp": 8,
+            "glyf": 2558,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 18058,
+            "loca": 18064,
+            "maxp": 32,
+            "name": 2739,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 53862,
+      "pdf_reduction_percent": 86.88,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "math-static",
+      "pdf_bytes": 7846,
+      "pdf_sha256": "43c600c4ae58813a3498b1e8747eeb25446d33ef12910d0c6142a5517cb8b1e6",
+      "font_source_sha256": "80b61fd613d3519197e64fff6f7e71fdc7f3e6526440ea4115b554ef7fd59af7",
+      "html_sha256": "e8d66b06bd121d6677253814679f395908909283557dea5c661197810e91cbca",
+      "css_sha256": "dedb7de4107d7902ccafc8484ea7d9c623431e5fcf8dee0b539862441cafa853",
+      "pages": 1,
+      "text": "A \ud835\udc9c \u2211 \u222b \u2260 \u2192 123.45",
+      "pdfium_pixel_sha256": [
+        "d243cc6bcd5dba692318c916b8a0cefaf61ee821250df609812816e3c15ec75e"
+      ],
+      "native_png_sha256": [
+        "a555e42b36e53c1953e8110295fc7cfc8422456701bb6757e8a49c399af24b16"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 590904,
+          "program_bytes": 29548,
+          "encoded_bytes": 5602,
+          "retained_glyphs_and_components": 14,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 328,
+            "cvt ": 90,
+            "fpgm": 3605,
+            "gasp": 8,
+            "glyf": 1908,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 10620,
+            "loca": 10624,
+            "maxp": 32,
+            "name": 1692,
+            "post": 32,
+            "prep": 178
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 46229,
+      "pdf_reduction_percent": 83.03,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "symbols-static",
+      "pdf_bytes": 5999,
+      "pdf_sha256": "8e2e6dd720aa6d95f6252b998de3191ed641470044159b3035f66afeaf5ec6bf",
+      "font_source_sha256": "8f02f31959bbdf6061547a188248e13f84dc5fdd940326ec494675f453f072bb",
+      "html_sha256": "86c74ebed3da45b48f5cd218b7c74ce2c70dc8d2d3545c53cd574bd94e3f613c",
+      "css_sha256": "6be92ba9f5d392899dc4e888a63ab50fc2be0bf377c01a785ddb145f999d9fec",
+      "pages": 1,
+      "text": "\u2640 \u2192",
+      "pdfium_pixel_sha256": [
+        "94593e5b78e04f71fd7ccc8dade2a054be919d451edc4c919a32f23d28041cb3"
+      ],
+      "native_png_sha256": [
+        "6a75fb52d8e30a1b7ab94421ab0887af5c981e66eea1e4e31273242645254b86"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 258156,
+          "program_bytes": 16392,
+          "encoded_bytes": 4042,
+          "retained_glyphs_and_components": 4,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 136,
+            "cvt ": 52,
+            "fpgm": 3605,
+            "gasp": 8,
+            "glyf": 476,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 4862,
+            "loca": 4876,
+            "maxp": 32,
+            "name": 1716,
+            "post": 32,
+            "prep": 167
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 22190,
+      "pdf_reduction_percent": 72.97,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "symbols2-static",
+      "pdf_bytes": 4167,
+      "pdf_sha256": "2cbb6189a0ed4e80ff744f21204480e956e28dfb5f874ed165c868dacb1f456f",
+      "font_source_sha256": "630846d528dbe4c4981370a4d0a9475a1fd1491a129bb411f8e157cdb5de13c6",
+      "html_sha256": "4b96f74feec26432f069070ed025ddda39c1ba608510915e4993e6a90294b140",
+      "css_sha256": "b8d14d30fb6261ccf6660fc74fa966b24ed00c3353734da7e978068acfacf29d",
+      "pages": 1,
+      "text": "\u2600 \u2605 \u2611 \ud83c\udca1 \u2680",
+      "pdfium_pixel_sha256": [
+        "20c296d36d61da1d1adacc378f53991e73786828c322011977ee3563a84d7cfd"
+      ],
+      "native_png_sha256": [
+        "18cff0fa755abbd92b47aa0d76a575ac8a2671b8e99b27b3447ca26c3030c1fd"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 656852,
+          "program_bytes": 24400,
+          "encoded_bytes": 2117,
+          "retained_glyphs_and_components": 7,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 188,
+            "glyf": 810,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 10696,
+            "loca": 10700,
+            "maxp": 32,
+            "name": 1578,
+            "post": 32
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 35426,
+      "pdf_reduction_percent": 88.24,
+      "baseline_text_and_pixels_identical": true
+    },
+    {
+      "name": "inter-unshaped",
+      "pdf_bytes": 6524,
+      "pdf_sha256": "0618d87aa6a4e8d1e308bd460a54e4f2fe195e10b5c4ee78fd034e3b163d6c27",
+      "font_source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "html_sha256": "787a130daeb08120bedab0eb619a0cf5d1b927bf168777471887c2c79cf0622f",
+      "css_sha256": "f4edee3cc4f16dc4f4b63f9c09bb57c5c48e442e48cbefb8fb15b68cf698a24e",
+      "pages": 1,
+      "text": "Invoice caf\u00e9 d\u00e9j\u00e0 vu 123.45",
+      "pdfium_pixel_sha256": [
+        "74bb86bde8824688711bf81bd5f8bbe714be0c6628087af828d0e1328155a50e"
+      ],
+      "native_png_sha256": [
+        "41b4492e7ebfd0b625eb5c281ff8ac8d8eccbd11478816aa08e264d63524356a"
+      ],
+      "fonts": [
+        {
+          "original_bytes": 876576,
+          "program_bytes": 29072,
+          "encoded_bytes": 3972,
+          "retained_glyphs_and_components": 27,
+          "tables": {
+            "OS/2": 96,
+            "cmap": 536,
+            "gasp": 8,
+            "glyf": 1922,
+            "head": 54,
+            "hhea": 36,
+            "hmtx": 11732,
+            "loca": 11736,
+            "maxp": 32,
+            "name": 2670,
+            "post": 32,
+            "prep": 7
+          },
+          "original_glyph_ids_outlines_metrics_and_mappings_preserved": true,
+          "font_name_and_notice_table_preserved": true
+        }
+      ],
+      "repeat_pdf_bytes_identical": true,
+      "independent_text_readers_agree": true,
+      "baseline_pdf_bytes": 47488,
+      "pdf_reduction_percent": 86.26,
+      "baseline_text_and_pixels_identical": true
+    }
+  ],
+  "goldens": {
+    "acme_invoice": {
+      "before_bytes": 133691,
+      "after_bytes": 93250,
+      "text_and_pdfium_pixels_unchanged": true,
+      "native_png_hashes_unchanged": true,
+      "pdfium_pixel_sha256": [
+        "868fc5527418e806301898b58a73d3cf745f5b425e436a5353956700c9cabe7d"
+      ],
+      "actual_golden": {
+        "case_id": "acme_invoice",
+        "report": "examples/acme_invoice/report.py",
+        "pdf": {
+          "path": "examples/acme_invoice/output/acme_sample_invoice.pdf",
+          "bytes": 93250,
+          "sha256": "6199c7ec17f35f4592aa2eb972df169086b3974d25993417cdd40b8ef0d8c379"
+        },
+        "png": {
+          "count": 1,
+          "files": [
+            {
+              "name": "acme_sample_invoice_page1.png",
+              "path": "examples/acme_invoice/output/acme_sample_invoice_page1.png",
+              "bytes": 161652,
+              "sha256": "358e016c5ba9a3cb9ea6a7a12cb37ebbfb3288e40d2e00c54b516f7f7a13c3b8"
+            }
+          ]
+        },
+        "validation": {
+          "path": "examples/acme_invoice/output/acme_sample_invoice_component_mount_validation.json",
+          "kind": "component_mount",
+          "sha256": "a2d70c24ced2e4d73b193078c5b6195bf7bee102eef3a800f756620a32e90f10"
+        },
+        "css_layers": {
+          "path": "examples/acme_invoice/output/acme_sample_invoice_css_layers.json",
+          "sha256": "b00c52b372fb82c11df3ba2fbc5470f66a87d7b0e736447ab8aaa2e491e201a1"
+        }
+      }
+    },
+    "bank_statement": {
+      "before_bytes": 59765,
+      "after_bytes": 19365,
+      "text_and_pdfium_pixels_unchanged": true,
+      "native_png_hashes_unchanged": true,
+      "pdfium_pixel_sha256": [
+        "265a17da12434c2153d5814f5c691f56d2800683c5d6184581cfbf3487ade681",
+        "b247ef8649c3a438a0b1889226627967a67843cf2536a16b59256fa06533077f"
+      ],
+      "actual_golden": {
+        "case_id": "bank_statement",
+        "report": "examples/bank_statement/report.py",
+        "pdf": {
+          "path": "examples/bank_statement/output/bank_statement.pdf",
+          "bytes": 19365,
+          "sha256": "2eb3c562674e5e0e7920e7bbb1ea306667c791904ebdcfabd3777e5db6cccb7a"
+        },
+        "png": {
+          "count": 2,
+          "files": [
+            {
+              "name": "bank_statement_page1.png",
+              "path": "examples/bank_statement/output/bank_statement_page1.png",
+              "bytes": 198385,
+              "sha256": "66c8914ad43b5620faca0738c7eeb5bd362c9358daa4c064ce78cf4060289b5c"
+            },
+            {
+              "name": "bank_statement_page2.png",
+              "path": "examples/bank_statement/output/bank_statement_page2.png",
+              "bytes": 106598,
+              "sha256": "bdaeccaec9de51411564eb59adaf5e802d2464242eb5a3650b46646535f704b2"
+            }
+          ]
+        },
+        "validation": {
+          "path": "examples/bank_statement/output/bank_statement_component_mount_validation.json",
+          "kind": "component_mount",
+          "sha256": "c8e97d41c9cb69b0e9cfee49536d40670c376bd98ecae0735a38656de0fd68b4"
+        },
+        "css_layers": {
+          "path": "examples/bank_statement/output/bank_statement_css_layers.json",
+          "sha256": "9e9133893da0c4bd5bc3a2ccdb25d43e3e52cbec74c37ef4793defb57fd988b1"
+        }
+      }
+    },
+    "coastal_menu": {
+      "before_bytes": 3736,
+      "after_bytes": 3736,
+      "text_and_pdfium_pixels_unchanged": true,
+      "native_png_hashes_unchanged": true,
+      "pdfium_pixel_sha256": [
+        "9d465fc08c1ed191a2239605305a3778229006edd19ccc7d87c3546fa3406619"
+      ],
+      "actual_golden": {
+        "case_id": "coastal_menu",
+        "report": "examples/coastal_menu/report.py",
+        "pdf": {
+          "path": "examples/coastal_menu/output/coastal_menu.pdf",
+          "bytes": 3736,
+          "sha256": "5b1feefb2c3178ce7c4121b138cd982318558a51b068bfc314828d728cd0187c"
+        },
+        "png": {
+          "count": 1,
+          "files": [
+            {
+              "name": "coastal_menu_page1.png",
+              "path": "examples/coastal_menu/output/coastal_menu_page1.png",
+              "bytes": 247150,
+              "sha256": "06a564799a7d3239b625ab7e8f160bb0e22c6372731b6221fe722ab53d6eb072"
+            }
+          ]
+        },
+        "validation": {
+          "path": "examples/coastal_menu/output/coastal_menu_validation.json",
+          "kind": "coastal_validation",
+          "sha256": "45ea2dae8bd82956c442e837f24555f934b687df111c89a37d5badf7ba24e77e"
+        },
+        "css_layers": null
+      }
+    }
+  },
+  "evidence_archive": {
+    "bytes": 5327717,
+    "sha256": "0c27a59e1d2a743879cf4cfd9b2780a08629e06c448e60ed711d7da30847625e",
+    "files": 147
+  },
+  "scope": "Fixed synthetic fixtures on one Windows host; file size, text, glyph and pixel checks. No throughput, general parity, or conformance claim."
+}

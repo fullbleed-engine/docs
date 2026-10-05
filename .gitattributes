@@ -13,3 +13,4 @@ docs/assets/pdf-regression/*.json text eol=lf
 # Evidence downloads and their manifests are verified by byte hashes.
 docs/assets/renderer-comparison/** -text
 docs/assets/renderer-comparison/*.svg -whitespace
+docs/assets/font-subsets/** -text
