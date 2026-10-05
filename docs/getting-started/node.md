@@ -8,10 +8,15 @@ Fullbleed's optional Node package renders static HTML/CSS into PDFs using a
 bundled WebAssembly build of the Rust engine. It includes fonts and runs locally;
 you do not need Python, Rust, or a browser to use the installed package.
 
-This guide uses **Node package 0.1.4**, powered by **Fullbleed 2.5.7**. The
+This guide uses **Node package 0.1.5**, powered by **Fullbleed 2.5.8**. The
 integration and core engine have separate versions.
 
-Version 0.1.4 compacts embedded font metadata. In the retained comparison, the
+Version 0.1.5 fixes regular font selection when an italic face is registered first.
+Use the actual family name for normal/italic CSS selection, or a PostScript name
+for an explicit face. Review appearance and line breaks when upgrading; the
+[font-family guide](../engine/font-registration.md) explains the change.
+
+The earlier 0.1.4 release compacted embedded font metadata. In its retained comparison, the
 designed invoice below drops from **91,590 to 40,289 bytes** (56.0% smaller), and
 the three-page report from **94,529 to 46,259 bytes** (51.1% smaller). Text and
 page pixels match the previous release. The [seven-fixture font verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.4/font-verification.json)
@@ -25,7 +30,7 @@ With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/packag
 npm install fullbleed
 ```
 
-To pin this guide's version, use `npm install --save-exact fullbleed@0.1.4`.
+To pin this guide's version, use `npm install --save-exact fullbleed@0.1.5`.
 The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -83,7 +88,7 @@ of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing fro
 these PNG previews in earlier releases.
 
 [Open the report PDF](../assets/node/report.pdf){ .md-button }
-[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.4/examples){ .md-button }
+[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.5/examples){ .md-button }
 
 ## Bring fonts and image assets
 
@@ -94,7 +99,7 @@ in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
 
 The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
-[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.4#fonts-and-assets)
+[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.5#fonts-and-assets)
 includes a complete font and asset example.
 
 ## Use it in an application
@@ -139,13 +144,15 @@ TypeScript. Its release evidence compares retained native and WebAssembly
 fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
-The [npm publication record](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.4/npm-publication-0.1.4.json)
+The [npm publication record](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/npm-publication-0.1.5.json)
 confirms the registry tarball matches that release. A fresh registry install on
 Windows / Node 22 reproduces its PDF/PNG hashes, including ESM/CommonJS and
 recovery after a cold timeout. Seven font fixtures also pass independent font,
-text, and page-pixel checks against the registry-installed package.
+text, and page-pixel checks against the registry-installed package. Ten custom-family
+cases also match explicit-face controls; the same checker rejects the incorrect
+0.1.4 result. [Inspect the family-selection evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/font-family-verification.json).
 
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
 [npm package](https://www.npmjs.com/package/fullbleed) ·
-[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.4) ·
+[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.5) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)

@@ -1,6 +1,6 @@
 # Fullbleed PDF downloads in ASP.NET Core
 
-A .NET 10 Minimal API that generates a fictional Northstar invoice from bundled HTML, CSS, and fonts. Uses the public `FullBleed.DotNet` 0.1.3 NuGet package (engine 2.5.7).
+A .NET 10 Minimal API that generates a fictional Northstar invoice from bundled HTML, CSS, and fonts. Uses the public `FullBleed.DotNet` 0.1.4 NuGet package (engine 2.5.8).
 
 ```sh
 dotnet restore --locked-mode

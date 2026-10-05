@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FullBleed.DotNet" Version="0.1.3" />
+    <PackageReference Include="FullBleed.DotNet" Version="0.1.4" />
     <None Include="../../docs/assets/showcase/invoice.html" Link="Assets/invoice.html" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../docs/assets/showcase/invoice.css" Link="Assets/invoice.css" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../docs/assets/playground/fonts/*" Link="Assets/fonts/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
