@@ -1,23 +1,23 @@
 {
-  "package_version": "0.1.3",
-  "engine_version": "2.5.6",
-  "source_commit": "2fb8e9f67024fb66a5496879e63b523b74d9fcc6",
-  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.3/fullbleed-0.1.3.tgz",
-  "package_integrity": "sha512-0X05ow1By4yS/CaiCUGar6xlRc21flrILDSrTkIMe8hr7wzwBpaFmHAb1wXONWreoA3QRuA1dDhISVDHJecujg==",
-  "package_sha256": "2dec677856edd8c687a5442b43f5f4be7b04d5da0251fff36106dd0af59af47e",
+  "package_version": "0.1.4",
+  "engine_version": "2.5.7",
+  "source_commit": "eda6644f62ef3d1383311b389ea92e8a168f3c8f",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.4/fullbleed-0.1.4.tgz",
+  "package_integrity": "sha512-zjnVGkS9odakL6H9MmLFwEm/rUZGJvKwFdqdd3Y1DUnqiCmrGW9nO7Yx5vKgA7YkZY16j7Tx2lmSKibOgtTVOw==",
+  "package_sha256": "6e96090d6b49f55742917dd89c2a6092dd6fa7f8bed2b2df7e1ef63567094dbb",
   "rendered": {
-    "invoice.pdf": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+    "invoice.pdf": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
     "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
   },
   "quickstart": {
-    "invoice.pdf": "312fa31eda11a9e028a85646a45e8afad49f45c996a9b67994ac9816bcab1627",
+    "invoice.pdf": "1486fd3a94f088196e8f70687df0f16a33782c138466a5626cddc46e69f5e419",
     "invoice.png": "b6dc87279d114dd2f0fb4ecccc48b829bd3babb22ba7d71e7fccfeaeab242116"
   },
   "fictional_data": true,
   "license": "MIT",
   "verification_scope": "Reviewed invoice and quickstart, installed from the published npm package. No PDF standards certification.",
   "report": {
-    "report.pdf": "a93e4df3f5af6cc010e0611f95c4c24588d0d27627d1571daddec4eb92b31105",
+    "report.pdf": "cbe463b5759957261dc41aadd8727f8d01485e405c2e2841c9b34c0289876c10",
     "report-2.png": "3e31e42b3c7cac8b01633e5675cb1446feec553afb392d4d6a7b73f8c8582ad9"
   },
   "files": {
@@ -27,7 +27,7 @@
     },
     "README.md": {
       "bytes": 902,
-      "sha256": "b075935d47a26f9ad109698f8cf117e35228f46f9e65803ab0fd3d9ebf9ae3f7"
+      "sha256": "037a0896206df1b709dbd2a3d141aa4a772401fe797cb431eadc1a9d523662f1"
     },
     "invoice.css": {
       "bytes": 3546,
@@ -39,16 +39,16 @@
     },
     "package-lock.json": {
       "bytes": 1075,
-      "sha256": "d3fcc0d1f211a207f22f3e224d6b0f93bba73f1d3cd653121c3671d82d6decea"
+      "sha256": "b3c85d5f3cec9e70e47e0331cbf6dfeb6f9e87229a6774409f1d76af7f30b6c2"
     },
     "package.json": {
       "bytes": 241,
-      "sha256": "d1a099e7985fb444b131340471e7ba454d85d29df7eec39843120c135beec77c"
+      "sha256": "52d0782666da08bdc508b17255c25076251df66ff1f498e3e1cd38cc34047e75"
     },
     "render.mjs": {
       "bytes": 1064,
       "sha256": "dd63e83658800df2672c8c5ca1b176dbe49fc0d5c49b8c2b79af91515a68e776"
     }
   },
-  "zip_sha256": "c004c8f4d629fe754877aaac96579301d5d3fb758ecedb73a0fab600bf3f2b35"
+  "zip_sha256": "7d953048a96e5dfbe21e8ef3dff88090a5b309a764c42cbd977c67c9b2081d92"
 }
