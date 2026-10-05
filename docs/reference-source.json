@@ -1,9 +1,10 @@
 {
-  "release": "v2.5.6",
-  "commit": "a34344fed5b91ace5e1b6798f45aae271177273a",
+  "release": "v2.5.8",
+  "commit": "f9f1b56f550237c924254ccd7718cc852a06692d",
   "pages": {
     "docs/python-api.md": "engine/pdf-engine.md",
     "docs/engine.md": "engine/overview.md",
+    "docs/font-registration.md": "engine/font-registration.md",
     "docs/cli.md": "cli/commands.md",
     "docs/ui-accessibility.md": "ui/overview.md",
     "docs/css-coverage.md": "css-coverage.md",

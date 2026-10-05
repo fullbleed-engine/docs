@@ -95,6 +95,7 @@ nav:
     - Python API: engine/pdf-engine.md
     - CLI: cli/commands.md
     - Fonts and assets: engine/assets.md
+    - Font face selection: engine/font-registration.md
     - Python components: ui/overview.md
     - PDF template composition: engine/template-composition.md
     - CSS coverage: css-coverage.md

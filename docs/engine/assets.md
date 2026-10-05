@@ -23,6 +23,9 @@ pdf = engine.render_pdf(
 
 Register your own font files or directories through the [Python API](pdf-engine.md#pdfengine). Check that the selected font contains the characters you use. The engine does not require a system-font installation.
 
+Regular and italic faces can share a family name. For exact face mappings and
+upgrade guidance, see [Font face selection](font-registration.md).
+
 ## Images, SVG, and asset bundles
 
 The [AssetBundle API](pdf-engine.md#assetbundle) provides explicit CSS, font, SVG, and raster asset registration. Use the [canonical reference project](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/canonical_reference) for complete examples of inline SVG, data URIs, vendored files, and image previews.

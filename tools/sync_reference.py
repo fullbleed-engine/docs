@@ -11,12 +11,23 @@ from pathlib import Path
 PAGES = {
     "docs/python-api.md": "engine/pdf-engine.md",
     "docs/engine.md": "engine/overview.md",
+    "docs/font-registration.md": "engine/font-registration.md",
     "docs/cli.md": "cli/commands.md",
     "docs/ui-accessibility.md": "ui/overview.md",
     "docs/css-coverage.md": "css-coverage.md",
     "docs/pdf-templates.md": "engine/template-composition.md",
     "docs/pdf-vt.md": "guides/print-output.md",
     "docs/performance-pass-2026-08-04.md": "guides/performance.md",
+}
+
+# Site-only context must survive later imports of the historical report.
+INTRODUCTIONS = {
+    "guides/performance.md": (
+        "For a current shared-input example, see the "
+        "[Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). "
+        "The historical report below uses different fixtures and measurement methods; "
+        "its numbers should not be combined with that comparison."
+    ),
 }
 
 
@@ -50,6 +61,8 @@ def main() -> None:
         content = re.sub(r"\]\(([^\s)]+)\)", link, content)
         heading, separator, body = content.partition("\n")
         note = f"\nReference imported from [{args.ref}]({repo}{source}). Check the installed runtime for your exact version.\n"
+        if target in INTRODUCTIONS:
+            note = "\n" + INTRODUCTIONS[target] + "\n" + note
         path = docs / target
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(heading + separator + note + body, encoding="utf-8", newline="\n")

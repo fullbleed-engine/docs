@@ -15,7 +15,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.6
+cargo add fullbleed@=2.5.8
 ```
 
 Replace `src/main.rs` with:
@@ -67,7 +67,7 @@ cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from
 Open `output/rust-invoice/document.pdf` or `page-1.png` in the same directory.
 Replace both `invoice` input filenames with `report` for the report design,
 and choose a new output directory. The report produces three
-pages. These examples pin Fullbleed 2.5.6 and include a Cargo lockfile.
+pages. These examples pin Fullbleed 2.5.8 and include a Cargo lockfile.
 
 For the service notice or your own edits, choose **Download project** in the
 playground. Extract the ZIP into `my-project` in this repository, then run:
@@ -113,8 +113,10 @@ designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
-Use [the published Rust API reference](https://docs.rs/fullbleed/2.5.6/fullbleed/)
-for `FullBleed`, its builder, compiled templates, and document types. Check
+Use [the latest hosted Rust API reference](https://docs.rs/fullbleed/latest/fullbleed/)
+for `FullBleed`, its builder, compiled templates, and document types. The
+[2.5.8 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.8/src/lib.rs)
+matches the version pinned by these examples. Check
 [CSS coverage](../css-coverage.md) before adapting a web layout, and inspect
 your actual output when changing fonts or content. These examples use trusted
 local inputs; file and HTML handling should follow your application's trust

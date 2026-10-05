@@ -1,6 +1,6 @@
 # `fullbleed.ui` Accessibility Authoring
 
-Reference imported from [v2.5.6](https://github.com/fullbleed-engine/fullbleed-official/blob/a34344fed5b91ace5e1b6798f45aae271177273a/docs/ui-accessibility.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/ui-accessibility.md). Check the installed runtime for your exact version.
 
 This guide covers the component-first HTML authoring helpers in `fullbleed.ui`,
 with a focus on `fullbleed.ui.accessibility` for remediation-oriented document

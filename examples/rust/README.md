@@ -1,6 +1,6 @@
 # Fullbleed from Rust
 
-These examples use the published `fullbleed` 2.5.6 crate. They require Rust
+These examples use the published `fullbleed` 2.5.8 crate. They require Rust
 1.85 or newer and a working native Rust toolchain; they do not require Python.
 
 From the root of this documentation repository:
