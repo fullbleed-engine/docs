@@ -11,9 +11,10 @@ Python rendering code gets the change when you upgrade:
 python -m pip install --upgrade "fullbleed==2.5.7"
 ```
 
-Rust applications can update the `fullbleed` crate to 2.5.7. Node.js and .NET
-bindings have their own versions and engine pins; this release does not update
-those bindings.
+Rust applications can update the `fullbleed` crate to 2.5.7. [Node.js package
+0.1.4](../getting-started/node.md) now uses this engine too, with separately
+verified examples using its bundled fonts. The .NET binding has its own package
+version and engine pin.
 
 The invoice below went from **52,553 to 12,032 bytes** in the retained
 before/after check. Text, page count, and independently rendered pixels matched.

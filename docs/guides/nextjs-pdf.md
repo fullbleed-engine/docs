@@ -34,8 +34,8 @@ Open `http://127.0.0.1:3000` and select **Download sample PDF**. The route
 `/api/invoices/NS-1042` returns the invoice as an attachment. The browser stays
 on the starter page. Use `npm run dev` while editing the app.
 
-The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.3, powered
-by engine 2.5.6. Fullbleed is installed from npm. The registry tarball is
+The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.4, powered
+by engine 2.5.7. Fullbleed is installed from npm. The registry tarball is
 byte-identical to the verified GitHub release. For an existing Node application,
 start with the [Node.js quickstart](../getting-started/node.md).
 
@@ -91,7 +91,7 @@ across replicas, and measure memory before raising concurrency. A worker can
 grow to the Node package's 512 MiB WASM ceiling. Hosting-provider limits and
 serverless deployments require their own validation.
 
-Node 0.1.3 waits for a rendering worker to exit before its promise settles,
+Fullbleed waits for a rendering worker to exit before its promise settles,
 including after failure, timeout, or cancellation. The route keeps its capacity
 slot until that worker stops. A timeout starts termination; settlement includes
 the time needed to stop the worker.
