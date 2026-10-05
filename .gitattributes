@@ -10,3 +10,6 @@ examples/aspnet/Assets/*.html text eol=lf
 examples/aspnet/Assets/*.css text eol=lf
 docs/assets/playground/LICENSES.txt text eol=lf whitespace=-blank-at-eol
 docs/assets/pdf-regression/*.json text eol=lf
+# Evidence downloads and their manifests are verified by byte hashes.
+docs/assets/renderer-comparison/** -text
+docs/assets/renderer-comparison/*.svg -whitespace

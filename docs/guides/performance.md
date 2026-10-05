@@ -1,5 +1,7 @@
 # Performance pass results: 2026-08-04
 
+For a current shared-input example, see the [Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). The historical report below uses different fixtures and measurement methods; its numbers should not be combined with that comparison.
+
 Reference imported from [v2.5.6](https://github.com/fullbleed-engine/fullbleed-official/blob/a34344fed5b91ace5e1b6798f45aae271177273a/docs/performance-pass-2026-08-04.md). Check the installed runtime for your exact version.
 
 This report compares the Fullbleed 2.1.0 release source with the independently measured Fullbleed
