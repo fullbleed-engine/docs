@@ -150,7 +150,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.1.2
+    dotnet add package FullBleed.DotNet --version 0.1.3
     ```
 
     Replace `Program.cs` with:
@@ -180,7 +180,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.2/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.3/samples/FullBleed.DotNet.LinqVdp)
 
 ## Pick a document to build
 

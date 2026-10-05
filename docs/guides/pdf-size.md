@@ -13,8 +13,9 @@ python -m pip install --upgrade "fullbleed==2.5.7"
 
 Rust applications can update the `fullbleed` crate to 2.5.7. [Node.js package
 0.1.4](../getting-started/node.md) now uses this engine too, with separately
-verified examples using its bundled fonts. The .NET binding has its own package
-version and engine pin.
+verified examples using its bundled fonts. [FullBleed.DotNet 0.1.3](../getting-started/dotnet.md)
+also pins engine 2.5.7; its release checks cover styled invoices, Unicode text,
+and compiled fixed and reflow records through the native C# API.
 
 The invoice below went from **52,553 to 12,032 bytes** in the retained
 before/after check. Text, page count, and independently rendered pixels matched.

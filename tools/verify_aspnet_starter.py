@@ -188,17 +188,22 @@ finally:
         server.wait(timeout=5)
     log.close()
 assert "PRIVATE_INPUT_MARKER" not in (out / "server.log").read_text(encoding="utf-8")
-package = workspace / "nuget-cache/fullbleed.dotnet/0.1.2/fullbleed.dotnet.0.1.2.nupkg"
+version = manifest["packageVersion"]
+installed = workspace / "nuget-cache/fullbleed.dotnet" / version
+package = installed / f"fullbleed.dotnet.{version}.nupkg"
+provenance = json.loads((installed / "native-provenance.json").read_text(encoding="utf-8"))
+engine = next(item for item in provenance["dependencies"] if item["name"] == "fullbleed")
+assert version == "0.1.3" and engine["version"] == "2.5.7"
 report = {
     "ok": True, "checkedAt": datetime.now(timezone.utc).isoformat(),
     "platform": platform.system(), "architecture": platform.machine(),
     "runtime": preview["runtime"], "framework": "net10.0",
-    "package": "FullBleed.DotNet", "packageVersion": "0.1.2", "engineVersion": "2.5.6",
+    "package": "FullBleed.DotNet", "packageVersion": version, "engineVersion": engine["version"],
     "packageSha256": digest(package.read_bytes()), "freshNuGetCache": True,
     "projectZipSha256": digest(archive), "pdfSha256": digest(pdf), "previewSha256": digest(png),
     "commands": commands, "checks": checks,
     "concurrentStatuses": {str(code): sum(item[0] == code for item in burst) for code in [200, 503]},
     "scope": "Synthetic fixture, released NuGet package, isolated framework-dependent publish output. No authorization, hosted capacity, or PDF standards claim.",
 }
-(out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+(out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8", newline="\n")
 print(json.dumps({"ok": True, "checks": len(checks), "platform": report["platform"], "runtime": report["runtime"]}))
