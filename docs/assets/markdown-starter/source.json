@@ -1,0 +1,57 @@
+{
+  "source": "examples/markdown",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4173,
+      "sha256": "2dcb5deb71f1a0b715386945f62bf2419156c0e51f41073228762d81b8f04201"
+    },
+    {
+      "path": "brief.md",
+      "bytes": 3076,
+      "sha256": "bcfb958cdad4fd82117776258de5c440fe911ae13d501b54ddc34c697e15f6dd"
+    },
+    {
+      "path": "fonts/IBMPlexMono-Regular.ttf",
+      "bytes": 135580,
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+    },
+    {
+      "path": "fonts/OFL.txt",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "path": "fonts/source.json",
+      "bytes": 774,
+      "sha256": "950bc2b1d936b375c82c5f4d57c05a47386584d45d634eca6f811ef7acc1d716"
+    },
+    {
+      "path": "images/publishing.svg",
+      "bytes": 957,
+      "sha256": "4bc6d078b51791632a494b3b98307862bc94473f04e9c3b5c34385cc5c1e9971"
+    },
+    {
+      "path": "print.css",
+      "bytes": 1733,
+      "sha256": "36e7e2e0af982d43b3e4a9912c3a941c1cef4690776e9fb8c946e5d77c362178"
+    },
+    {
+      "path": "render.py",
+      "bytes": 7647,
+      "sha256": "bfeba65fc9efa3ebad835d19b086633be0327ed64e2a8c7c92f19b24010ce156"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 52,
+      "sha256": "48183cd46aa544e0b6e6e003db8da6aae698ed987eff7cf47169dbd198e9234c"
+    }
+  ],
+  "zip_bytes": 68567,
+  "zip_sha256": "0551583513367781760a7c8fd760ab3a6c0ac69d0893b7f5a5f6d9c94a15517b"
+}

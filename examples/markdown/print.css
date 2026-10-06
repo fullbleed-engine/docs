@@ -1,0 +1,27 @@
+@page { size: A4; margin: 18mm 20mm; }
+body { font-family: Inter; font-size: 10pt; line-height: 1.5; color: #1b3e37; }
+h1 { font-size: 38pt; font-weight: 750; line-height: 1.08; letter-spacing: -1.2pt; margin: 0 0 12pt; color: #153d35; }
+h1 + p { font-size: 8.5pt; color: #b84a2b; margin: 0 0 17pt; letter-spacing: 0.4pt; }
+h2 { font-size: 17pt; line-height: 1.2; margin: 22pt 0 8pt; padding-top: 8pt; border-top: 1pt solid #d0d9d0; break-after: avoid; }
+h3 { font-size: 12pt; margin: 16pt 0 5pt; break-after: avoid; }
+p { margin: 0 0 9pt; }
+a { color: #b84a2b; text-decoration: underline; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+s, del { text-decoration: line-through; }
+blockquote { margin: 14pt 0; padding: 11pt 14pt; border-left: 3pt solid #c45331; background: #f4f1e7; font-size: 12pt; }
+blockquote p { margin: 0; }
+ul, ol { margin: 8pt 0 12pt; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10pt 0 16pt; }
+thead { display: table-header-group; }
+th { background: #1b3e37; color: #ffffff; font-weight: 650; text-align: left; }
+th, td { padding: 7pt 8pt; border-bottom: 0.6pt solid #c6d1c6; vertical-align: top; }
+tr:nth-child(even) td { background: #f4f1e7; }
+tr { break-inside: avoid; }
+pre, code { font-family: 'IBM Plex Mono'; font-size: 8.3pt; font-weight: 400; }
+code { background: #f0eee4; padding: 1pt 3pt; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f0eee4; padding: 13pt; margin: 12pt 0 16pt; border-left: 3pt solid #879d7e; line-height: 1.55; }
+pre code { padding: 0; background: transparent; }
+img { max-width: 100%; height: auto; }
+hr { margin: 20pt 0; height: 1pt; border: 0; background: #c45331; }

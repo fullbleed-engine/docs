@@ -1,0 +1,20 @@
+{
+  "family": "IBM Plex Mono",
+  "license": "OFL-1.1",
+  "repository": "https://github.com/google/fonts",
+  "commit": "0b58fb370093f9a9f4ff785d94405710b79de67c",
+  "files": [
+    {
+      "path": "IBMPlexMono-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "bytes": 135580,
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+    },
+    {
+      "path": "OFL.txt",
+      "url": "https://raw.githubusercontent.com/google/fonts/0b58fb370093f9a9f4ff785d94405710b79de67c/ofl/ibmplexmono/OFL.txt",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    }
+  ]
+}

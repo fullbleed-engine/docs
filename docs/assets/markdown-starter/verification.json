@@ -1,0 +1,202 @@
+{
+  "ok": true,
+  "platform": "Windows",
+  "versions": {
+    "fullbleed": "2.5.9",
+    "markdown-it-py": "4.2.0",
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0",
+    "fonttools": "4.65.0",
+    "pillow": "12.3.0"
+  },
+  "checks": [
+    "pinned engine and parser",
+    "ZIP digest",
+    "ZIP has exactly the documented files",
+    "source and digest: LICENSE",
+    "source and digest: README.md",
+    "source and digest: brief.md",
+    "source and digest: fonts/IBMPlexMono-Regular.ttf",
+    "source and digest: fonts/OFL.txt",
+    "source and digest: fonts/source.json",
+    "source and digest: images/publishing.svg",
+    "source and digest: print.css",
+    "source and digest: render.py",
+    "source and digest: requirements.txt",
+    "guide and README use the verified command",
+    "dependencies remain an explicit optional starter",
+    "sample exit status",
+    "two-page sample with title",
+    "complete representative content",
+    "both intended fonts are embedded",
+    "glyph report is empty",
+    "local SVG registered",
+    "finalized native previews recorded",
+    "PDFium page 1 has text",
+    "PDFium page 1 has visible ink",
+    "PDFium page 2 has text",
+    "inline code does not overlap the surrounding words",
+    "PDFium page 2 has visible ink",
+    "repeat exit status",
+    "repeat PDF bytes match",
+    "repeat preview bytes match",
+    "edited exit status",
+    "content and CSS customization",
+    "code and raw HTML are inert text",
+    "no-preview produces no preview list",
+    "images exit status",
+    "PNG, JPEG, SVG, and URL-encoded paths",
+    "extra-font exit status",
+    "additional TTF selected and embedded",
+    "empty exit status",
+    "empty diagnostic and no new PDF",
+    "remote-image exit status",
+    "remote-image diagnostic and no new PDF",
+    "missing-image exit status",
+    "missing-image diagnostic and no new PDF",
+    "outside-image exit status",
+    "outside-image diagnostic and no new PDF",
+    "absolute-image exit status",
+    "absolute-image diagnostic and no new PDF",
+    "unsupported-image exit status",
+    "unsupported-image diagnostic and no new PDF",
+    "oversized-markdown exit status",
+    "oversized-markdown diagnostic and no new PDF",
+    "oversized-image exit status",
+    "oversized-image diagnostic and no new PDF",
+    "oversized-css exit status",
+    "oversized CSS diagnostic",
+    "missing-font exit status",
+    "missing extra font diagnostic",
+    "changed-font exit status",
+    "modified bundled font rejected",
+    "missing-glyph exit status",
+    "missing glyph diagnosed without replacing prior output",
+    "input-conflict exit status",
+    "output cannot replace the input",
+    "long-document exit status",
+    "short-document exit status",
+    "shorter rerender records only its current page",
+    "published PDF matches the rendered sample",
+    "published native previews match the rendered sample"
+  ],
+  "commands": [
+    {
+      "label": "sample",
+      "exit": 0
+    },
+    {
+      "label": "repeat",
+      "exit": 0
+    },
+    {
+      "label": "edited",
+      "exit": 0
+    },
+    {
+      "label": "images",
+      "exit": 0
+    },
+    {
+      "label": "extra-font",
+      "exit": 0
+    },
+    {
+      "label": "empty",
+      "exit": 1
+    },
+    {
+      "label": "remote-image",
+      "exit": 1
+    },
+    {
+      "label": "missing-image",
+      "exit": 1
+    },
+    {
+      "label": "outside-image",
+      "exit": 1
+    },
+    {
+      "label": "absolute-image",
+      "exit": 1
+    },
+    {
+      "label": "unsupported-image",
+      "exit": 1
+    },
+    {
+      "label": "oversized-markdown",
+      "exit": 1
+    },
+    {
+      "label": "oversized-image",
+      "exit": 1
+    },
+    {
+      "label": "oversized-css",
+      "exit": 1
+    },
+    {
+      "label": "missing-font",
+      "exit": 1
+    },
+    {
+      "label": "changed-font",
+      "exit": 1
+    },
+    {
+      "label": "missing-glyph",
+      "exit": 1
+    },
+    {
+      "label": "input-conflict",
+      "exit": 1
+    },
+    {
+      "label": "long-document",
+      "exit": 0
+    },
+    {
+      "label": "short-document",
+      "exit": 0
+    }
+  ],
+  "sample_pdf_sha256": "a763c32dd59112ca8b51e259663dce9abe7caf0d5c7a6d1f4269b42e4f097b66",
+  "sample_pages": 2,
+  "embedded_faces": [
+    "IBMPlexMono-Regular",
+    "Inter-Regular"
+  ],
+  "sample_render": {
+    "fullbleed": "2.5.9",
+    "markdown_it_py": "4.2.0",
+    "input_sha256": "bcfb958cdad4fd82117776258de5c440fe911ae13d501b54ddc34c697e15f6dd",
+    "css_sha256": "36e7e2e0af982d43b3e4a9912c3a941c1cef4690776e9fb8c946e5d77c362178",
+    "pdf_sha256": "a763c32dd59112ca8b51e259663dce9abe7caf0d5c7a6d1f4269b42e4f097b66",
+    "pdf_bytes": 146237,
+    "missing_glyphs": [],
+    "fonts": [
+      {
+        "file": "Inter-Variable.ttf",
+        "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+      },
+      {
+        "file": "IBMPlexMono-Regular.ttf",
+        "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+      }
+    ],
+    "images": [
+      {
+        "path": "images/publishing.svg",
+        "alias": "markdown-image-1.svg",
+        "bytes": 957,
+        "sha256": "4bc6d078b51791632a494b3b98307862bc94473f04e9c3b5c34385cc5c1e9971"
+      }
+    ],
+    "previews": [
+      "preview-a763c32dd591/page_page1.png",
+      "preview-a763c32dd591/page_page2.png"
+    ]
+  }
+}
