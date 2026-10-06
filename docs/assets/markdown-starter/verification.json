@@ -76,7 +76,9 @@
     "output cannot replace the input",
     "long-document exit status",
     "short-document exit status",
-    "shorter rerender records only its current page"
+    "shorter rerender records only its current page",
+    "published PDF matches the rendered sample",
+    "published native previews match the rendered sample"
   ],
   "commands": [
     {

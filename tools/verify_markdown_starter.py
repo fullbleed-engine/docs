@@ -224,12 +224,19 @@ def main():
               and len(short_report['previews']) == 1 and set(long_report['previews']).isdisjoint(short_report['previews'])
               and all((changing / path).exists() for path in long_report['previews'] + short_report['previews']))
 
-        report.update(ok=True, sample_pdf_sha256=sha256((sample / 'document.pdf').read_bytes()).hexdigest(),
+        report.update(sample_pdf_sha256=sha256((sample / 'document.pdf').read_bytes()).hexdigest(),
                       sample_pages=2, embedded_faces=sorted(embedded), sample_render=render)
         if args.update_assets:
             shutil.copyfile(sample / 'document.pdf', ASSETS / 'document.pdf')
             for i, preview in enumerate(render['previews'], 1):
                 shutil.copyfile(sample / preview, ASSETS / f'page-{i}.png')
+        check('published PDF matches the rendered sample',
+              (ASSETS / 'document.pdf').read_bytes() == (sample / 'document.pdf').read_bytes())
+        check('published native previews match the rendered sample', all(
+            (ASSETS / f'page-{i}.png').read_bytes() == (sample / preview).read_bytes()
+            for i, preview in enumerate(render['previews'], 1)))
+        report['ok'] = True
+        if args.update_assets:
             (ASSETS / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
         print(json.dumps({'ok': True, 'checks': len(checks), 'commands': len(commands), 'pdf_sha256': report['sample_pdf_sha256']}))
     finally:
