@@ -13,6 +13,34 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  chinese:
+    name: Chinese-font example (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install the public engine and independent verification tools
+        run: python -m pip install --only-binary=:all: -r examples/chinese-invoice/requirements.txt -r examples/chinese-invoice/requirements-fonts.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Verify the actual ZIP, prepared font, guide and PDF
+        run: python tools/verify_chinese_example.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chinese-font-verification-${{ matrix.os }}
+          path: |
+            output/chinese-verification/*.json
+            output/chinese-verification/*.txt
+            output/chinese-verification/*.png
+            output/chinese-verification/render/
+            output/chinese-verification/edited/
+            output/chinese-verification/missing/
+          retention-days: 14
   aspnet:
     name: ASP.NET starter (${{ matrix.os }})
     strategy:
@@ -213,7 +241,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet]
+    needs: [build, aspnet, chinese]
     runs-on: ubuntu-latest
     permissions:
       pages: write

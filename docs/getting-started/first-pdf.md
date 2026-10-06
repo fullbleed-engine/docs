@@ -29,6 +29,9 @@ print(fullbleed.inspect_pdf("output/invoice.pdf"))
 
 Open `output/invoice.pdf` and the images under `output/preview`. Inspect every page when you change the layout, particularly table breaks, long text, and fonts containing non-ASCII characters.
 
+For Simplified Chinese, use the [Chinese-font invoice recipe](../guides/chinese-pdf.md).
+It registers Noto Sans SC explicitly and includes a missing-character check.
+
 ## Repeatable output
 
 Keep the engine version, HTML/CSS, fonts, images, and explicit metadata fixed. Compare output bytes or SHA-256 hashes in your own workflow. The CLI's `--repro-record` and `--repro-check` options support retained reproducibility records. Use **Fullbleed 2.5.3 or newer** for this gate; earlier versions could accept a record with missing hashes. Follow the [PDF regression starter](../guides/pdf-regression-ci.md) or consult [the render reference](../cli/commands.md#reproducibility-checks).

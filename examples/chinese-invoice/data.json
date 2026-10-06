@@ -1,0 +1,14 @@
+{
+  "reference": "YS-2026-1042",
+  "issued": "2026-10-01",
+  "due": "2026-10-15",
+  "customer": "山海设计工作室",
+  "customer_english": "Shanhai Design Studio",
+  "project": "秋季品牌更新 / Autumn identity refresh",
+  "items": [
+    {"name": "品牌策略", "english": "Brand strategy", "detail": "定位研究与创意方向", "quantity": 1, "unit_cents": 240000},
+    {"name": "视觉设计", "english": "Visual identity", "detail": "标志、色彩与字体规范", "quantity": 1, "unit_cents": 360000},
+    {"name": "版式制作", "english": "Document templates", "detail": "中英文文档模板", "quantity": 3, "unit_cents": 45000}
+  ],
+  "note": "感谢您的合作。此账单为中英文排版示例，所有名称、日期与金额均为虚构。请勿用于实际付款。"
+}

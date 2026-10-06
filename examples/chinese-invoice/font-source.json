@@ -1,0 +1,22 @@
+{
+  "family": "Noto Sans SC",
+  "source_commit": "7085eb89a950e85db5b166b7a58d414544b4140c",
+  "url": "https://raw.githubusercontent.com/google/fonts/7085eb89a950e85db5b166b7a58d414544b4140c/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+  "bytes": 17772300,
+  "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+  "license": "OFL-1.1",
+  "license_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+  "preparation": {
+    "tool": "fonttools",
+    "version": "4.65.0",
+    "axis": {"wght": 400},
+    "update_font_names": true,
+    "recalculate_timestamp": false,
+    "subset": false
+  },
+  "output": {
+    "file": "NotoSansSC-Regular.ttf",
+    "bytes": 10595876,
+    "sha256": "26305be85f5378dc7d53f3dfa6c852a7e46621b226423400c1821aca9fc01c41"
+  }
+}

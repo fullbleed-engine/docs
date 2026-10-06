@@ -1,0 +1,125 @@
+{
+  "ok": true,
+  "fullbleed": "2.5.8",
+  "python": "3.11.8",
+  "platform": "win32",
+  "fonttools": "4.65.0",
+  "pypdf": "6.19.0",
+  "pdfium": "5.14.0",
+  "checks": [
+    "installed public engine version",
+    "pinned font preparation version",
+    "ZIP hash matches manifest",
+    "ZIP has the exact expected file set",
+    "ZIP source matches repository: README.md",
+    "ZIP source matches hash: README.md",
+    "ZIP source matches repository: LICENSE",
+    "ZIP source matches hash: LICENSE",
+    "ZIP source matches repository: requirements.txt",
+    "ZIP source matches hash: requirements.txt",
+    "ZIP source matches repository: requirements-fonts.txt",
+    "ZIP source matches hash: requirements-fonts.txt",
+    "ZIP source matches repository: font-source.json",
+    "ZIP source matches hash: font-source.json",
+    "ZIP source matches repository: prepare_font.py",
+    "ZIP source matches hash: prepare_font.py",
+    "ZIP source matches repository: render.py",
+    "ZIP source matches hash: render.py",
+    "ZIP source matches repository: invoice.css",
+    "ZIP source matches hash: invoice.css",
+    "ZIP source matches repository: data.json",
+    "ZIP source matches hash: data.json",
+    "ZIP source matches repository: fonts/OFL.txt",
+    "ZIP source matches hash: fonts/OFL.txt",
+    "prepared font is a static regular face",
+    "verified asset is reused without conversion",
+    "guide has one executable Python snippet",
+    "guide snippet renders Chinese and English",
+    "fixed-input PDF replay is byte-identical",
+    "registered sample has no missing glyphs",
+    "one A4 page",
+    "independent text extraction: 服务账单",
+    "independent text extraction: Service invoice",
+    "independent text extraction: 山海设计工作室",
+    "independent text extraction: Shanhai Design Studio",
+    "independent text extraction: 秋季品牌更新",
+    "independent text extraction: 品牌策略",
+    "independent text extraction: 视觉设计",
+    "independent text extraction: 版式制作",
+    "independent text extraction: ¥2,400.00",
+    "independent text extraction: ¥3,600.00",
+    "independent text extraction: ¥1,350.00",
+    "independent text extraction: ¥7,350.00",
+    "independent text extraction: 2026-10-01",
+    "independent text extraction: 2026-10-15",
+    "independent text extraction: 中英文排版示例",
+    "independent text extraction: Fictional sample. Not for payment.",
+    "independent text extraction: 感谢您的合作。此账单为中英文排版示例，所有名称、日期与金额均为虚构。请勿用于实际付款。",
+    "no Unicode replacement character",
+    "used Chinese font has a Unicode map",
+    "explicit regular TrueType face embedded",
+    "independent glyph boxes stay inside the page",
+    "one finalized native preview",
+    "edited customer stays literal text",
+    "unsupported character reports its codepoint",
+    "missing-glyph gate writes no new PDF",
+    "documented no-registered-font limitation retained",
+    "missing font file has actionable error"
+  ],
+  "commands": [
+    {
+      "label": "prepare-font",
+      "exit": 0
+    },
+    {
+      "label": "prepare-cached",
+      "exit": 0
+    },
+    {
+      "label": "guide-snippet",
+      "exit": 0
+    },
+    {
+      "label": "render",
+      "exit": 0
+    },
+    {
+      "label": "replay",
+      "exit": 0
+    },
+    {
+      "label": "edited",
+      "exit": 0
+    },
+    {
+      "label": "missing-glyph",
+      "exit": 1
+    },
+    {
+      "label": "absent-font",
+      "exit": 1
+    }
+  ],
+  "pages": 1,
+  "pdf_bytes": 36099,
+  "pdf_sha256": "20185b6d757f319d3a0b6be357f057c91248749c55ab304ee4fa7a5afcd574e0",
+  "font_sha256": "26305be85f5378dc7d53f3dfa6c852a7e46621b226423400c1821aca9fc01c41",
+  "glyph_bounds_pt": [
+    51.00700759887695,
+    80.41255187988281,
+    543.7559814453125,
+    784.4971923828125
+  ],
+  "zip_sha256": "29cfc67b0bd10c821acd774a088b2b1fbafe8279b3393da8ac805da584b94d55",
+  "missing_glyph_case": [
+    {
+      "codepoint": 1114111,
+      "char": "􏿿",
+      "fonts_tried": [
+        "Noto Sans SC"
+      ],
+      "count": 1
+    }
+  ],
+  "scope": "This fixed Simplified Chinese/English fixture, local font preparation, diagnostics, text, page bounds, replay and assets. No general language, shaping or standards certification."
+}
