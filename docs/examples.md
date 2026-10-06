@@ -12,7 +12,7 @@ data into finished pages.
 Every preview comes from the actual downloadable PDF. The first four examples
 were generated with the public **Fullbleed 2.4.0** wheel; the pandas report below
 uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
-**2.5.9**. All sample data and organizations are fictional.
+**2.5.10**. All sample data and organizations are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
@@ -209,7 +209,7 @@ pinned font preparation, and a missing-character gate. Rendered with Fullbleed
 Keep the source in Markdown and give the PDF its own page design. This fictional
 brief combines headings, emphasis, strikethrough, a table, lists, code, and a
 local SVG. The project includes its stylesheet, monospace font and license,
-glyph checks, and finalized-PDF previews. Rendered with Fullbleed **2.5.9**.
+glyph checks, and finalized-PDF previews. Rendered with Fullbleed **2.5.10**.
 
 [Open the PDF](assets/markdown-starter/document.pdf) ·
 [Build this brief](guides/markdown-pdf.md) ·

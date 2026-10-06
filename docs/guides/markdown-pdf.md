@@ -16,7 +16,7 @@ to lay out the resulting HTML and CSS.
 [![An engineering brief with large green typography, a three-stage publishing diagram, a warm quotation panel, and a styled table.](../assets/markdown-starter/page-1.png)](../assets/markdown-starter/document.pdf)
 
 The two-page brief is fictional. Its previews come from the actual PDF, rendered
-with **Fullbleed 2.5.9**, `markdown-it-py` 4.2.0, and explicit Inter and IBM Plex
+with **Fullbleed 2.5.10**, `markdown-it-py` 4.2.0, and explicit Inter and IBM Plex
 Mono fonts. [Preview page 2](../assets/markdown-starter/page-2.png).
 
 ## Run the project

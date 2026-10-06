@@ -68,7 +68,7 @@ def main():
         return result
 
     try:
-        check('pinned engine and parser', metadata.version('fullbleed') == '2.5.9'
+        check('pinned engine and parser', metadata.version('fullbleed') == '2.5.10'
               and metadata.version('markdown-it-py') == '4.2.0')
         manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
         archive_path = ASSETS / 'project.zip'
@@ -87,7 +87,7 @@ def main():
             'python render.py brief.md --out output --title "Release notes that travel"' in text
             for text in [guide, (project / 'README.md').read_text(encoding='utf-8')]))
         check('dependencies remain an explicit optional starter', (project / 'requirements.txt').read_text(encoding='utf-8').splitlines()
-              == ['fullbleed==2.5.9', 'markdown-it-py==4.2.0', 'mdurl==0.1.2'])
+              == ['fullbleed==2.5.10', 'markdown-it-py==4.2.0', 'mdurl==0.1.2'])
         sample = out / 'render'
         run('sample', [project / 'brief.md', '--out', sample, '--title', 'Release notes that travel'])
         reader = PdfReader(sample / 'document.pdf')

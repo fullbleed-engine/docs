@@ -48,10 +48,10 @@
     },
     {
       "path": "requirements.txt",
-      "bytes": 52,
-      "sha256": "48183cd46aa544e0b6e6e003db8da6aae698ed987eff7cf47169dbd198e9234c"
+      "bytes": 53,
+      "sha256": "c904efab74b0eb982cadd14a964be13aa7bcdbc8ce692be8d25003b295e2d916"
     }
   ],
   "zip_bytes": 68567,
-  "zip_sha256": "0551583513367781760a7c8fd760ab3a6c0ac69d0893b7f5a5f6d9c94a15517b"
+  "zip_sha256": "395427d7e66fbe1e922f9a5a6f852dbdef0711e9487e9bbf5a3d87790183f0d8"
 }
