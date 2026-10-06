@@ -1,6 +1,6 @@
 site_name: Fullbleed
 site_url: https://docs.fullbleed.dev/
-site_description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, and C#. Start with a runnable example and a Rust print engine. MIT licensed.
+site_description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, C#, and browsers. Start with a runnable example and a Rust print engine. MIT licensed.
 site_author: Fullbleed Engine
 repo_url: https://github.com/fullbleed-engine/fullbleed-official
 repo_name: Fullbleed on GitHub
