@@ -1,6 +1,6 @@
 ---
 title: Support Fullbleed
-description: Help improve Fullbleed with real document feedback, reproducible bug reports, documentation, and useful examples. Optional sponsorship is awaiting GitHub approval.
+description: Help improve Fullbleed with real document feedback, reproducible bug reports, documentation, and useful examples. Optional sponsorship helps fund maintenance, testing, and documentation.
 ---
 
 # Support Fullbleed
@@ -22,13 +22,12 @@ valuable feedback.
 
 ## Optional sponsorship
 
-The GitHub Sponsors application has been submitted and is awaiting GitHub's
-approval. **Sponsorship is not available yet.** This page will link to the
-funding profile when it is public.
-
-Optional one-time or monthly contributions will help fund maintainer time,
-release testing, documentation, and project costs. Sponsorships will go to
+You can make an optional one-time or monthly contribution through
+[GitHub Sponsors](https://github.com/sponsors/krflol). Contributions help fund
+maintainer time, release testing, documentation, and project costs. They go to
 Fullbleed's maintainer, [krflol](https://github.com/krflol).
+
+[Sponsor Fullbleed](https://github.com/sponsors/krflol){ .md-button }
 
 Fullbleed remains MIT licensed and free to use, including commercial use.
 Sponsorship does not include private features or a support SLA.
