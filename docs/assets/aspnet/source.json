@@ -2,8 +2,8 @@
   "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/aspnet",
   "framework": "net10.0",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.1.4",
-  "projectZipSha256": "7a9d054b017c095c14d0505f9baa2aae43d32988df0005be9703e3ace59d1eea",
+  "packageVersion": "0.1.5",
+  "projectZipSha256": "32682ad7a59bdaca0f9c89f40cfdb5295470795d648bb169ed117d0c0cb4c713",
   "files": [
     {
       "path": "Assets/fonts/BebasNeue-OFL.txt",
@@ -57,13 +57,13 @@
     },
     {
       "path": "Assets/invoice.png",
-      "bytes": 107399,
-      "sha256": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+      "bytes": 107272,
+      "sha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
     },
     {
       "path": "FullbleedWeb.csproj",
       "bytes": 534,
-      "sha256": "493b38713bc78bc357a5e32bd58ea1874400e2f56896b007678e0cbe62fb5cde"
+      "sha256": "2bc53bcbbc531d70bd1c1807b79cb45802963897f062994b50b401d7ae31e6c7"
     },
     {
       "path": "InvoiceRenderer.cs",
@@ -82,8 +82,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2459,
-      "sha256": "4c1d6e152dc8933c68bdad18dadb94f603257c8a34c7676d79a6cdb2706244f3"
+      "bytes": 2460,
+      "sha256": "b03e0964a7fe57921a94729b0b7b3b304fa3bbeb623be4956345141c647921a6"
     },
     {
       "path": "global.json",
@@ -93,11 +93,11 @@
     {
       "path": "packages.lock.json",
       "bytes": 305,
-      "sha256": "5d2cb65ec0a0e20e0d778031a972b2c0721af071ac203dc094deb4115513f873"
+      "sha256": "afc891b007fd4475a4bd71b62f8942e930e9c15d0c54145e249ab6dd0597b35c"
     }
   ],
   "outputs": {
-    "invoice.pdf": "14231c2df650d409828765b93dc528ea0f5dcf76cce99b0ec2d88437fa101ab8",
-    "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+    "invoice.pdf": "6f898f935a5491572e5b6222428cc861c8d131694a73c441036e8545f477367f",
+    "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
   }
 }

@@ -193,7 +193,7 @@ installed = workspace / "nuget-cache/fullbleed.dotnet" / version
 package = installed / f"fullbleed.dotnet.{version}.nupkg"
 provenance = json.loads((installed / "native-provenance.json").read_text(encoding="utf-8"))
 engine = next(item for item in provenance["dependencies"] if item["name"] == "fullbleed")
-assert version == "0.1.4" and engine["version"] == "2.5.8"
+assert version == "0.1.5" and engine["version"] == "2.5.10"
 report = {
     "ok": True, "checkedAt": datetime.now(timezone.utc).isoformat(),
     "platform": platform.system(), "architecture": platform.machine(),
