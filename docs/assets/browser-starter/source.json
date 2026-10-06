@@ -1,12 +1,12 @@
 {
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "source_commit": "55261db4edc915f546d0e55e578d613bae858c22",
+  "source_commit": "bbb140f115a69ad77fc54bb9b5be2e908b7b6669",
   "source_directory": "examples/browser",
   "package_version": "0.3.0",
   "engine_version": "2.5.8",
   "package_integrity": "sha512-9HimnoHTEpgtGhqi9gF+IMSEW8g3GRK11yUkmL6OYD40D/RhWoIF7SqKuDs6nrHF7loWnhtNDWz3Hp/DNaBbMQ==",
-  "zip_bytes": 23623,
-  "zip_sha256": "a78570dbe88742ae86860a28ef32498c15386bc4130eda4e8ba736c807c1276d",
+  "zip_bytes": 23695,
+  "zip_sha256": "f9910a8712a7e54b4db888576e803df72e328ac396bf30730b232f74b0939114",
   "files": {
     "fullbleed-browser-starter/.gitignore": "c023fec2bf12476cb47709e859f1fbb785aeb1e03281e52141e0bee1ee7dad72",
     "fullbleed-browser-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
@@ -20,8 +20,9 @@
     "fullbleed-browser-starter/src/main.js": "10312b7064b0b2c19d97194b3953f639cc1f6842c35acf85f5e9543fa9c1d27f",
     "fullbleed-browser-starter/src/report.css": "519591ae75c239ec602324f008dd99108ebeae0b9306df7215fa5f0442905473",
     "fullbleed-browser-starter/src/report.html": "46b0e975d43914c8b4492218feae09ea0ad684091a9f9ee3b18f66a87202e521",
-    "fullbleed-browser-starter/src/style.css": "66ac49a5f55e8b855d4f9c1222b349fcca7948f0ea4f71411ecbae53b16f7211",
+    "fullbleed-browser-starter/src/style.css": "1b1511e7d52e094aa5c93e52ade218f2cad28e73a50faf64919a525208d4ac06",
     "fullbleed-browser-starter/vite.config.js": "ec725922705a3c5ba2df191a564c54c0cac6e8997ecd3d00b8a42c647bec8e74"
   },
-  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/55261db4edc915f546d0e55e578d613bae858c22/verification/browser-starter-030.json"
+  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/55261db4edc915f546d0e55e578d613bae858c22/verification/browser-starter-030.json",
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37428069613"
 }
