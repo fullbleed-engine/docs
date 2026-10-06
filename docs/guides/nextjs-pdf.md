@@ -34,17 +34,18 @@ Open `http://127.0.0.1:3000` and select **Download sample PDF**. The route
 `/api/invoices/NS-1042` returns the invoice as an attachment. The browser stays
 on the starter page. Use `npm run dev` while editing the app.
 
-The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.1.5, powered
+The lockfile pins Next.js 16.3.8, React 19.3.0 and Fullbleed Node 0.2.0, powered
 by engine 2.5.8. Fullbleed is installed from npm. The registry tarball is
 byte-identical to the verified GitHub release. For an existing Node application,
 start with the [Node.js quickstart](../getting-started/node.md).
 
 ## Keep Fullbleed on the Node server
 
-The route declares `runtime = 'nodejs'`. Fullbleed uses worker threads and an
-in-memory WebAssembly engine, and reads bundled assets from its installed
-package. The app keeps it outside Next's server bundling and explicitly includes
-those files in the standalone output:
+The route declares `runtime = 'nodejs'` and calls Fullbleed with
+`isolation: 'process'`. Each request runs its worker and WebAssembly engine in
+a fresh Node process, using bundled assets from the installed package. The app
+keeps Fullbleed outside Next's server bundling and explicitly includes those
+runtime files in the standalone output:
 
 ```javascript
 // next.config.mjs — the project also sets its tracing/build root.
@@ -69,14 +70,14 @@ browser assets automatically.
 
 The PDF engine is imported only by the server route. The browser receives the
 page, a static PNG preview and the requested PDF; it does not load Fullbleed's
-worker or WASM. This integration needs a Node server, not an Edge runtime or
-a static site export.
+worker or WASM. Use a Node server that permits child processes, workers, and
+WebAssembly. Edge runtimes and static site exports cannot run this route.
 
 ## Return a private PDF response
 
 The [complete route](https://github.com/fullbleed-engine/fullbleed-node/blob/main/examples/nextjs/app/api/invoices/%5Bid%5D/route.js)
 looks up the fictional invoice, loads its template, then calls `renderPdf` with
-a five-page cap, a 15-second deadline and the request's abort signal.
+a five-page cap, a 15-second deadline, process isolation and the request's abort signal.
 
 | Result | HTTP behavior |
 | --- | --- |
@@ -84,6 +85,7 @@ a five-page cap, a 15-second deadline and the request's abort signal.
 | Unknown fixture ID | `404` with a small JSON error |
 | Another render is active | `503 BUSY` with `Retry-After: 2`; no waiting queue |
 | Renderer rejects the document | Generic `500` error; no partial PDF or document input in the response |
+| Render child exits unsuccessfully | Generic `500` error; the server can handle the next request |
 | Render deadline expires | `504` error |
 
 One render is allowed per server process. Use shared rate and usage controls
@@ -91,10 +93,14 @@ across replicas, and measure memory before raising concurrency. A worker can
 grow to the Node package's 512 MiB WASM ceiling. Hosting-provider limits and
 serverless deployments require their own validation.
 
-Fullbleed waits for a rendering worker to exit before its promise settles,
-including after failure, timeout, or cancellation. The route keeps its capacity
-slot until that worker stops. A timeout starts termination; settlement includes
-the time needed to stop the worker.
+Fullbleed waits for process exit and IPC disconnection before its promise
+settles, including after failure, timeout, or cancellation. The route keeps
+its capacity slot until cleanup finishes. Process startup adds latency and
+memory overhead; there is no process pool or automatic retry. Timeouts start
+termination, and settlement includes the time needed to stop the child.
+
+This contains tested child failures. It does not establish a fix for the native
+crash tracked in [issue #7](https://github.com/fullbleed-engine/fullbleed-node/issues/7).
 
 ## Use your design and authorized data
 
@@ -122,9 +128,11 @@ After building, run `npm run verify`. It copies the standalone app into a fresh
 temporary directory outside the source project, starts it on loopback, and
 checks real HTTP PDFs against direct engine output. It also exercises unknown
 IDs, a concurrent burst, missing-glyph and page-limit failures, and recovery.
+It then deliberately fails the isolated artifact's render child, verifies the
+HTTP error and live server, restores the child entrypoint, and downloads a valid PDF.
 The server closes when the checks finish; reports and a PDF remain in `output`.
 
-The [retained verification](../assets/nextjs/verification.json) records 15 passing
+The [retained verification](../assets/nextjs/verification.json) records 17 passing
 standalone checks on Linux with Node 22/24 and Windows with Node 24. All three
 runs produced the same sample PDF and PNG bytes. Local Chrome checks also cover
 the real download, keyboard activation and a narrow viewport. Documentation CI

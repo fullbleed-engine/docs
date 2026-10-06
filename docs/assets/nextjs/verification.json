@@ -1,10 +1,9 @@
 {
-  "checkedAt": "2026-10-05T23:55:42.874759+00:00",
+  "checkedAt": "2026-10-06T01:06:26.050552+00:00",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "sourceCommit": "fe0fa10499428841ba3c0eac8571b5fc31b00fdc",
-  "mergedCommit": "39062ed78bde8cca2bb73842e6c04b0dc6531a71",
-  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/15",
-  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37279997939",
+  "sourceCommit": "4f574b5e11d3a680a50c561bf9ea071de29d0cb8",
+  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/17",
+  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37397228563",
   "standaloneChecks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -63,20 +62,28 @@
       "passed": true
     },
     {
+      "name": "a failed render child returns an HTTP error while the production server stays alive",
+      "passed": true
+    },
+    {
+      "name": "the production server returns a valid PDF after a render-process failure",
+      "passed": true
+    },
+    {
       "name": "client JavaScript excludes the server PDF engine and worker",
       "passed": true
     }
   ],
   "ciResults": [
     {
-      "artifact": "nextjs-ubuntu-latest-22",
-      "checkedAt": "2026-10-05T07:50:52.448Z",
+      "checkedAt": "2026-10-06T01:04:06.668Z",
       "node": "v22.23.3",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.5",
+      "nodePackage": "0.2.0",
       "engineVersion": "2.5.8",
-      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
+      "isolation": "process",
+      "packageLockSha256": "ceda9f7f9099fa91ab5a98d6ce8fd0ba4d2db761b46a19b412688f8db045c179",
       "pages": 1,
       "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
@@ -93,17 +100,18 @@
         503,
         503
       ],
-      "checksPassed": 15
+      "artifact": "nextjs-ubuntu-latest-22",
+      "checksPassed": 17
     },
     {
-      "artifact": "nextjs-ubuntu-latest-24",
-      "checkedAt": "2026-10-05T07:50:44.440Z",
+      "checkedAt": "2026-10-06T01:04:06.836Z",
       "node": "v24.21.0",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.5",
+      "nodePackage": "0.2.0",
       "engineVersion": "2.5.8",
-      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
+      "isolation": "process",
+      "packageLockSha256": "ceda9f7f9099fa91ab5a98d6ce8fd0ba4d2db761b46a19b412688f8db045c179",
       "pages": 1,
       "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
@@ -120,17 +128,18 @@
         503,
         503
       ],
-      "checksPassed": 15
+      "artifact": "nextjs-ubuntu-latest-24",
+      "checksPassed": 17
     },
     {
-      "artifact": "nextjs-windows-latest-24",
-      "checkedAt": "2026-10-05T07:51:41.715Z",
+      "checkedAt": "2026-10-06T01:04:28.012Z",
       "node": "v24.21.0",
       "platform": "win32",
       "next": "16.3.8",
-      "nodePackage": "0.1.5",
+      "nodePackage": "0.2.0",
       "engineVersion": "2.5.8",
-      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
+      "isolation": "process",
+      "packageLockSha256": "ceda9f7f9099fa91ab5a98d6ce8fd0ba4d2db761b46a19b412688f8db045c179",
       "pages": 1,
       "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
@@ -147,25 +156,22 @@
         503,
         503
       ],
-      "checksPassed": 15
+      "artifact": "nextjs-windows-latest-24",
+      "checksPassed": 17
     }
   ],
-  "packageChecks": {
-    "run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37279997930",
-    "jobsPassed": 10,
-    "conclusion": "success"
-  },
-  "downloadVerification": {
+  "downloadedStarter": {
     "ok": true,
-    "checkedAt": "2026-10-05T07:51:53.410802+00:00",
-    "sourceCommit": "fe0fa10499428841ba3c0eac8571b5fc31b00fdc",
+    "checkedAt": "2026-10-06T01:05:03.951160+00:00",
+    "sourceCommit": "4f574b5e11d3a680a50c561bf9ea071de29d0cb8",
     "downloadFiles": 18,
-    "projectZipSha256": "9a211e5553f81508c54c87ab52d02f498f17f0e2703eff088cfd440867969564",
+    "projectZipSha256": "d6586c7b3d5f465fa08ac292b02c634b2ad649f0722616c47b5bc26cf751e157",
     "node": "v22.23.3",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.1.5",
+    "nodePackage": "0.2.0",
     "engineVersion": "2.5.8",
+    "isolation": "process",
     "commands": [
       {
         "name": "install",
@@ -244,11 +250,62 @@
         "passed": true
       },
       {
+        "name": "a failed render child returns an HTTP error while the production server stays alive",
+        "passed": true
+      },
+      {
+        "name": "the production server returns a valid PDF after a render-process failure",
+        "passed": true
+      },
+      {
         "name": "client JavaScript excludes the server PDF engine and worker",
         "passed": true
       }
     ],
     "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
   },
-  "scope": "Published npm 0.1.5 in the Next.js standalone starter. Three CI environments and a fresh downloadable ZIP install pass 15 HTTP/worker/error-recovery checks. The retained invoice PDF and preview match. No application authorization, hosting-provider, speed, or standards certification claim."
+  "browser": {
+    "ok": true,
+    "checked_at": "2026-10-06T01:05:29.710577+00:00",
+    "browser": "154.0.8037.98",
+    "isolation": "process",
+    "checks": [
+      {
+        "width": 1440,
+        "keyboard": false,
+        "layout": {
+          "width": 1440,
+          "documentWidth": 1440,
+          "bodyWidth": 1440
+        },
+        "pdf_sha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
+        "page_errors": []
+      },
+      {
+        "width": 390,
+        "keyboard": true,
+        "layout": {
+          "width": 390,
+          "documentWidth": 390,
+          "bodyWidth": 390
+        },
+        "pdf_sha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
+        "page_errors": []
+      },
+      {
+        "width": 320,
+        "keyboard": false,
+        "layout": {
+          "width": 320,
+          "documentWidth": 320,
+          "bodyWidth": 320
+        },
+        "pdf_sha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
+        "page_errors": []
+      }
+    ],
+    "scope": "Independent headless Chrome and isolated Next standalone artifact; real PDF downloads, keyboard activation, narrow layouts. Existing authenticated browser sessions were not used."
+  },
+  "scope": "Published npm 0.2.0 with process isolation in the Next.js standalone starter. Three CI environments and a fresh downloadable ZIP install pass 17 HTTP/process/error-recovery checks. Real browser downloads match the retained invoice. No application authorization, hosted-provider, speed, or standards certification claim.",
+  "mergedCommit": "36a5b1d382c27d5a0f3414c732a88529e0bf5c7b"
 }

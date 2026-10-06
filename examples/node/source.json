@@ -1,10 +1,10 @@
 {
-  "package_version": "0.1.5",
+  "package_version": "0.2.0",
   "engine_version": "2.5.8",
-  "source_commit": "847b943934ee050c735c712ffcaaff1d3d4c277e",
-  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/fullbleed-0.1.5.tgz",
-  "package_integrity": "sha512-3AvPt+n2j/0KMoUk1rq/cu4dzcsnyUNKJNOwpUJkW48vkndFcroFtXgMx4CXJX46O2/gDSli67tuhUUiVsu5OQ==",
-  "package_sha256": "817e9ba5a4741b6626b62c5e829fdd921c0b69d1e165fb4905483d56887237dc",
+  "source_commit": "969f23c479cd02f366cc1d2e099b6bda19dfaac9",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.2.0/fullbleed-0.2.0.tgz",
+  "package_integrity": "sha512-7khp008/oaJxMbroCQuv82ICOnJVQ1RUgYsOZWAqcW92qjKEAVzRK80UZDIJkNWcaMh1yDdTR8BJ5PAFc3QbnA==",
+  "package_sha256": "90bd0bbf4ae542b6be1deb3103ba492b9d8675e47b71f895060b40419d705f4a",
   "rendered": {
     "invoice.pdf": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
     "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"

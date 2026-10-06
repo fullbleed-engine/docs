@@ -69,7 +69,7 @@ for name, relative in [("invoice.pdf", "output/invoice/invoice.pdf"), ("invoice.
 
 source = (ROOT / "docs/getting-started/node.md").read_text(encoding="utf8")
 blocks = re.findall(r"```javascript\n(.*?)```", source, re.S)
-assert len(blocks) == 1
+assert len(blocks) == 2
 home = (ROOT / 'docs/index.md').read_text(encoding='utf8')
 home_code = re.findall(r'```javascript\n(.*?)```', home, re.S)
 assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage Node example differs from the executed guide.'
@@ -81,12 +81,26 @@ assert "1 page; engine " + manifest["engine_version"] in stdout
 for name in ["invoice.pdf", "invoice.png"]:
     data = (snippet / name).read_bytes()
     assert digest(data) == manifest["quickstart"][name], name
+process_script = """import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import { renderPdf } from 'fullbleed';
+""" + blocks[1] + """
+assert.equal(result.pages, 1);
+assert.equal(result.missingGlyphs, 0);
+assert.equal(result.pdf.subarray(0, 5).toString(), '%PDF-');
+await writeFile('process-statement.pdf', result.pdf);
+"""
+(snippet / "process-snippet.mjs").write_text(process_script, encoding="utf8", newline="\n")
+run("process-snippet", ["process-snippet.mjs"], snippet)
+process_pdf = (snippet / "process-statement.pdf").read_bytes()
+(out / "process-statement.pdf").write_bytes(process_pdf)
 report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], text=True).strip(),
           "platform": os.name, "package_version": installed["version"], "engine_version": installed["fullbleed"]["engineVersion"],
           "installed_package_matches_manifest": True,
           "source_commit": manifest["source_commit"], "commands": commands, "download_files": len(manifest["files"]),
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
           "homepage_snippet_matches_executed_guide": True,
+          "process_snippet": {"ok": True, "pdf_sha256": digest(process_pdf)},
           "workspace": workspace.name, "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."}
 (out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
 print(json.dumps({"ok": True, "node": report["node"], "files": report["download_files"], "commands": len(commands)}))

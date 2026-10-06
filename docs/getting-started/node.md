@@ -8,8 +8,12 @@ Fullbleed's optional Node package renders static HTML/CSS into PDFs using a
 bundled WebAssembly build of the Rust engine. It includes fonts and runs locally;
 you do not need Python, Rust, or a browser to use the installed package.
 
-This guide uses **Node package 0.1.5**, powered by **Fullbleed 2.5.8**. The
+This guide uses **Node package 0.2.0**, powered by **Fullbleed 2.5.8**. The
 integration and core engine have separate versions.
+
+Version 0.2.0 adds optional process isolation for server applications. A failed
+render child can reject its request while the caller keeps running. The engine
+and default worker mode are unchanged from 0.1.5.
 
 Version 0.1.5 fixes regular font selection when an italic face is registered first.
 Use the actual family name for normal/italic CSS selection, or a PostScript name
@@ -30,7 +34,7 @@ With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/packag
 npm install fullbleed
 ```
 
-To pin this guide's version, use `npm install --save-exact fullbleed@0.1.5`.
+To pin this guide's version, use `npm install --save-exact fullbleed@0.2.0`.
 The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -88,7 +92,7 @@ of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing fro
 these PNG previews in earlier releases.
 
 [Open the report PDF](../assets/node/report.pdf){ .md-button }
-[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.5/examples){ .md-button }
+[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.2.0/examples){ .md-button }
 
 ## Bring fonts and image assets
 
@@ -99,7 +103,7 @@ in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
 
 The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
-[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.1.5#fonts-and-assets)
+[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.2.0#fonts-and-assets)
 includes a complete font and asset example.
 
 ## Use it in an application
@@ -108,7 +112,7 @@ For a working web-app integration, use the [Next.js PDF download starter](../gui
 It includes an App Router handler, designed invoice, bundled-asset configuration
 and an isolated check of the production standalone server.
 
-Rendering runs in a worker, with separate document state for concurrent calls.
+By default, rendering runs in a worker, with separate document state for concurrent calls.
 The promise waits for its worker to exit, including after failure, timeout, or
 cancellation. Sequential `await renderPdf()` calls therefore do not overlap
 worker lifetimes. A timeout or abort starts termination; the promise settles
@@ -124,13 +128,43 @@ rejected. Use registered font families: unavailable CSS families can fall back,
 and the engine's glyph report does not establish visual correctness. Review the
 final PDF and previews when adapting a design.
 
+### Contain render-process failures
+
+On a Node host that permits child processes, use `isolation: 'process'` to run
+each request's engine and worker in a fresh process:
+
+```javascript
+const result = await renderPdf({
+  html: '<h1>Monthly statement</h1>',
+  isolation: 'process',
+  timeoutMs: 10_000,
+  maxPages: 20,
+});
+```
+
+The caller does not compile WebAssembly or create render workers in this mode.
+The promise waits for process exit and IPC disconnection before settling, even
+after success. A failed child exit rejects with `PROCESS_FAILED`; available
+`exitCode` and `signal` fields describe the exit. Timeouts and aborts terminate
+the child before rejecting. A PDF received before a failed shutdown is not
+returned as a successful result.
+
+Process startup adds latency and memory use. There is no process pool or
+automatic retry; keep concurrency bounded. Application startup flags and
+`NODE_OPTIONS` are not replayed in the child. This option requires a normal
+Node executable and is not an operating-system security sandbox. See the
+[process isolation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.2.0/docs/process-isolation.md)
+for deployment details and the tested failure paths. The Next.js starter uses
+this mode for its PDF route.
+
 An intermittent process crash on Linux with Node 24.21.0 was observed with
 `fullbleed@0.1.2`; [issue #7](https://github.com/fullbleed-engine/fullbleed-node/issues/7)
 remains open. Version 0.1.3 fixes worker shutdown timing, but has not established
 that this native crash is resolved. See the
 [runtime investigation](https://github.com/fullbleed-engine/fullbleed-node/blob/main/docs/runtime-diagnostics.md)
 for the observed scope and synthetic diagnostic. A process crash can occur
-before JavaScript can return an error.
+before JavaScript can return an error in worker mode. Process isolation contains
+tested child failures; it does not establish a fix for that native crash.
 
 This first Node API covers ordinary PDF rendering and previews. Use the
 [Python API](../engine/pdf-engine.md) or [Rust crate](rust.md) for profiles,
@@ -144,15 +178,17 @@ TypeScript. Its release evidence compares retained native and WebAssembly
 fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
-The [npm publication record](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/npm-publication-0.1.5.json)
+The [npm publication record](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.2.0/npm-publication-0.2.0.json)
 confirms the registry tarball matches that release. A fresh registry install on
 Windows / Node 22 reproduces its PDF/PNG hashes, including ESM/CommonJS and
-recovery after a cold timeout. Seven font fixtures also pass independent font,
-text, and page-pixel checks against the registry-installed package. Ten custom-family
-cases also match explicit-face controls; the same checker rejects the incorrect
-0.1.4 result. [Inspect the family-selection evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/font-family-verification.json).
+recovery after a cold timeout. The process consumer also forbids parent
+WebAssembly and render workers, checks that application preloads stay out of
+children, forces a child termination, and renders again. The release's CI
+checks retain seven embedded-font fixtures and ten custom-family cases with
+independent font, text, and page-pixel checks.
+[Inspect the family-selection evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.2.0/font-family-verification.json).
 
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
 [npm package](https://www.npmjs.com/package/fullbleed) ·
-[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.1.5) ·
+[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.2.0) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)

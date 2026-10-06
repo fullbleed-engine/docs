@@ -75,7 +75,8 @@ run("verify", ["run", "verify"])
 preview = json.loads((project / "output/preview.json").read_text(encoding="utf8"))
 verification = json.loads((project / "output/verification.json").read_text(encoding="utf8"))
 assert preview["pages"] == 1 and preview["missingGlyphs"] == 0
-assert len(verification["checks"]) == 15 and all(item["passed"] for item in verification["checks"])
+assert len(verification["checks"]) == 17 and all(item["passed"] for item in verification["checks"])
+assert verification["isolation"] == "process"
 for actual, expected in [("output/invoice.pdf", "invoice.pdf"),
                          ("output/route.pdf", "invoice.pdf"),
                          ("public/invoice.png", "invoice.png")]:
@@ -89,7 +90,7 @@ report = {
     "projectZipSha256": expected_assets["project.zip"]["sha256"],
     "node": verification["node"], "platform": verification["platform"],
     "next": verification["next"], "nodePackage": verification["nodePackage"],
-    "engineVersion": verification["engineVersion"], "commands": commands,
+    "engineVersion": verification["engineVersion"], "isolation": verification["isolation"], "commands": commands,
     "pdfSha256": digest((out / "route.pdf").read_bytes()),
     "previewSha256": digest((out / "invoice.png").read_bytes()),
     "checks": verification["checks"],
