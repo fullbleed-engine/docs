@@ -10,7 +10,7 @@ or an HTML/CSS template and the actual PDF updates after a short pause. The
 engine renders in a browser worker; this starter needs no PDF server or account.
 
 [Open the React demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
-[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/bbb140f115a69ad77fc54bb9b5be2e908b7b6669/examples/react?startScript=dev){ .md-button }
+[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/7da8faa0dd7e5653c796b2b113ca580bcc25ca3b/examples/react?startScript=dev){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
 The project includes a designed invoice, a three-page report, a React form and
@@ -47,7 +47,7 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.3.0** / engine **2.5.8**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.3.1** / engine **2.5.10**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
@@ -78,7 +78,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.3.0
+npm install --save-exact fullbleed@0.3.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 

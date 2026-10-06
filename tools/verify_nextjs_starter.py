@@ -40,6 +40,7 @@ workspace = Path(tempfile.mkdtemp(prefix="download with spaces ", dir=out))
 with zipfile.ZipFile(assets / "project.zip") as archive:
     names = archive.namelist()
     assert len(names) == len(set(names)) == manifest["files"]
+    assert set(names) == set(manifest["fileHashes"])
     for entry in archive.infolist():
         relative = PurePosixPath(entry.filename)
         assert not relative.is_absolute() and ".." not in relative.parts
@@ -47,6 +48,7 @@ with zipfile.ZipFile(assets / "project.zip") as archive:
         assert relative.parts[0] == "fullbleed-nextjs" and len(relative.parts) > 1
         assert not entry.is_dir() and entry.file_size <= 10 * 1024 * 1024
         assert (entry.external_attr >> 16) & 0o170000 != 0o120000, "No symlinks"
+        assert digest(archive.read(entry)) == manifest["fileHashes"][entry.filename]
         destination = workspace.joinpath(*relative.parts).resolve()
         assert destination.is_relative_to(workspace)
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -77,6 +79,8 @@ verification = json.loads((project / "output/verification.json").read_text(encod
 assert preview["pages"] == 1 and preview["missingGlyphs"] == 0
 assert len(verification["checks"]) == 17 and all(item["passed"] for item in verification["checks"])
 assert verification["isolation"] == "process"
+assert verification["nodePackage"] == manifest["packageVersion"]
+assert verification["engineVersion"] == manifest["engineVersion"]
 for actual, expected in [("output/invoice.pdf", "invoice.pdf"),
                          ("output/route.pdf", "invoice.pdf"),
                          ("public/invoice.png", "invoice.png")]:

@@ -17,7 +17,7 @@ Change the customer, reference, and ink color, or open **Edit the HTML & CSS** t
 paste your own template. Generate a preview, then download the actual PDF.
 All sample names, organizations, and amounts are fictional.
 
-This guide uses **npm package 0.3.0**, wrapping **Fullbleed engine 2.5.8**.
+This guide uses **npm package 0.3.1**, wrapping **Fullbleed engine 2.5.10**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
 ## Run the starter
@@ -46,7 +46,7 @@ Install the package and copy its runtime into the directory your framework
 serves as static files:
 
 ```sh
-npm install --save-exact fullbleed@0.3.0
+npm install --save-exact fullbleed@0.3.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -110,7 +110,7 @@ completion or cancellation requests worker termination before the promise settle
 Browsers do not expose a native thread-exit promise. Keep concurrent jobs bounded
 for the devices you support, especially when generating page previews.
 
-The [0.3.0 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.3.0)
+The [0.3.1 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.3.1)
 retains checks in Chrome, Firefox, and Playwright WebKit, including PDF/PNG
 comparison with the installed Node package, independent PDF text checks,
 cancellation, damaged assets, and recovery. Playwright WebKit is not branded
