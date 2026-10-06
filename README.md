@@ -7,6 +7,8 @@ python -m pip install -r requirements.txt
 rustup target add wasm32-wasip1
 python tools/build_playground.py
 node tools/verify_playground.mjs
+python tools/build_browser_starter.py
+python tools/build_react_starter.py
 python -m mkdocs build --strict
 python tools/check_site.py site
 python -m mkdocs serve
@@ -14,10 +16,16 @@ python -m mkdocs serve
 
 Changes to `main` build, check internal links and metadata, then deploy through `.github/workflows/docs.yml`. Pull requests run the same build checks without deployment.
 
-The browser playground build needs Rust and Node 20 or newer. CI uses Rust
+Building all browser demos needs Rust and Node 22.12 or newer. CI uses Rust
 1.97.0 and Node 22. Its locked adapter compiles the published engine; it does not
 modify or vendor the engine source. See [playground/README.md](playground/README.md)
 for limits, privacy behavior, and native/WASI verification.
+
+The React build also creates `docs/assets/react-starter/edit-online.html` from
+the verified project ZIP. Its plain HTML form opens those exact source files in
+StackBlitz through the [POST API](https://developer.stackblitz.com/platform/api/post-api).
+Keep the homepage and React guide linked to this generated launcher so package
+updates reach both the download and the online editor.
 
 ## Updating a release
 
