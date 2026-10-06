@@ -31,8 +31,8 @@ dotnet run -c Release --no-restore -- --urls http://127.0.0.1:5080
 Open `http://127.0.0.1:5080` and choose **Download sample PDF**. The browser
 downloads `invoice-NS-1042.pdf` from `/invoices/NS-1042/pdf` and stays on the page.
 
-The lockfile pins the public `FullBleed.DotNet` **0.1.3** package, which contains
-engine **2.5.7**. For a console app or the broader native API, use the
+The lockfile pins the public `FullBleed.DotNet` **0.1.4** package, which contains
+engine **2.5.8**. For a console app or the broader native API, use the
 [C# and .NET quickstart](../getting-started/dotnet.md).
 
 ## Return PDF bytes as an attachment

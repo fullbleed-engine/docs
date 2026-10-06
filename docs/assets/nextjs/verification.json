@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-10-04T12:45:55.497353+00:00",
+  "checkedAt": "2026-10-05T23:55:42.874759+00:00",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "sourceCommit": "3caa41e5633a2526365b91a2e93eababb8e15d03",
-  "mergedCommit": "418cf144c6595dfd6efa89e892751f7c3b84e1a5",
-  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/10",
-  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37202821832",
+  "sourceCommit": "fe0fa10499428841ba3c0eac8571b5fc31b00fdc",
+  "mergedCommit": "39062ed78bde8cca2bb73842e6c04b0dc6531a71",
+  "pullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/15",
+  "ciRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37279997939",
   "standaloneChecks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -70,15 +70,15 @@
   "ciResults": [
     {
       "artifact": "nextjs-ubuntu-latest-22",
-      "checkedAt": "2026-10-04T12:39:10.018Z",
+      "checkedAt": "2026-10-05T07:50:52.448Z",
       "node": "v22.23.3",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.3",
-      "engineVersion": "2.5.6",
-      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
+      "nodePackage": "0.1.5",
+      "engineVersion": "2.5.8",
+      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
       "pages": 1,
-      "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+      "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
         200,
         503,
@@ -97,15 +97,15 @@
     },
     {
       "artifact": "nextjs-ubuntu-latest-24",
-      "checkedAt": "2026-10-04T12:39:08.609Z",
+      "checkedAt": "2026-10-05T07:50:44.440Z",
       "node": "v24.21.0",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.1.3",
-      "engineVersion": "2.5.6",
-      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
+      "nodePackage": "0.1.5",
+      "engineVersion": "2.5.8",
+      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
       "pages": 1,
-      "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+      "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
         200,
         503,
@@ -124,15 +124,15 @@
     },
     {
       "artifact": "nextjs-windows-latest-24",
-      "checkedAt": "2026-10-04T12:39:56.510Z",
+      "checkedAt": "2026-10-05T07:51:41.715Z",
       "node": "v24.21.0",
       "platform": "win32",
       "next": "16.3.8",
-      "nodePackage": "0.1.3",
-      "engineVersion": "2.5.6",
-      "packageLockSha256": "d077d343af0dac9d026a53815bdf2c9710a8953b28232f0fd425898fa02834e1",
+      "nodePackage": "0.1.5",
+      "engineVersion": "2.5.8",
+      "packageLockSha256": "eb0b1ff6cf424cebf8464f44b38192a175465bcb77626a7645a18c85f3f0ce40",
       "pages": 1,
-      "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+      "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
       "burst": [
         200,
         503,
@@ -151,73 +151,21 @@
     }
   ],
   "packageChecks": {
-    "run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37202821855",
+    "run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37279997930",
     "jobsPassed": 10,
     "conclusion": "success"
   },
-  "browser": {
-    "checkedAt": "2026-10-04T12:37:39.530517+00:00",
-    "browser": "154.0.8037.93",
-    "checks": [
-      {
-        "name": "starter shows its real PDF preview",
-        "passed": true
-      },
-      {
-        "name": "browser downloads the exact standalone route PDF",
-        "passed": true
-      },
-      {
-        "name": "PDF retains the designed one-page invoice and recorded amount",
-        "passed": true
-      },
-      {
-        "name": "the native PDF download leaves the starter page usable",
-        "passed": true
-      },
-      {
-        "name": "the starter fits a narrow viewport",
-        "passed": true
-      },
-      {
-        "name": "keyboard activation downloads the same PDF",
-        "passed": true
-      },
-      {
-        "name": "the journey makes no third-party requests",
-        "passed": true
-      },
-      {
-        "name": "the browser reports no uncaught JavaScript errors",
-        "passed": true
-      }
-    ],
-    "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
-    "pageErrors": [],
-    "screenshots": [
-      {
-        "file": "desktop.png",
-        "sha256": "ce67ee655422570b9e5aa5e932eb3ce5d49ca46f869daf92845cf2280a471082"
-      },
-      {
-        "file": "mobile.png",
-        "sha256": "3b3085d91dcb0abed1487f55b1eb853f70757cc0f2ef10b2f6f7a126a389973f"
-      }
-    ],
-    "scope": "Local Windows Chrome; owned test context, desktop 1440 px and mobile 390 px viewports; synthetic sample only."
-  },
-  "scope": "Released Fullbleed tarball in a Next.js standalone example. Byte equality applies to this retained synthetic invoice. Does not establish application authorization, hosting-provider support, or PDF standards compliance.",
   "downloadVerification": {
     "ok": true,
-    "checkedAt": "2026-10-04T12:45:29.862196+00:00",
-    "sourceCommit": "3caa41e5633a2526365b91a2e93eababb8e15d03",
+    "checkedAt": "2026-10-05T07:51:53.410802+00:00",
+    "sourceCommit": "fe0fa10499428841ba3c0eac8571b5fc31b00fdc",
     "downloadFiles": 18,
-    "projectZipSha256": "92ae3ea2cb41a527b52fc5972f7a1e0fb65f8d73f9271ada9abdb403bae2d6e0",
-    "node": "v26.10.0",
+    "projectZipSha256": "9a211e5553f81508c54c87ab52d02f498f17f0e2703eff088cfd440867969564",
+    "node": "v22.23.3",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.1.3",
-    "engineVersion": "2.5.6",
+    "nodePackage": "0.1.5",
+    "engineVersion": "2.5.8",
     "commands": [
       {
         "name": "install",
@@ -236,9 +184,71 @@
         "exitCode": 0
       }
     ],
-    "pdfSha256": "e09514ad458c62f9f9ef5df76168717b78b20ed365e892118f7aff6a4492e34b",
+    "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
     "previewSha256": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7",
-    "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim.",
-    "standaloneChecksPassed": 15
-  }
+    "checks": [
+      {
+        "name": "standalone artifact is isolated from the source application",
+        "passed": true
+      },
+      {
+        "name": "standalone tracing retains the verified engine and all bundled fonts",
+        "passed": true
+      },
+      {
+        "name": "isolated production server starts on loopback",
+        "passed": true
+      },
+      {
+        "name": "app exposes the sample download without a prefetched render",
+        "passed": true
+      },
+      {
+        "name": "standalone server includes the actual PDF preview asset",
+        "passed": true
+      },
+      {
+        "name": "production route returns complete private PDF bytes with a useful filename",
+        "passed": true
+      },
+      {
+        "name": "unknown invoice IDs return a private JSON error",
+        "passed": true
+      },
+      {
+        "name": "unsupported writes are rejected by the route",
+        "passed": true
+      },
+      {
+        "name": "a concurrent burst receives explicit capacity errors instead of an unbounded queue",
+        "passed": true
+      },
+      {
+        "name": "normal PDF downloads recover after a capacity burst",
+        "passed": true
+      },
+      {
+        "name": "a real missing-glyph failure returns a generic non-PDF error",
+        "passed": true
+      },
+      {
+        "name": "a valid document renders after an engine failure",
+        "passed": true
+      },
+      {
+        "name": "the route enforces its page cap against a real multipage document",
+        "passed": true
+      },
+      {
+        "name": "a valid document renders after the page limit rejects a job",
+        "passed": true
+      },
+      {
+        "name": "client JavaScript excludes the server PDF engine and worker",
+        "passed": true
+      }
+    ],
+    "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
+  },
+  "scope": "Published npm 0.1.5 in the Next.js standalone starter. Three CI environments and a fresh downloadable ZIP install pass 15 HTTP/worker/error-recovery checks. The retained invoice PDF and preview match. No application authorization, hosting-provider, speed, or standards certification claim."
 }

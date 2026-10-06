@@ -150,7 +150,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.1.3
+    dotnet add package FullBleed.DotNet --version 0.1.4
     ```
 
     Replace `Program.cs` with:
@@ -180,7 +180,7 @@ Pick your application stack. Each example writes an `invoice.pdf` you can open l
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.3/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.4/samples/FullBleed.DotNet.LinqVdp)
 
 ## Pick a document to build
 
@@ -227,6 +227,6 @@ Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](c
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.7 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.7) includes downloadable wheels and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.8 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.8) includes downloadable wheels and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
 
 [Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues) · [Support Fullbleed](support.md)

@@ -4,9 +4,9 @@
     "net10.0": {
       "FullBleed.DotNet": {
         "type": "Direct",
-        "requested": "[0.1.3, )",
-        "resolved": "0.1.3",
-        "contentHash": "q4YDHvZNHPeIq1JMKtzuLIcZcralMcPwBIN0bqc5/sboI+34ZzKYcj6BGysoYIdOq7H7Scuuog8URErSYN23Yg=="
+        "requested": "[0.1.4, )",
+        "resolved": "0.1.4",
+        "contentHash": "J0oyvPddrDRBk3sYW7UC4w+pcc1bfUQs3smaXlfPwn8xAVDjEg7mLskTf2yYHTwVskgigLCPLhneX8+vo2gKsw=="
       }
     }
   }
