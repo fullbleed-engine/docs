@@ -1,22 +1,45 @@
 {
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "sourceCommit": "4f574b5e11d3a680a50c561bf9ea071de29d0cb8",
+  "sourceCommit": "7da8faa0dd7e5653c796b2b113ca580bcc25ca3b",
   "files": 18,
   "assets": [
     {
       "file": "project.zip",
-      "sha256": "d6586c7b3d5f465fa08ac292b02c634b2ad649f0722616c47b5bc26cf751e157",
-      "bytes": 105014
+      "sha256": "06d1383ed8a40ab2853e7f9a51a9a7baddb7981b7c02fc0d3772587c8823553f",
+      "bytes": 104788
     },
     {
       "file": "invoice.pdf",
-      "sha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
-      "bytes": 40289
+      "sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "bytes": 40386
     },
     {
       "file": "invoice.png",
-      "sha256": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7",
-      "bytes": 107399
+      "sha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+      "bytes": 107272
     }
-  ]
+  ],
+  "fileHashes": {
+    "fullbleed-nextjs/.gitignore": "b4abc38d76926640e3f2cbe3bf25c8f5aec6cc43dd978c48d3ad5cc20d964f66",
+    "fullbleed-nextjs/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "fullbleed-nextjs/README.md": "0b47cb42317df65f497447bb1084c888194886f82e5223960ed2ecaa55b22273",
+    "fullbleed-nextjs/app/api/invoices/[id]/route.js": "d6348ce64b44feac7010e21fb0f55723e0858c7867222ae831c45d3440a3b052",
+    "fullbleed-nextjs/app/globals.css": "02e0b545a14eaf15e6d3d8fc8c0e8c0f1c5ce5c1b8dc461b4343d330f291233e",
+    "fullbleed-nextjs/app/layout.js": "2df89bff0d2f002b432b3fdb73fd64edf59c57641d9ea6df3f0051cf2329cf27",
+    "fullbleed-nextjs/app/page.js": "24c7996f8172992f925cdb1e47455d0095397d0832f747c90ecb409f2a1d460c",
+    "fullbleed-nextjs/lib/invoice.mjs": "fd87dd082fa19659ec572d97255c1902e1e728e43ebbc3e0ade9891fa7736cf2",
+    "fullbleed-nextjs/next.config.mjs": "e93613419f5aaa6264f0405e5afbb6f5eea4c956e42e7ebf30a6c85a4d9d89b3",
+    "fullbleed-nextjs/package-lock.json": "57dfea0b9c49f604477b28c88847764bda16c006383df852269bdd2b712daf43",
+    "fullbleed-nextjs/package.json": "7e52578d679fa9422b15cf5a69fa065d7b6c68d076362ddfc4e885134dfd5766",
+    "fullbleed-nextjs/public/invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+    "fullbleed-nextjs/templates/invoice.css": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296",
+    "fullbleed-nextjs/templates/invoice.html": "d9a5b1950ddab61f08628b0fcc773cb36f05d9401bb3d87273bca02452b1835e",
+    "fullbleed-nextjs/tools/copy-public.mjs": "25005e2612d90ed5127f268144c45bcd259ceb1e68c832723549e57a06b8d3dd",
+    "fullbleed-nextjs/tools/render-preview.mjs": "0e5f1c0e49e2ec35a77eec460d735a1228ae82a30b86a7eb687af4056c23522b",
+    "fullbleed-nextjs/tools/start.mjs": "4c185a0801ca4f89a30a0c1e75710f1c22c84463d29477900162b05a8bc52eab",
+    "fullbleed-nextjs/tools/verify.mjs": "54623914ff28a47ea63a553d063ac50a206df0424270dacb3f3a99054982a888"
+  },
+  "packageVersion": "0.3.1",
+  "engineVersion": "2.5.10",
+  "sourceVerificationRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37465413382"
 }
