@@ -90,3 +90,6 @@ fictional.
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
 <script type="module" src="../assets/playground/app.js?v=engine-258"></script>
+
+Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
+with editable templates and local PDF downloads.

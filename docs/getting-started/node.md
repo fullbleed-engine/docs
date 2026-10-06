@@ -26,6 +26,9 @@ the three-page report from **94,529 to 46,259 bytes** (51.1% smaller). Text and
 page pixels match the previous release. The [seven-fixture font verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.4/font-verification.json)
 checks all bundled font faces and a custom math font. Savings vary by document.
 
+For rendering inside a web page, [use the browser entry and starter](../guides/browser-pdf.md)
+in npm 0.3.0. This server guide and its downloads remain pinned to the verified 0.2.0 example.
+
 ## Create your first PDF
 
 With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/package/fullbleed):
