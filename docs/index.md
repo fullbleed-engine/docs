@@ -61,6 +61,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     Build it with `npm run build` and serve the result as a static site.
 
     [Browser SDK and hosting guide →](guides/browser-pdf.md)
+    [React and TypeScript starter →](guides/react-pdf.md)
 
 === "Python"
 

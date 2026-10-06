@@ -1,0 +1,25 @@
+{
+  "package": "0.3.0",
+  "engine": "2.5.8",
+  "node": "v26.10.0",
+  "records": [
+    {
+      "design": "invoice",
+      "pages": 1,
+      "pdfSha256": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
+      "previews": [
+        "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
+      ]
+    },
+    {
+      "design": "report",
+      "pages": 3,
+      "pdfSha256": "cbe463b5759957261dc41aadd8727f8d01485e405c2e2841c9b34c0289876c10",
+      "previews": [
+        "a5fbccdb2fb68e5bbebb8ae6d42f6eb4cdf69ec142237734a2c6d2069825dbdb",
+        "3e31e42b3c7cac8b01633e5675cb1446feec553afb392d4d6a7b73f8c8582ad9",
+        "77b10e0766025c34131fbdcfb1dde0bd3015a79cabf1db741af65b63121b035d"
+      ]
+    }
+  ]
+}

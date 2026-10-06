@@ -120,3 +120,8 @@ PDF/A, PDF/UA, PDF/X, and VDP are not exposed here.
 For a server application, use the [Node.js API](../getting-started/node.md) or
 the [Next.js download starter](nextjs-pdf.md). For a quick experiment without
 installing a project, use the [HTML/CSS playground](../playground.md).
+
+For a React client application, use the [React and TypeScript starter](react-pdf.md).
+It connects form changes to automatic PDF previews and includes a hook that
+cancels stale work and releases output URLs when inputs change or a component
+unmounts.
