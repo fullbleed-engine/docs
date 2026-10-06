@@ -6,6 +6,10 @@ Register the font files your document uses with `PdfEngine(font_files=[...])`,
 `font_dirs=[...]`, or an `AssetBundle`. Fullbleed reads these assets directly;
 it does not search system fonts.
 
+The [Chinese-text guide](../guides/chinese-pdf.md) includes a runnable bilingual
+invoice, pinned font preparation, and the current variable-font weight and
+glyph-report limitations.
+
 When regular and italic faces share a family name, normal text selects the
 regular face even if the italic file was registered first. The default family
 face prefers upright fonts, then the CSS weight-400 fallback order: 400 through

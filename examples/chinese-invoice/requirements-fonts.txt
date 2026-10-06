@@ -1,0 +1,2 @@
+# Asset preparation only. Rendering the prepared project needs only Fullbleed.
+fonttools==4.65.0

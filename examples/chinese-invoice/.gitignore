@@ -1,0 +1,4 @@
+fonts/*.ttf
+fonts/source/
+output/
+__pycache__/

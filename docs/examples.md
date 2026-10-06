@@ -5,13 +5,13 @@ description: Explore designed PDF invoices, illustrated reports, tagged notices,
 
 # Made for the printed page.
 
-Four document families. Four visual identities. These examples use Fullbleed's
+Designed invoices, reports, notices, and statements. These examples use Fullbleed's
 embedded typography, grids, tables, color, and vector graphics to turn structured
 data into finished pages.
 
 Every preview comes from the actual downloadable PDF. The first four examples
 were generated with the public **Fullbleed 2.4.0** wheel; the pandas report below
-uses **2.5.2**. All sample data and organizations are fictional.
+uses **2.5.2**, and the bilingual invoice uses **2.5.8**. All sample data and organizations are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
@@ -169,6 +169,28 @@ Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample d
 [Build this report](guides/pandas-to-pdf.md){ .md-button }
 
 [Complete source](assets/pandas-report/source.zip) · [Preview page 2](assets/pandas-report/report-2.png)
+
+</div>
+</div>
+
+## Yunshan bilingual invoice
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Yunshan invoice with Simplified Chinese and English text, a green title panel, and orange accents.](assets/chinese-invoice/invoice.png)](assets/chinese-invoice/invoice.pdf)
+</figure>
+<div markdown>
+
+**One page · Chinese and English · Explicit font coverage**
+
+A one-page Simplified Chinese/English invoice using an explicitly registered
+regular-weight Noto Sans SC font. The project includes UTF-8 data, HTML/CSS,
+pinned font preparation, and a missing-character gate. Rendered with Fullbleed
+**2.5.8**; all details are fictional.
+
+[Open the PDF](assets/chinese-invoice/invoice.pdf) ·
+[Build this invoice](guides/chinese-pdf.md) ·
+[Download the project](assets/chinese-invoice/project.zip)
 
 </div>
 </div>

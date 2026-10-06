@@ -16,6 +16,13 @@ Fullbleed uses static HTML/CSS as a document layout language. Check the [CSS cov
 
 Start with the [JSON or CSV invoice examples](guides/invoices.md). Escape text before inserting it into HTML. For repeated templates, see [compiled variable-data rendering](guides/bank-statements.md).
 
+## Why is Chinese text missing or garbled?
+
+Register a font file that contains the required characters and select its family
+in CSS. Fullbleed does not search system fonts. Also check that the source text
+is decoded as UTF-8. The [Chinese-font recipe](guides/chinese-pdf.md) provides a
+verified bilingual invoice, font preparation, and missing-character diagnostics.
+
 ## Does choosing a PDF profile prove conformance?
 
 No. Profile selection configures output. Verify the final artifact and retain the validator reports. The [accessibility workflow](accessibility/overview.md) and [print-output reference](guides/print-output.md) describe the available checks and current limits.
