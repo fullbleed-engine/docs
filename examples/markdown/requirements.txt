@@ -1,3 +1,3 @@
-fullbleed==2.5.9
+fullbleed==2.5.10
 markdown-it-py==4.2.0
 mdurl==0.1.2

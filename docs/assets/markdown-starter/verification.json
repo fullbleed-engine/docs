@@ -2,7 +2,7 @@
   "ok": true,
   "platform": "Windows",
   "versions": {
-    "fullbleed": "2.5.9",
+    "fullbleed": "2.5.10",
     "markdown-it-py": "4.2.0",
     "pypdf": "6.19.0",
     "pypdfium2": "5.14.0",
@@ -169,7 +169,7 @@
     "Inter-Regular"
   ],
   "sample_render": {
-    "fullbleed": "2.5.9",
+    "fullbleed": "2.5.10",
     "markdown_it_py": "4.2.0",
     "input_sha256": "bcfb958cdad4fd82117776258de5c440fe911ae13d501b54ddc34c697e15f6dd",
     "css_sha256": "36e7e2e0af982d43b3e4a9912c3a941c1cef4690776e9fb8c946e5d77c362178",
