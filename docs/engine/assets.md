@@ -26,6 +26,38 @@ Register your own font files or directories through the [Python API](pdf-engine.
 Regular and italic faces can share a family name. For exact face mappings and
 upgrade guidance, see [Font face selection](font-registration.md).
 
+## Standard 14 native previews
+
+Starting with engine 2.5.11, Fullbleed bundles fixed, OFL-licensed outline
+substitutes for the unembedded PDF Standard 14 fonts: Helvetica, Times, Courier,
+Symbol, and ZapfDingbats. Native previews can render these fonts without a system
+font installation. Explicitly registered and embedded fonts retain precedence.
+
+Check the installed Python runtime before relying on this behavior:
+
+```python
+import fullbleed
+
+features = fullbleed.build_features()
+print(features.get(
+    "bundled_standard_font_previews",
+    False,
+))
+```
+
+The substitutes affect native preview pixels; they preserve the input PDF's font
+resources, text, and advances. Review saved preview baselines when upgrading.
+For a specific branded appearance in both the PDF and its preview, register your
+chosen font files explicitly as shown above. Font-resolution traces report
+`bundled_substitute` when the native renderer selects a bundled face.
+
+The [2.5.11 verification evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.11)
+includes 68 cases with identical preview pixels and PDF bytes on Windows, Linux,
+and Linux with system fonts hidden. The [font manifest and coverage limits](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/preview_fonts/README.md)
+describe the substitute designs and the unsupported, unencoded Symbol `/apple`
+glyph. Node.js and .NET bindings have separate engine version pins; check the
+engine version shipped with your binding.
+
 ## Images, SVG, and asset bundles
 
 The [AssetBundle API](pdf-engine.md#assetbundle) provides explicit CSS, font, SVG, and raster asset registration. Use the [canonical reference project](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/canonical_reference) for complete examples of inline SVG, data URIs, vendored files, and image previews.
