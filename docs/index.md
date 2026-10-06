@@ -1,6 +1,6 @@
 ---
-title: HTML/CSS to PDF for Python, Rust, Node.js, and C#
-description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, or C#. Choose your language, copy a runnable example, and explore designed invoices and reports.
+title: HTML/CSS to PDF for Python, Rust, Node.js, C#, and browsers
+description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, C#, or browser JavaScript. Choose your language or try an editable browser app with local PDF downloads.
 hide:
   - toc
 ---
@@ -11,7 +11,7 @@ hide:
 
 # Your data. Your design. Your PDF.
 
-<p class="lead">Create invoices, reports, and print documents with HTML/CSS. Bring your data from Python, Rust, Node.js, or C# and render with the Fullbleed Rust engine.</p>
+<p class="lead">Create invoices, reports, and print documents with HTML/CSS. Use Python, Rust, Node.js, C#, or browser JavaScript with the Fullbleed Rust engine.</p>
 
 [Try in your browser](playground.md){ .md-button .md-button--primary }
 [Choose your language](#choose-your-language){ .md-button }
@@ -32,12 +32,35 @@ for email attachments or customer downloads.
 
 <span id="a-small-first-step"></span>
 
-Build a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
+Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
 
 ## Choose your language
 
-Pick your application stack. Each example writes an `invoice.pdf` you can open locally.
+Pick your application stack. Generate a PDF locally or download one from the browser app.
+
+=== "Browser"
+
+    Render an invoice or report in a Web Worker with `fullbleed/browser`. Edit its
+    HTML/CSS, generate a preview, and download the PDF. The app loads the engine
+    and fonts from its static host and renders the document in your browser.
+
+    [Open the live editor](assets/browser-demo/index.html){ .md-button .md-button--primary }
+    [Download the project](assets/browser-starter/project.zip){ .md-button }
+
+    Extract the ZIP and open a terminal in `fullbleed-browser-starter`. Use Node.js
+    22.12 or newer for the development tools:
+
+    ```sh
+    npm ci
+    npm run dev
+    ```
+
+    Open the localhost URL printed by Vite. The starter includes a designed invoice
+    and report, editable templates, previews, cancellation, and PDF downloads.
+    Build it with `npm run build` and serve the result as a static site.
+
+    [Browser SDK and hosting guide →](guides/browser-pdf.md)
 
 === "Python"
 
