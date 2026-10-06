@@ -10,7 +10,7 @@ or an HTML/CSS template and the actual PDF updates after a short pause. The
 engine renders in a browser worker; this starter needs no PDF server or account.
 
 [Open the React demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
-[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/9c5c680e018b03338f0a9e5440705ea72763fe8e/examples/react?startScript=dev){ .md-button }
+[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/bbb140f115a69ad77fc54bb9b5be2e908b7b6669/examples/react?startScript=dev){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
 The project includes a designed invoice, a three-page report, a React form and
