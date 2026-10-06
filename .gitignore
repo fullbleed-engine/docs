@@ -20,3 +20,5 @@ examples/dotnet/obj/
 examples/aspnet/bin/
 examples/aspnet/obj/
 examples/aspnet/output/
+
+docs/assets/browser-demo/

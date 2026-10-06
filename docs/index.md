@@ -16,7 +16,7 @@ hide:
 [Try in your browser](playground.md){ .md-button .md-button--primary }
 [Choose your language](#choose-your-language){ .md-button }
 
-Four ways to build. One print engine.
+Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
@@ -31,6 +31,9 @@ then [evaluate an automated order workflow](guides/woocommerce.md#evaluate-an-au
 for email attachments or customer downloads.
 
 <span id="a-small-first-step"></span>
+
+Build a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
+editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
 
 ## Choose your language
 

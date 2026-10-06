@@ -175,6 +175,21 @@ jobs:
           name: renderer-comparison-verification
           path: output/renderer-comparison-verification/verification.json
           retention-days: 14
+      - name: Build the downloadable browser starter and test its static demo
+        run: |
+          python -m pip install -r tools/browser-requirements.txt
+          python -m playwright install --with-deps chrome
+          python tools/build_browser_starter.py
+          python tools/check_browser_starter.py --dist docs/assets/browser-demo --out output/browser-starter-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-starter-verification
+          path: |
+            output/browser-starter/*.json
+            output/browser-starter/*.log
+            output/browser-starter-ui/
+          retention-days: 14
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
       - name: Include search notification ownership file
