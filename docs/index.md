@@ -67,8 +67,12 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     Using React? [Edit the complete React project online](assets/react-starter/edit-online.html)
     in StackBlitz, with TypeScript and automatic PDF previews.
 
+    Using Vue? [Edit the complete Vue project online](assets/vue-starter/edit-online.html)
+    with reactive form fields, automatic previews, and a reusable composable.
+
     [Browser SDK and hosting guide →](guides/browser-pdf.md)
     [React and TypeScript starter →](guides/react-pdf.md)
+    [Vue and TypeScript starter →](guides/vue-pdf.md)
 
 === "Python"
 

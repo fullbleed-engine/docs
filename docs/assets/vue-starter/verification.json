@@ -1,0 +1,247 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-06T15:01:37.813196+00:00",
+  "build": {
+    "ok": true,
+    "checked_at": "2026-10-06T14:53:43.673555+00:00",
+    "zip_sha256": "0de1074aaed21af1843069e6f811335fe67e638f44b16f8aa27185b50c93bb2b",
+    "source_commit": "3e60340b2cb1a4275828ef717a886a93b93c9cc7",
+    "package_version": "0.3.1",
+    "package_integrity": "sha512-95CVTnYKduXD5KcEj9MLfzPsqofahZB2BsJ62Dfg0tOTlPFEHT8vx/T3f8xp4VQYkihOPQdMDiWQzYNHJkLpWA==",
+    "online_editor_path": "assets/vue-starter/edit-online.html",
+    "online_editor_sha256": "c8f71e55a1a45abdd05154230938657b5797b11461f4db5157c7e97ace3d6719",
+    "online_editor_files": 18,
+    "node": "v26.10.0",
+    "fresh_cache": true,
+    "empty_user_config": true,
+    "files": {
+      "favicon.svg": "3eed6dcf1013e48bc64886fed4cf815c609ed06b404742bdacdc44c1df8d3118",
+      "index.html": "5025ce924727bff322135b470f19a5f27dda518e76e14b37d07b0e8bcaa30e9a",
+      "assets/index-DNgK7jc7.css": "06fb5aeac33f1494ac75aca2aa69bf6f826e11061cfe508afcf428fd869c2ddd",
+      "assets/index-DrC1hUX5.js": "e95aa7881b71cf7871567541dec2d9843eaa96581a88ebcce37ff3500cdab0cc",
+      "fullbleed/build.json": "2850b17895053fb3f27aeaa8a5a273c58710eb981abf4b9e3cd792fd20008c4c",
+      "fullbleed/client.js": "60ea647aa3818c61a313f6a3c8ab8f269667fddc6ab85465d30c61408da0b765",
+      "fullbleed/engine.wasm": "4fcbecb954f6a5a64ea840795e74d719cc045d5ba35d5ffa730fcb46b3ce8b3c",
+      "fullbleed/LICENSE.txt": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+      "fullbleed/THIRD_PARTY_NOTICES.txt": "d41ecdf3735cc3eb030949311ba830a503f339ddb0108fb0b2e452186bab354f",
+      "fullbleed/worker.js": "32734ecd472fe4c329869ccf58078e8dbb0269621f5b37b8a72116daace65a99",
+      "fullbleed/fonts/BebasNeue-OFL.txt": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341",
+      "fullbleed/fonts/BebasNeue-Regular.ttf": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73",
+      "fullbleed/fonts/DMSerifDisplay-Italic.ttf": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45",
+      "fullbleed/fonts/DMSerifDisplay-OFL.txt": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1",
+      "fullbleed/fonts/DMSerifDisplay-Regular.ttf": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
+      "fullbleed/fonts/Inter-OFL.txt": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "fullbleed/fonts/Inter-Variable.ttf": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    "scope": "Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files."
+  },
+  "ui": {
+    "ok": true,
+    "checked_at": "2026-10-06T14:55:59.656930+00:00",
+    "browser_engine": "chrome",
+    "browser": "154.0.8037.98",
+    "vue_mode": "production",
+    "playwright": "1.63.0",
+    "pypdf": "6.19.0",
+    "checks": [
+      "invoice: real PDF has expected pages and text",
+      "invoice matches the installed Node package",
+      "invoice: displayed previews match the installed Node package",
+      "initial automatic render starts one worker",
+      "settled render terminates its worker",
+      "runtime resolves beneath a nested deployment path",
+      "bundled interface font loads",
+      "1440px: no horizontal overflow",
+      "390px: no horizontal overflow",
+      "320px: no horizontal overflow",
+      "on-demand mode does not schedule a render after edits",
+      "manual: real PDF has expected pages and text",
+      "automatic rendering can be re-enabled",
+      "edits immediately hide the old preview and release its URLs",
+      "latest-input: real PDF has expected pages and text",
+      "superseded render cannot overwrite the latest input",
+      "a burst of edits is debounced into one new worker",
+      "replacement does not overlap active worker handles",
+      "only current PDF and preview URLs remain",
+      "edited-template: real PDF has expected pages and text",
+      "edited print CSS changes the page size",
+      "document scripts are not executed in the app",
+      "report: real PDF has expected pages and text",
+      "report matches the installed Node package",
+      "all report pages have previews",
+      "report: displayed previews match the installed Node package",
+      "each design preserves its template edits",
+      "invalid input cannot leave an old download",
+      "cancelling a queued preview prevents its worker from starting",
+      "runtime load failure clears previews and releases the worker",
+      "outage-recovery: real PDF has expected pages and text",
+      "cancel removes the worker and stale download",
+      "recovered: real PDF has expected pages and text",
+      "unmount releases ready PDF and preview URLs",
+      "unmount aborts a pending worker",
+      "remounted: real PDF has expected pages and text",
+      "remount starts from clean state and recovers",
+      "all created URLs and workers are released at final unmount",
+      "no uploads or cross-origin document requests",
+      "no uncaught page errors"
+    ],
+    "documents": [
+      {
+        "name": "invoice",
+        "pages": 1,
+        "filename": "invoice-NS-1042.pdf",
+        "sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408"
+      },
+      {
+        "name": "manual",
+        "pages": 1,
+        "filename": "invoice-NS-1042.pdf",
+        "sha256": "1df9b1852ad96e07d00520d190140044f528b14047df6e30432e91a512be8883"
+      },
+      {
+        "name": "latest-input",
+        "pages": 1,
+        "filename": "invoice-VUE-2042.pdf",
+        "sha256": "f63a42a366b08f4f054cca5594dbcd22510455ddfe2e9129623facfb8371e8ee"
+      },
+      {
+        "name": "edited-template",
+        "pages": 1,
+        "filename": "invoice-VUE-2042.pdf",
+        "sha256": "53ff4a2e00b7c36b0a8c70c59cbe1f89387cc6b5cbafed439b8b9a993daaeefa"
+      },
+      {
+        "name": "report",
+        "pages": 3,
+        "filename": "community-report.pdf",
+        "sha256": "139df89824e6a73c13ff62f1237bb8eb9f71e790dcbd051b1bb713ed2bc47802"
+      },
+      {
+        "name": "outage-recovery",
+        "pages": 1,
+        "filename": "invoice-VUE-2042.pdf",
+        "sha256": "f63a42a366b08f4f054cca5594dbcd22510455ddfe2e9129623facfb8371e8ee"
+      },
+      {
+        "name": "recovered",
+        "pages": 1,
+        "filename": "invoice-VUE-2042.pdf",
+        "sha256": "f63a42a366b08f4f054cca5594dbcd22510455ddfe2e9129623facfb8371e8ee"
+      },
+      {
+        "name": "remounted",
+        "pages": 1,
+        "filename": "invoice-NS-1042.pdf",
+        "sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408"
+      }
+    ],
+    "lifecycle": {
+      "started": 15,
+      "terminated": 15,
+      "peak": 1,
+      "created": 24,
+      "revoked": 24,
+      "live": 0,
+      "urls": 0
+    },
+    "page_errors": [],
+    "csp": "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self'; img-src 'self' blob:; font-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'",
+    "scope": "Synthetic inputs; real installed package; worker counts observe API handles, not native thread-exit events."
+  },
+  "online_form": {
+    "ok": true,
+    "checked_at": "2026-10-06T14:55:41.580530+00:00",
+    "browser": "154.0.8037.98",
+    "starter": "vue",
+    "package": "0.3.1",
+    "engine": "2.5.10",
+    "source_commit": "3e60340b2cb1a4275828ef717a886a93b93c9cc7",
+    "source_files": 18,
+    "zip_sha256": "0de1074aaed21af1843069e6f811335fe67e638f44b16f8aa27185b50c93bb2b",
+    "launcher_sha256": "c8f71e55a1a45abdd05154230938657b5797b11461f4db5157c7e97ace3d6719",
+    "viewport_widths": [
+      1440,
+      390,
+      320
+    ],
+    "javascript_disabled": true,
+    "keyboard_submission": true,
+    "submitted_source_matches_zip": true,
+    "scope": "Actual browser form serialization intercepted locally; all source fields, ZIP download, keyboard submission and responsive layout checked. Does not test StackBlitz availability or project startup."
+  },
+  "online_editor": {
+    "ok": true,
+    "checked_at": "2026-10-06T15:00:25.227023+00:00",
+    "browser": "154.0.8037.98",
+    "checks": [
+      "anonymous project upload starts the development app",
+      "online invoice download matches the installed-package baseline",
+      "form edits produce an updated downloadable PDF",
+      "online three-page report matches the installed-package baseline",
+      "editing the project HTML file in the online code editor updates the preview and downloaded PDF"
+    ],
+    "documents": [
+      {
+        "name": "invoice",
+        "filename": "invoice-NS-1042.pdf",
+        "pages": 1,
+        "sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408"
+      },
+      {
+        "name": "edited",
+        "filename": "invoice-NS-1042.pdf",
+        "pages": 1,
+        "sha256": "9b464ae9ca410fb4626901bdf3feafdba57a8f21e7f6d9653d59587c9deef539"
+      },
+      {
+        "name": "report",
+        "filename": "community-report.pdf",
+        "pages": 3,
+        "sha256": "139df89824e6a73c13ff62f1237bb8eb9f71e790dcbd051b1bb713ed2bc47802"
+      },
+      {
+        "name": "source-edit",
+        "filename": "invoice-NS-1042.pdf",
+        "pages": 1,
+        "sha256": "af6614e83d7744719e9915a4d2e446c047534847c56ddd3725a5b2d365b48bff"
+      }
+    ],
+    "baseline_directory": "docs/assets/vue-starter/baseline",
+    "scope": "Fresh anonymous browser, synthetic form edits, actual source-file editing and PDF downloads. No account, saved fork, upstream write or paid operation."
+  },
+  "guide": {
+    "ok": true,
+    "checked_at": "2026-10-06T14:59:03.846232+00:00",
+    "browser": "154.0.8037.98",
+    "checks": [
+      "homepage points to the verified Vue online project",
+      "homepage Vue link fits a 1440px viewport",
+      "homepage Vue link fits a 390px viewport",
+      "homepage Vue link fits a 320px viewport",
+      "homepage navigation opens the Vue guide",
+      "Vue guide has a canonical URL and descriptive metadata",
+      "Vue guide links to the exact online project and explains startup",
+      "Vue guide and buttons fit a 1440px viewport",
+      "Vue guide and buttons fit a 390px viewport",
+      "Vue guide and buttons fit a 320px viewport",
+      "Vue guide downloads the exact verified source ZIP",
+      "Vue guide opens its demo and downloads a baseline-identical PDF",
+      "browser launcher remains byte-identical",
+      "react launcher remains byte-identical"
+    ],
+    "downloads": [
+      {
+        "file": "vue-project.zip",
+        "sha256": "0de1074aaed21af1843069e6f811335fe67e638f44b16f8aa27185b50c93bb2b"
+      },
+      {
+        "file": "vue-invoice.pdf",
+        "sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408"
+      }
+    ],
+    "page_errors": [],
+    "scope": "Navigation, responsive layouts, metadata, exact project ZIP and actual demo PDF download. Online editing is checked separately."
+  },
+  "retained_initial_failure": "The first online attempt failed before project startup because the WebContainer runtime request was reset. A fresh anonymous attempt passed all five checks.",
+  "scope": "Fresh npm-cache install of exact source ZIP, static demo, launch form serialization, anonymous online startup and actual source-file edit/download. Synthetic data only. Existing JavaScript and React launcher bytes remain unchanged."
+}

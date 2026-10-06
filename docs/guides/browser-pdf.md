@@ -137,6 +137,8 @@ the [Next.js download starter](nextjs-pdf.md). For a quick experiment without
 installing a project, use the [HTML/CSS playground](../playground.md).
 
 For a React client application, use the [React and TypeScript starter](react-pdf.md).
+For a Vue client application, use the [Vue and TypeScript starter](vue-pdf.md)
+with a reusable composable, reactive previews, and component cleanup.
 It connects form changes to automatic PDF previews and includes a hook that
 cancels stale work and releases output URLs when inputs change or a component
 unmounts.

@@ -6,6 +6,7 @@ import re
 STARTERS = {
     'browser': {'name': 'JavaScript', 'stack': 'JavaScript + Vite', 'entry': 'src%2Fmain.js', 'run': 'run-the-starter'},
     'react': {'name': 'React', 'stack': 'React + TypeScript', 'entry': 'src%2FApp.tsx', 'run': 'run-the-project'},
+    'vue': {'name': 'Vue', 'stack': 'Vue + TypeScript', 'entry': 'src%2FDocumentEditor.vue', 'run': 'run-the-project'},
 }
 
 
