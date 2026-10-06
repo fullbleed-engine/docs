@@ -1,6 +1,6 @@
 ---
 title: Generate PDFs in React with live previews
-description: Build a React and TypeScript PDF editor with HTML/CSS templates, automatic previews, cancellation, and downloads. Try the live Fullbleed demo or download its complete source.
+description: Build a React and TypeScript PDF editor with HTML/CSS templates, automatic previews, cancellation, and downloads. Edit the complete project online or download its source.
 ---
 
 # Generate PDFs in React
@@ -10,13 +10,29 @@ or an HTML/CSS template and the actual PDF updates after a short pause. The
 engine renders in a browser worker; this starter needs no PDF server or account.
 
 [Open the React demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
+[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/9c5c680e018b03338f0a9e5440705ea72763fe8e/examples/react?startScript=dev){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
 The project includes a designed invoice, a three-page report, a React form and
 template editor, and a reusable TypeScript hook. Its sample names, records, and
 amounts are fictional. The code is MIT licensed, including commercial use.
 
-## Run the project
+## Edit the project online
+
+**Edit source online** opens the complete project in StackBlitz, without a local
+Node.js installation. Wait for **Ready** in the preview, change the customer,
+and choose **Download PDF** after the preview updates.
+
+Open `src/App.tsx` in the **Files** panel to change the React form, or edit
+`src/invoice.html` and `src/invoice.css` to change the document. After editing a
+template file, expand **Edit the HTML & CSS** in the preview and choose
+**Reset this template** to load it. React preserves the preview's current edits
+during development updates. The online link opens a fixed source revision;
+the ZIP below provides the same starter for local work.
+
+<span id="run-the-project"></span>
+
+## Run the project locally
 
 Extract the ZIP. With Node.js 22.12 or newer, open a terminal in
 `fullbleed-react-starter` and run:
