@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="180" viewBox="0 0 960 180">
+  <rect width="960" height="180" rx="8" fill="#f4f1e7"/>
+  <rect x="24" y="26" width="248" height="128" rx="5" fill="#1b3e37"/>
+  <rect x="356" y="26" width="248" height="128" rx="5" fill="#e5e9dd"/>
+  <rect x="688" y="26" width="248" height="128" rx="5" fill="#c45331"/>
+  <path d="M290 90h45m-12-12 12 12-12 12M622 90h45m-12-12 12 12-12 12" fill="none" stroke="#1b3e37" stroke-width="3"/>
+  <g font-family="Inter" font-size="27" font-weight="650">
+    <text x="48" y="83" fill="#fff">Markdown</text>
+    <text x="380" y="83" fill="#1b3e37">HTML + CSS</text>
+    <text x="712" y="83" fill="#fff">PDF</text>
+  </g>
+  <g font-family="Inter" font-size="18">
+    <text x="48" y="120" fill="#c5d3be">Write the content</text>
+    <text x="380" y="120" fill="#1b3e37">Define the print design</text>
+    <text x="712" y="120" fill="#fff">Review and share</text>
+  </g>
+</svg>

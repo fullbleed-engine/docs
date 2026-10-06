@@ -11,7 +11,8 @@ data into finished pages.
 
 Every preview comes from the actual downloadable PDF. The first four examples
 were generated with the public **Fullbleed 2.4.0** wheel; the pandas report below
-uses **2.5.2**, and the bilingual invoice uses **2.5.8**. All sample data and organizations are fictional.
+uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
+**2.5.9**. All sample data and organizations are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
@@ -191,6 +192,29 @@ pinned font preparation, and a missing-character gate. Rendered with Fullbleed
 [Open the PDF](assets/chinese-invoice/invoice.pdf) ·
 [Build this invoice](guides/chinese-pdf.md) ·
 [Download the project](assets/chinese-invoice/project.zip)
+
+</div>
+</div>
+
+## Northstar Engineering Markdown brief
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![A two-page engineering brief with large green typography, a publishing diagram, warm code panels, and a styled table.](assets/markdown-starter/page-1.png)](assets/markdown-starter/document.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Editable print CSS · Local images and fonts**
+
+Keep the source in Markdown and give the PDF its own page design. This fictional
+brief combines headings, emphasis, strikethrough, a table, lists, code, and a
+local SVG. The project includes its stylesheet, monospace font and license,
+glyph checks, and finalized-PDF previews. Rendered with Fullbleed **2.5.9**.
+
+[Open the PDF](assets/markdown-starter/document.pdf) ·
+[Build this brief](guides/markdown-pdf.md) ·
+[Download the project](assets/markdown-starter/project.zip) ·
+[Preview page 2](assets/markdown-starter/page-2.png)
 
 </div>
 </div>
