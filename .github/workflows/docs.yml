@@ -219,6 +219,19 @@ jobs:
             output/browser-starter/*.log
             output/browser-starter-ui/
           retention-days: 14
+      - name: Build the exact React starter ZIP and check its live-preview workflow
+        run: |
+          python tools/build_react_starter.py
+          python tools/check_react_starter.py --dist docs/assets/react-demo --out output/react-starter-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: react-starter-verification
+          path: |
+            output/react-starter/*.json
+            output/react-starter/*.log
+            output/react-starter-ui/
+          retention-days: 14
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
       - name: Include search notification ownership file
