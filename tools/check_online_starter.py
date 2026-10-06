@@ -1,4 +1,4 @@
-"""Check the generated React launcher's source payload without calling StackBlitz."""
+"""Check a generated launcher's source payload without calling StackBlitz."""
 import argparse
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -13,15 +13,19 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--out', type=Path, default=ROOT / 'output/react-online')
+parser.add_argument('starter', choices=['browser', 'react'])
+parser.add_argument('--out', type=Path)
 args = parser.parse_args()
-out = args.out.resolve()
+flavor = args.starter
+out = (args.out or ROOT / f'output/{flavor}-online').resolve()
 out.mkdir(parents=True, exist_ok=False)
-assets = ROOT / 'docs/assets/react-starter'
+assets = ROOT / f'docs/assets/{flavor}-starter'
 manifest = json.loads((assets / 'source.json').read_text(encoding='utf-8'))
+prefix = f'fullbleed-{flavor}-starter/'
 with zipfile.ZipFile(assets / 'project.zip') as archive:
-    expected = {f'project[files][{name.removeprefix("fullbleed-react-starter/")}]': archive.read(name).decode('utf-8') for name in archive.namelist()}
-expected.update({'project[title]': 'Fullbleed React PDF starter',
+    expected = {f'project[files][{name.removeprefix(prefix)}]': archive.read(name).decode('utf-8') for name in archive.namelist()}
+title = 'Fullbleed JavaScript PDF starter' if flavor == 'browser' else 'Fullbleed React PDF starter'
+expected.update({'project[title]': title,
     'project[description]': 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.',
     'project[template]': 'node', 'project[dependencies]': '{}'})
 
@@ -32,7 +36,8 @@ class Handler(SimpleHTTPRequestHandler):
 server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
 thread = threading.Thread(target=server.serve_forever, daemon=True)
 thread.start()
-action = 'https://stackblitz.com/run?file=src%2FApp.tsx&startScript=dev'
+entry = 'src%2Fmain.js' if flavor == 'browser' else 'src%2FApp.tsx'
+action = f'https://stackblitz.com/run?file={entry}&startScript=dev'
 submitted = []
 try:
     with sync_playwright() as pw:
@@ -51,7 +56,7 @@ try:
                 route.fulfill(status=200, content_type='text/plain', body='Payload checked locally; no project was created.')
             context.route('https://stackblitz.com/**', capture)
             page = context.new_page()
-            page.goto(f'http://127.0.0.1:{server.server_port}/react-starter/edit-online.html', wait_until='networkidle')
+            page.goto(f'http://127.0.0.1:{server.server_port}/{flavor}-starter/edit-online.html', wait_until='networkidle')
             expect(page.locator('footer')).to_contain_text(manifest['package_version'])
             expect(page.locator('footer')).to_contain_text(manifest['engine_version'])
             button = page.get_by_role('button', name='Open in StackBlitz', exact=True)
@@ -70,6 +75,7 @@ try:
                 page.keyboard.press('Enter')
             assert len(submitted) == 1
             record = {'ok': True, 'checked_at': datetime.now(timezone.utc).isoformat(), 'browser': browser.version,
+                'starter': flavor,
                 'package': manifest['package_version'], 'engine': manifest['engine_version'], 'source_commit': manifest['source_commit'],
                 'source_files': len(manifest['files']), 'zip_sha256': sha256(download.read_bytes()).hexdigest(),
                 'launcher_sha256': sha256((assets / 'edit-online.html').read_bytes()).hexdigest(),

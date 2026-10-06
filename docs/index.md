@@ -46,7 +46,11 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     and fonts from its static host and renders the document in your browser.
 
     [Open the live editor](assets/browser-demo/index.html){ .md-button .md-button--primary }
+    [Edit source online](assets/browser-starter/edit-online.html){ .md-button }
     [Download the project](assets/browser-starter/project.zip){ .md-button }
+
+    Choose **Edit source online**, then **Open in StackBlitz**, to edit the complete
+    JavaScript project in your browser. It includes the same files as the ZIP.
 
     Extract the ZIP and open a terminal in `fullbleed-browser-starter`. Use Node.js
     22.12 or newer for the development tools:
