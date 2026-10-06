@@ -77,10 +77,12 @@ def main():
                 "previews": [{"path": p.relative_to(out).as_posix(), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in images]}
 
     snippets = []
+    capability_snippets = []
     for page, output, required, embedded_font in FIXTURES:
         source = (ROOT / "docs" / page).read_text(encoding="utf-8")
         blocks = re.findall(r"```python\n(.*?)```", source, flags=re.S)
-        assert len(blocks) == 1, (page, len(blocks))
+        expected_blocks = 2 if page == "engine/assets.md" else 1
+        assert len(blocks) == expected_blocks, (page, len(blocks))
         folder = workspace / page.removesuffix(".md").replace("/", "_")
         folder.mkdir()
         code = dedent(blocks[0])
@@ -93,6 +95,15 @@ def main():
         pdf = folder / output
         snippets.append({"page": page, "source_sha256": hashlib.sha256(code.encode()).hexdigest(),
                          **inspect(pdf, required, embedded_font)})
+        if page == "engine/assets.md":
+            discovery = dedent(blocks[1])
+            (folder / "capability.py").write_text(discovery, encoding="utf-8", newline="\n")
+            result = run("preview-capability", ["-I", "capability.py"], folder)
+            available = fullbleed.build_features().get("bundled_standard_font_previews", False)
+            assert result.stdout.strip() == str(available), result.stdout
+            capability_snippets.append({"page": page,
+                "source_sha256": hashlib.sha256(discovery.encode()).hexdigest(),
+                "feature": "bundled_standard_font_previews", "available": available})
         if page == "getting-started/first-pdf.md":
             assert len(list((folder / "output/preview").glob("*.png"))) == 1
         if page == "getting-started/quickstart.md":
@@ -111,6 +122,7 @@ def main():
 
     result = {"ok": True, "engine": installed, "reference_commit": reference["commit"],
               "platform": sys.platform, "python": sys.version, "snippets": snippets,
+              "capability_snippets": capability_snippets,
               "scaffold": scaffold, "commands": checks,
               "scope": "Introductory snippets and scaffold commands; text, page counts, fonts, and previews. No general visual or standards certification."}
     (out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
