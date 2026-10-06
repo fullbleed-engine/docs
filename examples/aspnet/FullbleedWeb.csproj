@@ -7,7 +7,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FullBleed.DotNet" Version="0.1.4" />
+    <PackageReference Include="FullBleed.DotNet" Version="0.1.5" />
     <Content Include="Assets/**/*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
