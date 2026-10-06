@@ -1,10 +1,10 @@
 {
-  "package_version": "0.1.5",
+  "package_version": "0.2.0",
   "engine_version": "2.5.8",
-  "source_commit": "847b943934ee050c735c712ffcaaff1d3d4c277e",
-  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.1.5/fullbleed-0.1.5.tgz",
-  "package_integrity": "sha512-3AvPt+n2j/0KMoUk1rq/cu4dzcsnyUNKJNOwpUJkW48vkndFcroFtXgMx4CXJX46O2/gDSli67tuhUUiVsu5OQ==",
-  "package_sha256": "817e9ba5a4741b6626b62c5e829fdd921c0b69d1e165fb4905483d56887237dc",
+  "source_commit": "969f23c479cd02f366cc1d2e099b6bda19dfaac9",
+  "package_url": "https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.2.0/fullbleed-0.2.0.tgz",
+  "package_integrity": "sha512-7khp008/oaJxMbroCQuv82ICOnJVQ1RUgYsOZWAqcW92qjKEAVzRK80UZDIJkNWcaMh1yDdTR8BJ5PAFc3QbnA==",
+  "package_sha256": "90bd0bbf4ae542b6be1deb3103ba492b9d8675e47b71f895060b40419d705f4a",
   "rendered": {
     "invoice.pdf": "9d93174ed961bb2ef577f5f38d2836763b414edc53365f1a9c61e2b50d40f054",
     "invoice.png": "b76f6db748fb47b928c93c12fe788de94a0f5d8da4bb350f644a58705c163cf7"
@@ -27,7 +27,7 @@
     },
     "README.md": {
       "bytes": 902,
-      "sha256": "bc0a1e02e586dceb49ce48c5b08cbae46f840474a865b177ba0cc926ada55088"
+      "sha256": "98501bbbfe6844436d01f3d53cf7ea33c58910333734a981ff4ec599cc26f8ba"
     },
     "invoice.css": {
       "bytes": 3546,
@@ -39,16 +39,16 @@
     },
     "package-lock.json": {
       "bytes": 1075,
-      "sha256": "2432927cb75a10910107f41ff9e372dde8cbcf170588b07bd4948a066c71a24c"
+      "sha256": "9041f8e21fcde488123d7178b0d0f00b98b6e856141e2c0465ff914daf59d549"
     },
     "package.json": {
       "bytes": 241,
-      "sha256": "07cdcec79b81d4f5dc9df229c0a97523ef1af7c32576adc6cd16c7673e1fce64"
+      "sha256": "6f638329f16f5dd22b767ce3784ce01ef219fcf7bb371261d0a28e0a2b3b5184"
     },
     "render.mjs": {
       "bytes": 1064,
       "sha256": "dd63e83658800df2672c8c5ca1b176dbe49fc0d5c49b8c2b79af91515a68e776"
     }
   },
-  "zip_sha256": "8b49592ad3a49d52ea27fc8eff14e013f9b63da201ca118e2138849f1fc5bcbb"
+  "zip_sha256": "3cdf9f3fb454dd269f4b2430eec7bd7ff468ce65d24e30f949c48ff4e39022a3"
 }
