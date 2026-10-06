@@ -18,3 +18,8 @@ docs/assets/font-subsets/** -text
 docs/assets/commerce/*.pdf binary
 # Preserve the exact downloadable Chinese example and its evidence manifests.
 docs/assets/chinese-invoice/** -text
+# Markdown source, font licenses, and downloads are checked by byte hashes.
+examples/markdown/** -text whitespace=cr-at-eol
+examples/markdown/fonts/OFL.txt whitespace=cr-at-eol,-blank-at-eol
+docs/assets/markdown-starter/** -text whitespace=cr-at-eol
+docs/assets/markdown-starter/*.pdf binary
