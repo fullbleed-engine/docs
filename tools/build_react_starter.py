@@ -2,9 +2,11 @@
 import argparse
 from datetime import datetime, timezone
 import hashlib
+from html import escape
 import json
 import os
 from pathlib import Path, PurePosixPath
+import re
 import shutil
 import subprocess
 import tempfile
@@ -25,12 +27,19 @@ if npm is None:
 
 assets = ROOT / 'docs/assets/react-starter'
 manifest = json.loads((assets / 'source.json').read_text(encoding='utf-8'))
+for page, expected in [('docs/index.md', 'assets/react-starter/edit-online.html'),
+                       ('docs/guides/react-pdf.md', '../assets/react-starter/edit-online.html')]:
+    source = (ROOT / page).read_text(encoding='utf-8')
+    links = re.findall(r'\]\(([^)]+)\)', source)
+    assert links.count(expected) == 1 and not any('stackblitz.com/github/' in link for link in links), (
+        f'{page}: online editor must use the launcher built from the downloadable React starter')
 data = (assets / 'project.zip').read_bytes()
 digest = lambda value: hashlib.sha256(value).hexdigest()
 assert digest(data) == manifest['zip_sha256'] and len(data) == manifest['zip_bytes']
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=True)
 workspace = Path(tempfile.mkdtemp(prefix='project with spaces ', dir=out))
+project_files = {}
 with zipfile.ZipFile(assets / 'project.zip') as archive:
     names = archive.namelist()
     assert len(names) == len(set(names)) == len(manifest['files'])
@@ -40,6 +49,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
         assert '\\' not in entry.filename and ':' not in entry.filename
         assert path.parts[0] == 'fullbleed-react-starter'
         assert digest(archive.read(entry)) == manifest['files'][entry.filename]
+        project_files['/'.join(path.parts[1:])] = archive.read(entry).decode('utf-8')
     archive.extractall(workspace)
 project = workspace / 'fullbleed-react-starter'
 package = json.loads((project / 'package.json').read_text())
@@ -68,11 +78,26 @@ site = ROOT / 'docs/assets/react-demo'
 shutil.copytree(project / 'dist', site, dirs_exist_ok=True)
 files = {p.relative_to(project / 'dist').as_posix(): digest(p.read_bytes()) for p in (project / 'dist').rglob('*') if p.is_file()}
 assert all(digest((site / name).read_bytes()) == sha for name, sha in files.items())
+fields = {'project[title]': 'Fullbleed React PDF starter',
+    'project[description]': 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.',
+    'project[template]': 'node', 'project[dependencies]': '{}'}
+fields.update({f'project[files][{name}]': value for name, value in sorted(project_files.items())})
+inputs = '\n'.join(f'<input type="hidden" name="{escape(name, quote=True)}" value="{escape(value, quote=True)}">'
+    for name, value in fields.items())
+launcher = (ROOT / 'tools/react_online.html').read_text(encoding='utf-8')
+for token, value in {'__PACKAGE_VERSION__': escape(manifest['package_version']),
+    '__ENGINE_VERSION__': escape(manifest['engine_version']), '__PROJECT_FIELDS__': inputs}.items():
+    assert token in launcher
+    launcher = launcher.replace(token, value)
+launcher_path = assets / 'edit-online.html'
+launcher_path.write_text(launcher, encoding='utf-8', newline='\n')
 record = dict(ok=True, checked_at=datetime.now(timezone.utc).isoformat(),
     zip_sha256=manifest['zip_sha256'], source_commit=manifest['source_commit'],
     package_version=manifest['package_version'], package_integrity=manifest['package_integrity'],
+    online_editor_path='assets/react-starter/edit-online.html',
+    online_editor_sha256=digest(launcher_path.read_bytes()), online_editor_files=len(project_files),
     node=subprocess.check_output([str(node), '--version'], text=True).strip(),
     fresh_cache=True, empty_user_config=True, files=files,
-    scope='Exact downloadable project installed from its registry lockfile, production build, and copied runtime hashes.')
+    scope='Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files.')
 (out / 'verification.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(dict(ok=True, files=len(files), package=manifest['package_version'], zip_sha256=manifest['zip_sha256'])))

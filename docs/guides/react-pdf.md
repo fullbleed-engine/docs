@@ -10,7 +10,7 @@ or an HTML/CSS template and the actual PDF updates after a short pause. The
 engine renders in a browser worker; this starter needs no PDF server or account.
 
 [Open the React demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
-[Edit source online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/7da8faa0dd7e5653c796b2b113ca580bcc25ca3b/examples/react?startScript=dev){ .md-button }
+[Edit source online](../assets/react-starter/edit-online.html){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
 The project includes a designed invoice, a three-page report, a React form and
@@ -19,16 +19,17 @@ amounts are fictional. The code is MIT licensed, including commercial use.
 
 ## Edit the project online
 
-**Edit source online** opens the complete project in StackBlitz, without a local
-Node.js installation. Wait for **Ready** in the preview, change the customer,
-and choose **Download PDF** after the preview updates.
+Choose **Edit source online**, then **Open in StackBlitz** to load the complete
+project without a local Node.js installation. Wait for **Ready** in the preview,
+change the customer, and choose **Download PDF** after the preview updates.
 
 Open `src/App.tsx` in the **Files** panel to change the React form, or edit
 `src/invoice.html` and `src/invoice.css` to change the document. After editing a
 template file, expand **Edit the HTML & CSS** in the preview and choose
 **Reset this template** to load it. React preserves the preview's current edits
-during development updates. The online link opens a fixed source revision;
-the ZIP below provides the same starter for local work.
+during development updates. The online launcher uses the same source files and
+lockfile as the ZIP below. It opens a temporary project in StackBlitz;
+save or export your changes there if you want to keep them.
 
 <span id="run-the-project"></span>
 

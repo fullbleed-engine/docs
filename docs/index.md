@@ -60,7 +60,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     and report, editable templates, previews, cancellation, and PDF downloads.
     Build it with `npm run build` and serve the result as a static site.
 
-    Using React? [Edit the complete React project online](https://stackblitz.com/github/fullbleed-engine/fullbleed-node/tree/bbb140f115a69ad77fc54bb9b5be2e908b7b6669/examples/react?startScript=dev)
+    Using React? [Edit the complete React project online](assets/react-starter/edit-online.html)
     in StackBlitz, with TypeScript and automatic PDF previews.
 
     [Browser SDK and hosting guide →](guides/browser-pdf.md)
