@@ -266,6 +266,21 @@ jobs:
             output/react-starter-ui/
             output/react-online/
           retention-days: 14
+      - name: Build the exact Vue starter ZIP and check reactive previews
+        run: |
+          python tools/build_vue_starter.py
+          python tools/check_online_starter.py vue
+          python tools/check_vue_starter.py --dist docs/assets/vue-demo --out output/vue-starter-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vue-starter-verification
+          path: |
+            output/vue-starter/*.json
+            output/vue-starter/*.log
+            output/vue-starter-ui/
+            output/vue-online/
+          retention-days: 14
       - run: python -m mkdocs build --strict
       - run: python tools/check_site.py site
       - name: Include search notification ownership file

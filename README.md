@@ -9,6 +9,7 @@ python tools/build_playground.py
 node tools/verify_playground.mjs
 python tools/build_browser_starter.py
 python tools/build_react_starter.py
+python tools/build_vue_starter.py
 python -m mkdocs build --strict
 python tools/check_site.py site
 python -m mkdocs serve
@@ -21,14 +22,14 @@ Building all browser demos needs Rust and Node 22.12 or newer. CI uses Rust
 modify or vendor the engine source. See [playground/README.md](playground/README.md)
 for limits, privacy behavior, and native/WASI verification.
 
-The browser and React builds also create `edit-online.html` beside each
+The browser, React, and Vue builds also create `edit-online.html` beside each
 verified project ZIP. These plain HTML forms open the exact source files in
 StackBlitz through the [POST API](https://developer.stackblitz.com/platform/api/post-api).
 Keep the homepage and respective guides linked to these generated launchers so
-package updates reach both the download and the online editor. Both use
-`tools/online_starter.html`; `tools/check_online_starter.py browser` and
-`tools/check_online_starter.py react` verify the submitted files locally without
-creating third-party projects.
+package updates reach both the download and the online editor. All use
+`tools/online_starter.html`; run `tools/check_online_starter.py` with `browser`,
+`react`, or `vue` to verify the submitted files locally without creating
+third-party projects.
 
 ## Updating a release
 

@@ -10,10 +10,11 @@ from urllib.parse import parse_qs
 import zipfile
 
 from playwright.sync_api import sync_playwright, expect
+from online_starter import STARTERS
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('starter', choices=['browser', 'react'])
+parser.add_argument('starter', choices=list(STARTERS))
 parser.add_argument('--out', type=Path)
 args = parser.parse_args()
 flavor = args.starter
@@ -24,7 +25,7 @@ manifest = json.loads((assets / 'source.json').read_text(encoding='utf-8'))
 prefix = f'fullbleed-{flavor}-starter/'
 with zipfile.ZipFile(assets / 'project.zip') as archive:
     expected = {f'project[files][{name.removeprefix(prefix)}]': archive.read(name).decode('utf-8') for name in archive.namelist()}
-title = 'Fullbleed JavaScript PDF starter' if flavor == 'browser' else 'Fullbleed React PDF starter'
+title = f'Fullbleed {STARTERS[flavor]["name"]} PDF starter'
 expected.update({'project[title]': title,
     'project[description]': 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.',
     'project[template]': 'node', 'project[dependencies]': '{}'})
@@ -36,7 +37,7 @@ class Handler(SimpleHTTPRequestHandler):
 server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
 thread = threading.Thread(target=server.serve_forever, daemon=True)
 thread.start()
-entry = 'src%2Fmain.js' if flavor == 'browser' else 'src%2FApp.tsx'
+entry = STARTERS[flavor]['entry']
 action = f'https://stackblitz.com/run?file={entry}&startScript=dev'
 submitted = []
 try:
