@@ -13,7 +13,7 @@ browser; it needs no Fullbleed account, quota, watermark or server renderer.
 sales, update subscriptions and marketplace listings are not live.
 
 [Try a sample store](https://playground.wordpress.net/?storage=temp&blueprint-url=https://raw.githubusercontent.com/fullbleed-engine/fullbleed-commerce/main/playground/blueprint.json){ .md-button .md-button--primary }
-[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.2/fullbleed-commerce-0.1.2.zip){ .md-button }
+[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.3/fullbleed-commerce-0.1.3.zip){ .md-button }
 
 ## Make your first document
 
@@ -57,16 +57,20 @@ for supported fields and print CSS.
 
 ## Upgrade from an earlier preview
 
-Back up your staging store and export your templates. Upload the 0.1.2 free
+Back up your staging store and export your templates. Upload the 0.1.3 free
 ZIP through **Plugins → Add New → Upload Plugin** and choose **Replace current
-with uploaded**. If you use Pro, replace its ZIP next and keep both packages on
-the same version. Saved templates, revisions and automation settings are retained;
+with uploaded**. This release pairs with the unchanged Pro 0.1.2 add-on; keep that
+version if it is already installed. Saved templates, revisions and automation settings are retained;
 there is no automatic updater in this preview.
 
 An enabled workflow stays enabled. Check the renderer connection and a fictional
 order after updating. Administrator failure alerts are a separate opt-in.
-The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.2)
-covers replacement of the actual 0.1.1 packages in HPOS and legacy storage.
+The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.3)
+covers replacement of the actual 0.1.2 packages in HPOS and legacy storage.
+
+Version 0.1.3 includes engine 2.5.8, with compact embedded fonts and corrected
+font-family selection. Saved HTML/CSS is preserved, but PDF bytes can change with
+the engine update. Check your own designs and long orders after upgrading.
 
 Version 0.1.2 keeps the totals and closing note together on long summaries in
 the built-in designs and new starter templates. Existing saved templates retain
@@ -78,7 +82,7 @@ their own CSS. If you previously saved a built-in summary, add these rules in
 .footer { break-before: avoid; }
 ```
 
-The included Fullbleed 2.5.6 renderer also keeps customized bold headings
+The included renderer also keeps customized bold headings
 extractable once when copied from the PDF.
 
 ## Automate the recurring work
@@ -87,6 +91,13 @@ The separate Pro add-on implements opt-in attachments to existing WooCommerce
 transactional emails and order-summary downloads in the customer's account.
 Both reuse the saved template and require an optional private server renderer,
 so they can run without a staff browser open.
+
+The current server renderer prepares each PDF in a separate Node process. A
+failed render child returns a document error while the server can accept the next
+request. Hosts must allow child processes and account for their startup and
+memory cost. The existing admission limits remain in place; the
+[verification record](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/process-rendering-verification.json)
+covers controlled failure and recovery, not a sustained production capacity claim.
 
 | Workflow | Implemented behavior |
 | --- | --- |
@@ -149,7 +160,7 @@ Order summaries are not fiscal invoices. The preview rejects refunded orders
 and unsupported glyphs, preserves the platform's amounts and does not recalculate
 tax. Validate your own order shapes and language coverage on staging.
 
-The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.2)
+The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.3)
 includes checksums, readable source and license notices. WordPress plugin code
 is GPL-compatible; Fullbleed core remains MIT. The
 [verification record](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/verification.md)

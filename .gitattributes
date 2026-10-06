@@ -14,3 +14,5 @@ docs/assets/pdf-regression/*.json text eol=lf
 docs/assets/renderer-comparison/** -text
 docs/assets/renderer-comparison/*.svg -whitespace
 docs/assets/font-subsets/** -text
+# Preserve downloadable Commerce PDF bytes and avoid treating streams as text.
+docs/assets/commerce/*.pdf binary
