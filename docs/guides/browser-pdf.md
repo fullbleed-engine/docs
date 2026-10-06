@@ -1,6 +1,6 @@
 ---
 title: Generate PDFs in the browser with JavaScript
-description: Add HTML/CSS PDF generation to a web application with Fullbleed. Download a complete Vite starter with editable templates, local previews, cancellation, and PDF downloads.
+description: Generate PDFs with browser JavaScript. Edit the complete Vite project online or download it, customize HTML/CSS templates, and preview and download PDFs locally.
 ---
 
 # Generate PDFs in the browser
@@ -10,6 +10,7 @@ The engine runs in a Web Worker and returns PDF bytes and optional PNG previews.
 Your application can download the result without a PDF server or service account.
 
 [Open the live starter](../assets/browser-demo/index.html){ .md-button .md-button--primary }
+[Edit source online](../assets/browser-starter/edit-online.html){ .md-button }
 [Download the project](../assets/browser-starter/project.zip){ .md-button }
 
 The starter includes a designed invoice and a three-page community report.
@@ -19,6 +20,20 @@ All sample names, organizations, and amounts are fictional.
 
 This guide uses **npm package 0.3.1**, wrapping **Fullbleed engine 2.5.10**.
 The browser and Node entries share the pinned engine and bundled fonts.
+
+## Edit the project online
+
+Choose **Edit source online**, then **Open in StackBlitz**. It opens the same
+source files and dependency lockfile as the ZIP, installs the dependencies, and
+starts the app. You can try it without an account or a local Node installation.
+
+Change `src/invoice.html` or `src/invoice.css` in the code editor. Vite reloads
+the app with the updated template; use **Generate PDF**, then **Download PDF**,
+to open the result. The app's **Edit the HTML & CSS** panel also lets you test
+template changes without changing the project files.
+
+Online edits are temporary unless you save or export your project in StackBlitz.
+For a project you control locally, download the ZIP and follow the steps below.
 
 ## Run the starter
 

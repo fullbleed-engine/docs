@@ -21,11 +21,14 @@ Building all browser demos needs Rust and Node 22.12 or newer. CI uses Rust
 modify or vendor the engine source. See [playground/README.md](playground/README.md)
 for limits, privacy behavior, and native/WASI verification.
 
-The React build also creates `docs/assets/react-starter/edit-online.html` from
-the verified project ZIP. Its plain HTML form opens those exact source files in
+The browser and React builds also create `edit-online.html` beside each
+verified project ZIP. These plain HTML forms open the exact source files in
 StackBlitz through the [POST API](https://developer.stackblitz.com/platform/api/post-api).
-Keep the homepage and React guide linked to this generated launcher so package
-updates reach both the download and the online editor.
+Keep the homepage and respective guides linked to these generated launchers so
+package updates reach both the download and the online editor. Both use
+`tools/online_starter.html`; `tools/check_online_starter.py browser` and
+`tools/check_online_starter.py react` verify the submitted files locally without
+creating third-party projects.
 
 ## Updating a release
 

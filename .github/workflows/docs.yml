@@ -239,6 +239,7 @@ jobs:
           python -m pip install -r tools/browser-requirements.txt
           python -m playwright install --with-deps chrome
           python tools/build_browser_starter.py
+          python tools/check_online_starter.py browser
           python tools/check_browser_starter.py --dist docs/assets/browser-demo --out output/browser-starter-ui --browser chrome
       - uses: actions/upload-artifact@v4
         if: always()
@@ -248,11 +249,12 @@ jobs:
             output/browser-starter/*.json
             output/browser-starter/*.log
             output/browser-starter-ui/
+            output/browser-online/
           retention-days: 14
       - name: Build the exact React starter ZIP and check its live-preview workflow
         run: |
           python tools/build_react_starter.py
-          python tools/check_react_online.py
+          python tools/check_online_starter.py react
           python tools/check_react_starter.py --dist docs/assets/react-demo --out output/react-starter-ui --browser chrome
       - uses: actions/upload-artifact@v4
         if: always()
