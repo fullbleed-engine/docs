@@ -1,0 +1,42 @@
+@page { size: A4; margin: 14mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Noto Sans Arabic", Inter; font-size: 10pt; line-height: 1.65; color: #213c37; }
+h1, h2, p { margin: 0; }
+.latin { font-family: Inter; direction: ltr; }
+.rtl { direction: rtl; text-align: right; }
+.masthead { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6mm; border-bottom: 1.2pt solid #213c37; }
+.brand-ar { font-size: 22pt; font-weight: 700; line-height: 1.25; }
+.brand-en { font-size: 8pt; letter-spacing: 2pt; }
+.edition { font-size: 8pt; color: #62726b; }
+.hero { margin-top: 7mm; padding: 8mm 9mm; background: #213c37; color: #fffaf0; border-right: 3mm solid #dd7853; display: flex; justify-content: space-between; align-items: center; }
+.hero h1 { font-size: 43pt; font-weight: 700; line-height: 1.3; }
+.hero .subtitle { font-size: 10pt; letter-spacing: 2pt; color: #c7d5bd; }
+.ref-label { font-size: 8pt; color: #c7d5bd; }
+.reference { font-size: 19pt; font-weight: 700; margin-top: 1mm; }
+.parties { display: flex; gap: 8mm; margin: 8mm 0; }
+.project { width: 53%; }
+.customer { width: 47%; padding-right: 5mm; border-right: 2pt solid #dd7853; }
+.eyebrow { font-size: 8pt; color: #62726b; margin-bottom: 2mm; }
+.customer h2 { font-size: 20pt; font-weight: 700; line-height: 1.45; }
+.secondary { color: #62726b; font-size: 9pt; }
+.project-name { font-size: 13pt; font-weight: 700; }
+.dates { border-top: 0.6pt solid #ccd3c7; border-bottom: 0.6pt solid #ccd3c7; padding: 3.5mm 0; margin-bottom: 6mm; display: flex; justify-content: space-between; }
+.dates p { font-size: 9pt; }
+.dates bdi { font-family: Inter; font-size: 10pt; }
+table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+th { background: #edf0e6; font-size: 9pt; font-weight: 400; padding: 3mm; text-align: right; border-bottom: 1pt solid #213c37; }
+th .latin { display: block; font-size: 7pt; color: #62726b; }
+td { padding: 4.5mm 3mm; border-bottom: 0.6pt solid #d6dcd0; vertical-align: middle; }
+.money { font-family: Inter; font-size: 10pt; text-align: right; direction: ltr; }
+.qty { text-align: center; }
+.service { font-size: 12pt; font-weight: 700; line-height: 1.65; }
+.service-en { font-size: 8pt; font-weight: 400; color: #62726b; }
+.summary { display: flex; gap: 9mm; margin-top: 7mm; align-items: flex-start; }
+.total { width: 46%; background: #213c37; color: #fffaf0; padding: 5mm 6mm; }
+.total-label { display: flex; justify-content: space-between; font-size: 9pt; color: #c7d5bd; }
+.total-value { font-size: 29pt; font-weight: 700; margin-top: 2mm; line-height: 1.3; }
+.currency { font-size: 10pt; margin-right: 2mm; }
+.note { width: 54%; padding-top: 1mm; }
+.thanks { font-size: 18pt; font-weight: 700; margin-bottom: 2mm; }
+.note p { font-size: 9pt; }
+.footer { margin-top: 10mm; padding-top: 3mm; border-top: 0.6pt solid #ccd3c7; display: flex; justify-content: space-between; font-size: 7pt; color: #62726b; }

@@ -83,6 +83,7 @@ nav:
     - Invoices from data: guides/invoices.md
     - Markdown to PDF: guides/markdown-pdf.md
     - Chinese text and fonts: guides/chinese-pdf.md
+    - Arabic and English PDFs: guides/arabic-pdf.md
     - pandas DataFrame to PDF: guides/pandas-to-pdf.md
     - Rebuild as you edit: guides/render-watch.md
     - Check PDFs in CI: guides/pdf-regression-ci.md

@@ -34,3 +34,8 @@ examples/markdown/** -text whitespace=cr-at-eol
 examples/markdown/fonts/OFL.txt whitespace=cr-at-eol,-blank-at-eol
 docs/assets/markdown-starter/** -text whitespace=cr-at-eol
 docs/assets/markdown-starter/*.pdf binary
+examples/arabic-invoice/** text eol=lf
+examples/arabic-invoice/fonts/*.ttf binary
+examples/arabic-invoice/fonts/OFL.txt -text -whitespace
+docs/assets/arabic-invoice/** -text
+docs/assets/arabic-invoice/*.pdf binary
