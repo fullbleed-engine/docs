@@ -85,6 +85,7 @@ nav:
     - Chinese text and fonts: guides/chinese-pdf.md
     - Arabic and English PDFs: guides/arabic-pdf.md
     - pandas DataFrame to PDF: guides/pandas-to-pdf.md
+    - Matplotlib chart reports: guides/matplotlib-pdf.md
     - Rebuild as you edit: guides/render-watch.md
     - Check PDFs in CI: guides/pdf-regression-ci.md
     - FastAPI, Flask, and Django: guides/web-frameworks.md

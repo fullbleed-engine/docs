@@ -1,0 +1,39 @@
+{
+  "schema": "fullbleed.matplotlib-starter.v1",
+  "fullbleed": "2.5.14",
+  "matplotlib": "3.11.2",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3021,
+      "sha256": "4e7bba4b699316da107842a865a00e5e99d3b15e22db0c2190548af2ba339d1f"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 207,
+      "sha256": "23959e4531e1f1d883b8eb1d9f856a6e515af37e03392a596a653645225ccb30"
+    },
+    {
+      "path": "report.py",
+      "bytes": 10631,
+      "sha256": "6eea2aadcbed835daab999a92d3bc71b61a8650edd271abfc125a06317e5096b"
+    },
+    {
+      "path": "report.css",
+      "bytes": 2307,
+      "sha256": "4eb069e474d4bc063b66c4f0d02b1c741e6a0f2528603c61831c8cebac227960"
+    },
+    {
+      "path": "data.json",
+      "bytes": 696,
+      "sha256": "9c7ee6fbfb4462b3ab7878b2dda95291536ce71eda0bede23c3333ad3c85c601"
+    }
+  ],
+  "zip_bytes": 8180,
+  "zip_sha256": "6481af0405f5513481c362bb18109ef266c9f0b69a516736135e36efca5ea53a"
+}

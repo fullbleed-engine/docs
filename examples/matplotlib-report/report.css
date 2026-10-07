@@ -1,0 +1,33 @@
+@page { size: A4; margin: 16mm 18mm 17mm; }
+body { font-family: Inter; font-size: 10pt; line-height: 1.4; color: #162838; }
+p, h1, h2, h3, figure { margin: 0; }
+.masthead { display: flex; justify-content: space-between; border-top: 4pt solid #162838; padding-top: 10pt; font-size: 7.5pt; font-weight: 700; letter-spacing: 1pt; }
+.edition { color: #61727c; }
+.eyebrow { font-size: 8pt; font-weight: 700; letter-spacing: 1.4pt; color: #236a67; margin-top: 28pt; }
+h1 { font-size: 44pt; font-weight: 700; line-height: 1.04; letter-spacing: -1.8pt; margin-top: 9pt; }
+.intro { color: #61727c; font-size: 11pt; line-height: 1.5; margin-top: 13pt; width: 440pt; }
+.metrics { display: flex; margin-top: 23pt; background: #f0f4f5; padding: 14pt 16pt; }
+.metric { width: 33.333%; }
+.metric-label { font-size: 7pt; font-weight: 700; letter-spacing: .8pt; color: #61727c; }
+.metric-value { font-size: 26pt; font-weight: 700; letter-spacing: -1pt; margin-top: 3pt; }
+.metric-detail { font-size: 7.5pt; color: #61727c; margin-top: 2pt; }
+.figure-header { display: flex; justify-content: space-between; align-items: baseline; border-top: 1pt solid #d4dfe2; padding-top: 12pt; margin-top: 24pt; }
+h2 { font-size: 13pt; font-weight: 700; }
+.figure-header span { font-size: 8pt; color: #61727c; }
+.chart { display: block; width: 174mm; margin-top: 8pt; }
+.volume { height: 64.63mm; }
+.regions { height: 52.2mm; }
+figcaption { font-size: 8.5pt; line-height: 1.5; color: #61727c; margin-top: 8pt; }
+.callout { margin-top: 17pt; padding: 13pt 15pt; background: #d7f266; }
+.callout p { font-size: 10pt; line-height: 1.45; }
+.sheet { break-after: page; }
+.section-title { font-size: 31pt; line-height: 1.12; letter-spacing: -1pt; margin-top: 11pt; }
+.subhead { font-size: 10pt; font-weight: 700; margin-top: 21pt; margin-bottom: 7pt; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th { text-align: left; font-size: 7pt; letter-spacing: .6pt; color: #61727c; background: #f0f4f5; }
+th, td { padding: 7pt 9pt; border-bottom: .5pt solid #d4dfe2; }
+.number { text-align: right; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+.method { margin-top: 17pt; padding-top: 11pt; border-top: 1pt solid #162838; font-size: 8pt; line-height: 1.5; color: #61727c; }
+.method strong { color: #162838; }

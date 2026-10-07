@@ -179,6 +179,31 @@ Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample d
 </div>
 </div>
 
+## Fieldnote report with Matplotlib
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Fieldnote operations brief with navy typography, summary metrics, a teal line chart and a lime callout.](assets/matplotlib-report/report-1.png)](assets/matplotlib-report/report.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Matplotlib SVG figures · Selectable data tables**
+
+Compose line and bar charts with editable HTML/CSS, period metrics, a monthly
+ledger and page numbers. The sample charts stay vector artwork; the report
+repeats their values as selectable text. Both renderers use an explicit bundled
+font, and the complete project reads local JSON.
+
+Rendered with Fullbleed **2.5.14** and Matplotlib **3.11.2**, using fictional data.
+
+[Open the PDF](assets/matplotlib-report/report.pdf){ .md-button }
+[Build this report](guides/matplotlib-pdf.md){ .md-button }
+
+[Complete project](assets/matplotlib-report/project.zip) · [Preview page 2](assets/matplotlib-report/report-2.png)
+
+</div>
+</div>
+
 ## Yunshan bilingual invoice
 
 <div class="showcase-entry" markdown>

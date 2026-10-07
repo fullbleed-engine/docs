@@ -13,6 +13,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  matplotlib:
+    name: Matplotlib report (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install the public engine, chart dependencies and independent readers
+        run: |
+          python -m pip install --only-binary=:all: -r examples/matplotlib-report/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0
+      - name: Verify the actual chart-report ZIP and guide
+        run: |
+          python tools/build_matplotlib_starter.py
+          git diff --exit-code -- docs/assets/matplotlib-report/project.zip docs/assets/matplotlib-report/source.json
+          python tools/verify_matplotlib_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matplotlib-verification-${{ matrix.os }}
+          path: |
+            output/matplotlib-verification/*.json
+            output/matplotlib-verification/*.txt
+            output/matplotlib-verification/*.png
+            output/matplotlib-verification/render/
+            output/matplotlib-verification/edited/
+          retention-days: 14
   arabic:
     name: Arabic and English example (${{ matrix.os }})
     strategy:
@@ -425,7 +456,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib]
     runs-on: ubuntu-latest
     permissions:
       pages: write

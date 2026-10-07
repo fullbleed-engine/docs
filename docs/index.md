@@ -240,7 +240,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Use headings, tables, page margins, headers, and footers for a document that grows with its content.
 
-    [DataFrame to PDF →](guides/pandas-to-pdf.md) · [See the illustrated report →](examples.md#business-report)
+    [DataFrame to PDF →](guides/pandas-to-pdf.md) · [Matplotlib chart reports](guides/matplotlib-pdf.md) · [See the illustrated report →](examples.md#business-report)
 
 - **One template, many records**
 

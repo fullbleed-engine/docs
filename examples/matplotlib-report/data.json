@@ -1,0 +1,19 @@
+{
+  "organization": "FIELDNOTE LOGISTICS",
+  "period": "APRIL - SEPTEMBER 2026",
+  "title": "A clearer view\nof delivery.",
+  "months": [
+    {"label": "Apr", "delivered": 32100, "planned": 34000},
+    {"label": "May", "delivered": 35400, "planned": 36000},
+    {"label": "Jun", "delivered": 31200, "planned": 39000},
+    {"label": "Jul", "delivered": 48200, "planned": 46000},
+    {"label": "Aug", "delivered": 53100, "planned": 52000},
+    {"label": "Sep", "delivered": 61400, "planned": 58000}
+  ],
+  "regions": [
+    {"label": "North", "delivered": 15300},
+    {"label": "South", "delivered": 18700},
+    {"label": "East", "delivered": 12100},
+    {"label": "West", "delivered": 15300}
+  ]
+}
