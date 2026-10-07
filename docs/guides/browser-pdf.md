@@ -18,8 +18,14 @@ Change the customer, reference, and ink color, or open **Edit the HTML & CSS** t
 paste your own template. Generate a preview, then download the actual PDF.
 All sample names, organizations, and amounts are fictional.
 
-This guide uses **npm package 0.3.1**, wrapping **Fullbleed engine 2.5.10**.
+The downloadable starter uses **npm package 0.3.1**, wrapping **Fullbleed engine 2.5.10**.
 The browser and Node entries share the pinned engine and bundled fonts.
+
+For an existing application, **npm package 0.3.2** adds engine **2.5.11** and
+fixes blank PNG previews for unembedded Helvetica, Times, and Courier faces.
+The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.3.2/docs/standard-font-previews.md)
+explains the substitute designs and upgrade checks. Run the asset-copy command
+again after upgrading so the browser receives the matching runtime and notices.
 
 ## Edit the project online
 
@@ -61,7 +67,7 @@ Install the package and copy its runtime into the directory your framework
 serves as static files:
 
 ```sh
-npm install --save-exact fullbleed@0.3.1
+npm install --save-exact fullbleed@0.3.2
 npx fullbleed-browser-assets public/fullbleed
 ```
 
