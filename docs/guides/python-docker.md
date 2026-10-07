@@ -89,7 +89,9 @@ the platform for your daemon.
 builds and runs both images on native x64 and ARM64 runners. It checks actual
 downloads, four simultaneous responses, HTTP 404/405 behavior, independently
 extracted PDF text and embedded fonts, the native preview, and normal server
-shutdown. It also renders in a separate container with networking disabled.
+shutdown. A build-context check plants dummy secret files at the root and inside
+asset directories, then verifies that Docker excludes them. It also renders in a
+separate container with networking disabled.
 All four resulting PDFs and previews must match.
 
 Each run retains the PDF, PNG, build/server logs, resolved packages, wheel hashes,
