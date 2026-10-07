@@ -146,7 +146,7 @@ report = {'schema': 'fullbleed.node-queue-example-verification.v1', 'ok': True,
           'workers': workers, 'readers': ['pypdf', 'PDFium'], 'commands': commands,
           'project_zip_sha256': manifest['zip_sha256'], 'outputs': outputs, 'checks': checks,
           'scope': 'This downloaded batch, guide snippet, and exact replay; no throughput or memory-capacity claim.'}
-(out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+(out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
 if args.update_assets:
-    (assets / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+    (assets / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(json.dumps({'ok': True, 'checks': len(checks), 'workers': workers}))
