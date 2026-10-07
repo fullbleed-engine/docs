@@ -20,6 +20,9 @@ the exact source files, fonts, package version, and generated sample. This is a
 fictional integration example; connect your application's authorized record
 lookup before serving real invoices.
 
+Want a container? The same download includes a [tested Docker path](python-docker.md)
+for the FastAPI app, using Debian slim or Alpine.
+
 ## Set up the examples
 
 Use Python 3.10–3.14. Extract the starter, open its `fullbleed-python-invoice`
@@ -36,7 +39,7 @@ is `examples/web_frameworks`.
 
 Choose one framework below. Each requirement file installs that framework;
 `fullbleed` remains a separate package. The examples are checked with Fullbleed
-2.5.6, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
+2.5.11, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
 
 Each app serves this fictional record:
 
@@ -52,7 +55,7 @@ returns HTTP 404. Stop the server before trying another framework on the same po
 ## FastAPI
 
 ```bash
-python -m pip install fullbleed==2.5.6 -r requirements-fastapi.txt
+python -m pip install fullbleed==2.5.11 -r requirements-fastapi.txt
 python -m uvicorn fastapi_app:app --host 127.0.0.1 --port 8000
 ```
 
@@ -88,7 +91,7 @@ finishes. See [FastAPI's concurrency documentation](https://fastapi.tiangolo.com
 ## Flask
 
 ```bash
-python -m pip install fullbleed==2.5.6 -r requirements-flask.txt
+python -m pip install fullbleed==2.5.11 -r requirements-flask.txt
 python -m flask --app flask_app run --host 127.0.0.1 --port 8000
 ```
 
@@ -116,7 +119,7 @@ for response bodies, media types, and headers.
 ## Django
 
 ```bash
-python -m pip install fullbleed==2.5.6 -r requirements-django.txt
+python -m pip install fullbleed==2.5.11 -r requirements-django.txt
 python django_app.py runserver 127.0.0.1:8000 --noreload
 ```
 
@@ -219,8 +222,9 @@ invoice** link always renders the current HTML/CSS. Verification covers these
 synthetic fixtures and local servers; it does not establish production capacity
 or PDF standards conformance.
 
-The launch commands above run local development servers. Use your framework's
-deployment setup for a public app. For large jobs, render in your job queue and
+For the FastAPI app, follow the [Docker deployment guide](python-docker.md).
+The Flask and Django commands above run local development servers; use your
+framework's deployment setup for a public app. For large jobs, render in your job queue and
 store the finished PDF for download. The [variable-data guide](bank-statements.md)
 covers compiled document families when many records share a template.
 

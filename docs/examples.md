@@ -39,6 +39,7 @@ their own roles. Grid and table layouts keep the page ordered.
 
 Start with the [invoice guide](guides/invoices.md), or
 [serve an invoice from FastAPI, Flask, or Django](guides/web-frameworks.md).
+The Python starter also includes a [tested Docker image](guides/python-docker.md).
 For C# web applications, try the [ASP.NET Core download starter](guides/aspnet-pdf.md).
 
 </div>

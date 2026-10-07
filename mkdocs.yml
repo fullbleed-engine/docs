@@ -87,6 +87,7 @@ nav:
     - Rebuild as you edit: guides/render-watch.md
     - Check PDFs in CI: guides/pdf-regression-ci.md
     - FastAPI, Flask, and Django: guides/web-frameworks.md
+    - Python in Docker: guides/python-docker.md
     - Browser PDF generation: guides/browser-pdf.md
     - React PDF previews: guides/react-pdf.md
     - Vue PDF previews: guides/vue-pdf.md
