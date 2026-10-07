@@ -13,6 +13,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  arabic:
+    name: Arabic and English example (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install the public engine and independent PDF readers
+        run: |
+          python -m pip install --only-binary=:all: -r examples/arabic-invoice/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Verify the actual ZIP, fonts, guide, and customized PDF
+        run: |
+          python tools/build_arabic_example.py
+          git diff --exit-code -- docs/assets/arabic-invoice/project.zip docs/assets/arabic-invoice/source.json
+          python tools/verify_arabic_example.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arabic-verification-${{ matrix.os }}
+          path: |
+            output/arabic-verification/*.json
+            output/arabic-verification/*.txt
+            output/arabic-verification/*.png
+            output/arabic-verification/render/
+            output/arabic-verification/edited/
+          retention-days: 14
   rust-download:
     name: Rust starter (Windows)
     runs-on: windows-latest
@@ -370,7 +401,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, markdown, tagged-notice, rust-download]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download]
     runs-on: ubuntu-latest
     permissions:
       pages: write

@@ -199,6 +199,29 @@ pinned font preparation, and a missing-character gate. Rendered with Fullbleed
 </div>
 </div>
 
+## Nawa Studio Arabic and English invoice
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Nawa Studio invoice with Arabic and English text, a dark green title panel, coral accent, and USD 1,390.00 total.](assets/arabic-invoice/invoice.png)](assets/arabic-invoice/invoice.pdf)
+</figure>
+<div markdown>
+
+**One page · Arabic and English · Fonts included**
+
+An editable invoice with RTL Arabic blocks, isolated dates and references,
+regular and bold Arabic fonts, and an itemized service table. Change the JSON
+data, CSS, or HTML structure and render locally. The ZIP includes its exact
+font files and licenses. Rendered with Fullbleed **2.5.14**; all details are
+fictional.
+
+[Open the PDF](assets/arabic-invoice/invoice.pdf) ·
+[Build this invoice](guides/arabic-pdf.md) ·
+[Download the project](assets/arabic-invoice/project.zip)
+
+</div>
+</div>
+
 ## Northstar Engineering Markdown brief
 
 <div class="showcase-entry" markdown>

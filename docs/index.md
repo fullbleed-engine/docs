@@ -234,7 +234,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Turn JSON or CSV into itemized invoices. Keep data, layout, and font assets explicit.
 
-    [Invoice guide →](guides/invoices.md)
+    [Invoice guide →](guides/invoices.md) · [Arabic and English example](guides/arabic-pdf.md)
 
 - **Reports that flow across pages**
 

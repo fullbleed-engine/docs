@@ -10,6 +10,9 @@ Edit the sample data, render a preview, and download the PDF in Colab or local J
 
 To return an invoice from your app, see the [FastAPI, Flask, and Django examples](web-frameworks.md).
 
+For a bilingual layout, download the [Arabic and English invoice](arabic-pdf.md)
+with its fonts included, or the [Chinese and English example](chinese-pdf.md).
+
 ## A compact JSON invoice
 
 The [agent-workflow invoice](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/agent_workflows) loads JSON, escapes text, builds an HTML table, embeds Inter, writes a PDF, and checks that the invoice ID, customer, and total survived rendering.

@@ -1,0 +1,16 @@
+{
+  "reference": "NW-2048",
+  "issued": "2026-10-07",
+  "due": "2026-10-21",
+  "studio_ar": "نوى للتصميم",
+  "studio_en": "NAWA STUDIO",
+  "customer_ar": "شركة أفق",
+  "customer_en": "Ufuq Company",
+  "project_ar": "هوية بصرية ونظام مستندات",
+  "project_en": "Brand identity & document system",
+  "items": [
+    {"ar": "تصميم الهوية البصرية", "en": "Brand identity design", "quantity": 1, "unit_cents": 87500},
+    {"ar": "قوالب المستندات", "en": "Document templates", "quantity": 1, "unit_cents": 32500},
+    {"ar": "جلسات التسليم", "en": "Handover sessions", "quantity": 2, "unit_cents": 9500}
+  ]
+}

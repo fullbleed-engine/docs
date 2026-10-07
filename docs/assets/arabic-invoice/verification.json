@@ -1,0 +1,324 @@
+{
+  "schema": "fullbleed.arabic-example-verification.v1",
+  "ok": true,
+  "engine": "2.5.14",
+  "platform": "Windows",
+  "readers": {
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0"
+  },
+  "checks": [
+    {
+      "name": "required installed engine version",
+      "passed": true
+    },
+    {
+      "name": "ZIP hash matches the manifest",
+      "passed": true
+    },
+    {
+      "name": "exact expected ZIP file set",
+      "passed": true
+    },
+    {
+      "name": "ZIP paths stay within the project",
+      "passed": true
+    },
+    {
+      "name": "source and hash: README.md",
+      "passed": true
+    },
+    {
+      "name": "source and hash: LICENSE",
+      "passed": true
+    },
+    {
+      "name": "source and hash: requirements.txt",
+      "passed": true
+    },
+    {
+      "name": "source and hash: font-source.json",
+      "passed": true
+    },
+    {
+      "name": "source and hash: render.py",
+      "passed": true
+    },
+    {
+      "name": "source and hash: invoice.css",
+      "passed": true
+    },
+    {
+      "name": "source and hash: data.json",
+      "passed": true
+    },
+    {
+      "name": "source and hash: fonts/NotoSansArabic-Regular.ttf",
+      "passed": true
+    },
+    {
+      "name": "source and hash: fonts/NotoSansArabic-Bold.ttf",
+      "passed": true
+    },
+    {
+      "name": "source and hash: fonts/OFL.txt",
+      "passed": true
+    },
+    {
+      "name": "render exit",
+      "passed": true
+    },
+    {
+      "name": "replay exit",
+      "passed": true
+    },
+    {
+      "name": "exact-input PDFs are byte-identical",
+      "passed": true
+    },
+    {
+      "name": "exact-input previews are byte-identical",
+      "passed": true
+    },
+    {
+      "name": "explicit fonts cover all sample glyphs",
+      "passed": true
+    },
+    {
+      "name": "one A4 page",
+      "passed": true
+    },
+    {
+      "name": "PDF text: فاتورة",
+      "passed": true
+    },
+    {
+      "name": "PDF text: نوى للتصميم",
+      "passed": true
+    },
+    {
+      "name": "PDF text: شركة أفق",
+      "passed": true
+    },
+    {
+      "name": "PDF text: NAWA STUDIO",
+      "passed": true
+    },
+    {
+      "name": "PDF text: Ufuq Company",
+      "passed": true
+    },
+    {
+      "name": "PDF text: NW-2048",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 2026-10-07",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 2026-10-21",
+      "passed": true
+    },
+    {
+      "name": "PDF text: Brand identity design",
+      "passed": true
+    },
+    {
+      "name": "PDF text: Document templates",
+      "passed": true
+    },
+    {
+      "name": "PDF text: Handover sessions",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 875.00",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 325.00",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 190.00",
+      "passed": true
+    },
+    {
+      "name": "PDF text: 1,390.00",
+      "passed": true
+    },
+    {
+      "name": "PDF text: شكراً",
+      "passed": true
+    },
+    {
+      "name": "PDF text: يُرجى",
+      "passed": true
+    },
+    {
+      "name": "each font has a Unicode map",
+      "passed": true
+    },
+    {
+      "name": "font program embedded: /DXNUJO+Inter-Regular",
+      "passed": true
+    },
+    {
+      "name": "each font has a Unicode map",
+      "passed": true
+    },
+    {
+      "name": "font program embedded: /XRAYZI+NotoSansArabic-Bold",
+      "passed": true
+    },
+    {
+      "name": "each font has a Unicode map",
+      "passed": true
+    },
+    {
+      "name": "font program embedded: /ZKUOGT+NotoSansArabic-Regular",
+      "passed": true
+    },
+    {
+      "name": "regular and bold Arabic faces used",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: NW-2048",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: 1,390.00",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: 2026-10-07",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: 2026-10-21",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: شكراً",
+      "passed": true
+    },
+    {
+      "name": "independent PDFium text: يُرجى",
+      "passed": true
+    },
+    {
+      "name": "no injected bidi controls or replacement characters",
+      "passed": true
+    },
+    {
+      "name": "glyph boxes stay inside the A4 page",
+      "passed": true
+    },
+    {
+      "name": "one executable guide snippet",
+      "passed": true
+    },
+    {
+      "name": "guide-snippet exit",
+      "passed": true
+    },
+    {
+      "name": "guide renders marked Arabic and isolated fields",
+      "passed": true
+    },
+    {
+      "name": "edited exit",
+      "passed": true
+    },
+    {
+      "name": "edited data and escaped HTML text reach PDF",
+      "passed": true
+    },
+    {
+      "name": "new data and theme change the output",
+      "passed": true
+    },
+    {
+      "name": "integer cents calculate the edited total",
+      "passed": true
+    },
+    {
+      "name": "invalid-quantity exit",
+      "passed": true
+    },
+    {
+      "name": "invalid amounts fail before a PDF is written",
+      "passed": true
+    },
+    {
+      "name": "missing-glyph exit",
+      "passed": true
+    },
+    {
+      "name": "missing glyph is reported without a new PDF",
+      "passed": true
+    },
+    {
+      "name": "missing-font exit",
+      "passed": true
+    },
+    {
+      "name": "missing font has an explicit diagnostic",
+      "passed": true
+    },
+    {
+      "name": "changed-font exit",
+      "passed": true
+    },
+    {
+      "name": "changed font is rejected before parsing",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "label": "render",
+      "exit": 0
+    },
+    {
+      "label": "replay",
+      "exit": 0
+    },
+    {
+      "label": "guide-snippet",
+      "exit": 0
+    },
+    {
+      "label": "edited",
+      "exit": 0
+    },
+    {
+      "label": "invalid-quantity",
+      "exit": 1
+    },
+    {
+      "label": "missing-glyph",
+      "exit": 1
+    },
+    {
+      "label": "missing-font",
+      "exit": 1
+    },
+    {
+      "label": "changed-font",
+      "exit": 1
+    }
+  ],
+  "zip_sha256": "3f82e1c5a9eeba12ec6ba60bfaa7ce36ff2f017d3856541631de697b5216b7e5",
+  "pdf_sha256": "e723f1e4ee7ed710990e119c48d19dd16f75f2708456e2ddb7f62ea1797ef28e",
+  "native_png_sha256": "bf89ee5db355bfc146b948f032f17f3f50e703dc330fe8ce77f4d54b5359ae38",
+  "fonts": [
+    "/DXNUJO+Inter-Regular",
+    "/XRAYZI+NotoSansArabic-Bold",
+    "/ZKUOGT+NotoSansArabic-Regular"
+  ],
+  "total_cents": 139000,
+  "pages": 1
+}

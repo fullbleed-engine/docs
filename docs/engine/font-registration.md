@@ -9,6 +9,8 @@ it does not search system fonts.
 The [Chinese-text guide](../guides/chinese-pdf.md) includes a runnable bilingual
 invoice, pinned font preparation, and the current variable-font weight and
 glyph-report limitations.
+The [Arabic and English invoice](../guides/arabic-pdf.md) includes static regular
+and bold Noto Sans Arabic files with a font manifest and glyph checks.
 
 When regular and italic faces share a family name, normal text selects the
 regular face even if the italic file was registered first. The default family

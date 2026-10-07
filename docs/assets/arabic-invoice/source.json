@@ -1,0 +1,80 @@
+{
+  "schema": "fullbleed.arabic-example.v1",
+  "fullbleed": "2.5.14",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1827,
+      "sha256": "b499731a680a686c5362e684255242343b5809e8b7ae8862e50ab86494e5955b"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 18,
+      "sha256": "e7669031cdf83cbb13fa8bf6da805f3f691d4a77fc64f22547e66020bc2b7abd"
+    },
+    {
+      "path": "font-source.json",
+      "bytes": 689,
+      "sha256": "9153f1a7779bd57aacd098ab6a06665208890b727ab72bec9f8347bad6c23156"
+    },
+    {
+      "path": "render.py",
+      "bytes": 5557,
+      "sha256": "c2bfebc08ad6c933301c3cc9890e72954bfa4b4452af3abbc344ad1f702df506"
+    },
+    {
+      "path": "invoice.css",
+      "bytes": 2951,
+      "sha256": "bf927cee6a86814c549c2c9ad546d2fd0800c94ce5028d7bb7cf48421d48e5c0"
+    },
+    {
+      "path": "data.json",
+      "bytes": 684,
+      "sha256": "587cb3903c03481653870ec8fe09e66cb3002a01d28a8bf7f6ca45a89fe50f38"
+    },
+    {
+      "path": "fonts/NotoSansArabic-Regular.ttf",
+      "bytes": 240456,
+      "sha256": "ceea25b464a656dc3b26849bab9356740401af62aedf1bfa8b7f0d9b75925b1b"
+    },
+    {
+      "path": "fonts/NotoSansArabic-Bold.ttf",
+      "bytes": 248468,
+      "sha256": "ed2711b387750ae991b6a980b8dd16fdd65e6702b97e9f52adf3a8edf09ef4df"
+    },
+    {
+      "path": "fonts/OFL.txt",
+      "bytes": 4377,
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb"
+    }
+  ],
+  "zip_bytes": 223321,
+  "zip_sha256": "3f82e1c5a9eeba12ec6ba60bfaa7ce36ff2f017d3856541631de697b5216b7e5",
+  "fonts": {
+    "license": "SIL Open Font License 1.1",
+    "repository": "https://github.com/notofonts/noto-fonts",
+    "commit": "6cfca385c8757fadf537923d59a671116a865d48",
+    "files": [
+      {
+        "file": "fonts/NotoSansArabic-Regular.ttf",
+        "sha256": "ceea25b464a656dc3b26849bab9356740401af62aedf1bfa8b7f0d9b75925b1b",
+        "source": "hinted/ttf/NotoSansArabic/NotoSansArabic-Regular.ttf"
+      },
+      {
+        "file": "fonts/NotoSansArabic-Bold.ttf",
+        "sha256": "ed2711b387750ae991b6a980b8dd16fdd65e6702b97e9f52adf3a8edf09ef4df",
+        "source": "hinted/ttf/NotoSansArabic/NotoSansArabic-Bold.ttf"
+      },
+      {
+        "file": "fonts/OFL.txt",
+        "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+        "source": "LICENSE"
+      }
+    ]
+  }
+}
