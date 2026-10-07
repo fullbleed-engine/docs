@@ -3,6 +3,10 @@
 These examples use the published `fullbleed` 2.5.11 crate. They require Rust
 1.85 or newer and a working native Rust toolchain; they do not require Python.
 
+For a standalone project with the templates, fonts, and license notices, use the
+[Rust starter ZIP](https://docs.fullbleed.dev/assets/rust-starter/project.zip).
+Its [README](STARTER.md) contains commands that run from the extracted directory.
+
 From the root of this documentation repository:
 
 ```bash

@@ -150,6 +150,12 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Use a native Rust toolchain and the published crate.
 
+    [Download the styled Rust project](assets/rust-starter/project.zip){ .md-button .md-button--primary }
+
+    The ZIP includes editable invoice/report templates, fonts, and a Cargo
+    lockfile. [Run the project](getting-started/rust.md#render-a-designed-invoice-or-report),
+    or start with the smaller example below.
+
     ```bash
     cargo new invoice-demo
     cd invoice-demo

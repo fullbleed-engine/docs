@@ -1,0 +1,118 @@
+{
+  "schema": "fullbleed.rust-starter.v1",
+  "repository": "https://github.com/fullbleed-engine/docs",
+  "engine": "2.5.11",
+  "prefix": "fullbleed-rust-starter/",
+  "files": [
+    {
+      "path": ".gitignore",
+      "source": null,
+      "bytes": 31,
+      "sha256": "d146e8d4d5305c063b357cf9ccfc176ee55c480da3b676f7af92726284ea8190"
+    },
+    {
+      "path": "Cargo.lock",
+      "source": "examples/rust/Cargo.lock",
+      "bytes": 1299,
+      "sha256": "48e97f97f7ff701bebbbc391b29114b6f5f45611a3824220243cbea5834e99f2"
+    },
+    {
+      "path": "Cargo.toml",
+      "source": "examples/rust/Cargo.toml",
+      "bytes": 272,
+      "sha256": "be5886957217168275d1a771b759974cf7d85dde29910d7c741ca8dc0d510be1"
+    },
+    {
+      "path": "LICENSE",
+      "source": "examples/rust/LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "source": "examples/rust/STARTER.md",
+      "bytes": 3177,
+      "sha256": "851609cca16a16f8edff04c18077f71317e9057e1a63631fe790d880d0b213af"
+    },
+    {
+      "path": "fonts/BebasNeue-OFL.txt",
+      "source": "docs/assets/playground/fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "fonts/BebasNeue-Regular.ttf",
+      "source": "docs/assets/playground/fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Italic.ttf",
+      "source": "docs/assets/playground/fonts/DMSerifDisplay-Italic.ttf",
+      "bytes": 71208,
+      "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "source": "docs/assets/playground/fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4512,
+      "sha256": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "source": "docs/assets/playground/fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "fonts/Inter-OFL.txt",
+      "source": "docs/assets/playground/fonts/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "fonts/Inter-Variable.ttf",
+      "source": "docs/assets/playground/fonts/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "src/from_files.rs",
+      "source": "examples/rust/src/from_files.rs",
+      "bytes": 1462,
+      "sha256": "3d61f51a714d6c63aa91f5c0cbacdbac816fa950380fdfa6c3d57cf2fc475f6b"
+    },
+    {
+      "path": "src/hello.rs",
+      "source": "examples/rust/src/hello.rs",
+      "bytes": 383,
+      "sha256": "17b2b595c5f237e70f8ff85b7fdb1eaeedd12133a4af69ca4c1d25683c889221"
+    },
+    {
+      "path": "templates/invoice.css",
+      "source": "docs/assets/showcase/invoice.css",
+      "bytes": 3546,
+      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+    },
+    {
+      "path": "templates/invoice.html",
+      "source": "docs/assets/showcase/invoice.html",
+      "bytes": 2933,
+      "sha256": "195725eeeb32c521e19b47dbacbb55048bebb6df8566ab135cdc41fbf33fe57a"
+    },
+    {
+      "path": "templates/report.css",
+      "source": "docs/assets/showcase/report.css",
+      "bytes": 4277,
+      "sha256": "519591ae75c239ec602324f008dd99108ebeae0b9306df7215fa5f0442905473"
+    },
+    {
+      "path": "templates/report.html",
+      "source": "docs/assets/showcase/report.html",
+      "bytes": 7756,
+      "sha256": "46b0e975d43914c8b4492218feae09ea0ad684091a9f9ee3b18f66a87202e521"
+    }
+  ],
+  "zip_bytes": 587627,
+  "zip_sha256": "1747ac09391cae27c644a48bec9986d105f450884571238165b68eb445794b56"
+}
