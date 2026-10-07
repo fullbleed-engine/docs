@@ -1,0 +1,20 @@
+{
+  "package_version": "0.4.0",
+  "engine_version": "2.5.11",
+  "source_commit": "807e4d4cd124980bcc9344a316c47ae3928160b5",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.4.0.tgz",
+  "package_integrity": "sha512-dvgpKB8dOtf1Nb7TAQF1EKhC3A34qYcJeM5i86XFww93k7Krm0LIsa4u/UntK1lrCZ+bWj/NveenTNhrejpomQ==",
+  "package_sha256": "fa653f7cc1396cfaf1710656dac7fa37269453263e6b29878a5a3385531d6eb4",
+  "rendered": {
+    "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+    "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+    "NS-1043.pdf": "4adda7f7e56df435c40d9a1c1fc3546e2493289d8874ec26a7a16e4ed19b8f44",
+    "NS-1044.pdf": "3d9de4b2366ad977a8bb527cfd20e8d9e62382cd73fb49b651da3a2627d5c56d",
+    "NS-1045.pdf": "a48c1120789cb9b593700786103a7494a96d84cffd9196a2cd0dd0fac3208063",
+    "NS-1046.pdf": "eeabaf8070ef7fdc3d87728bedab9b8e5881a9994a7c5784a3bf9ba844ba9a3b",
+    "NS-1047.pdf": "334dfd5d0213f8a34b9b02eb6b95d11817f6395e99ebbfa0e8224dde06e86dce"
+  },
+  "fictional_data": true,
+  "license": "MIT",
+  "verification_scope": "Six fictional invoices, queue worker limits, guide snippet, and exact replay using the public npm package."
+}

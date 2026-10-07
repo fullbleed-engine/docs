@@ -92,6 +92,7 @@ nav:
     - Browser PDF generation: guides/browser-pdf.md
     - React PDF previews: guides/react-pdf.md
     - Vue PDF previews: guides/vue-pdf.md
+    - Queue Node PDF jobs: guides/node-render-queue.md
     - Next.js PDF downloads: guides/nextjs-pdf.md
     - ASP.NET Core PDF downloads: guides/aspnet-pdf.md
     - Variable-data documents: guides/bank-statements.md
