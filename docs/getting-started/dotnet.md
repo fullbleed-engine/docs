@@ -4,7 +4,7 @@ description: Install FullBleed.DotNet from NuGet, render a PDF from C#, and run 
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.5)
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.6)
 brings Fullbleed's Rust rendering engine into a .NET process. Use static HTML
 and CSS to create invoices, reports, and variable-data documents. Native
 rendering needs neither Python nor a browser.
@@ -16,7 +16,7 @@ With the .NET 10 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.1.5
+dotnet add package FullBleed.DotNet --version 0.1.6
 ```
 
 Replace `Program.cs` with:
@@ -40,14 +40,14 @@ Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
 
 Run `dotnet run` and open `invoice.pdf` in the project directory. You can also
 return the bytes from an HTTP handler or write them to your own storage.
-The first example uses standard PDF fonts. Register explicit font files for
-your document's typography, character coverage, and portable PNG previews.
-Native previews of unembedded standard fonts use host-font fallbacks and can
-vary between machines; the designed example below embeds its fonts.
+The first example uses standard PDF fonts. Their PNG previews now use bundled
+outline substitutes, so they work without system fonts. Register explicit font
+files for your chosen type design and character coverage; the designed example
+below embeds its fonts.
 
 The package's managed library targets `net8.0`; your application can target
 `net8.0`, `net9.0`, or `net10.0`. It contains native libraries for Windows x64,
-Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.10.
+Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.11.
 The managed assembly has no third-party NuGet runtime dependencies.
 
 Use .NET 10 LTS for a new application. Microsoft lists November 10, 2026 as
@@ -57,6 +57,14 @@ Existing .NET 8 and 9 projects can use the same package and C# API.
 The [package verification workflow](https://github.com/fullbleed-engine/fullbleed-dotnet/actions/workflows/ci.yml)
 checks the actual runtime and compares fixture PDFs and previews across all
 three .NET versions and the four native platforms.
+
+Version 0.1.6 also checks 52 font fixtures across those twelve consumers:
+Helvetica, Times and Courier in their regular/bold/italic variants, plus an
+embedded-font control, through ordinary and compiled rendering. A separate
+Linux check hides system fonts and rejects the blank previews from public
+0.1.5. The corrected previews retain the same PDF bytes and embedded-font
+controls. These checks cover the retained fixtures, not every font or document.
+[Inspect the 0.1.6 evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.6).
 
 ## Run a designed invoice
 
@@ -147,8 +155,8 @@ For a web application, download the [ASP.NET Core PDF starter](../guides/aspnet-
 It includes a download page, styled invoice, private responses, and checks against
 the published application artifact.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.5/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.5/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.6/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.6/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)

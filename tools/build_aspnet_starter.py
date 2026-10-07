@@ -39,7 +39,7 @@ def build():
     (ASSETS / "project.zip").write_bytes(archive)
     manifest = {
         "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/aspnet",
-        "framework": "net10.0", "package": "FullBleed.DotNet", "packageVersion": "0.1.5",
+        "framework": "net10.0", "package": "FullBleed.DotNet", "packageVersion": "0.1.6",
         "projectZipSha256": digest(archive),
         "files": [{"path": name, "bytes": len(data), "sha256": digest(data)} for name, data in files.items()],
         "outputs": {name: digest((ASSETS / name).read_bytes()) for name in ["invoice.pdf", "invoice.png"]},
