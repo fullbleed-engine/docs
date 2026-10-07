@@ -1,0 +1,53 @@
+"""Build the editable C# tagged-notice download with stable ZIP bytes."""
+from hashlib import sha256
+import io
+import json
+from pathlib import Path
+import xml.etree.ElementTree as ET
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+PROJECT = ROOT / 'examples/dotnet-accessibility'
+ASSETS = ROOT / 'docs/assets/dotnet-accessibility'
+
+
+def digest(data):
+    return sha256(data).hexdigest()
+
+
+def project_files():
+    names = ['AccessibleNotice.csproj', 'Program.cs', 'global.json', 'packages.lock.json', 'README.md', 'LICENSE']
+    names += [p.relative_to(PROJECT).as_posix() for p in (PROJECT / 'Assets').rglob('*') if p.is_file()]
+    return {name: (PROJECT / name).read_bytes() for name in sorted(names)}
+
+
+def archive_bytes(files):
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for name, data in files.items():
+            entry = zipfile.ZipInfo('fullbleed-tagged-notice/' + name, date_time=(1980, 1, 1, 0, 0, 0))
+            entry.compress_type = zipfile.ZIP_DEFLATED
+            entry.external_attr = 0o100644 << 16
+            archive.writestr(entry, data)
+    return buffer.getvalue()
+
+
+def build():
+    files = project_files()
+    version = ET.parse(PROJECT / 'AccessibleNotice.csproj').find('.//PackageReference').attrib['Version']
+    locked = json.loads((PROJECT / 'packages.lock.json').read_text())['dependencies']['net10.0']['FullBleed.DotNet']
+    assert locked['resolved'] == version, 'Restore the final public package before making the download'
+    archive = archive_bytes(files)
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    (ASSETS / 'project.zip').write_bytes(archive)
+    manifest = {'source': 'https://github.com/fullbleed-engine/docs/tree/main/examples/dotnet-accessibility',
+        'framework': 'net10.0', 'package': 'FullBleed.DotNet', 'packageVersion': version,
+        'projectZipSha256': digest(archive),
+        'files': [{'path': name, 'bytes': len(data), 'sha256': digest(data)} for name, data in files.items()],
+        'outputs': {name: digest((ASSETS / name).read_bytes()) for name in ['notice-ua1.pdf', 'notice-ua2.pdf', 'notice.png']}}
+    (ASSETS / 'source.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8', newline='\n')
+    print(json.dumps({'files': len(files), 'zipBytes': len(archive), 'sha256': digest(archive)}))
+
+
+if __name__ == '__main__':
+    build()

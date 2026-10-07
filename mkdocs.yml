@@ -95,6 +95,7 @@ nav:
     - ASP.NET Core PDF downloads: guides/aspnet-pdf.md
     - Variable-data documents: guides/bank-statements.md
     - Tagged PDF and accessibility: accessibility/overview.md
+    - Tagged PDFs in C#: guides/csharp-tagged-pdf.md
     - Print output and PDF/VT: guides/print-output.md
     - Coding agents and MCP: guides/ai-agents.md
   - Reference:

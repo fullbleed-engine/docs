@@ -1,0 +1,79 @@
+{
+  "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/dotnet-accessibility",
+  "framework": "net10.0",
+  "package": "FullBleed.DotNet",
+  "packageVersion": "0.1.7",
+  "projectZipSha256": "bff5801de233ea3bca593a0656decd739373ec51ab5e9c1f2526d0d67eae8f02",
+  "files": [
+    {
+      "path": "AccessibleNotice.csproj",
+      "bytes": 563,
+      "sha256": "7d9a7a9d1851786c8db87013078cfffb49b1f55928f88dd9d3d8b9a4d9508e3b"
+    },
+    {
+      "path": "Assets/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "Assets/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "Assets/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "Assets/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "Assets/notice.css",
+      "bytes": 1504,
+      "sha256": "3994f4ca6c1f8539bed60fda207980a9646ad3c5a111f647da8b742cb7158495"
+    },
+    {
+      "path": "Assets/notice.html",
+      "bytes": 1957,
+      "sha256": "e4426b77b847f02394c66a97a756878e12d1b9ec27affb4716c36f4b9c8ef7b9"
+    },
+    {
+      "path": "Assets/route.svg",
+      "bytes": 596,
+      "sha256": "09c4e6146359bc1c68cec600e2ef649ac6f4caf9762366cd19e9d7ad7b1fbea7"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "Program.cs",
+      "bytes": 2955,
+      "sha256": "d3e996ccfcdb81f9808f3a4fa208dae570af53a6775a00297eb68d5f7fc944e3"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1958,
+      "sha256": "e175125529180af2457b6ba97111c62e32bfd7a48c401d822dfbaacbfbbd9f8c"
+    },
+    {
+      "path": "global.json",
+      "bytes": 111,
+      "sha256": "20c93ca7812d0a9825eef71217156f95ab2f4fe5aadfeb22ebc1c24b630018d3"
+    },
+    {
+      "path": "packages.lock.json",
+      "bytes": 306,
+      "sha256": "612f1930c91b980f19cd58755526d4a78f67117163d761e4ff683817e1eef4af"
+    }
+  ],
+  "outputs": {
+    "notice-ua1.pdf": "2aab47bbb10a7ff165c62c3d663e1638dc0abd37982e7bfa9501cdc7cdb091d8",
+    "notice-ua2.pdf": "20df3d1684cfc9dea142d1bf36cfb20790c9f33931979e420a4fe61c0f217fe1",
+    "notice.png": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b"
+  }
+}
