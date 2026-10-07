@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { render } from '../docs/assets/playground/renderer.js';
 import { prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
+import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const engine = join(root, 'playground/engine');
@@ -46,7 +47,7 @@ const fonts = Object.fromEntries(await Promise.all(['Inter-Variable.ttf', 'DMSer
 const manifest = JSON.parse(await readFile(join(assets, 'build.json'), 'utf8'));
 const report = { engine: manifest.engine.version, preview_source: 'finalized_pdf', platform: process.platform, node: process.version, wasm_sha256: hash(wasmBytes), wasm_memory_maximum: memoryMaximum, fixtures: [], checks: ['Module declares a 256 MiB memory ceiling and no socket imports'] };
 
-async function fixture(name, html, css, expectedPages, gradient) {
+async function fixture(name, html, css, expectedPages, gradient, standardFonts = false) {
   const files = { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
   // Retain the exact prepared inputs for other language bindings to replay.
   await writeFile(join(evidence, `${name}.html`), html);
@@ -73,8 +74,9 @@ async function fixture(name, html, css, expectedPages, gradient) {
     assert.equal(hash(rerun.outputs[file]), expectedHash, `${name}/${file}: nondeterministic rerender`);
   }
   const color_probes = gradient ? checkGradient(gradient, result.outputs['page-1.png']) : [];
+  const standard_font_rows = standardFonts ? checkStandardFonts(result.outputs['page-1.png']) : [];
   report.fixtures.push({ name, pages: expectedPages, missing_glyphs: 0, native_wasi_equal: true, repeat_equal: true, hashes,
-    color_probes, memory_bytes: result.memory,
+    color_probes, standard_font_rows, memory_bytes: result.memory,
     source_files: { html: `${name}.html`, css: `${name}.css`, html_sha256: hash(Buffer.from(html)), css_sha256: hash(Buffer.from(css)) } });
   return { files, pdfHash: hash(pdf), memory: result.memory };
 }
@@ -96,6 +98,8 @@ for (const gradient of gradientFixtures) {
   await fixture(gradient.name, gradient.html, gradient.css, gradient.pages, gradient);
 }
 report.checks.push('Linear, translucent, and hard radial gradient interiors match expected colors');
+await fixture(standardFontFixture.name, standardFontFixture.html, standardFontFixture.css, 1, null, true);
+report.checks.push('All 12 unembedded Latin standard font faces have visible preview text');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
 report.checks.push('Oversized source rejected by the Rust adapter');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('<div>Page</div>'.repeat(7)), 'style.css': Buffer.from('@page {size:A4} div{break-after:page}') }), /1 to 6 pages/);
