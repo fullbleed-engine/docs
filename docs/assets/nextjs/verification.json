@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-06T12:49:16.905884+00:00",
-  "sourceCommit": "7da8faa0dd7e5653c796b2b113ca580bcc25ca3b",
-  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37465413382",
+  "checkedAt": "2026-10-07T04:06:45.541502+00:00",
+  "sourceCommit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
+  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37569111697",
   "checks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -75,14 +75,14 @@
   ],
   "ciResults": [
     {
-      "checkedAt": "2026-10-06T12:44:31.828Z",
+      "checkedAt": "2026-10-07T03:57:17.033Z",
       "node": "v22.23.3",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.3.1",
-      "engineVersion": "2.5.10",
+      "nodePackage": "0.3.2",
+      "engineVersion": "2.5.11",
       "isolation": "process",
-      "packageLockSha256": "57dfea0b9c49f604477b28c88847764bda16c006383df852269bdd2b712daf43",
+      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
       "pages": 1,
       "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
       "burst": [
@@ -105,14 +105,14 @@
       "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
     },
     {
-      "checkedAt": "2026-10-06T12:44:44.228Z",
+      "checkedAt": "2026-10-07T03:57:25.042Z",
       "node": "v24.21.0",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.3.1",
-      "engineVersion": "2.5.10",
+      "nodePackage": "0.3.2",
+      "engineVersion": "2.5.11",
       "isolation": "process",
-      "packageLockSha256": "57dfea0b9c49f604477b28c88847764bda16c006383df852269bdd2b712daf43",
+      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
       "pages": 1,
       "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
       "burst": [
@@ -135,14 +135,14 @@
       "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
     },
     {
-      "checkedAt": "2026-10-06T12:44:58.768Z",
+      "checkedAt": "2026-10-07T03:57:52.511Z",
       "node": "v24.21.0",
       "platform": "win32",
       "next": "16.3.8",
-      "nodePackage": "0.3.1",
-      "engineVersion": "2.5.10",
+      "nodePackage": "0.3.2",
+      "engineVersion": "2.5.11",
       "isolation": "process",
-      "packageLockSha256": "57dfea0b9c49f604477b28c88847764bda16c006383df852269bdd2b712daf43",
+      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
       "pages": 1,
       "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
       "burst": [
@@ -167,15 +167,15 @@
   ],
   "downloadedStarter": {
     "ok": true,
-    "checkedAt": "2026-10-06T12:46:56.297591+00:00",
-    "sourceCommit": "7da8faa0dd7e5653c796b2b113ca580bcc25ca3b",
+    "checkedAt": "2026-10-07T04:02:35.480164+00:00",
+    "sourceCommit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
     "downloadFiles": 18,
-    "projectZipSha256": "06d1383ed8a40ab2853e7f9a51a9a7baddb7981b7c02fc0d3772587c8823553f",
-    "node": "v26.10.0",
+    "projectZipSha256": "6a4a589bc0153c0ca006a571e576ba8681dac5ae8fa683fc33e2f336322df6d6",
+    "node": "v22.23.3",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.3.1",
-    "engineVersion": "2.5.10",
+    "nodePackage": "0.3.2",
+    "engineVersion": "2.5.11",
     "isolation": "process",
     "commands": [
       {
@@ -271,29 +271,37 @@
   },
   "browser": {
     "ok": true,
-    "checked_at": "2026-10-06T12:42:59.420658+00:00",
+    "checkedAt": "2026-10-07T04:04:43.258437+00:00",
     "browser": "154.0.8037.98",
-    "checks": [
+    "packageVersion": "0.3.2",
+    "engineVersion": "2.5.11",
+    "records": [
       {
         "width": 1440,
+        "download": "invoice-NS-1042.pdf",
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
         "keyboard": false,
-        "pdf_sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-        "page_errors": []
+        "horizontalOverflow": false,
+        "previewLoaded": true
       },
       {
         "width": 390,
-        "keyboard": true,
-        "pdf_sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-        "page_errors": []
+        "download": "invoice-NS-1042.pdf",
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "keyboard": false,
+        "horizontalOverflow": false,
+        "previewLoaded": true
       },
       {
         "width": 320,
-        "keyboard": false,
-        "pdf_sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-        "page_errors": []
+        "download": "invoice-NS-1042.pdf",
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "keyboard": true,
+        "horizontalOverflow": false,
+        "previewLoaded": true
       }
     ],
-    "scope": "Owned anonymous Chrome; production Next.js standalone server; real downloads and responsive layouts."
+    "pageErrors": []
   },
-  "scope": "Published npm 0.3.1 / core 2.5.10. Three CI environments and the exact downloadable ZIP pass 17 standalone HTTP checks; their PDFs and previews match. Owned Chrome checks real downloads and narrow layouts. No application authorization, hosting-provider, or standards conformance claim."
+  "scope": "Public npm 0.3.2; exact starter ZIP; retained isolated-server and real browser download checks. No application-authorization, hosted-capacity, or PDF standards claim."
 }

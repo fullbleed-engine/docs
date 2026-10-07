@@ -49,7 +49,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
 project = workspace / 'fullbleed-vue-starter'
 package = json.loads((project / 'package.json').read_text())
 lock = json.loads((project / 'package-lock.json').read_text())
-assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.3.1'
+assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.3.2'
 assert package['devDependencies']['vite'] == '8.3.2'
 assert package['devDependencies']['typescript'] == '6.0.3'
 assert package['devDependencies']['vue-tsc'] == '3.3.12'
@@ -67,7 +67,7 @@ for name, arguments in [('install', ['ci', '--ignore-scripts', '--no-audit', '--
 installed = project / 'node_modules/fullbleed'
 assert json.loads((installed / 'package.json').read_text())['version'] == manifest['package_version']
 runtime = json.loads((project / 'dist/fullbleed/build.json').read_text())
-assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.10'
+assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.11'
 for name, expected in runtime['files'].items():
     value = (project / 'dist/fullbleed' / name).read_bytes()
     assert len(value) == expected['bytes'] and digest(value) == expected['sha256']
