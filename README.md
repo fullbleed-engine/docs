@@ -64,6 +64,16 @@ When changing the canonical domain, update `site_url`, `docs/robots.txt`, and th
 
 Fullbleed is MIT licensed. Do not publish unsupported performance comparisons, standards conformance claims, or stale licensing statements. Retain old page URLs through the redirect map when consolidating reference material.
 
+The Matplotlib report lives in `examples/matplotlib-report`. Install its pinned
+requirements and the independent PDF readers from the `matplotlib` CI job, then
+run `python tools/build_matplotlib_starter.py` and
+`python tools/verify_matplotlib_starter.py`. The verifier extracts the actual ZIP,
+executes its source and the guide snippet, inspects vector/PDF content, and tests
+replay, customization and invalid data. Use `--update-assets` only after reviewing
+both report pages; otherwise the verifier compares the output to the published
+PDF. New evidence runs need a fresh `--out` directory. CI retains Windows and
+Linux results and requires both jobs before deployment.
+
 ## Search discovery
 
 The site publishes an XML sitemap and crawlable canonical URLs. When the optional

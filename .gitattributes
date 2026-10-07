@@ -43,3 +43,6 @@ examples/node/** text eol=lf
 examples/node-queue/** text eol=lf
 docs/assets/node-queue/** -text
 docs/assets/node-queue/*.pdf binary
+examples/matplotlib-report/** text eol=lf
+docs/assets/matplotlib-report/** -text
+docs/assets/matplotlib-report/*.pdf binary

@@ -1,0 +1,547 @@
+{
+  "schema": "fullbleed.matplotlib-starter-verification.v1",
+  "ok": true,
+  "platform": "Windows",
+  "python": "3.11.8",
+  "versions": {
+    "fullbleed": "2.5.14",
+    "matplotlib": "3.11.2",
+    "numpy": "2.4.6",
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0"
+  },
+  "checks": [
+    {
+      "name": "ZIP hash matches source manifest",
+      "passed": true
+    },
+    {
+      "name": "exact ZIP file set",
+      "passed": true
+    },
+    {
+      "name": "ZIP paths stay within project",
+      "passed": true
+    },
+    {
+      "name": "source bytes: README.md",
+      "passed": true
+    },
+    {
+      "name": "source bytes: LICENSE",
+      "passed": true
+    },
+    {
+      "name": "source bytes: requirements.txt",
+      "passed": true
+    },
+    {
+      "name": "source bytes: report.py",
+      "passed": true
+    },
+    {
+      "name": "source bytes: report.css",
+      "passed": true
+    },
+    {
+      "name": "source bytes: data.json",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: fullbleed",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: matplotlib",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: contourpy",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: cycler",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: fonttools",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: kiwisolver",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: numpy",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: packaging",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: Pillow",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: pyparsing",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: python-dateutil",
+      "passed": true
+    },
+    {
+      "name": "installed dependency: six",
+      "passed": true
+    },
+    {
+      "name": "render command exit",
+      "passed": true
+    },
+    {
+      "name": "replay command exit",
+      "passed": true
+    },
+    {
+      "name": "repeated bytes: volume.svg",
+      "passed": true
+    },
+    {
+      "name": "repeated bytes: regions.svg",
+      "passed": true
+    },
+    {
+      "name": "repeated bytes: report.pdf",
+      "passed": true
+    },
+    {
+      "name": "repeated bytes: preview/report_page1.png",
+      "passed": true
+    },
+    {
+      "name": "repeated bytes: preview/report_page2.png",
+      "passed": true
+    },
+    {
+      "name": "volume SVG has paths without raster images or text-font dependencies",
+      "passed": true
+    },
+    {
+      "name": "regions SVG has paths without raster images or text-font dependencies",
+      "passed": true
+    },
+    {
+      "name": "document font covers the sample",
+      "passed": true
+    },
+    {
+      "name": "report expected page count",
+      "passed": true
+    },
+    {
+      "name": "report has no raster image objects",
+      "passed": true
+    },
+    {
+      "name": "report contains both charts as vector forms",
+      "passed": true
+    },
+    {
+      "name": "report page 1 text stays inside the page",
+      "passed": true
+    },
+    {
+      "name": "report page 2 text stays inside the page",
+      "passed": true
+    },
+    {
+      "name": "report text has no replacement glyph",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: FIELDNOTE LOGISTICS",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 261,400",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: +91.3%",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: +5.9%",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 61,400",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 58,000",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 34,000",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 32,100",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 35,400",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 39,000",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 31,200",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 46,000",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 48,200",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 52,000",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 53,100",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: North: 15,300",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: South: 18,700",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: East: 12,100",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: West: 15,300",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 1 / 2",
+      "passed": true
+    },
+    {
+      "name": "selectable data in both readers: 2 / 2",
+      "passed": true
+    },
+    {
+      "name": "A4 pages",
+      "passed": true
+    },
+    {
+      "name": "rendered total is calculated from data",
+      "passed": true
+    },
+    {
+      "name": "one executable guide snippet",
+      "passed": true
+    },
+    {
+      "name": "guide command exit",
+      "passed": true
+    },
+    {
+      "name": "guide expected page count",
+      "passed": true
+    },
+    {
+      "name": "guide has no raster image objects",
+      "passed": true
+    },
+    {
+      "name": "guide contains both charts as vector forms",
+      "passed": true
+    },
+    {
+      "name": "guide page 1 text stays inside the page",
+      "passed": true
+    },
+    {
+      "name": "guide text has no replacement glyph",
+      "passed": true
+    },
+    {
+      "name": "guide PDF includes selectable chart values",
+      "passed": true
+    },
+    {
+      "name": "edited command exit",
+      "passed": true
+    },
+    {
+      "name": "edited expected page count",
+      "passed": true
+    },
+    {
+      "name": "edited has no raster image objects",
+      "passed": true
+    },
+    {
+      "name": "edited contains both charts as vector forms",
+      "passed": true
+    },
+    {
+      "name": "edited page 1 text stays inside the page",
+      "passed": true
+    },
+    {
+      "name": "edited page 2 text stays inside the page",
+      "passed": true
+    },
+    {
+      "name": "edited text has no replacement glyph",
+      "passed": true
+    },
+    {
+      "name": "customized PDF data: Mira & Co <Research>",
+      "passed": true
+    },
+    {
+      "name": "customized PDF data: A & B: 75",
+      "passed": true
+    },
+    {
+      "name": "customized PDF data: C < D: 50",
+      "passed": true
+    },
+    {
+      "name": "customized PDF data: +25.0%",
+      "passed": true
+    },
+    {
+      "name": "customized PDF data: n/a",
+      "passed": true
+    },
+    {
+      "name": "changed data and styling change PDF",
+      "passed": true
+    },
+    {
+      "name": "negative-count command exit",
+      "passed": true
+    },
+    {
+      "name": "negative-count rejected before PDF creation",
+      "passed": true
+    },
+    {
+      "name": "boolean-count command exit",
+      "passed": true
+    },
+    {
+      "name": "boolean-count rejected before PDF creation",
+      "passed": true
+    },
+    {
+      "name": "inconsistent-total command exit",
+      "passed": true
+    },
+    {
+      "name": "inconsistent-total rejected before PDF creation",
+      "passed": true
+    }
+  ],
+  "commands": [
+    {
+      "label": "render",
+      "exit": 0
+    },
+    {
+      "label": "replay",
+      "exit": 0
+    },
+    {
+      "label": "guide",
+      "exit": 0
+    },
+    {
+      "label": "edited",
+      "exit": 0
+    },
+    {
+      "label": "negative-count",
+      "exit": 1
+    },
+    {
+      "label": "boolean-count",
+      "exit": 1
+    },
+    {
+      "label": "inconsistent-total",
+      "exit": 1
+    }
+  ],
+  "zip_sha256": "e63310585a5d3e341605ee3289c60d29ebfdb75cddbbc8f5c20615f2d0133c15",
+  "pdf_sha256": "ec5ba7655a976250380abb70fdb6a8a1bf896af58c8b979181b580b49fe342c0",
+  "pages": 2,
+  "raster_image_objects": 0,
+  "chart_form_path_operators": [
+    11,
+    5,
+    13,
+    7,
+    24,
+    25,
+    26,
+    9,
+    33,
+    40,
+    31,
+    21,
+    26,
+    18,
+    5,
+    26,
+    27,
+    42,
+    18,
+    21,
+    26,
+    5,
+    7,
+    5,
+    40,
+    13,
+    9,
+    41,
+    35,
+    27,
+    26,
+    42,
+    5,
+    11,
+    26,
+    25,
+    31,
+    31,
+    5,
+    33,
+    48,
+    17,
+    13,
+    14,
+    31,
+    26,
+    19,
+    33,
+    23,
+    9,
+    24,
+    13,
+    7,
+    5,
+    13,
+    26,
+    40,
+    5,
+    21,
+    26,
+    27,
+    42,
+    9,
+    5,
+    18,
+    26,
+    11,
+    9,
+    25,
+    18,
+    41,
+    13,
+    10,
+    42,
+    9,
+    42,
+    57,
+    32,
+    26,
+    9,
+    5,
+    13,
+    26,
+    5,
+    20,
+    35,
+    33,
+    13,
+    17,
+    18,
+    14,
+    1233,
+    13,
+    24,
+    51,
+    9,
+    20,
+    33,
+    20,
+    20,
+    35,
+    33,
+    17,
+    33,
+    14,
+    33,
+    18,
+    13,
+    31,
+    9,
+    27,
+    26,
+    44,
+    20,
+    48,
+    33,
+    33,
+    33,
+    1315,
+    41,
+    26,
+    20,
+    18,
+    20,
+    5,
+    23,
+    33,
+    33,
+    44,
+    17,
+    41,
+    26,
+    25,
+    9,
+    13,
+    21,
+    7,
+    18,
+    13,
+    24,
+    13,
+    26,
+    40
+  ],
+  "svg_sha256": {
+    "volume": "57035d6747193c79f4657b920b4808dad800f7babf4c964bf4996336c6065a03",
+    "regions": "c20b69b7c325383383eb9c39b73a8e032778132b9d2278d92de95dc3d9aedb6d"
+  },
+  "scope": "The actual ZIP and guide snippet with fictional data: vector chart objects, selectable values in two readers, repeated bytes, customization and invalid-data failures. No arbitrary Matplotlib feature, PDF conformance or cross-version equivalence claim."
+}

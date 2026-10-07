@@ -166,5 +166,6 @@ of the sample, edge-case, and long-fixture PDFs were visually reviewed. These
 fixture checks do not establish PDF standards conformance.
 
 For another data workflow, try [JSON and CSV invoices](invoices.md),
+[Matplotlib charts in a report](matplotlib-pdf.md),
 [PDF responses from FastAPI, Flask, or Django](web-frameworks.md), or
 [compiled variable-data documents](bank-statements.md).
