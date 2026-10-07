@@ -1,0 +1,230 @@
+{
+  "checkedAt": "2026-10-07T04:45:54.191594+00:00",
+  "scope": "Local Windows verification of the 2.5.11 Playground upgrade; fixture-specific results, not universal parity or standards conformance.",
+  "baselineCiRun": "https://github.com/fullbleed-engine/docs/actions/runs/37571033471",
+  "fontPreview": {
+    "before": {
+      "engine": "2.5.8",
+      "pdfSha256": "1b8c17ab56c4dbd073b4b108528d617d272c735ffd14056cac2cd5394e988cbc",
+      "pngSha256": "2cc00648b3ae8e45f95e8a92a750972137f2a268329c734b2f26375435a536dc",
+      "inkPixels": 0,
+      "fonts": [
+        "/Courier",
+        "/Courier-Bold",
+        "/Courier-BoldOblique",
+        "/Courier-Oblique",
+        "/Helvetica",
+        "/Helvetica-Bold",
+        "/Helvetica-BoldOblique",
+        "/Helvetica-Oblique",
+        "/Times-Bold",
+        "/Times-BoldItalic",
+        "/Times-Italic",
+        "/Times-Roman"
+      ],
+      "allFontsUnembedded": true
+    },
+    "after": {
+      "engine": "2.5.11",
+      "pdfSha256": "1b8c17ab56c4dbd073b4b108528d617d272c735ffd14056cac2cd5394e988cbc",
+      "pngSha256": "40dc4face028f04b148ea5016b0c64498fbeb0847c61d09099ab9eb36107759a",
+      "inkPixels": 15281,
+      "fonts": [
+        "/Courier",
+        "/Courier-Bold",
+        "/Courier-BoldOblique",
+        "/Courier-Oblique",
+        "/Helvetica",
+        "/Helvetica-Bold",
+        "/Helvetica-BoldOblique",
+        "/Helvetica-Oblique",
+        "/Times-Bold",
+        "/Times-BoldItalic",
+        "/Times-Italic",
+        "/Times-Roman"
+      ],
+      "allFontsUnembedded": true
+    },
+    "pdfUnchanged": true,
+    "oldPreviewRejectedByNewRegression": true
+  },
+  "nativeWasiFixtures": 8,
+  "pythonWasiProjectFixtures": 8,
+  "downloadedZipMatchesVerifiedPythonProject": true,
+  "downloadedZipSha256": "3c454dd4a1d43989a3c31ce47afc89591f67f515315c98a0f94a82f70b072ae0",
+  "galleryComparison": [
+    {
+      "name": "invoice",
+      "oldBytes": 40289,
+      "newBytes": 40386,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 3296,
+          "totalPixels": 891662,
+          "differenceBox": [
+            88,
+            384,
+            739,
+            1075
+          ]
+        }
+      ]
+    },
+    {
+      "name": "invoice-edited",
+      "oldBytes": 40288,
+      "newBytes": 40392,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 3314,
+          "totalPixels": 891662,
+          "differenceBox": [
+            88,
+            384,
+            739,
+            1075
+          ]
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "oldBytes": 46259,
+      "newBytes": 46044,
+      "oldPages": 3,
+      "newPages": 3,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 820,
+          "totalPixels": 891662,
+          "differenceBox": [
+            110,
+            59,
+            739,
+            1075
+          ]
+        },
+        {
+          "page": 2,
+          "changedPixels": 1675,
+          "totalPixels": 891662,
+          "differenceBox": [
+            132,
+            557,
+            735,
+            1075
+          ]
+        },
+        {
+          "page": 3,
+          "changedPixels": 1985,
+          "totalPixels": 891662,
+          "differenceBox": [
+            105,
+            435,
+            739,
+            1075
+          ]
+        }
+      ]
+    },
+    {
+      "name": "notice",
+      "oldBytes": 34067,
+      "newBytes": 33990,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 541,
+          "totalPixels": 891662,
+          "differenceBox": [
+            116,
+            1066,
+            735,
+            1075
+          ]
+        }
+      ]
+    },
+    {
+      "name": "linear-gradient",
+      "oldBytes": 961,
+      "newBytes": 961,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 0,
+          "totalPixels": 17689,
+          "differenceBox": null
+        }
+      ]
+    },
+    {
+      "name": "translucent-gradient",
+      "oldBytes": 20485,
+      "newBytes": 20485,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 0,
+          "totalPixels": 17689,
+          "differenceBox": null
+        }
+      ]
+    },
+    {
+      "name": "hard-radial-gradient",
+      "oldBytes": 1292,
+      "newBytes": 1292,
+      "oldPages": 1,
+      "newPages": 1,
+      "textTokensEqual": true,
+      "whitespaceNormalizedCharactersEqual": true,
+      "images": [
+        {
+          "page": 1,
+          "changedPixels": 0,
+          "totalPixels": 17689,
+          "differenceBox": null
+        }
+      ]
+    }
+  ],
+  "browser": "154.0.8037.98",
+  "viewports": [
+    1440,
+    390,
+    320
+  ],
+  "sampleBrowserChecks": 9,
+  "keyboardSourceTabAndRender": true,
+  "pageErrors": [],
+  "writeRequests": [],
+  "visualReview": "Reviewed before/after invoice, report and notice previews and the desktop/narrow editor. Text, tables, artwork and controls remain legible without clipping; small text alignment shifts were retained.",
+  "wasmMemoryMaximum": 268435456
+}

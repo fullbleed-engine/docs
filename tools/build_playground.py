@@ -36,6 +36,11 @@ for package in metadata['packages']:
     if not license_file.exists():
         raise SystemExit(f"Missing bundled license for {package['name']}")
     license_parts.append(f"{package['name']} {package['version']} — MIT\n\n" + license_file.read_text(encoding='utf-8'))
+for name in ['Liberation', 'NotoSans', 'NotoSansMath', 'NotoSansSymbols', 'NotoSansSymbols2']:
+    # Font programs are compiled into the engine; retain their own licenses.
+    relative = f'src/preview_fonts/LICENSE-{name}.txt'
+    notice = Path(core['manifest_path']).parent / relative
+    license_parts.append(f"fullbleed {core['version']} / {relative}\n\n" + notice.read_text(encoding='utf-8'))
 license_parts.append('browser_wasi_shim 0.4.2 — MIT\n\n' + (shim / 'LICENSE-MIT').read_text(encoding='utf-8'))
 for path in sorted(ASSETS.glob('fonts/*-OFL.txt')):
     license_parts.append(path.name + '\n\n' + path.read_text(encoding='utf-8'))
@@ -56,8 +61,8 @@ record = {
     'limits': {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30},
     'artifacts': {},
 }
-for path in sorted([ASSETS / 'fullbleed.wasm', ASSETS / 'fonts.zip', *ASSETS.glob('fonts/*.ttf')]):
+for path in sorted([ASSETS / 'fullbleed.wasm', ASSETS / 'fonts.zip', ASSETS / 'LICENSES.txt', *ASSETS.glob('fonts/*.ttf')]):
     raw = path.read_bytes()
     record['artifacts'][path.relative_to(ASSETS).as_posix()] = {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
-(ASSETS / 'build.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
+(ASSETS / 'build.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(f"Built playground: {record['artifacts']['fullbleed.wasm']['bytes']:,} bytes of WebAssembly")

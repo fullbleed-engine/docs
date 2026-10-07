@@ -9,6 +9,7 @@ import sys
 import zipfile
 
 import fullbleed
+from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'playground/project-verification'
@@ -53,18 +54,33 @@ for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
         assert b'DOCUMENT DESIGN EXAMPLE' in (project / 'input.html').read_bytes()
         assert b'TAGGED DOCUMENT EXAMPLE' not in (project / 'input.html').read_bytes()
         assert not fullbleed.inspect_pdf(str(pdf))['profile']['struct_tree_root_present']
+    standard_font_faces = []
+    if name == 'standard-fonts':
+        reader = PdfReader(pdf)
+        assert len(reader.pages) == 1
+        fonts = [font.get_object() for font in reader.pages[0]['/Resources']['/Font'].values()]
+        expected_faces = {
+            'Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Helvetica-BoldOblique',
+            'Times-Roman', 'Times-Bold', 'Times-Italic', 'Times-BoldItalic',
+            'Courier', 'Courier-Bold', 'Courier-Oblique', 'Courier-BoldOblique',
+        }
+        standard_font_faces = sorted(str(font['/BaseFont']).removeprefix('/') for font in fonts)
+        assert len(fonts) == 12 and set(standard_font_faces) == expected_faces
+        assert all('/FontDescriptor' not in font for font in fonts), 'Fixture must use unembedded fonts'
+        assert all(face + ' preview' in reader.pages[0].extract_text() for face in expected_faces)
     for number, preview in enumerate(rendered['previews'], 1):
         assert Path(preview).read_bytes() == (expected / f'page-{number}.png').read_bytes(), name + ': PNG mismatch'
     records.append(dict(name=name, pages=case['pages'], files=len(required),
                         zip_crc_valid=True, sources_preserved=True, manifest_hashes_valid=True,
                         fonts_and_licenses_match=True, python_wasi_pdf_equal=True, python_wasi_png_equal=True,
+                        standard_font_faces=standard_font_faces,
                         pdf_sha256=rendered['sha256']))
 result = dict(ok=True, platform=sys.platform, python=sys.version.split()[0],
               engine=metadata.version('fullbleed'), cases=records,
               source_revision=os.environ.get('GITHUB_SHA'), ci_run_id=os.environ.get('GITHUB_RUN_ID'),
               archive_checks=json.loads((OUT / 'export-verification.json').read_text())['checks'],
               preview_source='finalized_pdf',
-              scope='These seven fixtures and bundled assets; no universal parity or standards-conformance claim.')
+              scope=f'These {len(records)} fixtures and bundled assets; no universal parity or standards-conformance claim.')
 (OUT / 'python-verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
 (assets / 'project-verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(result))

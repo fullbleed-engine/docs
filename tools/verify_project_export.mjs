@@ -10,6 +10,7 @@ import { storeZip } from '../docs/assets/playground/zip-store.js';
 import { render } from '../docs/assets/playground/renderer.js';
 import { prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
+import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const assets = join(root, 'docs/assets/playground');
@@ -24,11 +25,13 @@ const fonts = Object.fromEntries(await Promise.all([
 const cases = [];
 const fixtures = [['invoice', 1], ['report', 3], ['notice', 1], ['invoice-edited', 1]].map(([name, pages]) => ({ name, pages }));
 fixtures.push(...gradientFixtures);
+fixtures.push(standardFontFixture);
 for (const fixture of fixtures) {
   const { name, pages } = fixture;
   const gradient = Boolean(fixture.probes);
-  const example = gradient ? 'report' : name === 'invoice-edited' ? 'invoice' : name;
-  let { html, css } = gradient ? fixture : prepareExample(example,
+  const standardFonts = name === standardFontFixture.name;
+  const example = gradient ? 'report' : (name === 'invoice-edited' || standardFonts) ? 'invoice' : name;
+  let { html, css } = gradient || standardFonts ? fixture : prepareExample(example,
     await readFile(join(root, `docs/assets/showcase/${example}.html`), 'utf8'),
     await readFile(join(root, `docs/assets/showcase/${example}.css`), 'utf8'));
   if (name === 'invoice-edited') {
@@ -48,8 +51,9 @@ for (const fixture of fixtures) {
   assert.equal(inspection.pages, pages);
   assert.equal(inspection.missing_glyphs, 0, `${name}: missing glyphs`);
   const color_probes = gradient ? checkGradient(fixture, result.outputs['page-1.png']) : [];
+  const standard_font_rows = standardFonts ? checkStandardFonts(result.outputs['page-1.png']) : [];
   for (const [file, bytes] of Object.entries(result.outputs)) await writeFile(join(expected, file), bytes);
-  cases.push({ name, pages, missing_glyphs: 0, color_probes, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
+  cases.push({ name, pages, missing_glyphs: 0, color_probes, standard_font_rows, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
 }
 
 for (const name of ['../escape', '/absolute', 'C:/drive', 'fonts/../escape', 'fonts\\escape', 'bad\0name']) {
