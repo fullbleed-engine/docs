@@ -1,20 +1,20 @@
 {
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "source_commit": "3e60340b2cb1a4275828ef717a886a93b93c9cc7",
+  "source_commit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
   "source_directory": "examples/vue",
-  "package_version": "0.3.1",
-  "engine_version": "2.5.10",
+  "package_version": "0.3.2",
+  "engine_version": "2.5.11",
   "vue_version": "3.5.43",
-  "package_integrity": "sha512-95CVTnYKduXD5KcEj9MLfzPsqofahZB2BsJ62Dfg0tOTlPFEHT8vx/T3f8xp4VQYkihOPQdMDiWQzYNHJkLpWA==",
-  "zip_bytes": 30301,
-  "zip_sha256": "0de1074aaed21af1843069e6f811335fe67e638f44b16f8aa27185b50c93bb2b",
+  "package_integrity": "sha512-bzbTUn6Hcxu0YZoP38wkrJ/nZ33+rQfZq5itdpQUl7lIO9mR1m9LC5n/2KLxjj+7dAb8IhpYoVTSmbuhQyA5Vg==",
+  "zip_bytes": 30293,
+  "zip_sha256": "8fd2f6beacc82e1b4baacad6713c8c69b3bc8a035c8e3fc42477a4e41b61d1b6",
   "files": {
     "fullbleed-vue-starter/.gitignore": "c023fec2bf12476cb47709e859f1fbb785aeb1e03281e52141e0bee1ee7dad72",
     "fullbleed-vue-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
-    "fullbleed-vue-starter/README.md": "92379177e243f455359ef3f3ddc385701474d859bf23ceabd5d472f4444964c7",
+    "fullbleed-vue-starter/README.md": "b157b91e6a93417c279b565f2b5ecb96c8299c3e0524b7531704348ba0bbe4e8",
     "fullbleed-vue-starter/index.html": "30d46eb1b5147bd3d9c580e7adaed5b5202f9b97ab598e189efda7c3d2d405be",
-    "fullbleed-vue-starter/package-lock.json": "75ce815032cacd7596af9435d1003680967e570fcbc32a398cb041a360febbbc",
-    "fullbleed-vue-starter/package.json": "470894ba1eb0e0676bc3a38b5fa69aa5cdac752f3c22110d70d54d20e9c97027",
+    "fullbleed-vue-starter/package-lock.json": "72269d20bb6fabb34779eac61bea9d2b9eaadf5afff09e5e968053c2418fe3c4",
+    "fullbleed-vue-starter/package.json": "262a2d42ec0067ff76d4c80398b01de7c2fc84c455f66fd7bb62517b30669c90",
     "fullbleed-vue-starter/public/favicon.svg": "3eed6dcf1013e48bc64886fed4cf815c609ed06b404742bdacdc44c1df8d3118",
     "fullbleed-vue-starter/src/App.vue": "0afa15196ccedd0b0f91293cc5e362799149a2752c59deaa377f4533825ea2af",
     "fullbleed-vue-starter/src/DocumentEditor.vue": "a3f3f8096d194e1eed6cd0cf2fb0a0606a04d40823ff7b794b9b1a0dbfd8c28a",
@@ -29,5 +29,6 @@
     "fullbleed-vue-starter/vite.config.js": "dfcc6c065fb26ada03802def672108735f4c2c35e0f30d11965ddfa796b8a0c0"
   },
   "verification_workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/workflows/vue-starter.yml",
-  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/3e60340b2cb1a4275828ef717a886a93b93c9cc7/verification/vue-starter.json"
+  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/ae6e301ebc129a15aab89378f44beb81d63d4475/verification/starters-032.json",
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37569111733"
 }

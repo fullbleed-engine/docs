@@ -47,7 +47,7 @@ color and wait for **Ready**, then choose **Download PDF**. Turn off **Update
 automatically** to generate on demand. **Cancel** stops a pending preview or
 active render. **Close editor** releases its resources; reopening starts fresh.
 
-The lockfile pins Fullbleed npm **0.3.1** / engine **2.5.10**, Vue **3.5.43**,
+The lockfile pins Fullbleed npm **0.3.2** / engine **2.5.11**, Vue **3.5.43**,
 TypeScript **6.0.3**, and Vite **8.3.2**. The build downloads the published
 dependencies and copies their verified runtime. TypeScript 6 is pinned for
 compatibility with the project's `vue-tsc` type checker.
@@ -82,7 +82,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.3.1
+npm install --save-exact fullbleed@0.3.2
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -158,6 +158,8 @@ compares default PDF and preview bytes with the installed Node package. It
 exercises fast edits, both preview modes, cancellation, runtime-outage recovery,
 template editing, unmount/remount, URL cleanup, and 1440/390/320px layouts.
 The docs build installs and checks the exact downloadable ZIP.
+An edited-template check verifies unembedded Helvetica faces in the PDF and
+visible text in its browser preview.
 
 These fixtures do not establish compatibility with every device or hosting
 policy. WebKit testing is not branded Safari certification. Worker counts

@@ -18,11 +18,11 @@ Change the customer, reference, and ink color, or open **Edit the HTML & CSS** t
 paste your own template. Generate a preview, then download the actual PDF.
 All sample names, organizations, and amounts are fictional.
 
-The downloadable starter uses **npm package 0.3.1**, wrapping **Fullbleed engine 2.5.10**.
+The downloadable starter uses **npm package 0.3.2**, wrapping **Fullbleed engine 2.5.11**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
-For an existing application, **npm package 0.3.2** adds engine **2.5.11** and
-fixes blank PNG previews for unembedded Helvetica, Times, and Courier faces.
+This version fixes blank PNG previews for unembedded Helvetica, Times, and
+Courier faces, including templates pasted into the starter.
 The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.3.2/docs/standard-font-previews.md)
 explains the substitute designs and upgrade checks. Run the asset-copy command
 again after upgrading so the browser receives the matching runtime and notices.
@@ -131,7 +131,7 @@ completion or cancellation requests worker termination before the promise settle
 Browsers do not expose a native thread-exit promise. Keep concurrent jobs bounded
 for the devices you support, especially when generating page previews.
 
-The [0.3.1 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.3.1)
+The [0.3.2 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.3.2)
 retains checks in Chrome, Firefox, and Playwright WebKit, including PDF/PNG
 comparison with the installed Node package, independent PDF text checks,
 cancellation, damaged assets, and recovery. Playwright WebKit is not branded

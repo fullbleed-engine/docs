@@ -48,7 +48,7 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.3.1** / engine **2.5.10**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.3.2** / engine **2.5.11**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
@@ -79,7 +79,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.3.1
+npm install --save-exact fullbleed@0.3.2
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -146,6 +146,8 @@ independently checks their text and page sizes, and compares the default invoice
 and report bytes with the installed Node package. It also checks automatic and
 on-demand modes, fast edits, cancellation, recovery, unmount/remount, URL cleanup,
 and 1440/390/320px layouts. The docs build installs and checks the exact ZIP.
+An edited-template check verifies unembedded Helvetica faces in the PDF and
+visible text in its browser preview.
 
 These fixtures do not establish compatibility with every browser, device, or
 hosting policy. WebKit testing is not branded Safari certification. Worker
