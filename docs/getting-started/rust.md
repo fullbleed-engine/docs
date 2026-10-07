@@ -8,6 +8,9 @@ Use the [`fullbleed` crate](https://crates.io/crates/fullbleed) directly in a
 Rust application. The engine renders static HTML and CSS into print documents;
 you do not need Python or a browser to render them.
 
+For editable invoice and report templates with fonts included,
+[start with the complete Rust project](#render-a-designed-invoice-or-report).
+
 ## Create your first PDF
 
 With Rust 1.85 or newer and a working native Rust toolchain:
@@ -50,30 +53,41 @@ The Python wheel's bundled fonts are not included in the Rust crate.
 
 ## Render a designed invoice or report
 
-The runnable example includes font registration, missing-glyph checking, and
-PNG previews. It uses the same source and fonts as the
+The standalone project includes font registration, missing-glyph checking, and
+PNG previews. It contains the Rust source, pinned Cargo dependencies, editable
+HTML/CSS, and four font faces with their license notices. It uses the same
+document source and fonts as the
 [editable browser playground](../playground.md).
 
 [![Northstar invoice rendered with Fullbleed, with cream paper, serif typography, and a forest-green total panel.](../assets/showcase/invoice-1.png)](../assets/showcase/invoice.pdf)
 
-Clone the documentation repository and run the example from its root:
+[Download the Rust project](../assets/rust-starter/project.zip){ .md-button .md-button--primary }
+[Source and checksums](../assets/rust-starter/source.json){ .md-button }
+
+Extract the ZIP and open a terminal in `fullbleed-rust-starter`:
 
 ```bash
-git clone https://github.com/fullbleed-engine/docs.git fullbleed-docs
-cd fullbleed-docs
-cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from-files -- docs/assets/showcase/invoice.html docs/assets/showcase/invoice.css docs/assets/playground/fonts output/rust-invoice
+cargo run --release --locked --bin from-files -- templates/invoice.html templates/invoice.css fonts output/invoice
 ```
 
-Open `output/rust-invoice/document.pdf` or `page-1.png` in the same directory.
-Replace both `invoice` input filenames with `report` for the report design,
-and choose a new output directory. The report produces three
-pages. These examples pin Fullbleed 2.5.11 and include a Cargo lockfile.
-
-For the service notice or your own edits, choose **Download project** in the
-playground. Extract the ZIP into `my-project` in this repository, then run:
+Open `output/invoice/document.pdf` and `output/invoice/page-1.png`. For the
+three-page report:
 
 ```bash
-cargo run --release --locked --manifest-path examples/rust/Cargo.toml --bin from-files -- my-project/input.html my-project/style.css my-project/fonts output/my-project
+cargo run --release --locked --bin from-files -- templates/report.html templates/report.css fonts output/report
+```
+
+Edit the files in `templates/` to customize the content and design. Render to a
+new output directory after edits, so previews from a longer previous document
+do not remain. The first Cargo build downloads dependencies and needs internet
+access. These examples pin Fullbleed 2.5.11 and include a Cargo lockfile; the ZIP
+is compiled and rendered on Windows and Linux with Rust 1.97.0.
+
+For the service notice or your own edits, choose **Download project** in the
+playground. Extract its ZIP into `my-project` inside the Rust starter, then run:
+
+```bash
+cargo run --release --locked --bin from-files -- my-project/input.html my-project/style.css my-project/fonts output/my-project
 ```
 
 The Rust example reads the exported HTML, CSS, and fonts directly. The individual
@@ -132,5 +146,8 @@ boundary.
 This walkthrough was written by an AI coding agent for the Fullbleed project.
 The [runnable Rust examples are compiled and rendered in documentation CI](https://github.com/fullbleed-engine/docs/actions/workflows/docs.yml),
 where their fixture PDFs and PNG previews are compared with the playground's
-output. See the [verification source](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_examples.py)
-for the checks and their scope.
+output. The [download verifier](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_starter.py)
+also extracts the actual ZIP, compiles it outside the source tree, and checks
+the invoice, report, edited HTML/CSS, failure handling, and repeated output.
+See the [example verification source](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_examples.py)
+for the playground comparisons and their scope.
