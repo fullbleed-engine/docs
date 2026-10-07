@@ -5,8 +5,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 2997,
-      "sha256": "be9beb65d17c8e537ac26432f0337c48b1b79ec6ca1f7c33500b503cbe747eac"
+      "bytes": 3021,
+      "sha256": "4e7bba4b699316da107842a865a00e5e99d3b15e22db0c2190548af2ba339d1f"
     },
     {
       "path": "LICENSE",
@@ -20,8 +20,8 @@
     },
     {
       "path": "report.py",
-      "bytes": 10558,
-      "sha256": "fc52e81774cb2c0e5a7a8101a48f90c5685402ee9d8a8e0a769e4a98a6d7f024"
+      "bytes": 10631,
+      "sha256": "6eea2aadcbed835daab999a92d3bc71b61a8650edd271abfc125a06317e5096b"
     },
     {
       "path": "report.css",
@@ -34,6 +34,6 @@
       "sha256": "9c7ee6fbfb4462b3ab7878b2dda95291536ce71eda0bede23c3333ad3c85c601"
     }
   ],
-  "zip_bytes": 8123,
-  "zip_sha256": "e63310585a5d3e341605ee3289c60d29ebfdb75cddbbc8f5c20615f2d0133c15"
+  "zip_bytes": 8180,
+  "zip_sha256": "6481af0405f5513481c362bb18109ef266c9f0b69a516736135e36efca5ea53a"
 }

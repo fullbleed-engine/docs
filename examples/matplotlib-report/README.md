@@ -52,7 +52,8 @@ preserves their shape without asking an SVG consumer to find a system font,
 but those labels are not searchable PDF text. The HTML table and captions repeat
 the values as selectable text. This is not a PDF accessibility conformance claim.
 
-The SVG export removes its date and fixes `svg.hashsalt`. The verification checks
+The SVG export removes its date, fixes `svg.hashsalt` and writes LF line endings.
+The verification checks
 that repeated inputs produce identical SVGs and PDFs in the tested environment.
 Different Matplotlib, font, FreeType or Fullbleed versions can change output.
 

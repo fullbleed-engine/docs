@@ -53,7 +53,8 @@ def save_chart(fig, name, out, font_path):
         text.set_parse_math(False)
         text.set_usetex(False)
     with matplotlib.rc_context({"svg.fonttype": "path", "svg.hashsalt": "fullbleed-matplotlib-report"}):
-        fig.savefig(out / (name + ".svg"), format="svg", metadata={"Date": None, "Creator": "Fullbleed Matplotlib example"})
+        with (out / (name + ".svg")).open("w", encoding="utf-8", newline="\n") as svg:
+            fig.savefig(svg, format="svg", metadata={"Date": None, "Creator": "Fullbleed Matplotlib example"})
         # Reference image for visual review, never embedded in the PDF.
         fig.savefig(out / (name + "-reference.png"), dpi=144)
     fig.clear()

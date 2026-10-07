@@ -124,7 +124,15 @@
       "passed": true
     },
     {
+      "name": "volume SVG uses portable LF line endings",
+      "passed": true
+    },
+    {
       "name": "volume SVG has paths without raster images or text-font dependencies",
+      "passed": true
+    },
+    {
+      "name": "regions SVG uses portable LF line endings",
       "passed": true
     },
     {
@@ -390,7 +398,7 @@
       "exit": 1
     }
   ],
-  "zip_sha256": "e63310585a5d3e341605ee3289c60d29ebfdb75cddbbc8f5c20615f2d0133c15",
+  "zip_sha256": "6481af0405f5513481c362bb18109ef266c9f0b69a516736135e36efca5ea53a",
   "pdf_sha256": "ec5ba7655a976250380abb70fdb6a8a1bf896af58c8b979181b580b49fe342c0",
   "pages": 2,
   "raster_image_objects": 0,
@@ -540,8 +548,8 @@
     40
   ],
   "svg_sha256": {
-    "volume": "57035d6747193c79f4657b920b4808dad800f7babf4c964bf4996336c6065a03",
-    "regions": "c20b69b7c325383383eb9c39b73a8e032778132b9d2278d92de95dc3d9aedb6d"
+    "volume": "cb4d6b4f23872e5f2b062e0b78c821f473f0bdb10b9f5fa3c39693edd328cc74",
+    "regions": "3fcad7030bab92f3cbe030426c8d0bc4ff461e7c8c510b38d1a84e659928f112"
   },
   "scope": "The actual ZIP and guide snippet with fictional data: vector chart objects, selectable values in two readers, repeated bytes, customization and invalid-data failures. No arbitrary Matplotlib feature, PDF conformance or cross-version equivalence claim."
 }

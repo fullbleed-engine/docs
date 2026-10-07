@@ -78,7 +78,8 @@ for label in fig.findobj(Text):
     label.set_usetex(False)
 
 with matplotlib.rc_context({"svg.fonttype": "path", "svg.hashsalt": "my-report"}):
-    fig.savefig("chart.svg", format="svg", metadata={"Date": None})
+    with open("chart.svg", "w", encoding="utf-8", newline="\n") as svg:
+        fig.savefig(svg, format="svg", metadata={"Date": None})
 fig.clear()
 
 bundle = fullbleed.AssetBundle()
@@ -118,7 +119,8 @@ rasterized artists can put raster content inside an SVG. See Matplotlib's
 [rasterization explanation](https://matplotlib.org/stable/gallery/misc/rasterization_demo.html).
 
 Setting `svg.hashsalt` and omitting the export date remove two sources of
-changing SVG bytes. The project pins its dependencies, uses an explicit font
+changing SVG bytes. Explicit LF line endings also keep the text file consistent
+between Windows and Linux. The project pins its dependencies, uses an explicit font
 file and verifies repeated SVG/PDF hashes. Updating Matplotlib, FreeType, fonts
 or the renderer can still change geometry or bytes; review new output before
 replacing a baseline.

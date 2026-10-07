@@ -109,6 +109,7 @@ def verify(args):
         for name in ("volume.svg","regions.svg","report.pdf","preview/report_page1.png","preview/report_page2.png"):
             check("repeated bytes: "+name,(out/"render"/name).read_bytes()==(out/"replay"/name).read_bytes())
         for name in ("volume","regions"):
+            check(name+" SVG uses portable LF line endings",b"\r" not in (out/"render"/(name+".svg")).read_bytes())
             svg=ET.parse(out/"render"/(name+".svg"))
             tags=[element.tag.split("}")[-1] for element in svg.iter()]
             check(name+" SVG has paths without raster images or text-font dependencies",tags.count("path")>20 and "image" not in tags and "text" not in tags)
