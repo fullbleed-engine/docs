@@ -31,6 +31,8 @@ Open `output/invoice.pdf` and the images under `output/preview`. Inspect every p
 
 For Simplified Chinese, use the [Chinese-font invoice recipe](../guides/chinese-pdf.md).
 It registers Noto Sans SC explicitly and includes a missing-character check.
+For Arabic and English, the [bilingual invoice recipe](../guides/arabic-pdf.md)
+includes its fonts and shows how to isolate dates and references in RTL text.
 
 ## Repeatable output
 
