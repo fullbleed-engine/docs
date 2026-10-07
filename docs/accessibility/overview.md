@@ -5,6 +5,10 @@ description: Author semantic documents, generate tagged PDF output, and retain a
 
 Fullbleed provides semantic Python components, tagged PDF output profiles, inspection, and accessibility verification tools. Start with clear headings, logical reading order, meaningful table headers, document language, and appropriate alternative text.
 
+For .NET, use the [editable C# tagged-notice starter](../guides/csharp-tagged-pdf.md).
+It includes styled HTML/CSS, explicit fonts, a scoped table and a captioned
+illustration, with PDF/UA-1 and PDF/UA-2 output and retained verification.
+
 ## Try the checked example
 
 [Open the service-notice PDF](../assets/examples/accessible.pdf) · [View HTML](../assets/examples/accessible.html) · [View CSS](../assets/examples/accessible.css)

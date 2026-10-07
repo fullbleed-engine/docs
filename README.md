@@ -47,6 +47,19 @@ pages, checks their PDF text and page counts, and exercises the documented proje
 commands. CI retains the PDFs, previews, and structured report. Older showcase,
 playground, and tutorial downloads keep their own verified release pins.
 
+The tagged C# notice lives in `examples/dotnet-accessibility`. When updating it,
+restore its lockfile from public NuGet, render both `ua1` and `ua2`, and review
+the final PDFs and native preview before replacing `docs/assets/dotnet-accessibility`.
+Run `python tools/build_dotnet_accessibility_starter.py` to rebuild the stable
+ZIP and source manifest, then `python tools/verify_dotnet_accessibility.py`.
+The verifier needs the .NET 10 SDK, Java 21 or later, and `pypdf==6.19.0`; it
+downloads a checksum-pinned veraPDF 1.30.2 validator. These are maintainer checks,
+not dependencies of the console application. Pass `--refresh-evidence` when
+updating the downloadable reports; it writes `verification.json`,
+`verapdf-ua1.json` and `verapdf-ua2.json` only after rendering and validation pass.
+CI verifies the actual ZIP in isolated published applications on Windows and
+Linux and checks that the retained reports still describe those specimens.
+
 When changing the canonical domain, update `site_url`, `docs/robots.txt`, and this README, configure GitHub Pages, and verify DNS, HTTPS, sitemap URLs, and redirects. Keep the GitHub Pages URL until the custom domain is working.
 
 Fullbleed is MIT licensed. Do not publish unsupported performance comparisons, standards conformance claims, or stale licensing statements. Retain old page URLs through the redirect map when consolidating reference material.

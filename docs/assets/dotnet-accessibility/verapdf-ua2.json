@@ -1,0 +1,63 @@
+{"report":{"buildInformation":{"releaseDetails":[{
+  "id" : "core",
+  "version" : "1.30.2",
+  "buildDate" : 1780501380000
+},{
+  "id" : "validation-model",
+  "version" : "1.30.2",
+  "buildDate" : 1780501560000
+},{
+  "id" : "apps",
+  "version" : "1.30.2",
+  "buildDate" : 1780502100000
+}]},"jobs":[{"itemDetails":{
+  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\dotnet-accessibility-20261007\\docs-final\\starter-verification\\ua2\\notice.pdf",
+  "size" : 115301
+},"validationResult":[ {
+  "details" : {
+    "passedRules" : 1727,
+    "failedRules" : 0,
+    "passedChecks" : 5068,
+    "failedChecks" : 0,
+    "ruleSummaries" : [ ]
+  },
+  "jobEndStatus" : "normal",
+  "profileName" : "PDF/UA-2 + Tagged PDF validation profile",
+  "statement" : "PDF file is compliant with Validation Profile requirements.",
+  "compliant" : true
+} ],"processingTime":{
+  "start" : 1791379595808,
+  "finish" : 1791379597275,
+  "difference" : 1467,
+  "duration" : "00:00:01.467"
+}}],"batchSummary":{
+  "duration" : {
+    "start" : 1791379595574,
+    "finish" : 1791379597365,
+    "difference" : 1791,
+    "duration" : "00:00:01.791"
+  },
+  "totalJobs" : 1,
+  "outOfMemory" : 0,
+  "veraExceptions" : 0,
+  "multiJob" : false,
+  "featuresSummary" : {
+    "totalJobCount" : 0,
+    "failedJobCount" : 0,
+    "successfulJobCount" : 0
+  },
+  "repairSummary" : {
+    "totalJobCount" : 0,
+    "failedJobCount" : 0,
+    "successfulJobCount" : 0
+  },
+  "validationSummary" : {
+    "totalJobCount" : 1,
+    "compliantPdfaCount" : 1,
+    "failedJobCount" : 0,
+    "nonCompliantPdfaCount" : 0,
+    "successfulJobCount" : 1
+  },
+  "failedParsingJobs" : 0,
+  "failedEncryptedJobs" : 0
+}}}

@@ -8,6 +8,17 @@ examples/aspnet/*.md text eol=lf
 examples/aspnet/LICENSE text eol=lf
 examples/aspnet/Assets/*.html text eol=lf
 examples/aspnet/Assets/*.css text eol=lf
+examples/dotnet-accessibility/*.cs text eol=lf
+examples/dotnet-accessibility/*.csproj text eol=lf
+examples/dotnet-accessibility/*.json text eol=lf
+examples/dotnet-accessibility/*.md text eol=lf
+examples/dotnet-accessibility/LICENSE text eol=lf
+examples/dotnet-accessibility/Assets/*.html text eol=lf
+examples/dotnet-accessibility/Assets/*.css text eol=lf
+examples/dotnet-accessibility/Assets/*.svg text eol=lf
+examples/dotnet-accessibility/Assets/*-OFL.txt -text whitespace=-blank-at-eol
+docs/assets/dotnet-accessibility/** -text whitespace=cr-at-eol
+docs/assets/dotnet-accessibility/*.pdf binary
 docs/assets/playground/LICENSES.txt text eol=lf whitespace=-blank-at-eol
 docs/assets/pdf-regression/*.json text eol=lf
 # Evidence downloads and their manifests are verified by byte hashes.

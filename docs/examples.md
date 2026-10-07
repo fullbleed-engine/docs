@@ -41,6 +41,8 @@ Start with the [invoice guide](guides/invoices.md), or
 [serve an invoice from FastAPI, Flask, or Django](guides/web-frameworks.md).
 The Python starter also includes a [tested Docker image](guides/python-docker.md).
 For C# web applications, try the [ASP.NET Core download starter](guides/aspnet-pdf.md).
+For a tagged document, use the [editable C# library notice](guides/csharp-tagged-pdf.md)
+with PDF/UA profiles, embedded fonts and retained validation reports.
 
 </div>
 </div>

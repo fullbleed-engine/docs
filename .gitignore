@@ -20,6 +20,9 @@ examples/dotnet/obj/
 examples/aspnet/bin/
 examples/aspnet/obj/
 examples/aspnet/output/
+examples/dotnet-accessibility/bin/
+examples/dotnet-accessibility/obj/
+examples/dotnet-accessibility/output/
 
 docs/assets/browser-demo/
 docs/assets/react-demo/

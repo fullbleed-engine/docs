@@ -1,0 +1,63 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-07T13:26:37.436229+00:00",
+  "sdk": "10.0.401",
+  "package": "FullBleed.DotNet",
+  "packageVersion": "0.1.7",
+  "engineVersion": "2.5.13",
+  "packageSha256": "4334469bb70fe5896c479f9bb68025cd0fefafa280429dd367055f1818ecd1ee",
+  "projectZipSha256": "bff5801de233ea3bca593a0656decd739373ec51ab5e9c1f2526d0d67eae8f02",
+  "freshNugetCache": true,
+  "nativeLibraryOverride": false,
+  "isolatedPublishedApp": true,
+  "commands": [
+    "sdk",
+    "restore",
+    "publish",
+    "ua1",
+    "ua1-repeat",
+    "ua2",
+    "ua2-repeat"
+  ],
+  "profiles": [
+    {
+      "profile": "ua1",
+      "pdfSha256": "2aab47bbb10a7ff165c62c3d663e1638dc0abd37982e7bfa9501cdc7cdb091d8",
+      "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
+      "textSha256": "b6416f0d3b3bec1137e6d3b4bac864e1c3a3b1289283bcbd43d4cf908e8aa9da",
+      "repeatPdfBytesIdentical": true,
+      "veraPDF": {
+        "version": "1.30.2",
+        "profile": "ua1",
+        "failedChecks": 0,
+        "installerUrl": "https://software.verapdf.org/rel/1.30/verapdf-greenfield-1.30.2-installer.zip",
+        "installerSha256": "6cc6341cb1af644044054b81f00a6590a7918abb18f762243de115258bcad838"
+      }
+    },
+    {
+      "profile": "ua2",
+      "pdfSha256": "20df3d1684cfc9dea142d1bf36cfb20790c9f33931979e420a4fe61c0f217fe1",
+      "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
+      "textSha256": "b6416f0d3b3bec1137e6d3b4bac864e1c3a3b1289283bcbd43d4cf908e8aa9da",
+      "repeatPdfBytesIdentical": true,
+      "veraPDF": {
+        "version": "1.30.2",
+        "profile": "ua2",
+        "failedChecks": 0,
+        "installerUrl": "https://software.verapdf.org/rel/1.30/verapdf-greenfield-1.30.2-installer.zip",
+        "installerSha256": "6cc6341cb1af644044054b81f00a6590a7918abb18f762243de115258bcad838"
+      }
+    }
+  ],
+  "runtimeIdentity": {
+    "runtime": "10.0.12",
+    "framework": ".NETCoreApp,Version=v10.0",
+    "rid": "win-x64",
+    "nativeLibrarySha256": "7252e7add0c8639992bff4d6d01842a0584b68d57db0432e456054138eec41a9"
+  },
+  "scope": "Downloaded starter, retained final PDFs and machine-verifiable PDF/UA checks. No blanket accessibility or assistive-technology claim.",
+  "validatorReports": {
+    "verapdf-ua1.json": "a7a8007e02693e46ab9d10214a90b0b58d7a4d79469008f341805c84f7e17723",
+    "verapdf-ua2.json": "2d56867945fb3394152ee45be9edae80bb2f3c159748d5e6dcacce2c980cd59c"
+  }
+}

@@ -152,6 +152,8 @@ document and retain the relevant verification evidence before making an
 accessibility, archival, or print-standard claim.
 
 For a web application, download the [ASP.NET Core PDF starter](../guides/aspnet-pdf.md).
+For tagged output, use the [C# library-notice starter](../guides/csharp-tagged-pdf.md)
+with PDF/UA profiles and independent validation.
 It includes a download page, styled invoice, private responses, and checks against
 the published application artifact.
 
