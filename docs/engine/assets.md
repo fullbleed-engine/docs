@@ -55,8 +55,9 @@ The [2.5.11 verification evidence](https://github.com/fullbleed-engine/fullbleed
 includes 68 cases with identical preview pixels and PDF bytes on Windows, Linux,
 and Linux with system fonts hidden. The [font manifest and coverage limits](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/preview_fonts/README.md)
 describe the substitute designs and the unsupported, unencoded Symbol `/apple`
-glyph. Node.js and .NET bindings have separate engine version pins; check the
-engine version shipped with your binding.
+glyph. [Node package 0.3.2](../getting-started/node.md) ships engine 2.5.11 and
+includes these substitutes in both its Node and browser entries. Bindings have
+separate engine version pins; check the version shipped with your binding.
 
 ## Images, SVG, and asset bundles
 
