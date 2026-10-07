@@ -257,6 +257,22 @@ jobs:
           output/reference-env/bin/python -I tools/verify_quickstarts.py
       - name: Verify the downloadable Node invoice and guide
         run: python tools/verify_node_examples.py
+      - name: Verify the Node queue download and guide
+        run: |
+          python -m pip install pypdf==6.19.0 pypdfium2==5.14.0
+          python tools/build_node_queue.py
+          git diff --exit-code -- docs/assets/node-queue/project.zip docs/assets/node-queue/source.json
+          python tools/verify_node_queue.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: node-queue-verification
+          path: |
+            output/node-queue-verification/*.json
+            output/node-queue-verification/*.txt
+            output/node-queue-verification/**/*.pdf
+            output/node-queue-verification/**/*.png
+          retention-days: 14
       - name: Verify the downloadable Python web starter and actual HTTP servers
         run: python tools/verify_python_web_starter.py --docker
       - uses: actions/upload-artifact@v4
@@ -333,6 +349,14 @@ jobs:
           retention-days: 14
       - name: Build the downloadable browser starter and test its static demo
         run: |
+          sudo python3 - <<'PY'
+          from pathlib import Path
+          path = Path('/etc/apt/apt-mirrors.txt')
+          if path.is_file():
+              lines = path.read_text().splitlines()
+              if any(line.startswith('https://archive.ubuntu.com/ubuntu') for line in lines):
+                  path.write_text('\n'.join(line for line in lines if 'azure.archive.ubuntu.com' not in line) + '\n')
+          PY
           python -m pip install -r tools/browser-requirements.txt
           python -m playwright install --with-deps chrome
           python tools/build_browser_starter.py

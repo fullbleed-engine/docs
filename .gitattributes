@@ -39,3 +39,7 @@ examples/arabic-invoice/fonts/*.ttf binary
 examples/arabic-invoice/fonts/OFL.txt -text -whitespace
 docs/assets/arabic-invoice/** -text
 docs/assets/arabic-invoice/*.pdf binary
+examples/node/** text eol=lf
+examples/node-queue/** text eol=lf
+docs/assets/node-queue/** -text
+docs/assets/node-queue/*.pdf binary

@@ -1,0 +1,260 @@
+{
+  "schema": "fullbleed.node-queue-example-verification.v1",
+  "ok": true,
+  "package_version": "0.4.0",
+  "engine_version": "2.5.11",
+  "workers": {
+    "created": 6,
+    "peak": 2,
+    "remaining": 0,
+    "node": "v22.23.3",
+    "platform": "win32"
+  },
+  "readers": [
+    "pypdf",
+    "PDFium"
+  ],
+  "commands": [
+    {
+      "name": "install",
+      "exit_code": 0
+    },
+    {
+      "name": "batch",
+      "exit_code": 0
+    },
+    {
+      "name": "replay",
+      "exit_code": 0
+    },
+    {
+      "name": "guide-snippet",
+      "exit_code": 0
+    }
+  ],
+  "project_zip_sha256": "4e96bab39784c58eacefb4e4b368862a948eda5f6b4af90b2b78d248925141e9",
+  "outputs": {
+    "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+    "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+    "NS-1043.pdf": "4adda7f7e56df435c40d9a1c1fc3546e2493289d8874ec26a7a16e4ed19b8f44",
+    "NS-1044.pdf": "3d9de4b2366ad977a8bb527cfd20e8d9e62382cd73fb49b651da3a2627d5c56d",
+    "NS-1045.pdf": "a48c1120789cb9b593700786103a7494a96d84cffd9196a2cd0dd0fac3208063",
+    "NS-1046.pdf": "eeabaf8070ef7fdc3d87728bedab9b8e5881a9994a7c5784a3bf9ba844ba9a3b",
+    "NS-1047.pdf": "334dfd5d0213f8a34b9b02eb6b95d11817f6395e99ebbfa0e8224dde06e86dce"
+  },
+  "checks": [
+    {
+      "name": "download ZIP matches the source manifest",
+      "passed": true
+    },
+    {
+      "name": "ZIP contains exactly the reviewed files",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: LICENSE",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: README.md",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: invoice.html",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: invoice.css",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: render.mjs",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: package.json",
+      "passed": true
+    },
+    {
+      "name": "source and ZIP bytes: package-lock.json",
+      "passed": true
+    },
+    {
+      "name": "install command succeeds",
+      "passed": true
+    },
+    {
+      "name": "installed version and engine match the guide",
+      "passed": true
+    },
+    {
+      "name": "lockfile integrity matches the verified release",
+      "passed": true
+    },
+    {
+      "name": "batch command succeeds",
+      "passed": true
+    },
+    {
+      "name": "six distinct invoices rendered without missing glyphs",
+      "passed": true
+    },
+    {
+      "name": "actual worker concurrency stays at two and all workers exit",
+      "passed": true
+    },
+    {
+      "name": "NS-1042.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1042.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1042.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1043.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1043.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1043.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1044.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1044.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1044.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1045.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1045.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1045.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1046.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1046.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1046.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1047.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "NS-1047.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "NS-1047.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "NS-1042.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1042.png: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1043.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1044.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1045.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1046.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "NS-1047.pdf: matches reviewed output",
+      "passed": true
+    },
+    {
+      "name": "replay command succeeds",
+      "passed": true
+    },
+    {
+      "name": "exact-input replay preserves every PDF and PNG",
+      "passed": true
+    },
+    {
+      "name": "guide contains one executable JavaScript example",
+      "passed": true
+    },
+    {
+      "name": "guide-snippet command succeeds",
+      "passed": true
+    },
+    {
+      "name": "invoice-1042.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "invoice-1042.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "invoice-1042.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "invoice-1043.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "invoice-1043.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "invoice-1043.pdf: expected fields in PDFium",
+      "passed": true
+    },
+    {
+      "name": "invoice-1044.pdf: one PDF page",
+      "passed": true
+    },
+    {
+      "name": "invoice-1044.pdf: expected fields in pypdf",
+      "passed": true
+    },
+    {
+      "name": "invoice-1044.pdf: expected fields in PDFium",
+      "passed": true
+    }
+  ],
+  "scope": "This downloaded batch, guide snippet, and exact replay; no throughput or memory-capacity claim."
+}
