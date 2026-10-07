@@ -45,12 +45,20 @@ python -m pip install fullbleed
 
 The stable-ABI wheels cover supported CPython versions. For an unsupported target, a source build requires Rust; [source build instructions](https://github.com/fullbleed-engine/fullbleed-official#install) are in the engine repository.
 
+## Run in Docker
+
+The [Docker invoice starter](../guides/python-docker.md) includes a FastAPI app,
+editable HTML/CSS, bundled fonts, and a Dockerfile tested on Debian slim and
+Alpine on x64 and ARM64. It installs wheels with `--only-binary=:all:` and runs
+as a non-root user with a read-only filesystem. Use it to check your container
+integration before adapting the renderer to your application.
+
 ## Troubleshooting
 
 | Symptom | Next step |
 | --- | --- |
 | `fullbleed` command is not found | Use `python -m fullbleed` from the environment where you installed it. |
-| pip starts a Rust build | Upgrade pip and check that your Python/platform has a published wheel. |
+| pip starts a Rust build | Upgrade pip and check that your Python/platform has a published wheel. Use `--only-binary=:all:` to require one; the [Docker starter](../guides/python-docker.md) demonstrates this in slim and Alpine images. |
 | Permission or externally managed environment error | Install inside a virtual environment. |
 | Missing characters | Register a font containing those characters; see [fonts and assets](../engine/assets.md). |
 

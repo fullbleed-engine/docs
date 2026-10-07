@@ -1,13 +1,23 @@
 {
   "schema": "fullbleed.python-web-starter.v1",
-  "engineVersion": "2.5.6",
+  "engineVersion": "2.5.11",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "sourceCommit": "76769ccd58426717c10cf0d988838182c203382f",
+  "sourceCommit": "5a604cb79854793b1e64b2e04ef6286d76a28760",
   "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 372,
+      "sha256": "a9fd1d7bcf4f3ec1a04f179b80e91c1d82c1d08fef028a90d358ad2f92b6ab9c"
+    },
     {
       "path": ".gitignore",
       "bytes": 28,
       "sha256": "d3b4beec83000bfbd6f81222b601d367412f30ef10bf55a6bc51b275bdfd905f"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 984,
+      "sha256": "706596fcd098b3ccb667e0d2b69d46e253ce2d6a7291fbdce79cf79b3583c190"
     },
     {
       "path": "LICENSE",
@@ -16,13 +26,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 5145,
-      "sha256": "b70edbd2649dbf4ea64ebeedaba6522ef8b484c02309febfde22be8babd99b78"
+      "bytes": 8604,
+      "sha256": "1c310b4e57a0795532673c131374e8ea11f134bdb091cee90e2b648fcada8b0e"
+    },
+    {
+      "path": "check_docker.py",
+      "bytes": 13706,
+      "sha256": "ccb96de543f66e741cee69ccb9468bcc589d623925d2937e96589755dfb3591f"
     },
     {
       "path": "check_examples.py",
-      "bytes": 6388,
-      "sha256": "2e675d4b0a1d55cba31fa0dd8d4f1eb6ce779af32ade71b90c2a0b2c63988628"
+      "bytes": 6422,
+      "sha256": "b5f4b1c73fc1453e2701aebbd3af877aa8616b045317b7d6694836c735f661ba"
     },
     {
       "path": "check_http.py",
@@ -100,6 +115,11 @@
       "sha256": "56cbd1c0a43496327d9af1bf231abd19bb1b0e2f0a14734319fe3108dda90b13"
     },
     {
+      "path": "requirements-docker.txt",
+      "bytes": 406,
+      "sha256": "767e832458f822f62042cc7d31e212eb78449e27f53215b04e7887490293d1ef"
+    },
+    {
       "path": "requirements-fastapi.txt",
       "bytes": 33,
       "sha256": "5feb6a8b0c09ed30d831399662a75525ea956cd35c0311ecfa178f87d5a25941"
@@ -116,8 +136,8 @@
     },
     {
       "path": "static/invoice.png",
-      "bytes": 130289,
-      "sha256": "a38d23651c355d1b87bc16fa37fe9121a377a12e6d515b4cd1871750c2241175"
+      "bytes": 129914,
+      "sha256": "acb15ac236a84a98c460fb0b55115093e64ab44ce7cd232e58b7b621cad731fa"
     },
     {
       "path": "templates/invoice.css",
@@ -130,22 +150,22 @@
       "sha256": "c8c522d0f983c9917587083e5472af39c515c447b33ebf3edf2fafcf2f21673e"
     }
   ],
-  "checkedAt": "2026-10-04T23:24:23.430920+00:00",
+  "checkedAt": "2026-10-07T01:39:11.130140+00:00",
   "assets": [
     {
       "file": "project.zip",
-      "bytes": 230094,
-      "sha256": "6bcd44c551aeace4e658bf96b7528ea7237d386dfebd52de5d48bbdab4712f1c"
+      "bytes": 238116,
+      "sha256": "59561aa6e40146d813cde78e9f0d25b2c56ebac2ee4dc171ce06206f49504386"
     },
     {
       "file": "invoice.pdf",
-      "bytes": 91537,
-      "sha256": "2e908a21e5f9ac5b1fa761d678833c62f3acc772ba7162d8da1b900f861320e6"
+      "bytes": 40277,
+      "sha256": "3c70915599a7e88b93203f1e64e269231621a0105db90ee31f5f762e1b138057"
     },
     {
       "file": "invoice.png",
-      "bytes": 130289,
-      "sha256": "a38d23651c355d1b87bc16fa37fe9121a377a12e6d515b4cd1871750c2241175"
+      "bytes": 129914,
+      "sha256": "acb15ac236a84a98c460fb0b55115093e64ab44ce7cd232e58b7b621cad731fa"
     }
   ]
 }
