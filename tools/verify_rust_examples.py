@@ -83,6 +83,6 @@ for fixture in playground["fixtures"]:
         "name": name, "pages": expected_pages,
         "matches_playground_pdf_and_pngs": True, "sha256": hashes,
     })
-assert len(report["fixtures"]) == len(playground["fixtures"]) == 7
+assert len(report["fixtures"]) == len(playground["fixtures"]) == 8
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

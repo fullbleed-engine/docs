@@ -226,5 +226,8 @@
   "pageErrors": [],
   "writeRequests": [],
   "visualReview": "Reviewed before/after invoice, report and notice previews and the desktop/narrow editor. Text, tables, artwork and controls remain legible without clipping; small text alignment shifts were retained.",
-  "wasmMemoryMaximum": 268435456
+  "wasmMemoryMaximum": 268435456,
+  "rustGuideFixtures": 8,
+  "rustGuideMatchesPlaygroundPdfAndPng": true,
+  "homepageRustSnippetCompiled": true
 }
