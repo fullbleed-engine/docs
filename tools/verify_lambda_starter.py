@@ -136,9 +136,15 @@ def main():
                 image_info = json.loads(run('docker-image', ['docker', 'image', 'inspect', image]))[0]
                 report['container_image'] = dict(id=image_info['Id'], architecture=image_info['Architecture'], base=base['image'])
                 check('native image architecture', image_info['Architecture'] == ('amd64' if args.docker_arch == 'x86_64' else 'arm64'))
-                container = run('docker-start', ['docker', 'run', '--rm', '--detach', '--publish', '127.0.0.1::8080',
+                container = run('docker-start', ['docker', 'run', '--detach', '--publish', '127.0.0.1::8080',
                     '--read-only', '--tmpfs', '/tmp:rw,size=64m', '--user', '10001:10001', '--cap-drop', 'ALL',
                     '--security-opt', 'no-new-privileges:true', '--memory', '512m', '--cpus', '2', '--pids-limit', '128', image]).strip()
+                runtime = json.loads(run('docker-runtime', ['docker', 'inspect', container]))[0]
+                policy = runtime['HostConfig']
+                report['container_policy'] = dict(user=runtime['Config']['User'], read_only=policy['ReadonlyRootfs'],
+                    memory_bytes=policy['Memory'], nano_cpus=policy['NanoCpus'], pids_limit=policy['PidsLimit'])
+                check('container runs with the documented limits', report['container_policy'] ==
+                    dict(user='10001:10001', read_only=True, memory_bytes=512 * 1024 * 1024, nano_cpus=2_000_000_000, pids_limit=128))
                 port = int(run('docker-port', ['docker', 'port', container, '8080/tcp']).strip().rsplit(':', 1)[1])
                 deadline = time.monotonic() + 30
                 while True:
@@ -214,14 +220,18 @@ def main():
         cleanup = []
         if container:
             for label, command in [('container-logs', ['docker', 'logs', container]),
-                                   ('container-stop', ['docker', 'stop', container])]:
+                                   ('container-stop', ['docker', 'stop', container]),
+                                   ('container-remove', ['docker', 'rm', container])]:
                 result = subprocess.run(command, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=45)
                 (out / (label + '.stdout.txt')).write_text(result.stdout, encoding='utf-8')
                 (out / (label + '.stderr.txt')).write_text(result.stderr, encoding='utf-8')
                 cleanup.append(dict(action=label, exit_code=result.returncode))
-            report['container_stopped'] = cleanup[-1]['exit_code'] == 0
+            report['container_stopped'] = next(row['exit_code'] for row in cleanup if row['action'] == 'container-stop') == 0
+            report['container_removed'] = cleanup[-1]['exit_code'] == 0
         if image:
-            result = subprocess.run(['docker', 'image', 'rm', image], capture_output=True, timeout=45)
+            result = subprocess.run(['docker', 'image', 'rm', image], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=45)
+            (out / 'image-remove.stdout.txt').write_text(result.stdout, encoding='utf-8')
+            (out / 'image-remove.stderr.txt').write_text(result.stderr, encoding='utf-8')
             cleanup.append(dict(action='remove-task-image', exit_code=result.returncode))
         report['cleanup'] = cleanup
         if any(row['exit_code'] for row in cleanup):
