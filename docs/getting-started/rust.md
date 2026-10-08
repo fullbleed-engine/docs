@@ -18,7 +18,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.17
+cargo add fullbleed@=2.5.19
 ```
 
 Replace `src/main.rs` with:
@@ -46,6 +46,11 @@ Open `invoice.pdf` in the project directory. `render_to_buffer` returns PDF
 bytes, which you can also return from an HTTP handler or write to your own
 storage. For a file directly, use
 `engine.render_to_file(html, css, "invoice.pdf")?`.
+
+For unoptimized builds on Windows, use 2.5.19 or newer. Versions 2.5.17 and
+2.5.18 can overflow the default main-thread stack on small table layouts;
+the [2.5.19 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.19)
+includes the fix and its regression evidence.
 
 This first example uses standard PDF fonts. For explicit typography and
 broader character coverage, register the font files your document uses.
@@ -126,7 +131,7 @@ playground font files.
 The `register_font_file` and `register_font_dir` helpers are also available,
 but skip unreadable or invalid files. A glyph report can find missing characters;
 it does not prove that the intended typeface loaded. The
-[API font guide](https://docs.rs/fullbleed/2.5.17/fullbleed/#supply-fonts-explicitly)
+[API font guide](https://docs.rs/fullbleed/2.5.19/fullbleed/#supply-fonts-explicitly)
 explains these choices.
 
 For one PNG per page, preview the PDF you just wrote at your chosen DPI:
@@ -142,9 +147,9 @@ designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
-Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.17/fullbleed/)
+Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.19/fullbleed/)
 for the first-PDF program, method selection, fonts, and executable examples of
-fixed-layout and reflowing templates. The quickstart above uses 2.5.17; the
+fixed-layout and reflowing templates. The quickstart above uses 2.5.19; the
 downloadable designed starter remains pinned to 2.5.11 and matches the
 [2.5.11 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/lib.rs).
 Check
