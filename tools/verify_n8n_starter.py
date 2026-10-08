@@ -224,8 +224,16 @@ try:
         check(config['networks']['documents']['internal'] is True, 'private Compose network')
         check(not config['services']['renderer'].get('ports'), 'renderer has no published host port')
         check(config['services']['n8n']['ports'][0]['host_ip'] == '127.0.0.1', 'n8n listens on loopback')
+        check(config['services']['n8n']['tmpfs'] == ['/tmp:rw,size=128m'], 'one bounded writable temporary mount')
         compose_started = True
         run(compose + ['up', '--build', '-d', 'renderer'], 'renderer-start', timeout=600)
+        renderer_id = run(compose + ['ps', '-q', 'renderer'], 'renderer-id').stdout.strip()
+        renderer = json.loads(run(['docker', 'inspect', renderer_id], 'renderer-inspect').stdout)[0]
+        check(renderer['Config']['User'] == '10001:10001', 'actual renderer runs as numeric non-root user')
+        check(renderer['HostConfig']['ReadonlyRootfs'], 'actual renderer root filesystem is read-only')
+        check(renderer['HostConfig']['Memory'] == 512 * 1024 * 1024, 'actual renderer memory limit')
+        check('ALL' in renderer['HostConfig']['CapDrop'], 'actual renderer drops Linux capabilities')
+        run(compose + ['exec', '-T', 'renderer', 'python', '-c', "from pathlib import Path; print(Path('/app/pip-install.json').read_text())"], 'installed-wheel-record')
         run(compose + ['run', '--rm', '--no-deps', 'n8n', 'import:workflow', '--input=/workflows/invoice-webhook.json'], 'workflow-import', timeout=600)
         run(compose + ['run', '--rm', '--no-deps', 'n8n', 'export:workflow', '--all', '--output=/home/node/.n8n/verification-workflow.json'], 'workflow-export')
         exported = json.loads(run(compose + ['run', '--rm', '--no-deps', '--entrypoint', 'node', 'n8n', '-e',
@@ -233,6 +241,8 @@ try:
         check(len(exported) == 1, 'exactly one isolated workflow imported')
         for field in ['nodes', 'connections']:
             check(exported[0][field] == workflow[field], 'import preserved exact workflow ' + field)
+        for key, value in workflow['settings'].items():
+            check(exported[0]['settings'][key] == value, 'import preserved workflow setting ' + key)
         workflow_id = exported[0]['id']
         run(compose + ['run', '--rm', '--no-deps', 'n8n', 'publish:workflow', '--id=' + workflow_id], 'workflow-publish')
         run(compose + ['up', '-d', 'n8n'], 'n8n-start')
@@ -301,7 +311,8 @@ finally:
         result = run(compose + ['down', '--volumes', '--remove-orphans'], 'task-container-cleanup', check=False)
         cleanup_ok = result.returncode == 0
         image = project_name + '-renderer'
-        run(['docker', 'image', 'rm', image], 'task-image-cleanup', check=False)
+        image_result = run(['docker', 'image', 'rm', image], 'task-image-cleanup', check=False)
+        cleanup_ok = cleanup_ok and image_result.returncode == 0
     report = dict(ok=failure is None and cleanup_ok, checked_at=datetime.now(timezone.utc).isoformat(),
                   mode='native adapter' if args.native else 'actual n8n Docker workflow',
                   engine='2.5.20', n8n=None if args.native else '2.42.5', archive_sha256=manifest['zip_sha256'],

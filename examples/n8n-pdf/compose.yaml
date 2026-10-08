@@ -35,7 +35,7 @@ services:
       - n8n_data:/home/node/.n8n
       - ./workflows:/workflows:ro
     read_only: true
-    tmpfs: [/tmp:rw,size=128m]
+    tmpfs: ["/tmp:rw,size=128m"]
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
     mem_limit: 2g

@@ -10,7 +10,7 @@ automation in n8n and document layout in editable HTML/CSS. Fullbleed renders th
 PDF in a separate container using explicit fonts and the published Python wheel.
 
 [Download the complete n8n kit](../assets/n8n-starter/project.zip){ .md-button .md-button--primary }
-[Download workflow JSON](../assets/n8n-starter/invoice-webhook.json){ .md-button }
+[Download workflow JSON](../assets/n8n-starter/invoice-webhook.json){ .md-button download="invoice-webhook.json" }
 [Open the sample PDF](../assets/n8n-starter/invoice.pdf){ .md-button }
 
 [![A Northstar Studio invoice with cream paper, green typography, an orange accent, and a total of USD 1,870.00.](../assets/n8n-starter/invoice.png)](../assets/n8n-starter/invoice.pdf)
