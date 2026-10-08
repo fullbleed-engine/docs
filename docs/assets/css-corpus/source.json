@@ -1,0 +1,28 @@
+{
+  "invocation_id": "fullbleed-9b0f068e265449c2a9484991523f0c08",
+  "upstream_commit": "0d1e53b6d8174d0a5059a8696c24e62759381f6d",
+  "fixture": "backgrounds-borders/border-image-intrinsic-overlap-reset",
+  "status": "FAIL",
+  "files": {
+    "border-image-reference.png": {
+      "archive_path": "ironpress-evidence/current/refs/backgrounds-borders/border-image-intrinsic-overlap-reset.png",
+      "bytes": 28496,
+      "sha256": "0f8b1428ad0a7ec91d648cac854a0d686ebe0dd8bf286193e65727e18e3be385"
+    },
+    "border-image-fullbleed.png": {
+      "archive_path": "ironpress-evidence/current/out/backgrounds-borders/border-image-intrinsic-overlap-reset.png",
+      "bytes": 26136,
+      "sha256": "9a67042575f6537e147c2323db430a14dfcc87b23b4ba004482943366833c6a3"
+    },
+    "border-image-diff.png": {
+      "archive_path": "ironpress-evidence/current/reports/backgrounds-borders/border-image-intrinsic-overlap-reset.diff.png",
+      "bytes": 25789,
+      "sha256": "b948b975185afcb6ea0cc75d42bf1ce0ab99aa4b3a0dbc092ae5945f2c4143f4"
+    },
+    "IRONPRESS-LICENSE.txt": {
+      "archive_path": "ironpress-evidence/current/IRONPRESS-LICENSE",
+      "bytes": 1070,
+      "sha256": "e731e091fab0feefcdc452579b51c7e7dc9072a708586daceddd21b4ac8894b6"
+    }
+  }
+}

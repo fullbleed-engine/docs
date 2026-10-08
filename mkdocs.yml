@@ -113,6 +113,7 @@ nav:
   - Evaluate:
     - Choose a PDF library: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md
+    - CSS corpus evidence: guides/css-corpus.md
     - PDF file size: guides/pdf-size.md
     - Performance evidence: guides/performance.md
     - FAQ: faq.md

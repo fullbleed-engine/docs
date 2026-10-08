@@ -97,3 +97,5 @@ python3 -m venv .venv
 The merged revision above contains the same benchmark files as the measured source snapshot. Run on a local Linux filesystem. `--smoke` exercises output qualification with fewer samples; it is not a performance run. Use the [recorded package list](../assets/renderer-comparison/packages.txt) as pip constraints (`-c packages.txt`) to reproduce the measured transitive dependency versions. Change the fixtures and acceptance contract to match your real documents before treating a result as relevant to your application.
 
 Fullbleed is a print-document engine. A browser remains relevant when JavaScript or live browser layout is the required behavior. See [Choose a PDF library](comparison.md) for that distinction and [CSS coverage](../css-coverage.md) for Fullbleed's tested surface. Three small fixtures on one host cannot establish a universal speed, memory, or quality ranking.
+
+For a larger fixture-level comparison, inspect the [Fullbleed 2.5.14 results on the pinned IronPress CSS corpus](css-corpus.md). That run uses different inputs, versions, and comparison rules; evaluate its results separately from these application-document timings.

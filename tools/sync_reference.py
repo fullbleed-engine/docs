@@ -22,6 +22,12 @@ PAGES = {
 
 # Site-only context must survive later imports of the historical report.
 INTRODUCTIONS = {
+    "css-coverage.md": (
+        "For the published Fullbleed 2.5.14 wheel, see the "
+        "[complete 1,662-fixture CSS comparison](guides/css-corpus.md), including "
+        "verdicts, the upstream gate outcome, PDFs, images, and file hashes. "
+        "The imported reference below preserves earlier version-specific reports."
+    ),
     "guides/performance.md": (
         "For a current shared-input example, see the "
         "[Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). "
