@@ -157,7 +157,7 @@ def main():
                         return json.load(response)
 
                 package = json.loads(run('container-wheel', ['docker', 'exec', container, '/var/lang/bin/python', '-c',
-                    'import json,fullbleed,platform; from pathlib import Path; print(json.dumps(dict(version=fullbleed.__version__,python=platform.python_version(),install=json.loads(Path("/var/task/pip-install.json").read_text()))))']))
+                    'import json,platform; from pathlib import Path; from importlib.metadata import version; print(json.dumps(dict(version=version("fullbleed"),python=platform.python_version(),install=json.loads(Path("/var/task/pip-install.json").read_text()))))']))
                 report['installed_container_package'] = package
                 check('container public package version', package['version'] == '2.5.20')
             first = inspect('invoice', invoke(client.event(sample)), ['INV-1042', 'Maple & Finch', '1,870.00'])
