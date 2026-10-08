@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Fullbleed PDF endpoint; deploy an already-pushed single-architecture ECR image.
+Parameters:
+  ImageUri:
+    Type: String
+    Description: Private ECR image URI ending in @sha256 plus the 64-character digest.
+    AllowedPattern: '.+@sha256:[a-f0-9]{64}'
+  Architecture:
+    Type: String
+    Default: x86_64
+    AllowedValues: [x86_64, arm64]
+Resources:
+  ExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - !Sub 'arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+  PdfFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      PackageType: Image
+      Code:
+        ImageUri: !Ref ImageUri
+      Architectures: [!Ref Architecture]
+      Role: !GetAtt ExecutionRole.Arn
+      MemorySize: 512
+      Timeout: 30
+      ReservedConcurrentExecutions: 2
+  PdfUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !Ref PdfFunction
+      AuthType: AWS_IAM
+      InvokeMode: BUFFERED
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${PdfFunction}'
+      RetentionInDays: 7
+Outputs:
+  FunctionName:
+    Value: !Ref PdfFunction
+  FunctionUrl:
+    Value: !GetAtt PdfUrl.FunctionUrl

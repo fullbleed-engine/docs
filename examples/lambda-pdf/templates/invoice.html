@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-US"><head><meta charset="utf-8"><title>Invoice $number</title></head>
+<body>
+<header class="masthead">
+  <div class="brand"><span>Northstar</span><span>Studio</span><small>DESIGN WITH DIRECTION</small></div>
+  <div class="address">42 Cedar Avenue<br>Portland, OR 97205<br>hello@example.invalid</div>
+</header>
+<section class="title-row"><h1>INVOICE</h1><p>GOOD WORK.<br>CLEAR DETAILS.</p></section>
+<section class="details">
+  <div><h2>Prepared for</h2><strong>$customer</strong></div>
+  <div><h2>$number</h2><p>Issued · $issued</p><p>Due · $due</p><p>Currency · USD</p></div>
+</section>
+<table aria-label="Invoice line items">
+  <thead><tr><th>DESCRIPTION</th><th class="number">QTY</th><th class="number">RATE</th><th class="number">AMOUNT</th></tr></thead>
+  <tbody>$rows</tbody>
+</table>
+<section class="summary">
+  <div class="thanks">A little clarity.<br>A lot of possibility.</div>
+  <div class="total"><h2>TOTAL · USD</h2><p class="$total_class">$total</p><small>Sample: no tax or discount applied.</small></div>
+</section>
+<footer>Reference $number with your payment.<br>Payment instructions are supplied separately. Fictional sample.</footer>
+</body></html>

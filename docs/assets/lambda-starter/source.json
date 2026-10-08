@@ -1,0 +1,99 @@
+{
+  "schema": "fullbleed.lambda-starter.v1",
+  "prefix": "fullbleed-lambda-starter/",
+  "engine": "2.5.20",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 89,
+      "sha256": "31a418bda0e9a518d95d60c379aabc867e6f449aae38cba69f737e4b6c58ba59"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 59,
+      "sha256": "1d9448f2c2dc14195aef9c1026589675c4f25b18e5c08a21302ec9c9879e2362"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 716,
+      "sha256": "85fc558456df60174c8f7304233908e72026be5e26635876c935e871d513dada"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6047,
+      "sha256": "53c8ff0d3517624bfa222cea770d4582f16fd70e19a4746d05c05936adb6db85"
+    },
+    {
+      "path": "base-images.json",
+      "bytes": 357,
+      "sha256": "e18b68f5a87247afbe025e0ce29b6debb9ef6b76e9ccd3d486efa2643272c9ec"
+    },
+    {
+      "path": "client.py",
+      "bytes": 2301,
+      "sha256": "b71b52d05b2af35ca889540e521c166378841a3d7cd741d6a6d4a0157923161b"
+    },
+    {
+      "path": "fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "handler.py",
+      "bytes": 6475,
+      "sha256": "db379ba47495272482290ac89ea6a2cd3f096bb694ac60a2aa4eba5fb97472e3"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 18,
+      "sha256": "ae21ef3ef9d1c671609630ee713bace30945cb908954925a70b457b90425f30e"
+    },
+    {
+      "path": "sample.json",
+      "bytes": 362,
+      "sha256": "c697b8d1dd869fbd6adfad5e6bb95ce8aa17f6924949ec17e71b82e1aa9a16da"
+    },
+    {
+      "path": "template.yaml",
+      "bytes": 1470,
+      "sha256": "54de45a9f0edab33000863b146c39585ddaf3e265b809ea12c7ae4ee7b39c239"
+    },
+    {
+      "path": "templates/invoice.css",
+      "bytes": 2761,
+      "sha256": "52f1eef9e9ece0d780bd55a317ed9c31cd3adcbe587b3bb4baebc5621001b6b8"
+    },
+    {
+      "path": "templates/invoice.html",
+      "bytes": 1203,
+      "sha256": "b2854f16a142c0b3f92ff5057304c5afe300891aa36c1d75bceef2be9f58671b"
+    },
+    {
+      "path": "test_handler.py",
+      "bytes": 4388,
+      "sha256": "c1efc663c6db26808ca4d32576b00f9e7ab0a6a0673f7988e2be4186cf9f9e53"
+    }
+  ],
+  "zip_bytes": 88527,
+  "zip_sha256": "33167663286940fde044f3032fa76490e55100cc4da27ed596b3f2d88b721226"
+}

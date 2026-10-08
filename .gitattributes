@@ -52,3 +52,8 @@ docs/assets/numbered-report/*.pdf binary
 examples/axum-pdf/** text eol=lf
 docs/assets/axum-starter/** -text
 docs/assets/axum-starter/*.pdf binary
+examples/lambda-pdf/** text eol=lf
+examples/lambda-pdf/fonts/*.ttf binary
+examples/lambda-pdf/fonts/*-OFL.txt -text -whitespace
+docs/assets/lambda-starter/** -text
+docs/assets/lambda-starter/*.pdf binary
