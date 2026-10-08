@@ -49,3 +49,6 @@ docs/assets/matplotlib-report/*.pdf binary
 examples/numbered-report/** text eol=lf
 docs/assets/numbered-report/** -text
 docs/assets/numbered-report/*.pdf binary
+examples/axum-pdf/** text eol=lf
+docs/assets/axum-starter/** -text
+docs/assets/axum-starter/*.pdf binary

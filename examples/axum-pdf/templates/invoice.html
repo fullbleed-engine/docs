@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="utf-8"><title>Invoice {{ invoice.invoice_number }}</title></head>
+<body>
+<header class="masthead">
+  <div class="brand"><span>Northstar</span><span>Studio</span><small>DESIGN WITH DIRECTION</small></div>
+  <div class="address">42 Cedar Avenue<br>Portland, OR 97205<br>hello@example.invalid</div>
+</header>
+<section class="title-row"><h1>INVOICE</h1><p>GOOD WORK.<br>CLEAR DETAILS.</p></section>
+<section class="details">
+  <div><h2>Prepared for</h2><strong>{{ invoice.customer.name }}</strong>
+    {% for line in invoice.customer.address_lines %}<p>{{ line }}</p>{% endfor %}
+  </div>
+  <div><h2>{{ invoice.invoice_number }}</h2>
+    <p>Issued · {{ invoice.issued }}</p><p>Due · {{ invoice.due }}</p><p>Currency · USD</p>
+  </div>
+</section>
+<table aria-label="Invoice line items">
+  <thead><tr><th>DESCRIPTION</th><th class="number">QTY</th><th class="number">RATE</th><th class="number">AMOUNT</th></tr></thead>
+  <tbody>
+    {% for item in items %}
+    <tr><td>{{ item.description }}</td><td class="number">{{ item.quantity }}</td><td class="number">{{ item.unit_price }}</td><td class="number">{{ item.amount }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<section class="summary">
+  <div class="thanks">A little clarity.<br>A lot of possibility.</div>
+  <div class="total"><h2>TOTAL · USD</h2><p{% if total|length > 12 %} class="compact"{% endif %}>{{ total }}</p><small>Sample: no tax or discount applied.</small></div>
+</section>
+{% if invoice.note %}<p class="note">{{ invoice.note }}</p>{% endif %}
+<footer>Reference {{ invoice.invoice_number }} with your payment.<br>Payment instructions are supplied separately. Fictional sample.</footer>
+</body>
+</html>

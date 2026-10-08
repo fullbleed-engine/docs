@@ -1,0 +1,113 @@
+{
+  "schema": "fullbleed.axum-starter.v1",
+  "prefix": "fullbleed-axum-starter/",
+  "repository": "https://github.com/fullbleed-engine/docs",
+  "engine": "2.5.19",
+  "rust": "1.85",
+  "files": [
+    {
+      "path": ".gitignore",
+      "source": "examples/axum-pdf/.gitignore",
+      "bytes": 30,
+      "sha256": "5da768a5c2f2dd77a4f2d1290ab1ba4b3c5f24e92922d4ee203e31f801dcf1f9"
+    },
+    {
+      "path": "Cargo.lock",
+      "source": "examples/axum-pdf/Cargo.lock",
+      "bytes": 14101,
+      "sha256": "afe6013b51b0507fac4a343db9a47bc749b541b50953155d9e02d2983e4a43f9"
+    },
+    {
+      "path": "Cargo.toml",
+      "source": "examples/axum-pdf/Cargo.toml",
+      "bytes": 458,
+      "sha256": "ea862ccc3dbb60176baad43e6b7ca32da756b1e3a591c2e4d32d9c9d6173e0ed"
+    },
+    {
+      "path": "LICENSE",
+      "source": "examples/axum-pdf/LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "source": "examples/axum-pdf/README.md",
+      "bytes": 4630,
+      "sha256": "916243210bfe919e7a617f4a84a2f1b414563870f541e6c7a99bf6d3d026ea37"
+    },
+    {
+      "path": "fonts/BebasNeue-OFL.txt",
+      "source": "docs/assets/playground/fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "fonts/BebasNeue-Regular.ttf",
+      "source": "docs/assets/playground/fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "source": "docs/assets/playground/fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4512,
+      "sha256": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "source": "docs/assets/playground/fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "fonts/Inter-OFL.txt",
+      "source": "docs/assets/playground/fonts/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "fonts/Inter-Variable.ttf",
+      "source": "docs/assets/playground/fonts/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "sample.json",
+      "source": "examples/axum-pdf/sample.json",
+      "bytes": 576,
+      "sha256": "dbf37e2895d3061f00326f396a9a2aa024698cf6aeefd808ee91de40bb939630"
+    },
+    {
+      "path": "src/lib.rs",
+      "source": "examples/axum-pdf/src/lib.rs",
+      "bytes": 14520,
+      "sha256": "87268588d6fd9b9808c102a7a4cb90c602144299b705af8cdca3825dd3724c6a"
+    },
+    {
+      "path": "src/main.rs",
+      "source": "examples/axum-pdf/src/main.rs",
+      "bytes": 832,
+      "sha256": "9d6f78f04d4cf2f0703752f6cdd97a1733380642568b59cfadfbf0196d52f80b"
+    },
+    {
+      "path": "templates/invoice.css",
+      "source": "examples/axum-pdf/templates/invoice.css",
+      "bytes": 2761,
+      "sha256": "52f1eef9e9ece0d780bd55a317ed9c31cd3adcbe587b3bb4baebc5621001b6b8"
+    },
+    {
+      "path": "templates/invoice.html",
+      "source": "examples/axum-pdf/templates/invoice.html",
+      "bytes": 1730,
+      "sha256": "2c98cd7223afb7b10095fc26d469069847ea9a2a3258ca25f26f3155cb56c176"
+    },
+    {
+      "path": "ui/index.html",
+      "source": "examples/axum-pdf/ui/index.html",
+      "bytes": 3636,
+      "sha256": "6e6a995632a453537622ce248952c3c872242400f588c96d5f22140eb29f51bf"
+    }
+  ],
+  "zip_bytes": 553160,
+  "zip_sha256": "fa5a444f5948b37fad0f9c834156309a7883b67149d1082c2055ca5b9472005b"
+}

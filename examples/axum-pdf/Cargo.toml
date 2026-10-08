@@ -1,0 +1,18 @@
+[package]
+name = "fullbleed-axum-starter"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[dependencies]
+axum = "=0.8.9"
+fullbleed = "=2.5.19"
+minijinja = { version = "=3.0.0", features = ["serde"] }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+tokio = { version = "=1.53.2", features = ["macros", "rt-multi-thread", "net", "sync", "time", "signal"] }
+
+[profile.dev]
+debug = 0
+incremental = false

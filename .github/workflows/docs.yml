@@ -13,6 +13,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  axum:
+    name: Axum PDF starter (${{ matrix.os }}, Rust ${{ matrix.rust }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            rust: '1.85.0'
+          - os: ubuntu-latest
+            rust: '1.97.0'
+          - os: windows-latest
+            rust: '1.97.0'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ matrix.rust }}
+          components: rustfmt
+      - name: Install independent PDF readers and the browser verifier
+        run: python -m pip install pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0 playwright==1.63.0
+      - name: Install the verification browser
+        run: python -m playwright install --with-deps chromium
+      - name: Verify the exact ZIP, real HTTP endpoint, and browser downloads
+        run: |
+          python tools/build_axum_starter.py
+          git diff --exit-code -- docs/assets/axum-starter/project.zip docs/assets/axum-starter/source.json
+          python tools/verify_axum_starter.py --browser chromium --toolchain ${{ matrix.rust }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: axum-verification-${{ matrix.os }}-${{ matrix.rust }}
+          path: output/axum-verification
+          retention-days: 14
   numbered-report:
     name: Numbered report (${{ matrix.os }})
     strategy:
@@ -482,7 +519,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum]
     runs-on: ubuntu-latest
     permissions:
       pages: write

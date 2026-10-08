@@ -147,6 +147,10 @@ designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
+For a Rust web application, [download the Axum PDF starter](../guides/axum-pdf.md).
+It turns invoice JSON into a styled download with editable HTML/CSS, bundled
+fonts, a browser form, and bounded rendering work.
+
 Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.19/fullbleed/)
 for the first-PDF program, method selection, fonts, and executable examples of
 fixed-layout and reflowing templates. The quickstart above uses 2.5.19; the
