@@ -68,6 +68,8 @@ The Python starter also includes a [tested Docker image](guides/python-docker.md
 For Node applications, download the [six-invoice queue project](guides/node-render-queue.md)
 with editable HTML/CSS and limits on active and waiting renders.
 For C# web applications, try the [ASP.NET Core download starter](guides/aspnet-pdf.md).
+For Rust applications, use the [Axum PDF download starter](guides/axum-pdf.md)
+with an editable invoice template and bounded rendering work.
 For a tagged document, use the [editable C# library notice](guides/csharp-tagged-pdf.md)
 with PDF/UA profiles, embedded fonts and retained validation reports.
 

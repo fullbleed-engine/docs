@@ -159,7 +159,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     cargo new invoice-demo
     cd invoice-demo
-    cargo add fullbleed@=2.5.11
+    cargo add fullbleed@=2.5.19
     ```
 
     Replace `src/main.rs` with:
@@ -186,6 +186,9 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     Open `invoice.pdf`. This first example uses standard PDF fonts; the guide adds explicit fonts and a designed invoice.
 
     [Rust quickstart →](getting-started/rust.md) · [Latest hosted Rust API reference](https://docs.rs/fullbleed/latest/fullbleed/)
+
+    Building an HTTP endpoint? [Download the Axum invoice starter](guides/axum-pdf.md)
+    with JSON input, editable templates, and a browser download form.
 
 === "C# / .NET"
 
@@ -271,6 +274,6 @@ Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](c
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.11 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.11) includes downloadable wheels and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.19 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.19) links the published engine packages and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
 
 [Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues) · [Support Fullbleed](support.md)

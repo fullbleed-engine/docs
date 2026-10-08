@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fullbleed + Axum invoice</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8f5ec;color:#17382e;font:16px/1.55 system-ui,sans-serif}
+main{max-width:1050px;margin:64px auto;padding:0 24px}header{border-top:5px solid #c24929;padding-top:24px}
+.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase}
+h1{font:clamp(36px,7vw,64px)/1.08 Georgia,serif;letter-spacing:-.03em;margin:18px 0}
+.lead{max-width:670px;color:#52665a}form{margin-top:36px}label{display:block;font-weight:650;margin-bottom:10px}
+textarea{display:block;width:100%;height:440px;resize:vertical;padding:20px;border:1px solid #9eafa4;border-radius:4px;background:#fffefb;color:#17382e;font:14px/1.6 ui-monospace,monospace}
+textarea:focus{outline:3px solid #cfddd5;outline-offset:2px}.actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:18px}
+button{border:0;border-radius:4px;background:#17382e;color:#fff8e8;padding:14px 24px;font:600 16px system-ui;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}#status{max-width:660px;font-size:14px}#status[data-error="true"]{color:#a63119}
+footer{margin:36px 0;font-size:13px;color:#52665a;border-top:1px solid #bdc8bf;padding-top:20px}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Fullbleed / Rust + Axum</div><h1>Your data.<br>A finished invoice.</h1>
+<p class="lead">Edit the fictional invoice below, then download its PDF. Prices use whole cents. The server applies the editable HTML/CSS template.</p></header>
+<form id="invoice-form"><label for="invoice">Invoice JSON</label><textarea id="invoice" spellcheck="false" required aria-describedby="status"></textarea>
+<div class="actions"><button id="download" type="submit" disabled>Download PDF</button><span id="status" role="status" aria-live="polite">Loading sample…</span></div></form>
+<footer>Local example · USD · No tax or discount calculation · Requests and PDFs are not saved by this server.</footer>
+</main>
+<script>
+const editor = document.querySelector('#invoice');
+const button = document.querySelector('#download');
+const status = document.querySelector('#status');
+function message(text, error) { status.textContent = text; status.dataset.error = String(Boolean(error)); }
+fetch('/sample.json').then(async response => {
+  if (!response.ok) throw new Error('The sample could not be loaded.');
+  editor.value = JSON.stringify(await response.json(), null, 2);
+  button.disabled = false;
+  message('Ready to generate.');
+}).catch(error => message(error.message, true));
+document.querySelector('#invoice-form').addEventListener('submit', async event => {
+  event.preventDefault();
+  button.disabled = true;
+  message('Generating your PDF…');
+  try {
+    const data = JSON.parse(editor.value);
+    const response = await fetch('/invoices/pdf', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+    if (!response.ok) {
+      const failure = await response.json();
+      throw new Error(failure.error || 'PDF generation failed.');
+    }
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'invoice-' + data.invoice_number + '.pdf';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    message('Downloaded ' + link.download + '.');
+  } catch (error) { message(error.message, true); }
+  finally { button.disabled = false; }
+});
+</script></body></html>

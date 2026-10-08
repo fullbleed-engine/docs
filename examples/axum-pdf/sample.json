@@ -1,0 +1,15 @@
+{
+  "invoice_number": "NS-1042",
+  "issued": "01 October 2026",
+  "due": "31 October 2026",
+  "customer": {
+    "name": "Maple & Finch",
+    "address_lines": ["Attn. Avery Morgan", "Portland, Oregon"]
+  },
+  "items": [
+    {"description": "Discovery & brand workshop", "quantity": 8, "unit_price_cents": 12500},
+    {"description": "Digital design & implementation", "quantity": 6, "unit_price_cents": 9500},
+    {"description": "Review & studio handoff", "quantity": 2, "unit_price_cents": 15000}
+  ],
+  "note": "Thank you for inviting us to help shape your next chapter."
+}
