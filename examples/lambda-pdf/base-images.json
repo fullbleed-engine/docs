@@ -1,0 +1,10 @@
+{
+  "x86_64": {
+    "platform": "linux/amd64",
+    "image": "public.ecr.aws/lambda/python:3.13-x86_64@sha256:8391efd70b63a46c3c4980a7db4480ac09e5289cada4d39d454e843c51bae82d"
+  },
+  "arm64": {
+    "platform": "linux/arm64",
+    "image": "public.ecr.aws/lambda/python:3.13-arm64@sha256:5c171b30fe6af43e6264da6f3cd932f71563dacb334c545473c0120ca7d99168"
+  }
+}

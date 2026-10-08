@@ -1,0 +1,11 @@
+{
+  "number": "INV-1042",
+  "customer": "Maple & Finch",
+  "issued": "2026-10-01",
+  "due": "2026-10-31",
+  "items": [
+    {"description": "Design workshop", "quantity": 8, "unit_price": "125.00"},
+    {"description": "Implementation", "quantity": 6, "unit_price": "95.00"},
+    {"description": "Review and handoff", "quantity": 2, "unit_price": "150.00"}
+  ]
+}

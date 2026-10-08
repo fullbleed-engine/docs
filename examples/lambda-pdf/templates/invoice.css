@@ -1,0 +1,42 @@
+@page {
+  size: A4;
+  margin: 17mm 18mm 20mm;
+  background: #f8f5ec;
+  @bottom-left { content: "NORTHSTAR STUDIO / FICTIONAL SAMPLE"; font-family: Inter; font-size: 7pt; color: #5b6c64; }
+  @bottom-right { content: counter(page) " / " counter(pages); font-family: Inter; font-size: 7pt; color: #5b6c64; }
+}
+* { box-sizing: border-box; }
+html, body, h1, h2, p { margin: 0; padding: 0; }
+body { font: 10pt/1.5 Inter; color: #17382e; overflow-wrap: anywhere; }
+.masthead { display: grid; grid-template-columns: 1fr 150pt; align-items: center; gap: 24pt; padding-bottom: 22pt; border-bottom: 1pt solid #17382e; }
+.brand { font: 31pt/.98 "DM Serif Display"; letter-spacing: -1pt; }
+.brand span { display: block; line-height: .98; }
+.brand small { display: block; font: 6.5pt Inter; letter-spacing: 1.6pt; margin-top: 12pt; }
+.address { font-size: 8pt; border-left: 1pt solid #c24929; padding-left: 18pt; }
+.title-row { display: flex; align-items: center; justify-content: space-between; gap: 24pt; padding: 22pt 0 17pt; }
+h1 { font: 76pt/1 "Bebas Neue"; }
+.title-row p { font: 17pt/1.2 "Bebas Neue"; color: #b44123; letter-spacing: .4pt; }
+h2 { font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1pt; margin-bottom: 6pt; }
+.details { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; border-top: .6pt solid #9eafa4; border-bottom: .6pt solid #9eafa4; padding: 15pt 0; margin-bottom: 12pt; font-size: 9pt; }
+.details > div + div { border-left: .6pt solid #c7cdc4; padding-left: 18pt; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 9pt; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { text-align: left; padding: 12pt 5pt; border-bottom: .55pt solid #bdc8bf; vertical-align: top; }
+th { font-size: 7pt; color: #52665a; font-weight: 600; }
+th:first-child { width: 44%; }
+th:nth-child(2) { width: 8%; }
+th:nth-child(3) { width: 21%; }
+th:nth-child(4) { width: 27%; }
+th:first-child, td:first-child { padding-left: 0; }
+td:first-child { overflow-wrap: anywhere; word-break: break-all; }
+th:last-child, td:last-child { padding-right: 0; }
+.number { text-align: right; white-space: nowrap; }
+.summary { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; margin-top: 24pt; break-inside: avoid; }
+.thanks { font: 22pt/1.25 "DM Serif Display"; color: #b44123; padding-top: 12pt; }
+.total { color: #fff8e8; background: #17382e; padding: 16pt; border-left: 4pt solid #d96238; }
+.total p { font: 35pt/1.2 "Bebas Neue"; margin: 6pt 0; }
+.total p.compact { font-size: 22pt; }
+.total small { font-size: 6.5pt; }
+.note { margin-top: 24pt; padding-top: 14pt; border-top: .6pt solid #9eafa4; }
+footer { margin-top: 18pt; font-size: 7.5pt; color: #5b6c64; break-inside: avoid; }
