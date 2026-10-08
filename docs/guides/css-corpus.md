@@ -13,6 +13,8 @@ or WeasyPrint versions.
 
 **The full run completed with 1,616 PASS, 27 FAIL, and 19 REFERENCE-DISPUTED across 1,662 fixtures.**
 
+These are the retained 2.5.14 results. A [later border-image fix](#border-image-follow-up-in-2515) is available in 2.5.15.
+
 | Verdict | Fixtures |
 | --- | ---: |
 | PASS | 1,616 |
@@ -84,6 +86,27 @@ that the JSON, Markdown, and HTML identify the same invocation and JSON digest.
 </div>
 
 [Image provenance and hashes](../assets/css-corpus/source.json) | [Upstream MIT license](../assets/css-corpus/IRONPRESS-LICENSE.txt). All failing cases remain in the complete report.
+
+### Border-image follow-up in 2.5.15
+
+Fullbleed 2.5.15 fixes the overlapping source slices in the fixture above.
+In a complete corpus run of source commit `9ec4f71`, before the version bump,
+that fixture changed from FAIL to PASS: **1,617 PASS, 26 FAIL and 19
+REFERENCE-DISPUTED**. Its above-floor page difference fell from 4.30% to 0.24%.
+The other 1,661 PDFs were byte-identical to the published 2.5.14 baseline;
+there were no new failures or lost passes. The unchanged upstream gate still failed.
+
+The source candidate's wheel reports 2.5.14; its commit and wheel hash distinguish
+it from the published package. This is not a complete corpus run of the final
+2.5.15 registry wheel. Fresh public Python and Rust installations passed 21 focused
+border-image cases. The original failing input also matched the reviewed source
+pixels when the public 2.5.15 Python output was rendered with PDFium.
+
+[Inspect the source corpus comparison](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.15/fullbleed-source-9ec4f71-css-corpus-summary.json),
+[download its full evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.15/fullbleed-source-9ec4f71-css-corpus-evidence.zip),
+or [read the release verification and reproduction instructions](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.15).
+The [remaining failures are tracked publicly](https://github.com/fullbleed-engine/fullbleed-official/issues/54).
+The tables, failure list and images on this page retain the original 2.5.14 results.
 
 ## Results by category
 
