@@ -1,0 +1,4 @@
+fullbleed==2.5.20
+uvicorn==0.54.0
+click==8.5.0
+h11==0.16.0

@@ -1,0 +1,268 @@
+{
+  "name": "Fullbleed - Invoice JSON to PDF",
+  "nodes": [
+    {
+      "id": "receive",
+      "name": "Receive invoice",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "fullbleed-invoice",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "webhookId": "fullbleed-invoice-starter"
+    },
+    {
+      "id": "render",
+      "name": "Render PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        250,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://renderer:8000/invoices",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {
+          "timeout": 25000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "pdf",
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "id": "verify",
+      "name": "PDF received?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        510,
+        -100
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "status",
+              "leftValue": "={{ $json.statusCode }}",
+              "rightValue": 200,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "mime",
+              "leftValue": "={{ $json.headers[\"content-type\"] }}",
+              "rightValue": "application/pdf",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "download",
+      "name": "Return PDF",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        790,
+        -220
+      ],
+      "parameters": {
+        "respondWith": "binary",
+        "responseDataSource": "set",
+        "inputFieldName": "pdf",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Cache-Control",
+                "value": "private, no-store"
+              },
+              {
+                "name": "X-Content-Type-Options",
+                "value": "nosniff"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/pdf"
+              },
+              {
+                "name": "Content-Disposition",
+                "value": "={{ $json.headers[\"content-disposition\"] }}"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "reject",
+      "name": "Return validation error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        790,
+        20
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"error\": \"Invoice was not rendered. Check required fields and limits.\"}",
+        "options": {
+          "responseCode": "={{ [400, 413, 415, 422].includes($json.statusCode) ? $json.statusCode : 502 }}",
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Cache-Control",
+                "value": "private, no-store"
+              },
+              {
+                "name": "X-Content-Type-Options",
+                "value": "nosniff"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "unavailable",
+      "name": "Return service error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        510,
+        250
+      ],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"error\": \"PDF service is unavailable. Try again later.\"}",
+        "options": {
+          "responseCode": 502,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Cache-Control",
+                "value": "private, no-store"
+              },
+              {
+                "name": "X-Content-Type-Options",
+                "value": "nosniff"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "instructions",
+      "name": "Start here",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        -360
+      ],
+      "parameters": {
+        "content": "## JSON to a PDF attachment\n\nImport this workflow, save and publish it, then POST sample.json to the production webhook URL. The local Compose kit supplies the renderer.\n\nThe PDF is in binary field **pdf** after Render PDF. Keep the success/error branches when adapting the workflow. For real integrations, authenticate the webhook and authorize the invoice before rendering.\n\n[Guide and source](https://docs.fullbleed.dev/guides/n8n-pdf/)\nFullbleed project; AI coding assistance. No n8n affiliation.",
+        "height": 280,
+        "width": 720
+      }
+    }
+  ],
+  "connections": {
+    "Receive invoice": {
+      "main": [
+        [
+          {
+            "node": "Render PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render PDF": {
+      "main": [
+        [
+          {
+            "node": "PDF received?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return service error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF received?": {
+      "main": [
+        [
+          {
+            "node": "Return PDF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return validation error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "none",
+    "saveDataErrorExecution": "none",
+    "saveManualExecutions": false,
+    "executionTimeout": 40
+  },
+  "active": false,
+  "pinData": {},
+  "tags": []
+}

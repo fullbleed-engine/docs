@@ -5,6 +5,7 @@ description: Run a FastAPI PDF endpoint in Debian slim or Alpine using Fullbleed
 # Generate PDF invoices in Docker with Python
 
 For a function instead of a web server, use the [AWS Lambda container starter](aws-lambda-pdf.md).
+For an importable automation, use the [n8n invoice workflow](n8n-pdf.md).
 
 The Python invoice starter includes a Dockerfile that serves a designed PDF from
 FastAPI. It installs prebuilt wheels, carries its fonts with the application, and
