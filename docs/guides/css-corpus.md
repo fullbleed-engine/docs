@@ -99,7 +99,8 @@ there were no new failures or lost passes. The unchanged upstream gate still fai
 The source candidate's wheel reports 2.5.14; its commit and wheel hash distinguish
 it from the published package. This is not a complete corpus run of the final
 2.5.15 registry wheel. Fresh public Python and Rust installations passed 21 focused
-border-image cases. The original failing input also matched the reviewed source
+border-image cases, with Rust's `svg_raster` feature enabled to match the Python
+wheel. The original failing input also matched the reviewed source
 pixels when the public 2.5.15 Python output was rendered with PDFium.
 
 [Inspect the source corpus comparison](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.15/fullbleed-source-9ec4f71-css-corpus-summary.json),
