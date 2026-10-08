@@ -45,6 +45,20 @@ python -m pip install fullbleed
 
 The stable-ABI wheels cover supported CPython versions. For an unsupported target, a source build requires Rust; [source build instructions](https://github.com/fullbleed-engine/fullbleed-official#install) are in the engine repository.
 
+## Python 3.15 preview
+
+The separate [Python Preview checks](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/37720487567)
+exercise CPython **3.15.0rc3**, with the standard GIL, on Windows x64 and Linux
+x64. They install the same abi3 wheel tested on Python 3.10, run the installed
+API and CLI checks, and compare generated PDFs and previews byte for byte.
+The [coverage note](https://github.com/fullbleed-engine/fullbleed-official/blob/master/docs/python-compatibility.md)
+explains the retained evidence and the explicit skip for an unavailable legacy
+subinterpreter API.
+
+Python 3.10–3.14 remains the supported stable range. These preview checks do not
+establish compatibility with Python 3.15 final, free-threaded builds, or macOS
+on this preview.
+
 ## Run in Docker
 
 The [Docker invoice starter](../guides/python-docker.md) includes a FastAPI app,
