@@ -12,6 +12,13 @@
 .md-typeset .facts { padding: .8rem 1rem; border-top: 1px solid #718c8135; border-bottom: 1px solid #718c8135; font-size: .78rem; }
 .md-typeset .grid.cards > ul > li { border-radius: .4rem; }
 .md-typeset .gallery img { border: 1px solid #b3c5be; max-height: 23rem; object-fit: contain; object-position: top; }
+.md-typeset .corpus-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+.md-typeset .corpus-images figure { margin: 0; min-width: 0; }
+.md-typeset .corpus-images img { display: block; width: 100%; border: 1px solid #718c8140; }
+.md-typeset .corpus-images figcaption { font-size: .7rem; }
+@media (max-width: 600px) {
+  .md-typeset .corpus-images { grid-template-columns: 1fr; }
+}
 .md-typeset .md-button { border-radius: .25rem; padding: .55em 1.15em; margin: .25rem .2rem .25rem 0; }
 .md-typeset .showcase-entry { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.7rem; align-items: center; margin: 1.2rem 0 3rem; }
 .md-typeset .showcase-entry figure { margin: 0; }
