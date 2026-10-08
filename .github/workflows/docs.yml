@@ -13,6 +13,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  numbered-report:
+    name: Numbered report (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install the public engine and independent PDF readers
+        run: |
+          python -m pip install --only-binary=:all: -r examples/numbered-report/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Verify the exact download and edited section numbering
+        run: |
+          python tools/build_numbered_report.py
+          git diff --exit-code -- docs/assets/numbered-report/project.zip docs/assets/numbered-report/source.json
+          python tools/verify_numbered_report.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: numbered-report-verification-${{ matrix.os }}
+          path: output/numbered-report-verification
+          retention-days: 14
   matplotlib:
     name: Matplotlib report (${{ matrix.os }})
     strategy:
@@ -456,7 +482,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report]
     runs-on: ubuntu-latest
     permissions:
       pages: write

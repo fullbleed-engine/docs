@@ -46,3 +46,6 @@ docs/assets/node-queue/*.pdf binary
 examples/matplotlib-report/** text eol=lf
 docs/assets/matplotlib-report/** -text
 docs/assets/matplotlib-report/*.pdf binary
+examples/numbered-report/** text eol=lf
+docs/assets/numbered-report/** -text
+docs/assets/numbered-report/*.pdf binary

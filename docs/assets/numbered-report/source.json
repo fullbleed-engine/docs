@@ -1,0 +1,37 @@
+{
+  "source": "examples/numbered-report",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1467,
+      "sha256": "ffc953efb779d3b5d03a8e9b01eb7c9209317935b2a81dca38cbd40997b9f80e"
+    },
+    {
+      "path": "render.py",
+      "bytes": 2095,
+      "sha256": "d5434b5a8cb2efd17e58513d690765e5984d17283881a40d2ad8b3799da888ec"
+    },
+    {
+      "path": "report.css",
+      "bytes": 3557,
+      "sha256": "7777c211a03725360577bbade9889fb843e75ea86c1fc42b39d8648986b6bc7c"
+    },
+    {
+      "path": "report.html",
+      "bytes": 2918,
+      "sha256": "60eb5812ae7bc49b928d525aa9426e1ef4dd7fdd3cdca8aded84b1f73707bc4b"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 18,
+      "sha256": "75d4b9591839d030cd0b987ea45133605bdf19743b768e7016ba2c7e5713de5a"
+    }
+  ],
+  "zip_bytes": 5682,
+  "zip_sha256": "b0abc7244daa3858b834f265229b10d538116ff5578e364f4c99fb3e8573ba00"
+}
