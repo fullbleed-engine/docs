@@ -200,7 +200,7 @@ def browser_check(workflow_id):
             page.get_by_label(re.compile(r'^Last name$', re.I)).fill('Verification')
             page.get_by_label(re.compile(r'^Password$', re.I)).fill('Local-Only-Pdf-Check-42!')
             page.get_by_role('button', name=re.compile(r'^Next$|^Create account$|^Set up$', re.I)).click()
-            page.wait_for_url(re.compile(r'.*(?!setup)$'), timeout=30000)
+            page.wait_for_url(lambda url: '/setup' not in url and '/signin' not in url, timeout=30000)
             page.goto(BASE + '/workflow/' + workflow_id, wait_until='networkidle')
             page.get_by_text('Render PDF', exact=True).first.wait_for(state='visible', timeout=30000)
             page.get_by_text('Return PDF', exact=True).first.wait_for(state='visible')
