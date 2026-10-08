@@ -31,7 +31,8 @@ jobs:
           python-version: '3.13'
       - uses: docker/setup-buildx-action@v3
       - name: Install the public engine, independent readers, and template validator
-        run: python -m pip install --only-binary=:all: fullbleed==2.5.20 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0 cfn-lint==1.57.2
+        run: |
+          python -m pip install --only-binary=:all: fullbleed==2.5.20 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0 cfn-lint==1.57.2
       - name: Validate CloudFormation and the exact downloadable project
         run: |
           cfn-lint examples/lambda-pdf/template.yaml
