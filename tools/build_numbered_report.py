@@ -18,6 +18,8 @@ def main():
         for name in sorted(FILES):
             data = (SOURCE/name).read_bytes()
             entry = zipfile.ZipInfo('fullbleed-numbered-report/'+name, (2026, 1, 1, 0, 0, 0))
+            # Preserve the published ZIP bytes on Windows and Unix hosts.
+            entry.create_system = 0
             entry.compress_type = zipfile.ZIP_DEFLATED
             entry.external_attr = 0o100644 << 16
             archive.writestr(entry, data)
