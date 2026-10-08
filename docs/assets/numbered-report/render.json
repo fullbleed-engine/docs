@@ -1,0 +1,11 @@
+{
+  "version": "2.5.18",
+  "pages": 2,
+  "pdf_sha256": "4eeb4c3282b8788453c0b1df45a186e04bdff6a7f18cb08f9b7b411913d9f860",
+  "html_sha256": "60eb5812ae7bc49b928d525aa9426e1ef4dd7fdd3cdca8aded84b1f73707bc4b",
+  "css_sha256": "7777c211a03725360577bbade9889fb843e75ea86c1fc42b39d8648986b6bc7c",
+  "font_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+  "missing_glyphs": [],
+  "deterministic_replay": true,
+  "fictional_content": true
+}

@@ -81,6 +81,7 @@ nav:
     - Examples and downloads: examples.md
   - Build a document:
     - Invoices from data: guides/invoices.md
+    - Numbered reports: guides/numbered-reports.md
     - Markdown to PDF: guides/markdown-pdf.md
     - Chinese text and fonts: guides/chinese-pdf.md
     - Arabic and English PDFs: guides/arabic-pdf.md

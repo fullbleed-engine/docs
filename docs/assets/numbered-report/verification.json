@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "platform": "Windows",
+  "version": "2.5.18",
+  "zip_sha256": "b0abc7244daa3858b834f265229b10d538116ff5578e364f4c99fb3e8573ba00",
+  "baseline": {
+    "pages": 2,
+    "sha256": "4eeb4c3282b8788453c0b1df45a186e04bdff6a7f18cb08f9b7b411913d9f860",
+    "sections": [
+      "1.1",
+      "1.2",
+      "1.3",
+      "2.1",
+      "2.2",
+      "2.3"
+    ],
+    "two_independent_readers": true,
+    "embedded_fonts": true,
+    "text_within_page_bounds": true
+  },
+  "edited": {
+    "pages": 3,
+    "sha256": "8c003003e2f539ec1f2141c96696c4612319c027b7a9f51e4d082bff63482cc9",
+    "sections": [
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "2.1",
+      "2.2",
+      "2.3"
+    ],
+    "two_independent_readers": true,
+    "embedded_fonts": true,
+    "text_within_page_bounds": true
+  },
+  "scope": "This downloaded report and one inserted section; no complete CSS counter or PDF standards conformance claim."
+}

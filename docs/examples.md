@@ -9,15 +9,40 @@ Designed invoices, reports, notices, and statements. These examples use Fullblee
 embedded typography, grids, tables, color, and vector graphics to turn structured
 data into finished pages.
 
-Every preview comes from the actual downloadable PDF. The first four examples
-were generated with the public **Fullbleed 2.4.0** wheel; the pandas report below
+Every preview comes from the actual downloadable PDF. The Northstar invoice,
+Common Ground report, Riverton notice, and Hillside statements were generated
+with the public **Fullbleed 2.4.0** wheel; the pandas report below
 uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
-**2.5.10**. All sample data and organizations are fictional.
+**2.5.10**. The numbered report uses **2.5.18**. All sample data and organizations
+are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
 
 [Edit these designs in your browser](playground.md){ .md-button }
+
+## From brief to handoff { #numbered-report }
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![A two-page project outline with a cream title panel, green display typography, numbered headings, and an automatically numbered table.](assets/numbered-report/page-1.png)](assets/numbered-report/numbered-report.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Editable HTML/CSS · Automatic numbering**
+
+CSS assigns chapter, section, table-row, and page numbers. A warm cover panel,
+large Inter headings, green decision cards, and orange accents give a short
+project outline a clear visual structure.
+
+[Open the PDF](assets/numbered-report/numbered-report.pdf){ .md-button }
+[Download the project](assets/numbered-report/project.zip){ .md-button }
+
+[Preview page 2](assets/numbered-report/page-2.png) ·
+[Customize the report](guides/numbered-reports.md)
+
+</div>
+</div>
 
 ## Northstar Studio invoice { #styled-invoice }
 
