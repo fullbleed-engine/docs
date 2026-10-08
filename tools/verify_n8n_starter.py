@@ -74,7 +74,7 @@ def run(command, label, timeout=300, check=True):
                             capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=timeout)
     (OUT / f'{command_count:02d}-{label}.log').write_text(result.stdout + result.stderr, encoding='utf-8')
     if check and result.returncode:
-        print((result.stdout + result.stderr)[-6000:], flush=True)
+        print(result.stdout[-3500:] + '\n' + result.stderr[-2000:], flush=True)
         raise RuntimeError(f'{label} exited {result.returncode}')
     return result
 
@@ -234,11 +234,17 @@ try:
         check(renderer['HostConfig']['Memory'] == 512 * 1024 * 1024, 'actual renderer memory limit')
         check('ALL' in renderer['HostConfig']['CapDrop'], 'actual renderer drops Linux capabilities')
         run(compose + ['exec', '-T', 'renderer', 'python', '-c', "from pathlib import Path; print(Path('/app/pip-install.json').read_text())"], 'installed-wheel-record')
-        run(compose + ['run', '--rm', '--no-deps', 'n8n', 'import:workflow', '--input=/workflows/invoice-webhook.json'], 'workflow-import', timeout=600)
+        # The editor assigns an ID when importing a new workflow. The server CLI
+        # requires one in its input, so add only fresh instance metadata to a copy;
+        # keep the shipped workflow free of an ID that could overwrite user data.
+        imported_workflow = dict(workflow, id=uuid.uuid4().hex[:16])
+        (PROJECT / 'workflows/verification-import.json').write_text(json.dumps(imported_workflow), encoding='utf-8')
+        run(compose + ['run', '--rm', '--no-deps', 'n8n', 'import:workflow', '--input=/workflows/verification-import.json'], 'workflow-import', timeout=600)
         run(compose + ['run', '--rm', '--no-deps', 'n8n', 'export:workflow', '--all', '--output=/home/node/.n8n/verification-workflow.json'], 'workflow-export')
         exported = json.loads(run(compose + ['run', '--rm', '--no-deps', '--entrypoint', 'node', 'n8n', '-e',
                                  "process.stdout.write(require('node:fs').readFileSync('/home/node/.n8n/verification-workflow.json','utf8'))"], 'workflow-readback').stdout)
         check(len(exported) == 1, 'exactly one isolated workflow imported')
+        check(exported[0]['id'] == imported_workflow['id'], 'CLI import uses only the fresh test workflow ID')
         for field in ['nodes', 'connections']:
             check(exported[0][field] == workflow[field], 'import preserved exact workflow ' + field)
         for key, value in workflow['settings'].items():
