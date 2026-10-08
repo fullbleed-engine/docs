@@ -18,7 +18,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.11
+cargo add fullbleed@=2.5.17
 ```
 
 Replace `src/main.rs` with:
@@ -95,16 +95,25 @@ The Rust example reads the exported HTML, CSS, and fonts directly. The individua
 
 ## Register fonts and create previews
 
-Font registration is explicit. For example, with the downloaded `fonts`
-directory beside your application:
+Font registration is explicit. With the downloaded `fonts` directory beside
+your application, load a font into an asset bundle. Reading the file surfaces
+missing-file errors; building the engine checks the font bytes:
 
 ```rust
-let engine = FullBleed::builder()
-    .register_font_file("fonts/Inter-Variable.ttf")
-    .build()?;
-let css = "body { font-family: 'Inter'; font-size: 11pt; }";
+use fullbleed::{Asset, AssetBundle, AssetKind};
+
+let mut assets = AssetBundle::default();
+assets.add(Asset::new(
+    "InvoiceSans".into(),
+    AssetKind::Font,
+    std::fs::read("fonts/Inter-Variable.ttf")?,
+    None,
+    true,
+));
+let engine = FullBleed::builder().register_bundle(assets).build()?;
+let css = "body { font-family: 'InvoiceSans'; font-size: 11pt; }";
 let (pdf, glyphs) = engine.render_with_glyph_report(html, css)?;
-if !glyphs.missing().is_empty() {
+if !glyphs.is_empty() {
     return Err("A character is not covered by the supplied fonts.".into());
 }
 std::fs::write("invoice.pdf", pdf)?;
@@ -113,6 +122,12 @@ std::fs::write("invoice.pdf", pdf)?;
 Keep font license notices with redistributed assets. Register the additional
 families and styles used by your CSS; the designed example registers all four
 playground font files.
+
+The `register_font_file` and `register_font_dir` helpers are also available,
+but skip unreadable or invalid files. A glyph report can find missing characters;
+it does not prove that the intended typeface loaded. The
+[API font guide](https://docs.rs/fullbleed/2.5.17/fullbleed/#supply-fonts-explicitly)
+explains these choices.
 
 For one PNG per page, preview the PDF you just wrote at your chosen DPI:
 
@@ -127,10 +142,12 @@ designed example and downloaded playground projects use the same path.
 
 ## Keep building
 
-Use [the latest hosted Rust API reference](https://docs.rs/fullbleed/latest/fullbleed/)
-for `FullBleed`, its builder, compiled templates, and document types. The
-[2.5.11 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/lib.rs)
-matches the version pinned by these examples. Check
+Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.17/fullbleed/)
+for the first-PDF program, method selection, fonts, and executable examples of
+fixed-layout and reflowing templates. The quickstart above uses 2.5.17; the
+downloadable designed starter remains pinned to 2.5.11 and matches the
+[2.5.11 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/lib.rs).
+Check
 [CSS coverage](../css-coverage.md) before adapting a web layout, and inspect
 your actual output when changing fonts or content. These examples use trusted
 local inputs; file and HTML handling should follow your application's trust
