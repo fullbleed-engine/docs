@@ -1,0 +1,12 @@
+{
+  "number": "NL-2026-1042",
+  "customer": "Fieldwork Supply Co.",
+  "issued": "2026-10-08",
+  "due": "2026-11-07",
+  "items": [
+    {"description": "Brand identity & visual system", "quantity": 1, "unit_price": "2400.00"},
+    {"description": "Packaging design — field collection", "quantity": 3, "unit_price": "450.00"},
+    {"description": "Production artwork & print preparation", "quantity": 8, "unit_price": "125.00"},
+    {"description": "Launch toolkit & handover", "quantity": 1, "unit_price": "650.00"}
+  ]
+}

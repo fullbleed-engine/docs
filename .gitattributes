@@ -60,3 +60,8 @@ docs/assets/lambda-starter/*.pdf binary
 examples/n8n-pdf/** text eol=lf
 docs/assets/n8n-starter/** -text
 docs/assets/n8n-starter/*.pdf binary
+examples/laravel-pdf/** text eol=lf
+examples/laravel-pdf/renderer/fonts/*.ttf binary
+examples/laravel-pdf/renderer/fonts/*-OFL.txt -text -whitespace
+docs/assets/laravel-starter/** -text
+docs/assets/laravel-starter/*.pdf binary

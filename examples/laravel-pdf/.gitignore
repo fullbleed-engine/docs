@@ -1,0 +1,11 @@
+/.env
+/.venv/
+/vendor/
+/renderer/__pycache__/
+/database/*.sqlite*
+/bootstrap/cache/*.php
+/storage/app/private/documents/*
+/storage/framework/cache/*
+/storage/framework/views/*
+/storage/logs/*
+!**/.gitignore
