@@ -197,7 +197,7 @@
       "typeVersion": 1,
       "position": [
         -40,
-        -360
+        -420
       ],
       "parameters": {
         "content": "## JSON to a PDF attachment\n\nImport this workflow, save and publish it, then POST sample.json to the production webhook URL. The local Compose kit supplies the renderer.\n\nThe PDF is in binary field **pdf** after Render PDF. Keep the success/error branches when adapting the workflow. For real integrations, authenticate the webhook and authorize the invoice before rendering.\n\n[Guide and source](https://docs.fullbleed.dev/guides/n8n-pdf/)\nFullbleed project; AI coding assistance. No n8n affiliation.",

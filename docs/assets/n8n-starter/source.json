@@ -116,9 +116,9 @@
       "path": "workflows/invoice-webhook.json",
       "source": "examples/n8n-pdf/workflows/invoice-webhook.json",
       "bytes": 6772,
-      "sha256": "493960e3fd4238ae468355379a8655ff6378c4612772c6dc5defd470a9a9ea64"
+      "sha256": "f9fa9932d95b39db65b1d6124854af3c59ed15c7d2e0794855564c8192fc3fb9"
     }
   ],
-  "zip_bytes": 90419,
-  "zip_sha256": "8fd00f6d93ba5531763247fb962062e1704362b9ef18383054e8b4ff2e8951a0"
+  "zip_bytes": 90417,
+  "zip_sha256": "5b93b376b33f1bcdabd2a014da184cd9fbaff06b61ca85e9c86a42583cc64217"
 }

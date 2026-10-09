@@ -217,6 +217,10 @@ def browser_check(workflow_id):
             page.get_by_text('Render PDF', exact=True).first.wait_for(state='visible', timeout=30000)
             page.get_by_text('Return PDF', exact=True).first.wait_for(state='visible')
             page.get_by_text('Return validation error', exact=True).first.wait_for(state='visible')
+            checklist_close = page.locator('[data-test-id="suggested-actions-close"]')
+            if checklist_close.is_visible():
+                checklist_close.click()
+            page.get_by_role('button', name='Zoom to Fit', exact=True).click()
             page.screenshot(path=str(OUT / 'n8n-workflow.png'), full_page=True)
             check(True, 'real n8n editor displays imported workflow and response branches')
         finally:
@@ -319,7 +323,7 @@ try:
         run(compose + ['stop', 'renderer'], 'renderer-stop')
         status, headers, data = request(sample)
         check(status == 502 and json.loads(data) == {'error': 'PDF service is unavailable. Try again later.'}, 'renderer unavailability follows the service-error branch')
-        run(compose + ['start', '--wait', 'renderer'], 'renderer-restart')
+        run(compose + ['up', '-d', '--no-recreate', '--wait', '--wait-timeout', '60', 'renderer'], 'renderer-restart')
     else:
         stop_native()
         start_native()
