@@ -45,10 +45,10 @@ def main():
                   versions={n: version(n) for n in ['fullbleed', 'pypdf', 'pypdfium2', 'Pillow']})
     php = shutil.which(args.php) or str(Path(args.php).resolve())
     env = {**os.environ, 'PATH': str(Path(php).parent) + os.pathsep + os.environ['PATH'],
-           'FULLBLEED_PYTHON': sys.executable, 'PDF_SECONDARY_API_KEY': secrets.token_hex(32)}
+           'PDF_SECONDARY_API_KEY': secrets.token_hex(32)}
     secondary = env['PDF_SECONDARY_API_KEY']
     # An unrelated shell's Laravel credentials/configuration must not enter this test.
-    for key in ['APP_KEY', 'APP_ENV', 'APP_DEBUG', 'APP_URL', 'PDF_API_KEY', 'PDF_RETENTION_HOURS']:
+    for key in ['APP_KEY', 'APP_ENV', 'APP_DEBUG', 'APP_URL', 'PDF_API_KEY', 'PDF_RETENTION_HOURS', 'FULLBLEED_PYTHON']:
         env.pop(key, None)
     project = out / 'fullbleed-laravel-starter'
     database = project / 'database/database.sqlite'
@@ -158,9 +158,23 @@ def main():
         run('composer-audit', [*composer, 'audit', '--locked', '--format=json'])
         report['versions']['php'] = run('php-version', [php, '-r', 'echo PHP_VERSION;']).decode()
         report['versions']['laravel'] = run('laravel-version', [php, 'artisan', '--version']).decode().strip()
-        run('setup', [php, 'setup.php', sys.executable])
+        runtime = out / 'renderer-runtime'
+        run('create-renderer-runtime', [sys.executable, '-m', 'venv', str(runtime)])
+        # Do not resolve this path: POSIX venv launchers are normally symlinks.
+        runtime_python = runtime / ('Scripts/python.exe' if os.name == 'nt' else 'bin/python')
+        if os.name != 'nt':
+            check('POSIX virtual-environment launcher is a symlink', runtime_python.is_symlink())
+            resolved_prefix = run('resolved-launcher-control', [str(runtime_python.resolve()), '-I', '-c', 'import sys; print(sys.prefix)']).decode().strip()
+            check('resolving launcher would bypass virtual environment', Path(resolved_prefix) != runtime)
+        run('install-renderer-runtime', [runtime_python, '-m', 'pip', 'install', '--disable-pip-version-check',
+                                         '--only-binary=:all:', '-r', 'renderer/requirements.txt'])
+        run('setup', [php, 'setup.php', str(runtime_python)])
         original_env = (project / '.env').read_bytes()
-        run('setup-repeat', [php, 'setup.php', sys.executable])
+        configured_python = next(line.split('=', 1)[1].strip('"') for line in original_env.decode().splitlines() if line.startswith('FULLBLEED_PYTHON='))
+        check('setup preserves virtual-environment executable path', Path(configured_python) == runtime_python)
+        prefix = run('renderer-runtime-prefix', [configured_python, '-I', '-c', 'import sys; print(sys.prefix)']).decode().strip()
+        check('configured interpreter uses isolated virtual environment', Path(prefix) == runtime)
+        run('setup-repeat', [php, 'setup.php', str(runtime_python)])
         check('setup preserves existing credentials', (project / '.env').read_bytes() == original_env)
         primary = next(line.split('=', 1)[1] for line in original_env.decode().splitlines() if line.startswith('PDF_API_KEY='))
         run('migrate', [php, 'artisan', 'migrate', '--force'])

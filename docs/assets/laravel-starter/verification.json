@@ -98,7 +98,12 @@
     "composer-audit exit status",
     "php-version exit status",
     "laravel-version exit status",
+    "create-renderer-runtime exit status",
+    "install-renderer-runtime exit status",
     "setup exit status",
+    "setup preserves virtual-environment executable path",
+    "renderer-runtime-prefix exit status",
+    "configured interpreter uses isolated virtual environment",
     "setup-repeat exit status",
     "setup preserves existing credentials",
     "migrate exit status",
@@ -140,7 +145,7 @@
     "invoice text: 5,400.00",
     "invoice glyph bounds on every page",
     "ready duplicate is 200",
-    "private path unavailable /storage/documents/8b100975-d08b-4ce7-965d-df999c22c1b3.pdf",
+    "private path unavailable /storage/documents/97378449-a6b1-4e08-b6b6-735762754494.pdf",
     "private path unavailable /.env",
     "private path unavailable /database/database.sqlite",
     "completed-replay exit status",
@@ -244,7 +249,19 @@
       "exit_code": 0
     },
     {
+      "label": "create-renderer-runtime",
+      "exit_code": 0
+    },
+    {
+      "label": "install-renderer-runtime",
+      "exit_code": 0
+    },
+    {
       "label": "setup",
+      "exit_code": 0
+    },
+    {
+      "label": "renderer-runtime-prefix",
       "exit_code": 0
     },
     {
@@ -337,6 +354,6 @@
     "laravel": "Laravel Framework 13.35.0",
     "browser": "154.0.8037.98"
   },
-  "archive_sha256": "1de9601c6608ac4c91c70bdae89db26eb930dd5caeba87697bde2aa24e7fbd32",
-  "check_count": 198
+  "archive_sha256": "ac5ab933f50436031874041b9e0791d02c9bab993a59289fc2b9d552cf89c1d7",
+  "check_count": 203
 }

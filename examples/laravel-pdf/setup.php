@@ -1,6 +1,10 @@
 <?php
 // Creates only local configuration. Never replaces an existing .env or database.
-$python = isset($argv[1]) ? realpath($argv[1]) : false;
+$python = isset($argv[1]) && is_file($argv[1])
+    ? realpath(dirname($argv[1])).DIRECTORY_SEPARATOR.basename($argv[1])
+    : false;
+// Preserve the executable symlink: resolving .venv/bin/python to the system
+// binary would bypass the virtual environment and its installed packages.
 if (!$python || !is_file($python) || preg_match('/[\r\n"]/', $python)) {
     fwrite(STDERR, "Usage: php setup.php /absolute/path/to/venv/python\n");
     exit(1);
