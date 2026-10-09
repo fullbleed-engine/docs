@@ -197,7 +197,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.1.6
+    dotnet add package FullBleed.DotNet --version 0.1.8
     ```
 
     Replace `Program.cs` with:
@@ -227,7 +227,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.6/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.8/samples/FullBleed.DotNet.LinqVdp)
 
 ## Pick a document to build
 

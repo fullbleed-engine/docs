@@ -29,7 +29,7 @@ def main():
     workspace = Path(tempfile.mkdtemp(prefix='tagged notice with spaces ', dir=out)).resolve()
     project = workspace / 'fullbleed-tagged-notice'
     manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
-    assert manifest['framework'] == 'net10.0' and manifest['packageVersion'] == '0.1.7'
+    assert manifest['framework'] == 'net10.0' and manifest['packageVersion'] == '0.1.8'
     sources = project_files()
     content = (ASSETS / 'project.zip').read_bytes()
     assert digest(content) == manifest['projectZipSha256']
@@ -62,10 +62,10 @@ def main():
     run('restore', ['restore', '--locked-mode', '--source', 'https://api.nuget.org/v3/index.json'])
     published = workspace / 'isolated-publish'
     run('publish', ['publish', '-c', 'Release', '--no-restore', '-o', published])
-    package_dir = workspace / 'nuget-cache/fullbleed.dotnet/0.1.7'
+    package_dir = workspace / 'nuget-cache/fullbleed.dotnet/0.1.8'
     provenance = json.loads((package_dir / 'native-provenance.json').read_text())
     engine = next(p for p in provenance['dependencies'] if p['name'] == 'fullbleed')
-    assert engine['version'] == '2.5.13'
+    assert engine['version'] == '2.5.22'
     classpath = args.verapdf_cp or validator(out / 'validator-cache')
     records = []
     native_identity = None
@@ -81,7 +81,7 @@ def main():
         report = json.loads((folder / 'render.json').read_text())
         assert report['profile'] == profile and report['pdfSha256'] == digest(pdf.read_bytes())
         assert report['runtime'].startswith('10.0.') and report['framework'] == '.NETCoreApp,Version=v10.0'
-        assert report['engine']['BindingVersion'] == '0.1.7'
+        assert report['engine']['BindingVersion'] == '0.1.8'
         native_name = {'win-x64': 'fullbleed_dotnet_native.dll', 'linux-x64': 'libfullbleed_dotnet_native.so',
                        'osx-x64': 'libfullbleed_dotnet_native.dylib', 'osx-arm64': 'libfullbleed_dotnet_native.dylib'}[report['runtimeRid']]
         relative_native = Path('runtimes') / report['runtimeRid'] / 'native' / native_name
@@ -110,8 +110,8 @@ def main():
     for name, expected_hash in manifest['outputs'].items():
         assert digest((ASSETS / name).read_bytes()) == expected_hash
     result = {'ok': True, 'checkedAt': datetime.now(timezone.utc).isoformat(), 'sdk': sdk,
-        'package': 'FullBleed.DotNet', 'packageVersion': '0.1.7', 'engineVersion': engine['version'],
-        'packageSha256': digest((package_dir / 'fullbleed.dotnet.0.1.7.nupkg').read_bytes()),
+        'package': 'FullBleed.DotNet', 'packageVersion': '0.1.8', 'engineVersion': engine['version'],
+        'packageSha256': digest((package_dir / 'fullbleed.dotnet.0.1.8.nupkg').read_bytes()),
         'projectZipSha256': manifest['projectZipSha256'], 'freshNugetCache': True,
         'nativeLibraryOverride': False, 'isolatedPublishedApp': True, 'commands': commands, 'profiles': records,
         'runtimeIdentity': native_identity,
@@ -133,7 +133,7 @@ def main():
         assert digest((ASSETS / name).read_bytes()) == expected_hash
     result['publishedEvidenceVerified'] = True
     (out / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({'ok': True, 'profiles': 2, 'packageVersion': '0.1.7', 'engineVersion': engine['version']}))
+    print(json.dumps({'ok': True, 'profiles': 2, 'packageVersion': '0.1.8', 'engineVersion': engine['version']}))
 
 
 if __name__ == '__main__':

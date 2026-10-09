@@ -4,7 +4,7 @@ description: Install FullBleed.DotNet from NuGet, render a PDF from C#, and run 
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.6)
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.8)
 brings Fullbleed's Rust rendering engine into a .NET process. Use static HTML
 and CSS to create invoices, reports, and variable-data documents. Native
 rendering needs neither Python nor a browser.
@@ -16,7 +16,7 @@ With the .NET 10 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.1.6
+dotnet add package FullBleed.DotNet --version 0.1.8
 ```
 
 Replace `Program.cs` with:
@@ -47,8 +47,16 @@ below embeds its fonts.
 
 The package's managed library targets `net8.0`; your application can target
 `net8.0`, `net9.0`, or `net10.0`. It contains native libraries for Windows x64,
-Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.11.
+Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.22.
 The managed assembly has no third-party NuGet runtime dependencies.
+
+Version 0.1.8 includes fixes for counter scopes, filtered clipping, border-image
+tiling and floated first letters. The release gate checks thirteen layouts through
+direct and compiled rendering against independent text, color and browser
+geometry expectations. Public 0.1.7 fails 24 of those 26 outputs; the two healthy
+controls retain identical PDFs, previews and text. Review saved PDF baselines
+when upgrading templates that use these features.
+[Inspect the 0.1.8 evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.8).
 
 Use .NET 10 LTS for a new application. Microsoft lists November 10, 2026 as
 the end of support for .NET 8 and 9 in its
@@ -157,8 +165,8 @@ with PDF/UA profiles and independent validation.
 It includes a download page, styled invoice, private responses, and checks against
 the published application artifact.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.6/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.6/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.8/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.8/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)

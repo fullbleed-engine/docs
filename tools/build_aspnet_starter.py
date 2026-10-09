@@ -3,6 +3,7 @@ import hashlib
 import io
 import json
 from pathlib import Path
+import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,11 +36,14 @@ def archive_bytes(files):
 def build():
     ASSETS.mkdir(parents=True, exist_ok=True)
     files = project_files()
+    version = ET.parse(PROJECT / "FullbleedWeb.csproj").find('.//PackageReference[@Include="FullBleed.DotNet"]').attrib["Version"]
+    locked = json.loads((PROJECT / "packages.lock.json").read_text())["dependencies"]["net10.0"]["FullBleed.DotNet"]
+    assert locked["resolved"] == version, "Restore the final public package before making the download"
     archive = archive_bytes(files)
     (ASSETS / "project.zip").write_bytes(archive)
     manifest = {
         "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/aspnet",
-        "framework": "net10.0", "package": "FullBleed.DotNet", "packageVersion": "0.1.6",
+        "framework": "net10.0", "package": "FullBleed.DotNet", "packageVersion": version,
         "projectZipSha256": digest(archive),
         "files": [{"path": name, "bytes": len(data), "sha256": digest(data)} for name, data in files.items()],
         "outputs": {name: digest((ASSETS / name).read_bytes()) for name in ["invoice.pdf", "invoice.png"]},
