@@ -1,0 +1,124 @@
+{
+  "schema": "fullbleed.n8n-starter.v1",
+  "prefix": "fullbleed-n8n-starter/",
+  "engine": "2.5.20",
+  "n8n": "2.42.5",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "source": "examples/n8n-pdf/.dockerignore",
+      "bytes": 351,
+      "sha256": "776f7e7c56ec4b846dbf7e61277c5b7a9d3afa5cc720cc3e296acfc947435d26"
+    },
+    {
+      "path": ".gitignore",
+      "source": "examples/n8n-pdf/.gitignore",
+      "bytes": 32,
+      "sha256": "4f76daabee8e130c2cd04a3a3060607b0371c710148356aef3cb26d51768bd2d"
+    },
+    {
+      "path": "Dockerfile",
+      "source": "examples/n8n-pdf/Dockerfile",
+      "bytes": 638,
+      "sha256": "fa67cde1de04d805ea1c2742be30d34fc2b0df03a0a1ee3d0c1aa7362b750cc0"
+    },
+    {
+      "path": "LICENSE",
+      "source": "examples/lambda-pdf/LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "source": "examples/n8n-pdf/README.md",
+      "bytes": 7386,
+      "sha256": "51da876ebfab9762f838bf4af703544db6bb522c382bc4af8efbb643b5900d4c"
+    },
+    {
+      "path": "compose.yaml",
+      "source": "examples/n8n-pdf/compose.yaml",
+      "bytes": 1614,
+      "sha256": "c2f9976de00a1e8509fb871272386b2d9799084e91b0d08bcd4b3af9352ef61e"
+    },
+    {
+      "path": "post_invoice.py",
+      "source": "examples/n8n-pdf/post_invoice.py",
+      "bytes": 1246,
+      "sha256": "26c9d6ce916a2aadb271b9994426476d300a926dc37f52e128b6cde008e758ad"
+    },
+    {
+      "path": "renderer/LICENSE",
+      "source": "examples/lambda-pdf/LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "renderer/fonts/BebasNeue-OFL.txt",
+      "source": "examples/lambda-pdf/fonts/BebasNeue-OFL.txt",
+      "bytes": 4337,
+      "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+    },
+    {
+      "path": "renderer/fonts/BebasNeue-Regular.ttf",
+      "source": "examples/lambda-pdf/fonts/BebasNeue-Regular.ttf",
+      "bytes": 61400,
+      "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+    },
+    {
+      "path": "renderer/fonts/DMSerifDisplay-OFL.txt",
+      "source": "examples/lambda-pdf/fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "renderer/fonts/DMSerifDisplay-Regular.ttf",
+      "source": "examples/lambda-pdf/fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "renderer/handler.py",
+      "source": "examples/lambda-pdf/handler.py",
+      "bytes": 6475,
+      "sha256": "db379ba47495272482290ac89ea6a2cd3f096bb694ac60a2aa4eba5fb97472e3"
+    },
+    {
+      "path": "renderer/templates/invoice.css",
+      "source": "examples/lambda-pdf/templates/invoice.css",
+      "bytes": 2761,
+      "sha256": "52f1eef9e9ece0d780bd55a317ed9c31cd3adcbe587b3bb4baebc5621001b6b8"
+    },
+    {
+      "path": "renderer/templates/invoice.html",
+      "source": "examples/lambda-pdf/templates/invoice.html",
+      "bytes": 1203,
+      "sha256": "b2854f16a142c0b3f92ff5057304c5afe300891aa36c1d75bceef2be9f58671b"
+    },
+    {
+      "path": "requirements.txt",
+      "source": "examples/n8n-pdf/requirements.txt",
+      "bytes": 59,
+      "sha256": "bfd7d68381179167159ce80a7eaa8276fb125966e19a070f8987c279ce7a7cd4"
+    },
+    {
+      "path": "sample.json",
+      "source": "examples/lambda-pdf/sample.json",
+      "bytes": 362,
+      "sha256": "c697b8d1dd869fbd6adfad5e6bb95ce8aa17f6924949ec17e71b82e1aa9a16da"
+    },
+    {
+      "path": "server.py",
+      "source": "examples/n8n-pdf/server.py",
+      "bytes": 2175,
+      "sha256": "2be9b3cf51fc73f5bfd0a3f3008e179fdb8c145f003bc5cd7c697aeda2a58f5d"
+    },
+    {
+      "path": "workflows/invoice-webhook.json",
+      "source": "examples/n8n-pdf/workflows/invoice-webhook.json",
+      "bytes": 6772,
+      "sha256": "f9fa9932d95b39db65b1d6124854af3c59ed15c7d2e0794855564c8192fc3fb9"
+    }
+  ],
+  "zip_bytes": 90417,
+  "zip_sha256": "5b93b376b33f1bcdabd2a014da184cd9fbaff06b61ca85e9c86a42583cc64217"
+}

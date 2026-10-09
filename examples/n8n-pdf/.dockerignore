@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!requirements.txt
+!server.py
+!renderer/
+!renderer/handler.py
+!renderer/LICENSE
+!renderer/templates/
+!renderer/templates/invoice.html
+!renderer/templates/invoice.css
+!renderer/fonts/
+!renderer/fonts/DMSerifDisplay-Regular.ttf
+!renderer/fonts/DMSerifDisplay-OFL.txt
+!renderer/fonts/BebasNeue-Regular.ttf
+!renderer/fonts/BebasNeue-OFL.txt
