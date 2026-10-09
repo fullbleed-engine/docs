@@ -34,7 +34,7 @@ PDF, and `render.json` with a SHA-256 digest, inspection and rendering
 diagnostics. The application fails on missing glyphs. Templates, fonts and
 the SVG are local assets; the document makes no network requests.
 
-The lockfile pins FullBleed.DotNet 0.1.7, containing engine 2.5.13. The
+The lockfile pins FullBleed.DotNet 0.1.8, containing engine 2.5.22. The
 [C# quickstart](../getting-started/dotnet.md) covers ordinary PDF generation;
 the [ASP.NET guide](aspnet-pdf.md) covers HTTP downloads.
 

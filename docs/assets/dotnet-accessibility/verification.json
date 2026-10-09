@@ -1,12 +1,12 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-07T13:26:37.436229+00:00",
+  "checkedAt": "2026-10-09T16:08:48.821128+00:00",
   "sdk": "10.0.401",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.1.7",
-  "engineVersion": "2.5.13",
-  "packageSha256": "4334469bb70fe5896c479f9bb68025cd0fefafa280429dd367055f1818ecd1ee",
-  "projectZipSha256": "bff5801de233ea3bca593a0656decd739373ec51ab5e9c1f2526d0d67eae8f02",
+  "packageVersion": "0.1.8",
+  "engineVersion": "2.5.22",
+  "packageSha256": "be6b6fd843d9ce3eb9a6510c22dbb7b7d1e3ab225d2f977760a7cc51d7fd5625",
+  "projectZipSha256": "9e9fe7052e0f72fc3f2be7f10ccf266472f3959047f83dfb6a5eb42576522b88",
   "freshNugetCache": true,
   "nativeLibraryOverride": false,
   "isolatedPublishedApp": true,
@@ -53,11 +53,11 @@
     "runtime": "10.0.12",
     "framework": ".NETCoreApp,Version=v10.0",
     "rid": "win-x64",
-    "nativeLibrarySha256": "7252e7add0c8639992bff4d6d01842a0584b68d57db0432e456054138eec41a9"
+    "nativeLibrarySha256": "6e0b7cfdcd5c615f3e806502e6a1a71152180e72c2ec5040657c99e358e1873a"
   },
   "scope": "Downloaded starter, retained final PDFs and machine-verifiable PDF/UA checks. No blanket accessibility or assistive-technology claim.",
   "validatorReports": {
-    "verapdf-ua1.json": "a7a8007e02693e46ab9d10214a90b0b58d7a4d79469008f341805c84f7e17723",
-    "verapdf-ua2.json": "2d56867945fb3394152ee45be9edae80bb2f3c159748d5e6dcacce2c980cd59c"
+    "verapdf-ua1.json": "069dafd373f415897b10ffb4b6a44c4444db1f6bd00c390246023ac8e653f062",
+    "verapdf-ua2.json": "561f6077188762416888784835d17935c4175546d60cc5bd393bbe8ad568d733"
   }
 }

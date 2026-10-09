@@ -2,13 +2,13 @@
   "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/dotnet-accessibility",
   "framework": "net10.0",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.1.7",
-  "projectZipSha256": "bff5801de233ea3bca593a0656decd739373ec51ab5e9c1f2526d0d67eae8f02",
+  "packageVersion": "0.1.8",
+  "projectZipSha256": "9e9fe7052e0f72fc3f2be7f10ccf266472f3959047f83dfb6a5eb42576522b88",
   "files": [
     {
       "path": "AccessibleNotice.csproj",
       "bytes": 563,
-      "sha256": "7d9a7a9d1851786c8db87013078cfffb49b1f55928f88dd9d3d8b9a4d9508e3b"
+      "sha256": "4515e4bc201f7c299191c72dd16f415aa795e23350b83b9cd62a8d152b8e34cd"
     },
     {
       "path": "Assets/DMSerifDisplay-OFL.txt",
@@ -67,8 +67,8 @@
     },
     {
       "path": "packages.lock.json",
-      "bytes": 306,
-      "sha256": "612f1930c91b980f19cd58755526d4a78f67117163d761e4ff683817e1eef4af"
+      "bytes": 305,
+      "sha256": "51b82921167a1fb1c1628ba84c1545aea15a4fab1c7920e35af60545e9c17d17"
     }
   ],
   "outputs": {
