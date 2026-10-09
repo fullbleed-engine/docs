@@ -109,7 +109,7 @@ def ready():
                 if response.status == 200:
                     (OUT / f'readiness-{len(pdfs)}.json').write_text(json.dumps(observations, indent=2), encoding='utf-8')
                     return
-        except (HTTPError, URLError, TimeoutError) as error:
+        except (HTTPError, URLError, TimeoutError, ConnectionError) as error:
             observations.append(dict(error=f'{type(error).__name__}: {error}'))
         time.sleep(1)
     (OUT / f'readiness-{len(pdfs)}.json').write_text(json.dumps(observations, indent=2), encoding='utf-8')
