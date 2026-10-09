@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-09T17:08:20.157994+00:00",
+  "node": "v26.10.0",
+  "packageVersion": "0.4.1",
+  "engineVersion": "2.5.22",
+  "pages": 2,
+  "missingGlyphs": 0,
+  "sha256": "726b488068f15b7648d0b3b3cf97089b6dd404d500ddb6f2795f8819c647328a",
+  "expectedLabels": [
+    "1.1",
+    "1.2",
+    "2.1"
+  ],
+  "expectedText": [
+    "Wash gently.",
+    "Dry flat.",
+    "Store folded."
+  ],
+  "orderNumber": "CF-1042",
+  "reader": "pypdf",
+  "labels": [
+    "1.1",
+    "1.2",
+    "2.1"
+  ],
+  "checks": {
+    "hash matches rendered bytes": true,
+    "page count matches independent reader": true,
+    "sibling counter increments and chapter reset are correct": true,
+    "each care instruction occurs once": true,
+    "care instructions occupy the explicit final page": true,
+    "escaped order fields resolve in the care appendix": true,
+    "no unexpanded template fields": true
+  },
+  "ok": true,
+  "commerceVersion": "0.1.6",
+  "sourceCommit": "d8ea477581e36e13c00698a601e3a3f702319404",
+  "assets": {
+    "care-instructions-template.json": {
+      "bytes": 4731,
+      "sha256": "112c40343e33d5354415c412036c48af7db436c425e78427dedcb7766d6fb882"
+    },
+    "care-instructions.pdf": {
+      "bytes": 108431,
+      "sha256": "726b488068f15b7648d0b3b3cf97089b6dd404d500ddb6f2795f8819c647328a"
+    },
+    "care-instructions.png": {
+      "bytes": 48536,
+      "sha256": "237b8bc1dffa5c29625f3fd4401b299539ad7b9f1248fe77c69bdcb11396ed9a"
+    }
+  },
+  "scope": "Synthetic Node-rendered sample and independently checked text; no fiscal-invoice, conformance or production-readiness claim."
+}

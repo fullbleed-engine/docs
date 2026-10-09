@@ -13,7 +13,7 @@ browser; it needs no Fullbleed account, quota, watermark or server renderer.
 sales, update subscriptions and marketplace listings are not live.
 
 [Try a sample store](https://playground.wordpress.net/?storage=temp&blueprint-url=https://raw.githubusercontent.com/fullbleed-engine/fullbleed-commerce/main/playground/blueprint.json){ .md-button .md-button--primary }
-[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.5/fullbleed-commerce-0.1.5.zip){ .md-button }
+[Download the free preview](https://github.com/fullbleed-engine/fullbleed-commerce/releases/download/v0.1.6/fullbleed-commerce-0.1.6.zip){ .md-button }
 
 ## Make your first document
 
@@ -55,9 +55,31 @@ logos, escaped order fields and repeated item rows. Read the
 [template guide](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/templates.md)
 for supported fields and print CSS.
 
+## Add a numbered care page
+
+Give an order summary a second page for washing, storage or other care instructions.
+This editable starter includes the ordinary order details and a numbered appendix;
+the store name and order number fill from each order.
+
+[Download the template JSON](../assets/commerce/care-instructions-template.json){ .md-button .md-button--primary download="care-instructions-template.json" }
+[Preview the two-page PDF](../assets/commerce/care-instructions.pdf){ .md-button }
+
+1. Use Commerce **0.1.6 or newer** and select **Order summary**.
+2. Open **Customize selected document**. Export your current template if you want
+   to keep it; importing replaces the content in the editor.
+3. Under **Import template**, choose the downloaded JSON. Edit the care copy
+   visually or in **HTML / CSS**, then select **Preview PDF**.
+4. Select **Save template** when the result is ready. Later summaries use that
+   design, including enabled Pro email and customer-download workflows.
+
+The appendix uses CSS counters: each section starts its step count at one.
+Its `break-before: page` rule starts the care instructions on a new page.
+The [sample verification](../assets/commerce/care-instructions-verification.json)
+retains the actual PDF, template and preview hashes. Sample names and orders are fictional.
+
 ## Upgrade from an earlier preview
 
-Back up your staging store and export your templates. Upload the 0.1.5 free
+Back up your staging store and export your templates. Upload the 0.1.6 free
 ZIP through **Plugins → Add New → Upload Plugin** and choose **Replace current
 with uploaded**. This release pairs with the unchanged Pro 0.1.2 add-on; keep that
 version if it is already installed. Saved templates, revisions and automation settings are retained;
@@ -65,8 +87,14 @@ there is no automatic updater in this preview.
 
 An enabled workflow stays enabled. Check the renderer connection and a fictional
 order after updating. Administrator failure alerts are a separate opt-in.
-The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.5)
-covers replacement of the actual 0.1.2 packages in HPOS and legacy storage.
+The [release evidence](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.6)
+covers replacement of the actual free 0.1.5 and Pro 0.1.2 packages in HPOS and legacy storage.
+
+Version 0.1.6 updates the browser and server engine to Fullbleed 2.5.22. Custom
+numbered sections restart their step counters correctly when a new section begins.
+Saved HTML/CSS is retained, but corrected layout can change PDF appearance.
+Preview your own templates after updating. See the
+[engine update checks](https://github.com/fullbleed-engine/fullbleed-commerce/blob/v0.1.6/docs/engine-2522.md).
 
 Version 0.1.5 serves the editor's icon stylesheet and font from your WordPress
 site and removes the external stylesheet fallback. Editing and PDF downloads
@@ -170,7 +198,7 @@ Order summaries are not fiscal invoices. The preview rejects refunded orders
 and unsupported glyphs, preserves the platform's amounts and does not recalculate
 tax. Validate your own order shapes and language coverage on staging.
 
-The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.5)
+The [release](https://github.com/fullbleed-engine/fullbleed-commerce/releases/tag/v0.1.6)
 includes checksums, readable source and license notices. WordPress plugin code
 is GPL-compatible; Fullbleed core remains MIT. The
 [verification record](https://github.com/fullbleed-engine/fullbleed-commerce/blob/main/docs/verification.md)
