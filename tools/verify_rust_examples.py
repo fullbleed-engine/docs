@@ -44,9 +44,14 @@ metadata = json.loads(run(["cargo", "metadata", "--format-version", "1", "--lock
 core = next(package for package in metadata["packages"] if package["name"] == "fullbleed")
 assert core["source"].startswith("registry+")
 assert playground["ok"] and playground["engine"] == core["version"]
+features = sorted(next(node for node in metadata['resolve']['nodes'] if node['id'] == core['id'])['features'])
+assert features == ['svg_raster']
+install = f"cargo add fullbleed@={core['version']} --features svg_raster"
+assert install in guide and install in home, 'Documented Cargo install must match the compiled example.'
 report = {
     "ok": True,
     "engine": core["version"],
+    "engine_features": features,
     "preview_source": "finalized_pdf",
     "rustc": run(["rustc", "--version"]).stdout.strip(),
     "platform": os.name,
@@ -83,6 +88,10 @@ for fixture in playground["fixtures"]:
         "name": name, "pages": expected_pages,
         "matches_playground_pdf_and_pngs": True, "sha256": hashes,
     })
-assert len(report["fixtures"]) == len(playground["fixtures"]) == 8
+layout_cases = json.loads((ROOT / 'tools/starter-engine-2.5.22.json').read_text(encoding='utf-8'))['cases']
+expected_names = {'invoice', 'invoice-edited', 'report', 'notice', 'linear-gradient',
+                  'translucent-gradient', 'hard-radial-gradient', 'standard-fonts'} | {case['name'] for case in layout_cases}
+assert {fixture['name'] for fixture in report['fixtures']} == expected_names
+assert len(report['fixtures']) == len(playground['fixtures']) == len(expected_names)
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

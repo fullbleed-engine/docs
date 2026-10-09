@@ -46,7 +46,8 @@ def main():
     cargo = tomllib.loads((ROOT / SOURCES['Cargo.toml']).read_text(encoding='utf-8'))
     manifest = {'schema': 'fullbleed.rust-starter.v1',
                 'repository': 'https://github.com/fullbleed-engine/docs',
-                'engine': cargo['dependencies']['fullbleed'].removeprefix('='),
+                'engine': cargo['dependencies']['fullbleed']['version'].removeprefix('='),
+                'engine_features': cargo['dependencies']['fullbleed']['features'],
                 'prefix': PREFIX, 'files': files,
                 'zip_bytes': archive_path.stat().st_size,
                 'zip_sha256': sha256(archive_path.read_bytes()).hexdigest()}

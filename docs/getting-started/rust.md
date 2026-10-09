@@ -18,7 +18,7 @@ With Rust 1.85 or newer and a working native Rust toolchain:
 ```bash
 cargo new invoice-demo
 cd invoice-demo
-cargo add fullbleed@=2.5.19
+cargo add fullbleed@=2.5.22 --features svg_raster
 ```
 
 Replace `src/main.rs` with:
@@ -85,7 +85,7 @@ cargo run --release --locked --bin from-files -- templates/report.html templates
 Edit the files in `templates/` to customize the content and design. Render to a
 new output directory after edits, so previews from a longer previous document
 do not remain. The first Cargo build downloads dependencies and needs internet
-access. These examples pin Fullbleed 2.5.11 and include a Cargo lockfile; the ZIP
+access. These examples pin Fullbleed 2.5.22 and include a Cargo lockfile; the ZIP
 is compiled and rendered on Windows and Linux with Rust 1.97.0.
 
 For the service notice or your own edits, choose **Download project** in the
@@ -131,7 +131,7 @@ playground font files.
 The `register_font_file` and `register_font_dir` helpers are also available,
 but skip unreadable or invalid files. A glyph report can find missing characters;
 it does not prove that the intended typeface loaded. The
-[API font guide](https://docs.rs/fullbleed/2.5.19/fullbleed/#supply-fonts-explicitly)
+[API font guide](https://docs.rs/fullbleed/2.5.22/fullbleed/#supply-fonts-explicitly)
 explains these choices.
 
 For one PNG per page, preview the PDF you just wrote at your chosen DPI:
@@ -151,11 +151,11 @@ For a Rust web application, [download the Axum PDF starter](../guides/axum-pdf.m
 It turns invoice JSON into a styled download with editable HTML/CSS, bundled
 fonts, a browser form, and bounded rendering work.
 
-Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.19/fullbleed/)
+Use [the hosted Rust API reference](https://docs.rs/fullbleed/2.5.22/fullbleed/)
 for the first-PDF program, method selection, fonts, and executable examples of
-fixed-layout and reflowing templates. The quickstart above uses 2.5.19; the
-downloadable designed starter remains pinned to 2.5.11 and matches the
-[2.5.11 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.11/src/lib.rs).
+fixed-layout and reflowing templates. The quickstart and downloadable designed
+starter both pin 2.5.22 with SVG rendering enabled and match the
+[2.5.22 source](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.22/src/lib.rs).
 Check
 [CSS coverage](../css-coverage.md) before adapting a web layout, and inspect
 your actual output when changing fonts or content. These examples use trusted
