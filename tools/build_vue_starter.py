@@ -49,7 +49,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
 project = workspace / 'fullbleed-vue-starter'
 package = json.loads((project / 'package.json').read_text())
 lock = json.loads((project / 'package-lock.json').read_text())
-assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.3.2'
+assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.4.1'
 assert package['devDependencies']['vite'] == '8.3.2'
 assert package['devDependencies']['typescript'] == '6.0.3'
 assert package['devDependencies']['vue-tsc'] == '3.3.12'
@@ -67,7 +67,8 @@ for name, arguments in [('install', ['ci', '--ignore-scripts', '--no-audit', '--
 installed = project / 'node_modules/fullbleed'
 assert json.loads((installed / 'package.json').read_text())['version'] == manifest['package_version']
 runtime = json.loads((project / 'dist/fullbleed/build.json').read_text())
-assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.11'
+assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.22'
+assert runtime['engineFeatures'] == ['svg_raster']
 for name, expected in runtime['files'].items():
     value = (project / 'dist/fullbleed' / name).read_bytes()
     assert len(value) == expected['bytes'] and digest(value) == expected['sha256']
@@ -78,7 +79,8 @@ assert all(digest((site / name).read_bytes()) == sha for name, sha in files.item
 launcher_path = write_online_launcher(ROOT, 'vue', manifest, project_files)
 record = dict(ok=True, checked_at=datetime.now(timezone.utc).isoformat(),
     zip_sha256=manifest['zip_sha256'], source_commit=manifest['source_commit'],
-    package_version=manifest['package_version'], package_integrity=manifest['package_integrity'],
+    package_version=manifest['package_version'], engine_version=runtime['engineVersion'],
+    engine_features=runtime['engineFeatures'], package_integrity=manifest['package_integrity'],
     online_editor_path='assets/vue-starter/edit-online.html',
     online_editor_sha256=digest(launcher_path.read_bytes()), online_editor_files=len(project_files),
     node=subprocess.check_output([str(node), '--version'], text=True).strip(),

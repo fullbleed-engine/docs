@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-07T04:06:45.541502+00:00",
-  "sourceCommit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
-  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37569111697",
+  "checkedAt": "2026-10-09T09:30:53.024903+00:00",
+  "sourceCommit": "eb66f753e58e0264a59d9cfc6a3dec7003231b8a",
+  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37910537960",
   "checks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -75,44 +75,14 @@
   ],
   "ciResults": [
     {
-      "checkedAt": "2026-10-07T03:57:17.033Z",
-      "node": "v22.23.3",
-      "platform": "linux",
-      "next": "16.3.8",
-      "nodePackage": "0.3.2",
-      "engineVersion": "2.5.11",
-      "isolation": "process",
-      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
-      "pages": 1,
-      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-      "burst": [
-        200,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503
-      ],
-      "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "artifact": "nextjs-ubuntu-latest-22",
-      "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
-    },
-    {
-      "checkedAt": "2026-10-07T03:57:25.042Z",
+      "checkedAt": "2026-10-09T09:19:57.971Z",
       "node": "v24.21.0",
       "platform": "linux",
       "next": "16.3.8",
-      "nodePackage": "0.3.2",
-      "engineVersion": "2.5.11",
+      "nodePackage": "0.4.1",
+      "engineVersion": "2.5.22",
       "isolation": "process",
-      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
+      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
       "pages": 1,
       "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
       "burst": [
@@ -130,19 +100,19 @@
         503
       ],
       "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "artifact": "nextjs-ubuntu-latest-24",
       "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+      "artifact": "nextjs-ubuntu-latest-24"
     },
     {
-      "checkedAt": "2026-10-07T03:57:52.511Z",
+      "checkedAt": "2026-10-09T09:20:29.359Z",
       "node": "v24.21.0",
       "platform": "win32",
       "next": "16.3.8",
-      "nodePackage": "0.3.2",
-      "engineVersion": "2.5.11",
+      "nodePackage": "0.4.1",
+      "engineVersion": "2.5.22",
       "isolation": "process",
-      "packageLockSha256": "f5d9b10c7546f8df1c08b0cdb489647289f91b1c89d065c3f1a133478d5fcfbf",
+      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
       "pages": 1,
       "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
       "burst": [
@@ -160,22 +130,52 @@
         503
       ],
       "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "artifact": "nextjs-windows-latest-24",
       "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+      "artifact": "nextjs-windows-latest-24"
+    },
+    {
+      "checkedAt": "2026-10-09T09:20:05.405Z",
+      "node": "v22.23.3",
+      "platform": "linux",
+      "next": "16.3.8",
+      "nodePackage": "0.4.1",
+      "engineVersion": "2.5.22",
+      "isolation": "process",
+      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
+      "pages": 1,
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "burst": [
+        200,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503,
+        503
+      ],
+      "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
+      "checksPassed": 17,
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
+      "artifact": "nextjs-ubuntu-latest-22"
     }
   ],
   "downloadedStarter": {
     "ok": true,
-    "checkedAt": "2026-10-07T04:02:35.480164+00:00",
-    "sourceCommit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
+    "checkedAt": "2026-10-09T09:25:01.422197+00:00",
+    "sourceCommit": "eb66f753e58e0264a59d9cfc6a3dec7003231b8a",
     "downloadFiles": 18,
-    "projectZipSha256": "6a4a589bc0153c0ca006a571e576ba8681dac5ae8fa683fc33e2f336322df6d6",
+    "projectZipSha256": "19465ff97c1408d7ac20b4f9ab56acb227551282536b9a90bf4fe0c437471afc",
     "node": "v22.23.3",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.3.2",
-    "engineVersion": "2.5.11",
+    "nodePackage": "0.4.1",
+    "engineVersion": "2.5.22",
     "isolation": "process",
     "commands": [
       {
@@ -271,10 +271,10 @@
   },
   "browser": {
     "ok": true,
-    "checkedAt": "2026-10-07T04:04:43.258437+00:00",
+    "checkedAt": "2026-10-09T09:30:34.053843+00:00",
     "browser": "154.0.8037.98",
-    "packageVersion": "0.3.2",
-    "engineVersion": "2.5.11",
+    "packageVersion": "0.4.1",
+    "engineVersion": "2.5.22",
     "records": [
       {
         "width": 1440,

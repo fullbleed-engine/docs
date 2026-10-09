@@ -26,12 +26,15 @@ const cases = [];
 const fixtures = [['invoice', 1], ['report', 3], ['notice', 1], ['invoice-edited', 1]].map(([name, pages]) => ({ name, pages }));
 fixtures.push(...gradientFixtures);
 fixtures.push(standardFontFixture);
+const editorCases = JSON.parse(await readFile(join(root, 'tools/starter-engine-2.5.22.json'), 'utf8')).cases;
+fixtures.push(...editorCases);
 for (const fixture of fixtures) {
   const { name, pages } = fixture;
   const gradient = Boolean(fixture.probes);
   const standardFonts = name === standardFontFixture.name;
-  const example = gradient ? 'report' : (name === 'invoice-edited' || standardFonts) ? 'invoice' : name;
-  let { html, css } = gradient || standardFonts ? fixture : prepareExample(example,
+  const editedLayout = name.startsWith('engine-');
+  const example = gradient ? 'report' : (name === 'invoice-edited' || standardFonts || editedLayout) ? 'invoice' : name;
+  let { html, css } = gradient || standardFonts || editedLayout ? fixture : prepareExample(example,
     await readFile(join(root, `docs/assets/showcase/${example}.html`), 'utf8'),
     await readFile(join(root, `docs/assets/showcase/${example}.css`), 'utf8'));
   if (name === 'invoice-edited') {
