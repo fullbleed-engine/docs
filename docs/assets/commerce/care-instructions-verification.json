@@ -37,8 +37,8 @@
   "sourceCommit": "d8ea477581e36e13c00698a601e3a3f702319404",
   "assets": {
     "care-instructions-template.json": {
-      "bytes": 4737,
-      "sha256": "b623c7afd5cb254a6aa82b1ad2180e6423bb7724c674e4c12e8eece0737e3d57"
+      "bytes": 4731,
+      "sha256": "112c40343e33d5354415c412036c48af7db436c425e78427dedcb7766d6fb882"
     },
     "care-instructions.pdf": {
       "bytes": 108431,
