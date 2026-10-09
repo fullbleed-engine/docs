@@ -263,6 +263,9 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
 Keep document structure in HTML and design in CSS, then generate PDF bytes in your application. The language guides explain each integration’s fonts, previews, API coverage, and deployment requirements.
 
+Using PHP? The [Laravel Blade and queue starter](guides/laravel-pdf.md) connects
+business events to styled PDFs, with retries, private downloads and expiry cleanup.
+
 For command-line document workflows, the Python wheel includes the engine, CLI, and fonts with no required third-party Python runtime packages. Use it to render, preview, inspect, and verify your output.
 
 While editing HTML and CSS, [watch mode](guides/render-watch.md) rebuilds your

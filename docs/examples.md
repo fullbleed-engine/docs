@@ -70,6 +70,8 @@ with editable HTML/CSS and limits on active and waiting renders.
 For C# web applications, try the [ASP.NET Core download starter](guides/aspnet-pdf.md).
 For Rust applications, use the [Axum PDF download starter](guides/axum-pdf.md)
 with an editable invoice template and bounded rendering work.
+For PHP applications, use the [Laravel Blade and queue starter](guides/laravel-pdf.md)
+with automatic rendering, private downloads, retries and expiry cleanup.
 For a tagged document, use the [editable C# library notice](guides/csharp-tagged-pdf.md)
 with PDF/UA profiles, embedded fonts and retained validation reports.
 

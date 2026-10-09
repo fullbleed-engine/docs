@@ -74,6 +74,16 @@ both report pages; otherwise the verifier compares the output to the published
 PDF. New evidence runs need a fresh `--out` directory. CI retains Windows and
 Linux results and requires both jobs before deployment.
 
+The Laravel queued-PDF example lives in `examples/laravel-pdf`. Run
+`python tools/build_laravel_starter.py` to rebuild its deterministic ZIP. The
+verifier, `python tools/verify_laravel_starter.py --browser chromium`, needs PHP,
+Composer, the pinned Fullbleed wheel, independent PDF readers and Playwright.
+It extracts the ZIP into a new output directory, installs the Composer lockfile,
+then exercises real HTTP, database queues, retries, expiry and browser downloads.
+Use `--refresh-assets` only when replacing the reviewed specimen and report.
+CI tests PHP 8.3 and 8.4 on Linux before deployment. Evidence uploads exclude
+the extracted application's generated `.env`, private database and vendor tree.
+
 ## Search discovery
 
 The site publishes an XML sitemap and crawlable canonical URLs. When the optional

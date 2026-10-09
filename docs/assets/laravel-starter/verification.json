@@ -1,0 +1,342 @@
+{
+  "schema": "fullbleed.laravel-verification.v1",
+  "ok": true,
+  "platform": "Windows",
+  "checks": [
+    "archive hash matches manifest",
+    "installed Fullbleed matches starter pin",
+    "archive has exactly the manifest files",
+    "source hash .env.example",
+    "safe archive path .env.example",
+    "source hash .gitignore",
+    "safe archive path .gitignore",
+    "source hash LICENSE",
+    "safe archive path LICENSE",
+    "source hash README.md",
+    "safe archive path README.md",
+    "source hash app/Http/Controllers/DocumentController.php",
+    "safe archive path app/Http/Controllers/DocumentController.php",
+    "source hash app/Http/Middleware/ServiceKey.php",
+    "safe archive path app/Http/Middleware/ServiceKey.php",
+    "source hash app/Jobs/RenderDocument.php",
+    "safe archive path app/Jobs/RenderDocument.php",
+    "source hash app/Models/Document.php",
+    "safe archive path app/Models/Document.php",
+    "source hash app/Providers/AppServiceProvider.php",
+    "safe archive path app/Providers/AppServiceProvider.php",
+    "source hash app/Support/Invoice.php",
+    "safe archive path app/Support/Invoice.php",
+    "source hash artisan",
+    "safe archive path artisan",
+    "source hash bootstrap/app.php",
+    "safe archive path bootstrap/app.php",
+    "source hash bootstrap/cache/.gitignore",
+    "safe archive path bootstrap/cache/.gitignore",
+    "source hash bootstrap/providers.php",
+    "safe archive path bootstrap/providers.php",
+    "source hash composer.json",
+    "safe archive path composer.json",
+    "source hash composer.lock",
+    "safe archive path composer.lock",
+    "source hash config/app.php",
+    "safe archive path config/app.php",
+    "source hash config/cache.php",
+    "safe archive path config/cache.php",
+    "source hash config/database.php",
+    "safe archive path config/database.php",
+    "source hash config/filesystems.php",
+    "safe archive path config/filesystems.php",
+    "source hash config/logging.php",
+    "safe archive path config/logging.php",
+    "source hash config/pdf.php",
+    "safe archive path config/pdf.php",
+    "source hash config/queue.php",
+    "safe archive path config/queue.php",
+    "source hash config/view.php",
+    "safe archive path config/view.php",
+    "source hash database/migrations/2026_10_08_000000_create_queue_studio.php",
+    "safe archive path database/migrations/2026_10_08_000000_create_queue_studio.php",
+    "source hash public/index.php",
+    "safe archive path public/index.php",
+    "source hash public/studio.css",
+    "safe archive path public/studio.css",
+    "source hash public/studio.js",
+    "safe archive path public/studio.js",
+    "source hash renderer/fonts/BebasNeue-OFL.txt",
+    "safe archive path renderer/fonts/BebasNeue-OFL.txt",
+    "source hash renderer/fonts/BebasNeue-Regular.ttf",
+    "safe archive path renderer/fonts/BebasNeue-Regular.ttf",
+    "source hash renderer/invoice.css",
+    "safe archive path renderer/invoice.css",
+    "source hash renderer/render.py",
+    "safe archive path renderer/render.py",
+    "source hash renderer/requirements.txt",
+    "safe archive path renderer/requirements.txt",
+    "source hash resources/views/invoice.blade.php",
+    "safe archive path resources/views/invoice.blade.php",
+    "source hash resources/views/studio.blade.php",
+    "safe archive path resources/views/studio.blade.php",
+    "source hash routes/api.php",
+    "safe archive path routes/api.php",
+    "source hash routes/console.php",
+    "safe archive path routes/console.php",
+    "source hash sample.json",
+    "safe archive path sample.json",
+    "source hash setup.php",
+    "safe archive path setup.php",
+    "source hash storage/app/private/documents/.gitignore",
+    "safe archive path storage/app/private/documents/.gitignore",
+    "source hash storage/framework/cache/.gitignore",
+    "safe archive path storage/framework/cache/.gitignore",
+    "source hash storage/framework/views/.gitignore",
+    "safe archive path storage/framework/views/.gitignore",
+    "source hash storage/logs/.gitignore",
+    "safe archive path storage/logs/.gitignore",
+    "no private configuration or dependencies in ZIP",
+    "composer-install exit status",
+    "composer-validate exit status",
+    "composer-audit exit status",
+    "php-version exit status",
+    "laravel-version exit status",
+    "setup exit status",
+    "setup-repeat exit status",
+    "setup preserves existing credentials",
+    "migrate exit status",
+    "missing key",
+    "wrong key",
+    "malformed JSON",
+    "wrong content type",
+    "oversized body",
+    "missing idempotency",
+    "unknown input field",
+    "empty items",
+    "too many items",
+    "invalid date",
+    "non-object body",
+    "reject invalid unit_price 9.99",
+    "reject invalid quantity 2",
+    "reject invalid quantity 0",
+    "reject invalid unit_price 01.00",
+    "invalid requests did not create documents or jobs",
+    "request returns queued 202 before worker",
+    "no PDF before worker",
+    "invoice encrypted at rest",
+    "queue contains ID without invoice fields",
+    "different owner cannot read ",
+    "different owner cannot read /download",
+    "download before readiness rejected",
+    "idempotency reuses queued job",
+    "idempotency reuses queued job",
+    "one queued job for repeated key",
+    "changed data conflicts",
+    "sample-worker exit status",
+    "worker marks document ready",
+    "private PDF response",
+    "invoice is PDF",
+    "invoice page count",
+    "invoice text: INVOICE",
+    "invoice text: NL-2026-1042",
+    "invoice text: Fieldwork Supply Co.",
+    "invoice text: 5,400.00",
+    "invoice glyph bounds on every page",
+    "ready duplicate is 200",
+    "private path unavailable /storage/documents/8b100975-d08b-4ce7-965d-df999c22c1b3.pdf",
+    "private path unavailable /.env",
+    "private path unavailable /database/database.sqlite",
+    "completed-replay exit status",
+    "completed replay did not rewrite PDF",
+    "deterministic-worker exit status",
+    "independent render is byte identical",
+    "long-worker exit status",
+    "long-invoice is PDF",
+    "long-invoice page count",
+    "long-invoice text: Line 001",
+    "long-invoice text: Line 100",
+    "long-invoice text: 9,999,999,900.00",
+    "long-invoice glyph bounds on every page",
+    "all 100 lines survive pagination",
+    "escaped-worker exit status",
+    "escaped-invoice is PDF",
+    "escaped-invoice page count",
+    "escaped-invoice text: <b>Literal & safe</b>",
+    "escaped-invoice glyph bounds on every page",
+    "concurrent submissions share one document",
+    "concurrent submissions enqueue once",
+    "concurrent-worker exit status",
+    "dispatch failure is generic server error",
+    "dispatch failure rolls back document",
+    "failure-attempt-1 exit status",
+    "failure attempt 1 state",
+    "failure-attempt-2 exit status",
+    "failure attempt 2 state",
+    "failure-attempt-3 exit status",
+    "failure attempt 3 state",
+    "failed job retained for operator retry",
+    "operator-retry exit status",
+    "recovery-worker exit status",
+    "operator retry recovers same document",
+    "timeout-worker exit status",
+    "subprocess deadline terminates stalled renderer",
+    "timeout leaves a retryable job without PDF",
+    "timeout-recovery-worker exit status",
+    "timed-out job recovers",
+    "expired PDF unavailable before pruning",
+    "prune exit status",
+    "expired file deleted",
+    "expired data deleted",
+    "expired-queue-worker exit status",
+    "expired queued job cannot recreate document",
+    "late render actually started",
+    "prune-in-flight exit status",
+    "late worker exits",
+    "late render cannot restore pruned PDF",
+    "no temporary PDFs remain",
+    "browser fits 1440px viewport",
+    "browser fits 390px viewport",
+    "browser fits 320px viewport",
+    "browser-worker exit status",
+    "real browser PDF equals API specimen",
+    "browser has no JavaScript errors",
+    "browser stores no service key",
+    "blade-render exit status",
+    "native preview produced",
+    "application logs exclude service keys and invoice customer"
+  ],
+  "pdfs": [
+    {
+      "label": "invoice",
+      "pages": 1,
+      "bytes": 88714,
+      "sha256": "1ba2eae99bd065fcfb270d7e97cb2b461480fb54de7c277194db247317d7615f"
+    },
+    {
+      "label": "long-invoice",
+      "pages": 12,
+      "bytes": 116314,
+      "sha256": "0c97426ac703faa174d6fa66227fe7d97731a586332e03b4ce3a37316d62ab1d"
+    },
+    {
+      "label": "escaped-invoice",
+      "pages": 1,
+      "bytes": 88967,
+      "sha256": "46aae7c93cb89f7cfbdd578bcc7de7774d6b30323674373c1852b3cc8faa3f61"
+    }
+  ],
+  "commands": [
+    {
+      "label": "composer-install",
+      "exit_code": 0
+    },
+    {
+      "label": "composer-validate",
+      "exit_code": 0
+    },
+    {
+      "label": "composer-audit",
+      "exit_code": 0
+    },
+    {
+      "label": "php-version",
+      "exit_code": 0
+    },
+    {
+      "label": "laravel-version",
+      "exit_code": 0
+    },
+    {
+      "label": "setup",
+      "exit_code": 0
+    },
+    {
+      "label": "setup-repeat",
+      "exit_code": 0
+    },
+    {
+      "label": "migrate",
+      "exit_code": 0
+    },
+    {
+      "label": "sample-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "completed-replay",
+      "exit_code": 0
+    },
+    {
+      "label": "deterministic-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "long-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "escaped-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "concurrent-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "failure-attempt-1",
+      "exit_code": 0
+    },
+    {
+      "label": "failure-attempt-2",
+      "exit_code": 0
+    },
+    {
+      "label": "failure-attempt-3",
+      "exit_code": 0
+    },
+    {
+      "label": "operator-retry",
+      "exit_code": 0
+    },
+    {
+      "label": "recovery-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "timeout-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "timeout-recovery-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "prune",
+      "exit_code": 0
+    },
+    {
+      "label": "expired-queue-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "prune-in-flight",
+      "exit_code": 0
+    },
+    {
+      "label": "browser-worker",
+      "exit_code": 0
+    },
+    {
+      "label": "blade-render",
+      "exit_code": 0
+    }
+  ],
+  "versions": {
+    "fullbleed": "2.5.21",
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0",
+    "Pillow": "12.3.0",
+    "php": "8.4.26",
+    "laravel": "Laravel Framework 13.35.0",
+    "browser": "154.0.8037.98"
+  },
+  "archive_sha256": "1de9601c6608ac4c91c70bdae89db26eb930dd5caeba87697bde2aa24e7fbd32",
+  "check_count": 198
+}

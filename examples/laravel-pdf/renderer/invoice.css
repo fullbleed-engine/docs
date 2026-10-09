@@ -1,0 +1,36 @@
+@page { size: A4; margin: 17mm 17mm 18mm; }
+* { box-sizing: border-box; }
+body { margin: 0; color: #173c3a; font: 10pt Inter; line-height: 1.45; }
+header { display: flex; align-items: center; gap: 14pt; margin-bottom: 20pt; }
+.brand { width: 44pt; height: 44pt; background: #d8f24d; border: 1.5pt solid #173c3a; font-weight: 750; font-size: 17pt; text-align: center; padding-top: 9pt; }
+.studio { font-size: 13pt; font-weight: 750; letter-spacing: 1pt; }
+.studio span, .edition { font-size: 7pt; font-weight: 450; letter-spacing: 0.8pt; }
+.edition { margin-left: auto; text-align: right; }
+.rule { height: 3pt; background: #173c3a; }
+.hero { position: relative; padding: 18pt 0 20pt; border-bottom: 1pt solid #173c3a; }
+.label { font-size: 7pt; font-weight: 700; letter-spacing: 1pt; }
+h1 { font: 78pt 'Bebas Neue'; line-height: 1; letter-spacing: 1.5pt; margin: 7pt 0 3pt; }
+.number { text-align: right; font-size: 11pt; font-weight: 650; overflow-wrap: anywhere; }
+.details { display: flex; padding: 24pt 0 25pt; gap: 20pt; }
+.client { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+h2 { margin: 6pt 0 0; font-size: 17pt; font-weight: 600; }
+.dates { width: 150pt; }
+.dates p { margin: 0 0 8pt; text-align: right; font-size: 9pt; }
+.dates b { font-size: 7pt; margin-right: 13pt; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th { background: #173c3a; color: #fff; font-size: 6.8pt; letter-spacing: .3pt; text-align: right; padding: 10pt 8pt; width: 22%; }
+th.description { text-align: left; width: 44%; }
+th:nth-child(2) { width: 12%; }
+td { padding: 13pt 8pt; border-bottom: .6pt solid #b9c9c5; vertical-align: top; font-size: 9pt; overflow-wrap: anywhere; }
+tr { break-inside: avoid; }
+tbody tr:nth-child(even) { background: #f2f5ed; }
+.numeric { text-align: right; font-variant-numeric: tabular-nums; font-size: 8pt; }
+.summary { display: flex; gap: 16pt; margin-top: 23pt; break-inside: avoid; }
+.note { flex: 1; font-size: 8pt; }
+.note b { font-size: 7pt; letter-spacing: .6pt; }
+.note p { margin-top: 8pt; }
+.amount { width: 225pt; text-align: right; background: #d8f24d; padding: 15pt; border-top: 3pt solid #173c3a; }
+.amount p { font-size: 22pt; font-weight: 700; margin: 9pt 0 0; }
+.amount p.compact { font-size: 16pt; }
+footer { display: flex; justify-content: space-between; border-top: .6pt solid #173c3a; margin-top: 32pt; padding-top: 10pt; font-size: 6.5pt; break-inside: avoid; }
+footer b { letter-spacing: .5pt; }
