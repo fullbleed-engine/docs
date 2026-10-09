@@ -224,7 +224,8 @@ try:
         check(config['networks']['documents']['internal'] is True, 'private Compose network')
         check(not config['services']['renderer'].get('ports'), 'renderer has no published host port')
         check(config['services']['n8n']['ports'][0]['host_ip'] == '127.0.0.1', 'n8n listens on loopback')
-        check(config['services']['n8n']['tmpfs'] == ['/tmp:rw,size=128m'], 'one bounded writable temporary mount')
+        check(config['services']['n8n']['tmpfs'] == ['/tmp:rw,size=128m', '/home/node/.cache:rw,size=128m,uid=1000,gid=1000,mode=0700'],
+              'bounded writable temporary and editor-cache mounts')
         compose_started = True
         run(compose + ['up', '--build', '-d', 'renderer'], 'renderer-start', timeout=600)
         renderer_id = run(compose + ['ps', '-q', 'renderer'], 'renderer-id').stdout.strip()

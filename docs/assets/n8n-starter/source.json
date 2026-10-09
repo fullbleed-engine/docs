@@ -37,8 +37,8 @@
     {
       "path": "compose.yaml",
       "source": "examples/n8n-pdf/compose.yaml",
-      "bytes": 1514,
-      "sha256": "e8e31b4cbf38139d3908fe2115ea2ecea56bbf8295712cf9d2f64b03ba539d11"
+      "bytes": 1589,
+      "sha256": "4e258d2aef9e3d2157cdcc18d750cd8723d0a77afad4eacee1897c6806c43369"
     },
     {
       "path": "post_invoice.py",
@@ -119,6 +119,6 @@
       "sha256": "493960e3fd4238ae468355379a8655ff6378c4612772c6dc5defd470a9a9ea64"
     }
   ],
-  "zip_bytes": 90343,
-  "zip_sha256": "a3f6963227923b06943a49c7c87271979c1c570a123305ab1a4b7ffe02640b35"
+  "zip_bytes": 90367,
+  "zip_sha256": "48c0ad81c41bb114d324cb97b24e00652e194fd4d8ed38951362741d058ab4c4"
 }
