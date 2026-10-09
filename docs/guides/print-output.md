@@ -1,6 +1,6 @@
 # PDF/VT composition and print identity
 
-Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/pdf-vt.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/pdf-vt.md). Check the installed runtime for your exact version.
 
 `pdfx4` and `pdfvt1` force PDF 1.6 and require a nonempty document title,
 an explicit timestamp, a structurally valid embedded ICC output intent, and
@@ -142,4 +142,4 @@ The optional dedicated-validator job uses repository variables `PDFVT_VALIDATOR_
 already have a licensed or otherwise usable dedicated validator. With no
 dedicated runner configured, that additional job is skipped; the required
 engineering gate still runs. A configured dedicated job must pass. See the
-[2.4.0 runbook](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/release/2.4.0-runbook.md) for evidence and publication requirements.
+[2.4.0 runbook](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/release/2.4.0-runbook.md) for evidence and publication requirements.

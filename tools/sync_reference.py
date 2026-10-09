@@ -22,10 +22,17 @@ PAGES = {
 
 # Site-only context must survive later imports of the historical report.
 INTRODUCTIONS = {
+    "engine/font-registration.md": (
+        "The [Chinese-text guide](../guides/chinese-pdf.md) includes a runnable "
+        "bilingual invoice, pinned font preparation, and the current variable-font "
+        "weight and glyph-report limitations. The "
+        "[Arabic and English invoice](../guides/arabic-pdf.md) includes static "
+        "regular and bold Noto Sans Arabic files with a font manifest and glyph checks."
+    ),
     "css-coverage.md": (
-        "For the published Fullbleed 2.5.14 wheel, see the "
-        "[complete 1,662-fixture CSS comparison](guides/css-corpus.md), including "
-        "verdicts, the upstream gate outcome, PDFs, images, and file hashes. "
+        "See the [complete 1,662-fixture CSS comparison and release follow-ups]"
+        "(guides/css-corpus.md), including the published 2.5.14 baseline, "
+        "the reviewed 2.5.22 source candidate, remaining failures, PDFs, images, and hashes. "
         "The imported reference below preserves earlier version-specific reports."
     ),
     "guides/performance.md": (
@@ -33,6 +40,20 @@ INTRODUCTIONS = {
         "[Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). "
         "The historical report below uses different fixtures and measurement methods; "
         "its numbers should not be combined with that comparison."
+    ),
+}
+
+APPENDICES = {
+    "engine/font-registration.md": (
+        "\n## Retained synthesis evidence\n\n"
+        "The [2.5.16 release notes]"
+        "(https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.16), "
+        "[executable evidence bundle]"
+        "(https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.16/fullbleed-2.5.16-font-synthesis-evidence.zip), "
+        "and [verification record]"
+        "(https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.16/fullbleed-2.5.16-verification.json) "
+        "retain the original Windows and Linux checks for the named synthesis controls. "
+        "They do not establish complete CSS Fonts conformance.\n"
     ),
 }
 
@@ -71,7 +92,10 @@ def main() -> None:
             note = "\n" + INTRODUCTIONS[target] + "\n" + note
         path = docs / target
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(heading + separator + note + body, encoding="utf-8", newline="\n")
+        path.write_text(
+            heading + separator + note + body + APPENDICES.get(target, ""),
+            encoding="utf-8", newline="\n",
+        )
     (docs / "reference-source.json").write_text(
         json.dumps({"release": args.ref, "commit": commit, "pages": PAGES}, indent=2) + "\n",
         encoding="utf-8",

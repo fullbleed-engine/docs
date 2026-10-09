@@ -1,8 +1,65 @@
 ---
 title: Fullbleed CSS comparison on the IronPress corpus
-description: Inspect a maintainer-run comparison of Fullbleed 2.5.14 against 1,662 pinned independent HTML/CSS fixtures and their committed reference PDFs.
+description: Inspect Fullbleed's 1,662-fixture CSS comparison, the published 2.5.14 baseline, and verified source fixes through 2.5.22, with PDFs, browser references, and remaining failures.
 ---
 # Inspect the CSS comparison
+
+## Latest reviewed source: 2.5.22
+
+The [2.5.22 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.22)
+includes a complete run of the unchanged 1,662-fixture corpus against source
+commit `4951d81c73f0e5eec56c312aaf5b17ababd731eb`. Its results are **1,619 PASS,
+25 FAIL, and 18 REFERENCE-DISPUTED**. The existing upstream gate still fails;
+the remaining failures and disputed references are retained in the evidence.
+
+This is a source-candidate run. Fresh public Python and Rust packages have
+separate focused verification; these counts are not a complete corpus run of
+the final registry packages. The tagged release has the same source tree as
+the reviewed candidate.
+
+The latest change fixes floated `::first-letter` layout. Large initials now
+sit inside their styled box, and body text wraps beside the full float height.
+In the unchanged comparator, `generated-content-first-letter-dropcap` moved
+from REFERENCE-DISPUTED to PASS. The upstream reference's disputed metadata
+is preserved. The other **1,661 PDFs are byte-identical** to the retained
+source baseline reviewed for 2.5.21, with no new FAIL or lost PASS verdicts.
+
+<div class="corpus-images corpus-images--pair" markdown>
+
+<figure markdown>
+[![Fullbleed 2.5.21: the initial protrudes above the paragraph border and only the first body line reserves its space](../assets/css-corpus/dropcap-2.5.21.png)](../assets/css-corpus/dropcap-2.5.21.png)
+<figcaption>Before: 2.5.21</figcaption>
+</figure>
+
+<figure markdown>
+[![Fullbleed 2.5.22: the initial sits within the paragraph border and three body lines wrap beside it](../assets/css-corpus/dropcap-2.5.22.png)](../assets/css-corpus/dropcap-2.5.22.pdf)
+<figcaption>After: 2.5.22. Open the image for the actual PDF.</figcaption>
+</figure>
+
+</div>
+
+These are unmodified renders of the same upstream fixture. The public 2.5.22
+Python wheel produces the exact reviewed candidate PDF. Twenty focused cases
+also compare text and decoration geometry with independent Chrome print
+references; public Python reproduces all 60 direct/compiled/reflow PDFs, and
+a default-feature crates.io consumer reproduces all 40 direct/compiled PDFs.
+
+[Complete source corpus and review](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-source-4951d81-corpus.zip)
+· [Browser references and runnable checks](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-first-letter-evidence.zip)
+· [Verification record](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-verification.json)
+· [Image and PDF provenance](../assets/css-corpus/first-letter-source.json)
+
+To inspect the full source report, extract the outer archive, then its
+`source-corpus-evidence.zip`, and open
+`ironpress-evidence/current/reports/index.html`. The upstream report calls the
+candidate “ironpress”; that candidate is Fullbleed in this run.
+
+The [browser playground](../playground.md) and language-specific downloads
+identify their own tested engine versions. Check that version when trying a
+recent fix. These fixture results do not establish complete CSS parity or
+PDF standards conformance.
+
+## Published-wheel baseline: 2.5.14
 
 This maintainer-run comparison tests the published Fullbleed 2.5.14 Linux wheel
 against the independent IronPress corpus at commit

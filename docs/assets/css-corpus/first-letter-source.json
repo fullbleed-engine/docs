@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-09T06:57:22.099498+00:00",
+  "fixture": "generated-content-first-letter-dropcap",
+  "upstreamCommit": "0d1e53b6d8174d0a5059a8696c24e62759381f6d",
+  "fixtureSha256": "4af266cb62375453750ca983e91ee09f9dfd897e6053b3d81e07792c9628c49b",
+  "release": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.22",
+  "reviewedSourceCommit": "4951d81c73f0e5eec56c312aaf5b17ababd731eb",
+  "files": [
+    {
+      "file": "dropcap-2.5.21.png",
+      "bytes": 99044,
+      "sha256": "49c6f09dd1c77ea6c2f468f449c444d063bf14725462d559676b55f67b021bfe",
+      "source": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.21-dropcap.png",
+      "unchangedSourceBytes": true
+    },
+    {
+      "file": "dropcap-2.5.22.png",
+      "bytes": 98989,
+      "sha256": "8cce7ccd16cf26ff555368b97da11643ee76363e1ca14c616a1ccf93ce5a40e5",
+      "source": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-dropcap.png",
+      "unchangedSourceBytes": true
+    },
+    {
+      "file": "dropcap-2.5.22.pdf",
+      "bytes": 14240,
+      "sha256": "af1f6963efd7f4ab18bf85d547ce545ff429a2e6efe85ea140d1ecc7da537a8e",
+      "source": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-first-letter-evidence.zip",
+      "archiveMember": "public-upstream/dropcap.pdf",
+      "unchangedSourceBytes": true
+    }
+  ],
+  "publishedPythonVersion": "2.5.22",
+  "publicPdfMatchesReviewedSource": true,
+  "license": "IRONPRESS-LICENSE.txt",
+  "scope": "Unmodified retained corpus images; public Python PDF reproduced the reviewed source-corpus PDF byte for byte. Not general CSS parity."
+}

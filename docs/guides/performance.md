@@ -2,7 +2,7 @@
 
 For a current shared-input example, see the [Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). The historical report below uses different fixtures and measurement methods; its numbers should not be combined with that comparison.
 
-Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/performance-pass-2026-08-04.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/performance-pass-2026-08-04.md). Check the installed runtime for your exact version.
 
 This report compares the Fullbleed 2.1.0 release source with the independently measured Fullbleed
 2.0.0 baseline on the same Windows AMD64 host. The independent Python harness used 20 latency
