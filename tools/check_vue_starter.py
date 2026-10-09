@@ -1,4 +1,4 @@
-"""Check the exact Vue ZIP; adapted from fullbleed-node ae6e301ebc129a15aab89378f44beb81d63d4475."""
+"""Check the exact Vue ZIP; adapted from fullbleed-node eb66f753e58e0264a59d9cfc6a3dec7003231b8a."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -13,6 +13,7 @@ from urllib.parse import unquote, urlsplit
 from playwright.sync_api import sync_playwright, expect
 from pypdf import PdfReader
 from starter_standard_fonts import verify_edited_preview
+from starter_engine_fixes import verify_engine_fixes
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--dist', type=Path, required=True)
@@ -192,6 +193,7 @@ try:
             check('document scripts are not executed in the app', page.evaluate('window.documentScriptExecuted !== true'))
             verify_edited_preview(page, edited, out, check)
             page.screenshot(path=str(out / 'edited-template.png'), full_page=True)
+            verify_engine_fixes(page, out, check, ready)
             page.locator('#kind').select_option('report')
             ready()
             report = download('report', 3, ['COMMON', '1,240', '420,000.00'])

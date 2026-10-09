@@ -100,6 +100,11 @@ for (const gradient of gradientFixtures) {
 report.checks.push('Linear, translucent, and hard radial gradient interiors match expected colors');
 await fixture(standardFontFixture.name, standardFontFixture.html, standardFontFixture.css, 1, null, true);
 report.checks.push('All 12 unembedded Latin standard font faces have visible preview text');
+const editorCases = JSON.parse(await readFile(join(root, 'tools/starter-engine-2.5.22.json'), 'utf8')).cases;
+for (const item of editorCases) {
+  await fixture(item.name, item.html, item.css, item.pages);
+}
+report.checks.push('Four released layout cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
 report.checks.push('Oversized source rejected by the Rust adapter');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('<div>Page</div>'.repeat(7)), 'style.css': Buffer.from('@page {size:A4} div{break-after:page}') }), /1 to 6 pages/);

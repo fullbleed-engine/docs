@@ -103,8 +103,12 @@ def main():
             core = next(package for package in metadata['packages'] if package['name'] == 'fullbleed')
             check('published pinned crate, no local engine path', core['version'] == manifest['engine']
                   and core['source'].startswith('registry+'))
+            features = sorted(next(node for node in metadata['resolve']['nodes'] if node['id'] == core['id'])['features'])
+            check('download includes the SVG support used in playground projects',
+                  features == manifest['engine_features'] == ['svg_raster'])
             check('Cargo lockfile unchanged', digest(project / 'Cargo.lock') == lock_hash)
             report['engine'] = core['version']
+            report['engine_features'] = features
             report['rustc'] = run('rustc', ['rustc', '--version'], project).stdout.strip()
             report['source_zip_sha256'] = manifest['zip_sha256']
             target = Path(metadata['target_directory']) / 'release'

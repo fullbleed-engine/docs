@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import zipfile
@@ -25,17 +26,20 @@ metadata = json.loads(subprocess.check_output(['cargo', 'metadata', '--format-ve
 core = next(package for package in metadata['packages'] if package['name'] == 'fullbleed')
 if not core['source'] or not core['source'].startswith('registry+'):
     raise SystemExit('The playground must use the unchanged published Fullbleed crate.')
+features = sorted(next(node for node in metadata['resolve']['nodes'] if node['id'] == core['id'])['features'])
+if features != ['svg_raster']:
+    raise SystemExit('The playground must include the native SVG fallback.')
 license_parts = []
 for package in metadata['packages']:
     if package['source'] is None:
         continue
     folder = Path(package['manifest_path']).parent
-    license_file = folder / 'LICENSE-MIT'
-    if not license_file.exists():
-        license_file = folder / 'LICENSE'
-    if not license_file.exists():
+    notices = sorted(path for path in folder.iterdir() if path.is_file() and (
+        re.match(r'LICEN[CS]E(?:$|[-_.])', path.name, re.I) or path.name == 'THIRD_PARTY_LICENSES.md'))
+    if not notices:
         raise SystemExit(f"Missing bundled license for {package['name']}")
-    license_parts.append(f"{package['name']} {package['version']} — MIT\n\n" + license_file.read_text(encoding='utf-8'))
+    for notice in notices:
+        license_parts.append(f"{package['name']} {package['version']} / {notice.name}\n\n" + notice.read_text(encoding='utf-8'))
 for name in ['Liberation', 'NotoSans', 'NotoSansMath', 'NotoSansSymbols', 'NotoSansSymbols2']:
     # Font programs are compiled into the engine; retain their own licenses.
     relative = f'src/preview_fonts/LICENSE-{name}.txt'
@@ -52,7 +56,9 @@ with zipfile.ZipFile(ASSETS / 'fonts.zip', 'w', compression=zipfile.ZIP_DEFLATED
         info.external_attr = 0o644 << 16
         archive.writestr(info, path.read_bytes())
 record = {
-    'engine': {'name': 'fullbleed', 'version': core['version'], 'source': f"https://crates.io/crates/fullbleed/{core['version']}", 'core_changes': False},
+    'engine': {'name': 'fullbleed', 'version': core['version'], 'source': f"https://crates.io/crates/fullbleed/{core['version']}", 'features': features, 'core_changes': False},
+    'dependencies': [{'name': package['name'], 'version': package['version'], 'license': package['license']}
+                     for package in metadata['packages'] if package['source']],
     'adapter': 'playground/engine',
     'target': 'wasm32-wasip1',
     'preview_source': 'finalized_pdf',

@@ -18,20 +18,19 @@ Change the customer, reference, and ink color, or open **Edit the HTML & CSS** t
 paste your own template. Generate a preview, then download the actual PDF.
 All sample names, organizations, and amounts are fictional.
 
-The downloadable starter uses **npm package 0.3.2**, wrapping **Fullbleed engine 2.5.11**.
+The downloadable starter uses **npm package 0.4.1**, wrapping **Fullbleed engine 2.5.22**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
-This starter version fixes blank PNG previews for unembedded Helvetica, Times, and
-Courier faces, including templates pasted into the starter.
-The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.3.2/docs/standard-font-previews.md)
+Unembedded Helvetica, Times, and Courier faces produce visible PNG previews,
+including in templates pasted into the starter.
+The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/standard-font-previews.md)
 explains the substitute designs and upgrade checks. Run the asset-copy command
 again after upgrading so the browser receives the matching runtime and notices.
 
 Package **0.4.1** uses engine **2.5.22** and includes fixes for counters, clipping,
 border images, and floated initials. For an existing project, follow the
 [current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/browser.md)
-and recopy the browser runtime after upgrading. The starter below retains its
-separately verified 0.3.2 lockfile.
+and recopy the browser runtime after upgrading.
 
 ## Edit the project online
 
@@ -73,7 +72,7 @@ Install the package and copy its runtime into the directory your framework
 serves as static files:
 
 ```sh
-npm install --save-exact fullbleed@0.3.2
+npm install --save-exact fullbleed@0.4.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -137,7 +136,7 @@ completion or cancellation requests worker termination before the promise settle
 Browsers do not expose a native thread-exit promise. Keep concurrent jobs bounded
 for the devices you support, especially when generating page previews.
 
-The [0.3.2 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.3.2)
+The [0.4.1 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.4.1)
 retains checks in Chrome, Firefox, and Playwright WebKit, including PDF/PNG
 comparison with the installed Node package, independent PDF text checks,
 cancellation, damaged assets, and recovery. Playwright WebKit is not branded
@@ -154,3 +153,7 @@ with a reusable composable, reactive previews, and component cleanup.
 It connects form changes to automatic PDF previews and includes a hook that
 cancels stale work and releases output URLs when inputs change or a component
 unmounts.
+
+The editor checks also paste templates for sibling counter resets, nested clipping,
+SVG border-image centers, and decorated floated initials. They inspect downloaded
+PDF text and independently specified colors in both the PDF and its preview.

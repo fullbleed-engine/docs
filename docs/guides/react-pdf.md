@@ -48,7 +48,7 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.3.2** / engine **2.5.11**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.4.1** / engine **2.5.22**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
@@ -79,7 +79,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.3.2
+npm install --save-exact fullbleed@0.4.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -157,3 +157,7 @@ promise. Bound concurrently mounted renderers for the devices you support.
 This browser entry provides ordinary PDFs and previews, not PDF/A, PDF/UA,
 PDF/X, or VDP options. For a server-side React framework route, use the
 [Next.js PDF download starter](nextjs-pdf.md).
+
+The editor checks also paste templates for sibling counter resets, nested clipping,
+SVG border-image centers, and decorated floated initials. They inspect downloaded
+PDF text and independently specified colors in both the PDF and its preview.

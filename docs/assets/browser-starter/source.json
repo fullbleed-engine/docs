@@ -1,19 +1,19 @@
 {
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "source_commit": "ae6e301ebc129a15aab89378f44beb81d63d4475",
+  "source_commit": "eb66f753e58e0264a59d9cfc6a3dec7003231b8a",
   "source_directory": "examples/browser",
-  "package_version": "0.3.2",
-  "engine_version": "2.5.11",
-  "package_integrity": "sha512-bzbTUn6Hcxu0YZoP38wkrJ/nZ33+rQfZq5itdpQUl7lIO9mR1m9LC5n/2KLxjj+7dAb8IhpYoVTSmbuhQyA5Vg==",
-  "zip_bytes": 23698,
-  "zip_sha256": "4989b21ca73687aa02611437a17c60e567f537e1a127582ffc10362dff8c32bf",
+  "package_version": "0.4.1",
+  "engine_version": "2.5.22",
+  "package_integrity": "sha512-vP/U/gxv/5M0xGwg8itmh0HtMmwP8qpKdDTZRIDQpAnndjt/Yu4quoLvt1O/FJvmIEVF1ClsioCQnpu4FMmvLA==",
+  "zip_bytes": 23704,
+  "zip_sha256": "081dcd1a8ee958d205ea2fda962c8224189c53abfb1f987037464b98935dc70b",
   "files": {
     "fullbleed-browser-starter/.gitignore": "c023fec2bf12476cb47709e859f1fbb785aeb1e03281e52141e0bee1ee7dad72",
     "fullbleed-browser-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
-    "fullbleed-browser-starter/README.md": "6b5bec007619b8d1776dc668b4f16d2204e4ad9f92dd9b7e38352e534f1bcd13",
+    "fullbleed-browser-starter/README.md": "adc51fb28fcf7db005d31c810fe9e0ba69c33b004152f0239cd59c3ef0c84e55",
     "fullbleed-browser-starter/index.html": "79baecb0b24716e78799893fc0076d88b2c026354f9f31acdf799c8f305c954b",
-    "fullbleed-browser-starter/package-lock.json": "b1f81db73d867f963443fbc2415f352297ee4d9c962f0ba601d9cdc3457e4bd5",
-    "fullbleed-browser-starter/package.json": "6dbc4b39b8daa889493125b5d1c091941dd8f994a26274153ffc4298e532cd18",
+    "fullbleed-browser-starter/package-lock.json": "cb74c22fe1b49cf8f31c979a56975dbd1e390dd899d8bc4cf2186a819482a2f6",
+    "fullbleed-browser-starter/package.json": "b67511c1509889ac90928909dc8a268ddc96c763828611409c779f1b73ef673a",
     "fullbleed-browser-starter/public/favicon.svg": "3eed6dcf1013e48bc64886fed4cf815c609ed06b404742bdacdc44c1df8d3118",
     "fullbleed-browser-starter/src/invoice.css": "0b310ce0f2964fd6b9b68e4afafa9307b4ff8c6b2f1fc753367dc755620ce427",
     "fullbleed-browser-starter/src/invoice.html": "1f065ad6694021649e61b3f666cba6dc01aacdcbd8e80e97425b383e60d7d2fe",
@@ -23,6 +23,6 @@
     "fullbleed-browser-starter/src/style.css": "5005045f66a84a038a0f7a0f7e15b8b5e9eac2489f9717d4a581fec5075bf6f4",
     "fullbleed-browser-starter/vite.config.js": "ec725922705a3c5ba2df191a564c54c0cac6e8997ecd3d00b8a42c647bec8e74"
   },
-  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/ae6e301ebc129a15aab89378f44beb81d63d4475/verification/starters-032.json",
-  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37569111713"
+  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/eb66f753e58e0264a59d9cfc6a3dec7003231b8a/verification/starters-041.json",
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37910537954"
 }
