@@ -31,8 +31,8 @@
     {
       "path": "README.md",
       "source": "examples/n8n-pdf/README.md",
-      "bytes": 7386,
-      "sha256": "51da876ebfab9762f838bf4af703544db6bb522c382bc4af8efbb643b5900d4c"
+      "bytes": 7401,
+      "sha256": "e952d0705044b79eaad9cf1f887b0e0d0d28b3833626729042359fcdc4b93789"
     },
     {
       "path": "compose.yaml",
@@ -119,6 +119,6 @@
       "sha256": "f9fa9932d95b39db65b1d6124854af3c59ed15c7d2e0794855564c8192fc3fb9"
     }
   ],
-  "zip_bytes": 90417,
-  "zip_sha256": "5b93b376b33f1bcdabd2a014da184cd9fbaff06b61ca85e9c86a42583cc64217"
+  "zip_bytes": 90419,
+  "zip_sha256": "ef54e9158ac8fc6de1e19e58dd5de0acdf6545501c165516bca69e6f29277f99"
 }
