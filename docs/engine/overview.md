@@ -1,6 +1,6 @@
 # Engine Architecture
 
-Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/engine.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/engine.md). Check the installed runtime for your exact version.
 
 This document describes the Rust engine layer in `src/` and how it maps to the Python and CLI interfaces.
 

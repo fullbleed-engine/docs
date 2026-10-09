@@ -1,6 +1,6 @@
 {
-  "release": "v2.5.8",
-  "commit": "f9f1b56f550237c924254ccd7718cc852a06692d",
+  "release": "v2.5.22",
+  "commit": "e41c1b4b4395c9bd3c024935c926ba46cb791440",
   "pages": {
     "docs/python-api.md": "engine/pdf-engine.md",
     "docs/engine.md": "engine/overview.md",

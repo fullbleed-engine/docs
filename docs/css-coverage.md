@@ -1,8 +1,8 @@
 # CSS Coverage and Parity Status
 
-For the published Fullbleed 2.5.14 wheel, see the [complete 1,662-fixture CSS comparison](guides/css-corpus.md), including verdicts, the upstream gate outcome, PDFs, images, and file hashes. The imported reference below preserves earlier version-specific reports.
+See the [complete 1,662-fixture CSS comparison and release follow-ups](guides/css-corpus.md), including the published 2.5.14 baseline, the reviewed 2.5.22 source candidate, remaining failures, PDFs, images, and hashes. The imported reference below preserves earlier version-specific reports.
 
-Reference imported from [v2.5.8](https://github.com/fullbleed-engine/fullbleed-official/blob/f9f1b56f550237c924254ccd7718cc852a06692d/docs/css-coverage.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/css-coverage.md). Check the installed runtime for your exact version.
 
 This document is the canonical statement of validated CSS coverage for Fullbleed's deterministic HTML/CSS-to-PDF engine.
 
