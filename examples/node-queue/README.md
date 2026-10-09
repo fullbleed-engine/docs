@@ -1,6 +1,6 @@
 # Queue six PDF invoices in Node.js
 
-This fictional batch uses Fullbleed's Node package 0.4.0 and its pinned 2.5.11
+This fictional batch uses Fullbleed's Node package 0.4.1 and its pinned 2.5.22
 engine. Node.js 22 or newer is required. The npm package includes the engine and
 fonts; rendering needs no Python, Rust, browser, or system-font installation.
 

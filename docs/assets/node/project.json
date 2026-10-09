@@ -1,10 +1,10 @@
 {
-  "package_version": "0.4.0",
-  "engine_version": "2.5.11",
-  "source_commit": "807e4d4cd124980bcc9344a316c47ae3928160b5",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.4.0.tgz",
-  "package_integrity": "sha512-dvgpKB8dOtf1Nb7TAQF1EKhC3A34qYcJeM5i86XFww93k7Krm0LIsa4u/UntK1lrCZ+bWj/NveenTNhrejpomQ==",
-  "package_sha256": "fa653f7cc1396cfaf1710656dac7fa37269453263e6b29878a5a3385531d6eb4",
+  "package_version": "0.4.1",
+  "engine_version": "2.5.22",
+  "source_commit": "2ac54f85056ff3138186f7bc7f13fd7a7fa18df2",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.4.1.tgz",
+  "package_integrity": "sha512-vP/U/gxv/5M0xGwg8itmh0HtMmwP8qpKdDTZRIDQpAnndjt/Yu4quoLvt1O/FJvmIEVF1ClsioCQnpu4FMmvLA==",
+  "package_sha256": "d5e37356e0dc077ecc556e9163a916a1924175e64ba03a56e2bcab618541d5e0",
   "rendered": {
     "invoice.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
@@ -27,7 +27,7 @@
     },
     "README.md": {
       "bytes": 903,
-      "sha256": "b09ca9bf312fbe1a9f9ddb10cfc535459057139ac56aa0cbc55a6f795ac3d54d"
+      "sha256": "91ec5687bfb40ce7fc80b950c477778e6fc9e20cb5ab93b76a2dda84609b3d92"
     },
     "invoice.css": {
       "bytes": 3546,
@@ -39,16 +39,16 @@
     },
     "package-lock.json": {
       "bytes": 1165,
-      "sha256": "b4f1d91458aca95102e680a5fd3491aef1e78f3fd1244ed472295a4456a5ab9f"
+      "sha256": "662460bb12fb4195875d7407afc43c1b0cb97382ab86576fa5c89fafb0541106"
     },
     "package.json": {
       "bytes": 241,
-      "sha256": "b8107cbf1978becb2fdf684993e83242bd57b63d058d1195366b75b5fa4366af"
+      "sha256": "a1d6555868f479609db855ec4b2084237899dc6248a949b892cdf79247f53e3e"
     },
     "render.mjs": {
       "bytes": 1064,
       "sha256": "dd63e83658800df2672c8c5ca1b176dbe49fc0d5c49b8c2b79af91515a68e776"
     }
   },
-  "zip_sha256": "a23694b044ce863a41222daf80a7955c242c4b4634d1d8af200dd1911814a21e"
+  "zip_sha256": "d8bd883b9ecbe6bb8f94bfc684e01e24f12b3a9f6018a116a32e362b0b176cde"
 }

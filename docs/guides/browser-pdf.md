@@ -21,11 +21,17 @@ All sample names, organizations, and amounts are fictional.
 The downloadable starter uses **npm package 0.3.2**, wrapping **Fullbleed engine 2.5.11**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
-This version fixes blank PNG previews for unembedded Helvetica, Times, and
+This starter version fixes blank PNG previews for unembedded Helvetica, Times, and
 Courier faces, including templates pasted into the starter.
 The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.3.2/docs/standard-font-previews.md)
 explains the substitute designs and upgrade checks. Run the asset-copy command
 again after upgrading so the browser receives the matching runtime and notices.
+
+Package **0.4.1** uses engine **2.5.22** and includes fixes for counters, clipping,
+border images, and floated initials. For an existing project, follow the
+[current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/browser.md)
+and recopy the browser runtime after upgrading. The starter below retains its
+separately verified 0.3.2 lockfile.
 
 ## Edit the project online
 
