@@ -196,8 +196,8 @@
     },
     {
       "path": "setup.php",
-      "bytes": 1306,
-      "sha256": "f2f32af412f5bd9edef2c0a32967b68d7712e3fee52be7de949c9d2d779d824b"
+      "bytes": 1535,
+      "sha256": "be5d3554875401fcdcc82bb8a7a4e0369fc085c9f2f13cc6fe6e485fec4f5708"
     },
     {
       "path": "storage/app/private/documents/.gitignore",
@@ -220,6 +220,6 @@
       "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
     }
   ],
-  "zip_bytes": 80857,
-  "zip_sha256": "1de9601c6608ac4c91c70bdae89db26eb930dd5caeba87697bde2aa24e7fbd32"
+  "zip_bytes": 80981,
+  "zip_sha256": "ac5ab933f50436031874041b9e0791d02c9bab993a59289fc2b9d552cf89c1d7"
 }
