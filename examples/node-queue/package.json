@@ -5,5 +5,5 @@
   "type": "module",
   "engines": { "node": ">=22" },
   "scripts": { "render": "node render.mjs" },
-  "dependencies": { "fullbleed": "0.4.0" }
+  "dependencies": { "fullbleed": "0.4.1" }
 }

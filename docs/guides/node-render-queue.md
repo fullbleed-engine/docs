@@ -10,7 +10,7 @@ Share one `createRenderQueue()` across those callers to limit active renders and
 waiting work. A request beyond those limits rejects with `QUEUE_FULL`, giving
 the application a way to report that it is busy.
 
-This guide uses **Node package 0.4.0**, with the **Fullbleed 2.5.11** engine and
+This guide uses **Node package 0.4.1**, with the **Fullbleed 2.5.22** engine and
 bundled fonts. The sample submits six fictional invoices to two active slots and
 four waiting slots.
 
@@ -35,7 +35,7 @@ published package and its integrity hash.
 
 ## Reuse one queue across callers
 
-In a Node project with `fullbleed@0.4.0` installed, this runnable example writes
+In a Node project with `fullbleed@0.4.1` installed, this runnable example writes
 three PDFs. In a server, keep the queue at application scope and call its
 `renderPdf()` method from each request handler:
 
@@ -105,10 +105,10 @@ The [download checks](../assets/node-queue/verification.json) execute the actual
 ZIP and this guide's snippet using the public npm package. They observe the six
 render workers, compare replayed PDF/PNG bytes, and read invoice references,
 customer names, and totals with independent PDF readers. The package's
-[release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.4.0)
+[release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.4.1)
 covers admission, overload, cancellation, deadlines, shutdown, and process-failure
 recovery across the installed-package platform matrix.
 
 [Node quickstart](../getting-started/node.md) ·
-[API and queue details](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.0/docs/render-queue.md) ·
+[API and queue details](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/render-queue.md) ·
 [Next.js PDF downloads](nextjs-pdf.md)

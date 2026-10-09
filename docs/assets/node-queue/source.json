@@ -1,10 +1,10 @@
 {
-  "package_version": "0.4.0",
-  "engine_version": "2.5.11",
-  "source_commit": "807e4d4cd124980bcc9344a316c47ae3928160b5",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.4.0.tgz",
-  "package_integrity": "sha512-dvgpKB8dOtf1Nb7TAQF1EKhC3A34qYcJeM5i86XFww93k7Krm0LIsa4u/UntK1lrCZ+bWj/NveenTNhrejpomQ==",
-  "package_sha256": "fa653f7cc1396cfaf1710656dac7fa37269453263e6b29878a5a3385531d6eb4",
+  "package_version": "0.4.1",
+  "engine_version": "2.5.22",
+  "source_commit": "2ac54f85056ff3138186f7bc7f13fd7a7fa18df2",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.4.1.tgz",
+  "package_integrity": "sha512-vP/U/gxv/5M0xGwg8itmh0HtMmwP8qpKdDTZRIDQpAnndjt/Yu4quoLvt1O/FJvmIEVF1ClsioCQnpu4FMmvLA==",
+  "package_sha256": "d5e37356e0dc077ecc556e9163a916a1924175e64ba03a56e2bcab618541d5e0",
   "rendered": {
     "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 1388,
-      "sha256": "4950a3cf3be6cd930fd5fa18c24c48fee570b7ee13c93255aa584f240e1df4e1"
+      "sha256": "054a40f200d5919400c14a7b6f9b5b42f70036203367f878137ba31e23640fe8"
     },
     {
       "path": "invoice.html",
@@ -46,14 +46,14 @@
     {
       "path": "package.json",
       "bytes": 229,
-      "sha256": "194b6b4ac71867f8d56bc4cdee0a2949077f3d90dd6b0e7ebd9417f47fbce2a1"
+      "sha256": "06b925856d541b2d7f899c6d5ed42e8e68fb6bc4b1808e883dd8d0c67d7bed54"
     },
     {
       "path": "package-lock.json",
       "bytes": 1177,
-      "sha256": "48b40e800811b0a71be395cf976a384296efaf2d395b0e5411ba446f34a1cc3f"
+      "sha256": "126ba140bb7a876eebcdf55985ae76a119b4036485e4cd4bc4a054e10b7d9e68"
     }
   ],
-  "zip_bytes": 6137,
-  "zip_sha256": "4e96bab39784c58eacefb4e4b368862a948eda5f6b4af90b2b78d248925141e9"
+  "zip_bytes": 6135,
+  "zip_sha256": "c93fac928ef359b8c4224dc0ed524dba4466c2165978ef7e930c2bd999e0204d"
 }
