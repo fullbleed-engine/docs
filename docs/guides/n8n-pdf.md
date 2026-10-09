@@ -108,8 +108,8 @@ renderer URL or template from a caller.
 Before handling real records, authenticate the trigger, authorize invoice access,
 configure TLS and limits, and protect the renderer endpoint. Use n8n's credential
 store for secrets and your own execution/binary-data retention policy. The local
-kit disables saved execution data and external network access; a deployed
-installation needs appropriate network access for its chosen destinations.
+kit disables saved execution data. The renderer uses an internal network;
+n8n also has an ordinary network for its loopback port and outbound integrations.
 
 For durable background jobs, add persistent job/output storage, retries, and
 idempotency based on the invoice and template version. A repeated webhook call

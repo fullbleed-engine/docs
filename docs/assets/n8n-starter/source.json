@@ -31,14 +31,14 @@
     {
       "path": "README.md",
       "source": "examples/n8n-pdf/README.md",
-      "bytes": 7291,
-      "sha256": "1c462b030a2cb5b3da71e6e9f837ec0e0d92a535da38c21ca4de81343a98b38a"
+      "bytes": 7386,
+      "sha256": "51da876ebfab9762f838bf4af703544db6bb522c382bc4af8efbb643b5900d4c"
     },
     {
       "path": "compose.yaml",
       "source": "examples/n8n-pdf/compose.yaml",
-      "bytes": 1589,
-      "sha256": "4e258d2aef9e3d2157cdcc18d750cd8723d0a77afad4eacee1897c6806c43369"
+      "bytes": 1614,
+      "sha256": "c2f9976de00a1e8509fb871272386b2d9799084e91b0d08bcd4b3af9352ef61e"
     },
     {
       "path": "post_invoice.py",
@@ -119,6 +119,6 @@
       "sha256": "493960e3fd4238ae468355379a8655ff6378c4612772c6dc5defd470a9a9ea64"
     }
   ],
-  "zip_bytes": 90367,
-  "zip_sha256": "48c0ad81c41bb114d324cb97b24e00652e194fd4d8ed38951362741d058ab4c4"
+  "zip_bytes": 90419,
+  "zip_sha256": "8fd00f6d93ba5531763247fb962062e1704362b9ef18383054e8b4ff2e8951a0"
 }

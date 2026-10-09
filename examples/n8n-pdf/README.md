@@ -97,8 +97,10 @@ limits, and protect the renderer endpoint. Set secure cookies when moving n8n
 behind HTTPS. n8n's owner-account login does not authenticate a webhook configured
 with no authentication.
 
-The Compose network has no external egress. To integrate external destinations,
-configure the required network access deliberately. The kit disables diagnostics,
+The renderer uses only the internal `documents` network. n8n also joins the
+`access` network so Docker can publish its loopback port and destination nodes
+can make outbound connections. No destination credentials are included.
+The kit disables diagnostics,
 version notifications, and saved successful, failed, and manual execution data.
 n8n still persists its account/workflow settings and may use temporary binary
 storage during execution; review storage and retention settings for your deployment.

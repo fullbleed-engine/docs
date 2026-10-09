@@ -98,17 +98,29 @@ def request(data, url=URL, method='POST', content_type='application/json'):
 
 def ready():
     deadline = time.monotonic() + 90
+    observations = []
+    health_url = BASE + ('/healthz' if args.native else '/healthz/readiness')
     while time.monotonic() < deadline:
         if process is not None and process.poll() is not None:
             raise RuntimeError('HTTP adapter exited while starting')
         try:
-            with urlopen(BASE + ('/healthz' if args.native else '/healthz/readiness'), timeout=3) as response:
+            with urlopen(health_url, timeout=3) as response:
+                observations.append(dict(status=response.status, body=response.read(512).decode('utf-8', errors='replace')))
                 if response.status == 200:
+                    (OUT / f'readiness-{len(pdfs)}.json').write_text(json.dumps(observations, indent=2), encoding='utf-8')
                     return
-        except (HTTPError, URLError, TimeoutError):
-            pass
+        except (HTTPError, URLError, TimeoutError) as error:
+            observations.append(dict(error=f'{type(error).__name__}: {error}'))
         time.sleep(1)
-    raise RuntimeError('Server did not become ready')
+    (OUT / f'readiness-{len(pdfs)}.json').write_text(json.dumps(observations, indent=2), encoding='utf-8')
+    if not args.native:
+        run(compose + ['ps', '-a', '--format', 'json'], 'readiness-container-state', check=False)
+        run(compose + ['exec', '-T', 'n8n', 'node', '-e',
+                       "fetch('http://127.0.0.1:5678/healthz/readiness',{signal:AbortSignal.timeout(5000)})"
+                       ".then(async r=>console.log(JSON.stringify({status:r.status,body:await r.text()})))"
+                       ".catch(e=>{console.error(String(e));process.exitCode=1})"],
+            'readiness-inside-container', timeout=15, check=False)
+    raise RuntimeError('Server did not become ready: ' + str(observations[-1]))
 
 
 def start_native():
@@ -222,6 +234,9 @@ try:
         run(['docker', 'version'], 'docker-version')
         config = json.loads(run(compose + ['config', '--format', 'json'], 'compose-config').stdout)
         check(config['networks']['documents']['internal'] is True, 'private Compose network')
+        check(not config['networks']['access'].get('internal'), 'n8n access network permits port publishing')
+        check(set(config['services']['renderer']['networks']) == {'documents'}, 'renderer uses only the internal network')
+        check(set(config['services']['n8n']['networks']) == {'access', 'documents'}, 'n8n joins access and document networks')
         check(not config['services']['renderer'].get('ports'), 'renderer has no published host port')
         check(config['services']['n8n']['ports'][0]['host_ip'] == '127.0.0.1', 'n8n listens on loopback')
         check(config['services']['n8n']['tmpfs'] == ['/tmp:rw,size=128m', '/home/node/.cache:rw,size=128m,uid=1000,gid=1000,mode=0700'],
@@ -253,6 +268,10 @@ try:
         workflow_id = exported[0]['id']
         run(compose + ['run', '--rm', '--no-deps', 'n8n', 'publish:workflow', '--id=' + workflow_id], 'workflow-publish')
         run(compose + ['up', '-d', 'n8n'], 'n8n-start')
+        n8n_id = run(compose + ['ps', '-q', 'n8n'], 'n8n-id').stdout.strip()
+        n8n = json.loads(run(['docker', 'inspect', n8n_id], 'n8n-inspect').stdout)[0]
+        check(n8n['NetworkSettings']['Ports'].get('5678/tcp') == [{'HostIp': '127.0.0.1', 'HostPort': str(port)}],
+              'actual n8n port is published only on loopback')
         ready()
         if args.browser:
             browser_check(workflow_id)
