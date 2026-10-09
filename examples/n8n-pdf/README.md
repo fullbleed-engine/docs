@@ -129,7 +129,7 @@ and recovery. It retains the result and removes only its own containers and volu
 See [the guide](https://docs.fullbleed.dev/guides/n8n-pdf/) for retained evidence.
 
 Fullbleed and this example use MIT; included font licenses are separate. n8n is
-separately licensed under its [Sustainable Use License](https://docs.n8n.io/sustainable-use-license/).
+separately licensed under its [Sustainable Use License](https://docs.n8n.io/n8n-community-license/community-license).
 This is a Fullbleed example, not an n8n endorsement or verified community node.
 Written with AI coding assistance.
 
