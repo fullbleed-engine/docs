@@ -116,7 +116,7 @@ nav:
     - CSS coverage: css-coverage.md
     - Engine architecture: engine/overview.md
   - Evaluate:
-    - Choose a PDF library: guides/comparison.md
+    - Compare Python PDF libraries: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md
     - Browse CSS results: guides/css-explorer.md
     - CSS corpus evidence: guides/css-corpus.md
