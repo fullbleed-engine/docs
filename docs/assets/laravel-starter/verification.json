@@ -107,6 +107,8 @@
     "setup-repeat exit status",
     "setup preserves existing credentials",
     "migrate exit status",
+    "immediate-transaction-lock exit status",
+    "transaction reserves the SQLite writer before any query",
     "missing key",
     "wrong key",
     "malformed JSON",
@@ -145,7 +147,7 @@
     "invoice text: 5,400.00",
     "invoice glyph bounds on every page",
     "ready duplicate is 200",
-    "private path unavailable /storage/documents/97378449-a6b1-4e08-b6b6-735762754494.pdf",
+    "private path unavailable /storage/documents/35cc5961-f2e6-49f3-bc02-f04c39fcb7f9.pdf",
     "private path unavailable /.env",
     "private path unavailable /database/database.sqlite",
     "completed-replay exit status",
@@ -205,7 +207,8 @@
     "browser stores no service key",
     "blade-render exit status",
     "native preview produced",
-    "application logs exclude service keys and invoice customer"
+    "application logs exclude service keys and invoice customer",
+    "matches published sample PDF"
   ],
   "pdfs": [
     {
@@ -270,6 +273,10 @@
     },
     {
       "label": "migrate",
+      "exit_code": 0
+    },
+    {
+      "label": "immediate-transaction-lock",
       "exit_code": 0
     },
     {
@@ -352,8 +359,34 @@
     "Pillow": "12.3.0",
     "php": "8.4.26",
     "laravel": "Laravel Framework 13.35.0",
-    "browser": "154.0.8037.98"
+    "browser": "155.0.8059.40"
   },
-  "archive_sha256": "ac5ab933f50436031874041b9e0791d02c9bab993a59289fc2b9d552cf89c1d7",
-  "check_count": 203
+  "archive_sha256": "a875ac4ac915594b6328806c50414b5c017064dd9e04a71133482eba98ea136a",
+  "concurrent_responses": [
+    {
+      "status": 202,
+      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "state": "queued",
+      "retry_after": "2"
+    },
+    {
+      "status": 202,
+      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "state": "queued",
+      "retry_after": "2"
+    },
+    {
+      "status": 202,
+      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "state": "queued",
+      "retry_after": "2"
+    },
+    {
+      "status": 202,
+      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "state": "queued",
+      "retry_after": "2"
+    }
+  ],
+  "check_count": 206
 }

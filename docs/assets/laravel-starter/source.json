@@ -3,6 +3,7 @@
   "prefix": "fullbleed-laravel-starter/",
   "engine": "2.5.21",
   "laravel": "v13.35.0",
+  "php": "^8.4",
   "files": [
     {
       "path": ".env.example",
@@ -21,8 +22,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5659,
-      "sha256": "16cd6a46c6b8e179cc642da7c6787cbc687bf27534385d3953c4b26a640c2389"
+      "bytes": 5975,
+      "sha256": "e7f88dbfa6d2aea585daa1af959e87d109203608215e14f5cfa1480f8487ffab"
     },
     {
       "path": "app/Http/Controllers/DocumentController.php",
@@ -77,12 +78,12 @@
     {
       "path": "composer.json",
       "bytes": 687,
-      "sha256": "055ca0261fc9a6ed0a362fb793125c77f91e5d3e1b56273fde45974e077133e0"
+      "sha256": "7bc275e58c709e8acbb58a9fda41cca246cb2fcdad40376721e18a529c9e9d93"
     },
     {
       "path": "composer.lock",
-      "bytes": 220866,
-      "sha256": "384c312f1fb6e5a0a78639614f125144aa058714c75a17fc3661b890ce596049"
+      "bytes": 220872,
+      "sha256": "f42d7e2270b5c9f416e16232f6aa6311c724626aaa88a05fb941a4b25c78b8b9"
     },
     {
       "path": "config/app.php",
@@ -96,8 +97,8 @@
     },
     {
       "path": "config/database.php",
-      "bytes": 434,
-      "sha256": "252ea7e87594270b1cf3ecc0d1e2723ff338204a31b6b092dfc2a12499c77430"
+      "bytes": 513,
+      "sha256": "3d95d4c86960a670ba0eb5901f3fa4654c834c481496beba608e8bf36b05f84e"
     },
     {
       "path": "config/filesystems.php",
@@ -196,8 +197,8 @@
     },
     {
       "path": "setup.php",
-      "bytes": 1535,
-      "sha256": "be5d3554875401fcdcc82bb8a7a4e0369fc085c9f2f13cc6fe6e485fec4f5708"
+      "bytes": 1681,
+      "sha256": "3bd89e3a49bd2185d8983ed6676fd358bdc2fc81134a45099d63a04f28fff380"
     },
     {
       "path": "storage/app/private/documents/.gitignore",
@@ -220,6 +221,6 @@
       "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
     }
   ],
-  "zip_bytes": 80981,
-  "zip_sha256": "ac5ab933f50436031874041b9e0791d02c9bab993a59289fc2b9d552cf89c1d7"
+  "zip_bytes": 81252,
+  "zip_sha256": "a875ac4ac915594b6328806c50414b5c017064dd9e04a71133482eba98ea136a"
 }

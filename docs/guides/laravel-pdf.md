@@ -21,10 +21,17 @@ PHP extension. There is no browser PDF renderer or hosted PDF service in the job
 
 ## Start the application and worker
 
-Use PHP 8.3 or later with PDO SQLite, mbstring and Laravel's standard extensions,
+Use PHP 8.4 or later with PDO SQLite, mbstring and Laravel's standard extensions,
 Composer 2, and Python 3.10 or later on a supported wheel platform. The download
-locks Laravel **13.35.0** and Fullbleed **2.5.21**. Extract it, open
-`fullbleed-laravel-starter`, and run:
+locks Laravel **13.35.0** and Fullbleed **2.5.21**.
+
+The PHP minimum is required for the starter's SQLite transaction locking: the
+[pinned Laravel version](https://github.com/laravel/framework/blob/a413a9da94884e5e9d58f4e6612884f712827804/src/Illuminate/Database/SQLiteConnection.php#L28)
+only applies immediate transactions on PHP 8.4 and later. Setup rejects older
+PHP before creating credentials or a database. Upgrade both the web-server and
+worker runtime if you are using an earlier copy on PHP 8.3.
+
+Extract the ZIP, open `fullbleed-laravel-starter`, and run:
 
 ```sh
 composer install

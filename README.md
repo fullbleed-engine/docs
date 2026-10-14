@@ -94,7 +94,10 @@ Composer, the pinned Fullbleed wheel, independent PDF readers and Playwright.
 It extracts the ZIP into a new output directory, installs the Composer lockfile,
 then exercises real HTTP, database queues, retries, expiry and browser downloads.
 Use `--refresh-assets` only when replacing the reviewed specimen and report.
-CI tests PHP 8.3 and 8.4 on Linux before deployment. Evidence uploads exclude
+CI tests PHP 8.4 and 8.5 on Linux and verifies that PHP 8.3 is rejected before
+configuration is created. SQLite's immediate transaction locking is required
+for concurrent submissions; the pinned Laravel version applies it only on PHP
+8.4 and later. Evidence uploads exclude
 the extracted application's generated `.env`, private database and vendor tree.
 
 ## Search discovery
