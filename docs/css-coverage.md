@@ -1,6 +1,6 @@
 # CSS Coverage and Parity Status
 
-See the [complete 1,662-fixture CSS comparison and release follow-ups](guides/css-corpus.md), including the published 2.5.14 baseline, the reviewed 2.5.22 source candidate, remaining failures, PDFs, images, and hashes. The imported reference below preserves earlier version-specific reports.
+Browse the [published 2.5.22 CSS results](guides/css-explorer.md) to search all 1,662 fixtures and inspect PDFs, reference images, failures and disputed references. The [method and complete evidence](guides/css-corpus.md) retain the earlier release comparisons. The imported reference below preserves earlier version-specific reports.
 
 Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/css-coverage.md). Check the installed runtime for your exact version.
 
