@@ -32,8 +32,9 @@ def main():
             files.append(dict(path=name, bytes=len(data), sha256=sha256(data).hexdigest()))
     archive = (DEST / 'project.zip').read_bytes()
     lock = json.loads((SOURCE / 'composer.lock').read_text(encoding='utf-8'))
+    composer = json.loads((SOURCE / 'composer.json').read_text(encoding='utf-8'))
     laravel = next(p['version'] for p in lock['packages'] if p['name'] == 'laravel/framework')
-    manifest = dict(schema='fullbleed.laravel-starter.v1', prefix=PREFIX, engine='2.5.21', laravel=laravel,
+    manifest = dict(schema='fullbleed.laravel-starter.v1', prefix=PREFIX, engine='2.5.21', laravel=laravel, php=composer['require']['php'],
                     files=files, zip_bytes=len(archive), zip_sha256=sha256(archive).hexdigest())
     (DEST / 'source.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({k: manifest[k] for k in ['laravel', 'zip_bytes', 'zip_sha256']}))

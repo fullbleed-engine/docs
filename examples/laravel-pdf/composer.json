@@ -4,7 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-mbstring": "*",
         "ext-pdo_sqlite": "*",
         "laravel/framework": "^13.0"
@@ -13,7 +13,7 @@
     "scripts": {
         "post-autoload-dump": ["Illuminate\\Foundation\\ComposerScripts::postAutoloadDump", "@php artisan package:discover --ansi"]
     },
-    "config": {"sort-packages": true, "optimize-autoloader": true, "platform": {"php": "8.3.0"}},
+    "config": {"sort-packages": true, "optimize-autoloader": true, "platform": {"php": "8.4.0"}},
     "minimum-stability": "stable",
     "prefer-stable": true
 }

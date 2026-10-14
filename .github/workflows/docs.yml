@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.3', '8.4']
+        php: ['8.4', '8.5']
     steps:
       - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
@@ -51,6 +51,29 @@ jobs:
             output/laravel-verification/*.txt
             output/laravel-verification/*.log
             output/laravel-verification/native-preview/
+          retention-days: 14
+  laravel-platform:
+    name: Laravel PHP 8.3 rejection
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite
+          coverage: none
+          tools: composer:2.10.3
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Verify the downloadable starter rejects unsupported PHP before setup
+        run: python tools/verify_laravel_platform.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: laravel-php-83-rejection
+          path: output/laravel-platform/*.json
           retention-days: 14
   n8n-workflow:
     name: n8n invoice workflow
@@ -631,7 +654,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform]
     runs-on: ubuntu-latest
     permissions:
       pages: write

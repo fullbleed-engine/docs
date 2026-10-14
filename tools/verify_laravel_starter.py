@@ -178,6 +178,22 @@ def main():
         check('setup preserves existing credentials', (project / '.env').read_bytes() == original_env)
         primary = next(line.split('=', 1)[1] for line in original_env.decode().splitlines() if line.startswith('PDF_API_KEY='))
         run('migrate', [php, 'artisan', 'migrate', '--force'])
+        # Test the actual lock, not only the configured transaction-mode string.
+        lock_probe = r'''require 'vendor/autoload.php';
+            $app = require 'bootstrap/app.php';
+            $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+            $db = Illuminate\Support\Facades\DB::connection();
+            $db->beginTransaction();
+            $other = new PDO('sqlite:'.database_path('database.sqlite'), null, null,
+                [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+            $other->exec('PRAGMA busy_timeout = 0');
+            $busy = false;
+            try { $other->exec('BEGIN IMMEDIATE'); $other->exec('ROLLBACK'); }
+            catch (PDOException $error) { $busy = ($error->errorInfo[1] ?? null) === 5; }
+            finally { $db->rollBack(); }
+            echo json_encode(['write_lock_before_first_query' => $busy]);'''
+        lock_record = json.loads(run('immediate-transaction-lock', [php, '-r', lock_probe]))
+        check('transaction reserves the SQLite writer before any query', lock_record['write_lock_before_first_query'])
         sample = json.loads((project / 'sample.json').read_text(encoding='utf-8'))
         with server('http') as address, server('concurrent-http') as second_address:
             for label, kwargs, expected in [
@@ -251,6 +267,8 @@ def main():
             with ThreadPoolExecutor(max_workers=4) as pool:
                 futures = [pool.submit(request, host, data=sample, key=primary, idempotency='concurrent-repeat') for host in [address, second_address] * 2]
                 responses = [future.result() for future in futures]
+            report['concurrent_responses'] = [dict(status=code, id=json.loads(body).get('id'),
+                state=json.loads(body).get('state'), retry_after=headers.get('Retry-After')) for code, headers, body in responses]
             ids = {json.loads(body).get('id') for _, _, body in responses}
             check('concurrent submissions share one document', all(code == 202 for code, _, _ in responses) and len(ids) == 1 and None not in ids)
             check('concurrent submissions enqueue once', sql('select count(*) from jobs')[0][0] == 1)

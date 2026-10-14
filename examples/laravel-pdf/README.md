@@ -6,9 +6,14 @@ poll its status and download the private PDF. The included invoice is fictional.
 
 ## Run locally
 
-Requirements: PHP 8.3+ with PDO SQLite, mbstring and Laravel's standard extensions,
+Requirements: PHP 8.4+ with PDO SQLite, mbstring and Laravel's standard extensions,
 Composer 2, and Python 3.10+ on a platform with a Fullbleed wheel. The lockfile
 pins Laravel 13.35.0; the Python requirement pins Fullbleed 2.5.21.
+
+PHP 8.4 is the minimum because this Laravel version only applies SQLite's
+immediate transaction mode on PHP 8.4 and later. Setup rejects older PHP before
+creating credentials or a database. If using an earlier copy on PHP 8.3, upgrade
+the worker and web-server PHP runtime before relying on concurrent submissions.
 
 ```sh
 composer install

@@ -1,5 +1,9 @@
 <?php
 // Creates only local configuration. Never replaces an existing .env or database.
+if (PHP_VERSION_ID < 80400) {
+    fwrite(STDERR, "PHP 8.4 or later is required for this starter's SQLite transaction locking.\n");
+    exit(1);
+}
 $python = isset($argv[1]) && is_file($argv[1])
     ? realpath(dirname($argv[1])).DIRECTORY_SEPARATOR.basename($argv[1])
     : false;
