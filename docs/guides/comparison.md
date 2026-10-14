@@ -1,40 +1,135 @@
 ---
-title: Choose a Python PDF library
-description: Match your PDF task to Fullbleed, WeasyPrint, Playwright, ReportLab, or pypdf using each project's documented scope.
+title: "Python PDF libraries: Fullbleed, WeasyPrint, and Playwright"
+description: Compare Python PDF libraries by JavaScript support, installation, pagination, and actual output. Inspect shared-input PDFs and start with a runnable example.
 ---
-# Choose a PDF library for your task
+# Compare Python PDF libraries
 
-Start with the job: authoring a new document, printing browser content, and modifying an existing PDF need different APIs. This guide is maintained by Fullbleed and describes selection considerations. For a measured example, see the [Fullbleed, WeasyPrint, and Chromium comparison](renderer-comparison.md), including output checks, raw samples, and the cases where each tool did better.
+For **HTML-to-PDF generation in Python**, start with the source of the content.
+Playwright is useful when the document depends on JavaScript or a live browser
+page. Fullbleed and WeasyPrint accept static HTML/CSS for paginated documents
+such as invoices, statements, and reports. ReportLab offers Python drawing and
+document-layout APIs; pypdf works on existing PDFs.
+
+This guide is maintained by Fullbleed. The choices below link to each project's
+documentation and to our retained comparison files, so you can evaluate the
+tradeoffs on your own documents.
+
+[Compare actual PDFs](#inspect-the-same-invoice-in-three-renderers){ .md-button }
+[Run a Fullbleed invoice example](invoices.md){ .md-button .md-button--primary }
+
+## Choose by the job
 
 | Your main task | Tools to evaluate | What to check |
 | --- | --- | --- |
-| Generate structured documents from Python and static HTML/CSS | Fullbleed, WeasyPrint | Template coverage, pagination, font handling, installation, and output validation |
-| Print content whose JavaScript and browser layout matter | Playwright | Browser environment, print CSS, asset loading, and page readiness |
-| Build documents through Python drawing and layout primitives | ReportLab | Canvas/Platypus APIs and the amount of layout code your team wants to own |
+| Generate invoices, statements, or reports from static HTML/CSS | Fullbleed, WeasyPrint | Page breaks, repeated table headings, fonts, and your actual CSS |
+| Export a JavaScript application or a live web page | Playwright with Chromium | Page readiness, loaded fonts/images, and print styles |
+| Build a document through Python drawing and layout primitives | ReportLab | Canvas/Platypus APIs and the layout code your team wants to own |
 | Merge, split, crop, or extract text from existing PDFs | pypdf | The existing files' structures and the operations you need |
+
+## Playwright vs WeasyPrint for HTML to PDF
+
+**Playwright runs a browser.** It can load an application, execute its JavaScript,
+and print the resulting page through Chromium. Its [`page.pdf()` API](https://playwright.dev/python/docs/api/class-page#page-pdf)
+uses print CSS by default; background graphics and preference for CSS page size
+are explicit options. For an application-generated chart, arrange a readiness
+signal for the completed chart and fonts before printing.
+
+**WeasyPrint lays out static documents.** Its [pagination engine](https://doc.courtbouillon.org/weasyprint/stable/)
+is independent of a browser, and its [documented scope excludes JavaScript](https://doc.courtbouillon.org/weasyprint/stable/going_further.html#why-weasyprint).
+Generate the HTML and chart images before rendering. This is a useful model for
+server templates whose final content is already known.
+
+**Fullbleed also renders static documents**, using a Rust print engine with
+Python bindings. It adds explicit asset registration, structured diagnostics,
+PNG previews, and compiled document workflows. It does not execute your page's
+JavaScript. Check its [CSS coverage](../css-coverage.md) and your page breaks
+before moving an existing template.
+
+### What you deploy
+
+| Renderer | Runtime to provision | First integration check |
+| --- | --- | --- |
+| Fullbleed | Python and a [published wheel](../getting-started/installation.md), which bundles the engine and fonts | Confirm your Python/platform has a wheel; register your brand fonts and images |
+| WeasyPrint | Python, its Python packages, and [platform libraries including Pango](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation) | Follow the installation instructions for your host and verify font discovery |
+| Playwright | Python package, the matching [Chromium binary and system dependencies](https://playwright.dev/python/docs/browsers) | Verify browser startup, asset loading, and PDF generation in the deployment image |
+
+Using the same HTML in all three does not guarantee the same line or page
+breaks. Include a long table, an unusually long name, and the final record of
+your largest document in the first evaluation.
+
+## Inspect the same invoice in three renderers
+
+These unmodified previews come from the retained **October 5, 2026** comparison:
+Fullbleed **2.5.6**, WeasyPrint **70.0**, and Playwright **1.63.0** with Chromium
+**153.0.8010.12**. Each received the same HTML/CSS, Inter font, and synthetic
+records. Select an image to open its actual one-page PDF.
+
+<div class="corpus-images" markdown>
+
+<figure markdown>
+[![Invoice rendered by Fullbleed 2.5.6, showing the retained line items and total](../assets/renderer-comparison/previews/fullbleed/invoice/page-1.png)](../assets/renderer-comparison/pdfs/fullbleed/invoice.pdf)
+<figcaption markdown="span">Fullbleed 2.5.6 · [Download PDF](../assets/renderer-comparison/pdfs/fullbleed/invoice.pdf){ download="fullbleed-invoice.pdf" }</figcaption>
+</figure>
+
+<figure markdown>
+[![The same invoice rendered by WeasyPrint 70.0](../assets/renderer-comparison/previews/weasyprint/invoice/page-1.png)](../assets/renderer-comparison/pdfs/weasyprint/invoice.pdf)
+<figcaption markdown="span">WeasyPrint 70.0 · [Download PDF](../assets/renderer-comparison/pdfs/weasyprint/invoice.pdf){ download="weasyprint-invoice.pdf" }</figcaption>
+</figure>
+
+<figure markdown>
+[![The same invoice printed by Chromium 153 through Playwright 1.63.0](../assets/renderer-comparison/previews/chromium/invoice/page-1.png)](../assets/renderer-comparison/pdfs/chromium/invoice.pdf)
+<figcaption markdown="span">Chromium 153 · [Download PDF](../assets/renderer-comparison/pdfs/chromium/invoice.pdf){ download="chromium-invoice.pdf" }</figcaption>
+</figure>
+
+</div>
+
+The [complete comparison](renderer-comparison.md) includes a longer ledger and
+report, the input source, output checks, timings, memory samples, and all 414
+generated PDFs. The ledger occupies three pages in Fullbleed and WeasyPrint,
+and four in Chromium. That difference is included in the results.
+
+The timings describe those versions and fixtures on one host. The results favor
+different tools for different measurements; they do not establish a universal
+speed or quality ranking. These previews are historical evidence, not newly
+generated samples of the latest releases.
 
 ## When Fullbleed is a useful fit
 
-Fullbleed combines a Rust document engine with a Python API, self-contained wheels, explicit assets, deterministic rendering, PNG previews, and structured diagnostics. Its compiled fixed and reflowing binding APIs support repeated document families. The current release is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.6/LICENSE).
+Fullbleed is useful when your application owns the document template, input
+data, and assets, and needs repeatable print output. Its Python package has no
+required third-party Python runtime dependencies. Its compiled fixed and
+reflowing binding APIs support repeated document families, such as monthly
+statements. The engine is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.22/LICENSE).
 
-Try your own HTML/CSS against the [coverage report](../css-coverage.md). Include long content, page breaks, glyph coverage, and every required output profile in the evaluation. Use the [complete examples](../examples.md) to establish a working baseline.
+Start with the integration closest to your application:
+
+- [Python invoice from structured data](invoices.md), with editable HTML/CSS.
+- [FastAPI, Flask, or Django PDF endpoint](web-frameworks.md), with a downloadable project.
+- [Docker deployment](python-docker.md) or [AWS Lambda](aws-lambda-pdf.md), with explicit runtime requirements.
+- [Variable-data documents](bank-statements.md), for compiled fixed and reflowing workflows.
+
+For the current CSS evidence, [browse all 1,662 fixtures](css-explorer.md) from
+the published Fullbleed **2.5.22** Linux wheel. The recorded results include
+**25 FAIL** and **18 REFERENCE-DISPUTED** cases; the unchanged upstream gate
+fails. Inspect the relevant cases and test your own templates. A CSS comparison
+does not establish PDF/A, PDF/UA, or PDF/X conformance.
 
 ## Other projects' documented scope
 
-- [WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/) is a Python HTML/CSS rendering engine designed for paginated documents and distributed under a BSD license. It is another browser-independent option to evaluate for static print content.
-- [Playwright's PDF API](https://playwright.dev/python/docs/api/class-page#page-pdf) exposes PDF generation from a browser page, including print settings. It is relevant when browser behavior forms part of the required output.
-- [ReportLab's documentation](https://docs.reportlab.com/reportlab/userguide/ch1_intro/) describes its Python PDF generation and document-layout APIs.
-- [pypdf](https://pypdf.readthedocs.io/en/stable/) focuses on operations on existing PDFs, including page transformations, merging, splitting, text, and metadata extraction.
+- [ReportLab](https://docs.reportlab.com/reportlab/userguide/ch1_intro/) exposes Python PDF generation and document-layout APIs. Evaluate it when you want to build the layout through Python rather than an HTML/CSS template.
+- [pypdf](https://pypdf.readthedocs.io/en/stable/) supports operations on existing PDFs, including transformations, merging, splitting, and text or metadata extraction. It can be a separate step after document generation.
 
-Check each project's current documentation for detailed capability and license terms. These descriptions were reviewed on October 1, 2026.
+The linked third-party descriptions were reviewed on **October 14, 2026**.
+Consult each project's current documentation and license before adopting it.
 
 ## A practical migration check
 
-1. Collect representative documents and their input data.
-2. Pin versions and font/image assets for both implementations.
-3. Match page size, margins, headers, footers, and required metadata.
-4. Compare page images and extracted content, including the longest records.
-5. Run the relevant standards validators on the final files.
-6. Measure complete jobs, including startup, compilation, and file writes.
+1. **Define the output contract.** Choose representative documents and expected record IDs, values, totals, page dimensions, and required metadata.
+2. **Pin the inputs.** Record engine versions and the exact font/image files. Match margins, headers, and footers before judging differences.
+3. **Inspect the longest document.** Compare page images and extracted content. Check that every record appears once, in order, and that the final row and closing notes are present.
+4. **Validate required profiles.** For accessible, archival, or print output, run the relevant validators on the final PDFs and retain the reports. Visual similarity alone is insufficient.
+5. **Measure complete jobs.** Include startup, font and asset setup, rendering, and file writes. Test a reused process separately from a fresh process and retain failures as well as successful outputs.
 
-The [three-renderer comparison](renderer-comparison.md) covers three shared static-document fixtures on one WSL host. The [historical performance evidence](performance.md) covers earlier Fullbleed versions and different workloads. Neither establishes a universal speed or quality ranking.
+Use the [shared-input comparison harness](renderer-comparison.md#reproduce-with-your-own-documents)
+as a starting point for your own acceptance contract. For Fullbleed projects,
+the [PDF regression starter](pdf-regression-ci.md) provides a runnable CI example.
