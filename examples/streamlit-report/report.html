@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sales brief</title></head><body>
+<section class="overview">
+  <div class="masthead"><span>NORTHSTAR / SUPPLY</span><span>DATA INTO DECISIONS</span></div>
+  <div class="hero"><p class="eyebrow">THE SELECTED VIEW</p><h1>Sales brief.</h1><p class="report-name">$name</p></div>
+  <div class="scope"><div><b>PERIOD</b><p>$start to $end</p></div><div><b>REGIONS</b><p>$regions</p></div><div><b>CHANNEL</b><p>$channel</p></div></div>
+  <div class="metrics"><div class="metric primary"><p>REVENUE / USD</p><strong>$revenue_short</strong><small>$revenue</small></div><div class="metric"><p>ORDERS</p><strong>$order_short</strong><small>$orders orders</small></div><div class="metric"><p>RECORDS</p><strong>$count</strong><small>Selected source rows</small></div></div>
+  <div class="charts"><div><h2>01 / Revenue by region</h2>$region_bars</div><div><h2>02 / Revenue by channel</h2>$channel_bars</div></div>
+  <div class="note"><b>One selection. A complete record.</b><p>Every amount in this view comes from the selected rows. The following pages carry the underlying records and their exact totals. Bar lengths are relative to the largest group in each chart.</p></div>
+</section>
+<section class="detail">
+  <div class="masthead"><span>NORTHSTAR / SUPPLY</span><span>THE SUPPORTING DETAIL</span></div>
+  <p class="eyebrow">$count RECORDS / USD</p><h1>The numbers behind it.</h1>
+  <p class="detail-scope">$start to $end · $regions · $channel</p>
+  <table class="ledger"><colgroup><col style="width:8%"><col style="width:17%"><col style="width:20%"><col style="width:20%"><col style="width:12%"><col style="width:23%"></colgroup>
+    <thead><tr><th>ROW</th><th>DATE</th><th>REGION</th><th>CHANNEL</th><th class="number">ORDERS</th><th class="number">REVENUE</th></tr></thead><tbody>$rows</tbody>
+  </table>
+  <div class="closing"><span>SELECTED TOTAL / $count RECORDS</span><strong>$orders orders · $revenue</strong></div>
+  <p class="method"><b>Method.</b> Dates are inclusive. Revenue is summed as integer cents; no currency conversion, tax calculation or financial forecast is performed. Row labels identify the original CSV record. Order counts and revenue are supplied by the source data. The bundled Northstar Supply dataset is fictional.</p>
+</section></body></html>

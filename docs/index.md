@@ -111,6 +111,9 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     [Python quickstart →](getting-started/quickstart.md) · [FastAPI, Flask, and Django](guides/web-frameworks.md)
 
+    Building a data app? [Export filtered Streamlit data to a designed PDF](guides/streamlit-pdf.md),
+    with a complete app, editable print template and interactive PDF viewer.
+
 === "Node.js"
 
     Use Node.js 22 or newer. The npm package includes the WebAssembly engine, fonts, and TypeScript declarations.

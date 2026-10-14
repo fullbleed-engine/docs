@@ -1,0 +1,65 @@
+{
+  "schema": "fullbleed.streamlit-starter.v1",
+  "fullbleed": "2.5.23",
+  "streamlit": "1.65.0",
+  "streamlit_pdf": "2.1.0",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4518,
+      "sha256": "74600b838b4cd8fa401ba79264912c4149133e09d633c9c007ba7c80ea34d497"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 57,
+      "sha256": "7df3bb8f02747de1586dc416640648a7376fe8dc6a291ee3406f3cfff42dcfd8"
+    },
+    {
+      "path": ".streamlit/config.toml",
+      "bytes": 204,
+      "sha256": "899bda59d86960e2e2eb8c5e42e47d42f4ff0cf91160776caed4de75c178209e"
+    },
+    {
+      "path": "app.py",
+      "bytes": 4882,
+      "sha256": "9f80d7b6218bb6b5db9e8f3e7832dcc4ba19b63bcee2a9ba7f451590822652bf"
+    },
+    {
+      "path": "report.py",
+      "bytes": 7613,
+      "sha256": "70683f0e492eb266add3fb473386cf328e9b4019c8f787199968ef7c3e6c6a4f"
+    },
+    {
+      "path": "report.html",
+      "bytes": 2335,
+      "sha256": "a6f8596e7b586efdbff3125440a693b33118b410abdd7710c840a3b9f3d7c5a7"
+    },
+    {
+      "path": "report.css",
+      "bytes": 3172,
+      "sha256": "674ae767bfcd913b85c5e9f595602ed11cafd29b95a40cc8f34cfc9507514b70"
+    },
+    {
+      "path": "sales.csv",
+      "bytes": 1335,
+      "sha256": "de18df410beb171acb24080fa09d97965d695a860f9879403a50fb8bafc51930"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    }
+  ],
+  "zip_bytes": 55371,
+  "zip_sha256": "e3c1d6e7bc4ecc20157b110e3813675c7011cf20c5480d3f22ce7a27f13b910c"
+}

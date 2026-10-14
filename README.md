@@ -100,6 +100,16 @@ for concurrent submissions; the pinned Laravel version applies it only on PHP
 8.4 and later. Evidence uploads exclude
 the extracted application's generated `.env`, private database and vendor tree.
 
+The Streamlit sales-report app lives in `examples/streamlit-report`. Install its
+pinned requirements plus the readers and Playwright from the `streamlit` CI job.
+Run `python tools/build_streamlit_starter.py`, then
+`python tools/verify_streamlit_starter.py --browser chromium` after installing
+Playwright's Chromium. The verifier tests the actual extracted ZIP, independent
+PDF readers and two real browser sessions. Use a fresh `--out` directory for
+each run. `--refresh-assets` replaces the specimen, PDFium thumbnails, app
+screenshot and verification record after the checks pass; review those images
+before committing. Windows and Linux checks gate deployment.
+
 ## Search discovery
 
 The site publishes an XML sitemap and crawlable canonical URLs. When the optional

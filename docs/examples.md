@@ -13,7 +13,8 @@ Every preview comes from the actual downloadable PDF. The Northstar invoice,
 Common Ground report, Riverton notice, and Hillside statements were generated
 with the public **Fullbleed 2.4.0** wheel; the pandas report below
 uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
-**2.5.10**. The numbered report uses **2.5.18**. All sample data and organizations
+**2.5.10**. The numbered report uses **2.5.18**, and the Streamlit report uses
+**2.5.23**. All sample data and organizations
 are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
@@ -204,6 +205,32 @@ Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample d
 [Build this report](guides/pandas-to-pdf.md){ .md-button }
 
 [Complete source](assets/pandas-report/source.zip) · [Preview page 2](assets/pandas-report/report-2.png)
+
+</div>
+</div>
+
+## Northstar sales brief from Streamlit
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Northstar sales brief with green serif typography, exact revenue totals and regional and channel bars.](assets/streamlit-report/page-1.png)](assets/streamlit-report/report.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Interactive filters · Editable HTML/CSS**
+
+Turn a filtered Streamlit view into a designed report. Upload a sales CSV,
+choose dates and groups, then prepare a PDF with summary figures and a complete
+ledger. The prepared selection stays attached to the download; changed inputs
+clear it so a new selection gets a new report.
+
+The fictional sample contains 36 records and USD 222,099.30 in revenue.
+
+[Open the PDF](assets/streamlit-report/report.pdf){ .md-button }
+[Run the Streamlit app](guides/streamlit-pdf.md){ .md-button }
+
+[Complete project](assets/streamlit-report/project.zip) ·
+[Preview the ledger](assets/streamlit-report/page-2.png)
 
 </div>
 </div>

@@ -65,3 +65,8 @@ examples/laravel-pdf/renderer/fonts/*.ttf binary
 examples/laravel-pdf/renderer/fonts/*-OFL.txt -text -whitespace
 docs/assets/laravel-starter/** -text
 docs/assets/laravel-starter/*.pdf binary
+examples/streamlit-report/** text eol=lf
+examples/streamlit-report/fonts/*.ttf binary
+examples/streamlit-report/fonts/*-OFL.txt -text -whitespace
+docs/assets/streamlit-report/** -text
+docs/assets/streamlit-report/*.pdf binary

@@ -1,0 +1,3012 @@
+{
+  "schema": "fullbleed.streamlit-verification.v1",
+  "ok": true,
+  "platform": "Windows",
+  "python": "3.11.8",
+  "versions": {
+    "fullbleed": "2.5.23",
+    "streamlit": "1.65.0",
+    "streamlit-pdf": "2.1.0",
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0",
+    "playwright": "1.63.0"
+  },
+  "checks": [
+    {
+      "name": "exact downloadable ZIP checksum",
+      "passed": true
+    },
+    {
+      "name": "exact archive member set",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: README.md",
+      "passed": true
+    },
+    {
+      "name": "source hash: README.md",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: LICENSE",
+      "passed": true
+    },
+    {
+      "name": "source hash: LICENSE",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: requirements.txt",
+      "passed": true
+    },
+    {
+      "name": "source hash: requirements.txt",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: .streamlit/config.toml",
+      "passed": true
+    },
+    {
+      "name": "source hash: .streamlit/config.toml",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: app.py",
+      "passed": true
+    },
+    {
+      "name": "source hash: app.py",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: report.py",
+      "passed": true
+    },
+    {
+      "name": "source hash: report.py",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: report.html",
+      "passed": true
+    },
+    {
+      "name": "source hash: report.html",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: report.css",
+      "passed": true
+    },
+    {
+      "name": "source hash: report.css",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: sales.csv",
+      "passed": true
+    },
+    {
+      "name": "source hash: sales.csv",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: fonts/DMSerifDisplay-Regular.ttf",
+      "passed": true
+    },
+    {
+      "name": "source hash: fonts/DMSerifDisplay-Regular.ttf",
+      "passed": true
+    },
+    {
+      "name": "safe archive path: fonts/DMSerifDisplay-OFL.txt",
+      "passed": true
+    },
+    {
+      "name": "source hash: fonts/DMSerifDisplay-OFL.txt",
+      "passed": true
+    },
+    {
+      "name": "installed pin: fullbleed",
+      "passed": true
+    },
+    {
+      "name": "installed pin: streamlit",
+      "passed": true
+    },
+    {
+      "name": "installed pin: streamlit-pdf",
+      "passed": true
+    },
+    {
+      "name": "sample's independently specified totals",
+      "passed": true
+    },
+    {
+      "name": "sample deterministic replay",
+      "passed": true
+    },
+    {
+      "name": "sample PDF page count",
+      "passed": true
+    },
+    {
+      "name": "sample A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "sample vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "sample page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "sample page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "sample all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 1 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 2 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 3 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 4 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 5 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 6 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 7 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 8 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 9 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 10 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 11 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 12 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 13 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 14 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 15 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 16 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 17 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 18 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 19 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 20 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 21 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 22 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 23 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 24 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 25 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 26 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 27 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 28 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 29 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 30 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 31 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 32 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 33 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 34 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 35 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample row 36 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "sample all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 1 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 2 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 3 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 4 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 5 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 6 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 7 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 8 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 9 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 10 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 11 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 12 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 13 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 14 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 15 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 16 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 17 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 18 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 19 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 20 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 21 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 22 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 23 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 24 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 25 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 26 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 27 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 28 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 29 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 30 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 31 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 32 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 33 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 34 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 35 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample row 36 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "sample uses two complete pages",
+      "passed": true
+    },
+    {
+      "name": "inclusive date and channel selection",
+      "passed": true
+    },
+    {
+      "name": "filtered deterministic replay",
+      "passed": true
+    },
+    {
+      "name": "filtered PDF page count",
+      "passed": true
+    },
+    {
+      "name": "filtered A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "filtered vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "filtered page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "filtered page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "filtered all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered row 15 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered row 17 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered row 19 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "filtered all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "filtered exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "filtered row 15 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "filtered row 17 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "filtered row 19 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "filtered no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "literal-zero deterministic replay",
+      "passed": true
+    },
+    {
+      "name": "literal-zero PDF page count",
+      "passed": true
+    },
+    {
+      "name": "literal-zero A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "literal-zero vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "literal-zero page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "literal-zero page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "literal-zero all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "literal-zero exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "literal-zero row 1 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "literal-zero no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "literal-zero all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "literal-zero exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "literal-zero row 1 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "literal-zero no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long deterministic replay",
+      "passed": true
+    },
+    {
+      "name": "long PDF page count",
+      "passed": true
+    },
+    {
+      "name": "long A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "long vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "long page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 3 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 4 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 5 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 6 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 7 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 8 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 9 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long page 10 text bounds",
+      "passed": true
+    },
+    {
+      "name": "long all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 1 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 2 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 3 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 4 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 5 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 6 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 7 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 8 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 9 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 10 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 11 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 12 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 13 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 14 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 15 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 16 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 17 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 18 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 19 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 20 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 21 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 22 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 23 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 24 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 25 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 26 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 27 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 28 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 29 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 30 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 31 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 32 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 33 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 34 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 35 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 36 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 37 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 38 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 39 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 40 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 41 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 42 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 43 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 44 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 45 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 46 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 47 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 48 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 49 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 50 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 51 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 52 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 53 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 54 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 55 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 56 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 57 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 58 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 59 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 60 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 61 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 62 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 63 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 64 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 65 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 66 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 67 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 68 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 69 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 70 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 71 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 72 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 73 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 74 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 75 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 76 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 77 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 78 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 79 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 80 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 81 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 82 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 83 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 84 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 85 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 86 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 87 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 88 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 89 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 90 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 91 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 92 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 93 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 94 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 95 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 96 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 97 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 98 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 99 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 100 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 101 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 102 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 103 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 104 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 105 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 106 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 107 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 108 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 109 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 110 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 111 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 112 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 113 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 114 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 115 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 116 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 117 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 118 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 119 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 120 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 121 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 122 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 123 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 124 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 125 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 126 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 127 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 128 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 129 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 130 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 131 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 132 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 133 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 134 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 135 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 136 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 137 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 138 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 139 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 140 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 141 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 142 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 143 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 144 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 145 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 146 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 147 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 148 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 149 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 150 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 151 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 152 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 153 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 154 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 155 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 156 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 157 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 158 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 159 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 160 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 161 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 162 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 163 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 164 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 165 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 166 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 167 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 168 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 169 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 170 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 171 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 172 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 173 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 174 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 175 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 176 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 177 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 178 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 179 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 180 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 181 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 182 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 183 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 184 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 185 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 186 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 187 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 188 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 189 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 190 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 191 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 192 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 193 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 194 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 195 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 196 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 197 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 198 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 199 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 200 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 201 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 202 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 203 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 204 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 205 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 206 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 207 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 208 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 209 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 210 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 211 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 212 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 213 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 214 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 215 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 216 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 217 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 218 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 219 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 220 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 221 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 222 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 223 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 224 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 225 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 226 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 227 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 228 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 229 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 230 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 231 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 232 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 233 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 234 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 235 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 236 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 237 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 238 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 239 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 240 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 241 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 242 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 243 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 244 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 245 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 246 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 247 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 248 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 249 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long row 250 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "long all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 1 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 2 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 3 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 4 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 5 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 6 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 7 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 8 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 9 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 10 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 11 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 12 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 13 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 14 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 15 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 16 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 17 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 18 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 19 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 20 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 21 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 22 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 23 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 24 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 25 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 26 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 27 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 28 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 29 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 30 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 31 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 32 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 33 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 34 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 35 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 36 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 37 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 38 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 39 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 40 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 41 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 42 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 43 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 44 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 45 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 46 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 47 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 48 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 49 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 50 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 51 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 52 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 53 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 54 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 55 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 56 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 57 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 58 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 59 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 60 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 61 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 62 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 63 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 64 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 65 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 66 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 67 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 68 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 69 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 70 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 71 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 72 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 73 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 74 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 75 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 76 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 77 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 78 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 79 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 80 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 81 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 82 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 83 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 84 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 85 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 86 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 87 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 88 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 89 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 90 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 91 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 92 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 93 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 94 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 95 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 96 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 97 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 98 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 99 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 100 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 101 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 102 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 103 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 104 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 105 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 106 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 107 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 108 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 109 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 110 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 111 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 112 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 113 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 114 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 115 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 116 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 117 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 118 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 119 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 120 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 121 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 122 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 123 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 124 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 125 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 126 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 127 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 128 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 129 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 130 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 131 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 132 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 133 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 134 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 135 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 136 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 137 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 138 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 139 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 140 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 141 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 142 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 143 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 144 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 145 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 146 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 147 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 148 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 149 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 150 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 151 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 152 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 153 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 154 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 155 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 156 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 157 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 158 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 159 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 160 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 161 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 162 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 163 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 164 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 165 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 166 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 167 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 168 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 169 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 170 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 171 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 172 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 173 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 174 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 175 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 176 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 177 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 178 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 179 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 180 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 181 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 182 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 183 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 184 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 185 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 186 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 187 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 188 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 189 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 190 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 191 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 192 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 193 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 194 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 195 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 196 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 197 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 198 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 199 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 200 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 201 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 202 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 203 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 204 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 205 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 206 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 207 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 208 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 209 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 210 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 211 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 212 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 213 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 214 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 215 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 216 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 217 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 218 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 219 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 220 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 221 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 222 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 223 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 224 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 225 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 226 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 227 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 228 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 229 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 230 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 231 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 232 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 233 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 234 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 235 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 236 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 237 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 238 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 239 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 240 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 241 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 242 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 243 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 244 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 245 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 246 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 247 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 248 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 249 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long row 250 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "long no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "250 records paginate",
+      "passed": true
+    },
+    {
+      "name": "reject empty",
+      "passed": true
+    },
+    {
+      "name": "reject oversize",
+      "passed": true
+    },
+    {
+      "name": "reject invalid UTF8",
+      "passed": true
+    },
+    {
+      "name": "reject wrong header",
+      "passed": true
+    },
+    {
+      "name": "reject negative orders",
+      "passed": true
+    },
+    {
+      "name": "reject NaN",
+      "passed": true
+    },
+    {
+      "name": "reject exponent",
+      "passed": true
+    },
+    {
+      "name": "reject extra precision",
+      "passed": true
+    },
+    {
+      "name": "reject invalid date",
+      "passed": true
+    },
+    {
+      "name": "reject extra field",
+      "passed": true
+    },
+    {
+      "name": "reject missing field",
+      "passed": true
+    },
+    {
+      "name": "reject control character",
+      "passed": true
+    },
+    {
+      "name": "reject large revenue",
+      "passed": true
+    },
+    {
+      "name": "reject too many records",
+      "passed": true
+    },
+    {
+      "name": "reject too many groups",
+      "passed": true
+    },
+    {
+      "name": "browser-sample download filename",
+      "passed": true
+    },
+    {
+      "name": "browser-sample HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "browser output matches the direct renderer",
+      "passed": true
+    },
+    {
+      "name": "actual PDF viewer paints the repeated page-two masthead",
+      "passed": true
+    },
+    {
+      "name": "preview-page-two download filename",
+      "passed": true
+    },
+    {
+      "name": "preview-page-two HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "viewing page two preserves the prepared PDF",
+      "passed": true
+    },
+    {
+      "name": "channel change clears prepared download",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered download filename",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered PDF page count",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 15 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 17 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 19 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 15 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 17 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered row 19 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "browser-filtered no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "report name change clears prepared download",
+      "passed": true
+    },
+    {
+      "name": "session-one download filename",
+      "passed": true
+    },
+    {
+      "name": "session-one HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "second browser session has no prepared report",
+      "passed": true
+    },
+    {
+      "name": "session-two download filename",
+      "passed": true
+    },
+    {
+      "name": "session-two HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "session-two PDF page count",
+      "passed": true
+    },
+    {
+      "name": "session-two A4 geometry",
+      "passed": true
+    },
+    {
+      "name": "session-two vector charts and selectable text",
+      "passed": true
+    },
+    {
+      "name": "session-two page 1 text bounds",
+      "passed": true
+    },
+    {
+      "name": "session-two page 2 text bounds",
+      "passed": true
+    },
+    {
+      "name": "session-two all row IDs exactly once in pypdf",
+      "passed": true
+    },
+    {
+      "name": "session-two exact totals in pypdf",
+      "passed": true
+    },
+    {
+      "name": "session-two row 1 values in pypdf",
+      "passed": true
+    },
+    {
+      "name": "session-two no replacement glyph in pypdf",
+      "passed": true
+    },
+    {
+      "name": "session-two all row IDs exactly once in pdfium",
+      "passed": true
+    },
+    {
+      "name": "session-two exact totals in pdfium",
+      "passed": true
+    },
+    {
+      "name": "session-two row 1 values in pdfium",
+      "passed": true
+    },
+    {
+      "name": "session-two no replacement glyph in pdfium",
+      "passed": true
+    },
+    {
+      "name": "session-one-again download filename",
+      "passed": true
+    },
+    {
+      "name": "session-one-again HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "second session does not replace first session bytes",
+      "passed": true
+    },
+    {
+      "name": "invalid upload clears the old PDF",
+      "passed": true
+    },
+    {
+      "name": "recovered download filename",
+      "passed": true
+    },
+    {
+      "name": "recovered HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "valid upload recovers the sample",
+      "passed": true
+    },
+    {
+      "name": "missing glyph prevents a damaged download",
+      "passed": true
+    },
+    {
+      "name": "glyph-recovered download filename",
+      "passed": true
+    },
+    {
+      "name": "glyph-recovered HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "font coverage error recovers after correction",
+      "passed": true
+    },
+    {
+      "name": "mobile document has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile download filename",
+      "passed": true
+    },
+    {
+      "name": "mobile HTTP media type and bytes",
+      "passed": true
+    },
+    {
+      "name": "mobile download stays valid",
+      "passed": true
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "no off-site browser asset requests",
+      "passed": true
+    }
+  ],
+  "scope": "Synthetic downloaded project, local HTTP and browser sessions; no hosted deployment or standards-conformance claim.",
+  "browser": "155.0.8059.40",
+  "viewer_page_two_masthead_pixels": 206,
+  "sample": {
+    "pages": 2,
+    "sha256": "b685884a347bea1046ecc833e7625f26e7d92d5efe13dd67ce8345fdce33dbae",
+    "bytes": 77312
+  },
+  "long_report": {
+    "pages": 10,
+    "sha256": "123bfb0938f5f2a737e45c1aa68ba27b9061fdf3fa5c25f247ba28116f26c9b8",
+    "bytes": 114871
+  },
+  "project_zip_sha256": "e3c1d6e7bc4ecc20157b110e3813675c7011cf20c5480d3f22ce7a27f13b910c",
+  "browser_errors": [],
+  "external_requests": []
+}

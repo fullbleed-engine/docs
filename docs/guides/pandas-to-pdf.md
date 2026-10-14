@@ -13,6 +13,9 @@ This example turns 40 product rows into a two-page landscape report. The preview
 comes from its actual PDF, rendered with **Fullbleed 2.5.2 and pandas 3.0.6**.
 The organization and data are fictional.
 
+For an interactive data app, try the [Streamlit report starter](streamlit-pdf.md)
+with CSV input, date/group filters and a prepared PDF download.
+
 [Download the two-page PDF](../assets/pandas-report/report.pdf){ .md-button .md-button--primary }
 [Get the complete source](../assets/pandas-report/source.zip){ .md-button }
 
