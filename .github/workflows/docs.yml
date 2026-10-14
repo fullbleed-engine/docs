@@ -193,6 +193,38 @@ jobs:
           name: numbered-report-verification-${{ matrix.os }}
           path: output/numbered-report-verification
           retention-days: 14
+  streamlit:
+    name: Streamlit PDF app (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install the public app packages and verification tools
+        run: |
+          python -m pip install --only-binary=:all: -r examples/streamlit-report/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 pillow==12.3.0 playwright==1.63.0
+          python -m playwright install --with-deps chromium
+      - name: Verify the downloaded app, PDFs and browser sessions
+        run: |
+          python tools/build_streamlit_starter.py
+          git diff --exit-code -- docs/assets/streamlit-report/project.zip docs/assets/streamlit-report/source.json
+          python tools/verify_streamlit_starter.py --browser chromium
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: streamlit-verification-${{ matrix.os }}
+          path: |
+            output/streamlit-verification/*.json
+            output/streamlit-verification/*.txt
+            output/streamlit-verification/*.pdf
+            output/streamlit-verification/*.png
+            output/streamlit-verification/*.log
+          retention-days: 14
   matplotlib:
     name: Matplotlib report (${{ matrix.os }})
     strategy:
@@ -654,7 +686,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform]
+    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write
