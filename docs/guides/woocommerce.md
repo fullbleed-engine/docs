@@ -20,6 +20,7 @@ sales, update subscriptions and marketplace listings are not live.
 The browser demo opens a temporary WordPress Playground with WooCommerce and two
 fictional, unpaid orders. It does not connect a store or ask for payment. Initial
 setup downloads WordPress and WooCommerce and may take a minute or two.
+If the hosted demo cannot load, [install the free ZIP on your staging store](#use-your-own-staging-store).
 
 1. Select **Generate PDF**, then **Download PDF**. The first sample order is
    already selected.
