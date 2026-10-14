@@ -591,7 +591,17 @@ jobs:
             output/vue-online/
           retention-days: 14
       - run: python -m mkdocs build --strict
+      - name: Materialize the verified published-wheel CSS evidence
+        run: python tools/prepare_css_corpus_site.py site
       - run: python tools/check_site.py site
+      - name: Verify CSS evidence filters, shared links and actual PDF downloads
+        run: python tools/check_css_explorer.py --site site --out output/css-explorer-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: css-explorer-browser-verification
+          path: output/css-explorer-ui/
+          retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
       - uses: actions/upload-artifact@v4

@@ -11,11 +11,24 @@ python tools/build_browser_starter.py
 python tools/build_react_starter.py
 python tools/build_vue_starter.py
 python -m mkdocs build --strict
+python tools/prepare_css_corpus_site.py site
 python tools/check_site.py site
-python -m mkdocs serve
+python -m http.server 8000 --directory site
 ```
 
 Changes to `main` build, check internal links and metadata, then deploy through `.github/workflows/docs.yml`. Pull requests run the same build checks without deployment.
+
+The CSS evidence browser uses `docs/assets/css-corpus/published.json` to pin an
+existing release archive by SHA-256. `prepare_css_corpus_site.py` verifies its
+published-wheel identity, complete inventory and original file manifest before
+copying PDFs and previews into the built site. Large evidence files stay in
+release storage. Pass `--archive /path/to/verified.zip` to use a local copy.
+After another MkDocs build, run the preparation step again before serving `site`.
+
+With Playwright 1.63.0, its Chrome browser, and pypdf 6.19.0 installed, run
+`python tools/check_css_explorer.py --site site --out output/css-explorer-ui`.
+It checks filters, shared URLs, original PDF downloads, mobile layouts and an
+unavailable-index fallback. Choose a new output directory for each evidence run.
 
 Building all browser demos needs Rust and Node 22.12 or newer. CI uses Rust
 1.97.0 and Node 22. Its locked adapter compiles the published engine; it does not

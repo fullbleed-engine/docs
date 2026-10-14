@@ -1,8 +1,42 @@
 ---
 title: Fullbleed CSS comparison on the IronPress corpus
-description: Inspect Fullbleed's 1,662-fixture CSS comparison, the published 2.5.14 baseline, and verified source fixes through 2.5.22, with PDFs, browser references, and remaining failures.
+description: Browse all 1,662 CSS comparison fixtures tested with the published Fullbleed 2.5.22 wheel, including original PDFs, reference images, failures, disputed references, and earlier release evidence.
 ---
 # Inspect the CSS comparison
+
+## Latest published wheel: 2.5.22
+
+[Browse every fixture](css-explorer.md){ .md-button .md-button--primary }
+
+Search by CSS feature, category or verdict, compare the printed pages, and
+download the actual PDF without extracting an archive.
+
+The complete October 14, 2026 run tests the **published Fullbleed 2.5.22 Linux
+wheel** against the same pinned 1,662-fixture corpus. It records **1,619 PASS,
+25 FAIL and 18 REFERENCE-DISPUTED**. The unchanged upstream gate still fails;
+its original reasons and all fixture verdicts are retained.
+
+All **1,662 generated PDFs are byte-identical** to the reviewed 2.5.22 source
+run below. Fixture verdicts, reference metadata and reference page fingerprints
+also match. The downloaded wheel's SHA-256 matches PyPI's published file record.
+
+[Complete published-wheel evidence (57.4 MiB)](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-corpus.zip)
+· [Structured verification](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-summary.json)
+· [SHA-256 checksums](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-SHA256SUMS.txt)
+· [Workflow run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38600917475)
+· [Explorer build pin](../assets/css-corpus/published.json)
+
+For the original offline report, extract this ZIP once and open
+`ironpress-evidence/current/reports/index.html`. The upstream report labels its
+candidate “ironpress”; that candidate is Fullbleed in this run. The online
+browser presents the same original PDF and preview bytes, verdicts and reference
+notes. It does not change the comparator's policy or promote disputed cases to
+passes.
+
+These results apply to the exact Linux wheel, explicit assets, pinned references
+and comparison policy. They do not establish complete CSS support, arbitrary
+website rendering, or PDF standards conformance. Historical tables and failure
+lists further down this page retain their stated release versions.
 
 ## Latest reviewed source: 2.5.22
 
@@ -12,10 +46,10 @@ commit `4951d81c73f0e5eec56c312aaf5b17ababd731eb`. Its results are **1,619 PASS,
 25 FAIL, and 18 REFERENCE-DISPUTED**. The existing upstream gate still fails;
 the remaining failures and disputed references are retained in the evidence.
 
-This is a source-candidate run. Fresh public Python and Rust packages have
-separate focused verification; these counts are not a complete corpus run of
-the final registry packages. The tagged release has the same source tree as
-the reviewed candidate.
+This earlier run tested a source candidate. The complete published-wheel run
+above now verifies the final Linux package against the same corpus. Fresh public
+Python and Rust packages also have separate focused verification. The tagged
+release has the same source tree as the reviewed candidate.
 
 The latest change fixes floated `::first-letter` layout. Large initials now
 sit inside their styled box, and body text wraps beside the full float height.
