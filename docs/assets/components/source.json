@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 716,
-      "sha256": "2b98436c2ca6961bcd984c7d5cdad71468dd2b810b6bfd3f771effd289a30a71"
+      "bytes": 698,
+      "sha256": "c970a175d98981502618e8651effbd6ba14622dfa39e6c1976940f621613d4db"
     },
     {
       "path": "LICENSE",
@@ -14,8 +14,8 @@
     },
     {
       "path": "requirements.txt",
-      "bytes": 19,
-      "sha256": "b465254080972bd339e7fc2c1b91c56e5b668c8b86ebbe51005ff0ae3156f3a9"
+      "bytes": 18,
+      "sha256": "7bf1a389285713df1bda84ed6e81fd6fed40b683b2e0c72b507f8df3716a43b3"
     },
     {
       "path": "invoice.py",
@@ -34,10 +34,10 @@
     },
     {
       "path": "upstream.json",
-      "bytes": 572,
-      "sha256": "9db6e22ee5277fff0997799c38e3eb44f5c358f769d067de390e8dfc4e4165ed"
+      "bytes": 553,
+      "sha256": "ce934065cf98c9344c5b95c2544a5ba0e100c222ef0f37fb3e9f77ae3d0312b1"
     }
   ],
-  "zip_sha256": "a2b8eb93a5367e47d7aad6793c817d7874c7cbd59c3b614723bfa90f9311b407",
-  "zip_bytes": 5828
+  "zip_sha256": "3b4bef0f2a6815b16a1cb61c387cac8a14bc45db43d99c2320142ab7a15d0c9e",
+  "zip_bytes": 5812
 }
