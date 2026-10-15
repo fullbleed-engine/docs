@@ -6,7 +6,7 @@ license = "MIT"
 publish = false
 
 [dependencies]
-fullbleed = { version = "=2.5.22", features = ["svg_raster"] }
+fullbleed = { version = "=2.5.24", features = ["svg_raster"] }
 
 [profile.release]
 lto = true

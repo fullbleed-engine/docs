@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-15T15:19:49.312030+00:00",
+  "engine": "2.5.24",
+  "nodePackage": "0.5.1",
+  "nodeSource": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
+  "nativeWasiFixtures": 20,
+  "pythonExportFixtures": 26,
+  "nodeExportFixtures": 26,
+  "playgroundBrowserChecks": 80,
+  "starterBrowserChecks": 826,
+  "starterSourceRuns": [
+    {
+      "id": 38757928483,
+      "name": "Next.js PDF starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38757928483",
+      "head_sha": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
+      "conclusion": "success"
+    },
+    {
+      "id": 38757928683,
+      "name": "Browser starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38757928683",
+      "head_sha": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
+      "conclusion": "success"
+    },
+    {
+      "id": 38757928545,
+      "name": "Vue starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38757928545",
+      "head_sha": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
+      "conclusion": "success"
+    },
+    {
+      "id": 38757928629,
+      "name": "React starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38757928629",
+      "head_sha": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
+      "conclusion": "success"
+    }
+  ],
+  "nextjsPlatforms": 3,
+  "nextjsChecksPerPlatform": 17,
+  "defaultInvoiceAndReportUnchanged": true,
+  "zipSourceBuildsIdentical": true,
+  "visibilityAndDecorationFixturesSha256": "0ec4c2e4c137ed5519b3a0d55b74d95653826e6423cc5af3f7e41ca5b99cac8e",
+  "coreRelease": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.24",
+  "nodeRelease": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.5.1",
+  "scope": "Released-package propagation through these starters, fixed fixtures, exported projects, and local browser UI. Production deployment and exact public downloads are checked after the documentation CI gate; no universal CSS parity or PDF conformance claim."
+}

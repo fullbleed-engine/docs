@@ -113,7 +113,7 @@ try:
             page.goto(url + 'playground/', wait_until='domcontentloaded')
             ready()
             check('playground uses the current published engine with SVG rendering',
-                  manifest['engine']['version'] == '2.5.22' and manifest['engine']['features'] == ['svg_raster'])
+                  manifest['engine']['version'] == '2.5.24' and manifest['engine']['features'] == ['svg_raster'])
             check('playground retains its bounded runtime', manifest['limits'] ==
                   {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30})
             for name, pages in [('invoice', 1), ('report', 3), ('notice', 1)]:
@@ -160,7 +160,7 @@ try:
             with zipfile.ZipFile(project) as archive:
                 check('downloaded project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 check('project download preserves the actual HTML and CSS edits', archive.read('input.html').decode('utf-8') == html and archive.read('style.css').decode('utf-8') == css)
-                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.22\n')
+                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.24\n')
                 record = json.loads(archive.read('project.json'))
                 check('project manifest verifies each exported source, font and license',
                       all(hashlib.sha256(archive.read(item['path'])).hexdigest() == item['sha256']
@@ -186,7 +186,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.5.0'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.5.1'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}
