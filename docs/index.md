@@ -13,7 +13,7 @@ hide:
 
 <p class="lead">Compose invoices, reports, and print documents with <a href="guides/python-components/">Python components</a>, <a href="guides/javascript-components/">JavaScript and JSX</a>, or existing HTML/CSS templates. One Rust print engine, in your application.</p>
 
-[Try in your browser](playground.md){ .md-button .md-button--primary }
+[Try PDF components](assets/react-demo/index.html){ .md-button .md-button--primary }
 [Choose your language](#choose-your-language){ .md-button }
 
 Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
@@ -66,7 +66,8 @@ Path("component-invoice.pdf").write_bytes(Invoice().render_pdf(engine))
 
 Prefer JavaScript? [Compose the same kind of document with functions or JSX/TSX](guides/javascript-components.md).
 Named components, typed props and reusable styles work with the Node and browser
-renderers. Ordinary JavaScript functions need no build step or React runtime.
+renderers. [Try the live component invoice](assets/react-demo/index.html) or
+[connect it to your React application](guides/react-pdf.md). Ordinary JavaScript functions need no build step or React runtime.
 
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).

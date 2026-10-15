@@ -1,40 +1,63 @@
 ---
-title: Generate PDFs in React with live previews
-description: Build a React and TypeScript PDF editor with HTML/CSS templates, automatic previews, cancellation, and downloads. Edit the complete project online or download its source.
+title: React PDF components with live previews
+description: Build PDFs with typed components in React. Edit invoice data, preview and download locally, or customize the JSX document and styles in the complete online project.
 ---
 
-# Generate PDFs in React
+# Build PDFs with components in React
 
-For authoring the document itself with typed function components,
-[use the JavaScript components and JSX guide](javascript-components.md).
-A per-file JSX pragma selects Fullbleed for a dedicated print template while
-the rest of the app uses React. The editor below uses HTML/CSS templates.
+Write a PDF template with typed function components and connect it to a React
+form. Change line items, mark an invoice paid, or choose a color and watch the
+actual PDF update. Fullbleed renders the document in a browser worker; the
+starter needs no PDF server or account.
 
-Connect a React form to a PDF preview with `fullbleed/browser`. Change a field
-or an HTML/CSS template and the actual PDF updates after a short pause. The
-engine renders in a browser worker; this starter needs no PDF server or account.
-
-[Open the React demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
+[Open the component demo](../assets/react-demo/index.html){ .md-button .md-button--primary }
 [Edit source online](../assets/react-starter/edit-online.html){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
-The project includes a designed invoice, a three-page report, a React form and
-template editor, and a reusable TypeScript hook. Its sample names, records, and
-amounts are fictional. The code is MIT licensed, including commercial use.
+The project uses **fullbleed 0.6.0** with engine **2.5.24**. Its default invoice
+uses typed props, mapped rows, conditional paid text and composed style maps.
+Text is escaped by the authoring layer; amounts are calculated in integer cents.
+The form accepts up to 20 rows and whole hours, including negative rates for
+credits. All records and amounts are fictional. The source is MIT licensed.
 
-## Edit the project online
+## Edit the component online
 
 Choose **Edit source online**, then **Open in StackBlitz** to load the complete
 project without a local Node.js installation. Wait for **Ready** in the preview,
-change the customer, and choose **Download PDF** after the preview updates.
+change a row or the customer, and choose **Download PDF** after it updates.
 
-Open `src/App.tsx` in the **Files** panel to change the React form, or edit
-`src/invoice.html` and `src/invoice.css` to change the document. After editing a
-template file, expand **Edit the HTML & CSS** in the preview and choose
-**Reset this template** to load it. React preserves the preview's current edits
-during development updates. The online launcher uses the same source files and
-lockfile as the ZIP below. It opens a temporary project in StackBlitz;
-save or export your changes there if you want to keep them.
+The source editor opens `src/documents/Invoice.tsx`. Change a heading or compose
+another print component there. Edit `src/documents/invoiceStyles.ts` for layout
+and typography, `src/documents/data.ts` for the data model, or `src/App.tsx` for
+the React form. TSX and stylesheet edits update the preview while preserving
+the current form values. The launcher sends the same source files and lockfile
+as the ZIP. Save or export your changes in StackBlitz to keep them.
+
+The design selector also offers the existing **HTML/CSS invoice** and
+**Community report**. Their **Edit the HTML & CSS** panel accepts templates,
+with source in `src/invoice.html`, `src/invoice.css`, `src/report.html` and
+`src/report.css`. Use **Reset this template** after editing one of those files
+to load it into a preview that already has local edits.
+
+## React for the app, components for the document
+
+`src/App.tsx` uses React's JSX runtime. The print file begins with
+`/** @jsxImportSource fullbleed/ui */`, selecting Fullbleed for that file.
+Call `Invoice({ data })` to compose the document, then pass it to the preview
+hook. The document functions are synchronous; fetch data and use React hooks
+in the surrounding application.
+
+The Vite config excludes print modules from React Fast Refresh boundaries:
+
+```javascript
+plugins: [react({ exclude: [/node_modules/, /[\\/]src[\\/]documents[\\/]/] })]
+```
+
+This lets edits to imported print styles propagate to the form and regenerate
+the PDF. See the React plugin's [exclude option](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#exclude).
+The complete project includes this configuration. The
+[JavaScript component guide](javascript-components.md) explains the authoring
+API, props, children and reusable styles in more detail.
 
 <span id="run-the-project"></span>
 
@@ -53,26 +76,30 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.5.1** / engine **2.5.24**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.6.0** / engine **2.5.24**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
 ## Customize the document
 
-Open **Edit the HTML & CSS** to paste a print template. Changes stay in the tab
-until reload or closing the editor. Keep a design by editing these project files:
+Use **See the document component** to inspect the source while trying the form.
+Keep your layout and data changes in these project files:
 
 | File | Purpose |
 | --- | --- |
 | `src/App.tsx` | React fields, structured data, template selection, and preview UI |
 | `src/usePdfPreview.ts` | Rendering, cancellation, stale-result protection, and URL cleanup |
-| `src/invoice.html` / `src/invoice.css` | Invoice print layout |
-| `src/report.html` / `src/report.css` | Three-page report print layout |
+| `src/documents/Invoice.tsx` | Typed print components, rows, totals and conditional content |
+| `src/documents/invoiceStyles.ts` | Attached print style maps and layout rules |
+| `src/documents/data.ts` | Sample records, integer-cents formatting and form validation |
+| `src/invoice.html` / `src/invoice.css` | Optional HTML/CSS invoice design |
+| `src/report.html` / `src/report.css` | Optional three-page report design |
 | `src/style.css` | The application interface |
 
-The invoice fills `{{customer}}` and `{{reference}}` in HTML and `{{ink}}` in CSS.
-The app escapes customer text before inserting it. Line items, amounts, dates,
-and addresses are fixed samples: replace them with your data and calculations.
+The component invoice accepts a typed data object and an ink color. Its rows,
+totals and payment text respond to the form. Supply your own dates and records
+when building an application. The optional HTML invoice fills `{{customer}}`
+and `{{reference}}` in HTML and `{{ink}}` in CSS, with escaped customer text.
 
 Use [supported Fullbleed print CSS](../css-coverage.md). The SDK consumes static
 HTML/CSS rather than capturing the React page. Document scripts do not execute,
@@ -84,21 +111,24 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.5.1
+npm install --save-exact fullbleed@0.6.0
 npx fullbleed-browser-assets public/fullbleed
 ```
 
-Copy `src/usePdfPreview.ts` from the project into your client app. Memoize its
+Copy `src/usePdfPreview.ts` and the `src/documents/` directory into your client app,
+or replace `Invoice` with your own document factory. Memoize the
 input so unrelated component updates do not schedule a new render:
 
 ```tsx
 import { useMemo } from 'react';
 import { usePdfPreview } from './usePdfPreview';
+import { Invoice } from './documents/Invoice';
+import type { InvoiceData } from './documents/data';
 
-export function PdfDownload({ html, css }: { html: string; css: string }) {
+export function PdfDownload({ data }: { data: InvoiceData }) {
   const input = useMemo(() => ({
-    html, css, previewDpi: 96, maxPages: 20, timeoutMs: 30_000,
-  }), [html, css]);
+    document: Invoice({ data }), previewDpi: 96, maxPages: 20, timeoutMs: 30_000,
+  }), [data]);
   const pdf = usePdfPreview(input, '/fullbleed/');
 
   return <section>
@@ -117,7 +147,9 @@ The default delay is 450 ms. Use the third argument `{ auto: false }` and call
 `pdf.generate()` from a button for on-demand rendering. `{ delayMs: 800 }` waits
 longer between edits. A new input immediately hides the old download, cancels
 the preceding job, and schedules the next preview. Cancel stops work until the
-next edit or explicit `generate()` call. Changing preview mode resets output.
+next edit or explicit `generate()` call. Changing preview mode resets output. Pass `null` while inputs are invalid to
+clear old output without starting a worker. The hook also accepts
+`{ html, css, ...options }` for existing templates.
 
 The hook releases old PDF/PNG Blob URLs and aborts active work on unmount. It
 ignores obsolete results even when requests settle out of order. The starter
@@ -147,10 +179,14 @@ HTTPS or localhost, Web Workers, WebAssembly, and Web Crypto. The
 The [source workflow](https://github.com/fullbleed-engine/fullbleed-node/actions/workflows/react-starter.yml)
 checks the built project in Chrome, Firefox, and Playwright WebKit, and checks a
 React development build with StrictMode enabled. It downloads real PDFs,
-independently checks their text and page sizes, and compares the default invoice
-and report bytes with the installed Node package. It also checks automatic and
+independently checks their text and page sizes, and compares six component
+cases with the installed Node package: default, paid, edited, empty, credit,
+and a twenty-row invoice across three pages. Every component preview matches
+the Node output too. The existing HTML invoice and report keep their byte checks. It also checks automatic and
 on-demand modes, fast edits, cancellation, recovery, unmount/remount, URL cleanup,
 and 1440/390/320px layouts. The docs build installs and checks the exact ZIP.
+A real Vite development-server check edits TSX and stylesheet source, verifies
+the resulting PDFs and preserves the React form values.
 An edited-template check verifies unembedded Helvetica faces in the PDF and
 visible text in its browser preview.
 
