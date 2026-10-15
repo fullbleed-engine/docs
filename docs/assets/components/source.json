@@ -1,0 +1,43 @@
+{
+  "schema": "fullbleed.component-starter.v1",
+  "fullbleed": "2.5.25",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 716,
+      "sha256": "2b98436c2ca6961bcd984c7d5cdad71468dd2b810b6bfd3f771effd289a30a71"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 19,
+      "sha256": "b465254080972bd339e7fc2c1b91c56e5b668c8b86ebbe51005ff0ae3156f3a9"
+    },
+    {
+      "path": "invoice.py",
+      "bytes": 5059,
+      "sha256": "abf1de741464756368c6c79c5543d38a0a21b4475db21a4ab00baa2ccee7b7fa"
+    },
+    {
+      "path": "styles.py",
+      "bytes": 3847,
+      "sha256": "c32e01c6339e7546fa80d8e2a6696254464322524663733fee999497be95663f"
+    },
+    {
+      "path": "data.json",
+      "bytes": 635,
+      "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
+    },
+    {
+      "path": "upstream.json",
+      "bytes": 572,
+      "sha256": "9db6e22ee5277fff0997799c38e3eb44f5c358f769d067de390e8dfc4e4165ed"
+    }
+  ],
+  "zip_sha256": "a2b8eb93a5367e47d7aad6793c817d7874c7cbd59c3b614723bfa90f9311b407",
+  "zip_bytes": 5828
+}

@@ -13,6 +13,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  components:
+    name: Python component download (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install fullbleed==2.5.25
+      - name: Verify the actual component project download
+        run: |
+          python tools/build_component_starter.py
+          git diff --exit-code -- docs/assets/components/project.zip docs/assets/components/source.json
+          python tools/verify_component_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: component-download-${{ matrix.os }}
+          path: target/component-starter/
+          retention-days: 14
   laravel-queue:
     name: Laravel PDF queue (PHP ${{ matrix.php }})
     runs-on: ubuntu-24.04
@@ -690,7 +715,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

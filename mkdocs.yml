@@ -80,6 +80,7 @@ nav:
     - Python fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
   - Build a document:
+    - Python components: guides/python-components.md
     - Invoices from data: guides/invoices.md
     - Numbered reports: guides/numbered-reports.md
     - Markdown to PDF: guides/markdown-pdf.md
