@@ -17,7 +17,8 @@ def build():
     target = DEST / 'project.zip'
     with zipfile.ZipFile(target, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name in FILES:
-            data = (SOURCE / name).read_bytes()
+            # This source-only project uses canonical LF text in Git and the ZIP.
+            data = (SOURCE / name).read_bytes().replace(b'\r\n', b'\n')
             info = zipfile.ZipInfo('fullbleed-node-components/' + name, date_time=(2026, 10, 15, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3

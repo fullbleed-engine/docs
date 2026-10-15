@@ -60,12 +60,12 @@
     },
     {
       "path": "upstream.json",
-      "bytes": 983,
-      "sha256": "7d9c3d2e250c6224272f1e7794f7cd42b248c298ea0d23837217f929db1302da"
+      "bytes": 951,
+      "sha256": "e606e29ded755e78552b063466cb9e0e8c5ec25bacddd37912710ad3a0a40faf"
     }
   ],
-  "zip_sha256": "0f838312a58ec6976614fd18cf6cbf0ebc008188792695415efa729e2c16c5eb",
-  "zip_bytes": 14878,
+  "zip_sha256": "32f7f1fa6e0862faaba44a293524c693faebca5fde9f25a42dac001408f5c150",
+  "zip_bytes": 14873,
   "rendered": {
     "invoice.pdf": {
       "sha256": "17437a93f960b80d16bbbe92f573c7c62a9d9d39eca6899fb9b642ebfb9feca3",
