@@ -70,3 +70,6 @@ examples/streamlit-report/fonts/*.ttf binary
 examples/streamlit-report/fonts/*-OFL.txt -text -whitespace
 docs/assets/streamlit-report/** -text
 docs/assets/streamlit-report/*.pdf binary
+examples/components/** text eol=lf
+docs/assets/components/** -text
+docs/assets/components/*.pdf binary

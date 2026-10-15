@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "commit": "0a8bbe16421b7a8802e4cfaddc1ff55964dcdb41",
+  "path": "examples/components",
+  "files": [
+    {
+      "path": "invoice.py",
+      "sha256": "abf1de741464756368c6c79c5543d38a0a21b4475db21a4ab00baa2ccee7b7fa"
+    },
+    {
+      "path": "styles.py",
+      "sha256": "c32e01c6339e7546fa80d8e2a6696254464322524663733fee999497be95663f"
+    },
+    {
+      "path": "data.json",
+      "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
+    }
+  ]
+}

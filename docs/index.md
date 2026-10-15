@@ -32,6 +32,38 @@ for email attachments or customer downloads.
 
 <span id="a-small-first-step"></span>
 
+## Compose PDFs with Python components
+
+Functions, props, children, lists and conditionals—familiar building blocks for
+your print documents. Use named elements and Python style mappings to build a
+complete invoice without writing HTML strings.
+The component workflow below requires Fullbleed 2.5.25 or later.
+
+```python
+from importlib.resources import files
+from pathlib import Path
+import fullbleed
+from fullbleed.ui import Document, Heading, Paragraph, Stack, Strong, component
+
+@component
+def Line(label, amount):
+    return Paragraph(Strong(label), ": ", amount)
+
+@Document(title="Invoice", styles={
+    "@page": {"size": "A4", "margin": "18mm"},
+    "body": {"font_family": "Inter"},
+})
+def Invoice():
+    return Stack(Heading("Made for you", level=1), Line("Design", "$120"), gap="12pt")
+
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
+Path("component-invoice.pdf").write_bytes(Invoice().render_pdf(engine))
+```
+
+[Build with Python components](guides/python-components.md){ .md-button .md-button--primary }
+[Download the designed invoice](assets/components/project.zip){ .md-button }
+
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
 

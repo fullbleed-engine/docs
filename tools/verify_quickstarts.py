@@ -81,11 +81,13 @@ def main():
     for page, output, required, embedded_font in FIXTURES:
         source = (ROOT / "docs" / page).read_text(encoding="utf-8")
         blocks = re.findall(r"```python\n(.*?)```", source, flags=re.S)
-        expected_blocks = 2 if page == "engine/assets.md" else 1
+        # The first home-page example uses the newer component API. Its own
+        # Windows/Linux gate runs it with the component starter's pinned release.
+        expected_blocks = 2 if page in ("index.md", "engine/assets.md") else 1
         assert len(blocks) == expected_blocks, (page, len(blocks))
         folder = workspace / page.removesuffix(".md").replace("/", "_")
         folder.mkdir()
-        code = dedent(blocks[0])
+        code = dedent(blocks[1] if page == "index.md" else blocks[0])
         # This API snippet returns bytes; retain them without changing its example.
         retained = code
         if page == "engine/assets.md":

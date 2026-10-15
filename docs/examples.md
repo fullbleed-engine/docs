@@ -22,6 +22,28 @@ are fictional.
 
 [Edit these designs in your browser](playground.md){ .md-button }
 
+## Functions into finished pages { #python-components }
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![A Python component-authored invoice with bold green typography, reusable table rows, progress bars and an amount-due panel.](assets/components/page-1.png)](assets/components/invoice.pdf)
+</figure>
+<div markdown>
+
+**Python components · Props and children · No authored HTML**
+
+A complete invoice composed from `Field`, `WorkRow`, `WorkTable`, `PaymentNote`
+and `Total` functions. Change data, switch paid/unpaid content, or reuse the
+components in another document. Styles are Python mappings. Generated with
+Fullbleed **2.5.25**.
+
+[Open the PDF](assets/components/invoice.pdf){ .md-button }
+[Download the project](assets/components/project.zip){ .md-button }
+[Learn component authoring](guides/python-components.md)
+
+</div>
+</div>
+
 ## From brief to handoff { #numbered-report }
 
 <div class="showcase-entry" markdown>
