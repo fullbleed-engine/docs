@@ -1,0 +1,32 @@
+{
+  "repository": "https://github.com/fullbleed-engine/fullbleed-node",
+  "commit": "9ba636fa2725f1333463a19132a5471d7e37656d",
+  "package": "fullbleed@0.6.0",
+  "engine": "2.5.24",
+  "files": [
+    {
+      "path": "document.mjs",
+      "sha256": "33ab53633800df717024fc8ceb4f2f16b9d0bf43af188d332378dd7b7c9dc84c"
+    },
+    {
+      "path": "styles.mjs",
+      "sha256": "1cd818aec8cf2e9def15b51ce043bfdfcfc06626fd9df63372f34f9a43160a59"
+    },
+    {
+      "path": "invoice.mjs",
+      "sha256": "457d4c33f2767b190087e46403c547ec228b5929546c0084124dd9509eca5080"
+    },
+    {
+      "path": "invoice.tsx",
+      "sha256": "2d1aee48d843c5b8a80d196ffa6c7828c0012a4db78c9182d3ce1dfa53398f1d"
+    },
+    {
+      "path": "render-tsx.mjs",
+      "sha256": "5286fba411a22b04ece061e04eb63fa1033596b627ae681c45fb28c99e8f9c62"
+    },
+    {
+      "path": "data.json",
+      "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
+    }
+  ]
+}

@@ -73,3 +73,6 @@ docs/assets/streamlit-report/*.pdf binary
 examples/components/** text eol=lf
 docs/assets/components/** -text
 docs/assets/components/*.pdf binary
+examples/node-components/** text eol=lf
+docs/assets/node-components/** -text
+docs/assets/node-components/*.pdf binary

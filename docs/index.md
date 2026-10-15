@@ -1,17 +1,17 @@
 ---
-title: HTML/CSS to PDF for Python, Rust, Node.js, C#, and browsers
-description: Generate PDFs from HTML and CSS in Python, Rust, Node.js, C#, or browser JavaScript. Choose your language or try an editable browser app with local PDF downloads.
+title: PDF components and HTML/CSS for Python, JavaScript, Rust, and C#
+description: Build PDFs with Python or JavaScript components and optional JSX, or use HTML/CSS from Python, Rust, Node.js, C#, and browsers. Reusable templates, bundled fonts, and local output.
 hide:
   - toc
 ---
 
 <div class="hero" markdown>
 <div markdown>
-<p class="eyebrow">HTML/CSS to PDF · MIT licensed</p>
+<p class="eyebrow">Components + HTML/CSS to PDF · MIT licensed</p>
 
 # Your data. Your design. Your PDF.
 
-<p class="lead">Create invoices, reports, and print documents with HTML/CSS. Use Python, Rust, Node.js, C#, or browser JavaScript with the Fullbleed Rust engine.</p>
+<p class="lead">Compose invoices, reports, and print documents with <a href="guides/python-components/">Python components</a>, <a href="guides/javascript-components/">JavaScript and JSX</a>, or existing HTML/CSS templates. One Rust print engine, in your application.</p>
 
 [Try in your browser](playground.md){ .md-button .md-button--primary }
 [Choose your language](#choose-your-language){ .md-button }
@@ -24,7 +24,7 @@ Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
 </figure>
 </div>
 
-<p class="facts">HTML/CSS templates &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
+<p class="facts">Reusable components &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
 
 Building a store? [Try the WooCommerce editor in a sample store](guides/woocommerce.md),
 then [evaluate an automated order workflow](guides/woocommerce.md#evaluate-an-automated-workflow)
@@ -63,6 +63,10 @@ Path("component-invoice.pdf").write_bytes(Invoice().render_pdf(engine))
 
 [Build with Python components](guides/python-components.md){ .md-button .md-button--primary }
 [Download the designed invoice](assets/components/project.zip){ .md-button }
+
+Prefer JavaScript? [Compose the same kind of document with functions or JSX/TSX](guides/javascript-components.md).
+Named components, typed props and reusable styles work with the Node and browser
+renderers. Ordinary JavaScript functions need no build step or React runtime.
 
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).

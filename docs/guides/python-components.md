@@ -15,6 +15,10 @@ evaluates these functions directly to produce static print documents. There is
 no browser, virtual DOM, hook lifecycle, or JavaScript runtime involved.
 The complete workflow below uses Fullbleed **2.5.25**.
 
+The [JavaScript component workflow](javascript-components.md) brings named
+components, attached styles and optional JSX/TSX to Node and browser applications.
+It does not include Python's semantic validator or promise complete API parity.
+
 [Download the complete project](../assets/components/project.zip){ .md-button .md-button--primary }
 [Open the component invoice](../assets/components/invoice.pdf){ .md-button }
 

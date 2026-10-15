@@ -1,0 +1,79 @@
+{
+  "schema": "fullbleed.node-component-starter.v1",
+  "package": "fullbleed@0.6.0",
+  "engine": "2.5.24",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1282,
+      "sha256": "bfbd763f50582dff9c618ca29c44e977aec716547d9813d1d0cb76cd0aff7b3c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "package.json",
+      "bytes": 456,
+      "sha256": "0fe1fb1f62e8eb314ba7a0b2c9ba033082528265637aa5b60608abfe473015fe"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 28458,
+      "sha256": "8ffc01c705f17ccc11c03cd6b47d25f464a24d23cb19e87bcd23d4016a33e8dd"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 313,
+      "sha256": "69c95c9282841e77ff1bbb6251d8a4c8bd16d5934dfe3a2bed3768f13ecd5c38"
+    },
+    {
+      "path": "document.mjs",
+      "bytes": 3510,
+      "sha256": "33ab53633800df717024fc8ceb4f2f16b9d0bf43af188d332378dd7b7c9dc84c"
+    },
+    {
+      "path": "styles.mjs",
+      "bytes": 3219,
+      "sha256": "1cd818aec8cf2e9def15b51ce043bfdfcfc06626fd9df63372f34f9a43160a59"
+    },
+    {
+      "path": "invoice.mjs",
+      "bytes": 1648,
+      "sha256": "457d4c33f2767b190087e46403c547ec228b5929546c0084124dd9509eca5080"
+    },
+    {
+      "path": "invoice.tsx",
+      "bytes": 3800,
+      "sha256": "2d1aee48d843c5b8a80d196ffa6c7828c0012a4db78c9182d3ce1dfa53398f1d"
+    },
+    {
+      "path": "render-tsx.mjs",
+      "bytes": 819,
+      "sha256": "5286fba411a22b04ece061e04eb63fa1033596b627ae681c45fb28c99e8f9c62"
+    },
+    {
+      "path": "data.json",
+      "bytes": 635,
+      "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
+    },
+    {
+      "path": "upstream.json",
+      "bytes": 951,
+      "sha256": "e606e29ded755e78552b063466cb9e0e8c5ec25bacddd37912710ad3a0a40faf"
+    }
+  ],
+  "zip_sha256": "32f7f1fa6e0862faaba44a293524c693faebca5fde9f25a42dac001408f5c150",
+  "zip_bytes": 14873,
+  "rendered": {
+    "invoice.pdf": {
+      "sha256": "17437a93f960b80d16bbbe92f573c7c62a9d9d39eca6899fb9b642ebfb9feca3",
+      "bytes": 103212
+    },
+    "page-1.png": {
+      "sha256": "4714cda69ce852490602986efc07793de605bd6ca92172e21ab91243268bfb13",
+      "bytes": 100558
+    }
+  }
+}
