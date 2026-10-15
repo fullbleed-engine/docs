@@ -6,6 +6,7 @@ const { buildProject } = await import(`./project-export.js${assetGeneration}`);
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
+const projectLanguage = el('project-language');
 const originals = new Map(), edits = new Map();
 let current = 'invoice', worker = null, deadline = null, pageIndex = 0, pages = [], pdfUrl = null;
 let renderedSource = null;
@@ -167,18 +168,18 @@ el('next').addEventListener('click', () => showPage(pageIndex + 1));
 el('project').addEventListener('click', async () => {
   const button = el('project'), message = el('project-status');
   // Capture edits before downloading assets, even if the user keeps typing or switches examples.
-  const snapshot = { name: current, html: html.value, css: css.value };
+  const snapshot = { name: current, html: html.value, css: css.value, language: projectLanguage?.value ?? 'python' };
   button.disabled = true;
   button.textContent = 'Preparing project…';
   message.hidden = false;
   message.dataset.error = 'false';
-  message.textContent = 'Preparing your HTML, CSS, fonts, and Python renderer…';
+  message.textContent = `Preparing your HTML, CSS, fonts, and ${snapshot.language === 'node' ? 'Node.js' : 'Python'} renderer…`;
   try {
     const bytes = await buildProject(snapshot);
-    saveText(`fullbleed-${snapshot.name}-project.zip`, bytes, 'application/zip');
-    const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css;
+    saveText(`fullbleed-${snapshot.name}-${snapshot.language === 'node' ? 'node-' : ''}project.zip`, bytes, 'application/zip');
+    const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css || (projectLanguage?.value ?? 'python') !== snapshot.language;
     message.textContent = newerEdits
-      ? 'Project downloaded with the source from when you clicked. Download again to include newer edits.'
+      ? 'Project downloaded with the source and language from when you clicked. Download again to include newer changes.'
       : 'Project downloaded. Extract the ZIP and follow its README to render locally.';
   } catch (error) {
     message.textContent = error.message || 'Could not download the project. Try again.';
@@ -217,7 +218,7 @@ try {
   if (originals.has(hashExample)) current = hashExample;
   picker.value = current;
   html.value = originals.get(current).html; css.value = originals.get(current).css;
-  for (const control of [html, css, picker, el('reset'), el('render'), el('project')]) control.disabled = false;
+  for (const control of [html, css, picker, el('reset'), el('render'), el('project'), projectLanguage].filter(Boolean)) control.disabled = false;
   for (const language of ['html', 'css']) { el(`save-${language}`).href = '#'; el(`save-${language}`).setAttribute('aria-disabled', 'false'); }
   startRender();
 } catch (error) { status(error.message, true); document.querySelector('.pg-output').setAttribute('aria-busy', 'false'); }

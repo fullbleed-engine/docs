@@ -11,6 +11,7 @@ import { render } from '../docs/assets/playground/renderer.js';
 import { prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
+import { defaultStyleFixtures } from './playground-fixtures/default-styles.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const assets = join(root, 'docs/assets/playground');
@@ -28,13 +29,14 @@ fixtures.push(...gradientFixtures);
 fixtures.push(standardFontFixture);
 const editorCases = JSON.parse(await readFile(join(root, 'tools/starter-engine-2.5.22.json'), 'utf8')).cases;
 fixtures.push(...editorCases);
+fixtures.push(...defaultStyleFixtures);
 for (const fixture of fixtures) {
   const { name, pages } = fixture;
   const gradient = Boolean(fixture.probes);
   const standardFonts = name === standardFontFixture.name;
-  const editedLayout = name.startsWith('engine-');
-  const example = gradient ? 'report' : (name === 'invoice-edited' || standardFonts || editedLayout) ? 'invoice' : name;
-  let { html, css } = gradient || standardFonts || editedLayout ? fixture : prepareExample(example,
+  const custom = typeof fixture.html === 'string';
+  const example = gradient ? 'report' : (name === 'invoice-edited' || custom) ? 'invoice' : name;
+  let { html, css } = custom ? fixture : prepareExample(example,
     await readFile(join(root, `docs/assets/showcase/${example}.html`), 'utf8'),
     await readFile(join(root, `docs/assets/showcase/${example}.css`), 'utf8'));
   if (name === 'invoice-edited') {
@@ -45,6 +47,9 @@ for (const fixture of fixtures) {
   const zip = await buildProject(snapshot, load);
   assert.deepEqual(zip, await buildProject(snapshot, load), `${name}: identical sources changed the ZIP`);
   await writeFile(join(output, `${name}.zip`), zip);
+  const nodeZip = await buildProject({ ...snapshot, language: 'node' }, load);
+  assert.deepEqual(nodeZip, await buildProject({ ...snapshot, language: 'node' }, load), `${name}: identical sources changed the Node ZIP`);
+  await writeFile(join(output, `${name}-node.zip`), nodeZip);
   const expected = join(output, `${name}-expected`);
   await mkdir(expected, { recursive: true });
   await writeFile(join(expected, 'input.html'), html);
@@ -56,7 +61,7 @@ for (const fixture of fixtures) {
   const color_probes = gradient ? checkGradient(fixture, result.outputs['page-1.png']) : [];
   const standard_font_rows = standardFonts ? checkStandardFonts(result.outputs['page-1.png']) : [];
   for (const [file, bytes] of Object.entries(result.outputs)) await writeFile(join(expected, file), bytes);
-  cases.push({ name, pages, missing_glyphs: 0, color_probes, standard_font_rows, zip_sha256: hash(zip), pdf_sha256: hash(result.outputs['output.pdf']) });
+  cases.push({ name, pages, missing_glyphs: 0, color_probes, standard_font_rows, zip_sha256: hash(zip), node_zip_sha256: hash(nodeZip), pdf_sha256: hash(result.outputs['output.pdf']) });
 }
 
 for (const name of ['../escape', '/absolute', 'C:/drive', 'fonts/../escape', 'fonts\\escape', 'bad\0name']) {
@@ -73,6 +78,27 @@ await assert.rejects(buildProject(snapshot, async path => {
   return load(path);
 }), /Simulated asset download failure/);
 const recovered = await buildProject(snapshot, load); // A failed download must not poison a later attempt.
+const nodeSnapshot = { ...snapshot, language: 'node' };
+await assert.rejects(buildProject({ ...snapshot, language: 'unknown' }, load), /Choose Python or Node.js/);
+await assert.rejects(buildProject(nodeSnapshot, async path => {
+  if (path === 'project/node/render.mjs') throw new Error('Simulated Node asset download failure');
+  return load(path);
+}), /Simulated Node asset download failure/);
+await assert.rejects(buildProject(nodeSnapshot, async path => {
+  const bytes = await load(path);
+  return path === 'fonts/Inter-Variable.ttf' ? bytes.subarray(1) : bytes;
+}), /bundled fonts changed/);
+for (const changed of ['project/node/package.json', 'project/node/package-lock.json']) {
+  await assert.rejects(buildProject(nodeSnapshot, async path => {
+    const bytes = await load(path);
+    if (path !== changed) return bytes;
+    const value = JSON.parse(bytes);
+    if (changed.endsWith('/package.json')) value.fullbleed.engineVersion = '0.0.0';
+    else value.packages['node_modules/fullbleed'].version = '0.0.0';
+    return Buffer.from(JSON.stringify(value));
+  }), /refresh the Node.js project version/);
+}
+const nodeRecovered = await buildProject(nodeSnapshot, load);
 // Exercise the production fetch path with a versioned module, as used by the page.
 const { buildProject: versionedBuild } = await import('../docs/assets/playground/project-export.js?v=cache-check');
 const originalFetch = globalThis.fetch;
@@ -84,12 +110,14 @@ try {
     return new Response(await load(relative(assets, fileURLToPath(url))), { status: 200 });
   };
   assert.deepEqual(await versionedBuild(snapshot), recovered, 'Versioned asset URLs changed the project bytes');
+  assert.deepEqual(await versionedBuild(nodeSnapshot), nodeRecovered, 'Versioned asset URLs changed the Node project bytes');
   assert(fetched.length > 0 && fetched.every(url => url.search === '?v=cache-check'), 'Project assets lost their cache generation');
 } finally {
   globalThis.fetch = originalFetch;
 }
 const result = { ok: true, cases, checks: ['ZIP replay is byte-identical', 'Unsafe and duplicate archive filenames are rejected',
   'Changed font bytes reject the export', 'Asset failure rejects the export and a subsequent attempt succeeds',
-  'Project assets preserve the module URL cache generation'] };
+  'Project assets preserve the module URL cache generation', 'Python and Node exports preserve replay and failure recovery',
+  'Unsupported languages and stale Node engine/package locks are rejected'] };
 await writeFile(join(output, 'export-verification.json'), JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify(result));

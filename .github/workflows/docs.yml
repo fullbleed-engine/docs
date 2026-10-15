@@ -462,11 +462,15 @@ jobs:
           python -m pip install fullbleed==2.5.22 pypdf==6.19.0
           node tools/verify_project_export.mjs
           python -I tools/verify_project_export.py
+          python -I tools/verify_node_project_export.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playground-project-verification
-          path: playground/project-verification
+          path: |
+            playground/project-verification
+            !playground/project-verification/**/node_modules/**
+            !playground/project-verification/node-npm-cache/**
           retention-days: 7
       - name: Compile and render the Rust quickstart examples
         run: python tools/verify_rust_examples.py
