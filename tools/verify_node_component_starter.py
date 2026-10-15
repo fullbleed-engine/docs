@@ -11,6 +11,7 @@ import tempfile
 import zipfile
 
 from pypdf import PdfReader
+from component_style_checks import JAVASCRIPT_RENDER, inspect_style_pdfs, styling_blocks
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'docs/assets/node-components'
@@ -90,8 +91,23 @@ def main():
             records.append({'guide': name, 'source_sha256': sha256(code.encode()).hexdigest(),
                 'pdf_sha256': sha256((destination / 'invoice.pdf').read_bytes()).hexdigest(), 'text_verified': True,
                 'extracted_text': extracted, 'whitespace_normalized_checks': True})
+        style_source = '\n'.join(styling_blocks(guide, 'tsx'))
+        style_module = project / 'guide-styles.tsx'
+        style_module.write_text(style_source + '\nexport { payment, styledNotice };\n', encoding='utf-8')
+        run('style-types', [project / 'node_modules/typescript/bin/tsc', '--ignoreConfig', '--noEmit', '--strict',
+            '--target', 'ES2022', '--module', 'NodeNext', '--moduleResolution', 'NodeNext',
+            '--jsx', 'react-jsx', '--skipLibCheck', style_module])
+        script = project / 'guide-styles-render.tsx'
+        script.write_text(style_source + JAVASCRIPT_RENDER, encoding='utf-8')
+        compiled = project / 'guide-styles-render.mjs'
+        run('compile-style-guide', [project / 'node_modules/esbuild/bin/esbuild', script,
+            '--bundle', '--packages=external', '--platform=node', '--format=esm', '--jsx=automatic', '--outfile=' + str(compiled)])
+        destination = out / 'guide-styles'; destination.mkdir(exist_ok=True)
+        run('guide-styles', [compiled], destination)
+        style_report = inspect_style_pdfs(destination)
     report = {'ok': True, 'package': manifest['package'], 'engine': manifest['engine'],
-              'zip_sha256': manifest['zip_sha256'], 'published_pdf_png_equal': True, 'records': records}
+              'zip_sha256': manifest['zip_sha256'], 'published_pdf_png_equal': True,
+              'records': records, 'class_styling': style_report}
     (out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report))
 
