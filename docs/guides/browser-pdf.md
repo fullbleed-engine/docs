@@ -16,6 +16,8 @@ Your application can download the result without a PDF server or service account
 The starter includes a designed invoice and a three-page community report.
 Change the customer, reference, and ink color, or open **Edit the HTML & CSS** to
 paste your own template. Generate a preview, then download the actual PDF.
+Use **Save HTML** and **Save CSS** beneath the editor to keep your template edits.
+The **Download starter** link in the demo opens the complete application project.
 All sample names, organizations, and amounts are fictional.
 
 The downloadable starter uses **npm package 0.4.1**, wrapping **Fullbleed engine 2.5.22**.
@@ -60,9 +62,12 @@ Open the localhost URL printed by Vite. The first render loads the engine and
 fonts from your development server. Document inputs are sent to the worker in
 the same browser; this starter does not upload them to a rendering service.
 
-The HTML/CSS editor keeps changes in the tab until reload. To keep a template,
-edit `src/invoice.html`, `src/invoice.css`, `src/report.html`, or `src/report.css`
-in the downloaded project. The invoice uses `{{customer}}` and `{{reference}}`
+The HTML/CSS editor keeps changes in the tab until reload. Choose **Save HTML**
+and **Save CSS** to download the selected template's current source. The files
+keep your edits and placeholders, even if you have not rendered them yet or the
+last render failed. Put the saved `invoice.html` / `invoice.css` or
+`report.html` / `report.css` in the downloaded project's `src/` folder. You can
+also edit those project files directly. The invoice uses `{{customer}}` and `{{reference}}`
 in HTML and `{{ink}}` in CSS; `src/main.js` fills those values and escapes text.
 Replace the fictional line items and calculations when building your application.
 
