@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2522">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=node-project-050">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -16,7 +16,11 @@ hide:
   </div>
   <div class="pg-toolbar">
     <div class="pg-picker"><label for="pg-example">Start with</label><select id="pg-example" disabled><option value="invoice">Northstar invoice</option><option value="report">Common Ground report</option><option value="notice">Riverton notice</option></select></div>
-    <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a><button id="pg-project" disabled>Download project</button></div>
+    <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a></div>
+  </div>
+  <div class="pg-export">
+    <div class="pg-picker"><label for="pg-project-language">Project language</label><select id="pg-project-language" disabled><option value="python">Python</option><option value="node">Node.js</option></select></div>
+    <button id="pg-project" disabled>Download project</button>
   </div>
   <div class="pg-workspace">
     <section class="pg-editor" aria-label="Document source">
@@ -40,18 +44,33 @@ hide:
 
 ## Keep building
 
-Choose **Download project** to keep your current HTML/CSS, all bundled fonts and
-licenses, pinned requirements, and a Python renderer in one ZIP. Extract it into
-a folder, open a terminal there, and run:
+Choose **Python** or **Node.js** under **Project language**, then **Download
+project** to keep your current HTML/CSS, bundled fonts and licenses, pinned
+dependencies, and a renderer in one ZIP. Extract it into a folder, open a
+terminal there, and run:
 
-```bash
-python -m pip install -r requirements.txt
-python render.py
-```
+=== "Python"
+
+    Use a Python 3.10 or newer virtual environment.
+
+    ```bash
+    python -m pip install -r requirements.txt
+    python render.py
+    ```
+
+=== "Node.js"
+
+    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.5.0 and its dependency.
+
+    ```bash
+    npm ci --ignore-scripts
+    npm run render
+    ```
 
 Open `output/document.pdf`; PNG previews are in `output/preview/`. Edit
 `input.html` or `style.css`, then run the script again. The project uses Fullbleed
-2.5.22 to match this demo. Use a Python 3.10 or newer virtual environment. The ZIP
+engine 2.5.22 to match this demo. The Node renderer preserves your CSS with
+`defaultStyles: false`. The ZIP
 is assembled on your device, using the source present when you click the button.
 It does not upload your document.
 
@@ -68,6 +87,7 @@ For the other examples, replace `invoice` in the input filenames with `report`
 or `notice`. You can keep editing and add `--watch` to rebuild after each save.
 
 [Use Fullbleed in Python](getting-started/quickstart.md){ .md-button .md-button--primary }
+[Use Fullbleed in Node.js](getting-started/node.md){ .md-button }
 [Use Fullbleed in Rust](getting-started/rust.md){ .md-button }
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
@@ -84,16 +104,17 @@ the bundled substitute fonts used for those faces.
 
 This demo handles up to **6 pages and 200 KB of HTML/CSS**, with a 30-second render
 limit. These are playground limits; the local
-Python and Rust packages support larger jobs. Sample organizations and data are
+Python, Node.js, and Rust packages support larger jobs. Sample organizations and data are
 fictional.
 
 [Playground source and verification](https://github.com/fullbleed-engine/docs/tree/main/playground)
 · [Build record](assets/playground/build.json)
 · [Native/WASI fixture checks](assets/playground/verification.json)
 · [Project download checks](assets/playground/project-verification.json)
+· [Node project checks](assets/playground/node-project-verification.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=engine-2522"></script>
+<script type="module" src="../assets/playground/app.js?v=node-project-050"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.

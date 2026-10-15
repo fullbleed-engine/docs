@@ -4,7 +4,7 @@ An optional static website adapter for the unchanged published `fullbleed = 2.5.
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
-from that finalized file. Downloaded Python projects use the same preview path.
+from that finalized file. Downloaded Python and Node.js projects use the same preview path.
 
 The browser fetches fixed engine/font/example assets from the docs site. User
 HTML/CSS is passed to a worker and an in-memory filesystem; it is never inserted
@@ -14,7 +14,7 @@ through to the host machine. Sources are kept in tab memory, without localStorag
 
 ## Reproduce
 
-Install Rust with the `wasm32-wasip1` target, Node 20 or newer, Python, and the
+Install Rust with the `wasm32-wasip1` target, Node 22 or newer, Python, and the
 root documentation requirements. Then from the repository root:
 
 ```sh
@@ -37,7 +37,7 @@ centers, and a decorated floated initial; checks expected gradient colors and vi
 standard-font row; and exercises source/page limits and
 recovery. `tools/check_playground_ui.py` exercises the built page, checks the four
 layout cases against independent PDF text and color probes, downloads edited
-PDFs and a project ZIP, and verifies pagination, source/page limits, cancellation,
+PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
 recovery, and 1440/390/320px layouts. CI retains the PDFs, previews, and screenshots.
 These checks establish the recorded fixtures only, not universal platform parity
 or ISO conformance.
@@ -45,11 +45,14 @@ or ISO conformance.
 ## Continue locally
 
 **Download project** captures the current editor values into a ZIP with the
-fonts and their licenses, requirements pinned to the built engine version, a
-Python runner, and a file-hash manifest. Exporting uses only static GET requests
+fonts and their licenses, dependencies pinned to the built engine version, a
+Python or Node.js runner, and a file-hash manifest. The Node project locks
+`fullbleed@0.5.0` (engine 2.5.22), uses `defaultStyles: false` to retain the
+template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
+`npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
 click, including edits that have not been rendered. Later edits do not change an
-export already in progress. A separate download status leaves rendering usable
+export already in progress, including its selected language. A separate download status leaves rendering usable
 when a project asset fails to load.
 
 The ZIP uses stored entries and requires no extra browser library. Font bytes
@@ -60,14 +63,21 @@ building the playground, verify the complete handoff with:
 python -m pip install fullbleed==2.5.22 pypdf==6.19.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
+python -I tools/verify_node_project_export.py
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
-replay, failure recovery, and Python/WASI PDF and PNG equality for the invoice,
+replay, failure recovery, and Python/Node/WASI PDF and PNG equality for the invoice,
 report, notice, an edited invoice, three gradient cases, and the standard-font
-fixture, plus the four layout cases above. An independent PDF reader verifies that all 12 font faces remain
+fixture, plus the four layout cases above and six font-cascade cases covering
+defaults, inheritance, specificity, and layers. An independent PDF reader verifies that all 12 font faces remain
 unembedded and their text is intact. Extracted projects run from paths with
-spaces and a different current working directory. Results are retained in
+spaces and a different current working directory. Node dependencies are installed
+from the public registry once, then from a local npm cache with the unchanged
+lockfile for the other projects. The UI check holds an actual asset response while
+changing the source and selected language, then verifies that the downloaded ZIP
+retains the original snapshot. It also simulates an asset failure and recovers.
+Results are retained in
 `playground/project-verification`.
 
 The adapter limits sources to 200,000 UTF-8 bytes, documents to six pages, WASM

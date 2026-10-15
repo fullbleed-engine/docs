@@ -29,6 +29,7 @@ reference = json.loads((root / 'assets/playground/verification.json').read_text(
 prefix = '/nested/docs/'
 checks, network, errors, documents = [], [], [], []
 paused, requested, released = threading.Event(), threading.Event(), threading.Event()
+project_paused, project_requested, project_released, project_failed = [threading.Event() for _ in range(4)]
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -47,6 +48,13 @@ class Handler(SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_GET(self):
+        if urlsplit(self.path).path.endswith('/project/node/render.mjs'):
+            if project_failed.is_set():
+                self.send_error(503, 'Synthetic export asset failure')
+                return
+            if project_paused.is_set():
+                project_requested.set()
+                project_released.wait(15)
         if paused.is_set() and urlsplit(self.path).path.endswith('/playground/fullbleed.wasm'):
             requested.set()
             released.wait(15)
@@ -129,6 +137,7 @@ try:
                 page.set_viewport_size({'width': width, 'height': height})
                 check(f'{width}px: page fits the viewport', page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
                 page.screenshot(path=str(out / f'width-{width}.png'), full_page=True)
+                page.locator('.pg-export').screenshot(path=str(out / f'export-controls-{width}.png'))
             page.set_viewport_size({'width': 1440, 'height': 1000})
             verify_engine_fixes(page, out, check, ready, manual=True,
                                 html_selector='#pg-html', css_selector='#pg-css',
@@ -157,6 +166,49 @@ try:
                       all(hashlib.sha256(archive.read(item['path'])).hexdigest() == item['sha256']
                           and len(archive.read(item['path'])) == item['bytes'] for item in record['files']))
             page.screenshot(path=str(out / 'edited-template.png'), full_page=True)
+            page.locator('#pg-project-language').select_option('node')
+            project_paused.set()
+            with page.expect_download() as event:
+                page.locator('#pg-project').click()
+                assert project_requested.wait(8), 'Expected an actual Node project asset request.'
+                check('export prepares without locking the editor', page.locator('#pg-project').is_disabled() and page.locator('#pg-render').is_enabled())
+                edit(html + '\n<!-- Typed during download -->', css)
+                page.locator('#pg-project-language').select_option('python')
+                project_paused.clear()
+                project_released.set()
+            node_project = out / 'edited-node-project.zip'
+            event.value.save_as(node_project)
+            check('Node project has a distinct download filename', event.value.suggested_filename == 'fullbleed-invoice-node-project.zip')
+            with zipfile.ZipFile(node_project) as archive:
+                check('Node download preserves the source and language at click time',
+                      archive.read('input.html').decode('utf-8') == html and archive.read('style.css').decode('utf-8') == css
+                      and 'render.mjs' in archive.namelist() and 'render.py' not in archive.namelist())
+                check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
+                pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
+                check('Node package and lock use the matching published engine',
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.5.0'
+                      and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
+                check('Node manifest verifies every source, font, license and dependency file',
+                      {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}
+                      and all(hashlib.sha256(archive.read(item['path'])).hexdigest() == item['sha256']
+                              and len(archive.read(item['path'])) == item['bytes'] for item in record['files']))
+            expect(page.locator('#pg-project-status')).to_contain_text('source and language from when you clicked')
+            edit(html, css)
+            page.locator('#pg-render').click()
+            ready()
+            page.locator('#pg-project-language').select_option('node')
+            project_failed.set()
+            page.locator('#pg-project').click()
+            expect(page.locator('#pg-project-status')).to_have_attribute('data-error', 'true')
+            check('project asset failure preserves the usable renderer and PDF',
+                  page.locator('#pg-project').is_enabled() and page.locator('#pg-render').is_enabled()
+                  and page.locator('#pg-download').get_attribute('href').startswith('blob:'))
+            project_failed.clear()
+            with page.expect_download() as event:
+                page.locator('#pg-project').click()
+            recovered_project = out / 'recovered-node-project.zip'
+            event.value.save_as(recovered_project)
+            check('Node download recovers with identical bytes after asset failure', recovered_project.read_bytes() == node_project.read_bytes())
             edit('x' * 200001, '')
             page.locator('#pg-render').click()
             expect(page.locator('#pg-status')).to_contain_text('200 KB')
@@ -192,6 +244,7 @@ try:
                       'browser': browser.version, 'browserEngine': args.browser, 'playwright': version('playwright'),
                       'engine': manifest['engine'], 'checks': checks, 'documents': documents,
                       'projectSha256': hashlib.sha256(project.read_bytes()).hexdigest(), 'network': network, 'errors': errors,
+                      'nodeProjectSha256': hashlib.sha256(node_project.read_bytes()).hexdigest(),
                       'scope': 'Owned browser, synthetic source, real built page at a nested path; downloaded PDFs and project ZIP.'}
             (out / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')
         except Exception:
@@ -203,6 +256,7 @@ try:
             browser.close()
 finally:
     released.set()
+    project_released.set()
     server.shutdown()
     server.server_close()
     thread.join(timeout=5)
