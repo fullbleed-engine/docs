@@ -5,9 +5,16 @@ import re
 
 STARTERS = {
     'browser': {'name': 'JavaScript', 'stack': 'JavaScript + Vite', 'entry': 'src%2Fmain.js', 'run': 'run-the-starter'},
-    'react': {'name': 'React', 'stack': 'React + TypeScript', 'entry': 'src%2FApp.tsx', 'run': 'run-the-project'},
+    'react': {'name': 'React', 'stack': 'React + TypeScript', 'entry': 'src%2Fdocuments%2FInvoice.tsx', 'run': 'run-the-project',
+              'authoring': 'PDF components + JSX',
+              'description': 'Typed PDF components, editable invoice data and local previews. MIT licensed; fictional sample data.',
+              'lead': 'Open the complete project, edit the JSX document and its styles, and watch the PDF update. Start with a component-authored invoice and editable line items.'},
     'vue': {'name': 'Vue', 'stack': 'Vue + TypeScript', 'entry': 'src%2FDocumentEditor.vue', 'run': 'run-the-project'},
 }
+
+
+def starter_description(flavor):
+    return STARTERS[flavor].get('description', 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.')
 
 
 def check_online_links(root, flavor):
@@ -21,7 +28,7 @@ def check_online_links(root, flavor):
 def write_online_launcher(root, flavor, manifest, project_files):
     starter = STARTERS[flavor]
     fields = {'project[title]': f'Fullbleed {starter["name"]} PDF starter',
-        'project[description]': 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.',
+        'project[description]': starter_description(flavor),
         'project[template]': 'node', 'project[dependencies]': '{}'}
     fields.update({f'project[files][{name}]': value for name, value in sorted(project_files.items())})
     inputs = '\n'.join(f'<input type="hidden" name="{escape(name, quote=True)}" value="{escape(value, quote=True)}">'
@@ -30,6 +37,8 @@ def write_online_launcher(root, flavor, manifest, project_files):
     # Insert project text last so placeholder-like strings inside source files stay intact.
     for token, value in {'__FLAVOR__': flavor, '__STARTER_NAME__': starter['name'],
         '__STACK__': starter['stack'], '__ENTRY_FILE__': starter['entry'], '__RUN_SECTION__': starter['run'],
+        '__AUTHORING__': starter.get('authoring', 'HTML + CSS'),
+        '__LEAD__': starter.get('lead', 'Open the complete project, change a template, and watch your PDF take shape. Start with a designed invoice or a three-page report.'),
         '__PACKAGE_VERSION__': manifest['package_version'], '__ENGINE_VERSION__': manifest['engine_version']}.items():
         assert token in launcher
         launcher = launcher.replace(token, escape(value, quote=True))

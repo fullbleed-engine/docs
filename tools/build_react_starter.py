@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
+import re
 import shutil
 import subprocess
 import tempfile
@@ -49,7 +50,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
 project = workspace / 'fullbleed-react-starter'
 package = json.loads((project / 'package.json').read_text())
 lock = json.loads((project / 'package-lock.json').read_text())
-assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.5.1'
+assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.6.0'
 assert package['devDependencies']['vite'] == '8.3.2'
 assert package['dependencies']['react'] == package['dependencies']['react-dom'] == manifest['react_version']
 assert lock['packages']['node_modules/fullbleed']['integrity'] == manifest['package_integrity']
@@ -58,10 +59,16 @@ empty = out / 'empty.npmrc'; empty.write_text('', encoding='utf-8')
 env = {**os.environ, 'PATH': str(node.parent) + os.pathsep + os.environ['PATH'],
     'NPM_CONFIG_USERCONFIG': str(empty), 'NPM_CONFIG_CACHE': str(workspace / 'cache'),
     'NPM_CONFIG_REGISTRY': 'https://registry.npmjs.org/'}
+guide_examples = re.findall(r'```tsx\n(.*?)```', (ROOT / 'docs/guides/react-pdf.md').read_text(encoding='utf-8'), re.S)
+assert len(guide_examples) == 1
+guide_source = project / 'src/GuideExampleCheck.tsx'
+assert not guide_source.exists()
+guide_source.write_text(guide_examples[0], encoding='utf-8', newline='\n')
 for name, arguments in [('install', ['ci', '--ignore-scripts', '--no-audit', '--no-fund']), ('build', ['run', 'build'])]:
     with (out / (name + '.log')).open('w', encoding='utf-8') as log:
         subprocess.run([str(node), str(npm), *arguments], cwd=project, env=env,
             stdout=log, stderr=subprocess.STDOUT, check=True)
+guide_source.unlink()
 installed = project / 'node_modules/fullbleed'
 assert json.loads((installed / 'package.json').read_text())['version'] == manifest['package_version']
 runtime = json.loads((project / 'dist/fullbleed/build.json').read_text())
@@ -83,6 +90,7 @@ record = dict(ok=True, checked_at=datetime.now(timezone.utc).isoformat(),
     online_editor_sha256=digest(launcher_path.read_bytes()), online_editor_files=len(project_files),
     node=subprocess.check_output([str(node), '--version'], text=True).strip(),
     fresh_cache=True, empty_user_config=True, files=files,
+    guide_tsx_typechecked=True, guide_tsx_sha256=digest(guide_examples[0].encode()),
     scope='Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files.')
 (out / 'verification.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
 print(json.dumps(dict(ok=True, files=len(files), package=manifest['package_version'], zip_sha256=manifest['zip_sha256'])))

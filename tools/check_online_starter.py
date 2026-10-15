@@ -10,7 +10,7 @@ from urllib.parse import parse_qs
 import zipfile
 
 from playwright.sync_api import sync_playwright, expect
-from online_starter import STARTERS
+from online_starter import STARTERS, starter_description
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
@@ -27,7 +27,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
     expected = {f'project[files][{name.removeprefix(prefix)}]': archive.read(name).decode('utf-8') for name in archive.namelist()}
 title = f'Fullbleed {STARTERS[flavor]["name"]} PDF starter'
 expected.update({'project[title]': title,
-    'project[description]': 'Editable HTML/CSS templates and local PDF previews. MIT licensed; fictional sample data.',
+    'project[description]': starter_description(flavor),
     'project[template]': 'node', 'project[dependencies]': '{}'})
 
 class Handler(SimpleHTTPRequestHandler):

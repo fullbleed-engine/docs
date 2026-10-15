@@ -12,7 +12,9 @@ renderer; you do not need to write HTML strings or install React.
 
 The complete workflow uses **fullbleed 0.6.0**, wrapping engine **2.5.24**.
 
-[Download the complete project](../assets/node-components/project.zip){ .md-button .md-button--primary }
+[Try the component invoice in React](../assets/react-demo/index.html){ .md-button .md-button--primary }
+
+[Download the complete project](../assets/node-components/project.zip){ .md-button }
 [Open the component invoice](../assets/node-components/invoice.pdf){ .md-button }
 
 [![A component-authored invoice with forest-green typography, progress bars and a total panel.](../assets/node-components/page-1.png)](../assets/node-components/invoice.pdf)
@@ -78,7 +80,9 @@ const result = await renderDocument(<Invoice customer="Maple & Finch" />, render
 
 For a whole document project, TypeScript options are `"jsx": "react-jsx"` and
 `"jsxImportSource": "fullbleed/ui"`. Development JSX (`react-jsxdev`) and
-CommonJS are supported. JSX expressions use `renderDocument` because their
+CommonJS are supported. The [React starter](react-pdf.md) connects a composed
+document to a live preview and configures Vite so print TSX and style edits
+refresh the PDF. JSX expressions use `renderDocument` because their
 TypeScript type can represent a document, element, fragment or text.
 
 This is React-inspired synchronous composition for print output. React hooks,
