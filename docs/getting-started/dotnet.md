@@ -1,12 +1,13 @@
 ---
-title: Generate PDFs from C# and .NET with HTML and CSS
-description: Install FullBleed.DotNet from NuGet, render a PDF from C#, and run a designed invoice with explicit fonts and PNG previews. No browser or Python runtime is needed for native rendering.
+title: Generate PDFs from C# components and .NET
+description: Install FullBleed.DotNet from NuGet, compose PDFs with C# components and styles, and run a designed invoice with explicit fonts and PNG previews. No browser or Python runtime is needed for native rendering.
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.1.8)
-brings Fullbleed's Rust rendering engine into a .NET process. Use static HTML
-and CSS to create invoices, reports, and variable-data documents. Native
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.0)
+brings Fullbleed's Rust rendering engine into a .NET process. Compose invoices
+and reports with ordinary C# methods, named components and reusable styles,
+or use existing HTML/CSS templates. Native
 rendering needs neither Python nor a browser.
 
 ## Install and render your first PDF
@@ -16,27 +17,41 @@ With the .NET 10 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.1.8
+dotnet add package FullBleed.DotNet --version 0.2.0
 ```
 
 Replace `Program.cs` with:
 
 ```csharp
 using FullBleed.DotNet;
+using FullBleed.DotNet.UI;
+using static FullBleed.DotNet.UI.Components;
 
+var invoice = new Document(
+    Heading(1, "Invoice INV-1042").WithClass("invoice-title"),
+    Paragraph("Consulting: USD 1,200.00")
+)
+{
+    Styles = new StyleSheet
+    {
+        ["@page"] = new Style { ["size"] = "A4", ["margin"] = "20mm" },
+        [".invoice-title"] = new Style { ["color"] = "#175c52" },
+    },
+};
 using var engine = new FullBleedEngine(new FullBleedEngineOptions
 {
     DocumentLanguage = "en-US",
     DocumentTitle = "Invoice INV-1042",
 });
-
-var html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>";
-var css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }";
-File.WriteAllBytes("invoice.pdf", engine.RenderPdf(html, css));
-
+invoice.RenderPdfToFile(engine, "invoice.pdf");
 var inspection = FullBleedEngine.InspectPdf("invoice.pdf");
 Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
 ```
+
+`WithClass("invoice-title")` labels the heading. The `.invoice-title` rule in
+`Document.Styles` makes it green; the class name alone adds no styling.
+Read [class names and styles](../guides/csharp-components.md#class-names-and-styles)
+for shared stylesheets, reusable components and inline overrides.
 
 Run `dotnet run` and open `invoice.pdf` in the project directory. You can also
 return the bytes from an HTTP handler or write them to your own storage.
@@ -50,31 +65,28 @@ The package's managed library targets `net8.0`; your application can target
 Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.22.
 The managed assembly has no third-party NuGet runtime dependencies.
 
-Version 0.1.8 includes fixes for counter scopes, filtered clipping, border-image
-tiling and floated first letters. The release gate checks thirteen layouts through
-direct and compiled rendering against independent text, color and browser
-geometry expectations. Public 0.1.7 fails 24 of those 26 outputs; the two healthy
-controls retain identical PDFs, previews and text. Review saved PDF baselines
-when upgrading templates that use these features.
-[Inspect the 0.1.8 evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.8).
+Version 0.2.0 adds the component API without changing the pinned engine or existing
+HTML/CSS rendering API. The release checks 14 component fixtures, including
+class and inline-style controls, paid/empty/credit invoices, a 40-row invoice,
+compiled bindings and batches. The same package is exercised on .NET 8, 9 and
+10 across all four native platforms.
+[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.0).
 
-Use .NET 10 LTS for a new application. Microsoft lists November 10, 2026 as
-the end of support for .NET 8 and 9 in its
-[support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core).
-Existing .NET 8 and 9 projects can use the same package and C# API.
-The [package verification workflow](https://github.com/fullbleed-engine/fullbleed-dotnet/actions/workflows/ci.yml)
-checks the actual runtime and compares fixture PDFs and previews across all
-three .NET versions and the four native platforms.
+## Download a component invoice
 
-Version 0.1.6 also checks 52 font fixtures across those twelve consumers:
-Helvetica, Times and Courier in their regular/bold/italic variants, plus an
-embedded-font control, through ordinary and compiled rendering. A separate
-Linux check hides system fonts and rejects the blank previews from public
-0.1.5. The corrected previews retain the same PDF bytes and embedded-font
-controls. These checks cover the retained fixtures, not every font or document.
-[Inspect the 0.1.6 evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.6).
+The [C# component project](../guides/csharp-components.md) uses typed records,
+reusable fields and table rows, shared style objects and explicitly registered
+fonts. Its complete source is included in a standalone download.
 
-## Run a designed invoice
+[![A component invoice with blue typography and an amount-due panel.](../assets/dotnet-components/page-1.png)](../assets/dotnet-components/invoice.pdf)
+
+[Download the project](../assets/dotnet-components/project.zip){ .md-button .md-button--primary }
+[Learn C# components](../guides/csharp-components.md){ .md-button }
+
+Extract it, run `dotnet restore --locked-mode`, then
+`dotnet run -c Release --no-restore -- output`.
+
+## Use an existing HTML/CSS design
 
 The Northstar sample combines explicit fonts, CSS grid, tables, print
 dimensions, color, and typographic hierarchy. Its text and business details
@@ -83,20 +95,6 @@ are fictional.
 [![Northstar invoice rendered from C#, with cream paper, dark green typography, and a large total panel.](../assets/showcase/invoice-dotnet.png)](../assets/showcase/invoice-dotnet.pdf)
 
 [Open the PDF generated from C#](../assets/showcase/invoice-dotnet.pdf).
-
-Version 0.1.5 fixes wrapping after styled inline text and the widths of tracked
-labels in flex and inline-block layouts. The release checks 54 layout cases
-through ordinary and compiled rendering, including a comparison that rejects
-44 defective cases in the previous package. The invoice retains its intended
-regular brand face; its corrected spacing is checked against a reviewed PDF
-and preview baseline. Review saved outputs when upgrading affected templates.
-[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.5).
-
-The earlier [0.1.3 comparison](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.1.3)
-measured font compaction from 81,227 to 34,542 bytes for that older output. Those
-historical numbers describe a different rendered appearance. Read
-[how font compaction works](../guides/pdf-size.md) or the
-[font-family upgrade guide](../engine/font-registration.md).
 
 Clone the documentation repository and run the example with .NET 10:
 
@@ -116,25 +114,33 @@ or [browse the document assets](https://github.com/fullbleed-engine/docs/tree/ma
 
 ## Register fonts and inspect the result
 
-The sample registers every font used by its CSS before rendering:
+In the downloaded component project, replace `Program.cs` with this version to
+register its bundled fonts and check the result before writing it:
 
 ```csharp
+using FullBleed.ComponentInvoice;
+using FullBleed.DotNet;
+
+var document = InvoiceDocument.Create(InvoiceDocument.Example);
 using var engine = new FullBleedEngine(new FullBleedEngineOptions
 {
-    Assets = Directory.GetFiles("fonts", "*.ttf")
+    DocumentLanguage = document.Language,
+    DocumentTitle = document.Title,
+    Assets = Directory.GetFiles(Path.Combine(AppContext.BaseDirectory, "Assets/fonts"), "*.ttf")
         .Order(StringComparer.Ordinal)
         .Select(path => FullBleedAsset.FromPath(path, FullBleedAssetKind.Font))
         .ToList(),
 });
 
-var result = engine.RenderPdfWithDiagnostics(html, css);
+var result = document.RenderPdfWithDiagnostics(engine);
 if (result.Diagnostics.MissingGlyphs.Count != 0)
 {
     throw new InvalidOperationException("The supplied fonts do not cover every character.");
 }
-File.WriteAllBytes("invoice.pdf", result.Pdf);
+Directory.CreateDirectory("output");
+File.WriteAllBytes("output/invoice.pdf", result.Pdf);
 
-engine.RenderImagePagesToDirectory(html, css, "preview", dpi: 96, stem: "invoice");
+document.RenderImagePagesToDirectory(engine, "output/preview", dpi: 96, stem: "invoice");
 ```
 
 Keep the font notices when redistributing the assets. The PDF and PNG calls
@@ -160,13 +166,13 @@ document and retain the relevant verification evidence before making an
 accessibility, archival, or print-standard claim.
 
 For a web application, download the [ASP.NET Core PDF starter](../guides/aspnet-pdf.md).
-For tagged output, use the [C# library-notice starter](../guides/csharp-tagged-pdf.md)
-with PDF/UA profiles and independent validation.
 It includes a download page, styled invoice, private responses, and checks against
 the published application artifact.
+For tagged output, use the [C# library-notice starter](../guides/csharp-tagged-pdf.md)
+with PDF/UA profiles and independent validation.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.1.8/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.8/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.0/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.0/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)

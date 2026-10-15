@@ -19,7 +19,8 @@ The complete workflow uses **fullbleed 0.6.0**, wrapping engine **2.5.24**.
 
 [![A component-authored invoice with forest-green typography, progress bars and a total panel.](../assets/node-components/page-1.png)](../assets/node-components/invoice.pdf)
 
-Prefer Python? [Use the Python component workflow](python-components.md).
+Prefer [Python components](python-components.md) or [C# components](csharp-components.md)?
+Both guides cover reusable functions and explicit styling in those languages.
 
 ## JavaScript without a build step
 
