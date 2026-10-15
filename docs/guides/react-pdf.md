@@ -48,7 +48,7 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.4.1** / engine **2.5.22**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.5.1** / engine **2.5.24**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
@@ -79,7 +79,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.4.1
+npm install --save-exact fullbleed@0.5.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 

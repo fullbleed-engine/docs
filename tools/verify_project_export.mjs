@@ -27,7 +27,8 @@ const cases = [];
 const fixtures = [['invoice', 1], ['report', 3], ['notice', 1], ['invoice-edited', 1]].map(([name, pages]) => ({ name, pages }));
 fixtures.push(...gradientFixtures);
 fixtures.push(standardFontFixture);
-const editorCases = JSON.parse(await readFile(join(root, 'tools/starter-engine-2.5.22.json'), 'utf8')).cases;
+const editorCases = (await Promise.all(['2.5.22', '2.5.24'].map(async version =>
+  JSON.parse(await readFile(join(root, `tools/starter-engine-${version}.json`), 'utf8')).cases))).flat();
 fixtures.push(...editorCases);
 fixtures.push(...defaultStyleFixtures);
 for (const fixture of fixtures) {

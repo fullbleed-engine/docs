@@ -49,7 +49,7 @@ with zipfile.ZipFile(assets / 'project.zip') as archive:
 project = workspace / 'fullbleed-react-starter'
 package = json.loads((project / 'package.json').read_text())
 lock = json.loads((project / 'package-lock.json').read_text())
-assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.4.1'
+assert package['dependencies']['fullbleed'] == manifest['package_version'] == '0.5.1'
 assert package['devDependencies']['vite'] == '8.3.2'
 assert package['dependencies']['react'] == package['dependencies']['react-dom'] == manifest['react_version']
 assert lock['packages']['node_modules/fullbleed']['integrity'] == manifest['package_integrity']
@@ -65,7 +65,7 @@ for name, arguments in [('install', ['ci', '--ignore-scripts', '--no-audit', '--
 installed = project / 'node_modules/fullbleed'
 assert json.loads((installed / 'package.json').read_text())['version'] == manifest['package_version']
 runtime = json.loads((project / 'dist/fullbleed/build.json').read_text())
-assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.22'
+assert runtime['packageVersion'] == manifest['package_version'] and runtime['engineVersion'] == '2.5.24'
 assert runtime['engineFeatures'] == ['svg_raster']
 for name, expected in runtime['files'].items():
     value = (project / 'dist/fullbleed' / name).read_bytes()

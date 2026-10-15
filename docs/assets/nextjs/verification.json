@@ -1,8 +1,7 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-09T09:30:53.024903+00:00",
-  "sourceCommit": "eb66f753e58e0264a59d9cfc6a3dec7003231b8a",
-  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/37910537960",
+  "checkedAt": "2026-10-15T15:12:58.977712+00:00",
+  "sourceCommit": "c35351ec5eb38e76df61c5aa3c3ce52f3855f53b",
   "checks": [
     {
       "name": "standalone artifact is isolated from the source application",
@@ -73,212 +72,276 @@
       "passed": true
     }
   ],
-  "ciResults": [
-    {
-      "checkedAt": "2026-10-09T09:19:57.971Z",
-      "node": "v24.21.0",
-      "platform": "linux",
-      "next": "16.3.8",
-      "nodePackage": "0.4.1",
-      "engineVersion": "2.5.22",
-      "isolation": "process",
-      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
-      "pages": 1,
-      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-      "burst": [
-        200,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503
-      ],
-      "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
-      "artifact": "nextjs-ubuntu-latest-24"
-    },
-    {
-      "checkedAt": "2026-10-09T09:20:29.359Z",
-      "node": "v24.21.0",
-      "platform": "win32",
-      "next": "16.3.8",
-      "nodePackage": "0.4.1",
-      "engineVersion": "2.5.22",
-      "isolation": "process",
-      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
-      "pages": 1,
-      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-      "burst": [
-        200,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503
-      ],
-      "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
-      "artifact": "nextjs-windows-latest-24"
-    },
-    {
-      "checkedAt": "2026-10-09T09:20:05.405Z",
-      "node": "v22.23.3",
-      "platform": "linux",
-      "next": "16.3.8",
-      "nodePackage": "0.4.1",
-      "engineVersion": "2.5.22",
-      "isolation": "process",
-      "packageLockSha256": "3ce9260ce12072255c15241f11e25a8b84ab389464a56b08f98ccd3255b22fdf",
-      "pages": 1,
-      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-      "burst": [
-        200,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503,
-        503
-      ],
-      "scope": "Real next build standalone server with released Fullbleed npm package and fictional data; HTTP recovery after deliberate child failure. No hosted platform or application-authentication claim.",
-      "checksPassed": 17,
-      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
-      "artifact": "nextjs-ubuntu-latest-22"
-    }
-  ],
-  "downloadedStarter": {
-    "ok": true,
-    "checkedAt": "2026-10-09T09:25:01.422197+00:00",
-    "sourceCommit": "eb66f753e58e0264a59d9cfc6a3dec7003231b8a",
-    "downloadFiles": 18,
-    "projectZipSha256": "19465ff97c1408d7ac20b4f9ab56acb227551282536b9a90bf4fe0c437471afc",
+  "packageVersion": "0.5.1",
+  "engineVersion": "2.5.24",
+  "localVerification": {
     "node": "v22.23.3",
     "platform": "win32",
     "next": "16.3.8",
-    "nodePackage": "0.4.1",
-    "engineVersion": "2.5.22",
     "isolation": "process",
-    "commands": [
-      {
-        "name": "install",
-        "exitCode": 0
-      },
-      {
-        "name": "preview",
-        "exitCode": 0
-      },
-      {
-        "name": "build",
-        "exitCode": 0
-      },
-      {
-        "name": "verify",
-        "exitCode": 0
-      }
-    ],
+    "pages": 1,
     "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
-    "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
-    "checks": [
-      {
-        "name": "standalone artifact is isolated from the source application",
-        "passed": true
-      },
-      {
-        "name": "standalone tracing retains the verified engine and all bundled fonts",
-        "passed": true
-      },
-      {
-        "name": "isolated production server starts on loopback",
-        "passed": true
-      },
-      {
-        "name": "app exposes the sample download without a prefetched render",
-        "passed": true
-      },
-      {
-        "name": "standalone server includes the actual PDF preview asset",
-        "passed": true
-      },
-      {
-        "name": "production route returns complete private PDF bytes with a useful filename",
-        "passed": true
-      },
-      {
-        "name": "unknown invoice IDs return a private JSON error",
-        "passed": true
-      },
-      {
-        "name": "unsupported writes are rejected by the route",
-        "passed": true
-      },
-      {
-        "name": "a concurrent burst receives explicit capacity errors instead of an unbounded queue",
-        "passed": true
-      },
-      {
-        "name": "normal PDF downloads recover after a capacity burst",
-        "passed": true
-      },
-      {
-        "name": "a real missing-glyph failure returns a generic non-PDF error",
-        "passed": true
-      },
-      {
-        "name": "a valid document renders after an engine failure",
-        "passed": true
-      },
-      {
-        "name": "the route enforces its page cap against a real multipage document",
-        "passed": true
-      },
-      {
-        "name": "a valid document renders after the page limit rejects a job",
-        "passed": true
-      },
-      {
-        "name": "a failed render child returns an HTTP error while the production server stays alive",
-        "passed": true
-      },
-      {
-        "name": "the production server returns a valid PDF after a render-process failure",
-        "passed": true
-      },
-      {
-        "name": "client JavaScript excludes the server PDF engine and worker",
-        "passed": true
-      }
-    ],
-    "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
+    "packageLockSha256": "a48102d9affaa7d6f424b69835ea837737848abcfd321c8f5f12db88ad63de94"
   },
+  "scope": "Public npm 0.5.1 / engine 2.5.24; 17 isolated production-route checks on Linux Node 22/24 and Windows Node 24, matching sample PDF bytes, plus actual local Chrome downloads at desktop and narrow widths. No application authorization, hosted-capacity or PDF standards claim.",
+  "ciResults": [
+    {
+      "checkedAt": "2026-10-15T15:11:12.700Z",
+      "node": "v24.21.0",
+      "platform": "win32",
+      "next": "16.3.8",
+      "nodePackage": "0.5.1",
+      "engineVersion": "2.5.24",
+      "isolation": "process",
+      "packageLockSha256": "a48102d9affaa7d6f424b69835ea837737848abcfd321c8f5f12db88ad63de94",
+      "pages": 1,
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "checks": [
+        {
+          "name": "standalone artifact is isolated from the source application",
+          "passed": true
+        },
+        {
+          "name": "standalone tracing retains the verified engine and all bundled fonts",
+          "passed": true
+        },
+        {
+          "name": "isolated production server starts on loopback",
+          "passed": true
+        },
+        {
+          "name": "app exposes the sample download without a prefetched render",
+          "passed": true
+        },
+        {
+          "name": "standalone server includes the actual PDF preview asset",
+          "passed": true
+        },
+        {
+          "name": "production route returns complete private PDF bytes with a useful filename",
+          "passed": true
+        },
+        {
+          "name": "unknown invoice IDs return a private JSON error",
+          "passed": true
+        },
+        {
+          "name": "unsupported writes are rejected by the route",
+          "passed": true
+        },
+        {
+          "name": "a concurrent burst receives explicit capacity errors instead of an unbounded queue",
+          "passed": true
+        },
+        {
+          "name": "normal PDF downloads recover after a capacity burst",
+          "passed": true
+        },
+        {
+          "name": "a real missing-glyph failure returns a generic non-PDF error",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after an engine failure",
+          "passed": true
+        },
+        {
+          "name": "the route enforces its page cap against a real multipage document",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after the page limit rejects a job",
+          "passed": true
+        },
+        {
+          "name": "a failed render child returns an HTTP error while the production server stays alive",
+          "passed": true
+        },
+        {
+          "name": "the production server returns a valid PDF after a render-process failure",
+          "passed": true
+        },
+        {
+          "name": "client JavaScript excludes the server PDF engine and worker",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-15T15:10:31.692Z",
+      "node": "v24.21.0",
+      "platform": "linux",
+      "next": "16.3.8",
+      "nodePackage": "0.5.1",
+      "engineVersion": "2.5.24",
+      "isolation": "process",
+      "packageLockSha256": "a48102d9affaa7d6f424b69835ea837737848abcfd321c8f5f12db88ad63de94",
+      "pages": 1,
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "checks": [
+        {
+          "name": "standalone artifact is isolated from the source application",
+          "passed": true
+        },
+        {
+          "name": "standalone tracing retains the verified engine and all bundled fonts",
+          "passed": true
+        },
+        {
+          "name": "isolated production server starts on loopback",
+          "passed": true
+        },
+        {
+          "name": "app exposes the sample download without a prefetched render",
+          "passed": true
+        },
+        {
+          "name": "standalone server includes the actual PDF preview asset",
+          "passed": true
+        },
+        {
+          "name": "production route returns complete private PDF bytes with a useful filename",
+          "passed": true
+        },
+        {
+          "name": "unknown invoice IDs return a private JSON error",
+          "passed": true
+        },
+        {
+          "name": "unsupported writes are rejected by the route",
+          "passed": true
+        },
+        {
+          "name": "a concurrent burst receives explicit capacity errors instead of an unbounded queue",
+          "passed": true
+        },
+        {
+          "name": "normal PDF downloads recover after a capacity burst",
+          "passed": true
+        },
+        {
+          "name": "a real missing-glyph failure returns a generic non-PDF error",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after an engine failure",
+          "passed": true
+        },
+        {
+          "name": "the route enforces its page cap against a real multipage document",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after the page limit rejects a job",
+          "passed": true
+        },
+        {
+          "name": "a failed render child returns an HTTP error while the production server stays alive",
+          "passed": true
+        },
+        {
+          "name": "the production server returns a valid PDF after a render-process failure",
+          "passed": true
+        },
+        {
+          "name": "client JavaScript excludes the server PDF engine and worker",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "checkedAt": "2026-10-15T15:10:32.160Z",
+      "node": "v22.23.3",
+      "platform": "linux",
+      "next": "16.3.8",
+      "nodePackage": "0.5.1",
+      "engineVersion": "2.5.24",
+      "isolation": "process",
+      "packageLockSha256": "a48102d9affaa7d6f424b69835ea837737848abcfd321c8f5f12db88ad63de94",
+      "pages": 1,
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "checks": [
+        {
+          "name": "standalone artifact is isolated from the source application",
+          "passed": true
+        },
+        {
+          "name": "standalone tracing retains the verified engine and all bundled fonts",
+          "passed": true
+        },
+        {
+          "name": "isolated production server starts on loopback",
+          "passed": true
+        },
+        {
+          "name": "app exposes the sample download without a prefetched render",
+          "passed": true
+        },
+        {
+          "name": "standalone server includes the actual PDF preview asset",
+          "passed": true
+        },
+        {
+          "name": "production route returns complete private PDF bytes with a useful filename",
+          "passed": true
+        },
+        {
+          "name": "unknown invoice IDs return a private JSON error",
+          "passed": true
+        },
+        {
+          "name": "unsupported writes are rejected by the route",
+          "passed": true
+        },
+        {
+          "name": "a concurrent burst receives explicit capacity errors instead of an unbounded queue",
+          "passed": true
+        },
+        {
+          "name": "normal PDF downloads recover after a capacity burst",
+          "passed": true
+        },
+        {
+          "name": "a real missing-glyph failure returns a generic non-PDF error",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after an engine failure",
+          "passed": true
+        },
+        {
+          "name": "the route enforces its page cap against a real multipage document",
+          "passed": true
+        },
+        {
+          "name": "a valid document renders after the page limit rejects a job",
+          "passed": true
+        },
+        {
+          "name": "a failed render child returns an HTTP error while the production server stays alive",
+          "passed": true
+        },
+        {
+          "name": "the production server returns a valid PDF after a render-process failure",
+          "passed": true
+        },
+        {
+          "name": "client JavaScript excludes the server PDF engine and worker",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "sourceRun": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38757928483",
   "browser": {
     "ok": true,
-    "checkedAt": "2026-10-09T09:30:34.053843+00:00",
-    "browser": "154.0.8037.98",
-    "packageVersion": "0.4.1",
-    "engineVersion": "2.5.22",
-    "records": [
+    "checkedAt": "2026-10-15T15:14:40.340811+00:00",
+    "browser": "155.0.8059.40",
+    "package": "0.5.1",
+    "engine": "2.5.24",
+    "downloads": [
       {
         "width": 1440,
-        "download": "invoice-NS-1042.pdf",
         "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
         "keyboard": false,
         "horizontalOverflow": false,
@@ -286,7 +349,6 @@
       },
       {
         "width": 390,
-        "download": "invoice-NS-1042.pdf",
         "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
         "keyboard": false,
         "horizontalOverflow": false,
@@ -294,7 +356,6 @@
       },
       {
         "width": 320,
-        "download": "invoice-NS-1042.pdf",
         "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
         "keyboard": true,
         "horizontalOverflow": false,
@@ -302,6 +363,5 @@
       }
     ],
     "pageErrors": []
-  },
-  "scope": "Public npm 0.3.2; exact starter ZIP; retained isolated-server and real browser download checks. No application-authorization, hosted-capacity, or PDF standards claim."
+  }
 }

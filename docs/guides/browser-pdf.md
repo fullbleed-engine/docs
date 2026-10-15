@@ -20,18 +20,18 @@ Use **Save HTML** and **Save CSS** beneath the editor to keep your template edit
 The **Download starter** link in the demo opens the complete application project.
 All sample names, organizations, and amounts are fictional.
 
-The downloadable starter uses **npm package 0.4.1**, wrapping **Fullbleed engine 2.5.22**.
+The downloadable starter uses **npm package 0.5.1**, wrapping **Fullbleed engine 2.5.24**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
 Unembedded Helvetica, Times, and Courier faces produce visible PNG previews,
 including in templates pasted into the starter.
-The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/standard-font-previews.md)
+The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.5.1/docs/standard-font-previews.md)
 explains the substitute designs and upgrade checks. Run the asset-copy command
 again after upgrading so the browser receives the matching runtime and notices.
 
-Package **0.4.1** uses engine **2.5.22** and includes fixes for counters, clipping,
-border images, and floated initials. For an existing project, follow the
-[current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/browser.md)
+Package **0.5.1** uses engine **2.5.24**, including hidden script/style text and
+font-based decoration thickness fixes alongside the earlier layout fixes. For an existing project, follow the
+[current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.5.1/docs/browser.md)
 and recopy the browser runtime after upgrading.
 
 ## Edit the project online
@@ -77,7 +77,7 @@ Install the package and copy its runtime into the directory your framework
 serves as static files:
 
 ```sh
-npm install --save-exact fullbleed@0.4.1
+npm install --save-exact fullbleed@0.5.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -141,7 +141,7 @@ completion or cancellation requests worker termination before the promise settle
 Browsers do not expose a native thread-exit promise. Keep concurrent jobs bounded
 for the devices you support, especially when generating page previews.
 
-The [0.4.1 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.4.1)
+The [0.5.1 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.5.1)
 retains checks in Chrome, Firefox, and Playwright WebKit, including PDF/PNG
 comparison with the installed Node package, independent PDF text checks,
 cancellation, damaged assets, and recovery. Playwright WebKit is not branded
