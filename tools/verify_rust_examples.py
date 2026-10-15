@@ -88,7 +88,8 @@ for fixture in playground["fixtures"]:
         "name": name, "pages": expected_pages,
         "matches_playground_pdf_and_pngs": True, "sha256": hashes,
     })
-layout_cases = json.loads((ROOT / 'tools/starter-engine-2.5.22.json').read_text(encoding='utf-8'))['cases']
+layout_cases = [case for release in ['2.5.22', '2.5.24']
+                for case in json.loads((ROOT / f'tools/starter-engine-{release}.json').read_text(encoding='utf-8'))['cases']]
 expected_names = {'invoice', 'invoice-edited', 'report', 'notice', 'linear-gradient',
                   'translucent-gradient', 'hard-radial-gradient', 'standard-fonts'} | {case['name'] for case in layout_cases}
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
