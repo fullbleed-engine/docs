@@ -5,6 +5,11 @@ description: Build a React and TypeScript PDF editor with HTML/CSS templates, au
 
 # Generate PDFs in React
 
+For authoring the document itself with typed function components,
+[use the JavaScript components and JSX guide](javascript-components.md).
+A per-file JSX pragma selects Fullbleed for a dedicated print template while
+the rest of the app uses React. The editor below uses HTML/CSS templates.
+
 Connect a React form to a PDF preview with `fullbleed/browser`. Change a field
 or an HTML/CSS template and the actual PDF updates after a short pause. The
 engine renders in a browser worker; this starter needs no PDF server or account.

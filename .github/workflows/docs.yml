@@ -13,6 +13,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  node-components:
+    name: JavaScript component download (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pypdf==6.19.0
+      - name: Verify the actual JavaScript and TSX project download
+        run: |
+          python tools/build_node_component_starter.py
+          git diff --exit-code -- docs/assets/node-components/project.zip docs/assets/node-components/source.json
+          python tools/verify_node_component_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: node-component-download-${{ matrix.os }}
+          path: target/node-component-starter/
+          retention-days: 14
   components:
     name: Python component download (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -715,7 +744,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, components, node-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

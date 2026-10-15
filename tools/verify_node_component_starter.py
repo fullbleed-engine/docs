@@ -1,0 +1,100 @@
+"""Install and run the actual published component download, including guide snippets."""
+from hashlib import sha256
+from pathlib import Path
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import tempfile
+import zipfile
+
+from pypdf import PdfReader
+
+ROOT = Path(__file__).resolve().parents[1]
+ASSETS = ROOT / 'docs/assets/node-components'
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--node', default=shutil.which('node'))
+    parser.add_argument('--out', type=Path, default=ROOT / 'target/node-component-starter')
+    args = parser.parse_args()
+    node = Path(args.node).resolve()
+    npm = next(path for path in [node.parent / 'node_modules/npm/bin/npm-cli.js',
+        node.parent.parent / 'lib/node_modules/npm/bin/npm-cli.js'] if path.is_file())
+    out = args.out.resolve(); out.mkdir(parents=True, exist_ok=True)
+    env = {**os.environ, 'PATH': str(node.parent) + os.pathsep + os.environ['PATH']}
+    manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
+    assert manifest['package'] == 'fullbleed@0.6.0'
+    assert sha256((ASSETS / 'project.zip').read_bytes()).hexdigest() == manifest['zip_sha256']
+    records = []
+    with tempfile.TemporaryDirectory(prefix='component consumer with spaces ', dir=out) as temporary:
+        project = Path(temporary)
+        with zipfile.ZipFile(ASSETS / 'project.zip') as archive:
+            assert set(archive.namelist()) == {'fullbleed-node-components/' + row['path'] for row in manifest['files']}
+            for row in manifest['files']:
+                assert Path(row['path']).name == row['path']
+                data = archive.read('fullbleed-node-components/' + row['path'])
+                assert sha256(data).hexdigest() == row['sha256'] and len(data) == row['bytes']
+                (project / row['path']).write_bytes(data)
+
+        def run(name, command, cwd=project):
+            result = subprocess.run([str(node), *map(str, command)], cwd=cwd, env=env,
+                capture_output=True, text=True, encoding='utf-8', timeout=180)
+            (out / (name + '.log')).write_text(result.stdout + result.stderr, encoding='utf-8')
+            assert result.returncode == 0, (name, result.stdout + result.stderr)
+
+        run('install', [npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'])
+        installed = json.loads((project / 'node_modules/fullbleed/package.json').read_text(encoding='utf-8'))
+        assert installed['version'] == '0.6.0' and installed['fullbleed']['engineVersion'] == '2.5.24'
+        run('types', [npm, 'run', 'check'])
+        for command in ['pdf', 'pdf:tsx']:
+            run(command.replace(':', '-'), [npm, 'run', command])
+        for variant in ['functions', 'tsx']:
+            source = project / 'output' / variant
+            destination = out / variant
+            destination.mkdir(exist_ok=True)
+            for name in ['invoice.pdf', 'page-1.png', 'invoice.html', 'invoice.css', 'verification.json']:
+                shutil.copy2(source / name, destination / name)
+            for name, public in [('invoice.pdf', 'invoice.pdf'), ('page-1.png', 'page-1.png')]:
+                assert (source / name).read_bytes() == (ASSETS / public).read_bytes(), (variant, name)
+            receipt = json.loads((source / 'verification.json').read_text(encoding='utf-8'))
+            assert receipt['ok'] and receipt['pages'] == 1 and receipt['missingGlyphs'] == 0 and receipt['repeated_pdf_equal']
+            text = PdfReader(source / 'invoice.pdf').pages[0].extract_text()
+            assert all(value in text for value in ['Maple & Finch', '$8,100.00', 'Discovery & direction'])
+            records.append({'variant': variant, 'pdf_sha256': sha256((source / 'invoice.pdf').read_bytes()).hexdigest(), 'text_verified': True})
+        guide = (ROOT / 'docs/guides/javascript-components.md').read_text(encoding='utf-8')
+        snippets = [('functions', re.findall(r'```javascript\n(.*?)```', guide, re.S)[0], 'mjs'),
+                    ('tsx', re.findall(r'```tsx\n(.*?)```', guide, re.S)[0], 'tsx')]
+        for name, code, extension in snippets:
+            destination = out / ('guide-' + name); destination.mkdir(exist_ok=True)
+            if name == 'tsx':
+                code += "\nawait (await import('node:fs/promises')).writeFile('invoice.pdf', result.pdf);\n"
+            script = project / ('guide.' + extension)
+            script.write_text(code, encoding='utf-8')
+            if extension == 'tsx':
+                compiled = project / 'guide-tsx.mjs'
+                run('compile-guide', [project / 'node_modules/esbuild/bin/esbuild', script,
+                    '--bundle', '--packages=external', '--platform=node', '--format=esm', '--jsx=automatic', '--outfile=' + str(compiled)])
+                script = compiled
+            run('guide-' + name, [script], destination)
+            reader = PdfReader(destination / 'invoice.pdf')
+            assert len(reader.pages) == 1
+            extracted = reader.pages[0].extract_text()
+            # Per-glyph positioning for letter-spacing can produce extra reader
+            # whitespace. Keep the raw extraction and compare all authored glyphs.
+            compact = ''.join(extracted.split())
+            assert all(''.join(value.split()) in compact for value in ['Maple & Finch', 'Design', '$120.00'])
+            records.append({'guide': name, 'source_sha256': sha256(code.encode()).hexdigest(),
+                'pdf_sha256': sha256((destination / 'invoice.pdf').read_bytes()).hexdigest(), 'text_verified': True,
+                'extracted_text': extracted, 'whitespace_normalized_checks': True})
+    report = {'ok': True, 'package': manifest['package'], 'engine': manifest['engine'],
+              'zip_sha256': manifest['zip_sha256'], 'published_pdf_png_equal': True, 'records': records}
+    (out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps(report))
+
+
+if __name__ == '__main__':
+    main()

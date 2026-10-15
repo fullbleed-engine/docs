@@ -8,6 +8,10 @@ Fullbleed's optional Node package renders static HTML/CSS into PDFs using a
 bundled WebAssembly build of the Rust engine. It includes fonts and runs locally;
 you do not need Python, Rust, or a browser to use the installed package.
 
+To compose documents without HTML strings, use the
+[JavaScript component and JSX workflow](../guides/javascript-components.md),
+introduced in Node package 0.6.0. The pinned HTML/CSS example below remains available.
+
 This guide uses **Node package 0.4.1**, powered by **Fullbleed 2.5.22**. The
 integration and core engine have separate versions.
 
