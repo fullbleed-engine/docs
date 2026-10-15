@@ -82,6 +82,13 @@ the build downloads the published dependencies and copies their verified runtime
 
 ## Customize the document
 
+For class-based styling, read [how `className`, selectors and document styles connect](javascript-components.md#class-names-and-styles).
+In this starter, `className="total"` in `src/documents/Invoice.tsx` matches
+the `'.total'` rule in `src/documents/invoiceStyles.ts`. `Invoice` imports that
+sheet, composes the chosen ink color overrides, and attaches it through
+`<Document styles={...}>`. `src/style.css`
+styles the React interface; print rules belong to the document's stylesheet.
+
 Use **See the document component** to inspect the source while trying the form.
 Keep your layout and data changes in these project files:
 

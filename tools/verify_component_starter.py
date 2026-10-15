@@ -11,6 +11,7 @@ import tempfile
 import zipfile
 
 import fullbleed
+from component_style_checks import PYTHON_RENDER, inspect_style_pdfs, styling_blocks
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "docs/assets/components"
@@ -72,9 +73,19 @@ def main():
         documentation_examples.append({"page": page, "source_sha256": sha256(code.encode()).hexdigest(),
                                        "pdf_sha256": sha256(pdf.read_bytes()).hexdigest(),
                                        "pages": 1, "text_checks": required, "embedded_font": True})
+    styling = (args.out / "guide-styles").resolve()
+    styling.mkdir(parents=True, exist_ok=True)
+    source = (ROOT / "docs/guides/python-components.md").read_text(encoding="utf-8")
+    code = "\n".join(styling_blocks(source, "python")) + PYTHON_RENDER
+    (styling / "example.py").write_text(code, encoding="utf-8", newline="\n")
+    run = subprocess.run([sys.executable, "-I", str(styling / "example.py")], cwd=styling,
+                         capture_output=True, text=True, encoding="utf-8", timeout=90)
+    (styling / "example.log").write_text(run.stdout + run.stderr, encoding="utf-8")
+    assert run.returncode == 0, run.stdout + run.stderr
+    style_report = inspect_style_pdfs(styling)
     report = {"ok": True, "fullbleed": version("fullbleed"), "files": len(manifest["files"]),
               "zip_sha256": manifest["zip_sha256"], "rendered": rendered, "published_pdf_png_equal": True,
-              "documentation_examples": documentation_examples}
+              "documentation_examples": documentation_examples, "class_styling": style_report}
     (args.out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report))
 
