@@ -4,10 +4,13 @@ from hashlib import sha256
 from importlib.metadata import version
 from pathlib import Path
 import json
+import re
 import subprocess
 import sys
 import tempfile
 import zipfile
+
+import fullbleed
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "docs/assets/components"
@@ -40,8 +43,38 @@ def main():
         assert (args.out / "render" / output).read_bytes() == (ASSETS / published).read_bytes(), output
     rendered = json.loads((args.out / "render/verification.json").read_text(encoding="utf-8"))
     assert rendered["ok"] and rendered["pages"] == 1 and rendered["repeated_pdf_equal"]
+    documentation_examples = []
+    for page, output, required in [
+        ("index.md", "component-invoice.pdf", ["Made for you", "Design", "$120"]),
+        ("guides/python-components.md", "invoice.pdf", ["Maple & Finch", "Design", "Review", "$120.00", "$40.00"]),
+    ]:
+        source = (ROOT / "docs" / page).read_text(encoding="utf-8")
+        blocks = re.findall(r"```python\n(.*?)```", source, flags=re.S)
+        assert blocks, page
+        code = blocks[0]
+        folder = (args.out / "documentation" / page.removesuffix(".md").replace("/", "_")).resolve()
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "example.py").write_text(code, encoding="utf-8", newline="\n")
+        run = subprocess.run([sys.executable, "-I", str(folder / "example.py")], cwd=folder,
+                             capture_output=True, text=True, encoding="utf-8", timeout=90)
+        (folder / "example.log").write_text(run.stdout + run.stderr, encoding="utf-8")
+        assert run.returncode == 0, (page, run.stdout + run.stderr)
+        pdf = folder / output
+        inspection = fullbleed.inspect_pdf(str(pdf))
+        assert inspection["ok"] and inspection["page_count"] == 1, (page, inspection)
+        assert inspection["profile"]["embedded_font_count"] > 0, page
+        extracted = fullbleed.extract_pdf_page_texts(str(pdf))
+        assert extracted["ok"] and len(extracted["pages"]) == 1, page
+        compact = "".join(extracted["pages"][0]["text"].split())
+        assert all("".join(text.split()) in compact for text in required), (page, required)
+        if page == "guides/python-components.md":
+            assert (folder / "invoice.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+        documentation_examples.append({"page": page, "source_sha256": sha256(code.encode()).hexdigest(),
+                                       "pdf_sha256": sha256(pdf.read_bytes()).hexdigest(),
+                                       "pages": 1, "text_checks": required, "embedded_font": True})
     report = {"ok": True, "fullbleed": version("fullbleed"), "files": len(manifest["files"]),
-              "zip_sha256": manifest["zip_sha256"], "rendered": rendered, "published_pdf_png_equal": True}
+              "zip_sha256": manifest["zip_sha256"], "rendered": rendered, "published_pdf_png_equal": True,
+              "documentation_examples": documentation_examples}
     (args.out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report))
 
