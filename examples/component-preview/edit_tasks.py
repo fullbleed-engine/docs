@@ -1,4 +1,4 @@
-"""Four small component-editing tasks. Change the functions and rerun this file."""
+"""Five small component-editing tasks. Change the functions and rerun this file."""
 from importlib.resources import files
 import argparse
 import json
@@ -7,7 +7,7 @@ import sys
 
 from fullbleed.ui.experimental import (
     Box, Column, DataTable, Document, Flow, Heading, LayoutError, Page, Paragraph,
-    Renderer, component, mm, pt, style,
+    Renderer, component, mm, pt, style, styled, token,
 )
 
 HERE = Path(__file__).resolve().parent
@@ -38,6 +38,18 @@ def extra_column(data):
 
 def paper_change(data):
     return Invoice(data, page=Page("LETTER", margin=mm(18)))
+
+
+def selector_styles():
+    Notice = styled(Paragraph, font_size=pt(16), color="#a0442e")
+    shared = Notice("Shared class: blue", class_name="notice")
+    custom = Notice("One instance: rust", class_name="notice").with_style(color="#a0442e")
+    return Document(
+        Flow(shared, custom, gap=pt(16)),
+        title="Classes and instance overrides", theme=STUDIO_THEME,
+        page=Page("A5", margin=mm(16)),
+        styles={".notice": style(color=token("accent"))},
+    )
 
 
 @component
@@ -74,7 +86,8 @@ def main():
     renderer = Renderer(font_files=[str(files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf"))],
                         document_timestamp="2026-10-15T00:00:00Z")
     documents = [("shared-components", shared_components(data)), ("extra-column", extra_column(data)),
-                 ("letter-invoice", paper_change(data)), ("repaired-notice", layout_repair(renderer, args.output))]
+                 ("letter-invoice", paper_change(data)), ("selector-styles", selector_styles()),
+                 ("repaired-notice", layout_repair(renderer, args.output))]
     for name, document in documents:
         prepared = document.prepare(renderer)
         (args.output / f"{name}.pdf").write_bytes(prepared.render_pdf())

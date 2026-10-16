@@ -1,5 +1,6 @@
 """Exercise the exact preview download and guide using an installed candidate."""
 import argparse
+from contextlib import closing
 from hashlib import sha256
 from io import BytesIO
 import json
@@ -11,6 +12,7 @@ import tempfile
 import zipfile
 
 from pypdf import PdfReader
+import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "docs/assets/component-preview"
@@ -53,14 +55,14 @@ def main():
 
         runtime = json.loads(run("runtime", ["-I", "-c",
             "import json,fullbleed;from fullbleed.ui.experimental import Theme,Document;"
-            "assert hasattr(Theme,'with_values') and hasattr(Document,'required_tokens');"
+            "assert hasattr(Theme,'with_values') and hasattr(Document,'required_tokens') and hasattr(Document,'styles');"
             "assert hasattr(fullbleed.CompiledDocument,'export_render_time_pagination_trace');"
             "print(json.dumps({'module':fullbleed.__file__,'features':fullbleed.build_features()}))"]))
         run("documents", ["examples/component_recipes/main.py", "--output", str(args.out / "documents")])
         run("edits", ["edit_tasks.py", "--output", str(args.out / "edits")])
         source = (ROOT / "docs/guides/component-design-preview.md").read_text(encoding="utf-8")
         blocks = re.findall(r"```python\n(.*?)```", source, re.S)
-        assert len(blocks) >= 4
+        assert len(blocks) == 5
         guide = project / "guide.py"
         guide.write_text("\n\n".join(blocks), encoding="utf-8")
         run("guide", ["guide.py"])
@@ -75,6 +77,7 @@ def main():
         ("shared-components", "edits/shared-components.pdf", 1, (419.528, 595.276), ["Made for your next project", "Maple & Finch", "$8,100.00"]),
         ("extra-column", "edits/extra-column.pdf", 1, (595.276, 841.89), ["Cost per project", "Hours", "$3,600.00"]),
         ("letter-invoice", "edits/letter-invoice.pdf", 1, (612, 792), ["Maple & Finch", "$8,100.00"]),
+        ("selector-styles", "edits/selector-styles.pdf", 1, (419.528, 595.276), ["Shared class: blue", "One instance: rust"]),
         ("repaired-notice", "edits/repaired-notice.pdf", 1, (595.276, 841.89), ["A long notice can continue"]),
     ):
         data = (args.out / file).read_bytes()
@@ -90,11 +93,22 @@ def main():
             assert all(text.count(compact(value)) == 1 for value in required)
             assert all("ProjectHoursRateAmount" in compact(page.extract_text()) for page in reader.pages)
         cases.append({"name": name, "pages": pages, "sha256": sha256(data).hexdigest(), "text_checked": True, "size_checked": True})
+        if name == "selector-styles":
+            with closing(pdfium.PdfDocument(data)) as pdf:
+                # At 144 dpi the 16 pt letters have enough interior pixels to
+                # check both colors independently of their antialiased edges.
+                with closing(pdf[0]) as page, closing(page.render(scale=2)) as bitmap:
+                    image = bitmap.to_pil().convert("RGB")
+                    pixels = list(image.getdata())
+                    for color in ((49, 93, 155), (160, 68, 46)):
+                        assert sum(max(abs(a-b) for a,b in zip(pixel,color)) <= 2 for pixel in pixels) > 100, color
+                    image.save(args.out / "selector-styles.png")
+            cases[-1]["selector_and_instance_colors_checked"] = True
     error = json.loads((args.out / "edits/expected-layout-error.json").read_text(encoding="utf-8"))
     assert error["code"] == "layout.unsplittable" and error["reason"] == "clipped_container", error
     assert ["Notice", "div"] in error["failure_sources"], error
     guide_text = compact(" ".join(page.extract_text() for page in PdfReader(args.out / "guide.pdf").pages))
-    assert all(compact(text) in guide_text for text in ("Maple & Finch", "Portable design", "Design", "$120.00"))
+    assert all(compact(text) in guide_text for text in ("Maple & Finch", "Portable design", "Shared selector styling", "Design", "$120.00"))
     result = {"ok": True, "source_commit": manifest["source_commit"], "zip_sha256": manifest["zip_sha256"],
               "runtime": runtime, "cases": cases, "guide_blocks": len(blocks), "expected_layout_error": error,
               "scope": "Actual ZIP extraction and entry points, real guide snippets, page geometry/text, exact published invoice/report bytes and a rejected/repaired layout. Not independent usability or conformance evidence."}

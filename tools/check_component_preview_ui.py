@@ -43,7 +43,7 @@ def main():
             browser = p.chromium.launch(**({'channel': 'chrome'} if args.browser == 'chrome'
                                           else {'executable_path': p.chromium.executable_path}))
             browser_version = browser.version
-            for label, width, height in [('desktop', 1440, 1000), ('mobile', 390, 844)]:
+            for label, width, height in [('desktop', 1440, 1000), ('mobile', 390, 844), ('narrow-mobile', 320, 740)]:
                 context = browser.new_context(viewport={'width': width, 'height': height}, device_scale_factor=1)
                 page = context.new_page()
                 errors = []
@@ -52,14 +52,17 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role('heading', name='Components that carry their design', exact=False).is_visible()
                 article = page.locator('article').inner_text()
-                assert 'not included in the published 2.5.25 wheel' in article
+                assert 'not included in the published 2.5.26 wheel' in article
                 assert source['source_commit'][:7] in article and 'with_values' in article and 'required_tokens' in article
+                assert 'Document(styles=' in article and 'selector_styles()' in article
                 assert page.get_by_role('link', name='Share an editing task in the design discussion', exact=True).get_attribute('href') == 'https://github.com/fullbleed-engine/fullbleed-official/discussions/86'
                 assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
                 images = page.locator('article img').evaluate_all('(items) => items.map(i => ({loaded: i.complete && i.naturalWidth > 0, alt: i.alt}))')
                 assert len(images) == 2 and all(image['loaded'] and image['alt'] for image in images), images
                 page.screenshot(path=str(args.out / f'{label}-top.png'))
-                for section, heading in [('authoring', 'A small component owns its appearance'), ('installation', 'Try the source candidate')]:
+                for section, heading in [('authoring', 'A small component owns its appearance'),
+                                         ('styling', 'Connect an existing class to its styles'),
+                                         ('installation', 'Try the source candidate')]:
                     page.get_by_role('heading', name=heading, exact=False).scroll_into_view_if_needed()
                     page.screenshot(path=str(args.out / f'{label}-{section}.png'))
                 downloads = []

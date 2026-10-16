@@ -11,19 +11,19 @@ describing a table column once.
 
 !!! warning "Source preview — not a published release"
     This page shows the draft at source commit
-    [`d686153`](https://github.com/fullbleed-engine/fullbleed-official/tree/d686153b392a5cb5f5316624bf6b9401e7bcf951).
-    `fullbleed.ui.experimental` is **not included in the published 2.5.25 wheel**.
+    [`ecc52c6`](https://github.com/fullbleed-engine/fullbleed-official/tree/ecc52c671abb6b2f9a8068238e0708e66975ff30).
+    `fullbleed.ui.experimental` is **not included in the published 2.5.26 wheel**.
     Names and behavior may change. Use the [released component guide](python-components.md)
     for an installable starting point.
 
 [Download the source kit](../assets/component-preview/project.zip){ .md-button .md-button--primary }
-[Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/docs/component-authoring-design.md){ .md-button }
+[Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/docs/component-authoring-design.md){ .md-button }
 [Review the draft](https://github.com/fullbleed-engine/fullbleed-official/pull/85){ .md-button }
 
 ## One kit, two documents
 
 The invoice and operations report import the same `Field`, `WorkTable`, `Total`
-and typography helpers. Their [shared kit](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/examples/component_recipes/kit.py)
+and typography helpers. Their [shared kit](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/kit.py)
 owns those styles; neither document registers a separate stylesheet. All data
 and organizations are fictional.
 
@@ -39,7 +39,7 @@ One document combines a customer field, a table with formatted columns and a
 total panel. Its blue brand values come from the document theme.
 
 [Open the invoice PDF](../assets/component-preview/invoice.pdf){ .md-button }
-[Read the document function](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/examples/component_recipes/documents.py)
+[Read the document function](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/documents.py)
 
 </div>
 </div>
@@ -93,12 +93,12 @@ does not have to accept and forward a `style` parameter to support that override
 
 For repeated defaults, the draft offers `styled(...)`; for shared brand values,
 `Theme` and tokens; for public internals, declared parts and `.with_parts(...)`.
-The [runnable guide](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/examples/component_recipes/README.md)
+The [runnable guide](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/README.md)
 introduces each separately, including font selection and PDF rendering.
 
 `class_name` keeps its literal CSS meaning. It does not look up a Python variable
-or load a stylesheet. The normal experimental workflow uses style values; the
-established API remains available for selector-based CSS.
+or load a stylesheet. Components normally carry style values; existing selector
+rules can be attached explicitly with `Document(styles=...)`.
 
 ## Rebrand a theme without rebuilding it
 
@@ -120,7 +120,7 @@ assert label.required_tokens == ("accent",)
 ```
 
 `required_tokens` reports the explicit theme references in the constructed node.
-The document's version includes its text styles too. It helps a kit consumer see
+The document's version includes its text and selector styles too. It helps a kit consumer see
 what to supply without reading selectors or discovering missing values one error
 at a time. It describes the current content, not every possible component variant.
 
@@ -144,9 +144,30 @@ alignment and width. Cells can return components. Applications still calculate
 and format their values. `DataTable` supplies the table structure, empty state
 and repeated column headers.
 
+## Connect an existing class to its styles
+
+Use `class_name` for the label and `styles` for the rules. A mapping can use the
+same style values and theme tokens as a component:
+
+```python
+class_notice = Paragraph("Shared selector styling", class_name="notice")
+selector_rules = {".notice": style(color=token("accent"), font_weight=700)}
+```
+
+The rendering example below attaches those rules. `styles` also accepts CSS text
+and the existing `StyleSheet` class; inputs are captured when constructing the
+document. Normal class rules can override reusable defaults. An explicit instance
+override such as `.with_style(color="#245541")` has inline precedence; an external
+`!important` declaration can still override a normal inline declaration. Class
+order in `class_name` does not set priority. The native engine resolves CSS.
+
+Paper size, orientation and page margins belong to `Page`; competing `@page`
+geometry in `styles` raises an error. Page furniture remains available through
+CSS. The runnable guide describes this ownership rule and advanced limitations.
+
 ## Render the composed document
 
-The four Python blocks on this page run together. Paper belongs to the document;
+The five Python blocks on this page run together. Paper belongs to the document;
 font selection belongs to the renderer, which can be shared by your application:
 
 ```python
@@ -155,10 +176,11 @@ from pathlib import Path
 from fullbleed.ui.experimental import Flow, Page, Renderer
 
 document = Document(
-    Flow(label, highlighted, table, gap=pt(18)),
+    Flow(label, highlighted, class_notice, table, gap=pt(18)),
     title="Component design preview",
     page=Page("A5", margin=mm(14)),
     theme=warm_theme,
+    styles=selector_rules,
 )
 renderer = Renderer(
     font_files=[str(files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf"))],
@@ -213,16 +235,17 @@ python edit_tasks.py --output output/edits
 Open `output/invoice.pdf` and `report.pdf`. Edit
 `examples/component_recipes/kit.py` to change shared components, or
 `documents.py` to change a document's composition. No browser is used to produce
-the PDFs. The preview's package metadata still says 2.5.25; the source revision,
+the PDFs. The preview's package metadata still says 2.5.26; the source revision,
 rather than that version alone, identifies this experimental build.
 
-The kit's `edit_tasks.py` gives you four small starting points:
+The kit's `edit_tasks.py` gives you five small starting points:
 
 | Editing task | Function |
 | --- | --- |
 | Reuse components and change the brand | `shared_components()` |
 | Add a formatted column | `extra_column()` |
 | Change the invoice's paper size | `paper_change()` |
+| Apply shared class styles and override one instance | `selector_styles()` |
 | Find and repair a clipping constraint | `layout_repair()` |
 
 The last task intentionally catches a layout error and saves its authored path
@@ -247,8 +270,9 @@ The current limits matter when evaluating the design:
   automatic completion of those names in editors is unfinished.
 - Shared preparation avoids repeating layout for PDF and preview output.
   Large-scale performance and engine pooling still need qualification.
-- Semantic validation integration and final delivery-profile verification remain
-  separate work. These examples do not establish accessibility conformance.
+- Explicit semantic validation now reuses the established accessibility contract
+  and adds component locations. Final delivery-profile verification remains
+  separate; these examples do not establish accessibility conformance.
 
 Existing documents can try one new component through the explicit `to_legacy`
 adapter described in the runnable guide. This does not deprecate the established

@@ -1,15 +1,15 @@
 {
   "schema": "fullbleed.component-preview-source.v1",
   "experimental": true,
-  "source_commit": "d686153b392a5cb5f5316624bf6b9401e7bcf951",
+  "source_commit": "ecc52c671abb6b2f9a8068238e0708e66975ff30",
   "source_only": true,
-  "engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/d686153b392a5cb5f5316624bf6b9401e7bcf951.tar.gz",
+  "engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/ecc52c671abb6b2f9a8068238e0708e66975ff30.tar.gz",
   "native_build_required": true,
   "files": [
     {
       "path": "README.md",
-      "bytes": 3487,
-      "sha256": "ee4883cd966c10387ddfc49b658b2d353f5cf71164794a9ede8e5a2494585ee6"
+      "bytes": 3800,
+      "sha256": "d1d956c74860c3de91e057c103528de3b3678f3e881bbda313d59bbda688046c"
     },
     {
       "path": "LICENSE",
@@ -19,17 +19,17 @@
     {
       "path": "requirements-preview.txt",
       "bytes": 200,
-      "sha256": "7c9c4c3308d2b24d03f13705cbee163227137531d96b9a947d8acbe264d409d7"
+      "sha256": "8e61079c9b85952329586127aa9c5682f657a48751360e326bb5a14e5ba3ddaa"
     },
     {
       "path": "edit_tasks.py",
-      "bytes": 3798,
-      "sha256": "eafb9cd1c254ffc2e32377613a8319810e93d74ac6a23299835119d850f9cd6e"
+      "bytes": 4350,
+      "sha256": "9222854f08476fedead4ca6a6f23a5543c50878268891b05a3b1ff364c02294b"
     },
     {
       "path": "upstream.json",
       "bytes": 824,
-      "sha256": "ba11ae4ae5965013af0182f24d6bddad9a60a621d3abfae32bf8644b4e6e50fc"
+      "sha256": "b244e224588b907582f78182f4f8f4221031c0b3dae16383296895a445794a5e"
     },
     {
       "path": "examples/component_recipes/kit.py",
@@ -52,6 +52,6 @@
       "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
     }
   ],
-  "zip_sha256": "69df361a5539a399ab009e94e4b5a476e9a90f24b4d09948253510c3271a9801",
-  "zip_bytes": 9377
+  "zip_sha256": "8e484c5f16530ff75c914824c96aee9bed80695b0fdf863749f846f3a3e785b5",
+  "zip_bytes": 9668
 }

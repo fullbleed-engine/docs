@@ -2,7 +2,7 @@
   "experimental": true,
   "published_on_pypi": false,
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "source_commit": "d686153b392a5cb5f5316624bf6b9401e7bcf951",
+  "source_commit": "ecc52c671abb6b2f9a8068238e0708e66975ff30",
   "source_files": {
     "examples/component_recipes/kit.py": "967b882817ceec2f9f4bfd1482705f05d4d62fcce444415cfdd23010863c752b",
     "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
@@ -10,9 +10,9 @@
     "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
   },
   "source_hash_scope": "Canonical Git blob bytes at the pinned commit, before platform line-ending conversion.",
-  "candidate_wheel_sha256": "63d80adb66b574ca0240935aa1b206395acc774c09e1f204ae21511553eddb06",
-  "candidate_metadata_version": "2.5.25",
-  "source_install_verified_on": "Windows x64, Python 3.11",
+  "candidate_wheel_sha256": "9a4505e92ce79362b992cc11e07149fa93f513153d4a308e9d39bcc55ffdb54a",
+  "candidate_metadata_version": "2.5.26",
+  "source_install_verified_on": "Windows x64, Python 3.11 (isolated environment)",
   "source_install_command": "python -m pip install -r requirements-preview.txt",
   "source_render_command": "python examples/component_recipes/main.py --output output",
   "preview_renderer": "PDFium via pypdfium2",
@@ -60,9 +60,9 @@
       "matches_previously_verified_fixture": true
     }
   ],
-  "guide_python_blocks_executed": 4,
-  "scope": "The pinned source archive built and installed into a fresh Windows x64 Python 3.11 environment. The actual source ZIP was extracted and both entry points and all four guide blocks ran against that installed candidate. Invoice/report PDFs and their independent PDFium previews match the existing public fixtures byte-for-byte. Checks cover text, page geometry, 60 unique report rows, repeated headers and one rejected/repaired layout. This is a source preview, not a published release, independent usability study, broad performance qualification or conformance certification.",
-  "source_zip_sha256": "69df361a5539a399ab009e94e4b5a476e9a90f24b4d09948253510c3271a9801",
+  "guide_python_blocks_executed": 5,
+  "scope": "The pinned source archive built and installed in an isolated Windows x64 Python 3.11 environment. The actual source ZIP was extracted; both entry points and all five guide blocks ran against that installed candidate. Invoice/report PDFs and independent PDFium previews match the existing public fixtures byte-for-byte. Checks cover text, page geometry, 60 unique report rows, repeated headers, class/instance colors and one rejected/repaired layout. This is a source preview, not a published release, independent usability study, broad performance qualification or conformance certification.",
+  "source_zip_sha256": "8e484c5f16530ff75c914824c96aee9bed80695b0fdf863749f846f3a3e785b5",
   "editing_tasks": [
     {
       "name": "shared-components",
@@ -84,6 +84,14 @@
       "sha256": "4405139ebbe56ed97fdb3390d6520d13915e05c4563f0726912fa04aa1506173",
       "text_checked": true,
       "size_checked": true
+    },
+    {
+      "name": "selector-styles",
+      "pages": 1,
+      "sha256": "5e226bf778e90a797b7735b7b0547018f37355414aa268405ca899cdc2bf78e8",
+      "text_checked": true,
+      "size_checked": true,
+      "selector_and_instance_colors_checked": true
     },
     {
       "name": "repaired-notice",
@@ -109,5 +117,6 @@
         "div"
       ]
     ]
-  }
+  },
+  "source_archive_sha256": "d15f5ec6e9f71778d2fa0d5c2e44a0e3a3501bc041e9dd1785e16a572125f44f"
 }

@@ -1,7 +1,7 @@
 # Fullbleed component design preview
 
-This is a source preview pinned to `d686153b392a5cb5f5316624bf6b9401e7bcf951`.
-The experimental API is not in the published Fullbleed 2.5.25 wheel. Names and
+This is a source preview pinned to `ecc52c671abb6b2f9a8068238e0708e66975ff30`.
+The experimental API is not in the published Fullbleed 2.5.26 wheel. Names and
 behavior may change. This project contains examples, not the native engine.
 
 You need Python 3.10+, Rust/Cargo, your platform's native build tools, and internet
@@ -22,10 +22,10 @@ python edit_tasks.py --output output/edits
 
 The first installation builds the engine and can take several minutes. Git is
 not required: the requirement downloads the exact source archive. The candidate's
-package metadata says 2.5.25; the pinned commit identifies this preview.
+package metadata says 2.5.26; the pinned commit identifies this preview.
 
 Open `output/invoice.pdf` and `output/report.pdf`. Both use the same imported kit.
-The other script renders four editing tasks and captures one expected layout
+The other script renders five editing tasks and captures one expected layout
 error before rendering the repair. All example data is fictional.
 
 | Change | Where to start |
@@ -33,15 +33,18 @@ error before rendering the repair. All example data is fictional.
 | Reuse and rebrand components | `shared_components()` in `edit_tasks.py`; change the theme with `with_values` |
 | Add a formatted column | `extra_column()`; each `Column` owns its header and cell function |
 | Change paper size | `paper_change()`; geometry belongs to `Page` |
+| Connect CSS classes and instance overrides | `selector_styles()`; `class_name` labels a node, `Document(styles=...)` supplies rules |
 | Diagnose a block that cannot paginate | `layout_repair()`; inspect the error and remove the clipping constraint |
 | Change the imported components | `examples/component_recipes/kit.py` |
 | Change invoice/report composition | `examples/component_recipes/documents.py` |
 | Change the sample records | `examples/components/data.json` |
 
 `node.required_tokens` describes the explicit theme references in constructed
-content. `document.required_tokens` includes its text styles. `class_name` is a
-literal CSS class label; it does not load styling. Use style values, root overrides
-and advertised parts for the normal component workflow.
+content. `document.required_tokens` includes its text and selector styles.
+`class_name` is a literal CSS class label; it does not load styling. Attach rules
+through `Document(styles=...)`. Normal class rules can override reusable defaults;
+explicit instance overrides have inline precedence. Use component-owned style
+values, root overrides and advertised parts for the normal component workflow.
 
 `document.prepare(renderer)` checks one native layout and returns a snapshot for
 PDF output and layout previews. The simple `document.render_pdf(renderer)` method
@@ -59,5 +62,5 @@ share the task, what you expected, and any point where you needed generated HTML
 an internal selector or undocumented behavior. Include a small synthetic input;
 please remove customer data from examples.
 
-[Implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/docs/component-authoring-design.md)
-· [Runnable API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/d686153b392a5cb5f5316624bf6b9401e7bcf951/examples/component_recipes/README.md)
+[Implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/docs/component-authoring-design.md)
+· [Runnable API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/README.md)
