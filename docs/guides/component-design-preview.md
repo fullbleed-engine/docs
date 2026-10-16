@@ -181,4 +181,4 @@ Existing documents can try one new component through the explicit `to_legacy`
 adapter described in the runnable guide. This does not deprecate the established
 API or promise equivalent experimental interfaces in other languages.
 
-[Leave an example or design comment on the draft](https://github.com/fullbleed-engine/fullbleed-official/pull/85){ .md-button }
+[Share an editing task in the design discussion](https://github.com/fullbleed-engine/fullbleed-official/discussions/86){ .md-button }
