@@ -109,10 +109,17 @@ the same behavior there.
 
 External stylesheet links and CSS `@import` are not fetched, and JavaScript does
 not execute. Supply external CSS through the explicit argument or `AssetBundle`.
-Inline SVG still has a separate local styling pipeline; document selectors do
-not propagate into SVG descendants.
+Starting with **2.5.27**, inline SVG uses the document cascade for supported paint
+and font properties. For example, `.brand svg path {fill:currentColor}` uses the
+color supplied by `.brand {color:#d00000}`. Document selectors, stylesheet
+selection, inheritance and declaration priority apply to inline SVG descendants.
+Group opacity composites overlapping shapes once. SVG files loaded through
+`<img>` or an asset reference keep their own styling context.
 
-See the [full stylesheet contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.26/docs/embedded-stylesheets.md)
+Version 2.5.26 uses a separate SVG styling pipeline; use explicit SVG presentation
+attributes there. The downloadable example above remains pinned to 2.5.26.
+
+See the [full stylesheet contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.27/docs/embedded-stylesheets.md)
 for type filtering, preferred stylesheet sets, SVG boundaries, and structured
 diagnostics. The [CSS coverage guide](../css-coverage.md) describes broader
 rendering support and known gaps.
