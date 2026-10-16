@@ -16,6 +16,11 @@ describing a table column once.
     Names and behavior may change. Use the [released component guide](python-components.md)
     for the stable authoring API.
 
+The newer [static Bootstrap preview](bootstrap-components-preview.md) builds on
+this design with cards, data tables, form helpers, the 23 Bootstrap 5.0.0
+component families, and styled or unstyled HTML export. It has a separate pinned
+download; the examples on this page still use the original preview.
+
 [Download the example kit](../assets/component-preview/project.zip){ .md-button .md-button--primary }
 [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/docs/component-authoring-design.md){ .md-button }
 [Review the draft](https://github.com/fullbleed-engine/fullbleed-official/pull/85){ .md-button }

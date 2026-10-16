@@ -1,0 +1,23 @@
+# Experimental snapshot; use an isolated environment and --force-reinstall.
+# The URLs and hashes identify this preview; package metadata alone does not.
+--no-index
+--only-binary=:all:
+--require-hashes
+--find-links wheels.html
+
+fullbleed==2.5.26 \
+    --hash=sha256:b9a9098fba8a9eddc817bc22dca83ef78597daf00beacfa5cbcb71f19ddf61d2 \
+    --hash=sha256:f8088f994a67c68f83ec5c5ca8508b30cb584958344a2dd64aeadbf8a66a0cb4 \
+    --hash=sha256:1b35771c8cc372ea38f060cca2c9cd65ed001f6334d8029961444291508bffd2 \
+    --hash=sha256:241d408b1ce9453197e8e809fe5564b1a5d0e5233dbb1db3826d9158d510f39a \
+    --hash=sha256:3835d49f3a6e9d48129843cd4c0dfe1b502c688f1cda88e566ceb7e8e4a4630b \
+    --hash=sha256:12c8d81ffb4b4a3924e19d7b783630e542cc3225128aa1366e10a8a752effdbc \
+    --hash=sha256:8013c2d435e441d52889c48266610b26921257a19b51a32b02b5d2692552a742 \
+    --hash=sha256:caaa101a2d9a4731867620fefdfa0a9674719e1ed5692aac2d6f3fc244ffc3a5 \
+    --hash=sha256:d4eb97d090d3d2499bc72b6a77f774c18c22db60cacedb5be52da95c5771c9e8 \
+    --hash=sha256:87621880610897afdc9b41756ff0e222d93c7563c2951bb605aadadab5c076c3 \
+    --hash=sha256:5c0c5cb7bdca5e481194b21c2bddea899059f1771d6c1bc4cd89b49c46356d56 \
+    --hash=sha256:6ee30e808680ee9feea3906dbd467215e585aa3b1a6678f6d701d41e247f33aa \
+    --hash=sha256:de27c89bfcbee7b76944043a9c183afdd9e0fc21a83489e4ad49482bc633d607 \
+    --hash=sha256:0a7c1ac9ed0ca2d06ae6a17e926ce64d0341247c29824a54a7f67a9124e72697 \
+    --hash=sha256:2840dadf4c15a6eece9da68c7f9dbff81eed881d98d5bc002851e94fb080d0db

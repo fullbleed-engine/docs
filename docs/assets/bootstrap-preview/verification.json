@@ -1,0 +1,83 @@
+{
+  "schema": "fullbleed.bootstrap-preview-output.v1",
+  "experimental": true,
+  "source_commit": "41a2cee2e96b085429d2b9518f4c7d7cfab99817",
+  "source_zip_sha256": "cc9464999e64def4ce361b70c1826fef5a8a40c24b2abc02a839c6622878dbe4",
+  "engine_wheel": {
+    "file": "fullbleed-2.5.26-cp310-abi3-win_amd64.whl",
+    "kind": "wheel",
+    "bytes": 7920322,
+    "sha256": "0a7c1ac9ed0ca2d06ae6a17e926ce64d0341247c29824a54a7f67a9124e72697",
+    "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-41a2cee/fullbleed-2.5.26-cp310-abi3-win_amd64.whl"
+  },
+  "build_run": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38929423171",
+  "core_ci": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38929414418",
+  "core_ci_conclusion": "success",
+  "bootstrap": "5.0.0",
+  "bootstrap_css_sha256": "04083fcecdd9e19b2acd1e0073437aa07c98d230f0198d7f1fd470ab220fef64",
+  "starter_check": {
+    "pdfs": 29,
+    "pages": 29,
+    "guide_blocks": 3,
+    "first_guide_block_runs_alone": true,
+    "installed_authoring_files_checked": 23,
+    "report_and_html_match_published_files": true
+  },
+  "catalog_browser_check": {
+    "browser": "133.0.6943.16",
+    "specimens": 27,
+    "catalog_viewport_widths": [
+      1000,
+      390
+    ],
+    "scripts": 0,
+    "external_network_requests": 0,
+    "page_errors": []
+  },
+  "preview_rendering": "PDFium, from the published PDFs",
+  "files": [
+    {
+      "file": "report.pdf",
+      "bytes": 4939,
+      "sha256": "4d8161101c120713aa22fc69e5dc281c17d5e9ce26743e0c1ed9ed67ef2c79de",
+      "pages": 1
+    },
+    {
+      "file": "forms.pdf",
+      "bytes": 3367,
+      "sha256": "58e46a3af5dd7dc8caebf72204edd5ad907af175a07b9a94d11f8436ad55d628",
+      "pages": 1
+    },
+    {
+      "file": "report-page-1.png",
+      "bytes": 103855,
+      "sha256": "081f5bc956ffb116f6ebcd9f2de7aa488113da4c9f87b09f025ef236ca8ebb9e"
+    },
+    {
+      "file": "forms-page-1.png",
+      "bytes": 26095,
+      "sha256": "2a0c15418de357e4bbfddb46e6b2b33e424ab8fecbab9fd0700379546fbc5460"
+    },
+    {
+      "file": "report.styled.html",
+      "bytes": 162706,
+      "sha256": "62625bbcd9621690c75b6374554b18b664fb462d8a04fa61c4711f6e819bd1bb"
+    },
+    {
+      "file": "report.unstyled.html",
+      "bytes": 3146,
+      "sha256": "633e2b318c1ed9263001b5b75e9f7d3d87dd90954714e4d4cabe9d48b5c66c68"
+    },
+    {
+      "file": "catalog.html",
+      "bytes": 171383,
+      "sha256": "24cfb11194bf7bca1a71945e0565803017df3cc9bed6ab45062ff99a5c55e2e5"
+    },
+    {
+      "file": "catalog.unstyled.html",
+      "bytes": 13601,
+      "sha256": "0aa42bbedb52e8c54b1a76af2b23866d4a1b70778e11166dab5508716beb13b7"
+    }
+  ],
+  "scope": "Pinned preview and downloadable source. Exact kit execution, 29 one-page PDFs, selected/hidden states, executable guide blocks and styled/unstyled HTML. A bounded catalog, not exhaustive Bootstrap/CSS coverage, browser pixel parity, accessibility conformance or independent usability evidence."
+}

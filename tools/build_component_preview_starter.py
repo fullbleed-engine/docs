@@ -13,7 +13,7 @@ FILES = ["README.md", "LICENSE", "requirements-preview.txt", "requirements-sourc
          "examples/component_recipes/kit.py", "examples/component_recipes/documents.py",
          "examples/component_recipes/main.py", "examples/components/data.json"]
 
-def build_installer(upstream):
+def build_installer(upstream, source=SOURCE):
     engine = upstream["engine_wheels"]
     wheels = engine["files"]
     assert len(wheels) == len({wheel["file"] for wheel in wheels}) == 15
@@ -32,7 +32,7 @@ def build_installer(upstream):
         assert len(digest) == 64 and all(char in "0123456789abcdef" for char in digest)
         requirements.append(f"    --hash=sha256:{digest}" + (" \\" if index < len(wheels) - 1 else ""))
         links.append(f'<li><a href="{escape(wheel["url"] + "#sha256=" + digest, quote=True)}">{escape(wheel["file"])}</a></li>')
-    (SOURCE / "requirements-preview.txt").write_bytes(("\n".join(requirements) + "\n").encode("utf-8"))
+    (source / "requirements-preview.txt").write_bytes(("\n".join(requirements) + "\n").encode("utf-8"))
     html = (
         '<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
         '<title>Fullbleed experimental wheels</title></head><body>\n'
@@ -40,7 +40,7 @@ def build_installer(upstream):
         '<p>Exact experimental distributions. These differ from the stable PyPI package.</p>\n<ul>\n'
         + "\n".join(links) + "\n</ul></body></html>\n"
     )
-    (SOURCE / "wheels.html").write_bytes(html.encode("utf-8"))
+    (source / "wheels.html").write_bytes(html.encode("utf-8"))
 
 
 def build():
