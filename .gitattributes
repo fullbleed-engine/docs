@@ -76,3 +76,5 @@ docs/assets/components/*.pdf binary
 examples/node-components/** text eol=lf
 docs/assets/node-components/** -text
 docs/assets/node-components/*.pdf binary
+docs/assets/component-preview/** -text
+docs/assets/component-preview/*.pdf binary
