@@ -54,15 +54,30 @@ def main():
             return result.stdout
 
         runtime = json.loads(run("runtime", ["-I", "-c",
-            "import json,fullbleed;from fullbleed.ui.experimental import Theme,Document;"
+            "import json,fullbleed;from pathlib import Path;from hashlib import sha256;"
+            "from fullbleed.ui.experimental import Theme,Document;"
             "assert hasattr(Theme,'with_values') and hasattr(Document,'required_tokens') and hasattr(Document,'styles');"
             "assert hasattr(fullbleed.CompiledDocument,'export_render_time_pagination_trace');"
-            "print(json.dumps({'module':fullbleed.__file__,'features':fullbleed.build_features()}))"]))
+            "root=Path(fullbleed.__file__).parent.parent;"
+            "hashes={p.relative_to(root).as_posix():sha256(p.read_text(encoding='utf-8').encode('utf-8')).hexdigest() "
+            "for p in sorted((root/'fullbleed/ui/experimental').glob('*.py'))};"
+            "print(json.dumps({'module':fullbleed.__file__,'features':fullbleed.build_features(),'engine_python_files':hashes}))"]))
+        assert runtime["engine_python_files"] == manifest["engine_python_files"], "Installed authoring source does not match the pinned candidate"
+        first_folder = args.out / "first"
+        first_folder.mkdir(exist_ok=True)
+        run("first-pdf", ["-I", str(project / "first_pdf.py")], cwd=first_folder)
         run("documents", ["examples/component_recipes/main.py", "--output", str(args.out / "documents")])
         run("edits", ["edit_tasks.py", "--output", str(args.out / "edits")])
         source = (ROOT / "docs/guides/component-design-preview.md").read_text(encoding="utf-8")
         blocks = re.findall(r"```python\n(.*?)```", source, re.S)
-        assert len(blocks) == 5
+        assert len(blocks) == 6
+        assert blocks[0] == (project / "first_pdf.py").read_text(encoding="utf-8")
+        assert sha256(blocks[0].encode("utf-8")).hexdigest() == manifest["first_pdf_sha256"]
+        guide_first = project / "guide-first.py"
+        guide_first.write_text(blocks[0], encoding="utf-8")
+        guide_first_folder = args.out / "guide-first"
+        guide_first_folder.mkdir(exist_ok=True)
+        run("guide-first", ["-I", str(guide_first)], cwd=guide_first_folder)
         guide = project / "guide.py"
         guide.write_text("\n\n".join(blocks), encoding="utf-8")
         run("guide", ["guide.py"])
@@ -72,6 +87,8 @@ def main():
 
     cases = []
     for name, file, pages, size, required in (
+        ("first-pdf", "first/summary.pdf", 1, (419.528, 595.276), ["Project summary", "Prepared for", "Maple & Finch", "Status", "Ready for review"]),
+        ("guide-first", "guide-first/summary.pdf", 1, (419.528, 595.276), ["Project summary", "Prepared for", "Maple & Finch", "Status", "Ready for review"]),
         ("invoice", "documents/invoice.pdf", 1, (595.276, 841.89), ["Maple & Finch", "$8,100.00"]),
         ("report", "documents/report.pdf", 5, (612, 792), [f"Deliverable {index:03d}" for index in range(1, 61)]),
         ("shared-components", "edits/shared-components.pdf", 1, (419.528, 595.276), ["Made for your next project", "Maple & Finch", "$8,100.00"]),
@@ -93,6 +110,12 @@ def main():
             assert all(text.count(compact(value)) == 1 for value in required)
             assert all("ProjectHoursRateAmount" in compact(page.extract_text()) for page in reader.pages)
         cases.append({"name": name, "pages": pages, "sha256": sha256(data).hexdigest(), "text_checked": True, "size_checked": True})
+        if name in {"first-pdf", "guide-first"}:
+            assert reader.metadata.title == "Project summary", name
+            cases[-1]["title_checked"] = True
+            with closing(pdfium.PdfDocument(data)) as pdf:
+                with closing(pdf[0]) as page, closing(page.render(scale=96 / 72)) as bitmap:
+                    bitmap.to_pil().save(args.out / (name + ".png"))
         if name == "selector-styles":
             with closing(pdfium.PdfDocument(data)) as pdf:
                 # At 144 dpi the 16 pt letters have enough interior pixels to
@@ -111,7 +134,8 @@ def main():
     assert all(compact(text) in guide_text for text in ("Maple & Finch", "Portable design", "Shared selector styling", "Design", "$120.00"))
     result = {"ok": True, "source_commit": manifest["source_commit"], "zip_sha256": manifest["zip_sha256"],
               "runtime": runtime, "cases": cases, "guide_blocks": len(blocks), "expected_layout_error": error,
-              "scope": "Actual ZIP extraction and entry points, real guide snippets, page geometry/text, exact published invoice/report bytes and a rejected/repaired layout. Not independent usability or conformance evidence."}
+              "first_guide_block_runs_alone": True, "installed_authoring_source_matches": True,
+              "scope": "Actual ZIP extraction and entry points, first guide block executed alone, six guide blocks executed together, installed authoring-file hashes, page geometry/text, exact published invoice/report bytes and a rejected/repaired layout. Source archive installation is verified separately. Not independent usability or conformance evidence."}
     (args.out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"ok": True, "cases": len(cases), "pages": sum(case["pages"] for case in cases), "guide_blocks": len(blocks)}))
 

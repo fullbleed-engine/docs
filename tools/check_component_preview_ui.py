@@ -55,16 +55,17 @@ def main():
                 assert 'not included in the published 2.5.26 wheel' in article
                 assert source['source_commit'][:7] in article and 'with_values' in article and 'required_tokens' in article
                 assert 'Document(styles=' in article and 'selector_styles()' in article
+                assert 'python first_pdf.py' in article and 'summary.pdf' in article
                 assert page.get_by_role('link', name='Share an editing task in the design discussion', exact=True).get_attribute('href') == 'https://github.com/fullbleed-engine/fullbleed-official/discussions/86'
                 assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
                 images = page.locator('article img').evaluate_all('(items) => items.map(i => ({loaded: i.complete && i.naturalWidth > 0, alt: i.alt}))')
                 assert len(images) == 2 and all(image['loaded'] and image['alt'] for image in images), images
-                page.screenshot(path=str(args.out / f'{label}-top.png'))
-                for section, heading in [('authoring', 'A small component owns its appearance'),
+                page.screenshot(path=str(args.out / f'{label}-top.png'), animations='disabled')
+                for section, heading in [('authoring', 'Make your first PDF'),
                                          ('styling', 'Connect an existing class to its styles'),
                                          ('installation', 'Try the source candidate')]:
                     page.get_by_role('heading', name=heading, exact=False).scroll_into_view_if_needed()
-                    page.screenshot(path=str(args.out / f'{label}-{section}.png'))
+                    page.screenshot(path=str(args.out / f'{label}-{section}.png'), animations='disabled')
                 downloads = []
                 for document in manifest['documents']:
                     filename = document['file']

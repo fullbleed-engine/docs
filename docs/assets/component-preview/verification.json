@@ -2,7 +2,7 @@
   "experimental": true,
   "published_on_pypi": false,
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "source_commit": "ecc52c671abb6b2f9a8068238e0708e66975ff30",
+  "source_commit": "f88cced0fd44cba2e4a0ff74ee1c33f3477fe469",
   "source_files": {
     "examples/component_recipes/kit.py": "967b882817ceec2f9f4bfd1482705f05d4d62fcce444415cfdd23010863c752b",
     "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
@@ -10,11 +10,11 @@
     "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
   },
   "source_hash_scope": "Canonical Git blob bytes at the pinned commit, before platform line-ending conversion.",
-  "candidate_wheel_sha256": "9a4505e92ce79362b992cc11e07149fa93f513153d4a308e9d39bcc55ffdb54a",
+  "candidate_wheel_sha256": "3ff032810d93806090aee491e1964a46eb57ed16a0ae6cec3a6330ae4de31b13",
   "candidate_metadata_version": "2.5.26",
-  "source_install_verified_on": "Windows x64, Python 3.11 (isolated environment)",
-  "source_install_command": "python -m pip install -r requirements-preview.txt",
-  "source_render_command": "python examples/component_recipes/main.py --output output",
+  "source_install_verified_on": "Windows x64, Python 3.11 (reused isolated environment)",
+  "source_install_command": "python -m pip install --force-reinstall -r requirements-preview.txt",
+  "source_render_command": "python first_pdf.py; python examples/component_recipes/main.py --output output; python edit_tasks.py --output output/edits",
   "preview_renderer": "PDFium via pypdfium2",
   "preview_dpi": 96,
   "documents": [
@@ -60,9 +60,9 @@
       "matches_previously_verified_fixture": true
     }
   ],
-  "guide_python_blocks_executed": 5,
-  "scope": "The pinned source archive built and installed in an isolated Windows x64 Python 3.11 environment. The actual source ZIP was extracted; both entry points and all five guide blocks ran against that installed candidate. Invoice/report PDFs and independent PDFium previews match the existing public fixtures byte-for-byte. Checks cover text, page geometry, 60 unique report rows, repeated headers, class/instance colors and one rejected/repaired layout. This is a source preview, not a published release, independent usability study, broad performance qualification or conformance certification.",
-  "source_zip_sha256": "8e484c5f16530ff75c914824c96aee9bed80695b0fdf863749f846f3a3e785b5",
+  "guide_python_blocks_executed": 6,
+  "scope": "The pinned source archive built and installed in a reused isolated Windows x64 Python 3.11 environment. All eight experimental Python source files match the pinned Git blobs after line-ending normalization. The exact source ZIP was extracted; its standalone first-PDF program, invoice/report runner and editing tasks passed. The guide's first block ran alone, and all six blocks ran together. Invoice/report PDFs retain identical bytes, so their previously verified independent PDFium previews remain unchanged. Checks cover text, title and paper geometry for the first PDF, 60 unique report rows, repeated headers, class/instance colors and one rejected/repaired layout. This is an experimental source preview; it does not establish independent usability, broad performance or conformance.",
+  "source_zip_sha256": "3d22e7548f07d4d2d19aaed9e9ffc5f407e9638085219891b75b413b605b304d",
   "editing_tasks": [
     {
       "name": "shared-components",
@@ -118,5 +118,25 @@
       ]
     ]
   },
-  "source_archive_sha256": "d15f5ec6e9f71778d2fa0d5c2e44a0e3a3501bc041e9dd1785e16a572125f44f"
+  "source_archive_sha256": "2fa296b69da2b80c25172023cba8daf2753b7ed416f969d86dea74e4789a32ab",
+  "first_pdf_checks": [
+    {
+      "name": "first-pdf",
+      "pages": 1,
+      "sha256": "283ee7d20702a47a95b667329aec32f60d4013d653a321a669e651e47101068f",
+      "text_checked": true,
+      "size_checked": true,
+      "title_checked": true
+    },
+    {
+      "name": "guide-first",
+      "pages": 1,
+      "sha256": "283ee7d20702a47a95b667329aec32f60d4013d653a321a669e651e47101068f",
+      "text_checked": true,
+      "size_checked": true,
+      "title_checked": true
+    }
+  ],
+  "first_guide_block_runs_alone": true,
+  "installed_authoring_files_checked": 8
 }

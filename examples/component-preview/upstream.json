@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "commit": "ecc52c671abb6b2f9a8068238e0708e66975ff30",
+  "commit": "f88cced0fd44cba2e4a0ff74ee1c33f3477fe469",
   "source_files": {
     "examples/component_recipes/kit.py": "967b882817ceec2f9f4bfd1482705f05d4d62fcce444415cfdd23010863c752b",
     "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
@@ -8,5 +8,16 @@
     "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a",
     "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
   },
-  "scope": "Canonical Git blob bytes at the pinned commit. README, edit_tasks.py and requirements-preview.txt are documentation project files."
+  "scope": "source_files and engine_python_files contain canonical Git blob hashes at the pinned commit. first_pdf.py is the first Python block of examples/component_recipes/README.md. README, edit_tasks.py and requirements-preview.txt are documentation project files.",
+  "engine_python_files": {
+    "fullbleed/ui/experimental/__init__.py": "b32996c56e1f915518e5fae30684ed626f2572542ea51d5338cccecf9d09c2a3",
+    "fullbleed/ui/experimental/_bridge.py": "0e122d14474d36fadbdd960b6977cb137a0663a338dd183d11da4894df2e1e8f",
+    "fullbleed/ui/experimental/_document.py": "24db122ecfa7f2820d8fa1423d52ab51e028765fed35a48326fae1d890e26b85",
+    "fullbleed/ui/experimental/_schema.py": "bf6463e42f5e8111e20975e949c7997a9da72b0a9996455df5d69d38d4543ca7",
+    "fullbleed/ui/experimental/_semantics.py": "d4aa173cff7ee528dcfb21fd9a6b01e58b77364c9f2350e16743bf22ba28187f",
+    "fullbleed/ui/experimental/_style.py": "eadd516613985245691b0798361b7df6122c6906443ccefae77e154e3681e226",
+    "fullbleed/ui/experimental/_table.py": "977934d2590983672a02310d9306afff1900384fe0bf018bf4d9b159b5678899",
+    "fullbleed/ui/experimental/_tree.py": "810c277e6e39e5154086e742ff44d4fc1f4c871fd7913085ed02e2525c62e741"
+  },
+  "first_pdf_sha256": "bd4f6400151a3787fb0896ea6285ac98aa35ec54c7d29f6a4f64d86909f69056"
 }

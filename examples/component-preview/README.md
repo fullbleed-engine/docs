@@ -1,6 +1,6 @@
 # Fullbleed component design preview
 
-This is a source preview pinned to `ecc52c671abb6b2f9a8068238e0708e66975ff30`.
+This is a source preview pinned to `f88cced0fd44cba2e4a0ff74ee1c33f3477fe469`.
 The experimental API is not in the published Fullbleed 2.5.26 wheel. Names and
 behavior may change. This project contains examples, not the native engine.
 
@@ -16,6 +16,7 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 
 ```console
 python -m pip install -r requirements-preview.txt
+python first_pdf.py
 python examples/component_recipes/main.py --output output
 python edit_tasks.py --output output/edits
 ```
@@ -24,12 +25,14 @@ The first installation builds the engine and can take several minutes. Git is
 not required: the requirement downloads the exact source archive. The candidate's
 package metadata says 2.5.26; the pinned commit identifies this preview.
 
-Open `output/invoice.pdf` and `output/report.pdf`. Both use the same imported kit.
+Open `summary.pdf` for the standalone first example, then `output/invoice.pdf`
+and `output/report.pdf`. The invoice and report use the same imported kit.
 The other script renders five editing tasks and captures one expected layout
 error before rendering the repair. All example data is fictional.
 
 | Change | Where to start |
 | --- | --- |
+| Make a first PDF with one local component | `first_pdf.py`; no theme or part declarations required |
 | Reuse and rebrand components | `shared_components()` in `edit_tasks.py`; change the theme with `with_values` |
 | Add a formatted column | `extra_column()`; each `Column` owns its header and cell function |
 | Change paper size | `paper_change()`; geometry belongs to `Page` |
@@ -62,5 +65,5 @@ share the task, what you expected, and any point where you needed generated HTML
 an internal selector or undocumented behavior. Include a small synthetic input;
 please remove customer data from examples.
 
-[Implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/docs/component-authoring-design.md)
-· [Runnable API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/README.md)
+[Implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/docs/component-authoring-design.md)
+· [Runnable API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/examples/component_recipes/README.md)

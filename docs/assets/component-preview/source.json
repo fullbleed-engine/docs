@@ -1,15 +1,26 @@
 {
   "schema": "fullbleed.component-preview-source.v1",
   "experimental": true,
-  "source_commit": "ecc52c671abb6b2f9a8068238e0708e66975ff30",
+  "source_commit": "f88cced0fd44cba2e4a0ff74ee1c33f3477fe469",
   "source_only": true,
-  "engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/ecc52c671abb6b2f9a8068238e0708e66975ff30.tar.gz",
+  "engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469.tar.gz",
   "native_build_required": true,
+  "engine_python_files": {
+    "fullbleed/ui/experimental/__init__.py": "b32996c56e1f915518e5fae30684ed626f2572542ea51d5338cccecf9d09c2a3",
+    "fullbleed/ui/experimental/_bridge.py": "0e122d14474d36fadbdd960b6977cb137a0663a338dd183d11da4894df2e1e8f",
+    "fullbleed/ui/experimental/_document.py": "24db122ecfa7f2820d8fa1423d52ab51e028765fed35a48326fae1d890e26b85",
+    "fullbleed/ui/experimental/_schema.py": "bf6463e42f5e8111e20975e949c7997a9da72b0a9996455df5d69d38d4543ca7",
+    "fullbleed/ui/experimental/_semantics.py": "d4aa173cff7ee528dcfb21fd9a6b01e58b77364c9f2350e16743bf22ba28187f",
+    "fullbleed/ui/experimental/_style.py": "eadd516613985245691b0798361b7df6122c6906443ccefae77e154e3681e226",
+    "fullbleed/ui/experimental/_table.py": "977934d2590983672a02310d9306afff1900384fe0bf018bf4d9b159b5678899",
+    "fullbleed/ui/experimental/_tree.py": "810c277e6e39e5154086e742ff44d4fc1f4c871fd7913085ed02e2525c62e741"
+  },
+  "first_pdf_sha256": "bd4f6400151a3787fb0896ea6285ac98aa35ec54c7d29f6a4f64d86909f69056",
   "files": [
     {
       "path": "README.md",
-      "bytes": 3800,
-      "sha256": "d1d956c74860c3de91e057c103528de3b3678f3e881bbda313d59bbda688046c"
+      "bytes": 3994,
+      "sha256": "e401702b65085c0685d62a138ac6dc840a22aee8fba31f72c6c3af251bb1bc1e"
     },
     {
       "path": "LICENSE",
@@ -19,7 +30,12 @@
     {
       "path": "requirements-preview.txt",
       "bytes": 200,
-      "sha256": "8e61079c9b85952329586127aa9c5682f657a48751360e326bb5a14e5ba3ddaa"
+      "sha256": "a76d44d3b437155a1c6c4d13cb1244e6e7ab443f85a016cbcd15cbd35e576cf0"
+    },
+    {
+      "path": "first_pdf.py",
+      "bytes": 859,
+      "sha256": "bd4f6400151a3787fb0896ea6285ac98aa35ec54c7d29f6a4f64d86909f69056"
     },
     {
       "path": "edit_tasks.py",
@@ -28,8 +44,8 @@
     },
     {
       "path": "upstream.json",
-      "bytes": 824,
-      "sha256": "b244e224588b907582f78182f4f8f4221031c0b3dae16383296895a445794a5e"
+      "bytes": 1969,
+      "sha256": "2d1e2da857053960513428e1f52a8454cf1196b2b8e037f2900bace982315491"
     },
     {
       "path": "examples/component_recipes/kit.py",
@@ -52,6 +68,6 @@
       "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
     }
   ],
-  "zip_sha256": "8e484c5f16530ff75c914824c96aee9bed80695b0fdf863749f846f3a3e785b5",
-  "zip_bytes": 9668
+  "zip_sha256": "3d22e7548f07d4d2d19aaed9e9ffc5f407e9638085219891b75b413b605b304d",
+  "zip_bytes": 10869
 }

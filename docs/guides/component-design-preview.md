@@ -11,19 +11,19 @@ describing a table column once.
 
 !!! warning "Source preview — not a published release"
     This page shows the draft at source commit
-    [`ecc52c6`](https://github.com/fullbleed-engine/fullbleed-official/tree/ecc52c671abb6b2f9a8068238e0708e66975ff30).
+    [`f88cced`](https://github.com/fullbleed-engine/fullbleed-official/tree/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469).
     `fullbleed.ui.experimental` is **not included in the published 2.5.26 wheel**.
     Names and behavior may change. Use the [released component guide](python-components.md)
     for an installable starting point.
 
 [Download the source kit](../assets/component-preview/project.zip){ .md-button .md-button--primary }
-[Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/docs/component-authoring-design.md){ .md-button }
+[Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/docs/component-authoring-design.md){ .md-button }
 [Review the draft](https://github.com/fullbleed-engine/fullbleed-official/pull/85){ .md-button }
 
 ## One kit, two documents
 
 The invoice and operations report import the same `Field`, `WorkTable`, `Total`
-and typography helpers. Their [shared kit](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/kit.py)
+and typography helpers. Their [shared kit](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/examples/component_recipes/kit.py)
 owns those styles; neither document registers a separate stylesheet. All data
 and organizations are fictional.
 
@@ -39,7 +39,7 @@ One document combines a customer field, a table with formatted columns and a
 total panel. Its blue brand values come from the document theme.
 
 [Open the invoice PDF](../assets/component-preview/invoice.pdf){ .md-button }
-[Read the document function](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/documents.py)
+[Read the document function](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/examples/component_recipes/documents.py)
 
 </div>
 </div>
@@ -66,13 +66,19 @@ These images were rendered from the downloadable PDFs with PDFium. The
 [artifact manifest](../assets/component-preview/verification.json) records the
 source revision, candidate wheel, file hashes, page counts and verification scope.
 
-## A small component owns its appearance
+## Make your first PDF
 
-Functions still take ordinary Python arguments. A style is an immutable value
-on the returned node; compilation collects it for the document:
+After [installing the candidate](#try-the-source-candidate), save this as
+`first_pdf.py` and run `python first_pdf.py`. It writes `summary.pdf` using an
+explicitly selected bundled font. The source kit includes this exact program.
+Themes and named parts are optional; this example needs neither:
 
 ```python
-from fullbleed.ui.experimental import Document, Paragraph, Stack, component, pt
+from importlib.resources import files
+from pathlib import Path
+from fullbleed.ui.experimental import (
+    Document, Flow, Heading, Page, Paragraph, Renderer, Stack, component, mm, pt,
+)
 
 @component
 def Field(label: str, value: str):
@@ -82,21 +88,37 @@ def Field(label: str, value: str):
         gap=pt(4),
     )
 
-customer = Field("Prepared for", "Maple & Finch")
-highlighted = customer.with_style(background="#f2f5f8", padding=pt(12))
-document = Document(highlighted)
+body = Flow(
+    Heading("Project summary", level=1),
+    Field("Prepared for", "Maple & Finch"),
+    Field("Status", "Ready for review"),
+    gap=pt(14),
+).with_style(font_family="Inter", font_size=pt(11), color="#263b46")
+document = Document(body, title="Project summary", page=Page("A5", margin=mm(16)))
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+renderer = Renderer(font_files=[str(font)])
+Path("summary.pdf").write_bytes(document.render_pdf(renderer))
 ```
 
-Importing `Field` carries the label's styling into another document. The root
-override returns a new node; `customer` keeps its original appearance. A function
-does not have to accept and forward a `style` parameter to support that override.
+Importing `Field` carries the label's appearance into another document. Ordinary
+functions compose nodes; `@component` adds a name and source boundary for
+diagnostics. Change the label color inside `Field` to update both fields, or
+customize one returned instance:
+
+```python
+customer = Field("Prepared for", "Maple & Finch")
+highlighted = customer.with_style(background="#f2f5f8", padding=pt(12))
+```
+
+The root override returns a new node; `customer` keeps its original appearance.
+The function does not have to accept and forward a `style` parameter.
 
 For repeated defaults, the draft offers `styled(...)`; for shared brand values,
 `Theme` and tokens; for public internals, declared parts and `.with_parts(...)`.
-The [runnable guide](https://github.com/fullbleed-engine/fullbleed-official/blob/ecc52c671abb6b2f9a8068238e0708e66975ff30/examples/component_recipes/README.md)
-introduces each separately, including font selection and PDF rendering.
+The [runnable guide](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/examples/component_recipes/README.md)
+introduces each separately.
 
-`class_name` keeps its literal CSS meaning. It does not look up a Python variable
+`class_name` is a literal CSS class label. It does not look up a Python variable
 or load a stylesheet. Components normally carry style values; existing selector
 rules can be attached explicitly with `Document(styles=...)`.
 
@@ -142,7 +164,9 @@ table = DataTable(
 Adding a column changes one declaration containing its label, cell function,
 alignment and width. Cells can return components. Applications still calculate
 and format their values. `DataTable` supplies the table structure, empty state
-and repeated column headers.
+and repeated column headers. Ordinary selector rules can change the table's
+built-in appearance; explicitly chosen column widths and alignment retain inline
+precedence.
 
 ## Connect an existing class to its styles
 
@@ -167,8 +191,9 @@ CSS. The runnable guide describes this ownership rule and advanced limitations.
 
 ## Render the composed document
 
-The five Python blocks on this page run together. Paper belongs to the document;
-font selection belongs to the renderer, which can be shared by your application:
+The first Python block runs alone. The six blocks also run together to produce
+this composed example. Paper belongs to the document; font selection belongs to
+the renderer, which can be shared by your application:
 
 ```python
 from importlib.resources import files
@@ -228,11 +253,12 @@ installation builds the engine and can take several minutes:
 
 ```console
 python -m pip install -r requirements-preview.txt
+python first_pdf.py
 python examples/component_recipes/main.py --output output
 python edit_tasks.py --output output/edits
 ```
 
-Open `output/invoice.pdf` and `report.pdf`. Edit
+Open `summary.pdf` first, then `output/invoice.pdf` and `output/report.pdf`. Edit
 `examples/component_recipes/kit.py` to change shared components, or
 `documents.py` to change a document's composition. No browser is used to produce
 the PDFs. The preview's package metadata still says 2.5.26; the source revision,
