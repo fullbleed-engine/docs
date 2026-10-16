@@ -25,11 +25,24 @@ def compact(text):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--python", default=sys.executable, help="Isolated candidate Python; verification readers stay in the caller")
+    parser.add_argument("--install-report", type=Path, help="pip --report JSON from the pinned wheel installation")
     parser.add_argument("--out", type=Path, default=ROOT / "target/component-preview")
     args = parser.parse_args()
     args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
     manifest = json.loads((ASSETS / "source.json").read_text(encoding="utf-8"))
+    installation = None
+    if args.install_report:
+        report = json.loads(args.install_report.read_text(encoding="utf-8"))
+        packages = [item for item in report["install"] if item["metadata"]["name"].lower() == "fullbleed"]
+        assert len(packages) == 1
+        package = packages[0]
+        assert package["metadata"]["version"] == manifest["engine_wheels"]["package_version"]
+        download = package["download_info"]
+        matches = [item for item in manifest["engine_wheels"]["files"] if item["url"] == download["url"]]
+        assert len(matches) == 1 and matches[0]["sha256"] == download["archive_info"]["hashes"]["sha256"]
+        installation = {"url": download["url"], "sha256": matches[0]["sha256"], "version": package["metadata"]["version"]}
+        (args.out / "installation.json").write_text(json.dumps(installation, indent=2) + "\n", encoding="utf-8")
     archive_path = ASSETS / "project.zip"
     assert sha256(archive_path.read_bytes()).hexdigest() == manifest["zip_sha256"]
     with tempfile.TemporaryDirectory(prefix="component-preview-") as folder:
@@ -135,7 +148,8 @@ def main():
     result = {"ok": True, "source_commit": manifest["source_commit"], "zip_sha256": manifest["zip_sha256"],
               "runtime": runtime, "cases": cases, "guide_blocks": len(blocks), "expected_layout_error": error,
               "first_guide_block_runs_alone": True, "installed_authoring_source_matches": True,
-              "scope": "Actual ZIP extraction and entry points, first guide block executed alone, six guide blocks executed together, installed authoring-file hashes, page geometry/text, exact published invoice/report bytes and a rejected/repaired layout. Source archive installation is verified separately. Not independent usability or conformance evidence."}
+              "wheel_installation": installation,
+              "scope": "Actual ZIP extraction and entry points, first guide block executed alone, six guide blocks executed together, installed authoring-file hashes, page geometry/text, exact published invoice/report bytes and a rejected/repaired layout. When supplied, the pip installation report verifies the selected preview-wheel URL and hash. Source archive installation is verified separately. Not independent usability or conformance evidence."}
     (args.out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"ok": True, "cases": len(cases), "pages": sum(case["pages"] for case in cases), "guide_blocks": len(blocks)}))
 

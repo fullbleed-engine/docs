@@ -35,7 +35,7 @@ jobs:
           path: target/complete-html/
           retention-days: 14
   component-preview:
-    name: Experimental component source kit (${{ matrix.os }})
+    name: Experimental component preview (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
     strategy:
@@ -47,14 +47,15 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - uses: dtolnay/rust-toolchain@stable
-      - name: Build the pinned source candidate
-        run: python -m pip install -r examples/component-preview/requirements-preview.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
-      - name: Verify the exact source download, editing tasks and guide
+      - name: Install the exact preview wheel without building Rust
+        run: python -m pip install --force-reinstall --report component-preview-install.json -r examples/component-preview/requirements-preview.txt
+      - name: Install independent verification readers
+        run: python -m pip install pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Verify the exact example download, editing tasks and guide
         run: |
           python tools/build_component_preview_starter.py
-          git diff --exit-code -- docs/assets/component-preview/project.zip docs/assets/component-preview/source.json
-          python tools/verify_component_preview_starter.py
+          git diff --exit-code -- docs/assets/component-preview/project.zip docs/assets/component-preview/source.json examples/component-preview/requirements-preview.txt examples/component-preview/wheels.html
+          python tools/verify_component_preview_starter.py --install-report component-preview-install.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

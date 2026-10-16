@@ -10,7 +10,7 @@
     "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
   },
   "source_hash_scope": "Canonical Git blob bytes at the pinned commit, before platform line-ending conversion.",
-  "candidate_wheel_sha256": "3ff032810d93806090aee491e1964a46eb57ed16a0ae6cec3a6330ae4de31b13",
+  "candidate_wheel_sha256": "5628d796fea9907cb9acfcc633192b69defd38d4edabde24327119e39de383c6",
   "candidate_metadata_version": "2.5.26",
   "source_install_verified_on": "Windows x64, Python 3.11 (reused isolated environment)",
   "source_install_command": "python -m pip install --force-reinstall -r requirements-preview.txt",
@@ -61,8 +61,8 @@
     }
   ],
   "guide_python_blocks_executed": 6,
-  "scope": "The pinned source archive built and installed in a reused isolated Windows x64 Python 3.11 environment. All eight experimental Python source files match the pinned Git blobs after line-ending normalization. The exact source ZIP was extracted; its standalone first-PDF program, invoice/report runner and editing tasks passed. The guide's first block ran alone, and all six blocks ran together. Invoice/report PDFs retain identical bytes, so their previously verified independent PDFium previews remain unchanged. Checks cover text, title and paper geometry for the first PDF, 60 unique report rows, repeated headers, class/instance colors and one rejected/repaired layout. This is an experimental source preview; it does not establish independent usability, broad performance or conformance.",
-  "source_zip_sha256": "3d22e7548f07d4d2d19aaed9e9ffc5f407e9638085219891b75b413b605b304d",
+  "scope": "The public GitHub preview ZIP was downloaded without authentication and all 12 members matched the manifest. Its pinned installer replaced the existing same-version package with the exact Windows x64 preview wheel, without building Rust or consulting PyPI; the pip report confirms its URL and hash. All eight experimental Python source files match the pinned Git blobs. The standalone first-PDF program, invoice/report runner and editing tasks passed; the first guide block ran alone and all six blocks ran together. Invoice/report PDFs retain identical bytes, so their previously verified independent PDFium previews remain unchanged. Checks cover text, title and page geometry, 60 unique report rows, repeated headers, class/instance colors and one rejected/repaired layout. The source archive was separately built and installed before the wheel installer was introduced. Platform packaging/native smoke checks are recorded in the linked build workflow. This is an experimental preview and does not establish independent usability, broad performance or conformance.",
+  "source_zip_sha256": "f75137fab9d69ca8fe294a2b67a8c57c0d447c12eefc2be238a33c35eaf51ceb",
   "editing_tasks": [
     {
       "name": "shared-components",
@@ -138,5 +138,17 @@
     }
   ],
   "first_guide_block_runs_alone": true,
-  "installed_authoring_files_checked": 8
+  "installed_authoring_files_checked": 8,
+  "engine_installation": "prebuilt-wheel",
+  "preview_release": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-f88cced",
+  "distribution_build_run": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38905745999",
+  "wheel_install_verified_on": "Windows x64, CPython 3.11 (reused isolated environment)",
+  "wheel_install_command": "python -m pip install --force-reinstall -r requirements-preview.txt",
+  "wheel_installation": {
+    "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-win_amd64.whl",
+    "sha256": "5628d796fea9907cb9acfcc633192b69defd38d4edabde24327119e39de383c6",
+    "version": "2.5.26"
+  },
+  "source_install_command_scope": "Historical source-installation check before the prebuilt installer, when requirements-preview.txt pointed to the source archive. The same pinned source requirement is now in requirements-source.txt.",
+  "source_install_wheel_sha256": "3ff032810d93806090aee491e1964a46eb57ed16a0ae6cec3a6330ae4de31b13"
 }

@@ -1,6 +1,6 @@
 ---
 title: Preview the next Python component authoring model
-description: Try an experimental Fullbleed component design with portable styles, reusable themes and column-based tables. Download a source kit with real PDFs and focused editing tasks.
+description: Try an experimental Fullbleed component design with portable styles, reusable themes and column-based tables. Download examples with prebuilt preview wheels, real PDFs and focused editing tasks.
 ---
 
 # Components that carry their design
@@ -9,14 +9,14 @@ An experimental Python authoring model for importing a component together with
 its appearance, customizing it without knowing its internal selectors, and
 describing a table column once.
 
-!!! warning "Source preview — not a published release"
+!!! warning "Experimental API"
     This page shows the draft at source commit
     [`f88cced`](https://github.com/fullbleed-engine/fullbleed-official/tree/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469).
-    `fullbleed.ui.experimental` is **not included in the published 2.5.26 wheel**.
+    `fullbleed.ui.experimental` is **not included in the published 2.5.26 wheel** on PyPI.
     Names and behavior may change. Use the [released component guide](python-components.md)
-    for an installable starting point.
+    for the stable authoring API.
 
-[Download the source kit](../assets/component-preview/project.zip){ .md-button .md-button--primary }
+[Download the example kit](../assets/component-preview/project.zip){ .md-button .md-button--primary }
 [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469/docs/component-authoring-design.md){ .md-button }
 [Review the draft](https://github.com/fullbleed-engine/fullbleed-official/pull/85){ .md-button }
 
@@ -68,9 +68,9 @@ source revision, candidate wheel, file hashes, page counts and verification scop
 
 ## Make your first PDF
 
-After [installing the candidate](#try-the-source-candidate), save this as
+After [installing the preview](#try-the-preview), save this as
 `first_pdf.py` and run `python first_pdf.py`. It writes `summary.pdf` using an
-explicitly selected bundled font. The source kit includes this exact program.
+explicitly selected bundled font. The example kit includes this exact program.
 Themes and named parts are optional; this example needs neither:
 
 ```python
@@ -222,15 +222,20 @@ PDF, `document.render_pdf(renderer)` handles preparation for you. Content or
 renderer changes require a new preparation. The fonts used here ship with the
 engine; system fonts and a browser are not required for rendering.
 
-## Try the source candidate
+<span id="try-the-source-candidate"></span>
 
-Download and extract the [source kit](../assets/component-preview/project.zip),
-then open a terminal in its `fullbleed-component-preview` folder. Building this
-preview requires Python 3.10 or later, Rust/Cargo, the platform's native build
-tools and internet access. The kit includes examples and a requirement pinned to
-the engine's source archive. It does not include a prebuilt engine. The
-[source manifest](../assets/component-preview/source.json) records every file
-and the download's hash. Use an isolated environment:
+## Try the preview
+
+Download and extract the [example kit](../assets/component-preview/project.zip),
+then open a terminal in its `fullbleed-component-preview` folder. You need
+CPython 3.10 or later and internet access. The installer selects a matching
+prebuilt wheel for supported Windows, macOS and Linux platforms. Rust and native
+build tools are not needed for that installation.
+
+The kit contains Python examples and a pinned installer; the engine is downloaded
+from the [GitHub preview](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-f88cced).
+The [download manifest](../assets/component-preview/source.json) records the kit's
+files and the exact wheel URLs and hashes. Use an isolated environment:
 
 ```console
 python -m venv .venv
@@ -248,21 +253,35 @@ python -m venv .venv
     source .venv/bin/activate
     ```
 
-Then install the pinned source candidate and render the examples. The first
-installation builds the engine and can take several minutes:
+Install the preview and render the examples:
 
 ```console
-python -m pip install -r requirements-preview.txt
+python -m pip install --force-reinstall -r requirements-preview.txt
 python first_pdf.py
 python examples/component_recipes/main.py --output output
 python edit_tasks.py --output output/edits
 ```
 
-Open `summary.pdf` first, then `output/invoice.pdf` and `output/report.pdf`. Edit
-`examples/component_recipes/kit.py` to change shared components, or
+Open `summary.pdf` first, then `output/invoice.pdf` and `output/report.pdf`.
+Edit `examples/component_recipes/kit.py` to change shared components, or
 `documents.py` to change a document's composition. No browser is used to produce
-the PDFs. The preview's package metadata still says 2.5.26; the source revision,
-rather than that version alone, identifies this experimental build.
+the PDFs.
+
+This snapshot retains package version 2.5.26, but differs from PyPI's 2.5.26.
+The installer uses only the preview's exact wheel files and checks their hashes;
+`--force-reinstall` replaces an existing package with the same version in this
+isolated environment. The source commit and hashes identify the experiment.
+
+??? note "Build from source"
+    If no listed wheel matches your platform, or you want to work on the engine,
+    the kit also includes `requirements-source.txt`. This path requires
+    Rust/Cargo and your platform's native build tools:
+
+    ```console
+    python -m pip install --force-reinstall -r requirements-source.txt
+    ```
+
+    It builds the same pinned source commit and may take several minutes.
 
 The kit's `edit_tasks.py` gives you five small starting points:
 

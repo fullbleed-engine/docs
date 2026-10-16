@@ -1,2 +1,23 @@
-# Experimental source candidate; requires Rust/Cargo and native build tools.
-fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469.tar.gz
+# Experimental snapshot; use an isolated environment and --force-reinstall.
+# The URLs and hashes identify this preview; package metadata alone does not.
+--no-index
+--only-binary=:all:
+--require-hashes
+--find-links wheels.html
+
+fullbleed==2.5.26 \
+    --hash=sha256:7be043f90e8741b9ce2d0a14d0333c64e4f701c54a848716f30c6ebf1ed01a0d \
+    --hash=sha256:916ee7ab1c68a3c4e7e380132c44dec5515288f8c570c1d70e375c73e1e263f1 \
+    --hash=sha256:757db2c47d4a6570e2556fbc03b8e261f22a2c405e89c6d55758f226ff477607 \
+    --hash=sha256:72c56b5ff735d4909e6db58b0e1326191f7c2944e7916e909d3bf79259672792 \
+    --hash=sha256:1686541363b81a08171f58bf39187c68b29d779b46cdcf88c2a70bc24fb94df4 \
+    --hash=sha256:1e82a8bdb2f9d1e5d714ad6293df232908abd7244f12bdf24f725e3ba6facc3e \
+    --hash=sha256:2064a356f8bc7d67f1a3e88c54bddf07d2d80e2d0f7dc3412169f0a13636d0f3 \
+    --hash=sha256:718dcef18074317f56a1a43ed4ae93b73c121be839c7a77220110d2bf5e99ba5 \
+    --hash=sha256:b909ff0b0033ed107eac25f6534dce4148beb54f4f032bbc79d73334eab230ef \
+    --hash=sha256:0fbc7c61f6c90407bd81a62d7e6d731f0d6d0b19135854e258942e91c403eb4f \
+    --hash=sha256:7f97bd9f68c4730a43af2baaa858be8a6452422b81c17cf2a0134bd819811a48 \
+    --hash=sha256:f8fa2e5903eb88b1df36c4490cd058c0d5fd65db299bf6c8ac412d7f6be7f4d2 \
+    --hash=sha256:28746dfaf9284ad21b85183ee1ae4659adb61ac1cc73bd59d09aada30ed4ff69 \
+    --hash=sha256:5628d796fea9907cb9acfcc633192b69defd38d4edabde24327119e39de383c6 \
+    --hash=sha256:e063f05db66f494fd545b7c7d4814fa1a6a019aedaf5e92da4b84a8487762023

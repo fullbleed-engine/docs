@@ -1,0 +1,2 @@
+# Optional source build; requires Rust/Cargo and native build tools.
+fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469.tar.gz

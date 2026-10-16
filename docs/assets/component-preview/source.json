@@ -3,8 +3,125 @@
   "experimental": true,
   "source_commit": "f88cced0fd44cba2e4a0ff74ee1c33f3477fe469",
   "source_only": true,
-  "engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469.tar.gz",
-  "native_build_required": true,
+  "contains_engine_binaries": false,
+  "engine_installation": "prebuilt-wheel",
+  "engine_requirement": "fullbleed==2.5.26",
+  "source_engine_requirement": "fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469.tar.gz",
+  "native_build_required": false,
+  "native_build_scope": "Listed compatible wheels; the explicit source fallback requires Rust and native build tools.",
+  "engine_wheels": {
+    "release_tag": "component-preview-f88cced",
+    "release_url": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-f88cced",
+    "package_version": "2.5.26",
+    "build_run": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38905745999",
+    "files": [
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-macosx_10_12_x86_64.whl",
+        "kind": "wheel",
+        "bytes": 7577471,
+        "sha256": "7be043f90e8741b9ce2d0a14d0333c64e4f701c54a848716f30c6ebf1ed01a0d",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-macosx_10_12_x86_64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-macosx_11_0_arm64.whl",
+        "kind": "wheel",
+        "bytes": 7182684,
+        "sha256": "916ee7ab1c68a3c4e7e380132c44dec5515288f8c570c1d70e375c73e1e263f1",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-macosx_11_0_arm64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+        "kind": "wheel",
+        "bytes": 7327039,
+        "sha256": "757db2c47d4a6570e2556fbc03b8e261f22a2c405e89c6d55758f226ff477607",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl",
+        "kind": "wheel",
+        "bytes": 9147028,
+        "sha256": "72c56b5ff735d4909e6db58b0e1326191f7c2944e7916e909d3bf79259672792",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_i686.manylinux2014_i686.whl",
+        "kind": "wheel",
+        "bytes": 9870458,
+        "sha256": "1686541363b81a08171f58bf39187c68b29d779b46cdcf88c2a70bc24fb94df4",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_i686.manylinux2014_i686.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl",
+        "kind": "wheel",
+        "bytes": 8079407,
+        "sha256": "1e82a8bdb2f9d1e5d714ad6293df232908abd7244f12bdf24f725e3ba6facc3e",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl",
+        "kind": "wheel",
+        "bytes": 8147100,
+        "sha256": "2064a356f8bc7d67f1a3e88c54bddf07d2d80e2d0f7dc3412169f0a13636d0f3",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "kind": "wheel",
+        "bytes": 7737797,
+        "sha256": "718dcef18074317f56a1a43ed4ae93b73c121be839c7a77220110d2bf5e99ba5",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-musllinux_1_2_aarch64.whl",
+        "kind": "wheel",
+        "bytes": 7310649,
+        "sha256": "b909ff0b0033ed107eac25f6534dce4148beb54f4f032bbc79d73334eab230ef",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-musllinux_1_2_aarch64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-musllinux_1_2_armv7l.whl",
+        "kind": "wheel",
+        "bytes": 9203913,
+        "sha256": "0fbc7c61f6c90407bd81a62d7e6d731f0d6d0b19135854e258942e91c403eb4f",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-musllinux_1_2_armv7l.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-musllinux_1_2_i686.whl",
+        "kind": "wheel",
+        "bytes": 9851368,
+        "sha256": "7f97bd9f68c4730a43af2baaa858be8a6452422b81c17cf2a0134bd819811a48",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-musllinux_1_2_i686.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-musllinux_1_2_x86_64.whl",
+        "kind": "wheel",
+        "bytes": 7733715,
+        "sha256": "f8fa2e5903eb88b1df36c4490cd058c0d5fd65db299bf6c8ac412d7f6be7f4d2",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-musllinux_1_2_x86_64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-win32.whl",
+        "kind": "wheel",
+        "bytes": 9073502,
+        "sha256": "28746dfaf9284ad21b85183ee1ae4659adb61ac1cc73bd59d09aada30ed4ff69",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-win32.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-win_amd64.whl",
+        "kind": "wheel",
+        "bytes": 7897221,
+        "sha256": "5628d796fea9907cb9acfcc633192b69defd38d4edabde24327119e39de383c6",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-win_amd64.whl"
+      },
+      {
+        "file": "fullbleed-2.5.26-cp310-abi3-win_arm64.whl",
+        "kind": "wheel",
+        "bytes": 7420035,
+        "sha256": "e063f05db66f494fd545b7c7d4814fa1a6a019aedaf5e92da4b84a8487762023",
+        "url": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/component-preview-f88cced/fullbleed-2.5.26-cp310-abi3-win_arm64.whl"
+      }
+    ]
+  },
   "engine_python_files": {
     "fullbleed/ui/experimental/__init__.py": "b32996c56e1f915518e5fae30684ed626f2572542ea51d5338cccecf9d09c2a3",
     "fullbleed/ui/experimental/_bridge.py": "0e122d14474d36fadbdd960b6977cb137a0663a338dd183d11da4894df2e1e8f",
@@ -19,8 +136,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 3994,
-      "sha256": "e401702b65085c0685d62a138ac6dc840a22aee8fba31f72c6c3af251bb1bc1e"
+      "bytes": 4505,
+      "sha256": "9ef387caefa647f8d07ab7e6c82075dd07b1d58967382c7211d09a9b799d5a34"
     },
     {
       "path": "LICENSE",
@@ -29,8 +146,18 @@
     },
     {
       "path": "requirements-preview.txt",
-      "bytes": 200,
-      "sha256": "a76d44d3b437155a1c6c4d13cb1244e6e7ab443f85a016cbcd15cbd35e576cf0"
+      "bytes": 1521,
+      "sha256": "e03452ee25ceb2277a8f9cf0576bd4673fc336558275c18b1599a6e500720703"
+    },
+    {
+      "path": "requirements-source.txt",
+      "bytes": 192,
+      "sha256": "b1d8d0c7af3b85d56e29505cc91401380f95a49be6e1bea2c10a93c84c9a21b8"
+    },
+    {
+      "path": "wheels.html",
+      "bytes": 4938,
+      "sha256": "931e3a48e6cf8d1eefdd4d2742d32c738e5bbf8e6eac80f3c0ecf2a8d04da1a5"
     },
     {
       "path": "first_pdf.py",
@@ -44,8 +171,8 @@
     },
     {
       "path": "upstream.json",
-      "bytes": 1969,
-      "sha256": "2d1e2da857053960513428e1f52a8454cf1196b2b8e037f2900bace982315491"
+      "bytes": 8565,
+      "sha256": "a6101556d607671263905b4ad3808a22346ff0c35d1aa268cf78ee79eeff791f"
     },
     {
       "path": "examples/component_recipes/kit.py",
@@ -68,6 +195,6 @@
       "sha256": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
     }
   ],
-  "zip_sha256": "3d22e7548f07d4d2d19aaed9e9ffc5f407e9638085219891b75b413b605b304d",
-  "zip_bytes": 10869
+  "zip_sha256": "f75137fab9d69ca8fe294a2b67a8c57c0d447c12eefc2be238a33c35eaf51ceb",
+  "zip_bytes": 14536
 }

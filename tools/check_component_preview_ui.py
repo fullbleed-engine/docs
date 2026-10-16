@@ -51,11 +51,14 @@ def main():
                 response = page.goto(base + '/guides/component-design-preview/', wait_until='networkidle')
                 assert response.status == 200
                 assert page.get_by_role('heading', name='Components that carry their design', exact=False).is_visible()
+                assert page.get_by_text('Experimental API', exact=True).is_visible()
                 article = page.locator('article').inner_text()
                 assert 'not included in the published 2.5.26 wheel' in article
                 assert source['source_commit'][:7] in article and 'with_values' in article and 'required_tokens' in article
                 assert 'Document(styles=' in article and 'selector_styles()' in article
                 assert 'python first_pdf.py' in article and 'summary.pdf' in article
+                assert '--force-reinstall -r requirements-preview.txt' in article and 'prebuilt wheel' in article
+                assert page.get_by_role('link', name='GitHub preview', exact=True).get_attribute('href') == 'https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-f88cced'
                 assert page.get_by_role('link', name='Share an editing task in the design discussion', exact=True).get_attribute('href') == 'https://github.com/fullbleed-engine/fullbleed-official/discussions/86'
                 assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
                 images = page.locator('article img').evaluate_all('(items) => items.map(i => ({loaded: i.complete && i.naturalWidth > 0, alt: i.alt}))')
@@ -63,7 +66,7 @@ def main():
                 page.screenshot(path=str(args.out / f'{label}-top.png'), animations='disabled')
                 for section, heading in [('authoring', 'Make your first PDF'),
                                          ('styling', 'Connect an existing class to its styles'),
-                                         ('installation', 'Try the source candidate')]:
+                                         ('installation', 'Try the preview')]:
                     page.get_by_role('heading', name=heading, exact=False).scroll_into_view_if_needed()
                     page.screenshot(path=str(args.out / f'{label}-{section}.png'), animations='disabled')
                 downloads = []
@@ -74,7 +77,7 @@ def main():
                     assert result.status == 200 and result.headers['content-type'].split(';')[0] == 'application/pdf'
                     assert sha256(result.body()).hexdigest() == document['sha256']
                     downloads.append({'file': filename, 'exact_bytes': True})
-                link = page.get_by_role('link', name='Download the source kit', exact=True)
+                link = page.get_by_role('link', name='Download the example kit', exact=True)
                 result = context.request.get(link.evaluate('(element) => element.href'))
                 assert result.status == 200 and sha256(result.body()).hexdigest() == source['zip_sha256']
                 assert len(result.body()) == source['zip_bytes']

@@ -1,11 +1,13 @@
 # Fullbleed component design preview
 
-This is a source preview pinned to `f88cced0fd44cba2e4a0ff74ee1c33f3477fe469`.
-The experimental API is not in the published Fullbleed 2.5.26 wheel. Names and
-behavior may change. This project contains examples, not the native engine.
+This experimental preview is pinned to `f88cced0fd44cba2e4a0ff74ee1c33f3477fe469`.
+Its API is not in the published Fullbleed 2.5.26 wheel on PyPI. Names and behavior
+may change. This project contains Python examples and a pinned wheel installer.
 
-You need Python 3.10+, Rust/Cargo, your platform's native build tools, and internet
-access for the source installation. Use a new virtual environment:
+You need CPython 3.10+ and internet access. The installer downloads a matching
+prebuilt wheel from the GitHub preview for supported Windows, macOS and Linux
+platforms. That installation does not require Rust or native build tools.
+Use an isolated virtual environment:
 
 ```console
 python -m venv .venv
@@ -15,15 +17,22 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 `source .venv/bin/activate` on macOS/Linux. From this folder, run:
 
 ```console
-python -m pip install -r requirements-preview.txt
+python -m pip install --force-reinstall -r requirements-preview.txt
 python first_pdf.py
 python examples/component_recipes/main.py --output output
 python edit_tasks.py --output output/edits
 ```
 
-The first installation builds the engine and can take several minutes. Git is
-not required: the requirement downloads the exact source archive. The candidate's
-package metadata says 2.5.26; the pinned commit identifies this preview.
+The requirements file selects only the exact preview assets linked in
+`wheels.html`, checks their hashes and does not consult PyPI. This snapshot
+retains version metadata 2.5.26, so `--force-reinstall` replaces an existing
+package with that version inside this environment. The source commit and hashes
+identify the preview; version metadata alone does not.
+
+If no listed wheel matches your platform, use
+`python -m pip install --force-reinstall -r requirements-source.txt` instead.
+That optional path builds the same source commit and requires Rust/Cargo plus
+your platform's native build tools.
 
 Open `summary.pdf` for the standalone first example, then `output/invoice.pdf`
 and `output/report.pdf`. The invoice and report use the same imported kit.
