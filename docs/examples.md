@@ -47,6 +47,19 @@ They share a styled component kit; the preview is a source candidate, not a publ
 </div>
 </div>
 
+## Typed C# components { #csharp-components }
+
+[![A C# component invoice with blue display typography, reusable detail fields and an amount-due panel.](assets/dotnet-components/page-1.png)](assets/dotnet-components/invoice.pdf)
+
+Ordinary methods, typed records, LINQ children and reusable style objects produce
+this invoice without authored HTML. Change line items, switch paid/unpaid states,
+or reuse its fields and table rows. Generated with **FullBleed.DotNet 0.2.0**,
+engine **2.5.22**, using the two explicitly registered font files in the project.
+
+[Open the PDF](assets/dotnet-components/invoice.pdf){ .md-button }
+[Download the project](assets/dotnet-components/project.zip){ .md-button }
+[Learn C# components and styles](guides/csharp-components.md)
+
 ## From brief to handoff { #numbered-report }
 
 <div class="showcase-entry" markdown>

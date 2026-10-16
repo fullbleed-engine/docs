@@ -1,0 +1,42 @@
+{
+  "repository": "https://github.com/fullbleed-engine/fullbleed-dotnet",
+  "commit": "6b4c5618789e1f324670a12d11f4f32e3ff60699",
+  "files": [
+    {
+      "path": "Program.cs",
+      "upstream_path": "samples/FullBleed.DotNet.Components/Program.cs",
+      "sha256": "60e86c5aaec6b34a871aeba9fc3b20f3d129947f069a6608e55e6fedd7571c36"
+    },
+    {
+      "path": "InvoiceDocument.cs",
+      "upstream_path": "samples/FullBleed.DotNet.Components/InvoiceDocument.cs",
+      "sha256": "e7caa3b48c1831c0569d0ea71aba56e4b5000b7d33fe3e509d133874c5fa43c3"
+    },
+    {
+      "path": "LICENSE",
+      "upstream_path": "LICENSE",
+      "sha256": "292b8bfd248b5aec9833fc7372a918f35d7facf0829b655ff54989c964a308d8"
+    },
+    {
+      "path": "Assets/fonts/Inter-Variable.ttf",
+      "upstream_path": "samples/FullBleed.DotNet.Showcase/Assets/fonts/Inter-Variable.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "Assets/fonts/Inter-OFL.txt",
+      "upstream_path": "samples/FullBleed.DotNet.Showcase/Assets/fonts/Inter-OFL.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "Assets/fonts/DMSerifDisplay-Regular.ttf",
+      "upstream_path": "samples/FullBleed.DotNet.Showcase/Assets/fonts/DMSerifDisplay-Regular.ttf",
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "Assets/fonts/DMSerifDisplay-OFL.txt",
+      "upstream_path": "samples/FullBleed.DotNet.Showcase/Assets/fonts/DMSerifDisplay-OFL.txt",
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    }
+  ],
+  "adaptation": "C# sources, fonts and licenses are exact committed bytes. The standalone project uses NuGet 0.2.0 instead of a source ProjectReference and targets .NET 10."
+}

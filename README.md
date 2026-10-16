@@ -73,6 +73,18 @@ updating the downloadable reports; it writes `verification.json`,
 CI verifies the actual ZIP in isolated published applications on Windows and
 Linux and checks that the retained reports still describe those specimens.
 
+The C# component invoice lives in `examples/dotnet-components`. Its two C# files,
+fonts and licenses retain the exact source hashes in `upstream.json`; the standalone
+project uses a pinned NuGet dependency and .NET 10. Restore the public package lock,
+run `python tools/build_dotnet_component_starter.py`, then
+`python tools/verify_dotnet_component_starter.py --out output/new-component-check`.
+The verifier extracts the actual ZIP into a fresh consumer, executes the unchanged
+program, tests five data edits, and compiles all six C# blocks from the public guide.
+It requires .NET 10, pypdf 6.19.0, pypdfium2 5.14.0 and Pillow 12.3.0. Use
+`--refresh-assets` only when reviewing new downloadable PDF and PNG output, then
+rebuild the ZIP manifest. Windows and Linux checks gate deployment. Older HTML/CSS,
+web and accessibility starters retain their own verified package pins.
+
 When changing the canonical domain, update `site_url`, `docs/robots.txt`, and this README, configure GitHub Pages, and verify DNS, HTTPS, sitemap URLs, and redirects. Keep the GitHub Pages URL until the custom domain is working.
 
 Fullbleed is MIT licensed. Do not publish unsupported performance comparisons, standards conformance claims, or stale licensing statements. Retain old page URLs through the redirect map when consolidating reference material.

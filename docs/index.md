@@ -1,6 +1,6 @@
 ---
 title: PDF components and HTML/CSS for Python, JavaScript, Rust, and C#
-description: Build PDFs with Python or JavaScript components and optional JSX, or use HTML/CSS from Python, Rust, Node.js, C#, and browsers. Reusable templates, bundled fonts, and local output.
+description: Build PDFs with Python, JavaScript or C# components and optional JSX, or use HTML/CSS from Python, Rust, Node.js, C#, and browsers. Reusable templates, bundled fonts, and local output.
 hide:
   - toc
 ---
@@ -11,7 +11,7 @@ hide:
 
 # Your data. Your design. Your PDF.
 
-<p class="lead">Compose invoices, reports, and print documents with <a href="guides/python-components/">Python components</a>, <a href="guides/javascript-components/">JavaScript and JSX</a>, or existing HTML/CSS templates. One Rust print engine, in your application.</p>
+<p class="lead">Compose invoices, reports, and print documents with <a href="guides/python-components/">Python components</a>, <a href="guides/javascript-components/">JavaScript and JSX</a>, <a href="guides/csharp-components/">C# components</a>, or existing HTML/CSS templates. One Rust print engine, in your application.</p>
 
 [Try PDF components](assets/react-demo/index.html){ .md-button .md-button--primary }
 [Choose your language](#choose-your-language){ .md-button }
@@ -68,6 +68,9 @@ Prefer JavaScript? [Compose the same kind of document with functions or JSX/TSX]
 Named components, typed props and reusable styles work with the Node and browser
 renderers. [Try the live component invoice](assets/react-demo/index.html) or
 [connect it to your React application](guides/react-pdf.md). Ordinary JavaScript functions need no build step or React runtime.
+
+Using C#? [Compose PDFs with typed methods, LINQ and style objects](guides/csharp-components.md),
+or [download the component invoice](assets/dotnet-components/project.zip).
 
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
@@ -237,24 +240,33 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.1.8
+    dotnet add package FullBleed.DotNet --version 0.2.0
     ```
 
     Replace `Program.cs` with:
 
     ```csharp
     using FullBleed.DotNet;
+    using FullBleed.DotNet.UI;
+    using static FullBleed.DotNet.UI.Components;
 
+    var invoice = new Document(
+        Heading(1, "Invoice INV-1042").WithClass("invoice-title"),
+        Paragraph("Consulting: USD 1,200.00")
+    )
+    {
+        Styles = new StyleSheet
+        {
+            ["@page"] = new Style { ["size"] = "A4", ["margin"] = "20mm" },
+            [".invoice-title"] = new Style { ["color"] = "#175c52" },
+        },
+    };
     using var engine = new FullBleedEngine(new FullBleedEngineOptions
     {
         DocumentLanguage = "en-US",
         DocumentTitle = "Invoice INV-1042",
     });
-
-    var html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>";
-    var css = "@page { size: A4; margin: 20mm; } h1 { color: #175c52; }";
-    File.WriteAllBytes("invoice.pdf", engine.RenderPdf(html, css));
-
+    invoice.RenderPdfToFile(engine, "invoice.pdf");
     var inspection = FullBleedEngine.InspectPdf("invoice.pdf");
     Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
     ```
@@ -267,7 +279,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.1.8/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.0/samples/FullBleed.DotNet.LinqVdp)
 
 ## Pick a document to build
 
