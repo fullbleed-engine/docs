@@ -15,6 +15,12 @@ evaluates these functions directly to produce static print documents. There is
 no browser, virtual DOM, hook lifecycle, or JavaScript runtime involved.
 The complete workflow below uses Fullbleed **2.5.25**.
 
+!!! tip "Help shape the next authoring model"
+    The [experimental design preview](component-design-preview.md) explores
+    components that carry their styles, named customization parts, and tables
+    defined by columns. It includes real PDFs and a pinned source build. That
+    prototype is separate from the published API documented on this page.
+
 The [JavaScript component workflow](javascript-components.md) brings named
 components, attached styles and optional JSX/TSX to Node and browser applications.
 It does not include Python's semantic validator or promise complete API parity.

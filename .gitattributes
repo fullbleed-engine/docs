@@ -82,3 +82,5 @@ examples/dotnet-components/Assets/fonts/*.ttf binary
 examples/dotnet-components/Assets/fonts/*-OFL.txt -text -whitespace
 docs/assets/dotnet-components/** -text
 docs/assets/dotnet-components/*.pdf binary
+docs/assets/component-preview/** -text
+docs/assets/component-preview/*.pdf binary
