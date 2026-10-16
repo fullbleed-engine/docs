@@ -10,7 +10,9 @@ you do not need Python, Rust, or a browser to use the installed package.
 
 To compose documents without HTML strings, use the
 [JavaScript component and JSX workflow](../guides/javascript-components.md),
-introduced in Node package 0.6.0. The pinned HTML/CSS example below remains available.
+introduced in Node package 0.6.0. Version 0.7.0 also supports
+[static HTML export with or without styles](../guides/javascript-components.md#export-html-with-or-without-styles).
+The pinned HTML/CSS example below remains available.
 
 This guide uses **Node package 0.4.1**, powered by **Fullbleed 2.5.22**. The
 integration and core engine have separate versions.
