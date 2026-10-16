@@ -1,0 +1,2 @@
+# Experimental source candidate; requires Rust/Cargo and native build tools.
+fullbleed @ https://github.com/fullbleed-engine/fullbleed-official/archive/d686153b392a5cb5f5316624bf6b9401e7bcf951.tar.gz

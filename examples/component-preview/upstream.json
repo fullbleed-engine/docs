@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "commit": "d686153b392a5cb5f5316624bf6b9401e7bcf951",
+  "source_files": {
+    "examples/component_recipes/kit.py": "967b882817ceec2f9f4bfd1482705f05d4d62fcce444415cfdd23010863c752b",
+    "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
+    "examples/component_recipes/main.py": "0de7bc865d0e217b8a90ab4370e734fb15d337ca68f5ba86eeef38736c3c8e7f",
+    "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a",
+    "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+  },
+  "scope": "Canonical Git blob bytes at the pinned commit. README, edit_tasks.py and requirements-preview.txt are documentation project files."
+}
