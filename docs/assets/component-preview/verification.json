@@ -2,19 +2,19 @@
   "experimental": true,
   "published_on_pypi": false,
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "source_commit": "b22f159020b70b3239800c90e1ed3a9a1969b58f",
+  "source_commit": "d686153b392a5cb5f5316624bf6b9401e7bcf951",
   "source_files": {
-    "examples/component_recipes/kit.py": "6dbb1a91806ff097323af768d5b31ccb584b2ac6e863326ae0d1f8a6793398ac",
+    "examples/component_recipes/kit.py": "967b882817ceec2f9f4bfd1482705f05d4d62fcce444415cfdd23010863c752b",
     "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
-    "examples/component_recipes/main.py": "ae76fefbb6bae6a7056f7731695c5941f4e1b7d3d2f638fed56545f5409f173b",
+    "examples/component_recipes/main.py": "0de7bc865d0e217b8a90ab4370e734fb15d337ca68f5ba86eeef38736c3c8e7f",
     "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
   },
   "source_hash_scope": "Canonical Git blob bytes at the pinned commit, before platform line-ending conversion.",
-  "candidate_wheel_sha256": "decb31530dde0f5af23de2c093b7cbd06a2a216fb2ca68650e15a7e8ea187a2a",
+  "candidate_wheel_sha256": "63d80adb66b574ca0240935aa1b206395acc774c09e1f204ae21511553eddb06",
   "candidate_metadata_version": "2.5.25",
   "source_install_verified_on": "Windows x64, Python 3.11",
-  "source_install_command": "python -m pip install --no-deps .",
-  "source_render_command": "python examples/component_recipes/main.py --output output/component-preview",
+  "source_install_command": "python -m pip install -r requirements-preview.txt",
+  "source_render_command": "python examples/component_recipes/main.py --output output",
   "preview_renderer": "PDFium via pypdfium2",
   "preview_dpi": 96,
   "documents": [
@@ -60,6 +60,54 @@
       "matches_previously_verified_fixture": true
     }
   ],
-  "guide_python_blocks_executed": 2,
-  "scope": "Published PDFs match the previously verified invoice/report fixtures byte-for-byte. The report contains 60 unique deliverable labels and repeats its column headers on all five pages. Page sizes, metadata and guide snippets checked; previews rendered from the PDFs. This is a source preview, not a published release, usability study, performance qualification or accessibility/conformance certification."
+  "guide_python_blocks_executed": 4,
+  "scope": "The pinned source archive built and installed into a fresh Windows x64 Python 3.11 environment. The actual source ZIP was extracted and both entry points and all four guide blocks ran against that installed candidate. Invoice/report PDFs and their independent PDFium previews match the existing public fixtures byte-for-byte. Checks cover text, page geometry, 60 unique report rows, repeated headers and one rejected/repaired layout. This is a source preview, not a published release, independent usability study, broad performance qualification or conformance certification.",
+  "source_zip_sha256": "69df361a5539a399ab009e94e4b5a476e9a90f24b4d09948253510c3271a9801",
+  "editing_tasks": [
+    {
+      "name": "shared-components",
+      "pages": 1,
+      "sha256": "26b3333fc6de783f95237f6022bff4c2ef9d031885dc85dbec955b35f8073c7a",
+      "text_checked": true,
+      "size_checked": true
+    },
+    {
+      "name": "extra-column",
+      "pages": 1,
+      "sha256": "acbfa43b280b62fcd4f28de01dec36c1730285d18b8c2f1a2303f0e7094d906b",
+      "text_checked": true,
+      "size_checked": true
+    },
+    {
+      "name": "letter-invoice",
+      "pages": 1,
+      "sha256": "4405139ebbe56ed97fdb3390d6520d13915e05c4563f0726912fa04aa1506173",
+      "text_checked": true,
+      "size_checked": true
+    },
+    {
+      "name": "repaired-notice",
+      "pages": 1,
+      "sha256": "2fc47780efed292f2fcdaedde4846750aed9eced0bd77ea644e1282c964c9d11",
+      "text_checked": true,
+      "size_checked": true
+    }
+  ],
+  "expected_layout_error": {
+    "code": "layout.unsplittable",
+    "reason": "clipped_container",
+    "path": [
+      "A clipping constraint",
+      "page 1",
+      "Notice",
+      "div"
+    ],
+    "message": "Content cannot fit or continue within the page. The engine would place an unsplittable block beyond the page edge; no PDF was returned. The container clips overflow and cannot paginate. Reduce its content or remove overflow clipping.",
+    "failure_sources": [
+      [
+        "Notice",
+        "div"
+      ]
+    ]
+  }
 }
