@@ -1,0 +1,64 @@
+{
+  "experimental": true,
+  "published_on_pypi": false,
+  "source_repository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "source_commit": "b22f159020b70b3239800c90e1ed3a9a1969b58f",
+  "source_files": {
+    "examples/component_recipes/kit.py": "6dbb1a91806ff097323af768d5b31ccb584b2ac6e863326ae0d1f8a6793398ac",
+    "examples/component_recipes/documents.py": "df6a45a995fe7b000af36ad827f06de5e76fbb5d4d15ef4e0bc369f2d34a2419",
+    "examples/component_recipes/main.py": "ae76fefbb6bae6a7056f7731695c5941f4e1b7d3d2f638fed56545f5409f173b",
+    "examples/components/data.json": "d8f8d2f58e06129acc1bf613c27fddec74b73593d66953f36c9750945d047a1a"
+  },
+  "candidate_wheel_sha256": "decb31530dde0f5af23de2c093b7cbd06a2a216fb2ca68650e15a7e8ea187a2a",
+  "candidate_metadata_version": "2.5.25",
+  "source_install_verified_on": "Windows x64, Python 3.11",
+  "source_install_command": "python -m pip install --no-deps .",
+  "source_render_command": "python examples/component_recipes/main.py --output output/component-preview",
+  "preview_renderer": "PDFium via pypdfium2",
+  "preview_dpi": 96,
+  "documents": [
+    {
+      "file": "invoice.pdf",
+      "pages": 1,
+      "sha256": "a3ba34d33542458a2e5c157874b98827b841b43de9390f771839de657453b7fa",
+      "page_size_pt": [
+        595.276,
+        841.89
+      ],
+      "title": "Invoice NS-1042",
+      "previews": [
+        {
+          "file": "invoice-page-1.png",
+          "page": 1,
+          "sha256": "6e6fe50c5c787af6e384ee031aaf75b9e47f49cf2453e89f8fa95b3c18f6a54d"
+        }
+      ],
+      "matches_previously_verified_fixture": true
+    },
+    {
+      "file": "report.pdf",
+      "pages": 5,
+      "sha256": "c2328adc4d1593a0aa968de266c365390fe614160a489c9c693f641a329b6917",
+      "page_size_pt": [
+        612.0,
+        792.0
+      ],
+      "title": "Operations report",
+      "previews": [
+        {
+          "file": "report-page-1.png",
+          "page": 1,
+          "sha256": "9c21671e621f74a847025336180c5df24fb26c52225fbe85c4fcc4cad8da6058"
+        },
+        {
+          "file": "report-page-2.png",
+          "page": 2,
+          "sha256": "a5b5b207315500eb0b17bd616690357c753467adbf768d2808406eee778ceb47"
+        }
+      ],
+      "matches_previously_verified_fixture": true
+    }
+  ],
+  "guide_python_blocks_executed": 2,
+  "scope": "Published PDFs match the previously verified invoice/report fixtures byte-for-byte. The report contains 60 unique deliverable labels and repeats its column headers on all five pages. Page sizes, metadata and guide snippets checked; previews rendered from the PDFs. This is a source preview, not a published release, usability study, performance qualification or accessibility/conformance certification."
+}

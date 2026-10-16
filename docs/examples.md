@@ -41,6 +41,9 @@ Fullbleed **2.5.25**.
 [Download the project](assets/components/project.zip){ .md-button }
 [Learn component authoring](guides/python-components.md)
 
+For the next authoring model, [inspect the experimental invoice and report](guides/component-design-preview.md).
+They share a styled component kit; the preview is a source candidate, not a published release.
+
 </div>
 </div>
 
