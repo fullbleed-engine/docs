@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "version": "2.5.26",
+  "source_commit": "e1ce0e9f1978c4cb94eae7e1d6e54d6ae25c6fb5",
+  "pages": 1,
+  "embedded_equals_explicit_pdf": true,
+  "deterministic_repeat": true,
+  "pdf_sha256": "5632a1219b60e6a5ba7403ec8065723da69c1e31dc5b5a5117d03822f3c75130",
+  "native_preview_sha256": "89739b08d8a184002246751875fbfa0319eedc69a46b16dfc7897c9267ea7f91",
+  "text_checks": [
+    "Maple & Finch",
+    "$8,100.00",
+    "Good work."
+  ],
+  "text_normalization": "Whitespace collapsed for tracked/kerning text extracted by pypdf.",
+  "independent_preview_inspected": true,
+  "files": {
+    "project.zip": {
+      "bytes": 4271,
+      "sha256": "d87f64c2ba946229679e3150d137297554f86a434f6d546f93d843608d326e6e"
+    },
+    "invoice.pdf": {
+      "bytes": 103361,
+      "sha256": "5632a1219b60e6a5ba7403ec8065723da69c1e31dc5b5a5117d03822f3c75130"
+    },
+    "invoice.png": {
+      "bytes": 100105,
+      "sha256": "89739b08d8a184002246751875fbfa0319eedc69a46b16dfc7897c9267ea7f91"
+    }
+  }
+}

@@ -83,6 +83,7 @@ nav:
     - Python components: guides/python-components.md
     - JavaScript components and JSX: guides/javascript-components.md
     - C# components and styles: guides/csharp-components.md
+    - Complete HTML documents: guides/complete-html.md
     - Invoices from data: guides/invoices.md
     - Numbered reports: guides/numbered-reports.md
     - Markdown to PDF: guides/markdown-pdf.md

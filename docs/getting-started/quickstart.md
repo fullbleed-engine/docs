@@ -72,4 +72,8 @@ python -m fullbleed render --html invoice.html --css invoice.css --out invoice.p
 
 Use explicit local assets. See [supported CSS and known gaps](../css-coverage.md) when adapting an existing template.
 
+If your HTML already contains `<style>` elements, see
+[render a complete HTML document](../guides/complete-html.md). Fullbleed 2.5.26
+adds embedded stylesheet support, including print-media rules and page settings.
+
 [Examples and generated PDFs](../examples.md) · [Web framework examples](../guides/web-frameworks.md) · [Python API](../engine/pdf-engine.md) · [CLI reference](../cli/commands.md)

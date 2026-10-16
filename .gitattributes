@@ -85,3 +85,5 @@ docs/assets/dotnet-components/*.pdf binary
 docs/assets/component-preview/** -text
 docs/assets/component-preview/*.pdf binary
 examples/component-preview/** text eol=lf
+docs/assets/complete-html/** -text
+docs/assets/complete-html/*.pdf binary
