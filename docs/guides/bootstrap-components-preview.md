@@ -9,16 +9,15 @@ Build an order summary with a card, a data table and a status badge. Export it
 as HTML or render it as a PDF. The component supplies its structure and default
 styling; your Python supplies the content.
 
-!!! warning "Experimental preview"
-    This download is pinned to
-    [`41a2cee`](https://github.com/fullbleed-engine/fullbleed-official/tree/41a2cee2e96b085429d2b9518f4c7d7cfab99817).
-    It is **not included in the stable 2.5.26 wheel on PyPI**, or in the earlier
-    component design preview. The API may change. Use the
+!!! warning "Opt-in alpha 2.6.0a1"
+    This guide uses **Fullbleed 2.6.0a1**, with experimental APIs under
+    `fullbleed.ui.experimental`. Install the alpha explicitly; a normal stable
+    installation does not select it. Names and behavior may change. Use the
     [released component guide](python-components.md) for the stable API.
 
-[Download the Bootstrap kit](../assets/bootstrap-preview/project.zip){ .md-button .md-button--primary }
-[Open the report PDF](../assets/bootstrap-preview/report.pdf){ .md-button }
-[Browse the HTML catalog](../assets/bootstrap-preview/catalog.html){ .md-button }
+[Download the Bootstrap kit](../assets/bootstrap-alpha/project.zip){ .md-button .md-button--primary }
+[Open the report PDF](../assets/bootstrap-alpha/report.pdf){ .md-button }
+[Browse the HTML catalog](../assets/bootstrap-alpha/catalog.html){ .md-button }
 
 All Bootstrap components are **static, including HTML export**. There is no
 Bootstrap JavaScript. Tabs show the selected panel, carousels show the selected
@@ -29,7 +28,7 @@ their native browser behavior; PDF controls show printed values and selections.
 
 <div class="showcase-entry" markdown>
 <figure markdown>
-[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-preview/report-page-1.png)](../assets/bootstrap-preview/report.pdf)
+[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-alpha/report-page-1.png)](../assets/bootstrap-alpha/report.pdf)
 </figure>
 <div markdown>
 
@@ -40,16 +39,16 @@ compose a single document. Its content is fictional. The kit includes the
 complete Python source, and this image is rendered from the downloadable PDF
 with PDFium.
 
-[Open the styled HTML](../assets/bootstrap-preview/report.styled.html){ .md-button }
-[Compare unstyled HTML](../assets/bootstrap-preview/report.unstyled.html)
+[Open the styled HTML](../assets/bootstrap-alpha/report.styled.html){ .md-button }
+[Compare unstyled HTML](../assets/bootstrap-alpha/report.unstyled.html)
 
 </div>
 </div>
 
-## Install the preview
+## Install the alpha
 
-Extract the [kit ZIP](../assets/bootstrap-preview/project.zip), enter its
-`fullbleed-bootstrap-preview` folder and create an isolated environment with
+Extract the [kit ZIP](../assets/bootstrap-alpha/project.zip), enter its
+`fullbleed-bootstrap-alpha` folder and create an isolated environment with
 CPython 3.10 or later:
 
 ```console
@@ -60,21 +59,22 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 `source .venv/bin/activate` on macOS/Linux. Then run:
 
 ```console
-python -m pip install --force-reinstall -r requirements-preview.txt
+python -m pip install --pre "fullbleed==2.6.0a1"
 python first_document.py
 python examples/component_bootstrap/main.py --out output --catalog-pdfs
 ```
 
 Open `order.pdf` and `order.html`, then `output/report.pdf` and
-`output/catalog.html`. The installer chooses a hash-checked prebuilt wheel from
-the [GitHub preview](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-41a2cee).
-Compatible Windows, macOS and Linux wheels need no Rust build.
+`output/catalog.html`. The kit's `requirements.txt` pins the same alpha version.
+Compatible Windows, macOS and Linux wheels need no Rust build. On other platforms,
+pip may build the source distribution, which needs Rust/Cargo and native build tools.
+See the [alpha release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a1).
 
-The preview retains package version metadata 2.5.26. `--force-reinstall` replaces
-any same-version package inside this environment; the commit and hashes identify
-this preview. If no listed wheel matches your platform,
-`python -m pip install --force-reinstall -r requirements-source.txt` builds the
-same source commit and requires Rust/Cargo and your platform's native build tools.
+The older [pinned preview kit](../assets/bootstrap-preview/project.zip) and
+[GitHub preview](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/component-preview-41a2cee)
+remain available at `41a2cee`. Those downloads retain their original source,
+installer and version metadata. The alpha adds required/optional part declarations
+and explicit child-part forwarding.
 
 ## Compose content, then choose an output
 
@@ -167,6 +167,13 @@ headings. Optional sections stay absent until you provide content. For manual
 structure, use `Card(body=False)` with `CardBody`, `CardTitle` and the other
 section components.
 
+Custom components declare required targets with `parts=(...)` and conditional
+targets with `optional_parts=(...)`. A parent exposes a selected child part with
+`.forward_parts(heading="label")`. Missing required targets produce a diagnostic
+when the component is created; child implementation details stay private. The
+[part-styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a1/examples/component_recipes/README.md#customize-a-root-or-an-exposed-part)
+shows reusable components and forwarding through containers.
+
 ## Export whole documents or fragments
 
 | Call | Result |
@@ -179,7 +186,7 @@ section components.
 
 Styled export embeds CSS, not font or image files. Provide asset URLs appropriate
 to your web application. HTML export does not create a PDF renderer; it still
-requires the installed Fullbleed distribution. This preview is not a separate
+requires the installed Fullbleed distribution. The alpha is not a separate
 HTML-only package.
 
 Bootstrap CSS includes global reset and typography rules. A styled Bootstrap
@@ -193,7 +200,7 @@ source, or `target="html"` for ordinary HTML controls.
 
 ## Explore the component catalog
 
-The [HTML catalog](../assets/bootstrap-preview/catalog.html) shows all 23
+The [HTML catalog](../assets/bootstrap-alpha/catalog.html) shows all 23
 Bootstrap 5.0.0 component families, plus four groups for layout, forms, content
 and utilities. The source is in `examples/component_bootstrap/catalog.py`.
 
@@ -212,8 +219,8 @@ state. Hidden panels remain hidden in unstyled HTML.
 
 PDF controls print values and selections, including masked passwords and
 selected options. They do not become fillable PDF fields. Compare the
-[form PDF](../assets/bootstrap-preview/forms.pdf) and
-[form preview](../assets/bootstrap-preview/forms-page-1.png) with the HTML catalog.
+[form PDF](../assets/bootstrap-alpha/forms.pdf) and
+[form preview](../assets/bootstrap-alpha/forms-page-1.png) with the HTML catalog.
 
 ## What has been checked
 
@@ -221,13 +228,13 @@ The source implementation has focused tests for the component and export
 contracts. Its native catalog contains 27 one-page specimens; a separate
 80-row table checks pagination and repeated headers. Browser checks exercise
 authored states and styled/unstyled HTML at desktop and mobile widths.
-The [download manifest](../assets/bootstrap-preview/source.json) pins source
-files and wheel hashes. The [output verification record](../assets/bootstrap-preview/verification.json)
+The [download manifest](../assets/bootstrap-alpha/source.json) pins source
+files and wheel hashes. The [output verification record](../assets/bootstrap-alpha/verification.json)
 records the published documents and checks.
 
 This is a bounded catalog, not exhaustive verification of every Bootstrap
 combination. Interactive Bootstrap behavior, Sass compilation, browser pixel
-parity and accessibility conformance are outside this preview. PDF layout uses
+parity and accessibility conformance are outside this alpha. PDF layout uses
 the engine's print-media/page-width behavior. JavaScript and C# authoring APIs
 do not yet include this Bootstrap kit.
 
@@ -236,6 +243,6 @@ reading the implementation. If a task requires generated HTML or an internal
 selector, that is useful feedback for the API design.
 
 [Share an editing task in the design discussion](https://github.com/fullbleed-engine/fullbleed-official/discussions/86){ .md-button }
-[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/41a2cee2e96b085429d2b9518f4c7d7cfab99817/docs/component-bootstrap.md)
-· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/41a2cee2e96b085429d2b9518f4c7d7cfab99817/docs/component-authoring-next-iteration.md)
+[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/adbc97d68188cd4e934a3a15d97b3e65d42ed080/docs/component-bootstrap.md)
+· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/adbc97d68188cd4e934a3a15d97b3e65d42ed080/docs/component-authoring-next-iteration.md)
 · [Review the draft PR](https://github.com/fullbleed-engine/fullbleed-official/pull/85)

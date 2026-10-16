@@ -72,9 +72,10 @@ renderers. [Try the live component invoice](assets/react-demo/index.html) or
 Using C#? [Compose PDFs with typed methods, LINQ and style objects](guides/csharp-components.md),
 or [download the component invoice](assets/dotnet-components/project.zip).
 
-Want to try the next Python authoring API? The experimental
-[Bootstrap component kit](guides/bootstrap-components-preview.md) includes cards,
-data tables, forms and static component states, with both PDF and HTML output.
+Want to try the next Python authoring API? The
+[2.6.0a1 Bootstrap component alpha](guides/bootstrap-components-preview.md) includes
+cards, data tables, forms and static component states, with PDF and styled or
+unstyled HTML output. Install the alpha explicitly to try it.
 
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).

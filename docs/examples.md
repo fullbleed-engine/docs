@@ -41,8 +41,9 @@ Fullbleed **2.5.25**.
 [Download the project](assets/components/project.zip){ .md-button }
 [Learn component authoring](guides/python-components.md)
 
-For the next authoring model, [inspect the experimental invoice and report](guides/component-design-preview.md).
-They share a styled component kit; the preview is a source candidate, not a published release.
+For the next authoring model, [try the 2.6.0a1 Bootstrap component alpha](guides/bootstrap-components-preview.md).
+Its report combines cards, a table and progress indicators, with PDF and
+styled/unstyled HTML exports. The alpha requires an explicit installation.
 
 </div>
 </div>

@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    assets = root / "assets/bootstrap-preview"
+    assets = root / "assets/bootstrap-alpha"
     source = json.loads((assets / "source.json").read_text(encoding="utf-8"))
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
     assert source["source_commit"] == manifest["source_commit"]
@@ -56,12 +56,16 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role("heading", name="Bootstrap components, authored in Python", exact=False).is_visible()
                 article = page.locator("article").inner_text()
-                for value in ("Experimental preview", "not included in the stable 2.5.26 wheel on PyPI",
-                              source["source_commit"][:7], "static, including HTML export", "class_name",
+                for value in ("Opt-in alpha 2.6.0a1", "fullbleed.ui.experimental",
+                              "static, including HTML export", "class_name",
                               "include_styles=True", "include_styles=False", "python first_document.py",
-                              "--force-reinstall -r requirements-preview.txt"):
+                              'python -m pip install --pre "fullbleed==2.6.0a1"'):
                     assert value in article, value
-                assert page.get_by_role("link", name="GitHub preview", exact=True).get_attribute("href") == source["engine_wheels"]["release_url"]
+                assert page.get_by_role("link", name="alpha release", exact=True).get_attribute("href") == source["engine_wheels"]["release_url"]
+                legacy = page.get_by_role("link", name="pinned preview kit", exact=True)
+                retained = context.request.get(legacy.evaluate("element => element.href"))
+                assert retained.status == 200
+                assert sha256(retained.body()).hexdigest() == "cc9464999e64def4ce361b70c1826fef5a8a40c24b2abc02a839c6622878dbe4"
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 images = page.locator("article img").evaluate_all("items => items.map(img => ({src: img.src, loaded: img.complete && img.naturalWidth > 0}))")
                 assert images and all(item["loaded"] for item in images)
@@ -88,7 +92,7 @@ def main():
                 if width >= 390:
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 page.screenshot(path=str(args.out / f"{label}-catalog.png"), animations="disabled")
-                response = page.goto(base + "/assets/bootstrap-preview/catalog.unstyled.html", wait_until="networkidle")
+                response = page.goto(base + "/assets/bootstrap-alpha/catalog.unstyled.html", wait_until="networkidle")
                 assert response.status == 200
                 assert page.locator("style, [style], link[rel=stylesheet], script").count() == 0
                 assert page.locator('[id^="sample-"]').count() == 27

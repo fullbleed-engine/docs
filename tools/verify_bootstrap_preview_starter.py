@@ -1,4 +1,4 @@
-"""Run the exact Bootstrap ZIP and guide with an installed preview wheel."""
+"""Run the exact Bootstrap ZIP and guide with an installed preview or alpha."""
 import argparse
 from contextlib import closing
 from hashlib import sha256
@@ -14,18 +14,19 @@ from pypdf import PdfReader
 import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "docs/assets/bootstrap-preview"
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--python", default=sys.executable)
+    parser.add_argument("--channel", choices=("preview", "alpha"), default="preview")
     parser.add_argument("--install-report", type=Path)
     parser.add_argument("--out", type=Path, default=ROOT / "target/bootstrap-preview")
     args = parser.parse_args()
     args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    manifest = json.loads((ASSETS / "source.json").read_text(encoding="utf-8"))
+    assets = ROOT / f"docs/assets/bootstrap-{args.channel}"
+    manifest = json.loads((assets / "source.json").read_text(encoding="utf-8"))
     installation = None
     if args.install_report:
         report = json.loads(args.install_report.read_text(encoding="utf-8"))
@@ -38,16 +39,17 @@ def main():
         assert len(matches) == 1 and matches[0]["sha256"] == download["archive_info"]["hashes"]["sha256"]
         installation = {"url": download["url"], "sha256": matches[0]["sha256"]}
 
-    archive_path = ASSETS / "project.zip"
+    archive_path = assets / "project.zip"
     assert sha256(archive_path.read_bytes()).hexdigest() == manifest["zip_sha256"]
     with tempfile.TemporaryDirectory(prefix="bootstrap-preview-") as folder:
         project = Path(folder)
         with zipfile.ZipFile(archive_path) as archive:
-            assert set(archive.namelist()) == {"fullbleed-bootstrap-preview/" + item["path"] for item in manifest["files"]}
+            prefix = f"fullbleed-bootstrap-{args.channel}/"
+            assert set(archive.namelist()) == {prefix + item["path"] for item in manifest["files"]}
             for record in manifest["files"]:
                 name = PurePosixPath(record["path"])
                 assert not name.is_absolute() and ".." not in name.parts
-                data = archive.read("fullbleed-bootstrap-preview/" + str(name))
+                data = archive.read(prefix + str(name))
                 assert sha256(data).hexdigest() == record["sha256"]
                 target = project / name
                 target.parent.mkdir(parents=True, exist_ok=True)
@@ -61,16 +63,17 @@ def main():
             return result.stdout
 
         runtime = json.loads(run("runtime", ["-I", "-c",
-            "import json,fullbleed;from pathlib import Path;from hashlib import sha256;"
+            "import json,fullbleed;from pathlib import Path;from hashlib import sha256;from importlib.metadata import version;"
             "from fullbleed.ui.experimental import bootstrap as bs;"
             "root=Path(fullbleed.__file__).parent.parent;"
             "hashes={p.relative_to(root).as_posix():sha256(p.read_text(encoding='utf-8').encode('utf-8')).hexdigest() "
             "for p in sorted((root/'fullbleed/ui/experimental').rglob('*')) "
             "if p.suffix in ('.py','.pyi') or p.name=='py.typed'};"
-            "print(json.dumps({'module':fullbleed.__file__,'engine_python_files':hashes,"
+            "print(json.dumps({'module':fullbleed.__file__,'version':version('fullbleed'),'engine_python_files':hashes,"
             "'bootstrap':bs.VERSION,'families':sorted(bs.COMPONENT_FAMILIES),"
             "'css_sha256':sha256(bs.stylesheet().encode()).hexdigest()}))"]))
         assert runtime["engine_python_files"] == manifest["engine_python_files"]
+        assert runtime["version"] == manifest["engine_wheels"]["package_version"]
         assert runtime["bootstrap"] == "5.0.0" and len(runtime["families"]) == 23
         assert runtime["css_sha256"] == manifest["bootstrap_css_sha256"]
         first_folder = args.out / "first"
@@ -109,7 +112,7 @@ def main():
             assert "1.Firstcheckpoint" in compact and "2.Finalcheckpoint" in compact
         if path.name == "report.pdf":
             assert all(value in text for value in ("408", "$8,640", "98%", "Studio notebooks", "$2,880.00", "75%"))
-            assert path.read_bytes() == (ASSETS / "report.pdf").read_bytes()
+            assert path.read_bytes() == (assets / "report.pdf").read_bytes()
         if path.name == "order.pdf":
             assert all(value in text for value in ("Ready to ship", "ORDER / 1048", "Studio notebook", "$360.00", "Approved"))
             with closing(pdfium.PdfDocument(path)) as pdf:
@@ -125,7 +128,7 @@ def main():
         assert not re.search(r"<style\b|\sstyle\s*=|<link\b|<script\b", unstyled, re.I)
         assert 'class="' in unstyled and "Ready to ship" in unstyled
     for name in ("report.styled.html", "report.unstyled.html", "catalog.html", "catalog.unstyled.html"):
-        assert (args.out / "catalog" / name).read_bytes() == (ASSETS / name).read_bytes(), name
+        assert (args.out / "catalog" / name).read_bytes() == (assets / name).read_bytes(), name
     result = {"ok": True, "source_commit": manifest["source_commit"], "zip_sha256": manifest["zip_sha256"],
               "runtime": runtime, "cases": cases, "guide_blocks": len(blocks),
               "first_guide_block_runs_alone": True, "installed_authoring_source_matches": True,

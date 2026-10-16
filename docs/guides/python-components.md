@@ -16,10 +16,10 @@ no browser, virtual DOM, hook lifecycle, or JavaScript runtime involved.
 The complete workflow below uses Fullbleed **2.5.25**.
 
 !!! tip "Help shape the next authoring model"
-    The [experimental design preview](component-design-preview.md) explores
-    components that carry their styles, named customization parts, and tables
-    defined by columns. It includes real PDFs and a pinned source build. That
-    prototype is separate from the published API documented on this page.
+    The [2.6.0a1 component alpha](bootstrap-components-preview.md) adds components
+    that carry their styles, named customization parts, column-based tables,
+    static Bootstrap helpers, and styled or unstyled HTML export. Install it
+    explicitly to try the next API; this page documents the stable API.
 
 The [JavaScript component workflow](javascript-components.md) brings named
 components, attached styles and optional JSX/TSX to Node and browser applications.

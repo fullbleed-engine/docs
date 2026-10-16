@@ -122,7 +122,7 @@ nav:
     - Engine architecture: engine/overview.md
   - Evaluate:
     - Component design preview: guides/component-design-preview.md
-    - Bootstrap components preview: guides/bootstrap-components-preview.md
+    - Bootstrap component alpha: guides/bootstrap-components-preview.md
     - Compare Python PDF libraries: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md
     - Browse CSS results: guides/css-explorer.md
