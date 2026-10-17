@@ -10,6 +10,9 @@ editable HTML templates and reusable Python components. They share the same data
 CSS, fonts and artwork. **All four PDF pages match pixel for pixel** in the
 same-runtime checks described below.
 
+Use the [live local preview](#edit-with-a-live-pdf-preview) to see PDF pages
+refresh while you edit Python, CSS or data.
+
 [Download both source versions](../assets/showcase-authoring/project.zip){ .md-button .md-button--primary }
 [Northstar component PDF](../assets/showcase-authoring/invoice-components.pdf){ .md-button }
 [Common Ground component PDF](../assets/showcase-authoring/report-components.pdf){ .md-button }
@@ -40,7 +43,7 @@ typed table columns. `AmountDue` owns the total panel and exposes its label and
 amount as named styling parts. The full document composes these pieces and
 calculates totals with `Decimal`.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/699a002061eaa028acbfc3f164b1d0914704a59e/examples/design_showcase/invoice_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/7db77af8da821e233040e55f475292e7e3f9fa7d/examples/design_showcase/invoice_components.py)
 
 </div>
 </div>
@@ -87,7 +90,7 @@ compose metrics, a participation chart and an allocation table. The illustration
 uses the original local SVG asset; chart heights and allocation shares come from
 the data.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/699a002061eaa028acbfc3f164b1d0914704a59e/examples/design_showcase/report_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/7db77af8da821e233040e55f475292e7e3f9fa7d/examples/design_showcase/report_components.py)
 
 [Reach page](../assets/showcase-authoring/report-2.png) ·
 [Resources page](../assets/showcase-authoring/report-3.png)
@@ -141,6 +144,59 @@ Open `output/html/invoice/invoice.pdf` and
 `output/components/invoice/invoice.pdf`, then the equivalent `report` files.
 `output/comparison.json` records the comparison. Use `--only invoice` or
 `--only report` to check one document.
+
+## Edit with a live PDF preview
+
+The same download includes a local viewer that rerenders after a save:
+
+```sh
+python examples/design_showcase/preview.py
+```
+
+Open the `http://127.0.0.1:...` URL printed in the terminal. Edit
+`invoice_components.py`, `component_primitives.py`, `invoice.css`, or `data.json`
+in your editor and save. The viewer refreshes the finalized PDF pages, with
+downloads for the PDF, styled HTML and unstyled HTML.
+
+![The local Northstar preview with PDF and HTML downloads, an up-to-date status, and the generated invoice.](../assets/showcase-authoring/preview-desktop.png)
+
+Choose the report or the original HTML/CSS path:
+
+```sh
+python examples/design_showcase/preview.py --document report
+python examples/design_showcase/preview.py --document invoice --authoring html
+```
+
+The HTML path watches the original template and shared CSS/data. It offers the
+PDF and separate HTML/CSS source downloads. Both paths use a fresh Python process
+for every rebuild, including imported component modules, fonts and artwork.
+
+When an edit fails, the viewer shows the error and keeps the last successful
+preview. Its download buttons explicitly refer to that earlier version. Correct
+the source and save to retry. A shorter document removes old pages from the
+current view; a save during a render schedules another rebuild before publishing
+the result.
+
+<details markdown>
+<summary>What an authoring error looks like</summary>
+
+![A syntax error shown above the retained invoice, with last-version download labels and an expandable traceback.](../assets/showcase-authoring/preview-error-mobile.png){ width="390" }
+
+</details>
+
+The helper watches the example directory, excluding `output`, `target`, virtual
+environments and caches. Add `--watch-path path` for dependencies outside it.
+`--port 0` selects a free loopback port, `--dpi` defaults to 120, and `--timeout`
+defaults to 60 seconds per rebuild. Press **Ctrl-C** to stop. Download artifacts
+you want to keep before closing the session.
+
+This is a local development example that executes your Python source and uses
+only the installed Fullbleed wheel and standard library. It is not a hosted
+rendering service or a delivery gate. Use `compare_authoring.py` for the explicit
+matching-output and font/overflow checks. The component API remains an opt-in
+alpha; no new engine version is required for this helper.
+
+## Render and export directly
 
 To render directly, run this from `examples/design_showcase/`:
 

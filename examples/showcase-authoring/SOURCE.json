@@ -1,12 +1,12 @@
 {
   "schema": "fullbleed.showcase-authoring.source.v1",
-  "source_commit": "699a002061eaa028acbfc3f164b1d0914704a59e",
+  "source_commit": "7db77af8da821e233040e55f475292e7e3f9fa7d",
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
   "engine_version": "2.6.0a4",
   "source_files": {
     "examples/design_showcase/.gitattributes": "3b2d2f910738670779137ecce4829c9d5e1a211d2b1174afb01ba87f06812564",
     "examples/design_showcase/.gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
-    "examples/design_showcase/README.md": "f987437b1d9604d923f85e4a83414fc231fcf759f688ae8e58cb6e36b398bf3e",
+    "examples/design_showcase/README.md": "7f81745b0772c8bab1e557fef788c6ce2fc834c4228c4d118033ca1194af08e1",
     "examples/design_showcase/common.css": "59ed65ebed86dcebe554d6d2d48c53e0e75e67293e99f537fc767a45db1a84c7",
     "examples/design_showcase/compare_authoring.py": "01bce371d15aac6821e3a6d00cf005d1c05927a51c5be5958100b1020c31c819",
     "examples/design_showcase/component_primitives.py": "7cd0283d64abdb9d42076a5476eae83f2fdc6850fa9b5b88622542c365b16333",
@@ -23,12 +23,17 @@
     "examples/design_showcase/landscape.svg": "a0a997dc5f04b3842830e9ba6610365c4e62a0a32e13619a66c4ea25cca3e488",
     "examples/design_showcase/notice.css": "391f879bf794d55b29748147a10526ee493032cea46dae15296858951d5c0afc",
     "examples/design_showcase/notice.html": "9596597db1e2e6942f86b8422d646a68342af6a2bc9b82e87229f26936ccdaf7",
+    "examples/design_showcase/preview.html": "b79af54a21fc5dba7c344be9a7eeb359e0de7d514d8e239ec41a798872d58535",
+    "examples/design_showcase/preview.js": "089c951807be3c7f99a3a8bf186a7af250e2363d64aba9c63bca8f2d29999b61",
+    "examples/design_showcase/preview.py": "d4f072007687ff628eb8e932b3ab17c7faf3adbe334d1e561b872680f6ce4fd1",
     "examples/design_showcase/render.py": "c66c04fa37c9fdc9cff733b214d5514f9f134c45ddfdda1e6d7a10c8f248d483",
     "examples/design_showcase/report.css": "33de04b117f1b0c99298c22beeed184429de748c729f78d183ec9b570e7e8f38",
     "examples/design_showcase/report.html": "352d7174f3c42b111a69686cf41bf18253635a1f925f96e0d7d967067fc9c753",
     "examples/design_showcase/report_components.py": "6caa62f11d124bc504990df5972230523a1b962619195043309b3c98a2803cd1",
     "examples/design_showcase/requirements-components.txt": "0bca20fe02236c6f591c72ce5b782ca35a662a2f66db8205a1241732f6ed0dc0",
     "examples/design_showcase/statement.css": "c8ad4a1606bcab299202f750263af7bedf567d7b34164bda898fa01814ffd4a3",
-    "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096"
+    "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096",
+    "tools/check_showcase_preview.py": "125ab4b4b3836bd5d707d138eaf6a14a713fcce54fe32052efada398d49cbc19",
+    "tools/check_showcase_preview_browser.py": "fb29d348e40f78f72203fca9f26588a59b81a91613d7d7ed8075c3a481c22813"
   }
 }
