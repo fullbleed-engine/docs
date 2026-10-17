@@ -28,7 +28,7 @@ def main():
     out = args.out.resolve(); out.mkdir(parents=True, exist_ok=True)
     env = {**os.environ, 'PATH': str(node.parent) + os.pathsep + os.environ['PATH']}
     manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
-    assert manifest['package'] == 'fullbleed@0.6.0'
+    assert manifest['package'] == 'fullbleed@0.7.1'
     assert sha256((ASSETS / 'project.zip').read_bytes()).hexdigest() == manifest['zip_sha256']
     records = []
     with tempfile.TemporaryDirectory(prefix='component consumer with spaces ', dir=out) as temporary:
@@ -49,7 +49,7 @@ def main():
 
         run('install', [npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'])
         installed = json.loads((project / 'node_modules/fullbleed/package.json').read_text(encoding='utf-8'))
-        assert installed['version'] == '0.6.0' and installed['fullbleed']['engineVersion'] == '2.5.24'
+        assert installed['version'] == '0.7.1' and installed['fullbleed']['engineVersion'] == '2.5.29'
         run('types', [npm, 'run', 'check'])
         for command in ['pdf', 'pdf:tsx']:
             run(command.replace(':', '-'), [npm, 'run', command])
@@ -105,9 +105,67 @@ def main():
         destination = out / 'guide-styles'; destination.mkdir(exist_ok=True)
         run('guide-styles', [compiled], destination)
         style_report = inspect_style_pdfs(destination)
+
+        # Execute the exact downloadable guide example, then feed its complete
+        # styled HTML back into the public engine with an empty CSS argument.
+        export_section = guide.split('## Export HTML with or without styles\n', 1)[1]
+        export_code = re.findall(r'```javascript\n(.*?)```', export_section, re.S)[0]
+        export_module = project / 'guide-export.mjs'
+        export_module.write_text(export_code + '\nexport { report, styledFragment };\n', encoding='utf-8')
+        destination = out / 'guide-export'; destination.mkdir(exist_ok=True)
+        run('guide-export', [export_module], destination)
+        render_script = project / 'guide-export-render.mjs'
+        render_script.write_text("""import assert from 'node:assert/strict';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { renderPdf } from 'fullbleed';
+import { report, styledFragment } from './guide-export.mjs';
+const html = await readFile('report.html', 'utf8');
+const unstyled = await readFile('report-unstyled.html', 'utf8');
+assert.equal(html, report.toHtml({ includeStyles: true }));
+assert.equal(unstyled, report.toHtml({ includeStyles: false }));
+assert.match(html, /<style>/);
+assert.match(html, /\\.amount/);
+assert.match(html, /#175c52/);
+assert.match(unstyled, /class=\"amount\"/);
+assert.doesNotMatch(unstyled, /<style\\b|\\sstyle=/i);
+assert.doesNotMatch(html + unstyled, /<script\\b/i);
+assert.match(styledFragment, /<style>/);
+assert.match(styledFragment, /Northstar Studio/);
+await writeFile('fragment.html', styledFragment);
+const options = { defaultStyles: false, previewDpi: 96 };
+const direct = await report.renderPdf(renderPdf, options);
+const embedded = await renderPdf({ ...options, html, css: '' });
+assert.equal(direct.pages, 1);
+assert.equal(embedded.pages, direct.pages);
+assert.equal(direct.missingGlyphs, 0);
+assert.equal(embedded.missingGlyphs, 0);
+assert.deepEqual(embedded.pdf, direct.pdf);
+assert.deepEqual(embedded.previews, direct.previews);
+await writeFile('report.pdf', embedded.pdf);
+await writeFile('page-1.png', embedded.previews[0]);
+const digest = data => createHash('sha256').update(data).digest('hex');
+await writeFile('verification.json', JSON.stringify({
+  ok: true, pages: embedded.pages, embeddedStylesPdfAndPreviewsEqual: true,
+  styledHtml: digest(html), unstyledHtml: digest(unstyled),
+  fragmentHtml: digest(styledFragment), pdf: digest(embedded.pdf),
+  previews: embedded.previews.map(digest),
+}, null, 2) + '\\n');
+""", encoding='utf-8')
+        run('guide-export-render', [render_script], destination)
+        export_pdf = PdfReader(destination / 'report.pdf')
+        assert len(export_pdf.pages) == 1
+        export_text = ''.join(export_pdf.pages[0].extract_text().split())
+        assert all(''.join(text.split()) in export_text for text in
+                   ('Account summary', 'Northstar Studio', 'USD 1,200.00'))
+        embedded_export_report = json.loads((destination / 'verification.json').read_text(encoding='utf-8'))
+        assert embedded_export_report['ok'] and embedded_export_report['embeddedStylesPdfAndPreviewsEqual']
+        embedded_export_report['guide_source_sha256'] = sha256(export_code.encode()).hexdigest()
+        embedded_export_report['independent_text_verified'] = True
     report = {'ok': True, 'package': manifest['package'], 'engine': manifest['engine'],
               'zip_sha256': manifest['zip_sha256'], 'published_pdf_png_equal': True,
-              'records': records, 'class_styling': style_report}
+              'records': records, 'class_styling': style_report,
+              'html_export': embedded_export_report}
     (out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report))
 

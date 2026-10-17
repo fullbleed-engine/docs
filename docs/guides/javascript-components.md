@@ -8,10 +8,14 @@ description: Compose PDFs from typed function components, props, children and re
 Compose a PDF from reusable functions, typed props, children, arrays and
 conditions. Use ordinary JavaScript without a build step, or write the same
 template in JSX/TSX. Pass the document to a Node renderer, render queue or browser
-renderer; you do not need to write HTML strings or install React.
+renderer; you do not need to write HTML strings or install React. You can also
+export the same tree as [static HTML](#export-html-with-or-without-styles), with
+its CSS included or with classes ready for a host application stylesheet.
 
-The downloadable invoice uses **fullbleed 0.6.0**, wrapping engine **2.5.24**.
-The [HTML export options](#export-html-with-or-without-styles) use **0.7.0**.
+The downloadable invoice and guide use **fullbleed 0.7.1**, wrapping engine
+**2.5.29**, including the stable SVG stylesheet, inset-shadow and saved-PDF preview fixes.
+[HTML export](#export-html-with-or-without-styles) works with or without styles.
+The linked React demo retains its separately verified 0.6.0 package.
 
 [Try the component invoice in React](../assets/react-demo/index.html){ .md-button .md-button--primary }
 
@@ -50,7 +54,7 @@ await writeFile('invoice.pdf', result.pdf);
 await writeFile('invoice.png', result.previews[0]);
 ```
 
-Save this as `invoice.mjs`, install `fullbleed@0.6.0`, and run `node invoice.mjs`
+Save this as `invoice.mjs`, install `fullbleed@0.7.1`, and run `node invoice.mjs`
 with Node 22 or newer. Functions need no special wrapper. The optional
 `component(fn)` identity helper preserves the function and its types.
 
@@ -245,9 +249,11 @@ names preserve case. `StyleSheet` accepts ordered rule maps, raw CSS and other
 stylesheets; use raw CSS for nested at-rules.
 
 `document.toCss(...overrides)` returns layout defaults, document styles and then
-overrides in cascade order. `document.toHtml()` returns HTML only. When calling
-the underlying API yourself, pass both: `renderPdf({ html: doc.toHtml(), css: doc.toCss() })`.
-The pinned PDF engine does not load embedded stylesheets or remote CSS implicitly.
+overrides in cascade order. `document.toHtml()` leaves that generated stylesheet
+separate. When calling the underlying API yourself, pass both:
+`renderPdf({ html: doc.toHtml(), css: doc.toCss() })`.
+To carry the stylesheet inside the HTML, use
+`document.toHtml({ includeStyles: true })`, as shown below. Remote CSS is not fetched.
 
 The document's `title` and `lang` describe its HTML. `page` and `margin` are
 authoring metadata; set actual PDF page geometry in `@page` CSS. They do not set
@@ -257,7 +263,7 @@ font defaults.
 
 ## Export HTML with or without styles
 
-Install `fullbleed@0.7.0` for explicit HTML export options. Save the example as
+Install `fullbleed@0.7.1` for explicit HTML export options. Save the example as
 `export.mjs` and run `node export.mjs` to write both HTML documents. Import only `fullbleed/ui` to use
 the authoring layer without starting the PDF engine, a worker, or a browser.
 
@@ -308,9 +314,12 @@ CSS support and pagination, so browser HTML is not a promise of identical PDF
 layout. Values used as text and attributes are escaped, but developer-authored
 CSS, tags and URLs are not sanitized. Unstyled export is not a security sanitizer.
 
-For PDFs, continue using `report.renderPdf(renderer)` or
-`renderDocument(report, renderer)`. These pass HTML and CSS separately to the
-pinned engine; `includeStyles` changes HTML export only.
+For PDFs, `report.renderPdf(renderer)` and `renderDocument(report, renderer)`
+pass HTML and CSS together for you. The renderer also reads supported static
+`<style>` sheets from complete HTML, so exported HTML can be rendered with
+`renderPdf({ html: report.toHtml({ includeStyles: true }), css: '', defaultStyles: false })`.
+The installed-package checks retain identical PDFs and previews for seven component
+examples through both paths. Remote stylesheets are not fetched.
 
 ## Queues and browsers
 

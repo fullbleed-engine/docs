@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "commit": "9ba636fa2725f1333463a19132a5471d7e37656d",
-  "package": "fullbleed@0.6.0",
-  "engine": "2.5.24",
+  "commit": "d00b2db6801262cb103ab4f3ca7cdcfbb98d04ca",
+  "package": "fullbleed@0.7.1",
+  "engine": "2.5.29",
   "files": [
     {
       "path": "document.mjs",
