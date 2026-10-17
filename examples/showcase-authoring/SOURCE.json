@@ -1,6 +1,6 @@
 {
   "schema": "fullbleed.showcase-authoring.source.v1",
-  "source_commit": "7db77af8da821e233040e55f475292e7e3f9fa7d",
+  "source_commit": "b105ad61ceac0cc693be6fb29320dd76e228b173",
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
   "engine_version": "2.6.0a4",
   "source_files": {
@@ -34,6 +34,6 @@
     "examples/design_showcase/statement.css": "c8ad4a1606bcab299202f750263af7bedf567d7b34164bda898fa01814ffd4a3",
     "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096",
     "tools/check_showcase_preview.py": "125ab4b4b3836bd5d707d138eaf6a14a713fcce54fe32052efada398d49cbc19",
-    "tools/check_showcase_preview_browser.py": "fb29d348e40f78f72203fca9f26588a59b81a91613d7d7ed8075c3a481c22813"
+    "tools/check_showcase_preview_browser.py": "7d61236aecde53dd0cb11ed94f8ffb1ec7430b5e64db2251dc5daed860b51b58"
   }
 }

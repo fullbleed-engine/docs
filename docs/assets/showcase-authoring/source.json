@@ -1,6 +1,6 @@
 {
   "schema": "fullbleed.showcase-authoring.source.v1",
-  "source_commit": "7db77af8da821e233040e55f475292e7e3f9fa7d",
+  "source_commit": "b105ad61ceac0cc693be6fb29320dd76e228b173",
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
   "engine_version": "2.6.0a4",
   "source_files": {
@@ -34,14 +34,14 @@
     "examples/design_showcase/statement.css": "c8ad4a1606bcab299202f750263af7bedf567d7b34164bda898fa01814ffd4a3",
     "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096",
     "tools/check_showcase_preview.py": "125ab4b4b3836bd5d707d138eaf6a14a713fcce54fe32052efada398d49cbc19",
-    "tools/check_showcase_preview_browser.py": "fb29d348e40f78f72203fca9f26588a59b81a91613d7d7ed8075c3a481c22813"
+    "tools/check_showcase_preview_browser.py": "7d61236aecde53dd0cb11ed94f8ffb1ec7430b5e64db2251dc5daed860b51b58"
   },
-  "zip_sha256": "8a2a1347674b7df43d5a2a7b3aff78c2ec8b69a0ae99869e4f3ce162c99903f7",
-  "zip_bytes": 346994,
+  "zip_sha256": "a57fe4c7aa04c94979704edfa00328be67d6dba8bd8909e224e70229f246195e",
+  "zip_bytes": 347085,
   "package_files": {
     "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
     "README.md": "aa96de57b10329e5032b2c1d98637db8e0ed65c5efcfbf561352f20816dfeb53",
-    "SOURCE.json": "c7d9430bc9464bd834f4467ae7ca20d3a8422854c2044e6cd2ae3581b33144be",
+    "SOURCE.json": "f314cab2b598755babe1978fcdaea5c57e93210d9ade531a6b0c808564f73e9c",
     "examples/design_showcase/.gitattributes": "3b2d2f910738670779137ecce4829c9d5e1a211d2b1174afb01ba87f06812564",
     "examples/design_showcase/.gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
     "examples/design_showcase/README.md": "7f81745b0772c8bab1e557fef788c6ce2fc834c4228c4d118033ca1194af08e1",
@@ -73,6 +73,6 @@
     "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096",
     "requirements.txt": "0bca20fe02236c6f591c72ce5b782ca35a662a2f66db8205a1241732f6ed0dc0",
     "tools/check_showcase_preview.py": "125ab4b4b3836bd5d707d138eaf6a14a713fcce54fe32052efada398d49cbc19",
-    "tools/check_showcase_preview_browser.py": "fb29d348e40f78f72203fca9f26588a59b81a91613d7d7ed8075c3a481c22813"
+    "tools/check_showcase_preview_browser.py": "7d61236aecde53dd0cb11ed94f8ffb1ec7430b5e64db2251dc5daed860b51b58"
   }
 }

@@ -43,7 +43,7 @@ typed table columns. `AmountDue` owns the total panel and exposes its label and
 amount as named styling parts. The full document composes these pieces and
 calculates totals with `Decimal`.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/7db77af8da821e233040e55f475292e7e3f9fa7d/examples/design_showcase/invoice_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/b105ad61ceac0cc693be6fb29320dd76e228b173/examples/design_showcase/invoice_components.py)
 
 </div>
 </div>
@@ -90,7 +90,7 @@ compose metrics, a participation chart and an allocation table. The illustration
 uses the original local SVG asset; chart heights and allocation shares come from
 the data.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/7db77af8da821e233040e55f475292e7e3f9fa7d/examples/design_showcase/report_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/b105ad61ceac0cc693be6fb29320dd76e228b173/examples/design_showcase/report_components.py)
 
 [Reach page](../assets/showcase-authoring/report-2.png) ·
 [Resources page](../assets/showcase-authoring/report-3.png)
