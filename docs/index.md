@@ -73,7 +73,7 @@ Using C#? [Compose PDFs with typed methods, LINQ and style objects](guides/cshar
 or [download the component invoice](assets/dotnet-components/project.zip).
 
 Want to try the next Python authoring API? The
-[2.6.0a1 Bootstrap component alpha](guides/bootstrap-components-preview.md) includes
+[2.6.0a2 Bootstrap component alpha](guides/bootstrap-components-preview.md) includes
 cards, data tables, forms and static component states, with PDF and styled or
 unstyled HTML output. Install the alpha explicitly to try it.
 

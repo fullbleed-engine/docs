@@ -91,5 +91,8 @@ docs/assets/bootstrap-preview/*.pdf binary
 examples/bootstrap-alpha/** text eol=lf
 docs/assets/bootstrap-alpha/** -text
 docs/assets/bootstrap-alpha/*.pdf binary
+examples/bootstrap-alpha2/** text eol=lf
+docs/assets/bootstrap-alpha2/** -text
+docs/assets/bootstrap-alpha2/*.pdf binary
 docs/assets/complete-html/** -text
 docs/assets/complete-html/*.pdf binary

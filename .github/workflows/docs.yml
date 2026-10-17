@@ -71,14 +71,14 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [preview, alpha]
+        channel: [preview, alpha, alpha2]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Install the exact Bootstrap wheel
-        run: python -m pip install --pre --force-reinstall --report bootstrap-install.json -r examples/bootstrap-${{ matrix.channel }}/${{ matrix.channel == 'alpha' && 'requirements.txt' || 'requirements-preview.txt' }}
+        run: python -m pip install --pre --force-reinstall --report bootstrap-install.json -r examples/bootstrap-${{ matrix.channel }}/${{ matrix.channel != 'preview' && 'requirements.txt' || 'requirements-preview.txt' }}
       - name: Install independent verification readers
         run: python -m pip install pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
       - name: Verify the exact Bootstrap download and guide
