@@ -22,6 +22,7 @@ import zipfile
 import pypdfium2 as pdfium
 from pypdf import PdfReader
 from playwright.sync_api import expect, sync_playwright
+from streamlit_browser_context import open_app_context
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "docs/assets/streamlit-report"
@@ -143,6 +144,7 @@ def verify(args):
             port = listener.getsockname()[1]
         url = f"http://127.0.0.1:{port}"
         browser_errors, external_requests = [], []
+        evidence.update(browser_errors=browser_errors, external_requests=external_requests)
         with (out / "server.log").open("w", encoding="utf-8") as log:
             process = subprocess.Popen([sys.executable, "-m", "streamlit", "run", "app.py", "--server.address", "127.0.0.1",
                                         "--server.port", str(port), "--server.headless", "true"], cwd=project,
@@ -160,21 +162,13 @@ def verify(args):
                 with sync_playwright() as pw:
                     browser = pw.chromium.launch(**({"channel": "chrome"} if args.browser == "chrome" else {}), headless=True)
                     evidence["browser"] = browser.version
+                    startup_attempt = 0
 
                     def context():
-                        ctx = browser.new_context(viewport={"width": 1365, "height": 1100})
-                        def route(request):
-                            if request.request.url.startswith((url + "/", "data:", "blob:")):
-                                request.continue_()
-                            else:
-                                external_requests.append(request.request.url.split("?")[0])
-                                request.abort()
-                        ctx.route("**/*", route)
-                        page = ctx.new_page()
-                        page.on("pageerror", lambda exc: browser_errors.append(str(exc)))
-                        page.goto(url)
-                        page.get_by_role("button", name="Prepare PDF", exact=True).wait_for(timeout=30000)
-                        return ctx, page
+                        nonlocal startup_attempt
+                        startup_attempt += 1
+                        return open_app_context(browser, url, out=out, attempt=startup_attempt,
+                                                browser_errors=browser_errors, external_requests=external_requests)
 
                     def prepare(page):
                         button = page.get_by_role("button", name="Prepare PDF", exact=True)
