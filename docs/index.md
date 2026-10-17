@@ -20,7 +20,7 @@ Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
 </div>
 <figure markdown>
 [![Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
-<figcaption>A real generated PDF. <a href="assets/showcase/invoice.pdf">Open it</a> · <a href="examples/">Explore the designed showcase</a></figcaption>
+<figcaption>A real generated PDF. <a href="assets/showcase/invoice.pdf">Open it</a> · <a href="guides/showcase-authoring/">Compare HTML and component sources</a> · <a href="examples/">Explore the designed showcase</a></figcaption>
 </figure>
 </div>
 

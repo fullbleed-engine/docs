@@ -13,6 +13,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  showcase-authoring:
+    name: Showcase authoring comparison (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install --only-binary=:all: -r examples/showcase-authoring/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Rebuild the download and compare both authoring paths
+        shell: bash
+        run: |
+          python tools/build_showcase_authoring.py
+          git diff --exit-code -- docs/assets/showcase-authoring/project.zip docs/assets/showcase-authoring/source.json
+          python tools/verify_showcase_authoring.py --out target/showcase-authoring
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: showcase-authoring-${{ matrix.os }}
+          path: target/showcase-authoring/
+          retention-days: 14
   component-notebook:
     name: Component notebook (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -858,6 +885,14 @@ jobs:
           name: css-explorer-browser-verification
           path: output/css-explorer-ui/
           retention-days: 14
+      - name: Verify the paired authoring guide, source tabs and downloads
+        run: python tools/check_showcase_authoring_ui.py --site site --out output/showcase-authoring-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: showcase-authoring-browser-verification
+          path: output/showcase-authoring-ui/
+          retention-days: 14
       - name: Verify the Bootstrap guide and standalone HTML downloads
         run: python tools/check_bootstrap_preview_ui.py --site site --out output/bootstrap-preview-ui --browser chrome
       - uses: actions/upload-artifact@v4
@@ -903,7 +938,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, component-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, showcase-authoring, component-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

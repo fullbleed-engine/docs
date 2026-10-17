@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "engine_version": "2.6.0a4",
+  "dpi": 120,
+  "documents": [
+    {
+      "name": "invoice",
+      "ok": true,
+      "failures": [],
+      "page_count": 1,
+      "html_pdf_sha256": "6c40e92c4800827efd0a407146bc196b38c266f4a181c3721446d90f221e14b1",
+      "component_pdf_sha256": "6c40e92c4800827efd0a407146bc196b38c266f4a181c3721446d90f221e14b1",
+      "pdf_bytes_identical": true,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true,
+          "html_sha256": "5ceda957db105b08796af42c5d8efa82e37424e320741770adcbbbdbac0e47a0",
+          "component_sha256": "5ceda957db105b08796af42c5d8efa82e37424e320741770adcbbbdbac0e47a0"
+        }
+      ],
+      "render_verify_replay": true,
+      "direct_component_api_pdf_identical": true,
+      "styled_html_pdf_identical": true,
+      "styled_and_unstyled_exports": true,
+      "authored_classes_preserved": true
+    },
+    {
+      "name": "report",
+      "ok": true,
+      "failures": [],
+      "page_count": 3,
+      "html_pdf_sha256": "c9a37ac69b48db64bfb35a9a1b667aacff017e1781dd9575c1a9a73f36ae27d0",
+      "component_pdf_sha256": "b4fcb7b3faebcd6ababa5fa0f6b7de6b513ad9422d24e68ad3767b30366d1a7d",
+      "pdf_bytes_identical": false,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true,
+          "html_sha256": "faec5cb1a8e58c6bad2a81c5ba902a66f26dd7fc638c1b543345256ed001b936",
+          "component_sha256": "faec5cb1a8e58c6bad2a81c5ba902a66f26dd7fc638c1b543345256ed001b936"
+        },
+        {
+          "page": 2,
+          "identical": true,
+          "html_sha256": "2389b98e56a8930836614689ed05f3ac9561252a80c77faee113a5bc2e21be72",
+          "component_sha256": "2389b98e56a8930836614689ed05f3ac9561252a80c77faee113a5bc2e21be72"
+        },
+        {
+          "page": 3,
+          "identical": true,
+          "html_sha256": "9e6196fdad21ba2f36d062e770368487399ed0bdab765c513674151c4cf3a649",
+          "component_sha256": "9e6196fdad21ba2f36d062e770368487399ed0bdab765c513674151c4cf3a649"
+        }
+      ],
+      "render_verify_replay": true,
+      "direct_component_api_pdf_identical": true,
+      "styled_html_pdf_identical": true,
+      "styled_and_unstyled_exports": true,
+      "authored_classes_preserved": true
+    }
+  ],
+  "fonts": {
+    "Inter-Variable.ttf": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "BebasNeue-Regular.ttf": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73",
+    "DMSerifDisplay-Regular.ttf": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
+    "DMSerifDisplay-Italic.ttf": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+  },
+  "scope": "Same-runtime PDF page appearance for these fixed A4 compositions; not general HTML/CSS parity."
+}
