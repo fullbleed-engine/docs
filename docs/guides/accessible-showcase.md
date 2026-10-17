@@ -88,7 +88,8 @@ the exact PDF by SHA-256.
 | Fonts, metadata and geometry | Embedded fonts, English language, document title, two A4 pages; no overflow or missing-glyph/font-substitution gate failures |
 | Reproduction | Identical PDF bytes on repeat rendering and through the exported HTML/CSS path |
 | Visual review | Both pages inspected in native and independent PDFium previews |
-| Browser exports | Checked at 1440, 390 and 320 pixels; no horizontal overflow; keyboard link focus verified |
+| Styled HTML | Checked at 1440, 390 and 320 pixels; no horizontal overflow; keyboard link focus verified |
+| Unstyled HTML | Semantic elements and authored classes retained; no CSS or inline style declarations |
 | Authored text colors | Minimum contrast ratio 7.45:1 across the design's text/background pairs |
 
 [Validation receipt](../assets/accessible-showcase/validation.json) ·
