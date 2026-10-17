@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "source_commit": "abdfb8744353580335b208e6e6ad2029dea882a5",
+  "engine_version": "2.6.0a4",
+  "pdfium_version": "5.14.0",
+  "dpi": 144,
+  "pages": [
+    {
+      "document": "invoice",
+      "page": 1,
+      "dpi": 144,
+      "pixels_sha256": "eed62fa682199704f450ffe208e17832ba43c4b95f48e82ce005ba45eb04341d",
+      "identical": true
+    },
+    {
+      "document": "report",
+      "page": 1,
+      "dpi": 144,
+      "pixels_sha256": "5e50b32dc9766120ccba5baad60bc1f868d3427a0d1a535ec2ad4c93d351e318",
+      "identical": true
+    },
+    {
+      "document": "report",
+      "page": 2,
+      "dpi": 144,
+      "pixels_sha256": "da27ae88afa77cc33c9390df0255bfdd51d4b219b345a3c535b69f3cbd885b08",
+      "identical": true
+    },
+    {
+      "document": "report",
+      "page": 3,
+      "dpi": 144,
+      "pixels_sha256": "18ef3ad35564eb1ad30e27c89b21cb80136e64180cffc32567343eac8952df1c",
+      "identical": true
+    }
+  ]
+}

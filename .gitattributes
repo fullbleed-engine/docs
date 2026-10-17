@@ -105,3 +105,9 @@ docs/assets/component-notebook/** -text
 docs/assets/component-notebook/*.pdf binary
 docs/assets/complete-html/** -text
 docs/assets/complete-html/*.pdf binary
+
+# These downloadable sources and artifacts are compared by exact byte hashes.
+examples/showcase-authoring/** -text whitespace=cr-at-eol
+examples/showcase-authoring/**/fonts/*-OFL.txt -whitespace
+docs/assets/showcase-authoring/** -text
+docs/assets/showcase-authoring/*.pdf binary

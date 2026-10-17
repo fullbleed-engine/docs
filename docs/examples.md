@@ -99,6 +99,7 @@ unmissable total. Three explicit typefaces give the brand, line items, and amoun
 their own roles. Grid and table layouts keep the page ordered.
 
 [Open the PDF](assets/showcase/invoice.pdf){ .md-button }
+[Compare HTML and components](guides/showcase-authoring.md#northstar-studio){ .md-button }
 
 [HTML](assets/showcase/invoice.html) · [CSS](assets/showcase/invoice.css) · [Data](assets/showcase/data.json)
 
@@ -136,6 +137,7 @@ Each page has an explicit composition, with a consistent masthead, folio, and
 typographic hierarchy.
 
 [Open the three-page PDF](assets/showcase/report.pdf){ .md-button }
+[Compare HTML and components](guides/showcase-authoring.md#common-ground){ .md-button }
 
 [HTML](assets/showcase/report.html) · [CSS](assets/showcase/report.css) · [Data](assets/showcase/data.json)
 

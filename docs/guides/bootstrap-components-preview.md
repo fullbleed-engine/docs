@@ -22,6 +22,9 @@ styling; your Python supplies the content.
 [Try the component notebook](../getting-started/component-notebook.md) to edit
 data and styles in Colab or Jupyter, then download a PDF and both HTML exports.
 
+For a complete custom design, [recreate Northstar and Common Ground](showcase-authoring.md)
+with either HTML/CSS or Python components and compare the matching PDF pages.
+
 All Bootstrap components are **static, including HTML export**. There is no
 Bootstrap JavaScript. Tabs show the selected panel, carousels show the selected
 item, and overlays appear in document flow. Ordinary HTML form controls retain

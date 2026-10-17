@@ -82,6 +82,7 @@ nav:
     - Examples and downloads: examples.md
   - Build a document:
     - Python components: guides/python-components.md
+    - One design, two authoring paths: guides/showcase-authoring.md
     - JavaScript components and JSX: guides/javascript-components.md
     - C# components and styles: guides/csharp-components.md
     - Complete HTML documents: guides/complete-html.md
