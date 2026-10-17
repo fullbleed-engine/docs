@@ -23,14 +23,14 @@
       {
         "itemDetails": {
           "name": "common-ground-guide.pdf",
-          "size": 141724
+          "size": 140678
         },
         "validationResult": [
           {
             "details": {
               "passedRules": 106,
               "failedRules": 0,
-              "passedChecks": 5452,
+              "passedChecks": 5326,
               "failedChecks": 0,
               "ruleSummaries": []
             },
@@ -41,19 +41,19 @@
           }
         ],
         "processingTime": {
-          "start": 1792277813069,
-          "finish": 1792277815629,
-          "duration": "00:00:02.560",
-          "difference": 2560
+          "start": 1792279469125,
+          "finish": 1792279472068,
+          "difference": 2943,
+          "duration": "00:00:02.943"
         }
       }
     ],
     "batchSummary": {
       "duration": {
-        "start": 1792277812712,
-        "finish": 1792277815776,
-        "duration": "00:00:03.064",
-        "difference": 3064
+        "start": 1792279468620,
+        "finish": 1792279472182,
+        "difference": 3562,
+        "duration": "00:00:03.562"
       },
       "totalJobs": 1,
       "outOfMemory": 0,
@@ -68,16 +68,16 @@
         "totalJobCount": 0,
         "successfulJobCount": 0
       },
-      "multiJob": false,
       "failedParsingJobs": 0,
       "failedEncryptedJobs": 0,
       "validationSummary": {
-        "compliantPdfaCount": 1,
         "failedJobCount": 0,
+        "compliantPdfaCount": 1,
         "totalJobCount": 1,
         "nonCompliantPdfaCount": 0,
         "successfulJobCount": 1
-      }
+      },
+      "multiJob": false
     }
   }
 }

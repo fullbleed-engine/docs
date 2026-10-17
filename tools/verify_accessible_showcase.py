@@ -34,6 +34,7 @@ def main():
     actual=sha256((output/'common-ground-guide.pdf').read_bytes()).hexdigest()
     validated=json.loads((ASSETS/'validation.json').read_text(encoding='utf-8'))
     assert validated['external_validation']['compliant']
+    assert validated['external_validation']['stderr_bytes']==0
     assert actual==validated['pdf_sha256']==sha256((ASSETS/'common-ground-guide.pdf').read_bytes()).hexdigest()
     report={'ok':True,'source_files':len(manifest['source_files']),'pdf_sha256':actual,
             'matches_externally_validated_pdf':True,'external_validator_rerun':False}

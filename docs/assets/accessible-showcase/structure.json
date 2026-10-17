@@ -16,11 +16,11 @@
     "/TH": 3,
     "/TBody": 1,
     "/TD": 9,
-    "/Span": 11,
     "/L": 2,
     "/LI": 6,
     "/Lbl": 6,
-    "/LBody": 6
+    "/LBody": 6,
+    "/Span": 3
   },
   "headings": [
     {
@@ -239,16 +239,6 @@
       "text": "Garden together"
     },
     {
-      "role": "/Span",
-      "page": 2,
-      "text": "Garden"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "together"
-    },
-    {
       "role": "/TD",
       "page": 2,
       "text": "Saturdays, 10\u201311:30 am"
@@ -269,21 +259,6 @@
       "text": "The shared table"
     },
     {
-      "role": "/Span",
-      "page": 2,
-      "text": "The"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "shared"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "table"
-    },
-    {
       "role": "/TD",
       "page": 2,
       "text": "Saturdays, noon\u20131 pm"
@@ -302,21 +277,6 @@
       "role": "/TD",
       "page": 2,
       "text": "Make & mend"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "Make"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "&"
-    },
-    {
-      "role": "/Span",
-      "page": 2,
-      "text": "mend"
     },
     {
       "role": "/TD",
@@ -631,57 +591,57 @@
     {
       "page": 2,
       "mcid": 7,
-      "text": ""
+      "text": "Garden together"
     },
     {
       "page": 2,
       "mcid": 8,
-      "text": "Garden"
-    },
-    {
-      "page": 2,
-      "mcid": 9,
-      "text": "together"
-    },
-    {
-      "page": 2,
-      "mcid": 10,
       "text": "Saturdays, 10\u201311:30 am"
     },
     {
       "page": 2,
-      "mcid": 11,
+      "mcid": 9,
       "text": "Plant, water or harvest. Seated tasks are available."
     },
     {
       "page": 2,
-      "mcid": 12,
-      "text": ""
+      "mcid": 10,
+      "text": "The shared table"
     },
     {
       "page": 2,
-      "mcid": 13,
-      "text": "The"
-    },
-    {
-      "page": 2,
-      "mcid": 14,
-      "text": "shared"
-    },
-    {
-      "page": 2,
-      "mcid": 15,
-      "text": "table"
-    },
-    {
-      "page": 2,
-      "mcid": 16,
+      "mcid": 11,
       "text": "Saturdays, noon\u20131 pm"
     },
     {
       "page": 2,
-      "mcid": 17,
+      "mcid": 12,
       "text": "Bring your lunch or share the seasonal soup. Ingredients are listed."
+    },
+    {
+      "page": 2,
+      "mcid": 13,
+      "text": "Make & mend"
+    },
+    {
+      "page": 2,
+      "mcid": 14,
+      "text": "First Saturday, 2\u20133:30 pm"
+    },
+    {
+      "page": 2,
+      "mcid": 15,
+      "text": "Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "page": 2,
+      "mcid": 16,
+      "text": "Plan a comfortable visit"
+    },
+    {
+      "page": 2,
+      "mcid": 17,
+      "text": "An easy arrival"
     },
     {
       "page": 2,
@@ -691,141 +651,101 @@
     {
       "page": 2,
       "mcid": 19,
-      "text": "Make"
-    },
-    {
-      "page": 2,
-      "mcid": 20,
-      "text": "&"
-    },
-    {
-      "page": 2,
-      "mcid": 21,
-      "text": "mend"
-    },
-    {
-      "page": 2,
-      "mcid": 22,
-      "text": "First Saturday, 2\u20133:30 pm"
-    },
-    {
-      "page": 2,
-      "mcid": 23,
-      "text": "Bring a small repair or try a simple craft. Materials are provided."
-    },
-    {
-      "page": 2,
-      "mcid": 24,
-      "text": "Plan a comfortable visit"
-    },
-    {
-      "page": 2,
-      "mcid": 25,
-      "text": "An easy arrival"
-    },
-    {
-      "page": 2,
-      "mcid": 26,
-      "text": ""
-    },
-    {
-      "page": 2,
-      "mcid": 27,
       "text": "Enter through the wide gate beside the greenhouse."
     },
     {
       "page": 2,
-      "mcid": 28,
+      "mcid": 20,
       "text": ""
     },
     {
       "page": 2,
-      "mcid": 29,
+      "mcid": 21,
       "text": "The main path is firm and level. Seating is available along the way."
     },
     {
       "page": 2,
-      "mcid": 30,
+      "mcid": 22,
       "text": ""
     },
     {
       "page": 2,
-      "mcid": 31,
+      "mcid": 23,
       "text": "A welcome volunteer can show you the garden and the accessible restroom."
     },
     {
       "page": 2,
-      "mcid": 32,
+      "mcid": 24,
       "text": "Choose your pace"
     },
     {
       "page": 2,
-      "mcid": 33,
+      "mcid": 25,
       "text": ""
     },
     {
       "page": 2,
-      "mcid": 34,
+      "mcid": 26,
       "text": "Take part seated or standing, or simply watch."
     },
     {
       "page": 2,
-      "mcid": 35,
+      "mcid": 27,
       "text": ""
     },
     {
       "page": 2,
-      "mcid": 36,
+      "mcid": 28,
       "text": "Use the quiet corner whenever you would like a break."
     },
     {
       "page": 2,
-      "mcid": 37,
+      "mcid": 29,
       "text": ""
     },
     {
       "page": 2,
-      "mcid": 38,
+      "mcid": 30,
       "text": "Ask for written instructions or a demonstration. Both are welcome."
     },
     {
       "page": 2,
-      "mcid": 39,
+      "mcid": 31,
       "text": "A small first step is enough"
     },
     {
       "page": 2,
-      "mcid": 40,
+      "mcid": 32,
       "text": "You do not have to know anyone, know what to say or stay all day. There is a place for you here."
     },
     {
       "page": 2,
-      "mcid": 41,
+      "mcid": 33,
       "text": "About this guide"
     },
     {
       "page": 2,
-      "mcid": 42,
+      "mcid": 34,
       "text": "Common Ground and its programs are fictional. This sample shows how a thoughtfully designed document can carry its structure into PDF and HTML."
     },
     {
       "page": 2,
-      "mcid": 43,
+      "mcid": 35,
       "text": "Fullbleed"
     },
     {
       "page": 2,
-      "mcid": 44,
+      "mcid": 36,
       "text": "documentation:"
     },
     {
       "page": 2,
-      "mcid": 45,
+      "mcid": 37,
       "text": "docs.fullbleed.dev"
     }
   ],
   "decorative_text_omitted": true,
   "pdf_link_annotations": 0,
   "scope": "Actual PDF structure, MCID text and semantic order; not an assistive-technology user test.",
-  "pdf_sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae"
+  "pdf_sha256": "a0600667d2227b965db9074545f56dd6dc9ccf29aec9445bdca18a86f9e1d18e"
 }
