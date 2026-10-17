@@ -133,10 +133,23 @@ columns' `white-space: nowrap` behavior.
 
 ## Run and compare
 
-Extract the download, then run from its root in a fresh Python environment:
+Create the project through the CLI in a fresh Python environment:
 
 ```sh
-python -m pip install -r requirements.txt
+python -m pip install --pre "fullbleed==2.6.0a4"
+fullbleed new remote component-showcase my-documents --version 0.1.0
+cd my-documents
+```
+
+The CLI verifies the pinned source archive's SHA-256 before extracting it.
+Choose a new or empty target directory. `fullbleed new search components` also
+lists the smaller Bootstrap starter.
+
+If you prefer the [source ZIP](../assets/showcase-authoring/project.zip), extract
+it and run `python -m pip install -r requirements.txt` from its root instead.
+Both routes use the explicit component alpha. Then render and compare:
+
+```sh
 python examples/design_showcase/compare_authoring.py --out output
 ```
 
