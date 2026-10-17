@@ -94,7 +94,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [preview, alpha, alpha2, alpha3]
+        channel: [preview, alpha, alpha2, alpha3, alpha4]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6

@@ -1,0 +1,200 @@
+{
+  "schema": "fullbleed.bootstrap-alpha4-source.v1",
+  "experimental": true,
+  "source_commit": "47deedd30b5c81989d16cd26d7687836104670eb",
+  "contains_engine_binaries": false,
+  "engine_installation": "pypi",
+  "native_build_required": false,
+  "native_build_scope": "Compatible wheels need no Rust build; other platforms may build the PyPI sdist with Rust and native build tools.",
+  "source_engine_requirement": "fullbleed==2.6.0a4",
+  "engine_wheels": {
+    "package_version": "2.6.0a4",
+    "release_url": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a4",
+    "index_url": "https://pypi.org/project/fullbleed/2.6.0a3/",
+    "files": [
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-macosx_10_12_x86_64.whl",
+        "url": "https://files.pythonhosted.org/packages/c6/c6/16d5ed349756dedc87afbe965b0ee94f92c0fd31d9af35db1bb83e54538c/fullbleed-2.6.0a4-cp310-abi3-macosx_10_12_x86_64.whl",
+        "bytes": 7633659,
+        "sha256": "eaa4e232d6d1cc04c0ced1e4d332d5679e8297c60bfac36b5b6b0ddba5c00324",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-macosx_11_0_arm64.whl",
+        "url": "https://files.pythonhosted.org/packages/80/3f/67a409948dc702d8882054a2d365722863669bd50ca48939449db7b563ea/fullbleed-2.6.0a4-cp310-abi3-macosx_11_0_arm64.whl",
+        "bytes": 7236057,
+        "sha256": "3744c09154903b7365f6a9e59df15969034afbbdd37b6487c01f626f9c48df0e",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+        "url": "https://files.pythonhosted.org/packages/08/6c/9790593537039b53814bf98ad9ae91114e2b3703f53a9c3a9c0a77f10539/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+        "bytes": 7379807,
+        "sha256": "6e4b9b6d6ecc8468a2d87b4d024243dabdf9e4438e7f54fbede599d7f460d669",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl",
+        "url": "https://files.pythonhosted.org/packages/95/47/403cb8cb8cdda0587d623610227f4e6570746b4fdf3f0ead11c9290fa96d/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl",
+        "bytes": 9175326,
+        "sha256": "3defede5a0218d8a3722f06022b6fcb4fe310ceffaf42a1dc918b3fd2550803c",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_i686.manylinux2014_i686.whl",
+        "url": "https://files.pythonhosted.org/packages/86/c2/f554d0e133d521812eaab3c4bcff36620d8768b20fec5eb728420cea87d3/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_i686.manylinux2014_i686.whl",
+        "bytes": 9905768,
+        "sha256": "70ec41b8499941a1a7f7183a73bb71c1b44a4b6aaea143de41f76ac1a635352f",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl",
+        "url": "https://files.pythonhosted.org/packages/58/31/00fb34884d392e53cf8bd1f11048595c1cdfdad356375deafba1536cc01f/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl",
+        "bytes": 8135266,
+        "sha256": "8af4cdecd1487cc5bda96647be7b3d615fa1fb2d52754a442ec172587b67d54f",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl",
+        "url": "https://files.pythonhosted.org/packages/32/a9/b11c7d693fb80a84d13da6e5728a0a001a040a45d5534e5c28b26e3b70fe/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl",
+        "bytes": 8201986,
+        "sha256": "703ce7cc4ab09e64e3e11d59301fd6c23e2ac310efdf27123cd487e116517f10",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "url": "https://files.pythonhosted.org/packages/1b/93/6b0d0b2338cc37165f9cc35d96bbe3c865efd3132cd5217d78e80a47d22c/fullbleed-2.6.0a4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "bytes": 7793360,
+        "sha256": "2cc46942813b1a9219a2e126aa3599355dabf16c642b57e0e9ebee5865f01d4c",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_aarch64.whl",
+        "url": "https://files.pythonhosted.org/packages/61/14/40da45574c6ec1ee37eabf7ab4a078f7264f70bf3c23ba91a65862830e49/fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_aarch64.whl",
+        "bytes": 7354657,
+        "sha256": "2d8207f2d459caa5b1339dfa405b46f055c394544415de9241d90878c4c34d80",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_armv7l.whl",
+        "url": "https://files.pythonhosted.org/packages/50/17/b8ea3bb44f14b777fc3fac794900e5ad82645b5e8d96d07a25a4f2c61d95/fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_armv7l.whl",
+        "bytes": 9217094,
+        "sha256": "4a03cc057af8f19227b73d1ed8d1faca8a8dde8ff71f386f62f50e210a60df62",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_i686.whl",
+        "url": "https://files.pythonhosted.org/packages/1f/23/776d58b24e0c40a192a5fb69a2a18b5d368364a61501131f759bb54b5391/fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_i686.whl",
+        "bytes": 9878012,
+        "sha256": "e5aa8fa9d98eb2c13fa54d8f875a4258075d82c0833f0d97e71b216724bd395d",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_x86_64.whl",
+        "url": "https://files.pythonhosted.org/packages/e9/ad/0f60ca49808a18d9f92c11e2b5e5bcf2e3f1cb5509b020e62e5bbb14db9d/fullbleed-2.6.0a4-cp310-abi3-musllinux_1_2_x86_64.whl",
+        "bytes": 7786894,
+        "sha256": "5606c18b3e6618ef15be7dcb3addb57c2778fad367348253c6e8bd940b475cdd",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-win32.whl",
+        "url": "https://files.pythonhosted.org/packages/44/38/faf65e0ae1d9767d5f21afc010eeb732049524afeaf916dab3ee1a5aadef/fullbleed-2.6.0a4-cp310-abi3-win32.whl",
+        "bytes": 9113561,
+        "sha256": "aeb8602006c0097597801cc6e998e6ac690b7539fdf4c83991217077dcfb7b62",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-win_amd64.whl",
+        "url": "https://files.pythonhosted.org/packages/97/9d/6b07e903539f5a601a02b364f324ffc0a16bb05631f0ae0ca3afa3af31f5/fullbleed-2.6.0a4-cp310-abi3-win_amd64.whl",
+        "bytes": 7955223,
+        "sha256": "ecf1658f706dc5a704a790ae6168a0ec08c1a8cdfec4570163cd24e11f3db788",
+        "kind": "wheel"
+      },
+      {
+        "file": "fullbleed-2.6.0a4-cp310-abi3-win_arm64.whl",
+        "url": "https://files.pythonhosted.org/packages/8d/73/2e78a0d654a2504b1b08489dd1f57f0c1777b7502f1bb17280efe47711c9/fullbleed-2.6.0a4-cp310-abi3-win_arm64.whl",
+        "bytes": 7475537,
+        "sha256": "8355fa857fa1225884239489a47bc1a0c845d07a3ab7aa3d3bd513f66eeb312b",
+        "kind": "wheel"
+      }
+    ]
+  },
+  "engine_python_files": {
+    "fullbleed/ui/experimental/__init__.py": "d375915c58573c6769543dc33e2ec87084879412e63ea1bbcf8421458e0085fa",
+    "fullbleed/ui/experimental/_bridge.py": "d9d63910ad4e19bf63a3bd7c51507ebcc8aab14f86424259052be2f61ef6bf42",
+    "fullbleed/ui/experimental/_bridge.pyi": "372ce75241bfdadf41a7b38c4f301a35f7968c454f4d8c48fb565845f27754f9",
+    "fullbleed/ui/experimental/_document.py": "4190f2e84247a814b0f5e3fbda74a05ee71b278fa66d20a49a6c0b205ecac481",
+    "fullbleed/ui/experimental/_document.pyi": "1112209e898c9bdbb16edb922a4df6c253fcbe3ded88e328b57bd4f26079d022",
+    "fullbleed/ui/experimental/_resources.py": "89561bebca0065b319f51133d6e9f5a747df32d7183c282aa036e11b751a395d",
+    "fullbleed/ui/experimental/_schema.py": "bf6463e42f5e8111e20975e949c7997a9da72b0a9996455df5d69d38d4543ca7",
+    "fullbleed/ui/experimental/_semantics.py": "dad8b9e7293eac421deb9ba9faf2bee24ccfdd69b5043413d053cb00b85883ab",
+    "fullbleed/ui/experimental/_style.py": "eadd516613985245691b0798361b7df6122c6906443ccefae77e154e3681e226",
+    "fullbleed/ui/experimental/_style.pyi": "5db65d4a5ff3ebba0cead751cb0bb1b5143d02dfa1981b3a82be3d8f4a4a03c6",
+    "fullbleed/ui/experimental/_table.py": "b37d6e59d2f357bb914171cb9222d5e243a3f18ab2a462603de6f0ed74ca5296",
+    "fullbleed/ui/experimental/_table.pyi": "4304062d301270c8e80c454dec76704d84c7a9d5340be656ce035bf86d3d2898",
+    "fullbleed/ui/experimental/_tree.py": "035158f8115ae8f4da2d864a0a666128cf809b12f65fb4432f6cfd020df451e4",
+    "fullbleed/ui/experimental/_tree.pyi": "b4474fb9d51ee735c8a749765496d524a50e9dae405a1e5a2b239dfaa532e2d9",
+    "fullbleed/ui/experimental/bootstrap/__init__.py": "3d38275bdce34ed31cbb959dd8a7f8ce309b77dc3c482fff454718dd404f94d4",
+    "fullbleed/ui/experimental/bootstrap/__init__.pyi": "a2f96b9d41df8073231c914cef31f497c24974757ab625ae2cdb9a5cd43f7ee9",
+    "fullbleed/ui/experimental/bootstrap/_components.py": "5f402fe3b810bc5443cea9dd67cde5668923b3c98c20eb241141fdd33efefc7a",
+    "fullbleed/ui/experimental/bootstrap/_core.py": "d82ec29deec6d8a248b9f9a419bbcb915862393ba1de08d9f28d814249716c99",
+    "fullbleed/ui/experimental/bootstrap/_forms.py": "bd368525794d02f6ee4ececb1e42b0e16fe104da0579d4966ace0b6f9462963b",
+    "fullbleed/ui/experimental/bootstrap/_layout.py": "41ce430739224135c028c984a0e578fbbd0726c7dab059c685b0db844af2fe86",
+    "fullbleed/ui/experimental/bootstrap/_schema.py": "45ca43bcadc62e6b13338868e520f0ac91ce617aae090db9fb8fd2c5329d263e",
+    "fullbleed/ui/experimental/bootstrap/_utilities.py": "b7b5606b6113acf5de27d72a7ebf46e762a61132a19e954207708a300b47815a",
+    "fullbleed/ui/experimental/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "adapted_example_files": {
+    "examples/component_bootstrap/catalog.py": {
+      "upstream_sha256": "2cfca9d51a892ac596b87f29bb44c8f84cf364d5933fb8b2b0e67f03bd781b36",
+      "sha256": "287faf4e607e0e3daba21b952e26dc0acc7033cfe0d07dd0639b0b43a4db7fd3",
+      "change": "Demo links target other existing catalog sections. The downloadable HTML has no unresolved placeholder anchors."
+    },
+    "examples/component_bootstrap/main.py": {
+      "upstream_sha256": "1fbbb445e23a2096785b74aa663a5fe29a3da469c789911579d5d01e5dabd1aa",
+      "sha256": "bcd0eec912b0cd2ecff65d99c04afc907b2fd2ea95f11cabbd43ba0c4d051649",
+      "change": "Write textual artifacts with explicit LF line endings so downloadable HTML has identical bytes on Windows and Linux."
+    }
+  },
+  "bootstrap_css_sha256": "04083fcecdd9e19b2acd1e0073437aa07c98d230f0198d7f1fd470ab220fef64",
+  "first_document_sha256": "33f8bcb22893ec7df5fe6562f0131790dd7006e71afa45abe98d120c20bf2024",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5627,
+      "sha256": "3f0b2fe7b9c7d9be45b925f1b80bdc7f4177dde4641ebb7805338ea17c3a57f7"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 19,
+      "sha256": "0bca20fe02236c6f591c72ce5b782ca35a662a2f66db8205a1241732f6ed0dc0"
+    },
+    {
+      "path": "first_document.py",
+      "bytes": 1387,
+      "sha256": "33f8bcb22893ec7df5fe6562f0131790dd7006e71afa45abe98d120c20bf2024"
+    },
+    {
+      "path": "upstream.json",
+      "bytes": 10963,
+      "sha256": "87647cde26c3180a59c594b0c96fd3b98ee5682b5d1be787bea9b642687e3d5e"
+    },
+    {
+      "path": "examples/component_bootstrap/main.py",
+      "bytes": 5875,
+      "sha256": "bcd0eec912b0cd2ecff65d99c04afc907b2fd2ea95f11cabbd43ba0c4d051649"
+    },
+    {
+      "path": "examples/component_bootstrap/catalog.py",
+      "bytes": 5311,
+      "sha256": "287faf4e607e0e3daba21b952e26dc0acc7033cfe0d07dd0639b0b43a4db7fd3"
+    }
+  ],
+  "zip_sha256": "00c8e79b056f13ba2a7d2ec3a254d3958d3f19dc1a3f7316edf7ac22e631f790",
+  "zip_bytes": 12880
+}

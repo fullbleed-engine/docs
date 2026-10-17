@@ -97,6 +97,9 @@ docs/assets/bootstrap-alpha2/*.pdf binary
 examples/bootstrap-alpha3/** text eol=lf
 docs/assets/bootstrap-alpha3/** -text
 docs/assets/bootstrap-alpha3/*.pdf binary
+examples/bootstrap-alpha4/** text eol=lf
+docs/assets/bootstrap-alpha4/** -text
+docs/assets/bootstrap-alpha4/*.pdf binary
 examples/component-notebook/** text eol=lf
 docs/assets/component-notebook/** -text
 docs/assets/component-notebook/*.pdf binary
