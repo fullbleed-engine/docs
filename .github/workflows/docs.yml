@@ -13,6 +13,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  component-notebook:
+    name: Component notebook (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install --only-binary=:all: -r tools/component-notebook-requirements.txt
+      - name: Execute the notebook and check PDF, HTML and ZIP downloads
+        run: python -I tools/verify_component_notebook.py --check-downloads --out target/component-notebook
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: component-notebook-${{ matrix.os }}
+          path: target/component-notebook/
+          retention-days: 14
   complete-html:
     name: Complete HTML guide and download (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -843,6 +866,14 @@ jobs:
           name: bootstrap-preview-browser-verification
           path: output/bootstrap-preview-ui/
           retention-days: 14
+      - name: Verify the component notebook page and its real download
+        run: python tools/check_component_notebook_ui.py --site site --out output/component-notebook-ui --browser chrome --verify-published-source
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: component-notebook-browser-verification
+          path: output/component-notebook-ui/
+          retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
       - uses: actions/upload-artifact@v4
@@ -872,7 +903,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, component-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

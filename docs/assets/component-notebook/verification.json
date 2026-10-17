@@ -1,0 +1,56 @@
+{
+  "runtime_version": "2.6.0a3",
+  "notebook_sha256": "51edbfaee46eca2e1d4e9ee24cf90b53eb68db0d3a160a0946410cf483919694",
+  "cases": [
+    {
+      "name": "default",
+      "pages": 1,
+      "row_count": 3,
+      "total": "1056.00",
+      "pdf_sha256": "d8cc2404c386bb6c342c51ce12cce458a8502365575f6fac3bf677906118fd85",
+      "accent": "#205b47"
+    },
+    {
+      "name": "edited",
+      "pages": 1,
+      "row_count": 3,
+      "total": "1176.00",
+      "pdf_sha256": "9c040cbf71b15da3369ca323a6c2f43d956be58d67d055dc9b0afc2ac563954d",
+      "accent": "#763c96"
+    },
+    {
+      "name": "long",
+      "pages": 4,
+      "row_count": 72,
+      "total": "684.00",
+      "pdf_sha256": "ea8583a0acfcbb096c865b9c1fac9d9eb83aa9b90178c8dd3ac342e3c1285742",
+      "accent": "#205b47"
+    },
+    {
+      "name": "empty-after-long",
+      "pages": 1,
+      "row_count": 0,
+      "total": "0.00",
+      "pdf_sha256": "51762e3b51f4974845597d422db68477061cf215f61a268d1cb73e76b36b6543",
+      "accent": "#205b47"
+    }
+  ],
+  "downloads": {
+    "bootstrap_components.ipynb": "51edbfaee46eca2e1d4e9ee24cf90b53eb68db0d3a160a0946410cf483919694",
+    "order.pdf": "d8cc2404c386bb6c342c51ce12cce458a8502365575f6fac3bf677906118fd85",
+    "order-page-1.png": "1998ad3673ffb88176cbbeac53cebf5c2cfcccc3369955a0aa5f5b81a8d5d19e",
+    "order.styled.html": "02165a2fb8a848ac54652eb618e22355035c698a46969fae8c1c3d0a66e2af0a",
+    "order.unstyled.html": "42ca16432f8f8bdce66b1301f77006fa74b236a066a1df5eead1cc747549ac4e"
+  },
+  "preview": "PDFium rendering of the default output PDF at 110 DPI",
+  "checks": [
+    "Notebook installation and execution",
+    "Independent PDF text and page bounds",
+    "Requested PDF accent colours",
+    "Repeat/direct PDF byte equality",
+    "Static styled and unstyled HTML",
+    "Exact ZIP contents",
+    "Long-to-empty rerun excludes old pages"
+  ],
+  "scope": "Executed Jupyter cells and independent PDF/HTML/ZIP checks. Hosted Colab runtime and download UI, exhaustive CSS/browser parity and standards conformance are not evaluated."
+}

@@ -19,6 +19,9 @@ styling; your Python supplies the content.
 [Open the report PDF](../assets/bootstrap-alpha3/report.pdf){ .md-button }
 [Browse the HTML catalog](../assets/bootstrap-alpha3/catalog.html){ .md-button }
 
+[Try the component notebook](../getting-started/component-notebook.md) to edit
+data and styles in Colab or Jupyter, then download a PDF and both HTML exports.
+
 All Bootstrap components are **static, including HTML export**. There is no
 Bootstrap JavaScript. Tabs show the selected panel, carousels show the selected
 item, and overlays appear in document flow. Ordinary HTML form controls retain
