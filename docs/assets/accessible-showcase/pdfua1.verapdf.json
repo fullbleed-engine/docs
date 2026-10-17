@@ -1,0 +1,83 @@
+{
+  "report": {
+    "buildInformation": {
+      "releaseDetails": [
+        {
+          "id": "core",
+          "version": "1.30.3",
+          "buildDate": 1791385320000
+        },
+        {
+          "id": "validation-model",
+          "version": "1.30.3",
+          "buildDate": 1791398640000
+        },
+        {
+          "id": "apps",
+          "version": "1.30.3",
+          "buildDate": 1791399120000
+        }
+      ]
+    },
+    "jobs": [
+      {
+        "itemDetails": {
+          "name": "common-ground-guide.pdf",
+          "size": 141724
+        },
+        "validationResult": [
+          {
+            "details": {
+              "passedRules": 106,
+              "failedRules": 0,
+              "passedChecks": 5452,
+              "failedChecks": 0,
+              "ruleSummaries": []
+            },
+            "jobEndStatus": "normal",
+            "profileName": "PDF/UA-1 validation profile",
+            "statement": "PDF file is compliant with Validation Profile requirements.",
+            "compliant": true
+          }
+        ],
+        "processingTime": {
+          "start": 1792277813069,
+          "finish": 1792277815629,
+          "duration": "00:00:02.560",
+          "difference": 2560
+        }
+      }
+    ],
+    "batchSummary": {
+      "duration": {
+        "start": 1792277812712,
+        "finish": 1792277815776,
+        "duration": "00:00:03.064",
+        "difference": 3064
+      },
+      "totalJobs": 1,
+      "outOfMemory": 0,
+      "veraExceptions": 0,
+      "repairSummary": {
+        "failedJobCount": 0,
+        "totalJobCount": 0,
+        "successfulJobCount": 0
+      },
+      "featuresSummary": {
+        "failedJobCount": 0,
+        "totalJobCount": 0,
+        "successfulJobCount": 0
+      },
+      "multiJob": false,
+      "failedParsingJobs": 0,
+      "failedEncryptedJobs": 0,
+      "validationSummary": {
+        "compliantPdfaCount": 1,
+        "failedJobCount": 0,
+        "totalJobCount": 1,
+        "nonCompliantPdfaCount": 0,
+        "successfulJobCount": 1
+      }
+    }
+  }
+}

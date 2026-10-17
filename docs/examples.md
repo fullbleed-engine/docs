@@ -48,6 +48,29 @@ styled/unstyled HTML exports. The alpha requires an explicit installation.
 </div>
 </div>
 
+## Designed for clear reading { #accessible-components }
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Common Ground community guide with large green type, a garden illustration and reusable program cards.](assets/accessible-showcase/page-1.png)](assets/accessible-showcase/common-ground-guide.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Python components · Retained PDF/UA-1 validation**
+
+An illustrated community-program guide with semantic headings, lists, a captioned
+schedule and an image description. Its actual PDF tags and reading order were
+inspected, and the specimen passed veraPDF's PDF/UA-1 machine checks. Built with
+the explicitly pinned **2.6.0a4 component alpha**.
+
+[Open the PDF](assets/accessible-showcase/common-ground-guide.pdf){ .md-button }
+[Source and validation evidence](guides/accessible-showcase.md){ .md-button }
+[Responsive HTML](assets/accessible-showcase/guide.html) ·
+[Unstyled HTML](assets/accessible-showcase/guide-unstyled.html)
+
+</div>
+</div>
+
 ## Typed C# components { #csharp-components }
 
 [![A C# component invoice with blue display typography, reusable detail fields and an amount-due panel.](assets/dotnet-components/page-1.png)](assets/dotnet-components/invoice.pdf)
