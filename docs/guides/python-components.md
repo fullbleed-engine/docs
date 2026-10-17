@@ -16,7 +16,7 @@ no browser, virtual DOM, hook lifecycle, or JavaScript runtime involved.
 The complete workflow below uses Fullbleed **2.5.25**.
 
 !!! tip "Help shape the next authoring model"
-    The [2.6.0a2 component alpha](bootstrap-components-preview.md) adds components
+    The [component alpha](bootstrap-components-preview.md) adds components
     that carry their styles, named customization parts, column-based tables,
     static Bootstrap helpers, and styled or unstyled HTML export. Install it
     explicitly to try the next API; this page documents the stable API.

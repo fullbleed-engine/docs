@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--python", default=sys.executable)
-    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2"), default="preview")
+    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2", "alpha3"), default="preview")
     parser.add_argument("--install-report", type=Path)
     parser.add_argument("--out", type=Path, default=ROOT / "target/bootstrap-preview")
     args = parser.parse_args()
@@ -27,6 +27,12 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     assets = ROOT / f"docs/assets/bootstrap-{args.channel}"
     manifest = json.loads((assets / "source.json").read_text(encoding="utf-8"))
+    output_manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
+    for item in output_manifest["files"]:
+        path = (assets / item["file"]).resolve()
+        assert path.is_relative_to(assets.resolve())
+        data = path.read_bytes()
+        assert len(data) == item["bytes"] and sha256(data).hexdigest() == item["sha256"], item["file"]
     installation = None
     if args.install_report:
         report = json.loads(args.install_report.read_text(encoding="utf-8"))

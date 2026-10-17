@@ -16,7 +16,7 @@ describing a table column once.
     Names and behavior may change. Use the [released component guide](python-components.md)
     for the stable authoring API.
 
-The newer [2.6.0a2 component alpha](bootstrap-components-preview.md) builds on
+The newer [component alpha](bootstrap-components-preview.md) builds on
 this design with cards, data tables, form helpers, the 23 Bootstrap 5.0.0
 component families, and styled or unstyled HTML export. Install it by explicit
 PyPI version. The examples and pinned download on this page retain the original
