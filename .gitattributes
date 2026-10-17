@@ -111,3 +111,8 @@ examples/showcase-authoring/** -text whitespace=cr-at-eol
 examples/showcase-authoring/**/fonts/*-OFL.txt -whitespace
 docs/assets/showcase-authoring/** -text
 docs/assets/showcase-authoring/*.pdf binary
+examples/accessible-showcase/** -text
+examples/accessible-showcase/fonts/*.ttf binary
+docs/assets/accessible-showcase/** -text whitespace=cr-at-eol
+docs/assets/accessible-showcase/*.pdf binary
+docs/assets/accessible-showcase/fonts/*.ttf binary

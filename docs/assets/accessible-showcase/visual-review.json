@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "pdf_sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "native_pages_reviewed": 2,
+  "native_dpi": 144,
+  "independent_reader": "PDFium via pypdfium2 5.14.0",
+  "independent_pages_reviewed": 2,
+  "independent_dpi": 144,
+  "clipping_or_overlap_observed": false,
+  "browser_widths_checked": [
+    1440,
+    390,
+    320
+  ],
+  "mobile_screenshot_reviewed": 390,
+  "external_report_path_redaction": "Published job item name replaces local absolute path; validation results unchanged."
+}

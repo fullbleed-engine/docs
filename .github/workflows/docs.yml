@@ -13,6 +13,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  accessible-showcase:
+    name: Accessible component showcase (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --only-binary=:all: -r examples/accessible-showcase/requirements-check.txt
+      - name: Rebuild the source kit and reproduce the externally validated PDF
+        run: |
+          python tools/build_accessible_showcase.py
+          git diff --exit-code -- docs/assets/accessible-showcase/project.zip docs/assets/accessible-showcase/source.json
+          python tools/verify_accessible_showcase.py --out target/accessible-showcase
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accessible-showcase-${{ matrix.os }}
+          path: target/accessible-showcase/
+          retention-days: 14
   showcase-authoring:
     name: Showcase authoring comparison (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -888,6 +913,14 @@ jobs:
           retention-days: 14
       - name: Verify the paired authoring guide, source tabs and downloads
         run: python tools/check_showcase_authoring_ui.py --site site --out output/showcase-authoring-ui --browser chrome
+      - name: Verify the accessible showcase and its PDF, HTML and source downloads
+        run: python tools/check_accessible_showcase_ui.py --site site --out output/accessible-showcase-ui --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accessible-showcase-browser-verification
+          path: output/accessible-showcase-ui/
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -950,7 +983,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, showcase-authoring, component-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, accessible-showcase, showcase-authoring, component-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

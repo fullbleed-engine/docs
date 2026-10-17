@@ -13,6 +13,10 @@ same-runtime checks described below.
 Use the [live local preview](#edit-with-a-live-pdf-preview) to see PDF pages
 refresh while you edit Python, CSS or data.
 
+For a document with retained accessibility evidence, try the new
+[component-authored Common Ground guide](accessible-showcase.md): two designed
+pages, PDF/UA-1 machine validation, and styled or unstyled HTML exports.
+
 [Download both source versions](../assets/showcase-authoring/project.zip){ .md-button .md-button--primary }
 [Northstar component PDF](../assets/showcase-authoring/invoice-components.pdf){ .md-button }
 [Common Ground component PDF](../assets/showcase-authoring/report-components.pdf){ .md-button }

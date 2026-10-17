@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "pdf_sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "structure_passed": true,
+  "external_validation": {
+    "profile": "PDF/UA-1 validation profile",
+    "compliant": true,
+    "details": {
+      "passedRules": 106,
+      "failedRules": 0,
+      "passedChecks": 5452,
+      "failedChecks": 0,
+      "ruleSummaries": []
+    },
+    "build": {
+      "releaseDetails": [
+        {
+          "id": "core",
+          "version": "1.30.3",
+          "buildDate": 1791385320000
+        },
+        {
+          "id": "validation-model",
+          "version": "1.30.3",
+          "buildDate": 1791398640000
+        },
+        {
+          "id": "apps",
+          "version": "1.30.3",
+          "buildDate": 1791399120000
+        }
+      ]
+    }
+  }
+}
