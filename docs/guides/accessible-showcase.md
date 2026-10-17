@@ -10,7 +10,7 @@ reusable program cards, a captioned schedule and practical visitor information.
 Its Python source carries headings, table headers, lists and an image description
 through to the final PDF.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/2b7d8dd1a1c1cd691091b9899567f52251082a0c/examples/accessible_showcase/guide.py).
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/1dade16aa2131cb7c1d683bd8cb18b366ede2d0e/examples/accessible_showcase/guide.py).
 
 [Read the PDF](../assets/accessible-showcase/common-ground-guide.pdf){ .md-button .md-button--primary }
 [Download the source kit](../assets/accessible-showcase/project.zip){ .md-button }
@@ -76,7 +76,7 @@ The render command copies the local fonts and illustration beside both exports.
 ## What was checked
 
 The final two-page PDF passed **veraPDF 1.30.3's PDF/UA-1 validation profile:
-106 passed rules, 5,452 passed checks, zero failures**. The receipt identifies
+106 passed rules, 5,326 passed checks, zero failures and no diagnostic warnings**. The receipt identifies
 the exact PDF by SHA-256.
 
 | Check | Result |

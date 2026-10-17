@@ -3,7 +3,7 @@
   "ok": true,
   "runtime": "2.6.0a4",
   "pdf": "common-ground-guide.pdf",
-  "sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "sha256": "a0600667d2227b965db9074545f56dd6dc9ccf29aec9445bdca18a86f9e1d18e",
   "page_count": 2,
   "deterministic_replay": true,
   "html_css_pdf_byte_parity": true,
