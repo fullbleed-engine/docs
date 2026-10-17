@@ -14,14 +14,13 @@ introduced in Node package 0.6.0. Version 0.7.0 also supports
 [static HTML export with or without styles](../guides/javascript-components.md#export-html-with-or-without-styles).
 The pinned HTML/CSS example below remains available.
 
-This guide uses **Node package 0.4.1**, powered by **Fullbleed 2.5.22**. The
-integration and core engine have separate versions.
+The quickstart and downloadable invoice use **Node package 0.7.1**, powered by
+**Fullbleed 2.5.29**. The integration and core engine have separate versions.
 
-Version 0.4.1 brings recent engine fixes to nested counters, clipped effects,
-border-image tiling, and floated initials. SVG border images can use the engine's
-native raster fallback. It retains the shared render queue, optional process
-isolation, and bundled preview fonts. See the
-[focused engine checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/engine-2.5.22.md)
+Version 0.7.1 brings the stable engine's SVG stylesheet and inset-shadow fixes
+to Node and browser rendering. It retains component/JSX authoring, static HTML
+export, the shared render queue, optional process isolation and bundled fonts.
+See the [focused paint checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.7.1/docs/engine-2.5.29.md)
 and the server guidance below for queue limits and failure handling.
 
 Use the actual family name for normal/italic CSS selection, or a PostScript name
@@ -38,7 +37,7 @@ With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/packag
 npm install fullbleed
 ```
 
-To pin this guide's version, use `npm install --save-exact fullbleed@0.4.1`.
+To pin this guide's version, use `npm install --save-exact fullbleed@0.7.1`.
 The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -108,7 +107,7 @@ The layout uses the bundled Inter, DM Serif Display, and Bebas Neue families.
 
 [![Report page with serif headings, large summary figures, gradient chart bars, and a numbered footer.](../assets/node/report-2.png)](../assets/node/report.pdf)
 
-This page comes from the package's three-page report. The chart uses CSS
+This retained sample comes from package 0.4.1's three-page report. The chart uses CSS
 `linear-gradient(180deg, #d9bc77, #a9b884)`; the image above is a native preview
 of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing from
 these PNG previews in earlier releases.

@@ -12,11 +12,11 @@
     "check": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "fullbleed": "0.6.0"
+    "fullbleed": "0.7.1"
   },
   "devDependencies": {
     "@types/node": "22.20.5",
-    "typescript": "7.0.2",
-    "esbuild": "0.28.2"
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
   }
 }
