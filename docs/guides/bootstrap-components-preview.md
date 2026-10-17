@@ -71,9 +71,7 @@ with PDFium.
 
 ## Install the alpha
 
-Extract the [kit ZIP](../assets/bootstrap-alpha4/project.zip), enter its
-`fullbleed-bootstrap-alpha4` folder and create an isolated environment with
-CPython 3.10 or later:
+Use CPython 3.10 or later and create an isolated environment:
 
 ```console
 python -m venv .venv
@@ -84,9 +82,19 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 
 ```console
 python -m pip install --pre "fullbleed==2.6.0a4"
+fullbleed new remote python-components my-report --version 0.1.0
+cd my-report
 python first_document.py
 python examples/component_bootstrap/main.py --out output --catalog-pdfs
 ```
+
+The CLI downloads the pinned project and verifies its SHA-256 before extracting
+the files. Choose a new or empty target directory. You can discover the available
+component projects with `fullbleed new search components`.
+
+If you downloaded the [kit ZIP](../assets/bootstrap-alpha4/project.zip) instead,
+enter its `fullbleed-bootstrap-alpha4` folder and skip the `new remote` and
+`cd my-report` steps. The same Python commands render the document and catalog.
 
 Open `order.pdf` and `order.html`, then `output/report.pdf` and
 `output/catalog.html`. The kit's `requirements.txt` pins the same alpha version.
