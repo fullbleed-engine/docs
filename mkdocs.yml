@@ -76,6 +76,7 @@ nav:
     - C# and .NET quickstart: getting-started/dotnet.md
     - Python installation: getting-started/installation.md
     - Python notebook: getting-started/notebook.md
+    - Component notebook: getting-started/component-notebook.md
     - Use WooCommerce: guides/woocommerce.md
     - Python fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md

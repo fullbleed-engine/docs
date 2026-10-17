@@ -75,7 +75,8 @@ or [download the component invoice](assets/dotnet-components/project.zip).
 Want to try the next Python authoring API? The
 [Bootstrap component alpha](guides/bootstrap-components-preview.md) includes
 cards, data tables, forms and static component states, with PDF and styled or
-unstyled HTML output. Install the alpha explicitly to try it.
+unstyled HTML output. [Try the component notebook](getting-started/component-notebook.md)
+in Colab or Jupyter, or install the alpha explicitly.
 
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).

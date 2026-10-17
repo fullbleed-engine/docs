@@ -9,6 +9,10 @@ the HTML/CSS, then render, preview, and download the result.
 
 For an instant HTML/CSS editor with no sign-in, [try the local browser playground](../playground.md).
 
+To author with Python components, [try the component notebook](component-notebook.md).
+It uses the experimental API to compose cards and tables and export PDF plus
+styled or unstyled HTML, with editable data and reusable styles.
+
 [Open the notebook in Colab](https://colab.research.google.com/github/fullbleed-engine/fullbleed-official/blob/master/examples/notebooks/first_invoice.ipynb){ .md-button .md-button--primary }
 [View the source](https://github.com/fullbleed-engine/fullbleed-official/blob/master/examples/notebooks/first_invoice.ipynb){ .md-button }
 
