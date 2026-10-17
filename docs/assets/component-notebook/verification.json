@@ -1,6 +1,6 @@
 {
   "runtime_version": "2.6.0a3",
-  "notebook_sha256": "d229a270f1e9835bd1c225f3caa3826d2289315aa9c56176718ebddb5f22f8e3",
+  "notebook_sha256": "51edbfaee46eca2e1d4e9ee24cf90b53eb68db0d3a160a0946410cf483919694",
   "cases": [
     {
       "name": "default",
@@ -36,10 +36,10 @@
     }
   ],
   "downloads": {
-    "bootstrap_components.ipynb": "d229a270f1e9835bd1c225f3caa3826d2289315aa9c56176718ebddb5f22f8e3",
+    "bootstrap_components.ipynb": "51edbfaee46eca2e1d4e9ee24cf90b53eb68db0d3a160a0946410cf483919694",
     "order.pdf": "d8cc2404c386bb6c342c51ce12cce458a8502365575f6fac3bf677906118fd85",
     "order-page-1.png": "1998ad3673ffb88176cbbeac53cebf5c2cfcccc3369955a0aa5f5b81a8d5d19e",
-    "order.styled.html": "a58f4a0be55b73c12eab02a074d7bd85a9dd89a0a62d99184be7ff2ba785a74f",
+    "order.styled.html": "02165a2fb8a848ac54652eb618e22355035c698a46969fae8c1c3d0a66e2af0a",
     "order.unstyled.html": "42ca16432f8f8bdce66b1301f77006fa74b236a066a1df5eead1cc747549ac4e"
   },
   "preview": "PDFium rendering of the default output PDF at 110 DPI",
