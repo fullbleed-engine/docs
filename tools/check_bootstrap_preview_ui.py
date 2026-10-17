@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    assets = root / "assets/bootstrap-alpha3"
+    assets = root / "assets/bootstrap-alpha4"
     source = json.loads((assets / "source.json").read_text(encoding="utf-8"))
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
     assert source["source_commit"] == manifest["source_commit"]
@@ -56,10 +56,10 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role("heading", name="Bootstrap components, authored in Python", exact=False).is_visible()
                 article = page.locator("article").inner_text()
-                for value in ("Opt-in alpha 2.6.0a3", "fullbleed.ui.experimental",
+                for value in ("Opt-in alpha 2.6.0a4", "fullbleed.ui.experimental",
                               "static, including HTML export", "class_name",
                               "include_styles=True", "include_styles=False", "python first_document.py",
-                              'python -m pip install --pre "fullbleed==2.6.0a3"'):
+                              'python -m pip install --pre "fullbleed==2.6.0a4"'):
                     assert value in article, value
                 assert page.get_by_role("link", name="alpha release", exact=True).get_attribute("href") == source["engine_wheels"]["release_url"]
                 legacy = page.get_by_role("link", name="pinned preview kit", exact=True)
@@ -74,6 +74,10 @@ def main():
                 retained_alpha2 = context.request.get(older_alpha2.evaluate("element => element.href"))
                 assert retained_alpha2.status == 200
                 assert sha256(retained_alpha2.body()).hexdigest() == "5ec857a9d467ec5e43ce2a9c8ebc8f901bbb941eae4f23d9c9a661d381819520"
+                older_alpha3 = page.get_by_role("link", name="alpha 3 kit", exact=True)
+                retained_alpha3 = context.request.get(older_alpha3.evaluate("element => element.href"))
+                assert retained_alpha3.status == 200
+                assert sha256(retained_alpha3.body()).hexdigest() == "a0554fe19ab9927e34969dcf35b605e923b544c39ebc51449e0b0814efa47b60"
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 images = page.locator("article img").evaluate_all("items => items.map(img => ({src: img.src, loaded: img.complete && img.naturalWidth > 0}))")
                 assert images and all(item["loaded"] for item in images)
@@ -100,7 +104,7 @@ def main():
                 if width >= 390:
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 page.screenshot(path=str(args.out / f"{label}-catalog.png"), animations="disabled")
-                response = page.goto(base + "/assets/bootstrap-alpha3/catalog.unstyled.html", wait_until="networkidle")
+                response = page.goto(base + "/assets/bootstrap-alpha4/catalog.unstyled.html", wait_until="networkidle")
                 assert response.status == 200
                 assert page.locator("style, [style], link[rel=stylesheet], script").count() == 0
                 assert page.locator('[id^="sample-"]').count() == 27

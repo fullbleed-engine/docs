@@ -63,5 +63,5 @@ def build(channel="preview"):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2", "alpha3"), default="preview")
+    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2", "alpha3", "alpha4"), default="preview")
     build(parser.parse_args().channel)
