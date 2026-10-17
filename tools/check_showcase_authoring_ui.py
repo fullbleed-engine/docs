@@ -68,9 +68,24 @@ def main():
                             assert page.locator(f'a[href$="{filename}"]').count() >= 1
                             pdf = context.request.get(base + href)
                             assert pdf.status == 200 and pdf.body() == (ROOT / "docs" / href.lstrip("/")).read_bytes()
+                        section = page.locator("#edit-with-a-live-pdf-preview")
+                        section.evaluate("element => element.scrollIntoView({block: 'start'})")
+                        assert "python examples/design_showcase/preview.py" in page.locator("main").inner_text()
+                        preview = page.locator('img[src$="preview-desktop.png"]')
+                        preview.evaluate("image => image.decode()")
+                        assert preview.evaluate("image => image.naturalWidth > 0")
+                        page.screenshot(path=str(args.out / f"{name}-live-preview.png"), animations="disabled")
+                        page.get_by_text("What an authoring error looks like", exact=True).click()
+                        example = page.locator('img[src$="preview-error-mobile.png"]')
+                        example.evaluate("image => image.decode()")
+                        example.scroll_into_view_if_needed()
+                        assert example.is_visible()
+                        assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
+                        page.screenshot(path=str(args.out / f"{name}-live-error.png"), animations="disabled")
                         assert not errors, errors
                         cases.append(dict(viewport=name, width=width, source_zip_download=True,
-                                          code_tabs=True, pdf_links=4, document_overflow=False, page_errors=errors))
+                                          code_tabs=True, pdf_links=4, live_preview_commands=True,
+                                          live_preview_images=2, document_overflow=False, page_errors=errors))
                     finally:
                         context.close()
             finally:

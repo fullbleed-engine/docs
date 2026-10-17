@@ -34,6 +34,7 @@ jobs:
           python tools/build_showcase_authoring.py
           git diff --exit-code -- docs/assets/showcase-authoring/project.zip docs/assets/showcase-authoring/source.json
           python tools/verify_showcase_authoring.py --out target/showcase-authoring
+          python target/showcase-authoring/project/tools/check_showcase_preview.py --project target/showcase-authoring/project/examples/design_showcase --out target/showcase-authoring/live-preview
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -892,6 +893,17 @@ jobs:
         with:
           name: showcase-authoring-browser-verification
           path: output/showcase-authoring-ui/
+          retention-days: 14
+      - name: Verify live component previews and browser downloads
+        run: |
+          python -m venv output/showcase-live-env
+          output/showcase-live-env/bin/python -m pip install --only-binary=:all: -r examples/showcase-authoring/requirements.txt
+          python examples/showcase-authoring/tools/check_showcase_preview_browser.py --project examples/showcase-authoring/examples/design_showcase --python output/showcase-live-env/bin/python --out output/showcase-live-ui --channel chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: showcase-live-preview-browser
+          path: output/showcase-live-ui/
           retention-days: 14
       - name: Verify the Bootstrap guide and standalone HTML downloads
         run: python tools/check_bootstrap_preview_ui.py --site site --out output/bootstrap-preview-ui --browser chrome

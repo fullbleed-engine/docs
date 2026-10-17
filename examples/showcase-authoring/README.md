@@ -25,4 +25,21 @@ Read `examples/design_showcase/README.md` for components, styling, direct PDF an
 HTML export, fixed page limits, font licenses, and the four original HTML projects.
 The direct component example is run from `examples/design_showcase/`.
 
+For automatic PDF previews while editing, run:
+
+```sh
+python examples/design_showcase/preview.py
+```
+
+Open the local URL printed in the terminal, then save a Python component, CSS,
+or JSON data edit. The page refreshes automatically and provides PDF plus HTML
+downloads. Use `--document report` for Common Ground or `--authoring html` for
+the original template path. Errors retain a clearly labeled last good preview;
+saving a correction retries. Ctrl-C stops the server. Download anything you
+want to keep before stopping it.
+
+This optional development helper uses only the pinned Fullbleed wheel and the
+Python standard library. It executes the local source and binds to 127.0.0.1.
+The comparison command above remains the explicit matching-output check.
+
 Guide: https://docs.fullbleed.dev/guides/showcase-authoring/
