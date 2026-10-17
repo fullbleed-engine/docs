@@ -1,10 +1,40 @@
 ---
 title: Fullbleed CSS comparison on the IronPress corpus
-description: Browse all 1,662 CSS comparison fixtures tested with the published Fullbleed 2.5.22 wheel, including original PDFs, reference images, failures, disputed references, and earlier release evidence.
+description: Inspect the latest reviewed source results and browse all 1,662 fixtures tested with the published Fullbleed 2.5.22 wheel, including PDFs, reference images, failures and disputes.
 ---
 # Inspect the CSS comparison
 
-## Latest published wheel: 2.5.22
+## Latest reviewed source: inset-shadow corrections
+
+The [inset-shadow fix in PR #92](https://github.com/fullbleed-engine/fullbleed-official/pull/92)
+was checked against the complete pinned 1,662-fixture corpus on October 16, 2026.
+The [unchanged comparison run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38992175451)
+reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**. Its overall conclusion
+remains **failure**. The tested head is
+`ba4ed7a827f97f5af7863b3f70fada02b03d9b61`; the merge at
+`77baef2919e848fdfab30ed321a00a7745de42a0` has the same source tree.
+
+The fix preserves signed spread, large offsets and translated rounded corners,
+including table cells and blur at page edges. Relative to the 1,619/25/18
+baseline, two cases change from FAIL to PASS and one clipping interaction changes
+from PASS to FAIL. All 29 changed PDFs preserve text and page counts. Of their
+34 page images, 33 have lower RGB absolute error against the frozen reference.
+
+The clipping image improves despite its changed classification; the classifier
+threshold cause is not established. Rounded blur remains a known difference from
+Chrome print. These differences and the failed verdict are retained in the
+[release review](https://github.com/fullbleed-engine/fullbleed-official/blob/35e0119ed0f619db36aa1d6f0936e3343f0484f0/docs/release/2.5.28-runbook.md).
+No comparator reference or threshold was changed.
+
+This is **source verification**, not a complete corpus run against a downloaded
+2.5.28 package. The online explorer below continues to show the exact published
+2.5.22 wheel identified in its build pin. Older zero-failure reports are
+historical; they do not describe the current corpus result or establish complete
+CSS conformance.
+
+<span id="latest-published-wheel-2522"></span>
+
+## Latest complete published-wheel corpus: 2.5.22
 
 [Browse every fixture](css-explorer.md){ .md-button .md-button--primary }
 
@@ -38,7 +68,9 @@ and comparison policy. They do not establish complete CSS support, arbitrary
 website rendering, or PDF standards conformance. Historical tables and failure
 lists further down this page retain their stated release versions.
 
-## Latest reviewed source: 2.5.22
+<span id="latest-reviewed-source-2522"></span>
+
+## Historical source comparison: 2.5.22
 
 The [2.5.22 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.22)
 includes a complete run of the unchanged 1,662-fixture corpus against source
@@ -51,7 +83,7 @@ above now verifies the final Linux package against the same corpus. Fresh public
 Python and Rust packages also have separate focused verification. The tagged
 release has the same source tree as the reviewed candidate.
 
-The latest change fixes floated `::first-letter` layout. Large initials now
+That release fixes floated `::first-letter` layout. Large initials now
 sit inside their styled box, and body text wraps beside the full float height.
 In the unchanged comparator, `generated-content-first-letter-dropcap` moved
 from REFERENCE-DISPUTED to PASS. The upstream reference's disputed metadata

@@ -1,16 +1,27 @@
 # CSS Coverage and Parity Status
 
-Browse the [published 2.5.22 CSS results](guides/css-explorer.md) to search all 1,662 fixtures and inspect PDFs, reference images, failures and disputed references. The [method and complete evidence](guides/css-corpus.md) retain the earlier release comparisons. The imported reference below preserves earlier version-specific reports.
+The [latest reviewed source comparison](guides/css-corpus.md#latest-reviewed-source-inset-shadow-corrections)
+reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
+Its overall conclusion remains **failure**, with the clipping classification and
+rounded-blur difference retained. This source check does not by itself verify a
+downloaded release package.
+
+Browse the [published 2.5.22 CSS results](guides/css-explorer.md) to search all
+1,662 fixtures and inspect actual PDFs, reference images, failures and disputes.
+That explorer deliberately retains its exact wheel and evidence pin; it is not
+the newer source result. The [method and evidence](guides/css-corpus.md) identify
+both runs. Earlier zero-failure reports below are historical, not the current gate.
 
 Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/css-coverage.md). Check the installed runtime for your exact version.
 
-This document is the canonical statement of validated CSS coverage for Fullbleed's deterministic HTML/CSS-to-PDF engine.
+The imported report below preserves earlier version-specific coverage claims.
+Use the dated comparison evidence above for the current verified result.
 
 Scope baseline: static, paged document rendering (transactional/report workflows), not a live browser runtime.
 
 Source taxonomy: https://developer.mozilla.org/en-US/docs/Web/CSS
 
-## Validation Basis
+## Historical validation basis
 
 As of May 25, 2026:
 
