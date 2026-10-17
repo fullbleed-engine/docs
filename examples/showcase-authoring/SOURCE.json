@@ -1,6 +1,6 @@
 {
   "schema": "fullbleed.showcase-authoring.source.v1",
-  "source_commit": "abdfb8744353580335b208e6e6ad2029dea882a5",
+  "source_commit": "699a002061eaa028acbfc3f164b1d0914704a59e",
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
   "engine_version": "2.6.0a4",
   "source_files": {
@@ -8,7 +8,7 @@
     "examples/design_showcase/.gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
     "examples/design_showcase/README.md": "f987437b1d9604d923f85e4a83414fc231fcf759f688ae8e58cb6e36b398bf3e",
     "examples/design_showcase/common.css": "59ed65ebed86dcebe554d6d2d48c53e0e75e67293e99f537fc767a45db1a84c7",
-    "examples/design_showcase/compare_authoring.py": "53d01a4b64bc7fa2e42c1ef26b2768f102098ae82c7dcdfba91db633beaec0cf",
+    "examples/design_showcase/compare_authoring.py": "01bce371d15aac6821e3a6d00cf005d1c05927a51c5be5958100b1020c31c819",
     "examples/design_showcase/component_primitives.py": "7cd0283d64abdb9d42076a5476eae83f2fdc6850fa9b5b88622542c365b16333",
     "examples/design_showcase/data.json": "46cc3ad7cf6560349a41f8ba82bc9822c16176177f3c1236711fa28cb0baa13a",
     "examples/design_showcase/fonts/BebasNeue-OFL.txt": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341",

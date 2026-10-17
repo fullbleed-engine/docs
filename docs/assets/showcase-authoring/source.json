@@ -1,6 +1,6 @@
 {
   "schema": "fullbleed.showcase-authoring.source.v1",
-  "source_commit": "abdfb8744353580335b208e6e6ad2029dea882a5",
+  "source_commit": "699a002061eaa028acbfc3f164b1d0914704a59e",
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
   "engine_version": "2.6.0a4",
   "source_files": {
@@ -8,7 +8,7 @@
     "examples/design_showcase/.gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
     "examples/design_showcase/README.md": "f987437b1d9604d923f85e4a83414fc231fcf759f688ae8e58cb6e36b398bf3e",
     "examples/design_showcase/common.css": "59ed65ebed86dcebe554d6d2d48c53e0e75e67293e99f537fc767a45db1a84c7",
-    "examples/design_showcase/compare_authoring.py": "53d01a4b64bc7fa2e42c1ef26b2768f102098ae82c7dcdfba91db633beaec0cf",
+    "examples/design_showcase/compare_authoring.py": "01bce371d15aac6821e3a6d00cf005d1c05927a51c5be5958100b1020c31c819",
     "examples/design_showcase/component_primitives.py": "7cd0283d64abdb9d42076a5476eae83f2fdc6850fa9b5b88622542c365b16333",
     "examples/design_showcase/data.json": "46cc3ad7cf6560349a41f8ba82bc9822c16176177f3c1236711fa28cb0baa13a",
     "examples/design_showcase/fonts/BebasNeue-OFL.txt": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341",
@@ -31,17 +31,17 @@
     "examples/design_showcase/statement.css": "c8ad4a1606bcab299202f750263af7bedf567d7b34164bda898fa01814ffd4a3",
     "examples/design_showcase/statement.html": "b3b597349e474204a72398052bff19486d8a551562568e051375e03871b4c096"
   },
-  "zip_sha256": "7ef2d42c3a5d66ae92e4e3342c7f1bdc9a1144244f607e969331105c2174ec3d",
-  "zip_bytes": 298601,
+  "zip_sha256": "03135d85b05d51e7bd6d97bed27aa4e4788d7e0853dd50e40a77007ec05332ab",
+  "zip_bytes": 298883,
   "package_files": {
     "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
     "README.md": "27fa6f97c26cbb06371a83df159642fc9f654f2b7ba4cd6b9841520ef4ce8e6c",
-    "SOURCE.json": "8b81b1f2bf5807391560725a3c4960665c24828c4a008968bd882fd3bb0f1d34",
+    "SOURCE.json": "d230b29591cffb0ef9403f002b86335a5dcdeaa2c5c43471ac91204c9b43aef0",
     "examples/design_showcase/.gitattributes": "3b2d2f910738670779137ecce4829c9d5e1a211d2b1174afb01ba87f06812564",
     "examples/design_showcase/.gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
     "examples/design_showcase/README.md": "f987437b1d9604d923f85e4a83414fc231fcf759f688ae8e58cb6e36b398bf3e",
     "examples/design_showcase/common.css": "59ed65ebed86dcebe554d6d2d48c53e0e75e67293e99f537fc767a45db1a84c7",
-    "examples/design_showcase/compare_authoring.py": "53d01a4b64bc7fa2e42c1ef26b2768f102098ae82c7dcdfba91db633beaec0cf",
+    "examples/design_showcase/compare_authoring.py": "01bce371d15aac6821e3a6d00cf005d1c05927a51c5be5958100b1020c31c819",
     "examples/design_showcase/component_primitives.py": "7cd0283d64abdb9d42076a5476eae83f2fdc6850fa9b5b88622542c365b16333",
     "examples/design_showcase/data.json": "46cc3ad7cf6560349a41f8ba82bc9822c16176177f3c1236711fa28cb0baa13a",
     "examples/design_showcase/fonts/BebasNeue-OFL.txt": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341",

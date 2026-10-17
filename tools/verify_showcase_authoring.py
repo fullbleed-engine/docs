@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 from hashlib import sha256
 from importlib.metadata import version
 import json
@@ -96,11 +97,27 @@ def main():
     finally:
         os.chdir(prior)
     assert (code_out / "invoice.pdf").read_bytes() == (ASSETS / "invoice-components.pdf").read_bytes()
+    # Exercise editing, including escaping and data-dependent amounts, rather
+    # than validating only the original fixture's literal strings.
+    import compare_authoring
+    previous_data = compare_authoring.original.DATA
+    changed = deepcopy(previous_data)
+    changed["invoice"][0].update(description="Research & review <phase 1>", hours=7, rate="130.25")
+    changed["report"].update(households=1255, volunteer_hours=4905,
+                             quarterly_households=[400, 555, 750, 975])
+    changed["report"]["allocations"][0]["amount"] = 176000
+    try:
+        compare_authoring.original.DATA = changed
+        edited = [compare_authoring.compare(out / "edited-data", name, dpi=120) for name in ("invoice", "report")]
+    finally:
+        compare_authoring.original.DATA = previous_data
+    assert all(record["ok"] for record in edited), edited
     result = dict(ok=True, engine_version=version("fullbleed"), source_commit=manifest["source_commit"],
                   zip_sha256=manifest["zip_sha256"], native_comparison=actual, independent_pages=pages,
-                  pdfium_version=version("pypdfium2"), guide_blocks=len(blocks))
+                  pdfium_version=version("pypdfium2"), guide_blocks=len(blocks), edited_data=edited)
     (out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
-    print(json.dumps({"ok": True, "native_pages": 4, "independent_pages": len(pages), "guide_blocks": len(blocks)}))
+    print(json.dumps({"ok": True, "native_pages": 4, "independent_pages": len(pages), "guide_blocks": len(blocks),
+                      "edited_documents": len(edited)}))
 
 
 if __name__ == "__main__":
