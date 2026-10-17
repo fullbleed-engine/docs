@@ -9,31 +9,41 @@ Build an order summary with a card, a data table and a status badge. Export it
 as HTML or render it as a PDF. The component supplies its structure and default
 styling; your Python supplies the content.
 
-!!! warning "Opt-in alpha 2.6.0a2"
-    This guide uses **Fullbleed 2.6.0a2**, with experimental APIs under
+!!! warning "Opt-in alpha 2.6.0a3"
+    This guide uses **Fullbleed 2.6.0a3**, with experimental APIs under
     `fullbleed.ui.experimental`. Install the alpha explicitly; a normal stable
     installation does not select it. Names and behavior may change. Use the
     [released component guide](python-components.md) for the stable API.
 
-[Download the Bootstrap kit](../assets/bootstrap-alpha2/project.zip){ .md-button .md-button--primary }
-[Open the report PDF](../assets/bootstrap-alpha2/report.pdf){ .md-button }
-[Browse the HTML catalog](../assets/bootstrap-alpha2/catalog.html){ .md-button }
+[Download the Bootstrap kit](../assets/bootstrap-alpha3/project.zip){ .md-button .md-button--primary }
+[Open the report PDF](../assets/bootstrap-alpha3/report.pdf){ .md-button }
+[Browse the HTML catalog](../assets/bootstrap-alpha3/catalog.html){ .md-button }
 
 All Bootstrap components are **static, including HTML export**. There is no
 Bootstrap JavaScript. Tabs show the selected panel, carousels show the selected
 item, and overlays appear in document flow. Ordinary HTML form controls retain
 their native browser behavior; PDF controls show printed values and selections.
 
-Alpha 2 also applies document class rules, inherited colors and named-part
+The alpha also applies document class rules, inherited colors and named-part
 opacity to supported inline SVG content. This lets a component's surrounding
-styles reach its vector artwork. The [SVG styling contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a2/docs/embedded-stylesheets.md)
+styles reach its vector artwork. The [SVG styling contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a3/docs/embedded-stylesheets.md)
 describes the supported behavior.
+
+Alpha 3 adds the stable 2.5.28 inset-shadow corrections. Card root styles,
+custom class rules and named body parts use the same corrected rendering in
+PDFs and styled HTML exports.
+The font cascade also respects explicit theme and component font choices after
+Bootstrap's variable-based default. Documents that previously used the wrong
+font can reflow.
+Inline flex items also retain their own spacing, including navbar brands and
+toast headers. Paragraph and heading components honor an authored flex or grid
+layout while preserving their semantic tags.
 
 ## A production report in components
 
 <div class="showcase-entry" markdown>
 <figure markdown>
-[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-alpha2/report-page-1.png)](../assets/bootstrap-alpha2/report.pdf)
+[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-alpha3/report-page-1.png)](../assets/bootstrap-alpha3/report.pdf)
 </figure>
 <div markdown>
 
@@ -44,16 +54,16 @@ compose a single document. Its content is fictional. The kit includes the
 complete Python source, and this image is rendered from the downloadable PDF
 with PDFium.
 
-[Open the styled HTML](../assets/bootstrap-alpha2/report.styled.html){ .md-button }
-[Compare unstyled HTML](../assets/bootstrap-alpha2/report.unstyled.html)
+[Open the styled HTML](../assets/bootstrap-alpha3/report.styled.html){ .md-button }
+[Compare unstyled HTML](../assets/bootstrap-alpha3/report.unstyled.html)
 
 </div>
 </div>
 
 ## Install the alpha
 
-Extract the [kit ZIP](../assets/bootstrap-alpha2/project.zip), enter its
-`fullbleed-bootstrap-alpha2` folder and create an isolated environment with
+Extract the [kit ZIP](../assets/bootstrap-alpha3/project.zip), enter its
+`fullbleed-bootstrap-alpha3` folder and create an isolated environment with
 CPython 3.10 or later:
 
 ```console
@@ -64,7 +74,7 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 `source .venv/bin/activate` on macOS/Linux. Then run:
 
 ```console
-python -m pip install --pre "fullbleed==2.6.0a2"
+python -m pip install --pre "fullbleed==2.6.0a3"
 python first_document.py
 python examples/component_bootstrap/main.py --out output --catalog-pdfs
 ```
@@ -73,14 +83,12 @@ Open `order.pdf` and `order.html`, then `output/report.pdf` and
 `output/catalog.html`. The kit's `requirements.txt` pins the same alpha version.
 Compatible Windows, macOS and Linux wheels need no Rust build. On other platforms,
 pip may build the source distribution, which needs Rust/Cargo and native build tools.
-See the [alpha release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a2).
+See the [alpha release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a3).
 
-The [alpha 1 kit](../assets/bootstrap-alpha/project.zip) and older
+The [alpha 2 kit](../assets/bootstrap-alpha2/project.zip),
+[alpha 1 kit](../assets/bootstrap-alpha/project.zip) and older
 [pinned preview kit](../assets/bootstrap-preview/project.zip) remain available
-with their original source, installer and version metadata. Alpha 2 keeps the
-component API and adds the stable 2.5.27 inline SVG styling fixes: document
-selectors, inherited color and named-part opacity reach supported SVG
-descendants. Both PDF and HTML exports remain static.
+with their original source, installer and version metadata.
 
 ## Compose content, then choose an output
 
@@ -134,6 +142,12 @@ Strings become escaped text. Components are immutable values; methods such as
 `.with_style(...)` return a changed copy. The optional `@component` decorator
 gives diagnostics a useful component name and source location.
 
+`Theme(text=style(font_family="Inter", ...))` sets inherited typography.
+`Renderer(font_files=[...])` supplies the actual PDF font program; a family name
+does not load a font file. Styled HTML keeps the CSS family but does not embed
+the renderer's font files. A browser host supplies its own font, such as through
+`@font-face`. Unstyled HTML leaves font selection to the host CSS.
+
 ## How `class_name` applies styling
 
 The Python spelling is **`class_name`**. It labels the generated element with
@@ -167,6 +181,13 @@ both. `bs.classes(...)` combines literal strings, ordered collections and
 conditional mappings. `bs.utilities(...)` checks names against the actual 5.0.0
 compiled stylesheet, including supported breakpoint variants.
 
+Use `styled(bs.Card, ...)` to define reusable root defaults. `style(...)` checks
+a vocabulary of common properties; additional declarations use the explicit
+`css(...)` helper, such as `css("box-shadow: inset 4px 0 0 0 #205b47;")`.
+Compose it with `.with_style(...)` or a named-part style. The
+[styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a3/docs/component-bootstrap.md#how-styling-works)
+includes a complete reusable-card example.
+
 Cards expose `header`, `body`, `title`, `subtitle` and `footer` as style parts.
 Changing a card's title part affects its own heading, preserving nested cards'
 headings. Optional sections stay absent until you provide content. For manual
@@ -177,7 +198,7 @@ Custom components declare required targets with `parts=(...)` and conditional
 targets with `optional_parts=(...)`. A parent exposes a selected child part with
 `.forward_parts(heading="label")`. Missing required targets produce a diagnostic
 when the component is created; child implementation details stay private. The
-[part-styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a2/examples/component_recipes/README.md#customize-a-root-or-an-exposed-part)
+[part-styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a3/examples/component_recipes/README.md#customize-a-root-or-an-exposed-part)
 shows reusable components and forwarding through containers.
 
 ## Export whole documents or fragments
@@ -206,7 +227,7 @@ source, or `target="html"` for ordinary HTML controls.
 
 ## Explore the component catalog
 
-The [HTML catalog](../assets/bootstrap-alpha2/catalog.html) shows all 23
+The [HTML catalog](../assets/bootstrap-alpha3/catalog.html) shows all 23
 Bootstrap 5.0.0 component families, plus four groups for layout, forms, content
 and utilities. The source is in `examples/component_bootstrap/catalog.py`.
 
@@ -225,8 +246,8 @@ state. Hidden panels remain hidden in unstyled HTML.
 
 PDF controls print values and selections, including masked passwords and
 selected options. They do not become fillable PDF fields. Compare the
-[form PDF](../assets/bootstrap-alpha2/forms.pdf) and
-[form preview](../assets/bootstrap-alpha2/forms-page-1.png) with the HTML catalog.
+[form PDF](../assets/bootstrap-alpha3/forms.pdf) and
+[form preview](../assets/bootstrap-alpha3/forms-page-1.png) with the HTML catalog.
 
 ## What has been checked
 
@@ -234,8 +255,8 @@ The source implementation has focused tests for the component and export
 contracts. Its native catalog contains 27 one-page specimens; a separate
 80-row table checks pagination and repeated headers. Browser checks exercise
 authored states and styled/unstyled HTML at desktop and mobile widths.
-The [download manifest](../assets/bootstrap-alpha2/source.json) pins source
-files and wheel hashes. The [output verification record](../assets/bootstrap-alpha2/verification.json)
+The [download manifest](../assets/bootstrap-alpha3/source.json) pins source
+files and wheel hashes. The [output verification record](../assets/bootstrap-alpha3/verification.json)
 records the published documents and checks.
 
 This is a bounded catalog, not exhaustive verification of every Bootstrap
@@ -249,6 +270,6 @@ reading the implementation. If a task requires generated HTML or an internal
 selector, that is useful feedback for the API design.
 
 [Share an editing task in the design discussion](https://github.com/fullbleed-engine/fullbleed-official/discussions/86){ .md-button }
-[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/454b3d8aff63d648430a48820e8986971ccdf286/docs/component-bootstrap.md)
-· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/454b3d8aff63d648430a48820e8986971ccdf286/docs/component-authoring-next-iteration.md)
+[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/a5c66e5d6cc890a04b9373c3bfc2b41ccc868405/docs/component-bootstrap.md)
+· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/a5c66e5d6cc890a04b9373c3bfc2b41ccc868405/docs/component-authoring-next-iteration.md)
 · [Review the draft PR](https://github.com/fullbleed-engine/fullbleed-official/pull/85)

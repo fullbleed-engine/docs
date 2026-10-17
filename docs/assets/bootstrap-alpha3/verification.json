@@ -1,0 +1,89 @@
+{
+  "schema": "fullbleed.bootstrap-alpha3-output.v1",
+  "experimental": true,
+  "source_commit": "a5c66e5d6cc890a04b9373c3bfc2b41ccc868405",
+  "source_zip_sha256": "a0554fe19ab9927e34969dcf35b605e923b544c39ebc51449e0b0814efa47b60",
+  "package_version": "2.6.0a3",
+  "publication_verified": true,
+  "core_ci": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39009080117",
+  "bootstrap": "5.0.0",
+  "bootstrap_css_sha256": "04083fcecdd9e19b2acd1e0073437aa07c98d230f0198d7f1fd470ab220fef64",
+  "preview_rendering": "PDFium, from the corresponding PDF",
+  "files": [
+    {
+      "file": "report.pdf",
+      "bytes": 78102,
+      "sha256": "7831f8099daeee3d8f516764912dca1d9d5475a98280516f2e52f707eb94139d",
+      "pages": 1
+    },
+    {
+      "file": "forms.pdf",
+      "bytes": 11112,
+      "sha256": "af6c4596dbceb72d6b4ad4b887a0877e39ee82d0b92f4838638581a864ca692d",
+      "pages": 1
+    },
+    {
+      "file": "report.styled.html",
+      "bytes": 162706,
+      "sha256": "62625bbcd9621690c75b6374554b18b664fb462d8a04fa61c4711f6e819bd1bb"
+    },
+    {
+      "file": "report.unstyled.html",
+      "bytes": 3146,
+      "sha256": "633e2b318c1ed9263001b5b75e9f7d3d87dd90954714e4d4cabe9d48b5c66c68"
+    },
+    {
+      "file": "catalog.html",
+      "bytes": 171383,
+      "sha256": "24cfb11194bf7bca1a71945e0565803017df3cc9bed6ab45062ff99a5c55e2e5"
+    },
+    {
+      "file": "catalog.unstyled.html",
+      "bytes": 13601,
+      "sha256": "0aa42bbedb52e8c54b1a76af2b23866d4a1b70778e11166dab5508716beb13b7"
+    },
+    {
+      "file": "report-page-1.png",
+      "bytes": 114220,
+      "sha256": "3edf93700699167726d5c032d357f7a87834678f5e29771e5c0ba33a7b71b701"
+    },
+    {
+      "file": "forms-page-1.png",
+      "bytes": 30268,
+      "sha256": "a15f5457e7f09d01c44563685d31846d7fa221795fa181fd07de81224133f8ea"
+    }
+  ],
+  "unchanged_from_pinned_preview": false,
+  "scope": "Public PyPI alpha and exact downloadable source kit. 29 one-page PDFs, printed and hidden states, three executable guide blocks, installed authoring source hashes, styled/unstyled HTML, and matching downloadable report/HTML bytes. A bounded catalog, not exhaustive CSS/browser/accessibility parity or independent usability evidence.",
+  "preserved_previous_downloads": true,
+  "changed_output_review": "Typography and spacing changes are retained in alpha qualification evidence. The four HTML exports retain their earlier bytes; PDF previews come from the actual corrected documents.",
+  "engine_wheel": {
+    "file": "fullbleed-2.6.0a3-cp310-abi3-win_amd64.whl",
+    "url": "https://files.pythonhosted.org/packages/18/43/e89320ba2cc6a2128a2a222a9ec4646584dcefd677eefdbf19242e1e95d6/fullbleed-2.6.0a3-cp310-abi3-win_amd64.whl",
+    "bytes": 7954794,
+    "sha256": "1709c0ae16cc5bdc55059c6a9a23eef7abd267d491d6c3894d4f8cf38ef0b110",
+    "kind": "wheel"
+  },
+  "core_ci_conclusion": "success",
+  "release_conclusion": "success",
+  "build_run": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39011443100",
+  "stable_default_version_after_publication": "2.5.28",
+  "starter_check": {
+    "pdfs": 29,
+    "pages": 29,
+    "guide_blocks": 3,
+    "first_guide_block_runs_alone": true,
+    "installed_authoring_files_checked": 23,
+    "report_and_html_match_downloads": true,
+    "public_pypi_installation": {
+      "url": "https://files.pythonhosted.org/packages/18/43/e89320ba2cc6a2128a2a222a9ec4646584dcefd677eefdbf19242e1e95d6/fullbleed-2.6.0a3-cp310-abi3-win_amd64.whl",
+      "sha256": "1709c0ae16cc5bdc55059c6a9a23eef7abd267d491d6c3894d4f8cf38ef0b110"
+    }
+  },
+  "readme_first_document": {
+    "pages": 1,
+    "pdf_sha256": "f5708626fd1cbc1a43b3755b57edea8f8b1d2201def4400bd7925e91a555bb67",
+    "styled_and_unstyled_html": true,
+    "bootstrap_javascript": false
+  }
+}
