@@ -118,6 +118,10 @@ docs/assets/accessible-showcase/*.pdf binary
 docs/assets/accessible-showcase/fonts/*.ttf binary
 tools/fixtures/accessible-showcase/*.pdf binary
 
+examples/component-notebook-alpha5/** text eol=lf
+docs/assets/component-notebook-alpha5/** -text
+docs/assets/component-notebook-alpha5/*.pdf binary
+
 # Alpha 5 kits and retained receipts are verified against their exact source bytes.
 examples/bootstrap-alpha5/** -text whitespace=cr-at-eol
 docs/assets/bootstrap-alpha5/** -text

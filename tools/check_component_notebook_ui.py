@@ -20,7 +20,8 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    assets = root / "assets/component-notebook"
+    folder = "component-notebook-alpha5"
+    assets = root / "assets" / folder
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
 
     class Handler(SimpleHTTPRequestHandler):
@@ -51,8 +52,8 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role("heading", name="Try Python components in a notebook", exact=False).is_visible()
                 article = page.locator("article").inner_text()
-                for value in ("Fullbleed 2.6.0a3", "fullbleed.ui.experimental", "no Bootstrap JavaScript",
-                              "class_name", "Document(styles=...)", "72-row", "four pages"):
+                for value in ("Fullbleed 2.6.0a5", "fullbleed.ui.experimental", "no Bootstrap JavaScript",
+                              "class_name", "Document(styles=...)", "Strong", "72-row", "four pages"):
                     assert value in article, value
                 colab = page.get_by_role("link", name="Open in Colab", exact=True).get_attribute("href")
                 source = page.get_by_role("link", name="View the source", exact=True).get_attribute("href")
@@ -89,7 +90,7 @@ def main():
                     assert response.body() == (assets / filename).read_bytes(), filename
                     downloads.append({"file": filename, "sha256": sha256(response.body()).hexdigest()})
                 for filename in ("order.styled.html", "order.unstyled.html"):
-                    response = page.goto(base + "/assets/component-notebook/" + filename, wait_until="networkidle")
+                    response = page.goto(base + "/assets/" + folder + "/" + filename, wait_until="networkidle")
                     assert response.status == 200 and page.title() == "Order 1048"
                     assert page.locator("script").count() == 0
                     assert page.locator(".dispatch-note").count() == 1
