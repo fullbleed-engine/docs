@@ -107,8 +107,9 @@ veraPDF. Alpha 5 corrects the [overlapping content tags in rich table
 cells](https://github.com/fullbleed-engine/fullbleed-official/issues/97). The program
 column now returns `Strong(row["program"])` directly, preserving that component's
 content inside its table cell. The kit still rejects the retained defective
-alpha 4 PDF. Caption-containment issues in PDF/UA-2 and column-consistency issues
-in the oversized-row stress fixture remain separate limitations.
+alpha 4 PDF. Alpha 6 also corrects the oversized-cell fixture's column-consistency
+failure: both direct and styled-export PDFs now pass the PDF/UA-1 checks.
+Caption-containment findings in PDF/UA-2 remain a separate limitation.
 For an external check, run [veraPDF's UA-1 profile](https://docs.verapdf.org/cli/validation/)
 on the final PDF:
 
