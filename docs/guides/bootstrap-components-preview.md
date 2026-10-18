@@ -269,7 +269,9 @@ can continue across pages. The retained checks cover visible page margins,
 repeated headings, and content preserved through direct rendering, prepared
 documents, and both HTML exports. Rich-cell continuation with middle or bottom
 alignment remains unsupported; layout errors retain the component source ID.
-PDF/UA-2 caption containment remains an open issue, so these checks do not
+This alpha 6 kit retains the earlier PDF/UA-2 caption-containment limitation.
+The [alpha 7 accessible showcase](accessible-showcase.md) includes the correction
+and retains validation for both PDF/UA profiles. These specimen checks do not
 establish general table conformance.
 
 Document class rules, inherited colors and named-part opacity reach supported

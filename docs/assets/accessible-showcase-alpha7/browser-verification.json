@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "browser": "155.0.8059.40",
+  "cases": [
+    {
+      "width": 1440,
+      "guide": true,
+      "download": true,
+      "pdf_hash": true,
+      "pdf_profiles": [
+        "pdfua1",
+        "pdfua2"
+      ],
+      "responsive_html": true,
+      "unstyled_html": true,
+      "keyboard_link": true
+    },
+    {
+      "width": 390,
+      "guide": true,
+      "download": true,
+      "pdf_hash": true,
+      "pdf_profiles": [
+        "pdfua1",
+        "pdfua2"
+      ],
+      "responsive_html": true,
+      "unstyled_html": true,
+      "keyboard_link": true
+    },
+    {
+      "width": 320,
+      "guide": true,
+      "download": true,
+      "pdf_hash": true,
+      "pdf_profiles": [
+        "pdfua1",
+        "pdfua2"
+      ],
+      "responsive_html": true,
+      "unstyled_html": true,
+      "keyboard_link": true
+    }
+  ],
+  "pdf_sha256": "faaf5e56e4bc962f4096d6a77deaad176266089548984eda7f45091339ba73d4",
+  "zip_sha256": "34b115996ede1274895cd0d81df39f37c65f5851ffbcb28dc09e52d9dd4087ca",
+  "pdfs": {
+    "pdfua1": "faaf5e56e4bc962f4096d6a77deaad176266089548984eda7f45091339ba73d4",
+    "pdfua2": "b38e8d6008c5474ba8b37ce952a9e65603c03d722390af3273ff048a59af0779"
+  }
+}

@@ -36,5 +36,5 @@ def main(channel='alpha4'):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--channel',choices=('alpha4','alpha5','alpha6'),default='alpha4')
+    parser.add_argument('--channel',choices=('alpha4','alpha5','alpha6','alpha7'),default='alpha4')
     main(parser.parse_args().channel)
