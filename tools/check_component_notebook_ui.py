@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    folder = "component-notebook-alpha5"
+    folder = "component-notebook-alpha6"
     assets = root / "assets" / folder
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
 
@@ -52,7 +52,7 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role("heading", name="Try Python components in a notebook", exact=False).is_visible()
                 article = page.locator("article").inner_text()
-                for value in ("Fullbleed 2.6.0a5", "fullbleed.ui.experimental", "no Bootstrap JavaScript",
+                for value in ("Fullbleed 2.6.0a6", "fullbleed.ui.experimental", "no Bootstrap JavaScript",
                               "class_name", "Document(styles=...)", "Strong", "72-row", "four pages"):
                     assert value in article, value
                 colab = page.get_by_role("link", name="Open in Colab", exact=True).get_attribute("href")

@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "method": "Visual inspection of every candidate page in independent PDFium rasterization at 144 DPI",
+  "reviewed": [
+    {
+      "path": "independent-showcases/alpha6-invoice-components-1.png",
+      "sha256": "ce99eff5dfe2056ee59b065b32c692ff4d14f6c6f4294141659d1521c970b636"
+    },
+    {
+      "path": "independent-showcases/alpha6-report-components-1.png",
+      "sha256": "44c1e3d96faa047eca1334d4efe65cae921c9791f00a534bb10614508387dc20"
+    },
+    {
+      "path": "independent-showcases/alpha6-report-components-2.png",
+      "sha256": "640ca0ab644c131043d382e0ffebc31da310bbc1fad2d73e80644098742d15f4"
+    },
+    {
+      "path": "independent-showcases/alpha6-report-components-3.png",
+      "sha256": "8093b7d33ab023e6c86da289e6ae98c2aa07b875fc6301fdc0374eef5c4316fb"
+    },
+    {
+      "path": "independent-showcases/alpha6-accessible-1.png",
+      "sha256": "37dd5d5d49bd28e1d4099e2f55def5799b4d9ac534731f83825730f43d575b9e"
+    },
+    {
+      "path": "independent-showcases/alpha6-accessible-2.png",
+      "sha256": "79d597f2f3c323aed9d379275356dbf88d04bd9461ca3df69f9def2ed097cf78"
+    }
+  ],
+  "findings": [
+    "Northstar invoice retains its complete single-page composition, line items, totals and footer.",
+    "All three Common Ground report pages retain the artwork, chart labels, allocation table and complete text.",
+    "Both guide pages retain readable headings, illustration, table, list columns and documentation link.",
+    "No clipped content, missing glyphs, unexpected blank pages or text collisions were observed."
+  ],
+  "paired_pixels_and_text_equal": true,
+  "guide_pdf_sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d",
+  "scope": "Visual fixture review and retained machine validation; no human assistive-technology evaluation or general PDF/UA claim."
+}

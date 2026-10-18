@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--python", default=sys.executable)
-    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2", "alpha3", "alpha4", "alpha5"), default="preview")
+    parser.add_argument("--channel", choices=("preview", "alpha", "alpha2", "alpha3", "alpha4", "alpha5", "alpha6"), default="preview")
     parser.add_argument("--install-report", type=Path)
     parser.add_argument("--out", type=Path, default=ROOT / "target/bootstrap-preview")
     args = parser.parse_args()

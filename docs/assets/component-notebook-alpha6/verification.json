@@ -1,0 +1,61 @@
+{
+  "runtime_version": "2.6.0a6",
+  "notebook_sha256": "46dc83fb67764992a17b2382217ac52ccb054c2f30cfff38d36527dce8de9fe3",
+  "cases": [
+    {
+      "name": "default",
+      "pages": 1,
+      "row_count": 3,
+      "total": "1056.00",
+      "pdf_sha256": "e273572ff4885ba8b139563cec45b590b385a2e7330d8728d2f71596e2fdbce6",
+      "accent": "#205b47",
+      "rich_cell_components_checked": true
+    },
+    {
+      "name": "edited",
+      "pages": 1,
+      "row_count": 3,
+      "total": "1176.00",
+      "pdf_sha256": "5823731e0146ab74806acce6bbd0676af5b77bf04566827c9c50523004cdb4c4",
+      "accent": "#763c96",
+      "rich_cell_components_checked": true
+    },
+    {
+      "name": "long",
+      "pages": 4,
+      "row_count": 72,
+      "total": "684.00",
+      "pdf_sha256": "c543c6cd5c6dadc7b4e77fd043a3fa5f2693dfbb0e20d9f844a5e6bb894a4735",
+      "accent": "#205b47",
+      "rich_cell_components_checked": true
+    },
+    {
+      "name": "empty-after-long",
+      "pages": 1,
+      "row_count": 0,
+      "total": "0.00",
+      "pdf_sha256": "5994d1a6f3a7176c8f4f614221cd60d27028a1fd8d80a372f4510eeeb056b573",
+      "accent": "#205b47",
+      "rich_cell_components_checked": true
+    }
+  ],
+  "downloads": {
+    "bootstrap_components.ipynb": "46dc83fb67764992a17b2382217ac52ccb054c2f30cfff38d36527dce8de9fe3",
+    "order.pdf": "e273572ff4885ba8b139563cec45b590b385a2e7330d8728d2f71596e2fdbce6",
+    "order-page-1.png": "d84d30060d7593e28dbc9ae16cb0f7c4ef1a013f83ed82cff9df8e9519eae1fa",
+    "order.styled.html": "c53d95a831b1d2fda92da28e6dcc5bf6063a7b1090cf1053930c39ff7b54103f",
+    "order.unstyled.html": "3e072e3dd684f9e7c483859a41051619effa814225a64a1a0e500e4d6be936e6"
+  },
+  "preview": "PDFium rendering of the default output PDF at 110 DPI",
+  "checks": [
+    "Notebook installation and execution",
+    "Independent PDF text and page bounds",
+    "Requested PDF accent colours",
+    "Repeat/direct PDF byte equality",
+    "Static styled and unstyled HTML",
+    "Rich item cell emphasis, order and escaped text in both HTML exports",
+    "Exact ZIP contents",
+    "Long-to-empty rerun excludes old pages"
+  ],
+  "scope": "Executed Jupyter cells and independent PDF/HTML/ZIP checks. Hosted Colab runtime and download UI, exhaustive CSS/browser parity and standards conformance are not evaluated."
+}
