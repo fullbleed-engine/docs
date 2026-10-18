@@ -745,6 +745,7 @@
     }
   ],
   "decorative_text_omitted": true,
+  "marked_content_nesting_valid": true,
   "pdf_link_annotations": 0,
   "scope": "Actual PDF structure, MCID text and semantic order; not an assistive-technology user test.",
   "pdf_sha256": "a0600667d2227b965db9074545f56dd6dc9ccf29aec9445bdca18a86f9e1d18e"

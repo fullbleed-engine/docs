@@ -10,7 +10,7 @@ reusable program cards, a captioned schedule and practical visitor information.
 Its Python source carries headings, table headers, lists and an image description
 through to the final PDF.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/1dade16aa2131cb7c1d683bd8cb18b366ede2d0e/examples/accessible_showcase/guide.py).
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/2b3ad43d32ee5c99c933ce44cb71fdf361373bc7/examples/accessible_showcase/guide.py).
 
 [Read the PDF](../assets/accessible-showcase/common-ground-guide.pdf){ .md-button .md-button--primary }
 [Download the source kit](../assets/accessible-showcase/project.zip){ .md-button }
@@ -82,6 +82,7 @@ the exact PDF by SHA-256.
 | Check | Result |
 | --- | --- |
 | Actual PDF structure and marked-content text | One H1, continuous H2/H3 hierarchy, expected logical reading order |
+| Marked-content boundaries | Balanced tags, no nested IDs; retained faulty PDF rejected |
 | Image | One tagged figure with the authored description |
 | Schedule | One table, three column headers with `/Scope /Column`, nine data cells |
 | Lists | Two lists containing six items |
@@ -95,11 +96,17 @@ the exact PDF by SHA-256.
 [Validation receipt](../assets/accessible-showcase/validation.json) ·
 [veraPDF report](../assets/accessible-showcase/pdfua1.verapdf.json) ·
 [PDF tag and reading-order report](../assets/accessible-showcase/structure.json) ·
+[Verifier failure control](../assets/accessible-showcase/verification-guard.json) ·
 [Browser checks](../assets/accessible-showcase/browser-verification.json) ·
 [Source manifest](../assets/accessible-showcase/source.json)
 
 These checks are **not a screen-reader user test or blanket WCAG certification**.
 The kit includes `verify.py` to inspect the actual output again after edits.
+It rejects nested marked-content IDs and unbalanced tag boundaries even without
+veraPDF. The pinned alpha has a [known issue with component content inside table
+cells](https://github.com/fullbleed-engine/fullbleed-official/issues/97); this
+specimen uses plain cell text with CSS styling. The kit's check rejects a retained
+earlier PDF that demonstrates the issue.
 For an external check, run [veraPDF's UA-1 profile](https://docs.verapdf.org/cli/validation/)
 on the final PDF:
 
