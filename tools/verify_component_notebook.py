@@ -24,7 +24,10 @@ from pypdf import PdfReader
 import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "examples/component-notebook/bootstrap_components.ipynb"
+CHANNELS = {
+    "alpha3": ("2.6.0a3", "component-notebook"),
+    "alpha5": ("2.6.0a5", "component-notebook-alpha5"),
+}
 
 
 class Markup(HTMLParser):
@@ -33,15 +36,30 @@ class Markup(HTMLParser):
         self.elements = []
         self.text = []
         self.classes = set()
+        self.cell_strong_text = []
+        self._cell_depth = 0
+        self._strong_depth = 0
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         self.elements.append((tag, attrs))
         self.classes.update(attrs.get("class", "").split())
+        if tag == "td":
+            self._cell_depth += 1
+        if tag == "strong":
+            self._strong_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == "td":
+            self._cell_depth -= 1
+        if tag == "strong":
+            self._strong_depth -= 1
 
     def handle_data(self, data):
         self.text.append(data)
+        if self._cell_depth and self._strong_depth:
+            self.cell_strong_text.append(data)
 
 
 def write(path: Path, value):
@@ -82,10 +100,10 @@ Path("notebook-runtime.json").write_text(json.dumps({
         nbformat.write(notebook, destination / "executed.ipynb")
 
 
-def verify(work: Path, destination: Path, name: str, order: dict, accent: str):
+def verify(work: Path, destination: Path, name: str, order: dict, accent: str, version: str, rich_cells: bool):
     output = work / "output"
     runtime = json.loads((work / "notebook-runtime.json").read_text(encoding="utf-8"))
-    assert runtime["version"] == "2.6.0a3", runtime["version"]
+    assert runtime["version"] == version, runtime["version"]
     inspection = runtime["inspection"]
     assert not inspection.get("warnings"), inspection.get("warnings")
     assert not inspection.get("composition", {}).get("issues"), inspection.get("composition")
@@ -123,6 +141,9 @@ def verify(work: Path, destination: Path, name: str, order: dict, accent: str):
         assert not any(tag == "script" for tag, attrs in parsed.elements)
         assert not any(key.lower().startswith("on") for tag, attrs in parsed.elements for key in attrs)
         assert not any(tag == "studio" for tag, attrs in parsed.elements), "Customer data became HTML"
+        if rich_cells:
+            assert parsed.cell_strong_text == [row["item"] for row in order["items"]], (name, "Rich item cells lost their content or order")
+            assert not any(tag == "notebooks" for tag, attrs in parsed.elements), "Rich cell text became HTML"
     assert any(tag == "style" for tag, attrs in Markup(styled).elements)
     assert not any(tag == "style" or "style" in attrs or
                    (tag == "link" and attrs.get("rel") == "stylesheet")
@@ -183,6 +204,7 @@ def verify(work: Path, destination: Path, name: str, order: dict, accent: str):
         "repeat_pdf_identical": runtime["repeat_pdf_identical"],
         "direct_pdf_identical": runtime["direct_pdf_identical"],
         "zip_files": expected_files, "static_styled_and_unstyled_html": True,
+        "rich_cell_components_checked": rich_cells,
         "artifact_hashes": {f: sha256((destination / f).read_bytes()).hexdigest() for f in expected_files},
     }
     write(destination / "verification.json", result)
@@ -193,12 +215,15 @@ def verify(work: Path, destination: Path, name: str, order: dict, accent: str):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=ROOT / "target/component-notebook")
+    parser.add_argument("--channel", choices=tuple(CHANNELS), default="alpha3")
     parser.add_argument("--check-downloads", action="store_true", help="Check the published sample files against the executed notebook")
     args = parser.parse_args()
+    version, folder = CHANNELS[args.channel]
+    source_path = ROOT / "examples" / folder / "bootstrap_components.ipynb"
     out = args.out.resolve()
     assert not (out / "verification.json").exists(), "Use a new output directory to retain prior evidence"
     out.mkdir(parents=True, exist_ok=True)
-    source = nbformat.read(SOURCE, as_version=4)
+    source = nbformat.read(source_path, as_version=4)
     nbformat.validate(source)
     assert all(not c.outputs and c.execution_count is None for c in source.cells if c.cell_type == "code")
     assert len({c.id for c in source.cells}) == len(source.cells)
@@ -209,6 +234,8 @@ def main():
     edited.update(number="1051", customer="Moss & Fern <Studio>", status="Packed")
     edited["items"][0]["quantity"] = 32
     edited["items"][1]["item"] = "Personalized note cards"
+    if args.channel == "alpha5":
+        edited["items"][0]["item"] = "Studio <notebooks> & cards"
     long = deepcopy(default)
     long["items"] = [{"item": f"Edition {n:02d} / art print", "quantity": 1, "unit_price": "9.50"}
                      for n in range(1, 73)]
@@ -238,7 +265,7 @@ def main():
             destination = out / name
             destination.mkdir()
             execute(notebook, work, destination, kernel_dir)
-            report = verify(work, destination, name, order, accent)
+            report = verify(work, destination, name, order, accent, version, args.channel == "alpha5")
             reports.append(report)
             print(json.dumps({"case": name, "pages": report["pages"], "ok": True}), flush=True)
     assert len({r["pdf_sha256"] for r in reports}) == len(reports)
@@ -247,10 +274,10 @@ def main():
     assert (work / "output/order-page-2.png").exists()
     assert "order-page-2.png" not in reports[-1]["zip_files"]
     if args.check_downloads:
-        assets = ROOT / "docs/assets/component-notebook"
+        assets = ROOT / "docs/assets" / folder
         manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
-        assert manifest["notebook_sha256"] == sha256(SOURCE.read_bytes()).hexdigest()
-        assert (assets / "bootstrap_components.ipynb").read_bytes() == SOURCE.read_bytes()
+        assert manifest["notebook_sha256"] == sha256(source_path.read_bytes()).hexdigest()
+        assert (assets / "bootstrap_components.ipynb").read_bytes() == source_path.read_bytes()
         for filename, digest in manifest["downloads"].items():
             assert sha256((assets / filename).read_bytes()).hexdigest() == digest, filename
         for filename in ("order.pdf", "order.styled.html", "order.unstyled.html"):
@@ -258,9 +285,9 @@ def main():
         assert [r["pdf_sha256"] for r in reports] == [r["pdf_sha256"] for r in manifest["cases"]]
     result = {
         "ok": True, "checked_at": datetime.now(timezone.utc).isoformat(),
-        "notebook": SOURCE.relative_to(ROOT).as_posix(),
-        "notebook_sha256": sha256(SOURCE.read_bytes()).hexdigest(),
-        "runtime_version": "2.6.0a3", "install_cell_executed": True,
+        "notebook": source_path.relative_to(ROOT).as_posix(),
+        "notebook_sha256": sha256(source_path.read_bytes()).hexdigest(),
+        "runtime_version": version, "install_cell_executed": True,
         "published_downloads_match": args.check_downloads,
         "cases": reports, "stale_pages_excluded_from_download": True,
         "tools": {name: importlib.metadata.version(name) for name in

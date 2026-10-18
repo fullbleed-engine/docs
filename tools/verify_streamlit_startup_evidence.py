@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class Fixture(BaseHTTPRequestHandler):
     ready = False
+    delayed_ready = False
 
     def do_GET(self):
         if self.path.endswith("/broken.png"):
@@ -24,7 +25,12 @@ class Fixture(BaseHTTPRequestHandler):
             self.connection.shutdown(socket.SHUT_RDWR)
             return
         if self.ready:
-            body = b"<!doctype html><title>Ready</title><button>Prepare PDF</button>"
+            if self.delayed_ready:
+                body = b'''<!doctype html><title>Ready after initialization</title>
+<button id="prepare" hidden>Prepare PDF</button>
+<script>setTimeout(() => { document.getElementById("prepare").hidden = false; }, 1500);</script>'''
+            else:
+                body = b"<!doctype html><title>Ready</title><button>Prepare PDF</button>"
         else:
             body = b'''<!doctype html><title>Startup control</title><h1>Startup remains incomplete</h1>
 <img src="/broken.png" alt="Synthetic failed asset">
@@ -66,12 +72,23 @@ def verify(args):
             try:
                 Fixture.ready = True
                 ctx, page = open_app_context(browser, origin, out=out, attempt=1,
-                                            browser_errors=[], external_requests=[], timeout=1000)
+                                            browser_errors=[], external_requests=[])
                 assert page.get_by_role("button", name="Prepare PDF", exact=True).is_visible()
                 assert not list(out.glob("startup-1.*"))
                 ctx.close()
-                Fixture.ready = False
                 record["controls"].append({"name": "ready app returns its live context", "passed": True})
+
+                # Successful startup uses the same bounded readiness timeout as
+                # the real app. Only deliberate failure controls use 1000 ms.
+                Fixture.delayed_ready = True
+                ctx, page = open_app_context(browser, origin, out=out, attempt=5,
+                                            browser_errors=[], external_requests=[])
+                assert page.get_by_role("button", name="Prepare PDF", exact=True).is_visible()
+                assert not list(out.glob("startup-5.*"))
+                ctx.close()
+                Fixture.delayed_ready = False
+                Fixture.ready = False
+                record["controls"].append({"name": "delayed ready app uses the normal bounded readiness timeout", "passed": True})
 
                 error, errors = check_failure(browser, origin, 2, TimeoutError)
                 failure = json.loads((out/"startup-2.json").read_text(encoding="utf-8"))
