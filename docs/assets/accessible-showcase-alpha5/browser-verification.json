@@ -1,0 +1,270 @@
+{
+  "ok": true,
+  "browser": "155.0.8059.40",
+  "styled": [
+    {
+      "width": 1440,
+      "ok": true,
+      "metrics": {
+        "viewport": 1440,
+        "scroll": 1440,
+        "images": [
+          {
+            "complete": true,
+            "width": 880,
+            "alt": "Illustration of a shared garden: three raised planting beds beside a broad, level path, with a bench and a greenhouse."
+          }
+        ],
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "A place to grow.A place to belong."
+          },
+          {
+            "tag": "H2",
+            "text": "Find your starting point"
+          },
+          {
+            "tag": "H3",
+            "text": "Grow something"
+          },
+          {
+            "tag": "H3",
+            "text": "Share a table"
+          },
+          {
+            "tag": "H3",
+            "text": "Make it last"
+          },
+          {
+            "tag": "H2",
+            "text": "Every visit starts with hello"
+          },
+          {
+            "tag": "H2",
+            "text": "Make room for a good day."
+          },
+          {
+            "tag": "H2",
+            "text": "Plan a comfortable visit"
+          },
+          {
+            "tag": "H3",
+            "text": "An easy arrival"
+          },
+          {
+            "tag": "H3",
+            "text": "Choose your pace"
+          },
+          {
+            "tag": "H2",
+            "text": "A small first step is enough"
+          },
+          {
+            "tag": "H2",
+            "text": "About this guide"
+          }
+        ],
+        "link": "https://docs.fullbleed.dev/",
+        "grids": [
+          "209.281px 209.297px 209.297px",
+          "316.594px 316.594px"
+        ],
+        "sheets": [
+          {
+            "bottom": 1142.140625,
+            "contentBottom": 866.578125
+          },
+          {
+            "bottom": 2284.28125,
+            "contentBottom": 2185.640625
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "ok": true,
+      "metrics": {
+        "viewport": 390,
+        "scroll": 390,
+        "images": [
+          {
+            "complete": true,
+            "width": 880,
+            "alt": "Illustration of a shared garden: three raised planting beds beside a broad, level path, with a bench and a greenhouse."
+          }
+        ],
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "A place to grow.A place to belong."
+          },
+          {
+            "tag": "H2",
+            "text": "Find your starting point"
+          },
+          {
+            "tag": "H3",
+            "text": "Grow something"
+          },
+          {
+            "tag": "H3",
+            "text": "Share a table"
+          },
+          {
+            "tag": "H3",
+            "text": "Make it last"
+          },
+          {
+            "tag": "H2",
+            "text": "Every visit starts with hello"
+          },
+          {
+            "tag": "H2",
+            "text": "Make room for a good day."
+          },
+          {
+            "tag": "H2",
+            "text": "Plan a comfortable visit"
+          },
+          {
+            "tag": "H3",
+            "text": "An easy arrival"
+          },
+          {
+            "tag": "H3",
+            "text": "Choose your pace"
+          },
+          {
+            "tag": "H2",
+            "text": "A small first step is enough"
+          },
+          {
+            "tag": "H2",
+            "text": "About this guide"
+          }
+        ],
+        "link": "https://docs.fullbleed.dev/",
+        "grids": [
+          "342px",
+          "342px"
+        ],
+        "sheets": [
+          {
+            "bottom": 1019.640625,
+            "contentBottom": 995.640625
+          },
+          {
+            "bottom": 2374.828125,
+            "contentBottom": 2340.171875
+          }
+        ]
+      }
+    },
+    {
+      "width": 320,
+      "ok": true,
+      "metrics": {
+        "viewport": 320,
+        "scroll": 320,
+        "images": [
+          {
+            "complete": true,
+            "width": 880,
+            "alt": "Illustration of a shared garden: three raised planting beds beside a broad, level path, with a bench and a greenhouse."
+          }
+        ],
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "A place to grow.A place to belong."
+          },
+          {
+            "tag": "H2",
+            "text": "Find your starting point"
+          },
+          {
+            "tag": "H3",
+            "text": "Grow something"
+          },
+          {
+            "tag": "H3",
+            "text": "Share a table"
+          },
+          {
+            "tag": "H3",
+            "text": "Make it last"
+          },
+          {
+            "tag": "H2",
+            "text": "Every visit starts with hello"
+          },
+          {
+            "tag": "H2",
+            "text": "Make room for a good day."
+          },
+          {
+            "tag": "H2",
+            "text": "Plan a comfortable visit"
+          },
+          {
+            "tag": "H3",
+            "text": "An easy arrival"
+          },
+          {
+            "tag": "H3",
+            "text": "Choose your pace"
+          },
+          {
+            "tag": "H2",
+            "text": "A small first step is enough"
+          },
+          {
+            "tag": "H2",
+            "text": "About this guide"
+          }
+        ],
+        "link": "https://docs.fullbleed.dev/",
+        "grids": [
+          "272px",
+          "272px"
+        ],
+        "sheets": [
+          {
+            "bottom": 1166.515625,
+            "contentBottom": 1142.515625
+          },
+          {
+            "bottom": 2719.8125,
+            "contentBottom": 2685.15625
+          }
+        ]
+      }
+    }
+  ],
+  "unstyled_semantics_and_no_css": true,
+  "keyboard_link_focus": true,
+  "authored_text_color_contrast": [
+    {
+      "foreground": "#17382e",
+      "background": "#f8f5ec",
+      "ratio": 11.73
+    },
+    {
+      "foreground": "#17382e",
+      "background": "#e3eadc",
+      "ratio": 10.4
+    },
+    {
+      "foreground": "#17382e",
+      "background": "#e9eddf",
+      "ratio": 10.75
+    },
+    {
+      "foreground": "#3c5548",
+      "background": "#f8f5ec",
+      "ratio": 7.45
+    }
+  ]
+}

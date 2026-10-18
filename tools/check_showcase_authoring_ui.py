@@ -33,7 +33,7 @@ def main():
         server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(args.site.resolve())))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         base = f"http://127.0.0.1:{server.server_port}"
-    manifest = json.loads((ROOT / "docs/assets/showcase-authoring/source.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "docs/assets/showcase-authoring-alpha5/source.json").read_text(encoding="utf-8"))
     cases = []
     try:
         with sync_playwright() as playwright:
@@ -48,7 +48,7 @@ def main():
                         response = page.goto(base + "/guides/showcase-authoring/", wait_until="networkidle")
                         assert response.status == 200
                         page.get_by_role("heading", level=1, name=re.compile(r"^One design, two authoring paths")).wait_for()
-                        assert page.locator("body").inner_text().count("2.6.0a4") >= 2
+                        assert page.locator("body").inner_text().count(manifest["engine_version"]) >= 2
                         assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
                         page.screenshot(path=str(args.out / f"{name}-guide.png"), animations="disabled")
                         page.locator(".tabbed-labels label").filter(has_text=re.compile(r"^HTML$")).click()
@@ -64,7 +64,7 @@ def main():
                         download.save_as(str(destination))
                         assert sha256(destination.read_bytes()).hexdigest() == manifest["zip_sha256"]
                         for filename in ("invoice-html.pdf", "invoice-components.pdf", "report-html.pdf", "report-components.pdf"):
-                            href = f"/assets/showcase-authoring/{filename}"
+                            href = f"/assets/showcase-authoring-alpha5/{filename}"
                             assert page.locator(f'a[href$="{filename}"]').count() >= 1
                             pdf = context.request.get(base + href)
                             assert pdf.status == 200 and pdf.body() == (ROOT / "docs" / href.lstrip("/")).read_bytes()

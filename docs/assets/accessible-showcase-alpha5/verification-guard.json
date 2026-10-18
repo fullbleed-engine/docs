@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "negative_control_rejected": true,
+  "source_pdf_sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "rejection": "Nested MCID on page 2: 7 -> 8",
+  "current_verifier_sha256": "33ed212e52bc9d3f1ba89e6b8ed835d067099926d08c2abb6b55125281ed11f3"
+}

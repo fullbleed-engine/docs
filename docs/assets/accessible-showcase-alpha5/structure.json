@@ -1,0 +1,817 @@
+{
+  "ok": true,
+  "title": "Common Ground: A place to grow, a place to belong",
+  "language": "en-US",
+  "page_count": 2,
+  "roles": {
+    "/P": 18,
+    "/H1": 1,
+    "/Figure": 1,
+    "/H2": 6,
+    "/H3": 5,
+    "/Caption": 2,
+    "/Table": 1,
+    "/THead": 1,
+    "/TR": 4,
+    "/TH": 3,
+    "/TBody": 1,
+    "/TD": 9,
+    "/Span": 11,
+    "/L": 2,
+    "/LI": 6,
+    "/Lbl": 6,
+    "/LBody": 6
+  },
+  "headings": [
+    {
+      "role": "/H1",
+      "page": 1,
+      "text": "A place to grow. A place to belong."
+    },
+    {
+      "role": "/H2",
+      "page": 1,
+      "text": "Find your starting point"
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Grow something"
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Share a table"
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Make it last"
+    },
+    {
+      "role": "/H2",
+      "page": 1,
+      "text": "Every visit starts with hello"
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "Make room for a good day."
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "Plan a comfortable visit"
+    },
+    {
+      "role": "/H3",
+      "page": 2,
+      "text": "An easy arrival"
+    },
+    {
+      "role": "/H3",
+      "page": 2,
+      "text": "Choose your pace"
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "A small first step is enough"
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "About this guide"
+    }
+  ],
+  "nodes": [
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "Common Ground"
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "COMMUNITY FIELD GUIDE / AUTUMN 2026"
+    },
+    {
+      "role": "/H1",
+      "page": 1,
+      "text": "A place to grow. A place to belong."
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "Good things happen when we make a little room for one another. Come for a quiet hour, a shared meal or something new to learn."
+    },
+    {
+      "role": "/Figure",
+      "page": 1,
+      "text": "",
+      "alt": "Illustration of a shared garden: three raised planting beds beside a broad, level path, with a bench and a greenhouse."
+    },
+    {
+      "role": "/H2",
+      "page": 1,
+      "text": "Find your starting point"
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Grow something"
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "A few seeds. A pair of hands. A garden we tend together."
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Share a table"
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "Pull up a chair for conversation and a warm bowl of soup."
+    },
+    {
+      "role": "/H3",
+      "page": 1,
+      "text": "Make it last"
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "Swap a skill, mend a favorite thing or try a small project."
+    },
+    {
+      "role": "/H2",
+      "page": 1,
+      "text": "Every visit starts with hello"
+    },
+    {
+      "role": "/P",
+      "page": 1,
+      "text": "All sessions are free. No membership, equipment or experience is needed. Come on your own or bring someone with you."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "YOUR NEXT SATURDAY"
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "Make room for a good day."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Stay for one session or linger a little longer. You decide how to take part."
+    },
+    {
+      "role": "/Caption",
+      "page": 2,
+      "text": "Autumn 2026 \u00b7 Weekly sessions at the Common Ground garden"
+    },
+    {
+      "role": "/Caption",
+      "page": 2,
+      "text": "Autumn 2026 \u00b7 Weekly sessions at the Common Ground garden"
+    },
+    {
+      "role": "/Table",
+      "page": 2,
+      "text": "Program When What to expect Garden together Saturdays, 10\u201311:30 am Plant, water or harvest. Seated tasks are available. The shared table Saturdays, noon\u20131 pm Bring your lunch or share the seasonal soup. Ingredients are listed. Make & mend First Saturday, 2\u20133:30 pm Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "role": "/THead",
+      "page": 2,
+      "text": "Program When What to expect"
+    },
+    {
+      "role": "/TR",
+      "page": 2,
+      "text": "Program When What to expect"
+    },
+    {
+      "role": "/TH",
+      "page": 2,
+      "text": "Program",
+      "attributes": {
+        "/O": "/Table",
+        "/Scope": "/Column"
+      }
+    },
+    {
+      "role": "/TH",
+      "page": 2,
+      "text": "When",
+      "attributes": {
+        "/O": "/Table",
+        "/Scope": "/Column"
+      }
+    },
+    {
+      "role": "/TH",
+      "page": 2,
+      "text": "What to expect",
+      "attributes": {
+        "/O": "/Table",
+        "/Scope": "/Column"
+      }
+    },
+    {
+      "role": "/TBody",
+      "page": 2,
+      "text": "Garden together Saturdays, 10\u201311:30 am Plant, water or harvest. Seated tasks are available. The shared table Saturdays, noon\u20131 pm Bring your lunch or share the seasonal soup. Ingredients are listed. Make & mend First Saturday, 2\u20133:30 pm Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "role": "/TR",
+      "page": 2,
+      "text": "Garden together Saturdays, 10\u201311:30 am Plant, water or harvest. Seated tasks are available."
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Garden together"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "Garden"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "together"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Saturdays, 10\u201311:30 am"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Plant, water or harvest. Seated tasks are available."
+    },
+    {
+      "role": "/TR",
+      "page": 2,
+      "text": "The shared table Saturdays, noon\u20131 pm Bring your lunch or share the seasonal soup. Ingredients are listed."
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "The shared table"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "The"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "shared"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "table"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Saturdays, noon\u20131 pm"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Bring your lunch or share the seasonal soup. Ingredients are listed."
+    },
+    {
+      "role": "/TR",
+      "page": 2,
+      "text": "Make & mend First Saturday, 2\u20133:30 pm Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Make & mend"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "Make"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "&"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "mend"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "First Saturday, 2\u20133:30 pm"
+    },
+    {
+      "role": "/TD",
+      "page": 2,
+      "text": "Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "Plan a comfortable visit"
+    },
+    {
+      "role": "/H3",
+      "page": 2,
+      "text": "An easy arrival"
+    },
+    {
+      "role": "/L",
+      "page": 2,
+      "text": "Enter through the wide gate beside the greenhouse. The main path is firm and level. Seating is available along the way. A welcome volunteer can show you the garden and the accessible restroom.",
+      "attributes": {
+        "/O": "/List",
+        "/ListNumbering": "/Disc"
+      }
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "Enter through the wide gate beside the greenhouse."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "Enter through the wide gate beside the greenhouse."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Enter through the wide gate beside the greenhouse."
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "The main path is firm and level. Seating is available along the way."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "The main path is firm and level. Seating is available along the way."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "The main path is firm and level. Seating is available along the way."
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "A welcome volunteer can show you the garden and the accessible restroom."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "A welcome volunteer can show you the garden and the accessible restroom."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "A welcome volunteer can show you the garden and the accessible restroom."
+    },
+    {
+      "role": "/H3",
+      "page": 2,
+      "text": "Choose your pace"
+    },
+    {
+      "role": "/L",
+      "page": 2,
+      "text": "Take part seated or standing, or simply watch. Use the quiet corner whenever you would like a break. Ask for written instructions or a demonstration. Both are welcome.",
+      "attributes": {
+        "/O": "/List",
+        "/ListNumbering": "/Disc"
+      }
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "Take part seated or standing, or simply watch."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "Take part seated or standing, or simply watch."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Take part seated or standing, or simply watch."
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "Use the quiet corner whenever you would like a break."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "Use the quiet corner whenever you would like a break."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Use the quiet corner whenever you would like a break."
+    },
+    {
+      "role": "/LI",
+      "page": 2,
+      "text": "Ask for written instructions or a demonstration. Both are welcome."
+    },
+    {
+      "role": "/Lbl",
+      "page": 2,
+      "text": ""
+    },
+    {
+      "role": "/LBody",
+      "page": 2,
+      "text": "Ask for written instructions or a demonstration. Both are welcome."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Ask for written instructions or a demonstration. Both are welcome."
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "A small first step is enough"
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "You do not have to know anyone, know what to say or stay all day. There is a place for you here."
+    },
+    {
+      "role": "/H2",
+      "page": 2,
+      "text": "About this guide"
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Common Ground and its programs are fictional. This sample shows how a thoughtfully designed document can carry its structure into PDF and HTML."
+    },
+    {
+      "role": "/P",
+      "page": 2,
+      "text": "Fullbleed documentation: docs.fullbleed.dev"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "Fullbleed"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "documentation:"
+    },
+    {
+      "role": "/Span",
+      "page": 2,
+      "text": "docs.fullbleed.dev"
+    }
+  ],
+  "reading_order": [
+    {
+      "page": 1,
+      "mcid": 0,
+      "text": "Common Ground"
+    },
+    {
+      "page": 1,
+      "mcid": 1,
+      "text": "COMMUNITY FIELD GUIDE / AUTUMN 2026"
+    },
+    {
+      "page": 1,
+      "mcid": 2,
+      "text": "A place to grow. A place to belong."
+    },
+    {
+      "page": 1,
+      "mcid": 3,
+      "text": "Good things happen when we make a little room for one another. Come for a quiet hour, a shared meal or something new to learn."
+    },
+    {
+      "page": 1,
+      "mcid": 4,
+      "text": ""
+    },
+    {
+      "page": 1,
+      "mcid": 5,
+      "text": "Find your starting point"
+    },
+    {
+      "page": 1,
+      "mcid": 6,
+      "text": "Grow something"
+    },
+    {
+      "page": 1,
+      "mcid": 7,
+      "text": "A few seeds. A pair of hands. A garden we tend together."
+    },
+    {
+      "page": 1,
+      "mcid": 8,
+      "text": "Share a table"
+    },
+    {
+      "page": 1,
+      "mcid": 9,
+      "text": "Pull up a chair for conversation and a warm bowl of soup."
+    },
+    {
+      "page": 1,
+      "mcid": 10,
+      "text": "Make it last"
+    },
+    {
+      "page": 1,
+      "mcid": 11,
+      "text": "Swap a skill, mend a favorite thing or try a small project."
+    },
+    {
+      "page": 1,
+      "mcid": 12,
+      "text": "Every visit starts with hello"
+    },
+    {
+      "page": 1,
+      "mcid": 13,
+      "text": "All sessions are free. No membership, equipment or experience is needed. Come on your own or bring someone with you."
+    },
+    {
+      "page": 2,
+      "mcid": 0,
+      "text": "YOUR NEXT SATURDAY"
+    },
+    {
+      "page": 2,
+      "mcid": 1,
+      "text": "Make room for a good day."
+    },
+    {
+      "page": 2,
+      "mcid": 2,
+      "text": "Stay for one session or linger a little longer. You decide how to take part."
+    },
+    {
+      "page": 2,
+      "mcid": 3,
+      "text": "Autumn 2026 \u00b7 Weekly sessions at the Common Ground garden"
+    },
+    {
+      "page": 2,
+      "mcid": 4,
+      "text": "Program"
+    },
+    {
+      "page": 2,
+      "mcid": 5,
+      "text": "When"
+    },
+    {
+      "page": 2,
+      "mcid": 6,
+      "text": "What to expect"
+    },
+    {
+      "page": 2,
+      "mcid": 7,
+      "text": "Garden"
+    },
+    {
+      "page": 2,
+      "mcid": 8,
+      "text": "together"
+    },
+    {
+      "page": 2,
+      "mcid": 9,
+      "text": "Saturdays, 10\u201311:30 am"
+    },
+    {
+      "page": 2,
+      "mcid": 10,
+      "text": "Plant, water or harvest. Seated tasks are available."
+    },
+    {
+      "page": 2,
+      "mcid": 11,
+      "text": "The"
+    },
+    {
+      "page": 2,
+      "mcid": 12,
+      "text": "shared"
+    },
+    {
+      "page": 2,
+      "mcid": 13,
+      "text": "table"
+    },
+    {
+      "page": 2,
+      "mcid": 14,
+      "text": "Saturdays, noon\u20131 pm"
+    },
+    {
+      "page": 2,
+      "mcid": 15,
+      "text": "Bring your lunch or share the seasonal soup. Ingredients are listed."
+    },
+    {
+      "page": 2,
+      "mcid": 16,
+      "text": "Make"
+    },
+    {
+      "page": 2,
+      "mcid": 17,
+      "text": "&"
+    },
+    {
+      "page": 2,
+      "mcid": 18,
+      "text": "mend"
+    },
+    {
+      "page": 2,
+      "mcid": 19,
+      "text": "First Saturday, 2\u20133:30 pm"
+    },
+    {
+      "page": 2,
+      "mcid": 20,
+      "text": "Bring a small repair or try a simple craft. Materials are provided."
+    },
+    {
+      "page": 2,
+      "mcid": 21,
+      "text": "Plan a comfortable visit"
+    },
+    {
+      "page": 2,
+      "mcid": 22,
+      "text": "An easy arrival"
+    },
+    {
+      "page": 2,
+      "mcid": 23,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 24,
+      "text": "Enter through the wide gate beside the greenhouse."
+    },
+    {
+      "page": 2,
+      "mcid": 25,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 26,
+      "text": "The main path is firm and level. Seating is available along the way."
+    },
+    {
+      "page": 2,
+      "mcid": 27,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 28,
+      "text": "A welcome volunteer can show you the garden and the accessible restroom."
+    },
+    {
+      "page": 2,
+      "mcid": 29,
+      "text": "Choose your pace"
+    },
+    {
+      "page": 2,
+      "mcid": 30,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 31,
+      "text": "Take part seated or standing, or simply watch."
+    },
+    {
+      "page": 2,
+      "mcid": 32,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 33,
+      "text": "Use the quiet corner whenever you would like a break."
+    },
+    {
+      "page": 2,
+      "mcid": 34,
+      "text": ""
+    },
+    {
+      "page": 2,
+      "mcid": 35,
+      "text": "Ask for written instructions or a demonstration. Both are welcome."
+    },
+    {
+      "page": 2,
+      "mcid": 36,
+      "text": "A small first step is enough"
+    },
+    {
+      "page": 2,
+      "mcid": 37,
+      "text": "You do not have to know anyone, know what to say or stay all day. There is a place for you here."
+    },
+    {
+      "page": 2,
+      "mcid": 38,
+      "text": "About this guide"
+    },
+    {
+      "page": 2,
+      "mcid": 39,
+      "text": "Common Ground and its programs are fictional. This sample shows how a thoughtfully designed document can carry its structure into PDF and HTML."
+    },
+    {
+      "page": 2,
+      "mcid": 40,
+      "text": "Fullbleed"
+    },
+    {
+      "page": 2,
+      "mcid": 41,
+      "text": "documentation:"
+    },
+    {
+      "page": 2,
+      "mcid": 42,
+      "text": "docs.fullbleed.dev"
+    }
+  ],
+  "decorative_text_omitted": true,
+  "marked_content_nesting_valid": true,
+  "pdf_link_annotations": 0,
+  "scope": "Actual PDF structure, MCID text and semantic order; not an assistive-technology user test.",
+  "pdf_sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d"
+}

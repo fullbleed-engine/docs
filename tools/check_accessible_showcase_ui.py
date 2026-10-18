@@ -26,7 +26,7 @@ def main():
         server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(args.site.resolve())))
         threading.Thread(target=server.serve_forever,daemon=True).start()
         base=f'http://127.0.0.1:{server.server_port}'
-    assets=ROOT/'docs/assets/accessible-showcase'
+    assets=ROOT/'docs/assets/accessible-showcase-alpha5'
     manifest=json.loads((assets/'source.json').read_text(encoding='utf-8'))
     validation=json.loads((assets/'validation.json').read_text(encoding='utf-8'))
     cases=[]
@@ -49,7 +49,7 @@ def main():
                         target=args.out/f'project-{width}.zip'
                         downloaded.value.save_as(str(target))
                         assert sha256(target.read_bytes()).hexdigest()==manifest['zip_sha256']
-                        pdf=context.request.get(base+'/assets/accessible-showcase/common-ground-guide.pdf')
+                        pdf=context.request.get(base+'/assets/accessible-showcase-alpha5/common-ground-guide.pdf')
                         assert pdf.status==200 and sha256(pdf.body()).hexdigest()==validation['pdf_sha256']
                         page.get_by_role('link',name='Open the responsive HTML',exact=True).click()
                         page.wait_for_load_state('networkidle');page.evaluate('document.fonts.ready')
@@ -61,7 +61,7 @@ def main():
                         page.keyboard.press('Tab')
                         assert page.evaluate('document.activeElement.tagName')=='A'
                         page.screenshot(path=str(args.out/f'html-{width}.png'),full_page=True)
-                        page.goto(base+'/assets/accessible-showcase/guide-unstyled.html',wait_until='networkidle')
+                        page.goto(base+'/assets/accessible-showcase-alpha5/guide-unstyled.html',wait_until='networkidle')
                         assert page.locator('style,[style],link[rel=stylesheet]').count()==0
                         assert page.locator('.program-card').count()==3 and page.locator('th[scope=col]').count()==3
                         assert not errors,errors

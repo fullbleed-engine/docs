@@ -1,0 +1,26 @@
+{
+  "schema": "fullbleed.accessible_showcase.v1",
+  "ok": true,
+  "runtime": "2.6.0a5",
+  "pdf": "common-ground-guide.pdf",
+  "sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d",
+  "page_count": 2,
+  "deterministic_replay": true,
+  "html_css_pdf_byte_parity": true,
+  "native_diagnostic_gate": true,
+  "previews": [
+    "preview/guide_page1.png",
+    "preview/guide_page2.png"
+  ],
+  "fonts": [
+    {
+      "file": "Inter-Variable.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "file": "DMSerifDisplay-Regular.ttf",
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    }
+  ],
+  "external_pdfua_validation": "Run veraPDF separately; see README.md."
+}

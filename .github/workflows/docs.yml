@@ -14,57 +14,59 @@ concurrency:
 
 jobs:
   accessible-showcase:
-    name: Accessible component showcase (${{ matrix.os }})
+    name: Accessible component showcase (${{ matrix.channel }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        channel: [alpha4, alpha5]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: |
-          python -m pip install --only-binary=:all: -r examples/accessible-showcase/requirements-check.txt
+          python -m pip install --only-binary=:all: -r examples/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/requirements-check.txt
       - name: Rebuild the source kit and reproduce the externally validated PDF
         run: |
-          python tools/build_accessible_showcase.py
-          git diff --exit-code -- docs/assets/accessible-showcase/project.zip docs/assets/accessible-showcase/source.json
-          python tools/verify_accessible_showcase.py --out target/accessible-showcase
+          python tools/build_accessible_showcase.py --channel ${{ matrix.channel }}
+          git diff --exit-code -- docs/assets/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/project.zip docs/assets/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/source.json
+          python tools/verify_accessible_showcase.py --channel ${{ matrix.channel }} --out target/accessible-showcase
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: accessible-showcase-${{ matrix.os }}
+          name: accessible-showcase-${{ matrix.channel }}-${{ matrix.os }}
           path: target/accessible-showcase/
           retention-days: 14
   showcase-authoring:
-    name: Showcase authoring comparison (${{ matrix.os }})
+    name: Showcase authoring comparison (${{ matrix.channel }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        channel: [alpha4, alpha5]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: |
-          python -m pip install --only-binary=:all: -r examples/showcase-authoring/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python -m pip install --only-binary=:all: -r examples/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
       - name: Rebuild the download and compare both authoring paths
         shell: bash
         run: |
-          python tools/build_showcase_authoring.py
-          git diff --exit-code -- docs/assets/showcase-authoring/project.zip docs/assets/showcase-authoring/source.json
-          python tools/verify_showcase_authoring.py --out target/showcase-authoring
+          python tools/build_showcase_authoring.py --channel ${{ matrix.channel }}
+          git diff --exit-code -- docs/assets/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/project.zip docs/assets/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/source.json
+          python tools/verify_showcase_authoring.py --channel ${{ matrix.channel }} --out target/showcase-authoring
           python target/showcase-authoring/project/tools/check_showcase_preview.py --project target/showcase-authoring/project/examples/design_showcase --out target/showcase-authoring/live-preview
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: showcase-authoring-${{ matrix.os }}
+          name: showcase-authoring-${{ matrix.channel }}-${{ matrix.os }}
           path: target/showcase-authoring/
           retention-days: 14
   component-notebook:
@@ -148,7 +150,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [preview, alpha, alpha2, alpha3, alpha4]
+        channel: [preview, alpha, alpha2, alpha3, alpha4, alpha5]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
