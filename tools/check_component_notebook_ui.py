@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    folder = "component-notebook-alpha6"
+    folder = "component-notebook-alpha6-r1"
     assets = root / "assets" / folder
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
 
@@ -53,7 +53,8 @@ def main():
                 assert page.get_by_role("heading", name="Try Python components in a notebook", exact=False).is_visible()
                 article = page.locator("article").inner_text()
                 for value in ("Fullbleed 2.6.0a6", "fullbleed.ui.experimental", "no Bootstrap JavaScript",
-                              "class_name", "Document(styles=...)", "Strong", "72-row", "four pages"):
+                              "class_name", "Document(styles=...)", "Strong", "72-row", "four pages",
+                              "Run in local Jupyter", "Run All Cells", "component-order.zip"):
                     assert value in article, value
                 colab = page.get_by_role("link", name="Open in Colab", exact=True).get_attribute("href")
                 source = page.get_by_role("link", name="View the source", exact=True).get_attribute("href")
@@ -83,11 +84,14 @@ def main():
                 page.screenshot(path=str(args.out / f"{label}-preview.png"), animations="disabled")
                 downloads = []
                 for filename, title in (("order.pdf", "Open the sample PDF"), ("order.styled.html", "Open styled HTML"),
-                                        ("order.unstyled.html", "Open unstyled HTML"), ("verification.json", "verification record")):
+                                        ("order.unstyled.html", "Open unstyled HTML"), ("verification.json", "verification record"),
+                                        ("browser-verification.json", "Jupyter browser record")):
                     link = page.get_by_role("link", name=title, exact=True)
                     response = context.request.get(link.evaluate("a => a.href"))
                     assert response.status == 200, filename
                     assert response.body() == (assets / filename).read_bytes(), filename
+                    if filename == "browser-verification.json":
+                        assert sha256(response.body()).hexdigest() == manifest["browser_verification"]["sha256"]
                     downloads.append({"file": filename, "sha256": sha256(response.body()).hexdigest()})
                 for filename in ("order.styled.html", "order.unstyled.html"):
                     response = page.goto(base + "/assets/" + folder + "/" + filename, wait_until="networkidle")

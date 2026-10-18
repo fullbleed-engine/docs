@@ -152,3 +152,8 @@ examples/accessible-showcase-alpha6/fonts/*.ttf binary
 docs/assets/accessible-showcase-alpha6/** -text whitespace=cr-at-eol
 docs/assets/accessible-showcase-alpha6/*.pdf binary
 docs/assets/accessible-showcase-alpha6/fonts/*.ttf binary
+
+# The Jupyter download fix is a new notebook revision; old assets stay immutable.
+examples/component-notebook-alpha6-r1/** text eol=lf
+docs/assets/component-notebook-alpha6-r1/** -text
+docs/assets/component-notebook-alpha6-r1/*.pdf binary
