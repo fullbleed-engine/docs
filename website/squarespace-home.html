@@ -1,0 +1,193 @@
+<style>
+:root{--fb-paper:#f6f4ed;--fb-ink:#18372e;--fb-muted:#52645c;--fb-orange:#b93619;--fb-rule:#c7cdc4;--fb-dark:#16382d;--fb-sans:Arial,Helvetica,sans-serif;--fb-mono:Consolas,monospace}
+.fb-site,.fb-site *{box-sizing:border-box}
+.fb-site{font-family:var(--fb-sans);font-size:17px;line-height:1.6;color:var(--fb-ink);background:var(--fb-paper);text-align:left}
+.fb-site h1,.fb-site h2,.fb-site h3,.fb-site p,.fb-site figure{margin:0;color:inherit;font-family:inherit}
+.fb-site a{color:inherit;text-decoration:none}
+.fb-site a:hover{text-decoration:underline;text-underline-offset:5px}
+.fb-site :focus-visible{outline:3px solid var(--fb-orange);outline-offset:5px}
+.fb-shell{max-width:1240px;margin:0 auto;padding:0 40px}
+.fb-eyebrow{font-family:var(--fb-mono)!important;font-size:12px;line-height:1.5;letter-spacing:.09em;text-transform:uppercase}
+.fb-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;padding-top:64px;padding-bottom:56px;align-items:center}
+.fb-hero h1{font-size:clamp(54px,6.5vw,88px);font-weight:750;letter-spacing:-.065em;line-height:.99;margin:22px 0 28px}
+.fb-hero .fb-lede{font-size:20px;line-height:1.5;max-width:510px;color:var(--fb-muted)}
+.fb-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}
+.fb-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;padding:14px 21px;min-height:50px;border:1px solid transparent;border-radius:3px;background:var(--fb-orange);color:#fff!important;font-weight:600;font-size:15px;line-height:1.4;text-decoration:none!important;transition:background .15s}
+.fb-btn:hover{background:#962d16}
+.fb-text-link{font-size:15px;border-bottom:1px solid currentColor;padding:6px 0}
+.fb-install{display:flex;border:1px solid #aab7ae;border-radius:3px;margin-top:30px;max-width:455px;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px}
+.fb-install code{font:15px/1.5 var(--fb-mono);background:transparent;color:var(--fb-ink);padding:0;white-space:nowrap}
+.fb-copy{font:12px/1.4 var(--fb-mono);background:transparent;color:inherit;border:1px solid #80988b;border-radius:2px;cursor:pointer;padding:7px 10px;min-height:36px;white-space:nowrap}
+.fb-copy:hover{background:#dbe3d8;color:var(--fb-ink)}
+.fb-under-command{margin-top:12px!important;color:var(--fb-muted)!important;font-size:12px;line-height:1.5}
+.fb-under-command a{text-decoration:underline;text-underline-offset:3px}
+.fb-document{background:var(--fb-dark);color:var(--fb-paper)!important;padding:22px 28px 18px;position:relative}
+.fb-document:before,.fb-document:after{content:'';position:absolute;width:17px;height:17px;border-color:#91aa98;border-style:solid;pointer-events:none}
+.fb-document:before{left:14px;top:51px;border-width:1px 0 0 1px}.fb-document:after{right:14px;bottom:44px;border-width:0 1px 1px 0}
+.fb-doc-bar,.fb-doc-caption{display:flex;align-items:center;justify-content:space-between;font:11px/1.5 var(--fb-mono);letter-spacing:.035em}
+.fb-doc-bar{padding:0 0 15px}.fb-doc-caption{padding:15px 0 0}
+.fb-document a{display:block;color:inherit}
+.fb-document img{width:100%;height:auto;display:block;background:#f8f5ec;box-shadow:0 8px 20px #0002}
+.fb-document a:hover img{outline:2px solid #d9e4d8;outline-offset:4px}
+.fb-proof{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--fb-rule);border-bottom:1px solid var(--fb-rule);padding:24px 0;gap:30px}
+.fb-proof>div+div{border-left:1px solid var(--fb-rule);padding-left:30px}
+.fb-proof h2{font-size:19px;font-weight:700;letter-spacing:-.03em;margin-bottom:7px}.fb-proof p{font-size:14px;line-height:1.65;color:var(--fb-muted);max-width:320px}
+.fb-section{padding:64px 0;border-bottom:1px solid var(--fb-rule)}
+.fb-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+.fb-section .fb-eyebrow{color:var(--fb-orange);margin-bottom:13px}
+.fb-site h2{font-weight:700;letter-spacing:-.045em;line-height:1.1}
+.fb-section-heading h2,.fb-start h2,.fb-features h2{font-size:clamp(32px,3.3vw,43px)}
+.fb-examples{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.fb-example{min-width:0}
+.fb-thumb{background:#e9ece4;border:1px solid #d4dbd0;padding:18px;display:block;transition:background .15s}
+.fb-example--notice .fb-thumb{background:#e4eaf0}.fb-example--statements .fb-thumb{background:#ece3ee}
+.fb-thumb:hover{background:#dce4d8}.fb-thumb img{display:block;width:100%;height:auto;box-shadow:0 0 12px #0001;transition:transform .2s}.fb-thumb:hover img{transform:translateY(-5px)}
+.fb-example h3{font-size:19px;font-weight:700;letter-spacing:-.025em;margin:17px 0 5px}.fb-example p{font-size:14px;color:var(--fb-muted);line-height:1.6}
+.fb-example-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:15px;font:11px/1.5 var(--fb-mono);color:var(--fb-muted)}
+.fb-example-bottom a{font-family:var(--fb-sans);font-size:13px;text-decoration:underline;text-underline-offset:4px;color:var(--fb-ink)}
+.fb-start{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.fb-start h2{max-width:380px;margin-bottom:22px}.fb-start p:not(.fb-eyebrow){max-width:380px;color:var(--fb-muted);font-size:16px}
+.fb-start .fb-text-link{display:inline-block;margin-top:18px}
+.fb-code{min-width:0;background:var(--fb-dark);color:#f6f4ed;border:1px solid #294a3e;border-radius:3px;overflow:hidden}
+.fb-code-bar{display:flex;justify-content:space-between;align-items:center;padding:11px 19px;border-bottom:1px solid #52705e;font:11px/1.5 var(--fb-mono)}
+.fb-code pre{margin:0;padding:23px 22px 26px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.9 var(--fb-mono);background:transparent;color:inherit}
+.fb-code code{font:inherit;background:transparent;color:inherit;padding:0}.fb-code .kw{color:#eeb7a5}.fb-code .str{color:#d4e5bd}
+.fb-code .fb-copy{color:#f6f4ed}.fb-code .fb-copy:hover{color:var(--fb-ink)}
+.fb-code-foot{font:11px/1.5 var(--fb-mono);padding:12px 22px;background:#244638;color:#d1dfd0}
+.fb-features{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px}.fb-features h2{max-width:340px}.fb-feature-list{display:grid;grid-template-columns:1fr 1fr;gap:30px 28px}
+.fb-feature-list h3{font-size:17px;line-height:1.3;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}.fb-feature-list p{font-size:14px;line-height:1.65;color:var(--fb-muted)}.fb-feature-list a{display:inline-block;font-size:13px;margin-top:12px;text-decoration:underline;text-underline-offset:4px}
+.fb-close{margin-top:64px;margin-bottom:64px;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:36px 40px;background:#e6eadf;border-left:4px solid var(--fb-orange)}
+.fb-close h2{font-size:32px;margin-bottom:9px}.fb-close p{font-size:15px;color:var(--fb-muted)}
+.fb-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.fb-local-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--fb-rule);padding-top:22px;padding-bottom:22px}.fb-local-header strong{font-size:26px;letter-spacing:-1px}.fb-local-header nav{display:flex;gap:30px;font-size:14px}
+/* Only the redesigned home block controls its Squarespace section. */
+.page-section:has(#fb-home){padding:0!important;min-height:0!important;background:var(--fb-paper)!important}
+.page-section:has(#fb-home)>.content-wrapper{padding:0!important;max-width:none!important;width:100%!important}
+.fluid-engine:has(#fb-home){display:block!important;padding:0!important;overflow:visible!important}
+.fluid-engine:has(#fb-home)>.fe-block:not(:has(#fb-home)){display:none!important}
+.fe-block:has(#fb-home),.sqs-block:has(>#fb-home),.sqs-block-code:has(#fb-home){width:100%!important;height:auto!important;padding:0!important;margin:0!important}
+.sqs-block-code:has(#fb-home)>.sqs-block-content{width:100%!important}
+.page-section:has(#fb-home) .section-background{background:var(--fb-paper)!important}
+@media(min-width:1500px){.fb-hero h1{font-size:88px}}
+@media(max-width:1050px){.fb-hero{gap:35px}.fb-hero h1{font-size:65px}.fb-start,.fb-features{gap:35px}.fb-actions{gap:16px}.fb-shell{padding-left:30px;padding-right:30px}}
+@media(max-width:767px){.fb-shell{padding-left:24px;padding-right:24px}.fb-hero{grid-template-columns:1fr;padding-top:38px;padding-bottom:35px;gap:30px}.fb-hero h1{font-size:clamp(48px,11.5vw,72px);margin:17px 0 23px;letter-spacing:-.055em}.fb-hero .fb-lede{font-size:18px;max-width:440px}.fb-actions{margin-top:25px}.fb-btn{font-size:14px;padding:13px 18px;gap:16px}.fb-install{margin-top:24px;max-width:none;padding:11px 13px}.fb-install code{font-size:13px}.fb-document{padding:18px 23px 15px}.fb-proof{grid-template-columns:1fr;gap:20px;padding:25px 0}.fb-proof>div+div{border-left:0;border-top:1px solid var(--fb-rule);padding-left:0;padding-top:20px}.fb-proof p{max-width:480px}.fb-section{padding:40px 0}.fb-section-heading{align-items:flex-start;flex-direction:column;gap:14px;margin-bottom:23px}.fb-section-heading h2,.fb-start h2,.fb-features h2{font-size:34px}.fb-examples{grid-template-columns:1fr;gap:30px}.fb-thumb{padding:20px}.fb-example h3{margin-top:14px}.fb-start,.fb-features{grid-template-columns:1fr;gap:25px}.fb-start h2,.fb-features h2,.fb-start p:not(.fb-eyebrow){max-width:500px}.fb-code pre{padding:20px 17px;font-size:12px}.fb-feature-list{gap:28px 22px}.fb-close{margin:40px 0;padding:26px 24px;align-items:flex-start;flex-direction:column}.fb-close h2{font-size:29px}.fb-local-header{flex-wrap:wrap;gap:12px}.fb-local-header nav{gap:18px;font-size:13px}}
+@media(max-width:370px){.fb-shell{padding-left:18px;padding-right:18px}.fb-hero h1{font-size:46px}.fb-feature-list{grid-template-columns:1fr}.fb-install{gap:8px}.fb-install code{font-size:12px}.fb-copy{padding:7px 8px}}
+@media(prefers-reduced-motion:reduce){.fb-site *{transition:none!important;scroll-behavior:auto!important}}
+
+.fb-commerce{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.fb-commerce h2{font-size:clamp(32px,3.3vw,43px);margin-bottom:22px;max-width:530px}
+.fb-commerce-copy>p:not(.fb-eyebrow){font-size:16px;color:var(--fb-muted);max-width:530px}
+.fb-commerce-paths{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:15px}
+.fb-commerce-paths li{padding-left:16px;border-left:2px solid var(--fb-orange);font-size:14px;color:var(--fb-muted);line-height:1.6}
+.fb-commerce-paths strong{display:block;color:var(--fb-ink);font-size:15px}
+.fb-commerce-note{margin-top:18px!important;font-size:12px!important;line-height:1.6}
+.fb-commerce-art{max-width:370px;width:100%;justify-self:end;background:var(--fb-dark);padding:22px 26px 18px;color:var(--fb-paper)!important}
+.fb-commerce-art a{display:block}
+.fb-commerce-art img{display:block;width:100%;height:auto;box-shadow:0 8px 20px #0002}
+.fb-commerce-art figcaption{padding-top:14px;font:11px/1.5 var(--fb-mono);display:flex;justify-content:space-between;gap:12px}
+.fb-commerce-art a:hover img{outline:2px solid #d9e4d8;outline-offset:4px}
+@media(max-width:1050px){.fb-commerce{gap:35px}.fb-commerce-art{padding:18px}}
+@media(max-width:767px){.fb-commerce{grid-template-columns:1fr;gap:30px}.fb-commerce h2{font-size:34px}.fb-commerce-art{justify-self:center;max-width:400px}.fb-commerce .fb-actions{gap:14px 20px}}
+
+.fb-stack-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:14px}
+.fb-stack-links a{display:inline-block;padding:5px 0;text-decoration:underline;text-underline-offset:4px}
+.fb-stack-intro{color:var(--fb-muted)!important;font-size:15px;line-height:1.6}
+.fb-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.fb-path{display:flex;flex-direction:column;min-width:0;border:1px solid var(--fb-rule);border-top:3px solid var(--fb-ink);padding:24px 22px;background:#eeefe6}
+.fb-path h3{font-size:26px;font-weight:700;line-height:1.2;letter-spacing:-.035em;margin:10px 0 14px}
+.fb-path p{font-size:14px;line-height:1.65;color:var(--fb-muted)}
+.fb-path .fb-path-kind{font:10px/1.5 var(--fb-mono);letter-spacing:.025em;text-transform:uppercase;color:var(--fb-ink)}
+.fb-path a{font-size:13px;line-height:1.5;text-decoration:underline;text-underline-offset:4px;margin-top:auto;padding-top:24px}
+
+@media(max-width:1050px){.fb-paths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.fb-paths{grid-template-columns:1fr;gap:14px}.fb-path{padding:21px}.fb-path a{padding-top:17px}}
+.fb-path a.fb-path-extra{margin-top:8px;padding-top:0}
+.fb-start .fb-component-detail{margin-top:18px;font-size:14px}
+.fb-alpha-note{margin-top:30px;padding:22px 24px;background:#e6eadf;border-left:3px solid var(--fb-orange)}
+.fb-alpha-note .fb-eyebrow{font-size:10px;margin-bottom:8px}
+.fb-alpha-note h3{font-size:20px;line-height:1.25;font-weight:700;letter-spacing:-.025em;margin-bottom:10px}
+.fb-start .fb-alpha-note p:not(.fb-eyebrow){font-size:14px;line-height:1.65}
+.fb-alpha-note a{display:block;font-size:13px;line-height:1.6;margin-top:14px;text-decoration:underline;text-underline-offset:4px}
+.fb-gallery-intro{max-width:780px;font-size:15px;color:var(--fb-muted)!important;margin:-6px 0 30px!important}
+.fb-gallery-intro a{text-decoration:underline;text-underline-offset:4px}
+.fb-example-bottom{flex-wrap:wrap;gap:8px 12px}
+.fb-example--accessible .fb-thumb{background:#e6ebdd}
+.fb-code pre{line-height:1.7}
+@media(max-width:767px){.fb-alpha-note{padding:20px}.fb-gallery-intro{margin-top:0!important}}
+</style>
+<div id="fb-home" class="fb-site"><div class="fb-shell">
+<section class="fb-hero" aria-labelledby="fb-hero-title">
+ <div><p class="fb-eyebrow">Components + HTML/CSS → PDF</p><h1 id="fb-hero-title">From code<br>to paper.</h1><p class="fb-lede">Invoices, statements, and reports.<br>Compose with Python, JavaScript, or C# components. Bring your own HTML/CSS, too.</p>
+ <div class="fb-actions"><a class="fb-btn" href="#fb-components">Build with components <span aria-hidden="true">↓</span></a><a class="fb-text-link" href="https://docs.fullbleed.dev/playground/">Try the browser playground ↗</a></div>
+ <div class="fb-install"><code id="fb-install-code">pip install fullbleed</code><button class="fb-copy" type="button" data-fb-copy="fb-install-code" aria-label="Copy Python install command">Copy</button></div>
+ <p class="fb-under-command">Python 3.10–3.14 · MIT licensed · <a href="#fb-examples">Explore the PDFs &amp; source ↓</a></p><nav class="fb-stack-links" aria-label="Choose your stack"><a href="https://docs.fullbleed.dev/guides/browser-pdf/">Browser JS</a><a href="https://docs.fullbleed.dev/guides/react-pdf/">React</a><a href="https://docs.fullbleed.dev/guides/vue-pdf/">Vue</a><a href="https://docs.fullbleed.dev/getting-started/node/">Node.js</a><a href="https://docs.fullbleed.dev/getting-started/dotnet/">C# / .NET</a><a href="https://docs.fullbleed.dev/getting-started/rust/">Rust</a></nav><p class="fb-under-command"><a href="#fb-commerce">For WooCommerce &amp; Shopify: explore Commerce ↗</a></p></div>
+ <figure class="fb-document"><div class="fb-doc-bar"><span>invoice.pdf</span><span>01 / 01</span></div><a href="https://docs.fullbleed.dev/assets/showcase-authoring-alpha5/invoice-components.pdf" aria-label="Open the generated Northstar Studio invoice PDF"><img src="https://docs.fullbleed.dev/assets/showcase-authoring-alpha5/invoice-1.png" alt="Northstar Studio invoice with editorial typography, vermilion rules, and a forest-green total panel for USD 1,870.00" width="992" height="1403" fetchpriority="high"><figcaption class="fb-doc-caption"><span>COMPONENT PDF · 2.6.0a5</span><span>Open PDF ↗</span></figcaption></a></figure>
+</section>
+<section class="fb-proof" aria-label="Why Fullbleed"><div><h2>Built for the page.</h2><p>Static HTML/CSS, pagination, and typography. A dedicated engine for print documents.</p></div><div><h2>Repeatable by design.</h2><p>Pin your engine, inputs, assets, and metadata. Compare the resulting PDF bytes.</p></div><div><h2>Yours to build with.</h2><p>Open source under MIT. Free for personal projects and commercial applications.</p></div></section>
+<section class="fb-section fb-start" id="fb-components" aria-labelledby="fb-start-title">
+ <div><p class="fb-eyebrow">01 / The authoring</p><h2 id="fb-start-title">A document.<br>Made of components.</h2>
+ <p>Write a function. Pass it data. Compose headings, rich text, and layouts with ordinary Python. Styles belong to your document; fonts are bundled with the engine.</p>
+ <p class="fb-component-detail">This example uses the stable Python API and the install command above. Reuse <code>OrderSummary</code> for each customer.</p>
+ <a class="fb-text-link" href="https://docs.fullbleed.dev/guides/python-components/">Learn components &amp; styling ↗</a>
+ <aside class="fb-alpha-note" aria-labelledby="fb-alpha-title"><p class="fb-eyebrow">Opt-in alpha · 2.6.0a5</p><h3 id="fb-alpha-title">Try the next authoring API.</h3><p>Components that carry their styles, typed table columns, static Bootstrap helpers, and styled or unstyled HTML export. The API may change before stabilization.</p><a href="https://docs.fullbleed.dev/getting-started/component-notebook/">Edit the component notebook ↗</a><a href="https://docs.fullbleed.dev/guides/bootstrap-components-preview/">Explore the component catalog ↗</a></aside>
+ </div>
+ <div class="fb-code"><div class="fb-code-bar"><span>order.py · stable Python</span><button type="button" class="fb-copy" data-fb-copy="fb-python-code" aria-label="Copy Python component example">Copy Python</button></div><pre><code id="fb-python-code">from importlib.resources import files
+from pathlib import Path
+import fullbleed
+from fullbleed.ui import Document, Heading, Paragraph, Stack, Strong
+
+@Document(title="Order summary", styles={
+    "@page": {"size": "A4", "margin": "18mm"},
+    "body": {"font_family": "Inter", "color": "#18372e"},
+    "h1": {"font_size": "32pt", "margin": 0},
+    "p": {"margin": 0},
+})
+def OrderSummary(customer):
+    return Stack(
+        Heading("Made for you", level=1),
+        Paragraph("Prepared for ", Strong(customer)),
+        gap="12pt",
+    )
+
+font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+engine = fullbleed.PdfEngine(font_files=[str(font)])
+order = OrderSummary("Moss &amp; Fern")
+Path("order.pdf").write_bytes(order.render_pdf(engine))</code></pre><div class="fb-code-foot">$ python order.py &nbsp; → &nbsp; order.pdf</div></div>
+</section>
+<section class="fb-section" id="fb-examples" aria-labelledby="fb-examples-title"><div class="fb-section-heading"><div><p class="fb-eyebrow">02 / The output</p><h2 id="fb-examples-title">See what comes out.</h2></div><a class="fb-text-link" href="https://docs.fullbleed.dev/examples/">All examples &amp; source ↗</a></div>
+<p class="fb-gallery-intro">Northstar and Common Ground: one design, two authoring paths. Compare the Python components and HTML/CSS, with matching-output checks on the pinned 2.6.0a5 alpha. <a href="https://docs.fullbleed.dev/guides/showcase-authoring/">Explore both sources ↗</a></p>
+<div class="fb-examples">
+<article class="fb-example"><a class="fb-thumb" href="https://docs.fullbleed.dev/assets/showcase-authoring-alpha5/report-components.pdf" aria-label="Open the three-page Common Ground community report"><img src="https://docs.fullbleed.dev/assets/showcase-authoring-alpha5/report-1.png" alt="Common Ground report cover with bold typography and a native vector landscape" loading="lazy" width="992" height="1403"></a><h3>A report with a point of view.</h3><p>Editorial type, vector illustration, gradient charts, and clear allocations.</p><div class="fb-example-bottom"><span>3-PAGE REPORT · ALPHA</span><a href="https://docs.fullbleed.dev/guides/showcase-authoring/">Both authoring paths ↗</a></div></article>
+<article class="fb-example fb-example--accessible"><a class="fb-thumb" href="https://docs.fullbleed.dev/assets/accessible-showcase-alpha5/common-ground-guide.pdf" aria-label="Open the two-page Common Ground community guide"><img src="https://docs.fullbleed.dev/assets/accessible-showcase-alpha5/page-1.png" alt="Common Ground guide with an illustrated shared garden, program cards, and forest-green typography" loading="lazy" width="992" height="1403"></a><h3>Designed to be read.</h3><p>Headings, image descriptions, and table headers. A two-page component guide with PDF/UA-1 validation evidence.</p><div class="fb-example-bottom"><span>COMMUNITY GUIDE · ALPHA</span><a href="https://docs.fullbleed.dev/guides/accessible-showcase/">Source &amp; checks ↗</a></div></article>
+<article class="fb-example fb-example--statements"><a class="fb-thumb" href="https://docs.fullbleed.dev/assets/showcase/statements.pdf" aria-label="Open the three-record Hillside member statement batch"><img src="https://docs.fullbleed.dev/assets/showcase/statements-1.png" alt="Hillside statement with plum serif typography, a lilac balance panel, and contribution bars" loading="lazy" width="992" height="1403"></a><h3>Personal, at every page.</h3><p>One compiled layout. Three member records. Balances, charts, and a distinct identity.</p><div class="fb-example-bottom"><span>3 MEMBER RECORDS</span><a href="https://docs.fullbleed.dev/examples/#hillside-member-statements">PDF &amp; source ↗</a></div></article>
+</div></section>
+<section class="fb-section" id="fb-stack" aria-labelledby="fb-stack-title"><div class="fb-section-heading"><div><p class="fb-eyebrow">03 / Choose your stack</p><h2 id="fb-stack-title">Your application.<br>Your starting point.</h2></div><p class="fb-stack-intro">Reusable components or existing HTML/CSS.<br>Choose the integration that fits your application.</p></div><div class="fb-paths"><article class="fb-path"><p class="fb-path-kind">Native API + CLI</p><h3>Python</h3><p>Function components, reusable styles, and batch documents, with bundled fonts and inspection tools.</p><a href="https://docs.fullbleed.dev/guides/python-components/">Build with Python components <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/getting-started/quickstart/">Python quickstart <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/web-frameworks/">FastAPI, Flask &amp; Django <span aria-hidden="true">↗</span></a></article>
+<article class="fb-path"><p class="fb-path-kind">Web Worker SDK</p><h3>Browser JavaScript</h3><p>Generate PDFs and PNG previews in your user&#x27;s browser. Author with JavaScript components or your existing HTML/CSS templates.</p><a href="https://docs.fullbleed.dev/guides/javascript-components/">JavaScript &amp; JSX components <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/browser-pdf/">Start with the browser SDK <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/assets/browser-demo/index.html">Try the editable demo <span aria-hidden="true">↗</span></a></article>
+<article class="fb-path"><p class="fb-path-kind">Forms + automatic previews</p><h3>React &amp; Vue</h3><p>Connect a form to a live PDF preview. Edit the templates and reuse a React hook or Vue composable in your app.</p><a href="https://docs.fullbleed.dev/guides/react-pdf/">Get the React starter <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/vue-pdf/">Get the Vue starter <span aria-hidden="true">↗</span></a></article>
+<article class="fb-path"><p class="fb-path-kind">WebAssembly package</p><h3>Node.js</h3><p>Compose documents with JavaScript, TypeScript, or JSX. Render PDF bytes and PNG previews in Node.js 22+.</p><a href="https://docs.fullbleed.dev/getting-started/node/">Node.js quickstart <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/nextjs-pdf/">Get the Next.js starter <span aria-hidden="true">↗</span></a></article>
+<article class="fb-path"><p class="fb-path-kind">Native .NET bindings</p><h3>C# / .NET</h3><p>Compose with typed components, LINQ children, and immutable styles. Render PDFs and previews on Windows, Linux, and macOS.</p><a href="https://docs.fullbleed.dev/guides/csharp-components/">Build with C# components <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/getting-started/dotnet/">.NET quickstart <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/aspnet-pdf/">Get the ASP.NET Core starter <span aria-hidden="true">↗</span></a><a class="fb-path-extra" href="https://docs.fullbleed.dev/guides/csharp-tagged-pdf/">Create tagged PDFs in C# <span aria-hidden="true">↗</span></a></article>
+<article class="fb-path"><p class="fb-path-kind">Native library</p><h3>Rust</h3><p>Embed the print engine directly in a Rust application. Start with a runnable example.</p><a href="https://docs.fullbleed.dev/getting-started/rust/">Rust quickstart <span aria-hidden="true">↗</span></a></article></div></section>
+<section class="fb-section fb-features" aria-labelledby="fb-features-title"><div><p class="fb-eyebrow">04 / Beyond hello world</p><h2 id="fb-features-title">A print engine.<br>In your stack.</h2></div><div class="fb-feature-list"><div><h3>From request to download.</h3><p>Serve PDF bytes from FastAPI, Flask, or Django with runnable examples.</p><a href="https://docs.fullbleed.dev/guides/web-frameworks/">Build an invoice endpoint ↗</a></div><div><h3>One layout. Many records.</h3><p>Use fixed or reflow bindings for variable-data documents and statement batches.</p><a href="https://docs.fullbleed.dev/guides/bank-statements/">Explore variable data ↗</a></div><div><h3>Inspect what you ship.</h3><p>Preview finalized PDFs and retain structured diagnostics alongside the output.</p><a href="https://docs.fullbleed.dev/getting-started/first-pdf/">Render, preview, inspect ↗</a></div><div><h3>Know the boundaries.</h3><p>A dedicated print engine with documented CSS support and explicit validation workflows.</p><a href="https://docs.fullbleed.dev/css-coverage/">Supported CSS &amp; known gaps ↗</a></div></div></section>
+<section class="fb-section fb-commerce" id="fb-commerce" aria-labelledby="fb-commerce-title">
+ <div class="fb-commerce-copy"><p class="fb-eyebrow">05 / Fullbleed Commerce · Preview</p><h2 id="fb-commerce-title">Your store's paperwork.<br>Your design.</h2><p>Give order summaries and packing slips the same care as your storefront. Start with a designed template, edit visually or paste HTML/CSS, and preview the actual PDF.</p>
+ <ul class="fb-commerce-paths"><li><strong>Design it once.</strong>The free WooCommerce editor runs in your browser. No account, watermark or document quota.</li><li><strong>Connect it to the order.</strong>Evaluate Pro email attachments and customer account downloads in WooCommerce, or document links in Shopify Flow.</li></ul>
+ <div class="fb-actions"><a class="fb-btn" href="https://docs.fullbleed.dev/guides/woocommerce/">Try the WooCommerce demo <span aria-hidden="true">↗</span></a><a class="fb-text-link" href="https://docs.fullbleed.dev/guides/woocommerce/#evaluate-an-automated-workflow">Evaluate an automation</a></div>
+ <p class="fb-commerce-note">The free preview is available now. Automation is for staging and development stores; paid plans and marketplace listings are not live.</p></div>
+ <figure class="fb-commerce-art"><a href="https://docs.fullbleed.dev/assets/commerce/sample-order.pdf" aria-label="Open the Cedar and Form sample order summary PDF"><img src="https://docs.fullbleed.dev/assets/commerce/sample-order.png" alt="Cedar and Form order summary with warm paper, serif headings and rust-colored rules, generated from a fictional WooCommerce order." loading="lazy" width="774" height="1095"><figcaption><span>REAL WOOCOMMERCE OUTPUT</span><span>Open PDF ↗</span></figcaption></a></figure>
+</section>
+<section class="fb-close" aria-labelledby="fb-close-title"><div><h2 id="fb-close-title">Make something worth printing.</h2><p>Edit a designed example. Download your PDF. No account needed.</p></div><a class="fb-btn" href="https://docs.fullbleed.dev/playground/">Open the playground <span aria-hidden="true">↗</span></a></section>
+<span class="fb-sr-only" id="fb-copy-status" role="status" aria-live="polite"></span>
+</div></div>
+<script>
+(function(){
+ if(window.fullbleedCopyBound)return;window.fullbleedCopyBound=true;
+ document.addEventListener('click',async function(e){
+  var b=e.target.closest('[data-fb-copy]');if(!b)return;
+  var code=document.getElementById(b.dataset.fbCopy);if(!code)return;
+  var original=b.textContent,status=document.getElementById('fb-copy-status');
+  try{await navigator.clipboard.writeText(code.textContent);b.textContent='Copied';if(status)status.textContent='Copied to clipboard.';}
+  catch(err){var s=window.getSelection(),r=document.createRange();r.selectNodeContents(code);s.removeAllRanges();s.addRange(r);if(status)status.textContent='Text selected. Press Control C or Command C to copy.';b.textContent='Selected';}
+  setTimeout(function(){b.textContent=original},1800);
+ });
+})();
+</script>
