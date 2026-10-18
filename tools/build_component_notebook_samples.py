@@ -9,12 +9,13 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--verification-dir", required=True, type=Path)
-parser.add_argument("--channel", choices=("alpha3", "alpha5", "alpha6"), default="alpha3")
+parser.add_argument("--browser-verification-dir", type=Path, help="Optional actual Jupyter browser check for this exact notebook")
+parser.add_argument("--channel", choices=("alpha3", "alpha5", "alpha6", "alpha6-r1"), default="alpha3")
 args = parser.parse_args()
 checked = args.verification_dir.resolve()
 report = json.loads((checked / "verification.json").read_text(encoding="utf-8"))
 folder = "component-notebook" if args.channel == "alpha3" else f"component-notebook-{args.channel}"
-runtime_version = {"alpha3": "2.6.0a3", "alpha5": "2.6.0a5", "alpha6": "2.6.0a6"}[args.channel]
+runtime_version = {"alpha3": "2.6.0a3", "alpha5": "2.6.0a5", "alpha6": "2.6.0a6", "alpha6-r1": "2.6.0a6"}[args.channel]
 source = ROOT / "examples" / folder / "bootstrap_components.ipynb"
 assert report["ok"] and report["runtime_version"] == runtime_version
 assert report["notebook_sha256"] == sha256(source.read_bytes()).hexdigest()
@@ -45,5 +46,20 @@ if all(row.get("rich_cell_components_checked") for row in report["cases"]):
     for row in manifest["cases"]:
         row["rich_cell_components_checked"] = True
     manifest["checks"].insert(5, "Rich item cell emphasis, order and escaped text in both HTML exports")
+if args.browser_verification_dir:
+    browser_path = args.browser_verification_dir / "verification.json"
+    browser = json.loads(browser_path.read_text(encoding="utf-8"))
+    assert browser["ok"] and browser["notebook_sha256"] == report["notebook_sha256"]
+    assert browser["runtime_version"] == report["runtime_version"]
+    assert [r["name"] for r in browser["cases"]] == [r["name"] for r in report["cases"]]
+    for actual, expected in zip(browser["cases"], report["cases"]):
+        assert actual["actual_browser_download"] and actual["visible_previews_match_download"]
+        assert actual["filename"] == "component-order.zip"
+        assert actual["artifact_hashes"] == expected["artifact_hashes"]
+    assert browser["stale_previews_excluded"]
+    shutil.copyfile(browser_path, assets / "browser-verification.json")
+    manifest["browser_verification"] = {"file": "browser-verification.json",
+        "sha256": sha256(browser_path.read_bytes()).hexdigest(), "system": browser["system"],
+        "scope": browser["scope"]}
 (assets / "verification.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
 print(json.dumps({"ok": True, "downloads": len(manifest["downloads"]), "cases": len(manifest["cases"])}))

@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-18T16:41:19.430606+00:00",
+  "notebook_sha256": "38007bb834b8affd0e2062cdba77eee56c2eae25c51ded9f37c6d40066b8e997",
+  "runtime_version": "2.6.0a6",
+  "system": "Windows",
+  "python": "3.11.8",
+  "browser": "155.0.8059.40",
+  "tools": {
+    "notebook": "7.6.3",
+    "jupyter_server": "2.21.1",
+    "ipykernel": "7.4.0",
+    "playwright": "1.49.1"
+  },
+  "cases": [
+    {
+      "name": "default",
+      "pages": 1,
+      "actual_browser_download": true,
+      "filename": "component-order.zip",
+      "href_path": "/files/output/component-order.zip",
+      "zip_sha256": "559869425c983a7f71f7e12ed10c4b827982e30f0d0959c1fa7418cb3d60bcb3",
+      "artifact_hashes": {
+        "order.pdf": "e273572ff4885ba8b139563cec45b590b385a2e7330d8728d2f71596e2fdbce6",
+        "order.styled.html": "c53d95a831b1d2fda92da28e6dcc5bf6063a7b1090cf1053930c39ff7b54103f",
+        "order.unstyled.html": "3e072e3dd684f9e7c483859a41051619effa814225a64a1a0e500e4d6be936e6",
+        "order-page-1.png": "2b6c470b1e49a906170be982a00398ed57033b353cb14e6b56f97763b99bbd2b"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "edited",
+      "pages": 1,
+      "actual_browser_download": true,
+      "filename": "component-order.zip",
+      "href_path": "/files/output/component-order.zip",
+      "zip_sha256": "2fda77249124c3c4492661fa3ecf8951fb0c4c609194d8cdac76ac9ed6554a11",
+      "artifact_hashes": {
+        "order.pdf": "5823731e0146ab74806acce6bbd0676af5b77bf04566827c9c50523004cdb4c4",
+        "order.styled.html": "ffeb7c3da32ee2f88ffca18fdf98a57207217d35dfa9a8b6ad86b889ef763f49",
+        "order.unstyled.html": "7079de5ca04cb177864165f59f3a77ddf5d3d4406fb274973ea6bbf0b6254fac",
+        "order-page-1.png": "a9610eb13d8b47f2f643a0809de412302428d772e9798e1ab17d3f9361c69fa7"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "long",
+      "pages": 4,
+      "actual_browser_download": true,
+      "filename": "component-order.zip",
+      "href_path": "/files/output/component-order.zip",
+      "zip_sha256": "72eb4fccf02ae5b5e9bbc3d37a1b3e4b8cfff61d89b026eebb0251b4757ffc42",
+      "artifact_hashes": {
+        "order.pdf": "c543c6cd5c6dadc7b4e77fd043a3fa5f2693dfbb0e20d9f844a5e6bb894a4735",
+        "order.styled.html": "40b7281978170db2c4da4ca73ab86c54e367014f66d1ae64ea279b83a44f148d",
+        "order.unstyled.html": "a9a83ab877726691b998e0b53fef913a927044c9f1dbaa422fc2a47d18fecbf8",
+        "order-page-1.png": "d9dac9397542e717cf089da666509b3511e0700134dd6b77fe77bbe6751450f8",
+        "order-page-2.png": "cba70b5c9faf533ff81d3ae6d0cfee2a08b5edca98de02a38f05ed0c471f2eea",
+        "order-page-3.png": "20953665812775ad39f9c1b02b80f1d083a5ac24d4e98150e091bf59cee01881",
+        "order-page-4.png": "9c7b49a79e37676a917621f4e603dcd1f1bd961ee1c2743b361a910ce4632e33"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "empty-after-long",
+      "pages": 1,
+      "actual_browser_download": true,
+      "filename": "component-order.zip",
+      "href_path": "/files/output/component-order.zip",
+      "zip_sha256": "f011e7c092d956e9f978fa71d9fe16806d115d259f7bda05be2cc7bcf2f842ec",
+      "artifact_hashes": {
+        "order.pdf": "5994d1a6f3a7176c8f4f614221cd60d27028a1fd8d80a372f4510eeeb056b573",
+        "order.styled.html": "7f7576f19793dbb00055d236a6e42a31970d0eee7a6bf20a966aaec80542b934",
+        "order.unstyled.html": "8d287583c01c902d4d58f400e36c7d3437631999aacfc16f146955a1311b130a",
+        "order-page-1.png": "d18340f788498d3f1912c80675562eaa47353e85a6e0a5bb6837dbf0a6ced454"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    }
+  ],
+  "stale_previews_excluded": true,
+  "scope": "Local Jupyter Notebook editing, execution, displayed previews and actual browser ZIP downloads. Hosted Colab is not tested."
+}
