@@ -10,20 +10,20 @@ reusable program cards, a captioned schedule and practical visitor information.
 Its Python source carries headings, table headers, lists and an image description
 through to the final PDF.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/2b3ad43d32ee5c99c933ce44cb71fdf361373bc7/examples/accessible_showcase/guide.py).
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/examples/accessible_showcase/guide.py).
 
-[Read the PDF](../assets/accessible-showcase/common-ground-guide.pdf){ .md-button .md-button--primary }
-[Download the source kit](../assets/accessible-showcase/project.zip){ .md-button }
-[Open the responsive HTML](../assets/accessible-showcase/guide.html){ .md-button }
+[Read the PDF](../assets/accessible-showcase-alpha5/common-ground-guide.pdf){ .md-button .md-button--primary }
+[Download the source kit](../assets/accessible-showcase-alpha5/project.zip){ .md-button }
+[Open the responsive HTML](../assets/accessible-showcase-alpha5/guide.html){ .md-button }
 
-![Common Ground cover with forest-green serif typography, an illustrated shared garden, three program cards and a welcoming callout.](../assets/accessible-showcase/page-1.png)
+![Common Ground cover with forest-green serif typography, an illustrated shared garden, three program cards and a welcoming callout.](../assets/accessible-showcase-alpha5/page-1.png)
 
-[View the schedule and visitor-information page](../assets/accessible-showcase/page-2.png).
+[View the schedule and visitor-information page](../assets/accessible-showcase-alpha5/page-2.png).
 
 !!! info "Pinned component alpha"
-    The kit uses `fullbleed.ui.experimental` from **2.6.0a4**. Its API may change
+    The kit uses `fullbleed.ui.experimental` from **2.6.0a5**. Its API may change
     before stabilization. The PDF and all verification receipts below refer to
-    this specific published specimen.
+    this specific specimen.
 
 ## Build it and make it yours
 
@@ -68,7 +68,7 @@ styled = document.to_html(include_styles=True, a11y_mode="raise")
 unstyled = document.to_html(include_styles=False, a11y_mode="raise")
 ```
 
-[Open the unstyled HTML](../assets/accessible-showcase/guide-unstyled.html) to see
+[Open the unstyled HTML](../assets/accessible-showcase-alpha5/guide-unstyled.html) to see
 the semantic document without CSS. It retains authored class names, text, alt
 text and the link, so another application can supply its own presentation.
 The render command copies the local fonts and illustration beside both exports.
@@ -76,7 +76,7 @@ The render command copies the local fonts and illustration beside both exports.
 ## What was checked
 
 The final two-page PDF passed **veraPDF 1.30.3's PDF/UA-1 validation profile:
-106 passed rules, 5,326 passed checks, zero failures and no diagnostic warnings**. The receipt identifies
+106 passed rules, 5,512 passed checks, zero failures and no diagnostic warnings**. The receipt identifies
 the exact PDF by SHA-256.
 
 | Check | Result |
@@ -93,20 +93,22 @@ the exact PDF by SHA-256.
 | Unstyled HTML | Semantic elements and authored classes retained; no CSS or inline style declarations |
 | Authored text colors | Minimum contrast ratio 7.45:1 across the design's text/background pairs |
 
-[Validation receipt](../assets/accessible-showcase/validation.json) ·
-[veraPDF report](../assets/accessible-showcase/pdfua1.verapdf.json) ·
-[PDF tag and reading-order report](../assets/accessible-showcase/structure.json) ·
-[Verifier failure control](../assets/accessible-showcase/verification-guard.json) ·
-[Browser checks](../assets/accessible-showcase/browser-verification.json) ·
-[Source manifest](../assets/accessible-showcase/source.json)
+[Validation receipt](../assets/accessible-showcase-alpha5/validation.json) ·
+[veraPDF report](../assets/accessible-showcase-alpha5/pdfua1.verapdf.json) ·
+[PDF tag and reading-order report](../assets/accessible-showcase-alpha5/structure.json) ·
+[Verifier failure control](../assets/accessible-showcase-alpha5/verification-guard.json) ·
+[Browser checks](../assets/accessible-showcase-alpha5/browser-verification.json) ·
+[Source manifest](../assets/accessible-showcase-alpha5/source.json)
 
 These checks are **not a screen-reader user test or blanket WCAG certification**.
 The kit includes `verify.py` to inspect the actual output again after edits.
 It rejects nested marked-content IDs and unbalanced tag boundaries even without
-veraPDF. The pinned alpha has a [known issue with component content inside table
-cells](https://github.com/fullbleed-engine/fullbleed-official/issues/97); this
-specimen uses plain cell text with CSS styling. The kit's check rejects a retained
-earlier PDF that demonstrates the issue.
+veraPDF. Alpha 5 corrects the [overlapping content tags in rich table
+cells](https://github.com/fullbleed-engine/fullbleed-official/issues/97). The program
+column now returns `Strong(row["program"])` directly, preserving that component's
+content inside its table cell. The kit still rejects the retained defective
+alpha 4 PDF. Caption-containment issues in PDF/UA-2 and column-consistency issues
+in the oversized-row stress fixture remain separate limitations.
 For an external check, run [veraPDF's UA-1 profile](https://docs.verapdf.org/cli/validation/)
 on the final PDF:
 
@@ -122,3 +124,5 @@ link. The two-page print layout should be rechecked after content changes.
 
 For another way to author the same design, see the
 [paired Northstar and Common Ground examples](showcase-authoring.md).
+
+The [alpha 4 guide](https://github.com/fullbleed-engine/docs/blob/fff03de311627b15291a527996b94fd3626cd79d/docs/guides/accessible-showcase.md), [PDF](../assets/accessible-showcase/common-ground-guide.pdf) and [source kit](../assets/accessible-showcase/project.zip) retain their original bytes, validation receipt and plain-text table workaround.

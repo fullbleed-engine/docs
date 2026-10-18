@@ -23,23 +23,27 @@ ASSETS = ROOT / "docs/assets/showcase-authoring"
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=ROOT / "target/showcase-authoring")
+    parser.add_argument("--channel", choices=("alpha4", "alpha5"), default="alpha4")
     args = parser.parse_args()
+    suffix = "" if args.channel == "alpha4" else "-" + args.channel
+    assets = ROOT / ("docs/assets/showcase-authoring" + suffix)
+    archive_root = "fullbleed-showcase-authoring" + suffix
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    manifest = json.loads((ASSETS / "source.json").read_text(encoding="utf-8"))
-    assert version("fullbleed") == manifest["engine_version"] == "2.6.0a4"
-    archive = ASSETS / "project.zip"
+    manifest = json.loads((assets / "source.json").read_text(encoding="utf-8"))
+    assert version("fullbleed") == manifest["engine_version"] == {"alpha4": "2.6.0a4", "alpha5": "2.6.0a5"}[args.channel]
+    archive = assets / "project.zip"
     assert sha256(archive.read_bytes()).hexdigest() == manifest["zip_sha256"]
     project = out / "project"
     assert not project.exists(), "Use a fresh output directory"
     project.mkdir()
     with ZipFile(archive) as package:
-        expected = {"fullbleed-showcase-authoring/" + name for name in manifest["package_files"]}
+        expected = {archive_root + "/" + name for name in manifest["package_files"]}
         assert set(package.namelist()) == expected and len(package.namelist()) == len(expected)
         for name, digest in manifest["package_files"].items():
             path = project / name
             assert project in path.resolve().parents
-            data = package.read("fullbleed-showcase-authoring/" + name)
+            data = package.read(archive_root + "/" + name)
             assert sha256(data).hexdigest() == digest
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
@@ -48,14 +52,14 @@ def main():
     (out / "comparison.log").write_text(run.stdout + run.stderr, encoding="utf-8")
     assert run.returncode == 0, run.stdout + run.stderr
     actual = json.loads((out / "rendered/comparison.json").read_text(encoding="utf-8"))
-    expected = json.loads((ASSETS / "comparison.json").read_text(encoding="utf-8"))
+    expected = json.loads((assets / "comparison.json").read_text(encoding="utf-8"))
     assert actual == expected, "The downloaded source changed the published comparison"
     pages = []
     for record in actual["documents"]:
         name = record["name"]
         paths = [out / "rendered" / lane / name / f"{name}.pdf" for lane in ("html", "components")]
         for lane, path in zip(("html", "components"), paths):
-            assert path.read_bytes() == (ASSETS / f"{name}-{lane}.pdf").read_bytes()
+            assert path.read_bytes() == (assets / f"{name}-{lane}.pdf").read_bytes()
         readers = [PdfReader(path) for path in paths]
         documents = [pdfium.PdfDocument(str(path)) for path in paths]
         try:
@@ -96,7 +100,7 @@ def main():
             exec(compile(textwrap.dedent(block), "showcase-authoring.md", "exec"), namespace)
     finally:
         os.chdir(prior)
-    assert (code_out / "invoice.pdf").read_bytes() == (ASSETS / "invoice-components.pdf").read_bytes()
+    assert (code_out / "invoice.pdf").read_bytes() == (assets / "invoice-components.pdf").read_bytes()
     # Exercise editing, including escaping and data-dependent amounts, rather
     # than validating only the original fixture's literal strings.
     import compare_authoring

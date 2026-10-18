@@ -9,15 +9,15 @@ Build an order summary with a card, a data table and a status badge. Export it
 as HTML or render it as a PDF. The component supplies its structure and default
 styling; your Python supplies the content.
 
-!!! warning "Opt-in alpha 2.6.0a4"
-    This guide uses **Fullbleed 2.6.0a4**, with experimental APIs under
+!!! warning "Opt-in alpha 2.6.0a5"
+    This guide uses **Fullbleed 2.6.0a5**, with experimental APIs under
     `fullbleed.ui.experimental`. Install the alpha explicitly; a normal stable
     installation does not select it. Names and behavior may change. Use the
     [released component guide](python-components.md) for the stable API.
 
-[Download the Bootstrap kit](../assets/bootstrap-alpha4/project.zip){ .md-button .md-button--primary }
-[Open the report PDF](../assets/bootstrap-alpha4/report.pdf){ .md-button }
-[Browse the HTML catalog](../assets/bootstrap-alpha4/catalog.html){ .md-button }
+[Download the Bootstrap kit](../assets/bootstrap-alpha5/project.zip){ .md-button .md-button--primary }
+[Open the report PDF](../assets/bootstrap-alpha5/report.pdf){ .md-button }
+[Browse the HTML catalog](../assets/bootstrap-alpha5/catalog.html){ .md-button }
 
 [Try the component notebook](../getting-started/component-notebook.md) to edit
 data and styles in Colab or Jupyter, then download a PDF and both HTML exports.
@@ -30,29 +30,11 @@ Bootstrap JavaScript. Tabs show the selected panel, carousels show the selected
 item, and overlays appear in document flow. Ordinary HTML form controls retain
 their native browser behavior; PDF controls show printed values and selections.
 
-The alpha also applies document class rules, inherited colors and named-part
-opacity to supported inline SVG content. This lets a component's surrounding
-styles reach its vector artwork. The [SVG styling contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a4/docs/embedded-stylesheets.md)
-describes the supported behavior.
-
-Alpha 3 adds the stable 2.5.28 inset-shadow corrections. Card root styles,
-custom class rules and named body parts use the same corrected rendering in
-PDFs and styled HTML exports.
-The font cascade also respects explicit theme and component font choices after
-Bootstrap's variable-based default. Documents that previously used the wrong
-font can reflow.
-Inline flex items also retain their own spacing, including navbar brands and
-toast headers. Paragraph and heading components honor an authored flex or grid
-layout while preserving their semantic tags.
-
-Alpha 4 corrects saved-PDF previews of isolated translucent SVG groups,
-so their opacity is applied once.
-
 ## A production report in components
 
 <div class="showcase-entry" markdown>
 <figure markdown>
-[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-alpha4/report-page-1.png)](../assets/bootstrap-alpha4/report.pdf)
+[![A Northstar production report with three metric cards, a striped revenue table, two explanatory cards and a progress bar.](../assets/bootstrap-alpha5/report-page-1.png)](../assets/bootstrap-alpha5/report.pdf)
 </figure>
 <div markdown>
 
@@ -63,8 +45,8 @@ compose a single document. Its content is fictional. The kit includes the
 complete Python source, and this image is rendered from the downloadable PDF
 with PDFium.
 
-[Open the styled HTML](../assets/bootstrap-alpha4/report.styled.html){ .md-button }
-[Compare unstyled HTML](../assets/bootstrap-alpha4/report.unstyled.html)
+[Open the styled HTML](../assets/bootstrap-alpha5/report.styled.html){ .md-button }
+[Compare unstyled HTML](../assets/bootstrap-alpha5/report.unstyled.html)
 
 </div>
 </div>
@@ -81,8 +63,8 @@ Activate it with `.venv\Scripts\Activate.ps1` in Windows PowerShell, or
 `source .venv/bin/activate` on macOS/Linux. Then run:
 
 ```console
-python -m pip install --pre "fullbleed==2.6.0a4"
-fullbleed new remote python-components my-report --version 0.1.0
+python -m pip install --pre "fullbleed==2.6.0a5"
+fullbleed new remote python-components my-report --version 0.1.1
 cd my-report
 python first_document.py
 python examples/component_bootstrap/main.py --out output --catalog-pdfs
@@ -92,15 +74,15 @@ The CLI downloads the pinned project and verifies its SHA-256 before extracting
 the files. Choose a new or empty target directory. You can discover the available
 component projects with `fullbleed new search components`.
 
-If you downloaded the [kit ZIP](../assets/bootstrap-alpha4/project.zip) instead,
-enter its `fullbleed-bootstrap-alpha4` folder and skip the `new remote` and
+If you downloaded the [kit ZIP](../assets/bootstrap-alpha5/project.zip) instead,
+enter its `fullbleed-bootstrap-alpha5` folder and skip the `new remote` and
 `cd my-report` steps. The same Python commands render the document and catalog.
 
 Open `order.pdf` and `order.html`, then `output/report.pdf` and
 `output/catalog.html`. The kit's `requirements.txt` pins the same alpha version.
 Compatible Windows, macOS and Linux wheels need no Rust build. On other platforms,
 pip may build the source distribution, which needs Rust/Cargo and native build tools.
-See the [alpha release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a4).
+See the [alpha release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a5).
 
 The [alpha 3 kit](../assets/bootstrap-alpha3/project.zip),
 [alpha 2 kit](../assets/bootstrap-alpha2/project.zip),
@@ -203,7 +185,7 @@ Use `styled(bs.Card, ...)` to define reusable root defaults. `style(...)` checks
 a vocabulary of common properties; additional declarations use the explicit
 `css(...)` helper, such as `css("box-shadow: inset 4px 0 0 0 #205b47;")`.
 Compose it with `.with_style(...)` or a named-part style. The
-[styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a4/docs/component-bootstrap.md#how-styling-works)
+[styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a5/docs/component-bootstrap.md#how-styling-works)
 includes a complete reusable-card example.
 
 Cards expose `header`, `body`, `title`, `subtitle` and `footer` as style parts.
@@ -216,7 +198,7 @@ Custom components declare required targets with `parts=(...)` and conditional
 targets with `optional_parts=(...)`. A parent exposes a selected child part with
 `.forward_parts(heading="label")`. Missing required targets produce a diagnostic
 when the component is created; child implementation details stay private. The
-[part-styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a4/examples/component_recipes/README.md#customize-a-root-or-an-exposed-part)
+[part-styling guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a5/examples/component_recipes/README.md#customize-a-root-or-an-exposed-part)
 shows reusable components and forwarding through containers.
 
 ## Export whole documents or fragments
@@ -245,7 +227,7 @@ source, or `target="html"` for ordinary HTML controls.
 
 ## Explore the component catalog
 
-The [HTML catalog](../assets/bootstrap-alpha4/catalog.html) shows all 23
+The [HTML catalog](../assets/bootstrap-alpha5/catalog.html) shows all 23
 Bootstrap 5.0.0 component families, plus four groups for layout, forms, content
 and utilities. The source is in `examples/component_bootstrap/catalog.py`.
 
@@ -264,8 +246,8 @@ state. Hidden panels remain hidden in unstyled HTML.
 
 PDF controls print values and selections, including masked passwords and
 selected options. They do not become fillable PDF fields. Compare the
-[form PDF](../assets/bootstrap-alpha4/forms.pdf) and
-[form preview](../assets/bootstrap-alpha4/forms-page-1.png) with the HTML catalog.
+[form PDF](../assets/bootstrap-alpha5/forms.pdf) and
+[form preview](../assets/bootstrap-alpha5/forms-page-1.png) with the HTML catalog.
 
 ## What has been checked
 
@@ -273,9 +255,25 @@ The source implementation has focused tests for the component and export
 contracts. Its native catalog contains 27 one-page specimens; a separate
 80-row table checks pagination and repeated headers. Browser checks exercise
 authored states and styled/unstyled HTML at desktop and mobile widths.
-The [download manifest](../assets/bootstrap-alpha4/source.json) pins source
-files and wheel hashes. The [output verification record](../assets/bootstrap-alpha4/verification.json)
+The [download manifest](../assets/bootstrap-alpha5/source.json) pins source
+files and wheel hashes. The [output verification record](../assets/bootstrap-alpha5/verification.json)
 records the published documents and checks.
+
+Alpha 5 includes the stable inline-spacing and rich-table tagging fixes.
+Components such as `Strong(...)` can own their content inside table cells without
+overlapping marked-content IDs. The [accessible showcase](accessible-showcase.md)
+uses this in its program schedule and retains validation of the actual PDF.
+
+Document class rules, inherited colors and named-part opacity reach supported
+inline SVG content. Isolated translucent groups apply opacity once in saved-PDF
+previews. See the [SVG styling contract](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a5/docs/embedded-stylesheets.md)
+for the supported behavior.
+
+Card root styles, custom class rules and named body parts share the corrected
+inset-shadow rendering in PDFs and styled HTML exports. Explicit theme and
+component font choices take precedence over Bootstrap's variable-based default.
+Inline flex items retain their own spacing, and paragraph and heading components
+honor authored flex or grid layouts while preserving semantic tags.
 
 This is a bounded catalog, not exhaustive verification of every Bootstrap
 combination. Interactive Bootstrap behavior, Sass compilation, browser pixel
@@ -288,6 +286,8 @@ reading the implementation. If a task requires generated HTML or an internal
 selector, that is useful feedback for the API design.
 
 [Share an editing task in the design discussion](https://github.com/fullbleed-engine/fullbleed-official/discussions/86){ .md-button }
-[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/47deedd30b5c81989d16cd26d7687836104670eb/docs/component-bootstrap.md)
-· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/47deedd30b5c81989d16cd26d7687836104670eb/docs/component-authoring-next-iteration.md)
+[Read the complete API guide](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/docs/component-bootstrap.md)
+· [Read the implementation review](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/docs/component-authoring-next-iteration.md)
 · [Review the draft PR](https://github.com/fullbleed-engine/fullbleed-official/pull/85)
+
+The [alpha 4 guide](https://github.com/fullbleed-engine/docs/blob/fff03de311627b15291a527996b94fd3626cd79d/docs/guides/bootstrap-components-preview.md) and [source kit](../assets/bootstrap-alpha4/project.zip) remain available with their original runtime pin and verification records.

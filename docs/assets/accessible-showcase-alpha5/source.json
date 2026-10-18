@@ -1,0 +1,41 @@
+{
+  "repository": "https://github.com/fullbleed-engine/fullbleed-official",
+  "commit": "25ef51e152744e36716054005b7a964e0cccc6e9",
+  "path": "examples/accessible_showcase",
+  "runtime": "2.6.0a5",
+  "source_files": {
+    ".gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
+    "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "README.md": "2135df46c1e2ce7417246623592972ea6b8fff78287c624fa59da1ea555d6151",
+    "browser.css": "59876dbb2ddce6f7fc94a435584bc430ce714fc1cc6095adaa4f9e58351369a1",
+    "fonts/DMSerifDisplay-OFL.txt": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1",
+    "fonts/DMSerifDisplay-Regular.ttf": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
+    "fonts/Inter-OFL.txt": "5dd548d31a85f756e01d63e00d7faf1e324103ed3e9102fcbbabf2cc2db6dd39",
+    "garden.svg": "b55568259e14cca65522b69dc18c4987b399a1862ec9d99ed1b647b97996043c",
+    "guide.css": "29cb17b5b0992607a22258a43964828ce1d6ae31c0402d648ff7479fdb5c4e07",
+    "guide.py": "90c355dbddad140ebcfd48b502ef704285a36d8346f8aa2c9aada6e050428b79",
+    "render.py": "02ce7065ee7bf3fc319a11bd4f200ffd36c581d9b27b671919d8f074b6f0ad3f",
+    "requirements-check.txt": "4eadc7023aba8e289cb2e9b4f46eed8c350d9c55500f98c19d938010d46add8d",
+    "requirements.txt": "a78d4bd5e1eebdb02e0bcf5105e96cd39eda61f1e0002e72091a278cfe345882",
+    "verify.py": "33ed212e52bc9d3f1ba89e6b8ed835d067099926d08c2abb6b55125281ed11f3"
+  },
+  "zip_sha256": "96cb90def6ff379dee4e0066ca9267665ef60ab1a1b3aec29e1bf5a57d617f8e",
+  "zip_bytes": 120621,
+  "package_files": {
+    ".gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
+    "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "README.md": "2135df46c1e2ce7417246623592972ea6b8fff78287c624fa59da1ea555d6151",
+    "SOURCE.json": "8be2f826cd97ff4338090fb85e321066237df41da6c82c6e111d983fe1330c8a",
+    "browser.css": "59876dbb2ddce6f7fc94a435584bc430ce714fc1cc6095adaa4f9e58351369a1",
+    "fonts/DMSerifDisplay-OFL.txt": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1",
+    "fonts/DMSerifDisplay-Regular.ttf": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
+    "fonts/Inter-OFL.txt": "5dd548d31a85f756e01d63e00d7faf1e324103ed3e9102fcbbabf2cc2db6dd39",
+    "garden.svg": "b55568259e14cca65522b69dc18c4987b399a1862ec9d99ed1b647b97996043c",
+    "guide.css": "29cb17b5b0992607a22258a43964828ce1d6ae31c0402d648ff7479fdb5c4e07",
+    "guide.py": "90c355dbddad140ebcfd48b502ef704285a36d8346f8aa2c9aada6e050428b79",
+    "render.py": "02ce7065ee7bf3fc319a11bd4f200ffd36c581d9b27b671919d8f074b6f0ad3f",
+    "requirements-check.txt": "4eadc7023aba8e289cb2e9b4f46eed8c350d9c55500f98c19d938010d46add8d",
+    "requirements.txt": "a78d4bd5e1eebdb02e0bcf5105e96cd39eda61f1e0002e72091a278cfe345882",
+    "verify.py": "33ed212e52bc9d3f1ba89e6b8ed835d067099926d08c2abb6b55125281ed11f3"
+  }
+}

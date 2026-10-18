@@ -14,17 +14,21 @@ ASSETS=ROOT/'docs/assets/accessible-showcase'
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,default=ROOT/'target/accessible-showcase')
+    parser.add_argument('--channel',choices=('alpha4','alpha5'),default='alpha4')
     args=parser.parse_args()
+    suffix='' if args.channel=='alpha4' else '-'+args.channel
+    assets=ROOT/('docs/assets/accessible-showcase'+suffix)
+    archive_root='fullbleed-accessible-showcase'+suffix
     out=args.out.resolve();out.mkdir(parents=True,exist_ok=True)
-    manifest=json.loads((ASSETS/'source.json').read_text(encoding='utf-8'))
-    archive=ASSETS/'project.zip'
+    manifest=json.loads((assets/'source.json').read_text(encoding='utf-8'))
+    archive=assets/'project.zip'
     assert sha256(archive.read_bytes()).hexdigest()==manifest['zip_sha256']
-    project=out/'fullbleed-accessible-showcase'
+    project=out/archive_root
     with ZipFile(archive) as package:
-        expected={'fullbleed-accessible-showcase/'+name for name in manifest['package_files']}
+        expected={archive_root+'/'+name for name in manifest['package_files']}
         assert set(package.namelist())==expected
         for name,digest in manifest['package_files'].items():
-            data=package.read('fullbleed-accessible-showcase/'+name)
+            data=package.read(archive_root+'/'+name)
             assert sha256(data).hexdigest()==digest,name
             path=(project/name).resolve()
             assert path.is_relative_to(project.resolve())
@@ -49,10 +53,10 @@ def main():
     else:
         raise AssertionError('The source kit accepted the known nested-MCID PDF')
     actual=sha256((output/'common-ground-guide.pdf').read_bytes()).hexdigest()
-    validated=json.loads((ASSETS/'validation.json').read_text(encoding='utf-8'))
+    validated=json.loads((assets/'validation.json').read_text(encoding='utf-8'))
     assert validated['external_validation']['compliant']
     assert validated['external_validation']['stderr_bytes']==0
-    assert actual==validated['pdf_sha256']==sha256((ASSETS/'common-ground-guide.pdf').read_bytes()).hexdigest()
+    assert actual==validated['pdf_sha256']==sha256((assets/'common-ground-guide.pdf').read_bytes()).hexdigest()
     report={'ok':True,'source_files':len(manifest['source_files']),'pdf_sha256':actual,
             'matches_externally_validated_pdf':True,'external_validator_rerun':False,
             'marked_content_nesting_valid':True,'negative_control_rejection':rejection}

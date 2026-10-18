@@ -1,0 +1,112 @@
+{
+  "ok": true,
+  "accessible_pdf_sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d",
+  "accessible_pages_reviewed": 2,
+  "independent_dpi": 144,
+  "clipping_or_text_loss_observed": false,
+  "guide_changed_regions": [
+    {
+      "page": 1,
+      "changed_bbox": [
+        130,
+        1186,
+        1015,
+        1240
+      ],
+      "pixels_equal": false,
+      "text_equal": true
+    },
+    {
+      "page": 2,
+      "changed_bbox": [
+        113,
+        502,
+        272,
+        722
+      ],
+      "pixels_equal": false,
+      "text_equal": true
+    }
+  ],
+  "guide_change_review": "All content and two-page layout retained. Page 1 differences are confined to the welcome paragraph paint; page 2 differences are confined to the program labels restored to Strong components. Both full candidate pages and before/after crops inspected.",
+  "paired_authoring_pixels_equal": true,
+  "paired_version_changes": {
+    "invoice": [
+      {
+        "page": 1,
+        "pixels_equal": true,
+        "changed_bbox": null,
+        "text_equal": true
+      }
+    ],
+    "report": [
+      {
+        "page": 1,
+        "pixels_equal": true,
+        "changed_bbox": null,
+        "text_equal": true
+      },
+      {
+        "page": 2,
+        "pixels_equal": false,
+        "changed_bbox": [
+          90,
+          88,
+          318,
+          112
+        ],
+        "text_equal": true
+      },
+      {
+        "page": 3,
+        "pixels_equal": false,
+        "changed_bbox": [
+          90,
+          88,
+          318,
+          112
+        ],
+        "text_equal": true
+      }
+    ]
+  },
+  "paired_change_review": "Northstar and the Common Ground cover retain alpha 4 pixels. Common Ground pages 2 and 3 change only their small brand heading at the top; before/after crop inspected, with no clipping. Same-version HTML and components match for every page.",
+  "browser_widths": [
+    1440,
+    390,
+    320
+  ],
+  "human_assistive_technology_test": false,
+  "external_validation": {
+    "profile": "PDF/UA-1 validation profile",
+    "compliant": true,
+    "stderr_bytes": 0,
+    "details": {
+      "passedRules": 106,
+      "failedRules": 0,
+      "passedChecks": 5512,
+      "failedChecks": 0,
+      "ruleSummaries": []
+    },
+    "build": {
+      "releaseDetails": [
+        {
+          "id": "core",
+          "version": "1.30.3",
+          "buildDate": 1791385320000
+        },
+        {
+          "id": "validation-model",
+          "version": "1.30.3",
+          "buildDate": 1791398640000
+        },
+        {
+          "id": "apps",
+          "version": "1.30.3",
+          "buildDate": 1791399120000
+        }
+      ]
+    }
+  },
+  "scope": "Artifact-specific automated and visual checks, not general WCAG or PDF/UA conformance for arbitrary documents."
+}

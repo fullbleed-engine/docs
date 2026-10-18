@@ -117,3 +117,17 @@ docs/assets/accessible-showcase/** -text whitespace=cr-at-eol
 docs/assets/accessible-showcase/*.pdf binary
 docs/assets/accessible-showcase/fonts/*.ttf binary
 tools/fixtures/accessible-showcase/*.pdf binary
+
+# Alpha 5 kits and retained receipts are verified against their exact source bytes.
+examples/bootstrap-alpha5/** -text whitespace=cr-at-eol
+docs/assets/bootstrap-alpha5/** -text
+docs/assets/bootstrap-alpha5/*.pdf binary
+examples/showcase-authoring-alpha5/** -text whitespace=cr-at-eol
+examples/showcase-authoring-alpha5/**/fonts/*-OFL.txt -whitespace
+docs/assets/showcase-authoring-alpha5/** -text whitespace=cr-at-eol
+docs/assets/showcase-authoring-alpha5/*.pdf binary
+examples/accessible-showcase-alpha5/** -text
+examples/accessible-showcase-alpha5/fonts/*.ttf binary
+docs/assets/accessible-showcase-alpha5/** -text whitespace=cr-at-eol
+docs/assets/accessible-showcase-alpha5/*.pdf binary
+docs/assets/accessible-showcase-alpha5/fonts/*.ttf binary
