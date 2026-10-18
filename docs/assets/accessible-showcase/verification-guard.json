@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "runtime": "2.6.0a4",
+  "source_commit": "2b3ad43d32ee5c99c933ce44cb71fdf361373bc7",
+  "positive": {
+    "ok": true,
+    "source_files": 14,
+    "pdf_sha256": "a0600667d2227b965db9074545f56dd6dc9ccf29aec9445bdca18a86f9e1d18e",
+    "matches_externally_validated_pdf": true,
+    "external_validator_rerun": false,
+    "marked_content_nesting_valid": true,
+    "negative_control_rejection": "Nested MCID on page 2: 7 -> 8"
+  },
+  "negative": {
+    "sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+    "source": "Pre-refinement Common Ground specimen; fictional content, generated with public Fullbleed 2.6.0a4",
+    "old_verifier_accepts": true,
+    "verapdf_profile_compliant": true,
+    "verapdf_nested_mcid_warnings": 8,
+    "expected_rejection": "Nested MCID on page 2: 7 -> 8",
+    "issue": "https://github.com/fullbleed-engine/fullbleed-official/issues/97"
+  },
+  "fixture": "https://github.com/fullbleed-engine/docs/blob/docs/component-template-install/tools/fixtures/accessible-showcase/nested-table-mcid.pdf",
+  "scope": "Independent saved-PDF marked-content nesting check; external validator was not rerun because the published PDF bytes are unchanged."
+}

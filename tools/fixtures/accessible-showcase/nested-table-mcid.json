@@ -1,0 +1,9 @@
+{
+  "sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "source": "Pre-refinement Common Ground specimen; fictional content, generated with public Fullbleed 2.6.0a4",
+  "old_verifier_accepts": true,
+  "verapdf_profile_compliant": true,
+  "verapdf_nested_mcid_warnings": 8,
+  "expected_rejection": "Nested MCID on page 2: 7 -> 8",
+  "issue": "https://github.com/fullbleed-engine/fullbleed-official/issues/97"
+}

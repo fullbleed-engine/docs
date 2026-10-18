@@ -116,3 +116,4 @@ examples/accessible-showcase/fonts/*.ttf binary
 docs/assets/accessible-showcase/** -text whitespace=cr-at-eol
 docs/assets/accessible-showcase/*.pdf binary
 docs/assets/accessible-showcase/fonts/*.ttf binary
+tools/fixtures/accessible-showcase/*.pdf binary

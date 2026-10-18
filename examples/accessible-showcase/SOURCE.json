@@ -1,12 +1,12 @@
 {
   "repository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "commit": "1dade16aa2131cb7c1d683bd8cb18b366ede2d0e",
+  "commit": "2b3ad43d32ee5c99c933ce44cb71fdf361373bc7",
   "path": "examples/accessible_showcase",
   "runtime": "2.6.0a4",
   "source_files": {
     ".gitignore": "7e2f65c80bddb76631f05a448b09378247e7f14af4ade18127925c07a6538dbf",
     "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
-    "README.md": "58fefb8c8d344bb6b1d932a3cfbc669513851ebe6e3c81ce6c0398aad1d1fe1a",
+    "README.md": "87e48262db2fd2515a7fde0e263dcc4d41e36267435b9624cbe36013af3d1157",
     "browser.css": "59876dbb2ddce6f7fc94a435584bc430ce714fc1cc6095adaa4f9e58351369a1",
     "fonts/DMSerifDisplay-OFL.txt": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1",
     "fonts/DMSerifDisplay-Regular.ttf": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
@@ -17,6 +17,6 @@
     "render.py": "02ce7065ee7bf3fc319a11bd4f200ffd36c581d9b27b671919d8f074b6f0ad3f",
     "requirements-check.txt": "4eadc7023aba8e289cb2e9b4f46eed8c350d9c55500f98c19d938010d46add8d",
     "requirements.txt": "0bca20fe02236c6f591c72ce5b782ca35a662a2f66db8205a1241732f6ed0dc0",
-    "verify.py": "f3725e533e3d6bba53aa52043e395d6c87a541d1e1301430d75ca026de6562d1"
+    "verify.py": "33ed212e52bc9d3f1ba89e6b8ed835d067099926d08c2abb6b55125281ed11f3"
   }
 }
