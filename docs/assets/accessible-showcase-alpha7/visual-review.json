@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "method": "Independent PDFium rendering at 144 DPI",
+  "profiles": {
+    "pdfua1": {
+      "pdf_sha256": "faaf5e56e4bc962f4096d6a77deaad176266089548984eda7f45091339ba73d4",
+      "pages": [
+        {
+          "page": 1,
+          "size": [
+            1191,
+            1684
+          ],
+          "sha256": "37dd5d5d49bd28e1d4099e2f55def5799b4d9ac534731f83825730f43d575b9e",
+          "pixels_sha256": "5287fcde7630001344414fe6ab9ac9f1c68cd2ee34f3b87b9cae9aff8a6f51b5",
+          "path": "pdfua1-page-1.png"
+        },
+        {
+          "page": 2,
+          "size": [
+            1191,
+            1684
+          ],
+          "sha256": "79d597f2f3c323aed9d379275356dbf88d04bd9461ca3df69f9def2ed097cf78",
+          "pixels_sha256": "d022e7280cf4bd3b8bb270e426a38b84e672ff02818c0ef7885a81340df55014",
+          "path": "pdfua1-page-2.png"
+        }
+      ]
+    },
+    "pdfua2": {
+      "pdf_sha256": "b38e8d6008c5474ba8b37ce952a9e65603c03d722390af3273ff048a59af0779",
+      "pages": [
+        {
+          "page": 1,
+          "size": [
+            1191,
+            1684
+          ],
+          "sha256": "37dd5d5d49bd28e1d4099e2f55def5799b4d9ac534731f83825730f43d575b9e",
+          "pixels_sha256": "5287fcde7630001344414fe6ab9ac9f1c68cd2ee34f3b87b9cae9aff8a6f51b5",
+          "path": "pdfua2-page-1.png"
+        },
+        {
+          "page": 2,
+          "size": [
+            1191,
+            1684
+          ],
+          "sha256": "79d597f2f3c323aed9d379275356dbf88d04bd9461ca3df69f9def2ed097cf78",
+          "pixels_sha256": "d022e7280cf4bd3b8bb270e426a38b84e672ff02818c0ef7885a81340df55014",
+          "path": "pdfua2-page-2.png"
+        }
+      ]
+    }
+  },
+  "both_profiles_have_identical_pixels": true,
+  "visual_review": "Both independent PDFium page renders inspected by Codex.",
+  "reviewed_at": "2026-10-18T19:47:17.485309+00:00",
+  "observations": [
+    "Both pages retain the complete composition, readable type and all authored content.",
+    "The garden illustration, three program cards, schedule and visit-planning lists are visible without clipping or text collisions.",
+    "The weekly-session caption is visible immediately above its table.",
+    "The PDF/UA-1 and PDF/UA-2 specimens have identical rendered pixels on both pages."
+  ],
+  "scope": "Visual layout inspection and exact pixel comparison; no human assistive-technology evaluation or general accessibility claim."
+}

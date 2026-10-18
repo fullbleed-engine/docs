@@ -157,3 +157,10 @@ docs/assets/accessible-showcase-alpha6/fonts/*.ttf binary
 examples/component-notebook-alpha6-r1/** text eol=lf
 docs/assets/component-notebook-alpha6-r1/** -text
 docs/assets/component-notebook-alpha6-r1/*.pdf binary
+
+# Alpha 7 source kits and both PDF/UA receipts retain identical bytes on every OS.
+examples/accessible-showcase-alpha7/** -text
+examples/accessible-showcase-alpha7/fonts/*.ttf binary
+docs/assets/accessible-showcase-alpha7/** -text whitespace=cr-at-eol
+docs/assets/accessible-showcase-alpha7/**/*.pdf binary
+docs/assets/accessible-showcase-alpha7/fonts/*.ttf binary

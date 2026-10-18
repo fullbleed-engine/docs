@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "runtime": "2.6.0a7",
+  "source_commit": "2be0f5a1e04088d129ea194803b05a04b526a889",
+  "nested_mcid_fixture_sha256": "587eab84291c3e4af0e1bbfd7ed42100d2b4cd1a8cf6b8c0ba237b58d69548ae",
+  "duplicate_caption_fixture_sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d",
+  "profiles": {
+    "pdfua1": {
+      "ok": true,
+      "source_files": 14,
+      "pdf_sha256": "faaf5e56e4bc962f4096d6a77deaad176266089548984eda7f45091339ba73d4",
+      "pdf_profile": "pdfua1",
+      "matches_externally_validated_pdf": true,
+      "external_validator_rerun": false,
+      "marked_content_nesting_valid": true,
+      "negative_control_rejection": "Nested MCID on page 2: 7 -> 8",
+      "caption_negative_control_rejection": "Expected one Caption; got 2"
+    },
+    "pdfua2": {
+      "ok": true,
+      "source_files": 14,
+      "pdf_sha256": "b38e8d6008c5474ba8b37ce952a9e65603c03d722390af3273ff048a59af0779",
+      "pdf_profile": "pdfua2",
+      "matches_externally_validated_pdf": true,
+      "external_validator_rerun": false,
+      "marked_content_nesting_valid": true,
+      "negative_control_rejection": "Nested MCID on page 2: 7 -> 8",
+      "caption_negative_control_rejection": "Expected one Caption; got 2"
+    }
+  },
+  "public_runtime_reproduced": true
+}

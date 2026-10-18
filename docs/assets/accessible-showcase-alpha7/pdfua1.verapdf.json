@@ -1,0 +1,63 @@
+{"report":{"buildInformation":{"releaseDetails":[{
+  "id" : "core",
+  "version" : "1.30.3",
+  "buildDate" : 1791385320000
+},{
+  "id" : "validation-model",
+  "version" : "1.30.3",
+  "buildDate" : 1791398640000
+},{
+  "id" : "apps",
+  "version" : "1.30.3",
+  "buildDate" : 1791399120000
+}]},"jobs":[{"itemDetails":{
+  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\alpha-caption-release-20261018\\public-accessible\\pdfua1\\common-ground-guide.pdf",
+  "size" : 141678
+},"validationResult":[ {
+  "details" : {
+    "passedRules" : 106,
+    "failedRules" : 0,
+    "passedChecks" : 5512,
+    "failedChecks" : 0,
+    "ruleSummaries" : [ ]
+  },
+  "jobEndStatus" : "normal",
+  "profileName" : "PDF/UA-1 validation profile",
+  "statement" : "PDF file is compliant with Validation Profile requirements.",
+  "compliant" : true
+} ],"processingTime":{
+  "start" : 1792357017152,
+  "finish" : 1792357021701,
+  "difference" : 4549,
+  "duration" : "00:00:04.549"
+}}],"batchSummary":{
+  "duration" : {
+    "start" : 1792357016462,
+    "finish" : 1792357022057,
+    "difference" : 5595,
+    "duration" : "00:00:05.595"
+  },
+  "totalJobs" : 1,
+  "outOfMemory" : 0,
+  "veraExceptions" : 0,
+  "featuresSummary" : {
+    "totalJobCount" : 0,
+    "failedJobCount" : 0,
+    "successfulJobCount" : 0
+  },
+  "repairSummary" : {
+    "totalJobCount" : 0,
+    "failedJobCount" : 0,
+    "successfulJobCount" : 0
+  },
+  "multiJob" : false,
+  "failedEncryptedJobs" : 0,
+  "failedParsingJobs" : 0,
+  "validationSummary" : {
+    "compliantPdfaCount" : 1,
+    "totalJobCount" : 1,
+    "failedJobCount" : 0,
+    "nonCompliantPdfaCount" : 0,
+    "successfulJobCount" : 1
+  }
+}}}

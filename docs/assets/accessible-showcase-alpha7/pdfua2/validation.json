@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "pdf_sha256": "b38e8d6008c5474ba8b37ce952a9e65603c03d722390af3273ff048a59af0779",
+  "pdf_profile": "pdfua2",
+  "structure_passed": true,
+  "external_validation": {
+    "profile": "PDF/UA-2 + Tagged PDF validation profile",
+    "compliant": true,
+    "stderr_bytes": 0,
+    "details": {
+      "passedRules": 1728,
+      "failedRules": 0,
+      "passedChecks": 8147,
+      "failedChecks": 0,
+      "ruleSummaries": []
+    },
+    "build": {
+      "releaseDetails": [
+        {
+          "id": "core",
+          "version": "1.30.3",
+          "buildDate": 1791385320000
+        },
+        {
+          "id": "validation-model",
+          "version": "1.30.3",
+          "buildDate": 1791398640000
+        },
+        {
+          "id": "apps",
+          "version": "1.30.3",
+          "buildDate": 1791399120000
+        }
+      ]
+    }
+  }
+}

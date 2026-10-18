@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [alpha4, alpha5, alpha6]
+        channel: [alpha4, alpha5, alpha6, alpha7]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -34,11 +34,23 @@ jobs:
           python tools/build_accessible_showcase.py --channel ${{ matrix.channel }}
           git diff --exit-code -- docs/assets/accessible-showcase${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/project.zip docs/assets/accessible-showcase${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/source.json
           python tools/verify_accessible_showcase.py --channel ${{ matrix.channel }} --out target/accessible-showcase
+
+      - name: Verify the PDF/UA-2 source specimen
+        if: matrix.channel == 'alpha7'
+        run: python tools/verify_accessible_showcase.py --channel alpha7 --pdf-profile pdfua2 --out target/accessible-showcase-pdfua2
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: accessible-showcase-${{ matrix.channel }}-${{ matrix.os }}
           path: target/accessible-showcase/
+          retention-days: 14
+
+      - name: Retain PDF/UA-2 source verification
+        if: always() && matrix.channel == 'alpha7'
+        uses: actions/upload-artifact@v7
+        with:
+          name: accessible-showcase-alpha7-${{ matrix.os }}-pdfua2
+          path: target/accessible-showcase-pdfua2/
           retention-days: 14
   showcase-authoring:
     name: Showcase authoring comparison (${{ matrix.channel }}, ${{ matrix.os }})
