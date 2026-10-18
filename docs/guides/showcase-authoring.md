@@ -17,26 +17,26 @@ For a document with retained accessibility evidence, try the new
 [component-authored Common Ground guide](accessible-showcase.md): two designed
 pages, PDF/UA-1 machine validation, and styled or unstyled HTML exports.
 
-[Download both source versions](../assets/showcase-authoring-alpha5/project.zip){ .md-button .md-button--primary }
-[Northstar component PDF](../assets/showcase-authoring-alpha5/invoice-components.pdf){ .md-button }
-[Common Ground component PDF](../assets/showcase-authoring-alpha5/report-components.pdf){ .md-button }
+[Download both source versions](../assets/showcase-authoring-alpha6/project.zip){ .md-button .md-button--primary }
+[Northstar component PDF](../assets/showcase-authoring-alpha6/invoice-components.pdf){ .md-button }
+[Common Ground component PDF](../assets/showcase-authoring-alpha6/report-components.pdf){ .md-button }
 
-!!! info "Component alpha 2.6.0a5"
+!!! info "Component alpha 2.6.0a6"
     These examples use `fullbleed.ui.experimental` from the explicitly pinned
-    **2.6.0a5** prerelease. The API may change before stabilization. The original
+    **2.6.0a6** prerelease. The API may change before stabilization. The original
     [2.4.0 showcase downloads](../examples.md#styled-invoice) remain available;
-    this comparison renders both authoring paths on 2.6.0a5.
+    this comparison renders both authoring paths on 2.6.0a6.
 
 ## Keep the design, choose the source
 
 | Document | HTML/CSS output | Component output | Pages |
 | --- | --- | --- | --- |
-| Northstar Studio | [HTML-authored PDF](../assets/showcase-authoring-alpha5/invoice-html.pdf) | [Component-authored PDF](../assets/showcase-authoring-alpha5/invoice-components.pdf) | 1 |
-| Common Ground | [HTML-authored PDF](../assets/showcase-authoring-alpha5/report-html.pdf) | [Component-authored PDF](../assets/showcase-authoring-alpha5/report-components.pdf) | 3 |
+| Northstar Studio | [HTML-authored PDF](../assets/showcase-authoring-alpha6/invoice-html.pdf) | [Component-authored PDF](../assets/showcase-authoring-alpha6/invoice-components.pdf) | 1 |
+| Common Ground | [HTML-authored PDF](../assets/showcase-authoring-alpha6/report-html.pdf) | [Component-authored PDF](../assets/showcase-authoring-alpha6/report-components.pdf) | 3 |
 
 <div class="showcase-entry" markdown>
 <figure markdown>
-[![Northstar invoice with a condensed headline, serif studio identity and forest-green total panel.](../assets/showcase-authoring-alpha5/invoice-1.png)](../assets/showcase-authoring-alpha5/invoice-components.pdf)
+[![Northstar invoice with a condensed headline, serif studio identity and forest-green total panel.](../assets/showcase-authoring-alpha6/invoice-1.png)](../assets/showcase-authoring-alpha6/invoice-components.pdf)
 </figure>
 <div markdown>
 
@@ -47,7 +47,7 @@ typed table columns. `AmountDue` owns the total panel and exposes its label and
 amount as named styling parts. The full document composes these pieces and
 calculates totals with `Decimal`.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/examples/design_showcase/invoice_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/9da6a672e81fabebb5733aadcdd932355188bac5/examples/design_showcase/invoice_components.py)
 
 </div>
 </div>
@@ -83,7 +83,7 @@ targets. Call it again with different values to create another field.
 
 <div class="showcase-entry" markdown>
 <figure markdown>
-[![Common Ground cover with oversized green type, a warm orange sun and a vector neighborhood landscape.](../assets/showcase-authoring-alpha5/report-1.png)](../assets/showcase-authoring-alpha5/report-components.pdf)
+[![Common Ground cover with oversized green type, a warm orange sun and a vector neighborhood landscape.](../assets/showcase-authoring-alpha6/report-1.png)](../assets/showcase-authoring-alpha6/report-components.pdf)
 </figure>
 <div markdown>
 
@@ -94,10 +94,10 @@ compose metrics, a participation chart and an allocation table. The illustration
 uses the original local SVG asset; chart heights and allocation shares come from
 the data.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/examples/design_showcase/report_components.py)
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/9da6a672e81fabebb5733aadcdd932355188bac5/examples/design_showcase/report_components.py)
 
-[Reach page](../assets/showcase-authoring-alpha5/report-2.png) ·
-[Resources page](../assets/showcase-authoring-alpha5/report-3.png)
+[Reach page](../assets/showcase-authoring-alpha6/report-2.png) ·
+[Resources page](../assets/showcase-authoring-alpha6/report-3.png)
 
 </div>
 </div>
@@ -140,8 +140,8 @@ columns' `white-space: nowrap` behavior.
 Create the project through the CLI in a fresh Python environment:
 
 ```sh
-python -m pip install --pre "fullbleed==2.6.0a5"
-fullbleed new remote component-showcase my-documents --version 0.1.1
+python -m pip install --pre "fullbleed==2.6.0a6"
+fullbleed new remote component-showcase my-documents --version 0.1.2
 cd my-documents
 ```
 
@@ -149,7 +149,7 @@ The CLI verifies the pinned source archive's SHA-256 before extracting it.
 Choose a new or empty target directory. `fullbleed new search components` also
 lists the smaller Bootstrap starter.
 
-If you prefer the [source ZIP](../assets/showcase-authoring-alpha5/project.zip), extract
+If you prefer the [source ZIP](../assets/showcase-authoring-alpha6/project.zip), extract
 it and run `python -m pip install -r requirements.txt` from its root instead.
 Both routes use the explicit component alpha. Then render and compare:
 
@@ -175,7 +175,7 @@ Open the `http://127.0.0.1:...` URL printed in the terminal. Edit
 in your editor and save. The viewer refreshes the finalized PDF pages, with
 downloads for the PDF, styled HTML and unstyled HTML.
 
-![The local Northstar preview with PDF and HTML downloads, an up-to-date status, and the generated invoice.](../assets/showcase-authoring-alpha5/preview-desktop.png)
+![The local Northstar preview with PDF and HTML downloads, an up-to-date status, and the generated invoice.](../assets/showcase-authoring-alpha6/preview-desktop.png)
 
 Choose the report or the original HTML/CSS path:
 
@@ -197,7 +197,7 @@ the result.
 <details markdown>
 <summary>What an authoring error looks like</summary>
 
-![A syntax error shown above the retained invoice, with last-version download labels and an expandable traceback.](../assets/showcase-authoring-alpha5/preview-error-mobile.png){ width="390" }
+![A syntax error shown above the retained invoice, with last-version download labels and an expandable traceback.](../assets/showcase-authoring-alpha6/preview-error-mobile.png){ width="390" }
 
 </details>
 
@@ -252,11 +252,13 @@ layout after substantial content growth. The quarterly chart keeps the original
 - Direct component rendering and embedded-style HTML produce the same component
   PDF bytes. Unstyled exports omit CSS and preserve authored classes.
 
-[Native comparison](../assets/showcase-authoring-alpha5/comparison.json) ·
-[Independent-reader comparison](../assets/showcase-authoring-alpha5/independent-reader.json) ·
-[Source and download hashes](../assets/showcase-authoring-alpha5/source.json)
+[Native comparison](../assets/showcase-authoring-alpha6/comparison.json) ·
+[Independent-reader comparison](../assets/showcase-authoring-alpha6/independent-reader.json) ·
+[Source and download hashes](../assets/showcase-authoring-alpha6/source.json)
 
 These checks cover these two designs on the pinned runtime. They do not imply
 that arbitrary HTML, CSS or browser layout has complete parity.
 
 The [alpha 4 guide](https://github.com/fullbleed-engine/docs/blob/fff03de311627b15291a527996b94fd3626cd79d/docs/guides/showcase-authoring.md) and [source kit](../assets/showcase-authoring/project.zip) remain available with their original pinned runtime and output.
+
+The [alpha 5 guide](https://github.com/fullbleed-engine/docs/blob/9aa0b2d9b26d398df58f55c8dd3b240a2457e96e/docs/guides/showcase-authoring.md) retains its original runtime pins and download links.

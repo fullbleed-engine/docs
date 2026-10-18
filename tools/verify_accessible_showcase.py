@@ -14,7 +14,7 @@ ASSETS=ROOT/'docs/assets/accessible-showcase'
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,default=ROOT/'target/accessible-showcase')
-    parser.add_argument('--channel',choices=('alpha4','alpha5'),default='alpha4')
+    parser.add_argument('--channel',choices=('alpha4','alpha5','alpha6'),default='alpha4')
     args=parser.parse_args()
     suffix='' if args.channel=='alpha4' else '-'+args.channel
     assets=ROOT/('docs/assets/accessible-showcase'+suffix)

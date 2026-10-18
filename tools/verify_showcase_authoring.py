@@ -23,7 +23,7 @@ ASSETS = ROOT / "docs/assets/showcase-authoring"
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=ROOT / "target/showcase-authoring")
-    parser.add_argument("--channel", choices=("alpha4", "alpha5"), default="alpha4")
+    parser.add_argument("--channel", choices=("alpha4", "alpha5", "alpha6"), default="alpha4")
     args = parser.parse_args()
     suffix = "" if args.channel == "alpha4" else "-" + args.channel
     assets = ROOT / ("docs/assets/showcase-authoring" + suffix)
@@ -31,7 +31,7 @@ def main():
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     manifest = json.loads((assets / "source.json").read_text(encoding="utf-8"))
-    assert version("fullbleed") == manifest["engine_version"] == {"alpha4": "2.6.0a4", "alpha5": "2.6.0a5"}[args.channel]
+    assert version("fullbleed") == manifest["engine_version"] == {"alpha4": "2.6.0a4", "alpha5": "2.6.0a5", "alpha6": "2.6.0a6"}[args.channel]
     archive = assets / "project.zip"
     assert sha256(archive.read_bytes()).hexdigest() == manifest["zip_sha256"]
     project = out / "project"

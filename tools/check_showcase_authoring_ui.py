@@ -33,7 +33,7 @@ def main():
         server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(args.site.resolve())))
         threading.Thread(target=server.serve_forever, daemon=True).start()
         base = f"http://127.0.0.1:{server.server_port}"
-    manifest = json.loads((ROOT / "docs/assets/showcase-authoring-alpha5/source.json").read_text(encoding="utf-8"))
+    manifest = json.loads((ROOT / "docs/assets/showcase-authoring-alpha6/source.json").read_text(encoding="utf-8"))
     cases = []
     try:
         with sync_playwright() as playwright:
@@ -64,7 +64,7 @@ def main():
                         download.save_as(str(destination))
                         assert sha256(destination.read_bytes()).hexdigest() == manifest["zip_sha256"]
                         for filename in ("invoice-html.pdf", "invoice-components.pdf", "report-html.pdf", "report-components.pdf"):
-                            href = f"/assets/showcase-authoring-alpha5/{filename}"
+                            href = f"/assets/showcase-authoring-alpha6/{filename}"
                             assert page.locator(f'a[href$="{filename}"]').count() >= 1
                             pdf = context.request.get(base + href)
                             assert pdf.status == 200 and pdf.body() == (ROOT / "docs" / href.lstrip("/")).read_bytes()

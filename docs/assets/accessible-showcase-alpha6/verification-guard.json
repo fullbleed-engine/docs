@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "source_files": 14,
+  "pdf_sha256": "e59754b06ebd3229b35033c74b7c08175543396b48d9c152cc3419c7e58ba17d",
+  "matches_externally_validated_pdf": true,
+  "external_validator_rerun": false,
+  "marked_content_nesting_valid": true,
+  "negative_control_rejection": "Nested MCID on page 2: 7 -> 8"
+}

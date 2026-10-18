@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHANNELS = {
     "alpha3": ("2.6.0a3", "component-notebook"),
     "alpha5": ("2.6.0a5", "component-notebook-alpha5"),
+    "alpha6": ("2.6.0a6", "component-notebook-alpha6"),
 }
 
 
@@ -234,7 +235,7 @@ def main():
     edited.update(number="1051", customer="Moss & Fern <Studio>", status="Packed")
     edited["items"][0]["quantity"] = 32
     edited["items"][1]["item"] = "Personalized note cards"
-    if args.channel == "alpha5":
+    if args.channel in {"alpha5", "alpha6"}:
         edited["items"][0]["item"] = "Studio <notebooks> & cards"
     long = deepcopy(default)
     long["items"] = [{"item": f"Edition {n:02d} / art print", "quantity": 1, "unit_price": "9.50"}
@@ -265,7 +266,7 @@ def main():
             destination = out / name
             destination.mkdir()
             execute(notebook, work, destination, kernel_dir)
-            report = verify(work, destination, name, order, accent, version, args.channel == "alpha5")
+            report = verify(work, destination, name, order, accent, version, args.channel in {"alpha5", "alpha6"})
             reports.append(report)
             print(json.dumps({"case": name, "pages": report["pages"], "ok": True}), flush=True)
     assert len({r["pdf_sha256"] for r in reports}) == len(reports)

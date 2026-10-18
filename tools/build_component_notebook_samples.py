@@ -9,15 +9,18 @@ import shutil
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--verification-dir", required=True, type=Path)
+parser.add_argument("--channel", choices=("alpha3", "alpha5", "alpha6"), default="alpha3")
 args = parser.parse_args()
 checked = args.verification_dir.resolve()
 report = json.loads((checked / "verification.json").read_text(encoding="utf-8"))
-source = ROOT / "examples/component-notebook/bootstrap_components.ipynb"
-assert report["ok"] and report["runtime_version"] == "2.6.0a3"
+folder = "component-notebook" if args.channel == "alpha3" else f"component-notebook-{args.channel}"
+runtime_version = {"alpha3": "2.6.0a3", "alpha5": "2.6.0a5", "alpha6": "2.6.0a6"}[args.channel]
+source = ROOT / "examples" / folder / "bootstrap_components.ipynb"
+assert report["ok"] and report["runtime_version"] == runtime_version
 assert report["notebook_sha256"] == sha256(source.read_bytes()).hexdigest()
 assert [r["name"] for r in report["cases"]] == ["default", "edited", "long", "empty-after-long"]
 assert report["stale_pages_excluded_from_download"]
-assets = ROOT / "docs/assets/component-notebook"
+assets = ROOT / "docs/assets" / folder
 assets.mkdir(parents=True, exist_ok=True)
 for name in ("order.pdf", "order.styled.html", "order.unstyled.html"):
     data = (checked / "default" / name).read_bytes()
@@ -38,5 +41,9 @@ manifest = {
                "Static styled and unstyled HTML", "Exact ZIP contents", "Long-to-empty rerun excludes old pages"],
     "scope": report["scope"],
 }
+if all(row.get("rich_cell_components_checked") for row in report["cases"]):
+    for row in manifest["cases"]:
+        row["rich_cell_components_checked"] = True
+    manifest["checks"].insert(5, "Rich item cell emphasis, order and escaped text in both HTML exports")
 (assets / "verification.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
 print(json.dumps({"ok": True, "downloads": len(manifest["downloads"]), "cases": len(manifest["cases"])}))

@@ -19,7 +19,7 @@ def main():
     args = parser.parse_args()
     root = args.site.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    assets = root / "assets/bootstrap-alpha5"
+    assets = root / "assets/bootstrap-alpha6"
     source = json.loads((assets / "source.json").read_text(encoding="utf-8"))
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
     assert source["source_commit"] == manifest["source_commit"]
@@ -56,10 +56,10 @@ def main():
                 assert response.status == 200
                 assert page.get_by_role("heading", name="Bootstrap components, authored in Python", exact=False).is_visible()
                 article = page.locator("article").inner_text()
-                for value in ("Opt-in alpha 2.6.0a5", "fullbleed.ui.experimental",
+                for value in ("Opt-in alpha 2.6.0a6", "fullbleed.ui.experimental",
                               "static, including HTML export", "class_name",
                               "include_styles=True", "include_styles=False", "python first_document.py",
-                              'python -m pip install --pre "fullbleed==2.6.0a5"'):
+                              'python -m pip install --pre "fullbleed==2.6.0a6"'):
                     assert value in article, value
                 assert page.get_by_role("link", name="alpha release", exact=True).get_attribute("href") == source["engine_wheels"]["release_url"]
                 legacy = page.get_by_role("link", name="pinned preview kit", exact=True)
@@ -104,7 +104,7 @@ def main():
                 if width >= 390:
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 page.screenshot(path=str(args.out / f"{label}-catalog.png"), animations="disabled")
-                response = page.goto(base + "/assets/bootstrap-alpha5/catalog.unstyled.html", wait_until="networkidle")
+                response = page.goto(base + "/assets/bootstrap-alpha6/catalog.unstyled.html", wait_until="networkidle")
                 assert response.status == 200
                 assert page.locator("style, [style], link[rel=stylesheet], script").count() == 0
                 assert page.locator('[id^="sample-"]').count() == 27

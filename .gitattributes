@@ -135,3 +135,20 @@ examples/accessible-showcase-alpha5/fonts/*.ttf binary
 docs/assets/accessible-showcase-alpha5/** -text whitespace=cr-at-eol
 docs/assets/accessible-showcase-alpha5/*.pdf binary
 docs/assets/accessible-showcase-alpha5/fonts/*.ttf binary
+
+# Alpha 6 download hashes cover exact source and evidence bytes on every OS.
+examples/component-notebook-alpha6/** text eol=lf
+docs/assets/component-notebook-alpha6/** -text
+docs/assets/component-notebook-alpha6/*.pdf binary
+examples/bootstrap-alpha6/** -text whitespace=cr-at-eol
+docs/assets/bootstrap-alpha6/** -text
+docs/assets/bootstrap-alpha6/*.pdf binary
+examples/showcase-authoring-alpha6/** -text whitespace=cr-at-eol
+examples/showcase-authoring-alpha6/**/fonts/*-OFL.txt -whitespace
+docs/assets/showcase-authoring-alpha6/** -text whitespace=cr-at-eol
+docs/assets/showcase-authoring-alpha6/*.pdf binary
+examples/accessible-showcase-alpha6/** -text
+examples/accessible-showcase-alpha6/fonts/*.ttf binary
+docs/assets/accessible-showcase-alpha6/** -text whitespace=cr-at-eol
+docs/assets/accessible-showcase-alpha6/*.pdf binary
+docs/assets/accessible-showcase-alpha6/fonts/*.ttf binary

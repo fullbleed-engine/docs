@@ -21,18 +21,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [alpha4, alpha5]
+        channel: [alpha4, alpha5, alpha6]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: |
-          python -m pip install --only-binary=:all: -r examples/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/requirements-check.txt
+          python -m pip install --only-binary=:all: -r examples/accessible-showcase${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/requirements-check.txt
       - name: Rebuild the source kit and reproduce the externally validated PDF
         run: |
           python tools/build_accessible_showcase.py --channel ${{ matrix.channel }}
-          git diff --exit-code -- docs/assets/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/project.zip docs/assets/accessible-showcase${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/source.json
+          git diff --exit-code -- docs/assets/accessible-showcase${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/project.zip docs/assets/accessible-showcase${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/source.json
           python tools/verify_accessible_showcase.py --channel ${{ matrix.channel }} --out target/accessible-showcase
       - uses: actions/upload-artifact@v4
         if: always()
@@ -48,19 +48,19 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [alpha4, alpha5]
+        channel: [alpha4, alpha5, alpha6]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: |
-          python -m pip install --only-binary=:all: -r examples/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python -m pip install --only-binary=:all: -r examples/showcase-authoring${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/requirements.txt pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
       - name: Rebuild the download and compare both authoring paths
         shell: bash
         run: |
           python tools/build_showcase_authoring.py --channel ${{ matrix.channel }}
-          git diff --exit-code -- docs/assets/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/project.zip docs/assets/showcase-authoring${{ matrix.channel == 'alpha5' && '-alpha5' || '' }}/source.json
+          git diff --exit-code -- docs/assets/showcase-authoring${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/project.zip docs/assets/showcase-authoring${{ matrix.channel != 'alpha4' && format('-{0}', matrix.channel) || '' }}/source.json
           python tools/verify_showcase_authoring.py --channel ${{ matrix.channel }} --out target/showcase-authoring
           python target/showcase-authoring/project/tools/check_showcase_preview.py --project target/showcase-authoring/project/examples/design_showcase --out target/showcase-authoring/live-preview
       - uses: actions/upload-artifact@v4
@@ -77,7 +77,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [alpha3, alpha5]
+        channel: [alpha3, alpha5, alpha6]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -151,7 +151,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        channel: [preview, alpha, alpha2, alpha3, alpha4, alpha5]
+        channel: [preview, alpha, alpha2, alpha3, alpha4, alpha5, alpha6]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -934,8 +934,8 @@ jobs:
       - name: Verify live component previews and browser downloads
         run: |
           python -m venv output/showcase-live-env
-          output/showcase-live-env/bin/python -m pip install --only-binary=:all: -r examples/showcase-authoring/requirements.txt
-          python examples/showcase-authoring/tools/check_showcase_preview_browser.py --project examples/showcase-authoring/examples/design_showcase --python output/showcase-live-env/bin/python --out output/showcase-live-ui --channel chrome
+          output/showcase-live-env/bin/python -m pip install --only-binary=:all: -r examples/showcase-authoring-alpha6/requirements.txt
+          python examples/showcase-authoring-alpha6/tools/check_showcase_preview_browser.py --project examples/showcase-authoring-alpha6/examples/design_showcase --python output/showcase-live-env/bin/python --out output/showcase-live-ui --channel chrome
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -10,18 +10,18 @@ reusable program cards, a captioned schedule and practical visitor information.
 Its Python source carries headings, table headers, lists and an image description
 through to the final PDF.
 
-[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/25ef51e152744e36716054005b7a964e0cccc6e9/examples/accessible_showcase/guide.py).
+[Read the component source](https://github.com/fullbleed-engine/fullbleed-official/blob/9da6a672e81fabebb5733aadcdd932355188bac5/examples/accessible_showcase/guide.py).
 
-[Read the PDF](../assets/accessible-showcase-alpha5/common-ground-guide.pdf){ .md-button .md-button--primary }
-[Download the source kit](../assets/accessible-showcase-alpha5/project.zip){ .md-button }
-[Open the responsive HTML](../assets/accessible-showcase-alpha5/guide.html){ .md-button }
+[Read the PDF](../assets/accessible-showcase-alpha6/common-ground-guide.pdf){ .md-button .md-button--primary }
+[Download the source kit](../assets/accessible-showcase-alpha6/project.zip){ .md-button }
+[Open the responsive HTML](../assets/accessible-showcase-alpha6/guide.html){ .md-button }
 
-![Common Ground cover with forest-green serif typography, an illustrated shared garden, three program cards and a welcoming callout.](../assets/accessible-showcase-alpha5/page-1.png)
+![Common Ground cover with forest-green serif typography, an illustrated shared garden, three program cards and a welcoming callout.](../assets/accessible-showcase-alpha6/page-1.png)
 
-[View the schedule and visitor-information page](../assets/accessible-showcase-alpha5/page-2.png).
+[View the schedule and visitor-information page](../assets/accessible-showcase-alpha6/page-2.png).
 
 !!! info "Pinned component alpha"
-    The kit uses `fullbleed.ui.experimental` from **2.6.0a5**. Its API may change
+    The kit uses `fullbleed.ui.experimental` from **2.6.0a6**. Its API may change
     before stabilization. The PDF and all verification receipts below refer to
     this specific specimen.
 
@@ -68,7 +68,7 @@ styled = document.to_html(include_styles=True, a11y_mode="raise")
 unstyled = document.to_html(include_styles=False, a11y_mode="raise")
 ```
 
-[Open the unstyled HTML](../assets/accessible-showcase-alpha5/guide-unstyled.html) to see
+[Open the unstyled HTML](../assets/accessible-showcase-alpha6/guide-unstyled.html) to see
 the semantic document without CSS. It retains authored class names, text, alt
 text and the link, so another application can supply its own presentation.
 The render command copies the local fonts and illustration beside both exports.
@@ -93,12 +93,12 @@ the exact PDF by SHA-256.
 | Unstyled HTML | Semantic elements and authored classes retained; no CSS or inline style declarations |
 | Authored text colors | Minimum contrast ratio 7.45:1 across the design's text/background pairs |
 
-[Validation receipt](../assets/accessible-showcase-alpha5/validation.json) ·
-[veraPDF report](../assets/accessible-showcase-alpha5/pdfua1.verapdf.json) ·
-[PDF tag and reading-order report](../assets/accessible-showcase-alpha5/structure.json) ·
-[Verifier failure control](../assets/accessible-showcase-alpha5/verification-guard.json) ·
-[Browser checks](../assets/accessible-showcase-alpha5/browser-verification.json) ·
-[Source manifest](../assets/accessible-showcase-alpha5/source.json)
+[Validation receipt](../assets/accessible-showcase-alpha6/validation.json) ·
+[veraPDF report](../assets/accessible-showcase-alpha6/pdfua1.verapdf.json) ·
+[PDF tag and reading-order report](../assets/accessible-showcase-alpha6/structure.json) ·
+[Verifier failure control](../assets/accessible-showcase-alpha6/verification-guard.json) ·
+[Browser checks](../assets/accessible-showcase-alpha6/browser-verification.json) ·
+[Source manifest](../assets/accessible-showcase-alpha6/source.json)
 
 These checks are **not a screen-reader user test or blanket WCAG certification**.
 The kit includes `verify.py` to inspect the actual output again after edits.
@@ -126,3 +126,5 @@ For another way to author the same design, see the
 [paired Northstar and Common Ground examples](showcase-authoring.md).
 
 The [alpha 4 guide](https://github.com/fullbleed-engine/docs/blob/fff03de311627b15291a527996b94fd3626cd79d/docs/guides/accessible-showcase.md), [PDF](../assets/accessible-showcase/common-ground-guide.pdf) and [source kit](../assets/accessible-showcase/project.zip) retain their original bytes, validation receipt and plain-text table workaround.
+
+The [alpha 5 guide](https://github.com/fullbleed-engine/docs/blob/9aa0b2d9b26d398df58f55c8dd3b240a2457e96e/docs/guides/accessible-showcase.md) retains its original runtime pins and download links.
