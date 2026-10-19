@@ -130,7 +130,7 @@ def prepare(site, config_path, archive_path=None):
     summary = {'schema': 'fullbleed.css-explorer-build.v1', 'archiveSha256': config['archiveSha256'],
         'counts': expected, 'fixtures': len(fixtures), 'files': written,
         'scope': 'Presentation copy of verified published-wheel evidence. Original fixture verdicts, reference metadata, images and PDF bytes are preserved.'}
-    (output / 'site-manifest.json').write_text(json.dumps(summary, indent=2) + '\n', encoding='utf-8')
+    (output / 'site-manifest.json').write_text(json.dumps(summary, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({'fixtures': len(fixtures), 'counts': expected, 'files': len(written),
         'bytes': sum(item['bytes'] for item in written.values()), 'gatePassed': provenance['gate_passed']}))
 
@@ -141,4 +141,20 @@ if __name__ == '__main__':
     parser.add_argument('--config', type=Path, default=ROOT / 'docs/assets/css-corpus/published.json')
     parser.add_argument('--archive', type=Path)
     args = parser.parse_args()
+    # Previously published evidence URLs must continue to resolve when the
+    # current explorer advances to another package. Each historical manifest
+    # retains its own immutable archive and is checked just like the current one.
+    historical = sorted((args.config.parent / 'history').glob('*.json'))
+    versions = set()
+    for config_path in [*historical, args.config]:
+        config = json.loads(config_path.read_text(encoding='utf-8'))
+        assert config['version'] not in versions, f'Duplicate published evidence version: {config["version"]}'
+        versions.add(config['version'])
+    for config_path in historical:
+        prepare(args.site, config_path)
     prepare(args.site, args.config, args.archive)
+    current = json.loads(args.config.read_text(encoding='utf-8'))['version']
+    inventory = {'schema': 'fullbleed.css-explorer-versions.v1', 'current': current,
+                 'versions': [current, *[json.loads(path.read_text(encoding='utf-8'))['version'] for path in historical]]}
+    (args.site / 'assets/css-corpus/versions.json').write_text(
+        json.dumps(inventory, indent=2) + '\n', encoding='utf-8', newline='\n')

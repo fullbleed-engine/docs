@@ -1,21 +1,21 @@
 {
   "schema": "fullbleed.css-corpus-publication.v1",
   "packageSource": "published",
-  "version": "2.5.22",
-  "archiveUrl": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-corpus.zip",
-  "archiveSha256": "31e0072d40c77bcbb56dd73da91f0c9ab614d11d44a5ab5f8b6873f72da5c1e7",
-  "archiveBytes": 60212323,
-  "wheelSha256": "b48954edd2c1adbb17011e07f4ad4e6cc416f4d88ff7f072dcd9bc31a8b1b0e9",
-  "wheelFilename": "fullbleed-2.5.22-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "version": "2.5.34",
+  "archiveUrl": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-corpus.zip",
+  "archiveSha256": "86a6ead53b6e0ec947ea3cc3c8a4d2fd1d371756749293bd23cfd80cea3e34bc",
+  "archiveBytes": 60230681,
+  "wheelSha256": "17b75f0448fa731a0d5e875e1f40f14652579962aeb23f43a85d2fc554a5b28f",
+  "wheelFilename": "fullbleed-2.5.34-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
   "upstreamCommit": "0d1e53b6d8174d0a5059a8696c24e62759381f6d",
-  "invocationId": "fullbleed-f76772e29a594e7884800598a61c2410",
+  "invocationId": "fullbleed-ec9e3de34cbd470db971777862a68680",
   "overall": {
-    "score_pct": 98.48,
-    "pass": 1619,
-    "fail": 25,
+    "score_pct": 98.54,
+    "pass": 1620,
+    "fail": 24,
     "reference_disputed": 18,
     "total": 1662
   },
   "gatePassed": false,
-  "runUrl": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38600917475"
+  "runUrl": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39337511855"
 }
