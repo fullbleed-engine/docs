@@ -5,6 +5,11 @@ description: Try an experimental Python component kit with Bootstrap 5.0.0 cards
 
 # Bootstrap components, authored in Python
 
+!!! info "Current component preview: 2.6.0a8"
+    [Get the current showcase source kit and verified PDFs](component-preview-8.md).
+    The downloadable kits on this page retain their original version pins and evidence.
+
+
 Build an order summary with a card, a data table and a status badge. Export it
 as HTML or render it as a PDF. The component supplies its structure and default
 styling; your Python supplies the content.

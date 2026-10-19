@@ -5,6 +5,11 @@ description: Build the Northstar invoice and Common Ground report with HTML/CSS 
 
 # One design, two authoring paths
 
+!!! info "Current component preview: 2.6.0a8"
+    [Get the current showcase source kit and verified PDFs](component-preview-8.md).
+    The downloadable kits on this page retain their original version pins and evidence.
+
+
 The Northstar invoice and Common Ground report now have two source versions:
 editable HTML templates and reusable Python components. They share the same data,
 CSS, fonts and artwork. **All four PDF pages match pixel for pixel** in the
