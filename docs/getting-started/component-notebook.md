@@ -5,8 +5,9 @@ description: Edit order data and component styles in Colab or Jupyter, then down
 
 # Try Python components in a notebook
 
-!!! info "Current component preview: 2.6.0a8"
-    [Get the current showcase source kit and verified PDFs](../guides/component-preview-8.md).
+!!! info "Current component preview: 2.6.0a9"
+    [Get the current showcase source kit and verified PDFs](../guides/component-preview-9.md).
+    [Try the new page-band notebook](page-band-notebook.md) for reusable headers and final page totals.
     The downloadable kits on this page retain their original version pins and evidence.
 
 
