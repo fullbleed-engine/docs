@@ -110,7 +110,9 @@ corpus remains failing, with 25 failed cases and 18 disputed references. Reports
 checksums, limits and reproduction details are linked from the release.
 
 These fixture checks do not establish accessibility for arbitrary documents or
-human assistive-technology usability. Running-box measurements do not establish
-complete painted-ink fit; transformed content and oversized descendants can
-clip. `PageBand` and `PageNumbers` remain design proposals. The preview preserves
-the deterministic print-document engine and static HTML export boundaries.
+human assistive-technology usability. In the published a8 package, running-box
+measurements do not establish complete painted-ink fit; transformed content and
+oversized descendants can clip. `PageBand` and `PageNumbers` are implemented in
+[unreleased source](https://github.com/fullbleed-engine/fullbleed-official/blob/4379bb4c0ea792b747942d2dc7df12cd40e79150/docs/component-page-bands.md)
+and are not included in this published package. The preview preserves the
+deterministic print-document engine and static HTML export boundaries.
