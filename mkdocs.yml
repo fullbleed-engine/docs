@@ -77,6 +77,7 @@ nav:
     - Python installation: getting-started/installation.md
     - Python notebook: getting-started/notebook.md
     - Component notebook: getting-started/component-notebook.md
+    - Page-band notebook: getting-started/page-band-notebook.md
     - Use WooCommerce: guides/woocommerce.md
     - Python fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
@@ -125,7 +126,7 @@ nav:
     - Engine architecture: engine/overview.md
   - Evaluate:
     - Component design preview: guides/component-design-preview.md
-    - Current component preview: guides/component-preview-8.md
+    - Current component preview: guides/component-preview-9.md
     - Bootstrap component alpha: guides/bootstrap-components-preview.md
     - Compare Python PDF libraries: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md

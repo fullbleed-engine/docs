@@ -1,9 +1,13 @@
 ---
-title: Python components — current preview and source showcases
+title: Python component alpha 8 and source showcases
 description: Recreate the Northstar invoice, Common Ground report and accessible community guide with Fullbleed 2.6.0a8. Download the verified source and export PDF or styled and unstyled HTML.
 ---
 
 # Python components: make the design your own
+
+!!! info "Current component preview: 2.6.0a9"
+    [Get reusable page bands, finalized page numbers and the current source kit](component-preview-9.md).
+    This page retains the alpha 8 package and its verification record.
 
 Start with a complete invoice, report or community guide. Edit Python functions,
 data and styles, then generate a PDF and HTML from the same component tree.
@@ -112,7 +116,8 @@ checksums, limits and reproduction details are linked from the release.
 These fixture checks do not establish accessibility for arbitrary documents or
 human assistive-technology usability. In the published a8 package, running-box
 measurements do not establish complete painted-ink fit; transformed content and
-oversized descendants can clip. `PageBand` and `PageNumbers` are implemented in
-[unreleased source](https://github.com/fullbleed-engine/fullbleed-official/blob/4379bb4c0ea792b747942d2dc7df12cd40e79150/docs/component-page-bands.md)
-and are not included in this published package. The preview preserves the
+oversized descendants can clip. `PageBand` and `PageNumbers` are available in
+[alpha 9](component-preview-9.md) and are not included in the a8 package. The
+[initial implementation source](https://github.com/fullbleed-engine/fullbleed-official/blob/4379bb4c0ea792b747942d2dc7df12cd40e79150/docs/component-page-bands.md)
+records their original API qualification. The preview preserves the
 deterministic print-document engine and static HTML export boundaries.

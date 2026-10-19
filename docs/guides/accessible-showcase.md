@@ -5,8 +5,8 @@ description: A designed two-page Common Ground guide with Python component sourc
 
 # An accessible document, authored with components
 
-!!! info "Current component preview: 2.6.0a8"
-    [Get the current showcase source kit and verified PDFs](component-preview-8.md).
+!!! info "Current component preview: 2.6.0a9"
+    [Get the current showcase source kit and verified PDFs](component-preview-9.md).
     The downloadable kits on this page retain their original version pins and evidence.
 
 
