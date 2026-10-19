@@ -32,8 +32,22 @@ column headers, lists and an image description authored through components.
 
 ## Recreate the documents
 
-Unzip the kit, open its `fullbleed-component-showcases-2.6.0a8` folder, activate
-your virtual environment and run:
+You can download the ZIP above or install the same source kit through Fullbleed's
+CLI. In an activated virtual environment, run:
+
+```sh
+python -m pip install "fullbleed==2.6.0a8"
+fullbleed new remote component-showcase my-documents --version 0.1.3
+cd my-documents
+```
+
+An existing stable CLI can also download the template. Template `0.1.3` selects
+the source archive; its `requirements.txt` pins engine `2.6.0a8`. The installer
+checks the archive's SHA-256 before extracting files into an absent or empty
+directory. It does not install dependencies or execute the source.
+
+If you used the ZIP, open its `fullbleed-component-showcases-2.6.0a8` folder.
+From either project folder, with your virtual environment activated, run:
 
 ```sh
 python -m pip install -r requirements.txt
