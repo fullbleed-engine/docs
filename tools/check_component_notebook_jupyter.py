@@ -46,8 +46,15 @@ def check_browser(page, context, source, work, out, reference, token):
     context.on("page", lambda child: child.on("download", lambda item: downloads.append(item)))
     page.on("download", lambda item: downloads.append(item))
     reports = []
+    write(out / "startup-progress.json", dict(stage="waiting-for-run-menu"))
     page.get_by_role("menuitem", name="Run", exact=True).wait_for(timeout=60000)
-    expect(page.get_by_role("textbox")).to_have_count(7)
+    # The Run menu appears before Jupyter finishes creating the cell editors.
+    # A loaded Windows runner exceeded Playwright's default five-second wait.
+    write(out / "startup-progress.json", dict(stage="waiting-for-cell-editors"))
+    expect(page.get_by_role("textbox")).to_have_count(7, timeout=60000)
+    write(out / "startup-progress.json", dict(stage="waiting-for-kernel-ready"))
+    expect(page.get_by_role("progressbar", name="Kernel status")).to_have_attribute("aria-valuenow", "100", timeout=60000)
+    write(out / "startup-progress.json", dict(stage="ready-to-run"))
     for index, name in enumerate(("default", "edited", "long", "empty-after-long")):
         destination = out / name
         destination.mkdir()
@@ -183,9 +190,30 @@ def main():
                     try:
                         context = browser.new_context(viewport={"width": 1440, "height": 1000}, accept_downloads=True)
                         page = context.new_page()
+                        page_events = []
+                        page.on("crash", lambda: page_events.append("page-crash"))
+                        page.on("pageerror", lambda error: page_events.append(str(error).replace(token, "[redacted]")))
                         page.goto(base + "/tree?token=" + token, wait_until="domcontentloaded")
                         page.goto(base + "/notebooks/" + source_path.name, wait_until="domcontentloaded")
-                        cases = check_browser(page, context, source, work, out, reference, token)
+                        try:
+                            cases = check_browser(page, context, source, work, out, reference, token)
+                        except Exception as error:
+                            # Save the original failure before browser captures or
+                            # process cleanup can raise their own exceptions.
+                            failure = dict(ok=False, type=type(error).__name__,
+                                error=str(error).replace(token, "[redacted]"), page_events=page_events,
+                                url=page.url.replace(token, "[redacted]"), capture_errors=[])
+                            write(out / "failure.json", failure)
+                            for capture in ("screenshot", "snapshot"):
+                                try:
+                                    if capture == "screenshot":
+                                        page.screenshot(path=str(out / "failure.png"), timeout=5000, animations="disabled")
+                                    else:
+                                        (out / "failure.txt").write_text(page.locator("body").aria_snapshot(timeout=5000).replace(token, "[redacted]"), encoding="utf-8")
+                                except Exception as capture_error:
+                                    failure["capture_errors"].append(dict(capture=capture, error=str(capture_error).replace(token, "[redacted]")))
+                                    write(out / "failure.json", failure)
+                            raise
                         browser_version = browser.version
                     finally:
                         browser.close()
