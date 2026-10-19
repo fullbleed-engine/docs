@@ -5,6 +5,11 @@ description: Edit order data and component styles in Colab or Jupyter, then down
 
 # Try Python components in a notebook
 
+!!! info "Current component preview: 2.6.0a8"
+    [Get the current showcase source kit and verified PDFs](../guides/component-preview-8.md).
+    The downloadable kits on this page retain their original version pins and evidence.
+
+
 Build an order summary from Python values, cards and a data table. Change the
 customer, quantities or accent color, then download the PDF and both HTML exports.
 The notebook contains the complete source, with no authored HTML strings.

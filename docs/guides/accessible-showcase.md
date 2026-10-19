@@ -5,6 +5,11 @@ description: A designed two-page Common Ground guide with Python component sourc
 
 # An accessible document, authored with components
 
+!!! info "Current component preview: 2.6.0a8"
+    [Get the current showcase source kit and verified PDFs](component-preview-8.md).
+    The downloadable kits on this page retain their original version pins and evidence.
+
+
 Common Ground is a fictional community-program guide: an illustrated cover,
 reusable program cards, a captioned schedule and practical visitor information.
 Its Python source carries headings, table headers, lists and an image description
