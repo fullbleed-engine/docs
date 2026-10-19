@@ -109,8 +109,8 @@ Start with the integration closest to your application:
 - [Variable-data documents](bank-statements.md), for compiled fixed and reflowing workflows.
 
 For the current CSS evidence, [browse all 1,662 fixtures](css-explorer.md) from
-the published Fullbleed **2.5.22** Linux wheel. The recorded results include
-**25 FAIL** and **18 REFERENCE-DISPUTED** cases; the unchanged upstream gate
+the published Fullbleed **2.5.34** Linux wheel. The recorded results include
+**24 FAIL** and **18 REFERENCE-DISPUTED** cases; the unchanged upstream gate
 fails. Inspect the relevant cases and test your own templates. A CSS comparison
 does not establish PDF/A, PDF/UA, or PDF/X conformance.
 

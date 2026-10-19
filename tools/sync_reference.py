@@ -30,9 +30,10 @@ INTRODUCTIONS = {
         "regular and bold Noto Sans Arabic files with a font manifest and glyph checks."
     ),
     "css-coverage.md": (
-        "See the [complete 1,662-fixture CSS comparison and release follow-ups]"
-        "(guides/css-corpus.md), including the published 2.5.14 baseline, "
-        "the reviewed 2.5.22 source candidate, remaining failures, PDFs, images, and hashes. "
+        "See the [current published-wheel comparison and release follow-ups]"
+        "(guides/css-corpus.md), or [browse every fixture](guides/css-explorer.md). "
+        "Those pages identify the exact tested package, remaining failures, disputed "
+        "references, PDFs, images, and hashes. "
         "The imported reference below preserves earlier version-specific reports."
     ),
     "guides/performance.md": (

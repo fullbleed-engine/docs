@@ -24,6 +24,21 @@ published-wheel identity, complete inventory and original file manifest before
 copying PDFs and previews into the built site. Large evidence files stay in
 release storage. Pass `--archive /path/to/verified.zip` to use a local copy.
 After another MkDocs build, run the preparation step again before serving `site`.
+Earlier published manifests live in `docs/assets/css-corpus/history/`. The same
+preparation command verifies and materializes them too, preserving their versioned
+PDF, image, and index URLs when the current explorer advances. Keep the historical
+manifest bytes unchanged; the browser check verifies old PASS, FAIL, and disputed
+PDF URLs alongside the current interactive results.
+The package selector uses the generated `versions.json` inventory. Shared case
+URLs include `version=...`, and changing versions preserves the selected case
+and filters so readers can inspect the same fixture across retained releases.
+Its markup loads `explorer-v2.js` and `explorer-v2.css`; keep the original
+`explorer.js` and `explorer.css` unchanged so cached earlier pages retain a
+compatible script and stylesheet during deployment.
+The new script loads after its markup and before the theme script. This lets it
+migrate legacy `q` fixture links to `query` before the theme can open its global
+search overlay. Keep the mobile shared-link and download checks when changing
+this loading order.
 
 With Playwright 1.63.0, its Chrome browser, and pypdf 6.19.0 installed, run
 `python tools/check_css_explorer.py --site site --out output/css-explorer-ui`.

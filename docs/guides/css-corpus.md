@@ -1,10 +1,58 @@
 ---
 title: Fullbleed CSS comparison on the IronPress corpus
-description: Inspect the latest reviewed source results and browse all 1,662 fixtures tested with the published Fullbleed 2.5.22 wheel, including PDFs, reference images, failures and disputes.
+description: Browse all 1,662 fixtures tested with the published Fullbleed 2.5.34 wheel. Inspect exact package evidence, source comparisons, PDFs, failures and disputed references.
 ---
 # Inspect the CSS comparison
 
-## Latest reviewed source: inset-shadow corrections
+## Current stable published-wheel corpus: 2.5.34
+
+[Browse every fixture](css-explorer.md){ .md-button .md-button--primary }
+
+The complete October 19, 2026 run tests the **published Fullbleed 2.5.34 Linux
+wheel** against all 1,662 fixtures at pinned IronPress revision
+`0d1e53b6d8174d0a5059a8696c24e62759381f6d`. It records
+**1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**. The unchanged
+comparison gate **fails**; its original reasons, failed cases and disputed
+references remain in the report.
+
+The wheel was downloaded from PyPI, and its SHA-256 matches PyPI's file record.
+All **1,662 candidate PDFs** and all **5,489 compared PDF/PNG files** match the
+[reviewed 2.5.34 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39208485335)
+byte for byte. Fixture verdicts, raw and above-floor differences, reference
+metadata and raster fingerprints also match. The downloadable summary records
+the complete manifest verification and the exact scope of that comparison.
+
+[Complete published-wheel evidence (57.4 MiB)](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-corpus.zip)
+· [Structured verification](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-summary.json)
+· [SHA-256 checksums](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-SHA256SUMS.txt)
+· [Workflow run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39337511855)
+· [Explorer build pin](../assets/css-corpus/published.json)
+
+Extract the ZIP once and open `ironpress-evidence/current/reports/index.html`
+for the offline report. The upstream report calls its candidate “ironpress”;
+the candidate renderer in this run is Fullbleed. The online explorer preserves
+the original candidate/reference images, tested PDFs and fixture classifications.
+
+These results apply to this exact Linux wheel, explicit assets and pinned
+comparison policy. They do not establish complete CSS support, arbitrary website
+rendering, or PDF standards conformance. The historical runs below keep their
+original versions and results.
+
+## Component alpha source comparison: 2.6.0a9
+
+The [alpha 9 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39310439709)
+tests commit `18154ba3003ead91be7ce324e302201942848a96` against the same 1,662
+fixtures. It records **1,619 PASS, 25 FAIL and 18 REFERENCE-DISPUTED** and retains
+the failed gate. This is a separate **source-built wheel** result; it is not the
+stable 2.5.34 result or a complete corpus check of the downloaded alpha package.
+
+[Download the unchanged alpha source evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a9/fullbleed-css-corpus-2.6.0a9.zip)
+or read the [alpha guide and its qualification limits](component-preview-9.md).
+The current interactive explorer uses the published stable wheel above.
+
+<span id="latest-reviewed-source-inset-shadow-corrections"></span>
+
+## Historical source comparison: inset-shadow corrections
 
 The [inset-shadow fix in PR #92](https://github.com/fullbleed-engine/fullbleed-official/pull/92)
 was checked against the complete pinned 1,662-fixture corpus on October 16, 2026.
@@ -27,19 +75,21 @@ Chrome print. These differences and the failed verdict are retained in the
 No comparator reference or threshold was changed.
 
 This is **source verification**, not a complete corpus run against a downloaded
-2.5.28 package. The online explorer below continues to show the exact published
-2.5.22 wheel identified in its build pin. Older zero-failure reports are
-historical; they do not describe the current corpus result or establish complete
-CSS conformance.
+2.5.28 package. The current explorer shows the published 2.5.34 wheel identified
+above; the historical 2.5.22 package record is retained below. Older zero-failure
+reports do not describe the current corpus result or establish complete CSS
+conformance.
 
 <span id="latest-published-wheel-2522"></span>
 
-## Latest complete published-wheel corpus: 2.5.22
+<span id="latest-complete-published-wheel-corpus-2522"></span>
 
-[Browse every fixture](css-explorer.md){ .md-button .md-button--primary }
+## Historical published-wheel corpus: 2.5.22
 
-Search by CSS feature, category or verdict, compare the printed pages, and
-download the actual PDF without extracting an archive.
+[Browse the historical 2.5.22 results](css-explorer.md?version=2.5.22) or use the
+complete archive below and its retained
+[versioned fixture index](https://docs.fullbleed.dev/assets/css-corpus/2.5.22/index.json). Existing versioned
+PDF and preview URLs retain their original bytes.
 
 The complete October 14, 2026 run tests the **published Fullbleed 2.5.22 Linux
 wheel** against the same pinned 1,662-fixture corpus. It records **1,619 PASS,
@@ -58,10 +108,10 @@ also match. The downloaded wheel's SHA-256 matches PyPI's published file record.
 
 For the original offline report, extract this ZIP once and open
 `ironpress-evidence/current/reports/index.html`. The upstream report labels its
-candidate “ironpress”; that candidate is Fullbleed in this run. The online
-browser presents the same original PDF and preview bytes, verdicts and reference
-notes. It does not change the comparator's policy or promote disputed cases to
-passes.
+candidate “ironpress”; that candidate is Fullbleed in this run. The retained
+versioned files preserve the original PDF and preview bytes, verdicts and reference
+notes. Neither this record nor the current explorer changes the comparator's
+policy or promotes disputed cases to passes.
 
 These results apply to the exact Linux wheel, explicit assets, pinned references
 and comparison policy. They do not establish complete CSS support, arbitrary

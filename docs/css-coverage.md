@@ -1,16 +1,15 @@
 # CSS Coverage and Parity Status
 
-The [latest reviewed source comparison](guides/css-corpus.md#latest-reviewed-source-inset-shadow-corrections)
-reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
-Its overall conclusion remains **failure**, with the clipping classification and
-rounded-blur difference retained. This source check does not by itself verify a
-downloaded release package.
+The [current stable published-wheel comparison](guides/css-corpus.md#current-stable-published-wheel-corpus-2534)
+tests **Fullbleed 2.5.34** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**
+across 1,662 fixtures. Its overall conclusion remains **failure**. The exact PyPI
+wheel, report, PDFs, images and manifest verification are retained.
 
-Browse the [published 2.5.22 CSS results](guides/css-explorer.md) to search all
-1,662 fixtures and inspect actual PDFs, reference images, failures and disputes.
-That explorer deliberately retains its exact wheel and evidence pin; it is not
-the newer source result. The [method and evidence](guides/css-corpus.md) identify
-both runs. Earlier zero-failure reports below are historical, not the current gate.
+[Browse the actual results](guides/css-explorer.md), or read the
+[method, package identity and historical comparisons](guides/css-corpus.md).
+The [component alpha source result](guides/css-corpus.md#component-alpha-source-comparison-260a9)
+is recorded separately and has different verdict totals. Earlier zero-failure
+reports below are historical; none establishes complete CSS conformance.
 
 Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/css-coverage.md). Check the installed runtime for your exact version.
 
