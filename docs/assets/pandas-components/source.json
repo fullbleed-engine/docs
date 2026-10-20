@@ -1,0 +1,19 @@
+{
+  "schema": "fullbleed.pandas_components_source.v1",
+  "fullbleed": "2.6.0a9",
+  "pandas": "3.0.6",
+  "zip_sha256": "d467cbf65b30ca2c62c63c063a5b0a41cde557ead5fa8ad34d0b269076c8ec1b",
+  "zip_bytes": 30386,
+  "files": {
+    "Inter-OFL.txt": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+    "LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "README.md": "63318aad3c51a6c83138909aff626190d0d984cec698b6888aa9b062b1bb3200",
+    "components.py": "af4f29fa8c111780f49f884dd389e03d8fc482aae1276c520484780dc1f69fa0",
+    "data.py": "000d71075dd56cd8f87056d3c996edc4702df0987266123f12bedd4c96aaed84",
+    "products.csv": "559901ddf863989e1498ac8a7fa725f2f77c7547232781c58b0e84b737b10265",
+    "report.py": "3a9cf616caa6dc8fd0f9894be00af1ce8c32cd795c3d281a82e0e82597ba7a73",
+    "requirements-check.txt": "4eadc7023aba8e289cb2e9b4f46eed8c350d9c55500f98c19d938010d46add8d",
+    "requirements.txt": "500618199fa41ef2d783c668ff566ef99af7273246a63fe15d73d55c134cc84c",
+    "verify.py": "f0cfa1d19a871b8604d178be66fe314d24af6831031ccdb63a3752cc2f138073"
+  }
+}

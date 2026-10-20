@@ -250,6 +250,11 @@ changing content, fonts, or row counts.
 
 ## Gridline product report from pandas
 
+For a component-authored design using the same data, try the
+[pandas component report](guides/pandas-components.md): three pages, reusable
+metrics, finalized page totals, and styled or unstyled HTML export, pinned to
+Fullbleed **2.6.0a9**.
+
 <div class="showcase-entry" markdown>
 <figure markdown>
 [![Gridline product report with summary metrics, orange SVG category bars, and a striped product ledger.](assets/pandas-report/report-1.png)](assets/pandas-report/report.pdf)

@@ -94,6 +94,7 @@ nav:
     - Chinese text and fonts: guides/chinese-pdf.md
     - Arabic and English PDFs: guides/arabic-pdf.md
     - pandas DataFrame to PDF: guides/pandas-to-pdf.md
+    - pandas with Python components: guides/pandas-components.md
     - Matplotlib chart reports: guides/matplotlib-pdf.md
     - Streamlit PDF downloads: guides/streamlit-pdf.md
     - Rebuild as you edit: guides/render-watch.md

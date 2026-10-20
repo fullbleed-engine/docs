@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "cases": {
+    "sample": {
+      "pages": 3,
+      "sha256": "426ac79dde41026a9640acf7e93bc9229c67b2070fe3bc221ba26f66153953a8",
+      "rows": 40
+    },
+    "one": {
+      "pages": 1,
+      "sha256": "e428990c8874e3951a799060cb3ec33ff176f30358107929e10d88663deda826",
+      "rows": 1
+    },
+    "mixed": {
+      "pages": 1,
+      "sha256": "01dd255a3909aa03e4feec2b14f4f6daa4dd69996241a0038c54609e7fb164b1",
+      "rows": 3
+    },
+    "many": {
+      "pages": 7,
+      "sha256": "da4094a1c8d64abbb305ba4fe3e6d936f1c044d3f9b9213a57a5aaa4429c6d34",
+      "rows": 120
+    }
+  },
+  "invalid_inputs_rejected": [
+    "empty",
+    "missing-column",
+    "duplicate",
+    "blank-product",
+    "missing-units",
+    "negative-units",
+    "fractional-cents",
+    "bad-date"
+  ],
+  "fresh_process_pdf_identical": true,
+  "input_frames_unchanged": true,
+  "html_styled_and_unstyled_checked": true,
+  "scope": "Saved-PDF text, row order, repeated headings, page totals, page bounds, independent rasterization; no PDF/UA or browser-pagination claim."
+}
