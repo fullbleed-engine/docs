@@ -13,7 +13,9 @@ FILES = ("LICENSE", "Inter-OFL.txt", "README.md", "components.py", "data.py", "p
 
 
 def main():
-    contents = {name: (PROJECT / name).read_bytes() for name in sorted(FILES)}
+    # This kit contains only UTF-8 text files. Canonical LF bytes keep Windows
+    # checkout settings from changing the downloadable archive or its hashes.
+    contents = {name: (PROJECT / name).read_text(encoding="utf-8").encode("utf-8") for name in sorted(FILES)}
     buffer = BytesIO()
     with ZipFile(buffer, "w", compression=ZIP_STORED) as archive:
         for name, data in contents.items():

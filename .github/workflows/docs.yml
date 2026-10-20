@@ -531,6 +531,7 @@ jobs:
       - run: |
           python -m pip install --only-binary=:all: -r examples/pandas-components/requirements-check.txt
       - name: Rebuild the source kit and inspect its actual saved PDFs
+        shell: bash
         run: |
           python tools/build_pandas_components.py
           git diff --exit-code -- docs/assets/pandas-components/project.zip docs/assets/pandas-components/source.json
