@@ -1,0 +1,233 @@
+{
+  "ok": true,
+  "status": "Verified",
+  "checkedAt": "2026-10-20T21:31:30.258133+00:00",
+  "engine": "2.5.29",
+  "nodePackage": "0.7.1",
+  "nodeSource": "7a79b374784e60998fd163e0f86a76dae37523e5",
+  "nativeWasiFixtures": 20,
+  "pythonExportFixtures": 26,
+  "nodeExportFixtures": 26,
+  "priorFixturePdfAndPreviewBytesUnchanged": [
+    "invoice",
+    "invoice-edited",
+    "report",
+    "notice",
+    "linear-gradient",
+    "translucent-gradient",
+    "hard-radial-gradient",
+    "standard-fonts",
+    "engine-counter-sibling-reset",
+    "engine-overflow-nested-clips",
+    "engine-border-center-zero-top-falls-back-bottom-svg",
+    "engine-first-letter-decorated-left",
+    "visibility-script-blocks",
+    "visibility-style-blocks",
+    "visibility-hidden-span-paragraph",
+    "visibility-script-revert",
+    "visibility-script-inline-paragraph",
+    "decoration-inter-40-underline-font",
+    "decoration-inter-40-underline-length",
+    "decoration-inter-40-underline-auto"
+  ],
+  "starterSourceRuns": [
+    {
+      "id": 39499450066,
+      "name": "React starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39499450066",
+      "head_sha": "7a79b374784e60998fd163e0f86a76dae37523e5",
+      "conclusion": "success",
+      "jobs": 3
+    },
+    {
+      "id": 39499449902,
+      "name": "Browser starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39499449902",
+      "head_sha": "7a79b374784e60998fd163e0f86a76dae37523e5",
+      "conclusion": "success",
+      "jobs": 3
+    },
+    {
+      "id": 39499450050,
+      "name": "Next.js PDF starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39499450050",
+      "head_sha": "7a79b374784e60998fd163e0f86a76dae37523e5",
+      "conclusion": "success",
+      "jobs": 3
+    },
+    {
+      "id": 39499450078,
+      "name": "Vue starter",
+      "html_url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39499450078",
+      "head_sha": "7a79b374784e60998fd163e0f86a76dae37523e5",
+      "conclusion": "success",
+      "jobs": 3
+    }
+  ],
+  "downloadProjects": [
+    {
+      "kind": "browser",
+      "files": 14,
+      "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21",
+      "zip_sha256": "926e4b93422663cfda9d69bef56f253a6cdb02f2d5f20673cd3a3d88ddbc3f84",
+      "workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401399",
+      "changed_files": [
+        "fullbleed-browser-starter/index.html",
+        "fullbleed-browser-starter/public/favicon.svg"
+      ]
+    },
+    {
+      "kind": "react",
+      "files": 20,
+      "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21",
+      "zip_sha256": "c2b26b2e397e84060e15ed8c0635f71f2828eea7c4c4c93e472ca51f01af3044",
+      "workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401320",
+      "changed_files": [
+        "fullbleed-react-starter/index.html",
+        "fullbleed-react-starter/public/favicon.svg"
+      ]
+    },
+    {
+      "kind": "vue",
+      "files": 18,
+      "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21",
+      "zip_sha256": "7613f0cf9bcb6ee3df8cefd1f9a900b61dc86e6efab36e1addbc65bf471e9541",
+      "workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401448",
+      "changed_files": [
+        "fullbleed-vue-starter/index.html",
+        "fullbleed-vue-starter/public/favicon.svg"
+      ]
+    },
+    {
+      "kind": "nextjs",
+      "files": 18,
+      "source_commit": "7a79b374784e60998fd163e0f86a76dae37523e5",
+      "zip_sha256": "0d7360b81cf4175ed8d32e6468a4063aa87c2904ee78340496a9ce3d9be62321",
+      "workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39499450050"
+    }
+  ],
+  "localStarterBrowserChecks": {
+    "browser": 79,
+    "react": 128,
+    "vue": 87
+  },
+  "onlineLaunchers": {
+    "browser": {
+      "sourceMatchesZip": true,
+      "viewportWidths": [
+        1440,
+        390,
+        320
+      ]
+    },
+    "react": {
+      "sourceMatchesZip": true,
+      "viewportWidths": [
+        1440,
+        390,
+        320
+      ]
+    },
+    "vue": {
+      "sourceMatchesZip": true,
+      "viewportWidths": [
+        1440,
+        390,
+        320
+      ]
+    }
+  },
+  "nextjsChecks": 17,
+  "coreRelease": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.29",
+  "nodeRelease": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.7.1",
+  "scope": "These released-package starters, native/WASI fixtures, exact exported projects and local browser UI. Source workflow links cover the stated CI matrix. No universal CSS, hosted-platform or standards-conformance claim.",
+  "playgroundBrowserChecks": 80,
+  "playgroundBrowser": "155.0.8059.40",
+  "localSitePagesChecked": 150,
+  "rustEngine": "2.5.29",
+  "rustNativeFixtureMatches": 20,
+  "rustDownloadChecks": 77,
+  "rustDownloadSha256": "9d4238de2f479f137ed9624d34d2bc83c77261279439922512d5871e0c0193a0",
+  "rustScope": "Same published crate as the playground; unchanged version guard, exact native PDF/PNG fixture comparison, and actual standalone ZIP installation and failure recovery.",
+  "faviconRefresh": {
+    "checkedAt": "2026-10-20T22:02:15.697873+00:00",
+    "sourceCommit": "a947db8cd40212ac565652fdc1564121a6a73f21",
+    "sourcePullRequest": "https://github.com/fullbleed-engine/fullbleed-node/pull/44",
+    "faviconSha256": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
+    "changedSourceFilesPerStarter": [
+      "index.html",
+      "public/favicon.svg"
+    ],
+    "checkedSizes": [
+      16,
+      20,
+      24,
+      32,
+      64,
+      128
+    ],
+    "checkedBackgrounds": [
+      "light",
+      "dark"
+    ],
+    "localChecks": {
+      "ok": true,
+      "at": "2026-10-20T22:01:15.779728+00:00",
+      "browser": "155.0.8059.40",
+      "surfaces": [
+        {
+          "kind": "browser",
+          "favicon_sha256": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
+          "icon_url_versioned": true,
+          "pdf_sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+          "pdf_matches_baseline": true,
+          "online_editor_matches_zip": true,
+          "project_files": 14,
+          "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21"
+        },
+        {
+          "kind": "react",
+          "favicon_sha256": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
+          "icon_url_versioned": true,
+          "pdf_sha256": "f2553f220e9d30e26df785a4ed251f07ff1e615afd3972a5c29c19a0c5fd3f6c",
+          "pdf_matches_baseline": true,
+          "online_editor_matches_zip": true,
+          "project_files": 20,
+          "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21"
+        },
+        {
+          "kind": "vue",
+          "favicon_sha256": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
+          "icon_url_versioned": true,
+          "pdf_sha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+          "pdf_matches_baseline": true,
+          "online_editor_matches_zip": true,
+          "project_files": 18,
+          "source_commit": "a947db8cd40212ac565652fdc1564121a6a73f21"
+        }
+      ],
+      "page_errors": []
+    },
+    "starterRuns": [
+      {
+        "name": "Browser starter",
+        "url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401399",
+        "head": "a947db8cd40212ac565652fdc1564121a6a73f21",
+        "conclusion": "success"
+      },
+      {
+        "name": "Vue starter",
+        "url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401448",
+        "head": "a947db8cd40212ac565652fdc1564121a6a73f21",
+        "conclusion": "success"
+      },
+      {
+        "name": "React starter",
+        "url": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39504401320",
+        "head": "a947db8cd40212ac565652fdc1564121a6a73f21",
+        "conclusion": "success"
+      }
+    ],
+    "scope": "Icon assets and cache-busting URLs only; existing package pins, application logic and PDF templates are unchanged."
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "package": "0.6.0",
-  "engine": "2.5.24",
+  "package": "0.7.1",
+  "engine": "2.5.29",
   "node": "v22.23.3",
   "records": [
     {

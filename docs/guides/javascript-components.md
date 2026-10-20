@@ -15,7 +15,7 @@ its CSS included or with classes ready for a host application stylesheet.
 The downloadable invoice and guide use **fullbleed 0.7.1**, wrapping engine
 **2.5.29**, including the stable SVG stylesheet, inset-shadow and saved-PDF preview fixes.
 [HTML export](#export-html-with-or-without-styles) works with or without styles.
-The linked React demo retains its separately verified 0.6.0 package.
+The linked React demo uses the same package and engine versions.
 
 [Try the component invoice in React](../assets/react-demo/index.html){ .md-button .md-button--primary }
 
