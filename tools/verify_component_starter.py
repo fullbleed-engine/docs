@@ -46,7 +46,6 @@ def main():
     assert rendered["ok"] and rendered["pages"] == 1 and rendered["repeated_pdf_equal"]
     documentation_examples = []
     for page, output, required in [
-        ("index.md", "component-invoice.pdf", ["Made for you", "Design", "$120"]),
         ("guides/python-components.md", "invoice.pdf", ["Maple & Finch", "Design", "Review", "$120.00", "$40.00"]),
     ]:
         source = (ROOT / "docs" / page).read_text(encoding="utf-8")

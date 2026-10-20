@@ -84,16 +84,20 @@ def main():
     for page, output, required, embedded_font in FIXTURES:
         source = (ROOT / "docs" / page).read_text(encoding="utf-8")
         blocks = re.findall(r"```python\n(.*?)```", source, flags=re.S)
-        # The first home-page example uses the newer component API. Its own
-        # Windows/Linux gate runs it with the component starter's pinned release.
         expected_blocks = 2 if page in (
-            "index.md", "engine/assets.md", "getting-started/quickstart.md"
+            "engine/assets.md", "getting-started/quickstart.md"
         ) else 1
         assert len(blocks) == expected_blocks, (page, len(blocks))
         if page == "getting-started/quickstart.md":
             assert f"Fullbleed **{QUICKSTART_RELEASE}**" in source
             paired = []
-            for authoring, block in zip(("components", "html-css"), blocks):
+            tabs = re.findall(
+                r'^=== "(HTML/CSS|Python components)"\n\s*\n    ```python\n(.*?)    ```',
+                source, flags=re.M | re.S,
+            )
+            assert len(tabs) == 2 and {label for label, _ in tabs} == {"HTML/CSS", "Python components"}
+            for label, block in tabs:
+                authoring = {"HTML/CSS": "html-css", "Python components": "components"}[label]
                 folder = workspace / ("getting-started_quickstart_" + authoring)
                 folder.mkdir()
                 code = dedent(block)
@@ -119,7 +123,7 @@ def main():
             continue
         folder = workspace / page.removesuffix(".md").replace("/", "_")
         folder.mkdir()
-        code = dedent(blocks[1] if page == "index.md" else blocks[0])
+        code = dedent(blocks[0])
         # This API snippet returns bytes; retain them without changing its example.
         retained = code
         if page == "engine/assets.md":
@@ -152,7 +156,7 @@ def main():
         assert (folder / "report.py").is_file(), folder
 
     result = {"ok": True, "engine": installed, "reference_commit": reference["commit"],
-              "quickstart_authoring_paths": ["components", "html-css"],
+              "quickstart_authoring_paths": ["html-css", "components"],
               "quickstart_pdf_and_previews_identical": True,
               "platform": sys.platform, "python": sys.version, "snippets": snippets,
               "capability_snippets": capability_snippets,

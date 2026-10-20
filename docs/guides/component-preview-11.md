@@ -24,6 +24,8 @@ authored accessible community guide.
     Use Python 3.10 or later in a virtual environment. The kit pins
     `fullbleed==2.6.0a11`; ordinary `pip install fullbleed` selects the stable
     channel. Components under `fullbleed.ui.experimental` may change.
+    The alpha is merged into `master`; [merging and stabilization are separate
+    milestones](component-status.md). The existing `fullbleed.ui` API remains supported.
 
 ## Run the complete report
 

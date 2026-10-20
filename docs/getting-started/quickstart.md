@@ -1,6 +1,6 @@
 ---
-title: Generate PDFs in Python with components or HTML and CSS
-description: Create your first PDF with reusable Python components or HTML/CSS. Copy either complete example, use bundled fonts, and render the same invoice.
+title: Generate PDFs in Python with HTML/CSS or components
+description: Create your first PDF from HTML/CSS or Python components. Copy either complete example, use bundled fonts, and render the same invoice.
 ---
 # Create your first PDF in Python
 
@@ -8,8 +8,8 @@ Prefer to try it before setting up Python? [Open the browser playground](../play
 to edit HTML/CSS and download a PDF or runnable project. Use the
 [invoice notebook](notebook.md) to work with Python data in Colab.
 
-Choose **Python components** to compose a document with functions, or
-**HTML/CSS** to bring a template. Both examples below use the stable API, embed
+Choose **HTML/CSS** to bring a template, or **Python components** to compose
+a document with functions. Both examples below use the stable API, embed
 the bundled Inter font, and write the same one-page invoice.
 
 Install Fullbleed in your Python environment. If you need an isolated environment,
@@ -22,6 +22,25 @@ python -m pip install fullbleed
 
 Choose one tab and save its complete example as `hello.py`. These examples are
 checked with Fullbleed **2.5.34**.
+
+=== "HTML/CSS"
+
+    ```python
+    from importlib.resources import files
+    from pathlib import Path
+    import fullbleed
+
+    font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+    engine = fullbleed.PdfEngine(font_files=[str(font)])
+    html = '<h1 class="invoice-title">Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>'
+    css = """
+    @page { size: A4; margin: 20mm; }
+    body { font-family: Inter; color: #203a36; }
+    .invoice-title { color: #175c52; }
+    """
+    pdf = engine.render_pdf(html, css)
+    Path("invoice.pdf").write_bytes(pdf)
+    ```
 
 === "Python components"
 
@@ -51,26 +70,7 @@ checked with Fullbleed **2.5.34**.
     Path("invoice.pdf").write_bytes(invoice.render_pdf(engine))
     ```
 
-=== "HTML/CSS"
-
-    ```python
-    from importlib.resources import files
-    from pathlib import Path
-    import fullbleed
-
-    font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
-    engine = fullbleed.PdfEngine(font_files=[str(font)])
-    html = '<h1 class="invoice-title">Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>'
-    css = """
-    @page { size: A4; margin: 20mm; }
-    body { font-family: Inter; color: #203a36; }
-    .invoice-title { color: #175c52; }
-    """
-    pdf = engine.render_pdf(html, css)
-    Path("invoice.pdf").write_bytes(pdf)
-    ```
-
-`Invoice(...)` receives ordinary Python arguments. `@Document(styles=...)`
+In the component example, `Invoice(...)` receives ordinary Python arguments. `@Document(styles=...)`
 attaches the stylesheet to its result. The heading's
 `class_name="invoice-title"` matches the `.invoice-title` rule; the HTML/CSS
 example uses the same class and values.
@@ -89,7 +89,8 @@ or the [designed HTML/CSS invoice](../guides/invoices.md). The separate
 [component alpha](../guides/component-preview-11.md) adds portable component
 styles, themes, named parts, and styled/unstyled HTML export. It has its own
 explicit installation instructions; the examples above use the stable
-`fullbleed.ui` API.
+`fullbleed.ui` API. The [release-status guide](../guides/component-status.md)
+explains the distinction and the remaining stabilization work.
 
 ## Start with a complete project
 
