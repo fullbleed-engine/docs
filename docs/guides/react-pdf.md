@@ -89,6 +89,11 @@ sheet, composes the chosen ink color overrides, and attaches it through
 `<Document styles={...}>`. `src/style.css`
 styles the React interface; print rules belong to the document's stylesheet.
 
+The invoice reference has its own `className="invoice-reference"` rule with
+`letterSpacing: "0pt"` and `textTransform: "none"`. Keep those overrides when
+styling the surrounding label so references remain searchable and retain their
+original case in the PDF.
+
 Use **See the document component** to inspect the source while trying the form.
 Keep your layout and data changes in these project files:
 
@@ -189,7 +194,9 @@ React development build with StrictMode enabled. It downloads real PDFs,
 independently checks their text and page sizes, and compares six component
 cases with the installed Node package: default, paid, edited, empty, credit,
 and a twenty-row invoice across three pages. Every component preview matches
-the Node output too. The existing HTML invoice and report keep their byte checks. It also checks automatic and
+the Node output too. Default and mixed-case references must also survive exact
+text extraction and case-sensitive PDF search without whitespace normalization.
+The existing HTML invoice and report keep their byte checks. It also checks automatic and
 on-demand modes, fast edits, cancellation, recovery, unmount/remount, URL cleanup,
 and 1440/390/320px layouts. The docs build installs and checks the exact ZIP.
 A real Vite development-server check edits TSX and stylesheet source, verifies

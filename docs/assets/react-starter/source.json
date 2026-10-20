@@ -1,13 +1,13 @@
 {
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "source_commit": "294ad01a9492d2e8c27feb4f5ed620b10ee47720",
+  "source_commit": "0de0e692d22a9058610a262a06a1797b7d892ae3",
   "source_directory": "examples/react",
   "package_version": "0.6.0",
   "engine_version": "2.5.24",
   "react_version": "19.3.0",
   "package_integrity": "sha512-8tptrfaBbP4cjHohzPDPD1Lh3NuBFbRyVebn4kQhFsSX2VsMJwR6GURImfr9tbO3+iPjsZBFwZFxRYz238xc8g==",
-  "zip_bytes": 36270,
-  "zip_sha256": "a6b74368af73b2c217f9a1f2a0a6f07b0701a62185d3528f8fd6b0d9898561d1",
+  "zip_bytes": 36304,
+  "zip_sha256": "ce228650f3a34a7702a8bde10c29143864df11f4c652e10c23b60834e9ceeb8d",
   "files": {
     "fullbleed-react-starter/.gitignore": "0c8c1daabb918a54d7e75061883a887e9e0039d533487324a895ebe46afe15d8",
     "fullbleed-react-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
@@ -17,9 +17,9 @@
     "fullbleed-react-starter/package.json": "d9c56c1953348c135f190e9b57cf84e54c2f960120c1c47f7959d7e1673244f1",
     "fullbleed-react-starter/public/favicon.svg": "3eed6dcf1013e48bc64886fed4cf815c609ed06b404742bdacdc44c1df8d3118",
     "fullbleed-react-starter/src/App.tsx": "be531b4b19f86fe2b56ebb652efca23c3ce5e5c0cc656951e4e6ac13aa738d7e",
-    "fullbleed-react-starter/src/documents/Invoice.tsx": "df2a087615a31c95094ac8797f17e352b3bac8c0c477476989904429349cff3a",
+    "fullbleed-react-starter/src/documents/Invoice.tsx": "6737ef4e107935cf0e66291f1ef1576d6aef37e647555e81ce875bf37a5cb589",
     "fullbleed-react-starter/src/documents/data.ts": "c05c98fb07deaef2140f53df4f83670f138d6cad4a453fe09f423f7adb076f70",
-    "fullbleed-react-starter/src/documents/invoiceStyles.ts": "1cd818aec8cf2e9def15b51ce043bfdfcfc06626fd9df63372f34f9a43160a59",
+    "fullbleed-react-starter/src/documents/invoiceStyles.ts": "d9d63ef41fccae67d1a36de315b348c56ab5a680a18b0b2c43ffd63c46f18895",
     "fullbleed-react-starter/src/invoice.css": "0b310ce0f2964fd6b9b68e4afafa9307b4ff8c6b2f1fc753367dc755620ce427",
     "fullbleed-react-starter/src/invoice.html": "1f065ad6694021649e61b3f666cba6dc01aacdcbd8e80e97425b383e60d7d2fe",
     "fullbleed-react-starter/src/main.tsx": "f8f523ef5fc0b1e4095830466e0caa648c01f7b42036694b800c25d43d5e2c84",
@@ -31,6 +31,6 @@
     "fullbleed-react-starter/vite.config.js": "2a300aafa93df7e0269d06d104960ee5ac4d64989d37d61ca482c4b88db3629c"
   },
   "verification_workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/workflows/react-starter.yml",
-  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/38803591833",
-  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/294ad01a9492d2e8c27feb4f5ed620b10ee47720/verification/react-components060.json"
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/39462826180",
+  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/0de0e692d22a9058610a262a06a1797b7d892ae3/verification/react-invoice-references.json"
 }
