@@ -26,6 +26,7 @@ tradeoffs on your own documents.
 | Your main task | Tools to evaluate | What to check |
 | --- | --- | --- |
 | Generate invoices, statements, or reports from static HTML/CSS | Fullbleed, WeasyPrint | Page breaks, repeated table headings, fonts, and your actual CSS |
+| Compose reusable documents with Python functions and nested children | [Fullbleed components](../getting-started/quickstart.md) | Style ownership, table and page behavior, and the stable or experimental API you intend to use |
 | Export a JavaScript application or a live web page | Playwright with Chromium | Page readiness, loaded fonts/images, and print styles |
 | Build a document through Python drawing and layout primitives | ReportLab | Canvas/Platypus APIs and the layout code your team wants to own |
 | Merge, split, crop, or extract text from existing PDFs | pypdf | The existing files' structures and the operations you need |
@@ -96,6 +97,22 @@ The timings describe those versions and fixtures on one host. The results favor
 different tools for different measurements; they do not establish a universal
 speed or quality ranking. These previews are historical evidence, not newly
 generated samples of the latest releases.
+
+## Author reusable documents with Python components
+
+Fullbleed's stable Python API lets you compose ordinary functions, nested
+children and repeated data without writing HTML tags. The
+[Python quickstart](../getting-started/quickstart.md) includes complete component
+and HTML/CSS versions of the same small invoice. `class_name` attaches literal
+CSS classes; `Document(styles=...)` supplies their rules.
+
+For components with reusable style defaults, tables defined by columns, and
+repeating page headers or footers, try the separately installed
+[2.6.0a11 preview](component-preview-11.md). Its
+[editable styling tutorial](../getting-started/component-styling.md) demonstrates
+reusable defaults, root overrides, classes, named parts and theme values in a
+complete report. Export the component tree as PDF, styled HTML or unstyled HTML.
+This preview remains experimental; its browser exports use static content.
 
 ## When Fullbleed is a useful fit
 
