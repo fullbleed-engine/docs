@@ -1,10 +1,10 @@
 ---
 title: Install Fullbleed for Python
-description: Install Fullbleed on Python 3.10–3.14 for Windows, macOS, or Linux using a prebuilt wheel.
+description: Install Fullbleed on Python 3.10–3.15 for Windows, macOS, or Linux using a prebuilt wheel.
 ---
 # Install Fullbleed for Python
 
-Fullbleed supports Python 3.10–3.14. Published wheels cover Windows, macOS, and Linux, including the architectures listed below.
+Current stable Fullbleed supports standard-GIL CPython 3.10–3.15. Published wheels cover Windows, macOS, and Linux, including the architectures listed below.
 
 ```bash
 python -m pip install fullbleed
@@ -45,19 +45,27 @@ python -m pip install fullbleed
 
 The stable-ABI wheels cover supported CPython versions. For an unsupported target, a source build requires Rust; [source build instructions](https://github.com/fullbleed-engine/fullbleed-official#install) are in the engine repository.
 
-## Python 3.15 preview
+<span id="python-315-preview"></span>
 
-The separate [Python Preview checks](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/37720487567)
-exercise CPython **3.15.0rc3**, with the standard GIL, on Windows x64 and Linux
-x64. They install the same abi3 wheel tested on Python 3.10, run the installed
-API and CLI checks, and compare generated PDFs and previews byte for byte.
-The [coverage note](https://github.com/fullbleed-engine/fullbleed-official/blob/master/docs/python-compatibility.md)
-explains the retained evidence and the explicit skip for an unavailable legacy
-subinterpreter API.
+## Python 3.15 final
 
-Python 3.10–3.14 remains the supported stable range. These preview checks do not
-establish compatibility with Python 3.15 final, free-threaded builds, or macOS
-on this preview.
+The public stable **Fullbleed 2.5.34** wheel is checked on **CPython 3.15.0 final**
+on Windows x64, Linux x64, and Intel and Apple-silicon Macs. Use the ordinary
+installation command above.
+
+Each platform's job verifies the PyPI wheel and matching release source, runs
+the complete Python suite and isolated API/CLI checks, and compares generated
+PDFs and previews byte for byte with the same wheel on Python 3.10. The Linux
+job also checks installation in the official `python:3.15-slim` container with
+networking disabled.
+
+The [coverage note and retained evidence](https://github.com/fullbleed-engine/fullbleed-official/blob/master/docs/python-compatibility.md)
+describe the exact checks and the explicit skip for an unavailable legacy
+subinterpreter API. This qualification covers standard-GIL builds; free-threaded
+builds and subinterpreters remain outside its scope.
+
+The [earlier rc3 checks](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/37720487567)
+remain available as historical evidence.
 
 ## Run in Docker
 
