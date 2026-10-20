@@ -1,6 +1,6 @@
 ---
-title: Generate PDFs in Python from HTML and CSS
-description: Copy a small Python script to create your first PDF, then try a complete Fullbleed project with bundled fonts and previews.
+title: Generate PDFs in Python with components or HTML and CSS
+description: Create your first PDF with reusable Python components or HTML/CSS. Copy either complete example, use bundled fonts, and render the same invoice.
 ---
 # Create your first PDF in Python
 
@@ -8,32 +8,72 @@ Prefer to try it before setting up Python? [Open the browser playground](../play
 to edit HTML/CSS and download a PDF or runnable project. Use the
 [invoice notebook](notebook.md) to work with Python data in Colab.
 
-Install Fullbleed into your Python environment:
+Choose **Python components** to compose a document with functions, or
+**HTML/CSS** to bring a template. Both examples below use the stable API, embed
+the bundled Inter font, and write the same one-page invoice.
+
+Install Fullbleed in your Python environment. If you need an isolated environment,
+follow the [virtual environment setup](installation.md#use-a-virtual-environment)
+first.
 
 ```bash
 python -m pip install fullbleed
 ```
 
-Save this as `hello.py`:
+Choose one tab and save its complete example as `hello.py`. These examples are
+checked with Fullbleed **2.5.34**.
 
-```python
-from importlib.resources import files
-from pathlib import Path
-import fullbleed
+=== "Python components"
 
-font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
-engine = fullbleed.PdfEngine(font_files=[str(font)])
-html = "<h1>Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>"
-css = """
-@page { size: A4; margin: 20mm; }
-body { font-family: Inter; color: #203a36; }
-h1 { color: #175c52; }
-"""
-pdf = engine.render_pdf(html, css)
-Path("invoice.pdf").write_bytes(pdf)
-```
+    ```python
+    from importlib.resources import files
+    from pathlib import Path
+    import fullbleed
+    from fullbleed.ui import Document, Heading, Paragraph
 
-The example embeds the Inter font included with Fullbleed.
+    @Document(
+        title="Invoice INV-1042",
+        styles={
+            "@page": {"size": "A4", "margin": "20mm"},
+            "body": {"font_family": "Inter", "color": "#203a36"},
+            ".invoice-title": {"color": "#175c52"},
+        },
+    )
+    def Invoice(number, description, amount):
+        return (
+            Heading("Invoice ", number, level=1, class_name="invoice-title"),
+            Paragraph(description, ": ", amount),
+        )
+
+    font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+    engine = fullbleed.PdfEngine(font_files=[str(font)])
+    invoice = Invoice("INV-1042", "Consulting", "USD 1,200.00")
+    Path("invoice.pdf").write_bytes(invoice.render_pdf(engine))
+    ```
+
+=== "HTML/CSS"
+
+    ```python
+    from importlib.resources import files
+    from pathlib import Path
+    import fullbleed
+
+    font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
+    engine = fullbleed.PdfEngine(font_files=[str(font)])
+    html = '<h1 class="invoice-title">Invoice INV-1042</h1><p>Consulting: USD 1,200.00</p>'
+    css = """
+    @page { size: A4; margin: 20mm; }
+    body { font-family: Inter; color: #203a36; }
+    .invoice-title { color: #175c52; }
+    """
+    pdf = engine.render_pdf(html, css)
+    Path("invoice.pdf").write_bytes(pdf)
+    ```
+
+`Invoice(...)` receives ordinary Python arguments. `@Document(styles=...)`
+attaches the stylesheet to its result. The heading's
+`class_name="invoice-title"` matches the `.invoice-title` rule; the HTML/CSS
+example uses the same class and values.
 
 Run it and open the resulting file:
 
@@ -43,6 +83,13 @@ python -m fullbleed inspect pdf invoice.pdf --json
 ```
 
 For a PNG preview of the finalized PDF, continue to the [font and preview walkthrough](first-pdf.md).
+
+Continue with [reusable components, lists, and styles](../guides/python-components.md)
+or the [designed HTML/CSS invoice](../guides/invoices.md). The separate
+[component alpha](../guides/component-preview-11.md) adds portable component
+styles, themes, named parts, and styled/unstyled HTML export. It has its own
+explicit installation instructions; the examples above use the stable
+`fullbleed.ui` API.
 
 ## Start with a complete project
 

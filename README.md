@@ -69,11 +69,14 @@ python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.5.2
 
 `docs/reference-source.json` records the exact source commit. Use a built, installed release wheel to rerun examples and review the final PDFs and previews before replacing downloadable artifacts. `docs/assets/examples/verification.json` records the checks performed on published examples.
 
-Run `python -I tools/verify_quickstarts.py` in an environment with that reference
-release installed. It executes the Python snippets directly from five introductory
-pages, checks their PDF text and page counts, and exercises the documented project
-commands. CI retains the PDFs, previews, and structured report. Older showcase,
-playground, and tutorial downloads keep their own verified release pins.
+Run `python -I tools/verify_quickstarts.py` in an environment with
+`fullbleed==2.5.34` installed. The first-run examples are qualified against this
+stable package independently of the frozen API reference. The verifier executes
+the Python snippets directly from five introductory pages, checks their PDF
+text, embedded fonts and page counts, and exercises the documented project
+commands. It runs both Python quickstart tabs and requires their PDFs and previews
+to match byte for byte. CI retains the outputs and structured report. Older
+showcase, playground, and tutorial downloads keep their own verified release pins.
 
 The tagged C# notice lives in `examples/dotnet-accessibility`. When updating it,
 restore its lockfile from public NuGet, render both `ua1` and `ua2`, and review
