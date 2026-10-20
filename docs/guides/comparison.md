@@ -1,14 +1,18 @@
 ---
-title: "Python PDF libraries: Fullbleed, WeasyPrint, and Playwright"
-description: Compare Python PDF libraries by JavaScript support, installation, pagination, and actual output. Inspect shared-input PDFs and start with a runnable example.
+title: "Playwright vs WeasyPrint for Python PDF generation"
+description: "Compare Playwright and WeasyPrint for Python PDFs: JavaScript, deployment, pagination, and shared-input examples. See where Fullbleed fits for static documents."
 ---
-# Compare Python PDF libraries
+# Playwright vs WeasyPrint for Python PDF generation { #compare-python-pdf-libraries }
 
-For **HTML-to-PDF generation in Python**, start with the source of the content.
-Playwright is useful when the document depends on JavaScript or a live browser
-page. Fullbleed and WeasyPrint accept static HTML/CSS for paginated documents
-such as invoices, statements, and reports. ReportLab offers Python drawing and
-document-layout APIs; pypdf works on existing PDFs.
+Use **Playwright with Chromium** for PDFs that depend on JavaScript or a live
+browser page. Evaluate **WeasyPrint** for static HTML/CSS invoices, statements,
+and reports. For either, test your actual page breaks, fonts, and deployment
+environment.
+
+This guide compares those rendering models, shows the same invoice rendered by
+both, and explains where **Fullbleed** fits as another static-document engine.
+It also covers ReportLab for Python drawing and layout, and pypdf for operations
+on existing PDFs.
 
 This guide is maintained by Fullbleed. The choices below link to each project's
 documentation and to our retained comparison files, so you can evaluate the
