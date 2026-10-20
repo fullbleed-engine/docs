@@ -34,6 +34,7 @@ from playwright.sync_api import expect, sync_playwright
 # Resolve only the checked-in helper when this tool is run with python -I.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from notebook_browser_processes import stop_process_tree
+from notebook_browser_ready import wait_for_notebook_ready
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -59,6 +60,8 @@ def check_browser(page, context, source, work, out, reference, token):
     # observed first attempt marked cells trusted but executed none of them.
     write(out / "startup-progress.json", dict(stage="waiting-for-kernel-ready"))
     expect(page.get_by_role("progressbar", name="Kernel status")).to_have_attribute("aria-valuenow", "100", timeout=60000)
+    write(out / "startup-progress.json", dict(stage="waiting-for-jupyter-application"))
+    write(out / "application-ready.json", wait_for_notebook_ready(page))
     write(out / "startup-progress.json", dict(stage="recording-ready-snapshot"))
     (out / "ready-to-run.txt").write_text(page.locator("body").aria_snapshot().replace(token, "[redacted]"), encoding="utf-8")
     for index, expected in enumerate(reference["cases"]):
@@ -163,7 +166,7 @@ def main():
             port = sock.getsockname()[1]
         base = f"http://127.0.0.1:{port}"
         with (private / "server.log").open("w", encoding="utf-8") as log:
-            server = subprocess.Popen([sys.executable, "-m", "notebook", "--no-browser", "--ServerApp.ip=127.0.0.1",
+            server = subprocess.Popen([sys.executable, "-m", "notebook", "--no-browser", "--expose-app-in-browser", "--ServerApp.ip=127.0.0.1",
                 f"--ServerApp.port={port}", "--ServerApp.port_retries=0", f"--ServerApp.root_dir={work}",
                 "--ServerApp.shutdown_no_activity_timeout=600"], cwd=work, env=environment,
                 stdout=log, stderr=subprocess.STDOUT,
@@ -189,7 +192,7 @@ def main():
                         page = context.new_page()
                         page_events = []
                         page.on("crash", lambda: page_events.append("page-crash"))
-                        page.on("pageerror", lambda error: page_events.append(str(error).replace(token, "[redacted]")))
+                        page.on("pageerror", lambda error: page_events.append(error.stack.replace(token, "[redacted]")))
                         page.goto(base + "/tree?token=" + token, wait_until="domcontentloaded")
                         page.goto(base + "/notebooks/" + source_path.name, wait_until="domcontentloaded")
                         try:
@@ -226,7 +229,7 @@ def main():
         notebook_sha256=reference["notebook_sha256"], runtime_version=importlib.metadata.version("fullbleed"),
         system=platform.system(), python=platform.python_version(), browser=browser_version,
         tools={name: importlib.metadata.version(name) for name in ("notebook", "jupyter_server", "ipykernel", "playwright", "psutil")},
-        cases=cases, stale_previews_excluded=True, local_install_override=reference["local_install_override"],
+        cases=cases, stale_previews_excluded=True, local_install_override=reference["local_install_override"], frontend_events=page_events,
         scope="Local Jupyter Notebook editing, execution, finalized counters, displayed previews and actual browser ZIP downloads. The receipt identifies any local-wheel install override. Hosted Colab is not tested.")
     assert report["runtime_version"] == reference["runtime_version"]
     write(out / "verification.json", report)

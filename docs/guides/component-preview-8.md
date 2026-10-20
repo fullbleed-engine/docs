@@ -5,8 +5,8 @@ description: Recreate the Northstar invoice, Common Ground report and accessible
 
 # Python components: make the design your own
 
-!!! info "Current component preview: 2.6.0a9"
-    [Get reusable page bands, finalized page numbers and the current source kit](component-preview-9.md).
+!!! info "Current component preview: 2.6.0a10"
+    [Get the current components, page bands and source kit](component-preview-10.md).
     This page retains the alpha 8 package and its verification record.
 
 Start with a complete invoice, report or community guide. Edit Python functions,

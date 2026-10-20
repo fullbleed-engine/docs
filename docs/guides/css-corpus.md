@@ -38,6 +38,25 @@ comparison policy. They do not establish complete CSS support, arbitrary website
 rendering, or PDF standards conformance. The historical runs below keep their
 original versions and results.
 
+## Component alpha source comparison: 2.6.0a10
+
+The [alpha 10 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39367401326)
+tests commit `3d94fb036b9dc432688fc8741cb862a1c3d27f99` against all 1,662
+fixtures. It records **1,623 PASS, 21 FAIL and 18 REFERENCE-DISPUTED**. The
+comparison gate still **fails**.
+
+All **7,437 saved PDF/PNG files** and every fixture measurement match the
+[reviewed decoration-continuity implementation](https://github.com/fullbleed-engine/fullbleed-official/pull/108).
+The final alpha version changes no comparator inputs, references, rasterizer or
+thresholds. The archive retains the exact source-built wheel, complete report,
+saved documents and file hashes.
+
+[Download the complete alpha 10 source evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a10/fullbleed-css-corpus-2.6.0a10.zip)
+or read the [component styling and HTML-export guide](component-preview-10.md).
+This is a source-built Linux wheel result; the release's separate public-package
+checks do not constitute a complete corpus run against a downloaded alpha wheel.
+The interactive explorer remains pinned to the published stable wheel above.
+
 ## Component alpha source comparison: 2.6.0a9
 
 The [alpha 9 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39310439709)
