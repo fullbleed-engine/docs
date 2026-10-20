@@ -160,10 +160,10 @@ def main():
     parser = ArgumentParser(description=__doc__)
     parser.add_argument('--notebook', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--channel', choices=('alpha9', 'alpha10'), default='alpha9')
+    parser.add_argument('--channel', choices=('alpha9', 'alpha10', 'alpha11'), default='alpha9')
     parser.add_argument('--local-wheel', type=Path, help='Local qualification only: substitute this verified wheel for the public install cell.')
     args = parser.parse_args()
-    version = '2.6.0a10' if args.channel == 'alpha10' else '2.6.0a9'
+    version = {'alpha9': '2.6.0a9', 'alpha10': '2.6.0a10', 'alpha11': '2.6.0a11'}[args.channel]
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     source_path = args.notebook.resolve()
@@ -176,7 +176,7 @@ def main():
     edited = deepcopy(default)
     edited.update(PROJECT_NAME='River <Studio>', HEADLINE='A place to meet & make.', ACCENT='#763c96')
     edited['ACTIVITY'][0] = ('Studio <notebooks> & cards', '16', '89 visits')
-    if args.channel == 'alpha10':
+    if args.channel in ('alpha10', 'alpha11'):
         assert {'PANEL_BACKGROUND', 'METRIC_COLOR', 'FOLIO_COLOR', 'TITLE_SIZE'} <= default.keys()
         edited.update(PANEL_BACKGROUND='#f1e8f5', METRIC_COLOR='#8c2f6b',
                       FOLIO_COLOR='#206b7a', TITLE_SIZE=27)
@@ -185,7 +185,7 @@ def main():
     empty = deepcopy(default)
     empty['ACTIVITY'] = []
     cases = [('default', default), ('edited', edited)]
-    if args.channel == 'alpha10':
+    if args.channel in ('alpha10', 'alpha11'):
         selector = deepcopy(default)
         selector['FOLIO_COLOR'] = '#206b7a'
         parts = deepcopy(default)
@@ -216,7 +216,7 @@ def main():
         reports.append(check(work, destination, name, controls, version))
         print(json.dumps(dict(case=name, pages=reports[-1]['pages'], ok=True)), flush=True)
     assert len({row['pdf_sha256'] for row in reports}) == len(cases)
-    if args.channel == 'alpha10':
+    if args.channel in ('alpha10', 'alpha11'):
         from PIL import Image, ImageChops
         isolation = {}
         for name in ('selector-only', 'parts-only'):
