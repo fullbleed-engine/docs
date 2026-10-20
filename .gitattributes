@@ -172,3 +172,6 @@ docs/assets/styling-notebook-alpha10/*.pdf binary
 examples/styling-notebook-alpha11/** text eol=lf
 docs/assets/styling-notebook-alpha11/** -text
 docs/assets/styling-notebook-alpha11/*.pdf binary
+
+# React starter baselines are verified by exact PDF bytes.
+docs/assets/react-starter/baseline/*.pdf binary

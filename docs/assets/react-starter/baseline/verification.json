@@ -24,54 +24,54 @@
     {
       "design": "component-invoice",
       "pages": 1,
-      "pdfSha256": "7ab921d0f55604f84fd519514586f8d162e2912e925ea4071a59dfbd93993f56",
+      "pdfSha256": "f2553f220e9d30e26df785a4ed251f07ff1e615afd3972a5c29c19a0c5fd3f6c",
       "previews": [
-        "0fa59b3ea2938c413d8c58a02e4b08bec8349aaf93500c16b17652ba92679199"
+        "54a931df6a4741745ae651800ff74311cb59f1c74b58a0a67936a497e288648c"
       ],
       "repeatedPdfPreviewsEqual": true
     },
     {
       "design": "component-paid",
       "pages": 1,
-      "pdfSha256": "f4efce68a8f64f3f2219b9056cf2d3d345e9622fc9b3dbc355325ddbf62f02f3",
+      "pdfSha256": "91d8c8360fac37cd413fe669ed8f06650658b9ca01777129879207aac014d4c2",
       "previews": [
-        "d040a9e8e435f7baa1498db9b9571508bd174b745d44eca7fc0ff5416eb46721"
+        "8028cdd4d9b967e61084f54711072a1cc93a208b557749187dc186eec251d531"
       ],
       "repeatedPdfPreviewsEqual": true
     },
     {
       "design": "component-edited",
       "pages": 1,
-      "pdfSha256": "709f3438a1d4b363a86bf71025a8e883670354116c0d703b46b3ff16ae668709",
+      "pdfSha256": "a664f9fd84af1d2354537645aa6b70dd9abe3ab762b8a9631047aab742b1297e",
       "previews": [
-        "aba217ddb0b2b068a6c649bff1510e6627fbd82ba1febfd745a1f9b722955e52"
+        "2ebbfde2c38975be8abf5312947a07d6375039f422fef3ad81aaad7d67cfe115"
       ],
       "repeatedPdfPreviewsEqual": true
     },
     {
       "design": "component-empty",
       "pages": 1,
-      "pdfSha256": "d4f19a2559476236fe19acf76124f28ea5faa351731c7ee5585dd59f16f07122",
+      "pdfSha256": "cc1982eaea9dfa05b014cffea44644ecc2f4d33e8eb22ae6f6a501ab6d7f1248",
       "previews": [
-        "7d386f278ce859efde193a30ab3981ddc26e481370fb56bd49f9f703c5f21c65"
+        "2c7539839be57f85421a98fad5a1abc403d914b87d0539f9128c91691c24f783"
       ],
       "repeatedPdfPreviewsEqual": true
     },
     {
       "design": "component-credit",
       "pages": 1,
-      "pdfSha256": "b6b5f473e297c0c5d05f5bd1711c5ce3149dfbcbdb7234d0aeb54d2372622abf",
+      "pdfSha256": "cd57b56ec26e86365ab0223656d7e21b1543c9fbf404e967f0aef2e9b98024e6",
       "previews": [
-        "6dd0b56df6bf3bdca9c19d01fc0227dd838657c93b4c095de064cf844ce506b8"
+        "8937d9ac9b42cf13c1dd28fcdb150dabd3f404e8bf7816050824c7905d6898e3"
       ],
       "repeatedPdfPreviewsEqual": true
     },
     {
       "design": "component-long",
       "pages": 3,
-      "pdfSha256": "8ea549b4429c7f9b7e7b5d5b7491bbaf7b908b3cdaee63e385e2e979cdedb0d4",
+      "pdfSha256": "589210d6b5bb0684fdbf5dbf62c5e32742c7166d3a8cfc5ae304c430e08357a3",
       "previews": [
-        "692d7e7ef7d2cafb225b1823fb4646e055fe6fee374f1f00c5c95e8d467ba7d4",
+        "a22c18101f3303398a17c655b88f005fffde67dddb3f0b28521a78041125f4fe",
         "61e388cdd7c7d133c647b07886bd818d91382b072323c79281c80c698983b24b",
         "7648f8591967cf8be2ad40f7743cc95464606687f8bcd14ac48098d9f48560c5"
       ],
