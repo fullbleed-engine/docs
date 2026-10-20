@@ -79,6 +79,10 @@ bands, with PDF and styled or unstyled HTML output. [Explore the versioned compo
 notebook](getting-started/component-notebook.md) in Colab or Jupyter, or download
 the current source kit from the alpha guide.
 
+[Try the current styling notebook](getting-started/component-styling.md) to
+change theme colors, named parts and `class_name` rules, then compare PDF with
+styled and unstyled HTML.
+
 Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
 editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
 

@@ -19,7 +19,8 @@ The complete workflow below uses Fullbleed **2.5.25**.
     The [component alpha](component-preview-10.md) adds components
     that carry their styles, named customization parts, column-based tables,
     static Bootstrap helpers, and styled or unstyled HTML export. Install it
-    explicitly to try the next API; this page documents the stable API.
+    explicitly to try the next API, or [edit the styling notebook](../getting-started/component-styling.md)
+    to see how the style mechanisms connect. This page documents the stable API.
 
 The [JavaScript component workflow](javascript-components.md) brings named
 components, attached styles and optional JSX/TSX to Node and browser applications.

@@ -1,0 +1,910 @@
+{
+  "ok": true,
+  "notebook": "examples/styling-notebook-alpha10/component_styling.ipynb",
+  "notebook_sha256": "5363f0eba6f5bb4a57978a5f7272b94150221d7bd90a076af446e1beeb5cd585",
+  "runtime_version": "2.6.0a10",
+  "install_cell_executed": true,
+  "public_install_cell": true,
+  "local_install_override": false,
+  "cases": [
+    {
+      "name": "default",
+      "pages": 3,
+      "row_count": 5,
+      "controls": {
+        "PROJECT_NAME": "Common Ground",
+        "HEADLINE": "A season of shared space.",
+        "ACCENT": "#755122",
+        "TITLE_SIZE": 31,
+        "PANEL_BACKGROUND": "#edf2e6",
+        "METRIC_COLOR": "#183e34",
+        "FOLIO_COLOR": "#53665c",
+        "ACTIVITY": [
+          [
+            "Garden mornings",
+            "12",
+            "84 visits"
+          ],
+          [
+            "Repair afternoons",
+            "4",
+            "31 items repaired"
+          ],
+          [
+            "Shared meals",
+            "3",
+            "96 places set"
+          ],
+          [
+            "Seed exchanges",
+            "2",
+            "47 packets shared"
+          ],
+          [
+            "Welcome walks",
+            "6",
+            "28 neighbors"
+          ]
+        ]
+      },
+      "pdf_sha256": "eb8f7c2b4fb5e123feb46a99e0521a7ab04181c0847c675076fe759e2d4bbf94",
+      "text_markers": [
+        "Common Ground",
+        "A season of shared space.",
+        "Keep the welcome growing.",
+        "Garden mornings",
+        "Repair afternoons",
+        "Shared meals",
+        "Seed exchanges",
+        "Welcome walks"
+      ],
+      "font_count": 1,
+      "accent": "#755122",
+      "accent_pixels": 2138,
+      "independent_char_bounds_checked": 1807,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "eb8f7c2b4fb5e123feb46a99e0521a7ab04181c0847c675076fe759e2d4bbf94",
+        "field-notes.styled.html": "995215b3aa93cbfe21814be4f8bdf38294199d694231a2297f5fd17b4abae616",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "626217670103c45188dd3c1cf96e2a82ef2add3b1bb00baa6dc19fb150eebea9",
+        "field-notes-page-2.png": "4da3c325f07434b01c455b3231e2c63de607a2b7db87a6b09f75a561b92eb925",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 138502,
+        "METRIC_COLOR": 24023,
+        "FOLIO_COLOR": 19
+      },
+      "qualified_field_notes_pdf_reproduced": true
+    },
+    {
+      "name": "edited",
+      "pages": 3,
+      "row_count": 5,
+      "controls": {
+        "PROJECT_NAME": "River <Studio>",
+        "HEADLINE": "A place to meet & make.",
+        "ACCENT": "#763c96",
+        "TITLE_SIZE": 27,
+        "PANEL_BACKGROUND": "#f1e8f5",
+        "METRIC_COLOR": "#8c2f6b",
+        "FOLIO_COLOR": "#206b7a",
+        "ACTIVITY": [
+          [
+            "Studio <notebooks> & cards",
+            "16",
+            "89 visits"
+          ],
+          [
+            "Repair afternoons",
+            "4",
+            "31 items repaired"
+          ],
+          [
+            "Shared meals",
+            "3",
+            "96 places set"
+          ],
+          [
+            "Seed exchanges",
+            "2",
+            "47 packets shared"
+          ],
+          [
+            "Welcome walks",
+            "6",
+            "28 neighbors"
+          ]
+        ]
+      },
+      "pdf_sha256": "8910ef4bfe885d61fc9b84dfeabd7195b65bafc658259c1f2f983e3b7ccf1a2e",
+      "text_markers": [
+        "River <Studio>",
+        "A place to meet & make.",
+        "Keep the welcome growing.",
+        "Studio <notebooks> & cards",
+        "Repair afternoons",
+        "Shared meals",
+        "Seed exchanges",
+        "Welcome walks"
+      ],
+      "font_count": 1,
+      "accent": "#763c96",
+      "accent_pixels": 2158,
+      "independent_char_bounds_checked": 1818,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "8910ef4bfe885d61fc9b84dfeabd7195b65bafc658259c1f2f983e3b7ccf1a2e",
+        "field-notes.styled.html": "a16c27760f3865bcf7d29f274f5fb4be378d932ef8488d91d29d4f7f1c45fb6b",
+        "field-notes.unstyled.html": "2dd7badcfd1b2cbe03523d15724b839365c71087bc694f9adbd599c172f1a486",
+        "field-notes-page-1.png": "9ab4b9593c6c140753e7df1d525e158c134dc29b4f63db5e2cdfd3d871280428",
+        "field-notes-page-2.png": "bb9924fa1ab0b8d1e3f19e7666f1f747030c66815c0c39d64d52cb9b016a3fb5",
+        "field-notes-page-3.png": "addadec6914c032749c6ef68dfd2679975447d5bcd5627721d48cf3cb8933d35"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 62964,
+        "METRIC_COLOR": 1492,
+        "FOLIO_COLOR": 4
+      }
+    },
+    {
+      "name": "selector-only",
+      "pages": 3,
+      "row_count": 5,
+      "controls": {
+        "PROJECT_NAME": "Common Ground",
+        "HEADLINE": "A season of shared space.",
+        "ACCENT": "#755122",
+        "TITLE_SIZE": 31,
+        "PANEL_BACKGROUND": "#edf2e6",
+        "METRIC_COLOR": "#183e34",
+        "FOLIO_COLOR": "#206b7a",
+        "ACTIVITY": [
+          [
+            "Garden mornings",
+            "12",
+            "84 visits"
+          ],
+          [
+            "Repair afternoons",
+            "4",
+            "31 items repaired"
+          ],
+          [
+            "Shared meals",
+            "3",
+            "96 places set"
+          ],
+          [
+            "Seed exchanges",
+            "2",
+            "47 packets shared"
+          ],
+          [
+            "Welcome walks",
+            "6",
+            "28 neighbors"
+          ]
+        ]
+      },
+      "pdf_sha256": "aa2a67674965407136f6d4ede0f49731969429a60b3a0bb841f61c0870724eb8",
+      "text_markers": [
+        "Common Ground",
+        "A season of shared space.",
+        "Keep the welcome growing.",
+        "Garden mornings",
+        "Repair afternoons",
+        "Shared meals",
+        "Seed exchanges",
+        "Welcome walks"
+      ],
+      "font_count": 1,
+      "accent": "#755122",
+      "accent_pixels": 2138,
+      "independent_char_bounds_checked": 1807,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "aa2a67674965407136f6d4ede0f49731969429a60b3a0bb841f61c0870724eb8",
+        "field-notes.styled.html": "cfc7c6a61c72b1d8688e8cddff4e4ff50707d63258d7234cea0f0e1649bec286",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "1d4b1926cddd469e051b4b2ab6c9d4989b3640ef5fa532723e1782d728100523",
+        "field-notes-page-2.png": "5c5ecbed1b0958200f3d5262b0fe1836e99c05416e5a876567af0ba13a07b946",
+        "field-notes-page-3.png": "29e2634c27d750c89cd81757289e33be52d7bc8e60e86e6b91f4809da282352a"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 138502,
+        "METRIC_COLOR": 24023,
+        "FOLIO_COLOR": 4
+      }
+    },
+    {
+      "name": "parts-only",
+      "pages": 3,
+      "row_count": 5,
+      "controls": {
+        "PROJECT_NAME": "Common Ground",
+        "HEADLINE": "A season of shared space.",
+        "ACCENT": "#755122",
+        "TITLE_SIZE": 31,
+        "PANEL_BACKGROUND": "#edf2e6",
+        "METRIC_COLOR": "#8c2f6b",
+        "FOLIO_COLOR": "#53665c",
+        "ACTIVITY": [
+          [
+            "Garden mornings",
+            "12",
+            "84 visits"
+          ],
+          [
+            "Repair afternoons",
+            "4",
+            "31 items repaired"
+          ],
+          [
+            "Shared meals",
+            "3",
+            "96 places set"
+          ],
+          [
+            "Seed exchanges",
+            "2",
+            "47 packets shared"
+          ],
+          [
+            "Welcome walks",
+            "6",
+            "28 neighbors"
+          ]
+        ]
+      },
+      "pdf_sha256": "54cbc6a1d18f99baa587b7619a74504dca9f110afe1bf6a28d99ffc8148680b9",
+      "text_markers": [
+        "Common Ground",
+        "A season of shared space.",
+        "Keep the welcome growing.",
+        "Garden mornings",
+        "Repair afternoons",
+        "Shared meals",
+        "Seed exchanges",
+        "Welcome walks"
+      ],
+      "font_count": 1,
+      "accent": "#755122",
+      "accent_pixels": 2138,
+      "independent_char_bounds_checked": 1807,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "54cbc6a1d18f99baa587b7619a74504dca9f110afe1bf6a28d99ffc8148680b9",
+        "field-notes.styled.html": "e56b81a55a8a838a345e6509d80495640427ee9ab42c0eda2046436dbb12e61c",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "5967ad012098f123f26594282d0b0a8fb4e631b8b0dd195969ab6d80b8cb72bf",
+        "field-notes-page-2.png": "4da3c325f07434b01c455b3231e2c63de607a2b7db87a6b09f75a561b92eb925",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 138502,
+        "METRIC_COLOR": 1410,
+        "FOLIO_COLOR": 19
+      }
+    },
+    {
+      "name": "long",
+      "pages": 8,
+      "row_count": 72,
+      "controls": {
+        "PROJECT_NAME": "Common Ground",
+        "HEADLINE": "A season of shared space.",
+        "ACCENT": "#755122",
+        "TITLE_SIZE": 31,
+        "PANEL_BACKGROUND": "#edf2e6",
+        "METRIC_COLOR": "#183e34",
+        "FOLIO_COLOR": "#53665c",
+        "ACTIVITY": [
+          [
+            "Session 01",
+            "1",
+            "8 neighbors"
+          ],
+          [
+            "Session 02",
+            "2",
+            "8 neighbors"
+          ],
+          [
+            "Session 03",
+            "3",
+            "8 neighbors"
+          ],
+          [
+            "Session 04",
+            "4",
+            "8 neighbors"
+          ],
+          [
+            "Session 05",
+            "5",
+            "8 neighbors"
+          ],
+          [
+            "Session 06",
+            "6",
+            "8 neighbors"
+          ],
+          [
+            "Session 07",
+            "7",
+            "8 neighbors"
+          ],
+          [
+            "Session 08",
+            "8",
+            "8 neighbors"
+          ],
+          [
+            "Session 09",
+            "9",
+            "8 neighbors"
+          ],
+          [
+            "Session 10",
+            "10",
+            "8 neighbors"
+          ],
+          [
+            "Session 11",
+            "11",
+            "8 neighbors"
+          ],
+          [
+            "Session 12",
+            "12",
+            "8 neighbors"
+          ],
+          [
+            "Session 13",
+            "13",
+            "8 neighbors"
+          ],
+          [
+            "Session 14",
+            "14",
+            "8 neighbors"
+          ],
+          [
+            "Session 15",
+            "15",
+            "8 neighbors"
+          ],
+          [
+            "Session 16",
+            "16",
+            "8 neighbors"
+          ],
+          [
+            "Session 17",
+            "17",
+            "8 neighbors"
+          ],
+          [
+            "Session 18",
+            "18",
+            "8 neighbors"
+          ],
+          [
+            "Session 19",
+            "19",
+            "8 neighbors"
+          ],
+          [
+            "Session 20",
+            "20",
+            "8 neighbors"
+          ],
+          [
+            "Session 21",
+            "21",
+            "8 neighbors"
+          ],
+          [
+            "Session 22",
+            "22",
+            "8 neighbors"
+          ],
+          [
+            "Session 23",
+            "23",
+            "8 neighbors"
+          ],
+          [
+            "Session 24",
+            "24",
+            "8 neighbors"
+          ],
+          [
+            "Session 25",
+            "25",
+            "8 neighbors"
+          ],
+          [
+            "Session 26",
+            "26",
+            "8 neighbors"
+          ],
+          [
+            "Session 27",
+            "27",
+            "8 neighbors"
+          ],
+          [
+            "Session 28",
+            "28",
+            "8 neighbors"
+          ],
+          [
+            "Session 29",
+            "29",
+            "8 neighbors"
+          ],
+          [
+            "Session 30",
+            "30",
+            "8 neighbors"
+          ],
+          [
+            "Session 31",
+            "31",
+            "8 neighbors"
+          ],
+          [
+            "Session 32",
+            "32",
+            "8 neighbors"
+          ],
+          [
+            "Session 33",
+            "33",
+            "8 neighbors"
+          ],
+          [
+            "Session 34",
+            "34",
+            "8 neighbors"
+          ],
+          [
+            "Session 35",
+            "35",
+            "8 neighbors"
+          ],
+          [
+            "Session 36",
+            "36",
+            "8 neighbors"
+          ],
+          [
+            "Session 37",
+            "37",
+            "8 neighbors"
+          ],
+          [
+            "Session 38",
+            "38",
+            "8 neighbors"
+          ],
+          [
+            "Session 39",
+            "39",
+            "8 neighbors"
+          ],
+          [
+            "Session 40",
+            "40",
+            "8 neighbors"
+          ],
+          [
+            "Session 41",
+            "41",
+            "8 neighbors"
+          ],
+          [
+            "Session 42",
+            "42",
+            "8 neighbors"
+          ],
+          [
+            "Session 43",
+            "43",
+            "8 neighbors"
+          ],
+          [
+            "Session 44",
+            "44",
+            "8 neighbors"
+          ],
+          [
+            "Session 45",
+            "45",
+            "8 neighbors"
+          ],
+          [
+            "Session 46",
+            "46",
+            "8 neighbors"
+          ],
+          [
+            "Session 47",
+            "47",
+            "8 neighbors"
+          ],
+          [
+            "Session 48",
+            "48",
+            "8 neighbors"
+          ],
+          [
+            "Session 49",
+            "49",
+            "8 neighbors"
+          ],
+          [
+            "Session 50",
+            "50",
+            "8 neighbors"
+          ],
+          [
+            "Session 51",
+            "51",
+            "8 neighbors"
+          ],
+          [
+            "Session 52",
+            "52",
+            "8 neighbors"
+          ],
+          [
+            "Session 53",
+            "53",
+            "8 neighbors"
+          ],
+          [
+            "Session 54",
+            "54",
+            "8 neighbors"
+          ],
+          [
+            "Session 55",
+            "55",
+            "8 neighbors"
+          ],
+          [
+            "Session 56",
+            "56",
+            "8 neighbors"
+          ],
+          [
+            "Session 57",
+            "57",
+            "8 neighbors"
+          ],
+          [
+            "Session 58",
+            "58",
+            "8 neighbors"
+          ],
+          [
+            "Session 59",
+            "59",
+            "8 neighbors"
+          ],
+          [
+            "Session 60",
+            "60",
+            "8 neighbors"
+          ],
+          [
+            "Session 61",
+            "61",
+            "8 neighbors"
+          ],
+          [
+            "Session 62",
+            "62",
+            "8 neighbors"
+          ],
+          [
+            "Session 63",
+            "63",
+            "8 neighbors"
+          ],
+          [
+            "Session 64",
+            "64",
+            "8 neighbors"
+          ],
+          [
+            "Session 65",
+            "65",
+            "8 neighbors"
+          ],
+          [
+            "Session 66",
+            "66",
+            "8 neighbors"
+          ],
+          [
+            "Session 67",
+            "67",
+            "8 neighbors"
+          ],
+          [
+            "Session 68",
+            "68",
+            "8 neighbors"
+          ],
+          [
+            "Session 69",
+            "69",
+            "8 neighbors"
+          ],
+          [
+            "Session 70",
+            "70",
+            "8 neighbors"
+          ],
+          [
+            "Session 71",
+            "71",
+            "8 neighbors"
+          ],
+          [
+            "Session 72",
+            "72",
+            "8 neighbors"
+          ]
+        ]
+      },
+      "pdf_sha256": "acd62ae55466277dff26a25c79d151cc2e641bfbbb73f93ab3f74fbbbd45f46c",
+      "text_markers": [
+        "Common Ground",
+        "A season of shared space.",
+        "Keep the welcome growing.",
+        "Session 01",
+        "Session 02",
+        "Session 03",
+        "Session 04",
+        "Session 05",
+        "Session 06",
+        "Session 07",
+        "Session 08",
+        "Session 09",
+        "Session 10",
+        "Session 11",
+        "Session 12",
+        "Session 13",
+        "Session 14",
+        "Session 15",
+        "Session 16",
+        "Session 17",
+        "Session 18",
+        "Session 19",
+        "Session 20",
+        "Session 21",
+        "Session 22",
+        "Session 23",
+        "Session 24",
+        "Session 25",
+        "Session 26",
+        "Session 27",
+        "Session 28",
+        "Session 29",
+        "Session 30",
+        "Session 31",
+        "Session 32",
+        "Session 33",
+        "Session 34",
+        "Session 35",
+        "Session 36",
+        "Session 37",
+        "Session 38",
+        "Session 39",
+        "Session 40",
+        "Session 41",
+        "Session 42",
+        "Session 43",
+        "Session 44",
+        "Session 45",
+        "Session 46",
+        "Session 47",
+        "Session 48",
+        "Session 49",
+        "Session 50",
+        "Session 51",
+        "Session 52",
+        "Session 53",
+        "Session 54",
+        "Session 55",
+        "Session 56",
+        "Session 57",
+        "Session 58",
+        "Session 59",
+        "Session 60",
+        "Session 61",
+        "Session 62",
+        "Session 63",
+        "Session 64",
+        "Session 65",
+        "Session 66",
+        "Session 67",
+        "Session 68",
+        "Session 69",
+        "Session 70",
+        "Session 71",
+        "Session 72"
+      ],
+      "font_count": 1,
+      "accent": "#755122",
+      "accent_pixels": 3109,
+      "independent_char_bounds_checked": 3689,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png",
+        "field-notes-page-4.png",
+        "field-notes-page-5.png",
+        "field-notes-page-6.png",
+        "field-notes-page-7.png",
+        "field-notes-page-8.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "acd62ae55466277dff26a25c79d151cc2e641bfbbb73f93ab3f74fbbbd45f46c",
+        "field-notes.styled.html": "f80545c881e8757aa8ba729791d9d28c0cccf455f509bdaead253403e781a226",
+        "field-notes.unstyled.html": "b0e68ee4983b4cbe3e791654857742bb72e1b5fc2f3e4eaef0766b9235adbd62",
+        "field-notes-page-1.png": "74c2e71cc5c4d32171b5397739d5e4e1da91fbfa15155ff1b4dc8a839cc21c82",
+        "field-notes-page-2.png": "5097d31cc63715cb87f25ddcffe84856cdc328cb0ef950f4792dea4a441d9afe",
+        "field-notes-page-3.png": "79652b15c7a888337c23562cbe0fc65263d921aae45e7755b91e86b309cc2a3e",
+        "field-notes-page-4.png": "b97c3eb1a6cd74f043f86f47cd004ecccc738f36913811ba9c1ea4671decc014",
+        "field-notes-page-5.png": "3e86dd8de2ea14e183b2bdb2aa929ca013403ed4433b1a907cc59b4e009e014a",
+        "field-notes-page-6.png": "7ded0703778250a4ae2b4eedb4bc9d27c59358854f5536cf6b9938f9fa2567ff",
+        "field-notes-page-7.png": "ce4d9ad2c5c676197f766be0952f833d219983aeb1bf93e33464e93f93fa15dd",
+        "field-notes-page-8.png": "50a71a7b28960ffc5aca3707fe4f265b065315b9dd2eab4bb9feeda73b9a6f42"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 218545,
+        "METRIC_COLOR": 26454,
+        "FOLIO_COLOR": 19
+      }
+    },
+    {
+      "name": "empty-after-long",
+      "pages": 3,
+      "row_count": 0,
+      "controls": {
+        "PROJECT_NAME": "Common Ground",
+        "HEADLINE": "A season of shared space.",
+        "ACCENT": "#755122",
+        "TITLE_SIZE": 31,
+        "PANEL_BACKGROUND": "#edf2e6",
+        "METRIC_COLOR": "#183e34",
+        "FOLIO_COLOR": "#53665c",
+        "ACTIVITY": []
+      },
+      "pdf_sha256": "114f2076f53ef9e30704b94551c8c8ff6aab8ed56c3d2cb1f6e09e662897b942",
+      "text_markers": [
+        "Common Ground",
+        "A season of shared space.",
+        "Keep the welcome growing."
+      ],
+      "font_count": 1,
+      "accent": "#755122",
+      "accent_pixels": 2137,
+      "independent_char_bounds_checked": 1685,
+      "repeat_pdf_identical": true,
+      "direct_pdf_identical": true,
+      "zip_files": [
+        "field-notes.pdf",
+        "field-notes.styled.html",
+        "field-notes.unstyled.html",
+        "field-notes-page-1.png",
+        "field-notes-page-2.png",
+        "field-notes-page-3.png"
+      ],
+      "styled_and_unstyled_html": true,
+      "finalized_page_counts": true,
+      "callout_kept_together": true,
+      "artifact_hashes": {
+        "field-notes.pdf": "114f2076f53ef9e30704b94551c8c8ff6aab8ed56c3d2cb1f6e09e662897b942",
+        "field-notes.styled.html": "c7166772126ef90fde6edb90e0e6595f7fa77e08ca3f3f53ac7c4ebaf7a0b7dc",
+        "field-notes.unstyled.html": "3b93493642feb1c4770622561d0ccf1747edb9134d8e2a25a5246a2dd8b35604",
+        "field-notes-page-1.png": "626217670103c45188dd3c1cf96e2a82ef2add3b1bb00baa6dc19fb150eebea9",
+        "field-notes-page-2.png": "68578aef1e42fbe276c7225322ffd4710398456e5e13c42994b145936680e599",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "styling_pixels": {
+        "PANEL_BACKGROUND": 138543,
+        "METRIC_COLOR": 24019,
+        "FOLIO_COLOR": 19
+      }
+    }
+  ],
+  "stale_previews_excluded": true,
+  "local_wheel": null,
+  "checked_at": "2026-10-20T07:24:08.078169+00:00",
+  "scope": "Jupyter kernel execution, independent saved-PDF inspection, repeat rendering, HTML semantics, and ZIP contents. Browser downloads and hosted Colab are separate checks.",
+  "browser_verification": {
+    "path": "browser-verification.json",
+    "sha256": "9e4c5dd1b4235cebd65d348be79c913916b910ca356a92ca4056568850efac11"
+  },
+  "downloads": {
+    "field-notes.pdf": "eb8f7c2b4fb5e123feb46a99e0521a7ab04181c0847c675076fe759e2d4bbf94",
+    "edited.pdf": "8910ef4bfe885d61fc9b84dfeabd7195b65bafc658259c1f2f983e3b7ccf1a2e",
+    "field-notes.styled.html": "995215b3aa93cbfe21814be4f8bdf38294199d694231a2297f5fd17b4abae616",
+    "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+    "default-page-1.png": "626217670103c45188dd3c1cf96e2a82ef2add3b1bb00baa6dc19fb150eebea9",
+    "edited-page-1.png": "9ab4b9593c6c140753e7df1d525e158c134dc29b4f63db5e2cdfd3d871280428",
+    "style-isolation.json": "b364aed0f3a8b7a780ec0054780e67935e540fecd530b8c5fb2a3566823fa4f1",
+    "browser-verification.json": "9e4c5dd1b4235cebd65d348be79c913916b910ca356a92ca4056568850efac11"
+  },
+  "visual_review_pending": false,
+  "visual_review": {
+    "pages": 23,
+    "cases": 6,
+    "findings": "All 23 independently rendered pages were viewed. Text, tables, repeated headers and finalized footers remain within the page. Edited styles are visible; the selector and named-part changes stay at their intended targets. Long-table headers repeat, the lesson callout stays together, and the empty state is legible.",
+    "browser_host_styles_preserve_all_six_pdfs_and_23_previews": true
+  }
+}

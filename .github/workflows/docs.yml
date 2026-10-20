@@ -113,13 +113,14 @@ jobs:
           path: target/component-notebook/
           retention-days: 14
   page-band-notebook:
-    name: Page-band notebook (${{ matrix.os }})
+    name: Report notebook (${{ matrix.channel }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        channel: [alpha9, alpha10]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -128,7 +129,12 @@ jobs:
       - run: |
           python -m pip install --only-binary=:all: -r tools/component-notebook-browser-requirements.txt
       - name: Execute the page-band notebook and inspect PDF, HTML and ZIP files
-        run: python -I tools/verify_page_band_notebook.py --notebook examples/page-band-notebook-alpha9/component_page_bands.ipynb --out target/page-band-notebook
+        run: python -I tools/verify_page_band_notebook.py --channel ${{ matrix.channel }} --notebook examples/${{ matrix.channel == 'alpha10' && 'styling-notebook-alpha10/component_styling.ipynb' || 'page-band-notebook-alpha9/component_page_bands.ipynb' }} --out target/page-band-notebook
+      - name: Reproduce the styling notebook and its exact download
+        if: matrix.channel == 'alpha10'
+        run: |
+          python tools/build_styling_notebook.py
+          git diff --exit-code -- examples/styling-notebook-alpha10/component_styling.ipynb docs/assets/styling-notebook-alpha10/component_styling.ipynb
       - name: Check private notebook process cleanup and isolation
         run: python -I tools/test_notebook_browser_processes.py
       - name: Edit, run and download the page-band notebook in Jupyter
@@ -136,7 +142,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: page-band-notebook-${{ matrix.os }}
+          name: page-band-notebook-${{ matrix.channel }}-${{ matrix.os }}
           path: target/page-band-notebook/
           retention-days: 14
   complete-html:
@@ -1038,6 +1044,14 @@ jobs:
         with:
           name: component-notebook-browser-verification
           path: output/component-notebook-ui/
+          retention-days: 14
+      - name: Verify the component styling tutorial and its real downloads
+        run: python tools/check_component_styling_ui.py --site site --out output/component-styling-ui --browser chrome --verify-published-source
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: component-styling-browser-verification
+          path: output/component-styling-ui/
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome

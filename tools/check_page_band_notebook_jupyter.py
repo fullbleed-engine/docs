@@ -1,6 +1,6 @@
 """Edit and run the notebook in a browser, then verify actual ZIP downloads.
 
-Run verify_component_notebook.py first and supply its --out as --reference.
+Run verify_page_band_notebook.py first and supply its --out as --reference.
 The reference supplies independently inspected PDF/HTML/PNG bytes. A private
 loopback Jupyter server and a separate headless browser are stopped on exit.
 """
@@ -138,7 +138,7 @@ def main():
     reference = json.loads((args.reference / "verification.json").read_text(encoding="utf-8"))
     source_path = Path(reference["notebook"])
     assert reference["ok"] and reference["install_cell_executed"]
-    assert source_path.name == "component_page_bands.ipynb"
+    assert source_path.name in ("component_page_bands.ipynb", "component_styling.ipynb")
     assert sha256(source_path.read_bytes()).hexdigest() == reference["notebook_sha256"]
     source = json.loads(source_path.read_text(encoding="utf-8"))
     assert all(not c["outputs"] and c["execution_count"] is None for c in source["cells"] if c["cell_type"] == "code")

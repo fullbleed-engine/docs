@@ -164,3 +164,8 @@ examples/accessible-showcase-alpha7/fonts/*.ttf binary
 docs/assets/accessible-showcase-alpha7/** -text whitespace=cr-at-eol
 docs/assets/accessible-showcase-alpha7/**/*.pdf binary
 docs/assets/accessible-showcase-alpha7/fonts/*.ttf binary
+
+# The styling tutorial's downloads and evidence are verified by exact hashes.
+examples/styling-notebook-alpha10/** text eol=lf
+docs/assets/styling-notebook-alpha10/** -text whitespace=cr-at-eol
+docs/assets/styling-notebook-alpha10/*.pdf binary

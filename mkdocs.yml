@@ -77,6 +77,7 @@ nav:
     - Python installation: getting-started/installation.md
     - Python notebook: getting-started/notebook.md
     - Component notebook: getting-started/component-notebook.md
+    - Component styling notebook: getting-started/component-styling.md
     - Page-band notebook: getting-started/page-band-notebook.md
     - Use WooCommerce: guides/woocommerce.md
     - Python fonts and previews: getting-started/first-pdf.md
