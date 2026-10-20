@@ -1,0 +1,18 @@
+{
+  "schema": "fullbleed.pandas_components_example.v1",
+  "fullbleed": "2.6.0a9",
+  "pandas": "3.0.6",
+  "rows": 40,
+  "totals": {
+    "products": 40,
+    "units": 6040,
+    "cents": 15023625,
+    "categories": 4
+  },
+  "page_count": 3,
+  "pdf_sha256": "426ac79dde41026a9640acf7e93bc9229c67b2070fe3bc221ba26f66153953a8",
+  "font_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+  "profile": "tagged",
+  "timestamp": "2026-10-20T00:00:00Z",
+  "validation_scope": "Source structural checks and native layout checks; no PDF/UA conformance claim."
+}

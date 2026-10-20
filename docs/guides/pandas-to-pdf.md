@@ -16,6 +16,11 @@ The organization and data are fictional.
 For an interactive data app, try the [Streamlit report starter](streamlit-pdf.md)
 with CSV input, date/group filters and a prepared PDF download.
 
+Prefer Python component authoring? The [component report starter](pandas-components.md)
+uses this same CSV with reusable metrics, table columns, typed styles, repeated
+page bands, and both HTML export modes. It is separately pinned to **2.6.0a9**,
+the experimental component API.
+
 [Download the two-page PDF](../assets/pandas-report/report.pdf){ .md-button .md-button--primary }
 [Get the complete source](../assets/pandas-report/source.zip){ .md-button }
 
