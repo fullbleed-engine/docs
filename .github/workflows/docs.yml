@@ -528,7 +528,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - run: python -m pip install --only-binary=:all: -r examples/pandas-components/requirements-check.txt
+      - run: |
+          python -m pip install --only-binary=:all: -r examples/pandas-components/requirements-check.txt
       - name: Rebuild the source kit and inspect its actual saved PDFs
         run: |
           python tools/build_pandas_components.py
