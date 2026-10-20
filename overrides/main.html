@@ -6,7 +6,12 @@
   <meta property="og:title" content="{{ page.title | default(config.site_name, true) | e }} · Fullbleed">
   <meta property="og:description" content="{{ page.meta.description | default(config.site_description, true) | e }}">
   <meta property="og:url" content="{{ page.canonical_url | e }}">
-  <meta property="og:image" content="{{ config.site_url }}assets/examples/acme-invoice.png">
+  <meta property="og:image" content="{{ config.site_url }}assets/fullbleed-share.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Fullbleed component authoring with Northstar invoice and Common Ground report PDF examples.">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/fullbleed-share.png">
+  <meta name="twitter:image:alt" content="Fullbleed component authoring with Northstar invoice and Common Ground report PDF examples.">
   <meta name="twitter:card" content="summary_large_image">
   {% endif %}
 {% endblock %}
