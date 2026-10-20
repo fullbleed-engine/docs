@@ -104,10 +104,14 @@ def main():
                         page.screenshot(path=str(args.out / f"{label}-styled-html.png"), animations="disabled")
                     if "unstyled" in filename:
                         assert page.locator("style, [style], link[rel=stylesheet]").count() == 0
-                for path in ("/", "/getting-started/notebook/", "/guides/bootstrap-components-preview/"):
+                for path, label_text in (
+                    ("/", "Explore the versioned component notebook"),
+                    ("/getting-started/notebook/", "Try the component notebook"),
+                    ("/guides/bootstrap-components-preview/", "Try the component notebook"),
+                ):
                     response = page.goto(base + path, wait_until="networkidle")
                     assert response.status == 200
-                    link = page.locator("article").get_by_role("link", name="Try the component notebook", exact=False)
+                    link = page.locator("article").get_by_role("link", name=label_text, exact=False)
                     assert link.count() == 1
                     assert urlparse(link.evaluate("a => a.href")).path == "/getting-started/component-notebook/"
                 assert not errors, errors
