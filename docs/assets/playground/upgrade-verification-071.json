@@ -131,5 +131,10 @@
   "scope": "These released-package starters, native/WASI fixtures, exact exported projects and local browser UI. Source workflow links cover the stated CI matrix. No universal CSS, hosted-platform or standards-conformance claim.",
   "playgroundBrowserChecks": 80,
   "playgroundBrowser": "155.0.8059.40",
-  "localSitePagesChecked": 150
+  "localSitePagesChecked": 150,
+  "rustEngine": "2.5.29",
+  "rustNativeFixtureMatches": 20,
+  "rustDownloadChecks": 77,
+  "rustDownloadSha256": "9d4238de2f479f137ed9624d34d2bc83c77261279439922512d5871e0c0193a0",
+  "rustScope": "Same published crate as the playground; unchanged version guard, exact native PDF/PNG fixture comparison, and actual standalone ZIP installation and failure recovery."
 }
