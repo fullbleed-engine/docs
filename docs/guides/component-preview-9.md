@@ -5,8 +5,8 @@ description: Build a complete report from Python components, including styled he
 
 # Reuse your design on every page
 
-!!! info "Current component preview: 2.6.0a10"
-    [Get the current components, styling guide and source kit](component-preview-10.md).
+!!! info "Current component preview: 2.6.0a11"
+    [Get the current components, styling guide and source kit](component-preview-11.md).
     This page retains the alpha 9 package and its verification record.
 
 A document's header can use the same brand component as its body. Its footer can

@@ -10,22 +10,22 @@ elements change, then download the PDF, styled HTML and unstyled HTML.
 The notebook includes every component definition and uses Python values for
 the content.
 
-[Open in Colab](https://colab.research.google.com/github/fullbleed-engine/docs/blob/54ebe5e4e89d3a7673a4a09b566924db5b3e6fb9/examples/styling-notebook-alpha10/component_styling.ipynb){ .md-button .md-button--primary }
-[Download the notebook](../assets/styling-notebook-alpha10/component_styling.ipynb){ .md-button download="component_styling.ipynb" }
-[View the pinned source](https://github.com/fullbleed-engine/docs/blob/54ebe5e4e89d3a7673a4a09b566924db5b3e6fb9/examples/styling-notebook-alpha10/component_styling.ipynb){ .md-button }
+[Open in Colab](https://colab.research.google.com/github/fullbleed-engine/docs/blob/70fd19a7f292ce52bfb466ed782d4c4776a68f12/examples/styling-notebook-alpha11/component_styling.ipynb){ .md-button .md-button--primary }
+[Download the notebook](../assets/styling-notebook-alpha11/component_styling.ipynb){ .md-button download="component_styling.ipynb" }
+[View the pinned source](https://github.com/fullbleed-engine/docs/blob/70fd19a7f292ce52bfb466ed782d4c4776a68f12/examples/styling-notebook-alpha11/component_styling.ipynb){ .md-button }
 
-!!! info "Opt-in component preview: 2.6.0a10"
-    The first cell installs `fullbleed==2.6.0a10`. The API under
+!!! info "Opt-in component preview: 2.6.0a11"
+    The first cell installs `fullbleed==2.6.0a11`. The API under
     `fullbleed.ui.experimental` remains experimental. Ordinary `pip install
-    fullbleed` selects the stable channel. The [current preview guide](../guides/component-preview-10.md)
+    fullbleed` selects the stable channel. The [current preview guide](../guides/component-preview-11.md)
     includes the complete source kit, API references and release evidence.
 
-[![The default Common Ground report, with forest-green typography, a pale metrics panel and a numbered footer.](../assets/styling-notebook-alpha10/default-page-1.png){ width="340" }](../assets/styling-notebook-alpha10/field-notes.pdf)
-[![An edited report with smaller headings, violet labels and metric values, a lavender panel and a teal page number.](../assets/styling-notebook-alpha10/edited-page-1.png){ width="340" }](../assets/styling-notebook-alpha10/edited.pdf)
+[![The default Common Ground report, with forest-green typography, a pale metrics panel and a numbered footer.](../assets/styling-notebook-alpha11/default-page-1.png){ width="340" }](../assets/styling-notebook-alpha11/field-notes.pdf)
+[![An edited report with smaller headings, violet labels and metric values, a lavender panel and a teal page number.](../assets/styling-notebook-alpha11/edited-page-1.png){ width="340" }](../assets/styling-notebook-alpha11/edited.pdf)
 
-[Open the sample PDF](../assets/styling-notebook-alpha10/field-notes.pdf){ .md-button }
-[Open styled HTML](../assets/styling-notebook-alpha10/field-notes.styled.html){ .md-button }
-[Open unstyled HTML](../assets/styling-notebook-alpha10/field-notes.unstyled.html){ .md-button }
+[Open the sample PDF](../assets/styling-notebook-alpha11/field-notes.pdf){ .md-button }
+[Open styled HTML](../assets/styling-notebook-alpha11/field-notes.styled.html){ .md-button }
+[Open unstyled HTML](../assets/styling-notebook-alpha11/field-notes.unstyled.html){ .md-button }
 
 ## Change one control at a time
 
@@ -88,7 +88,7 @@ For the whole metrics panel, the notebook uses
 new component values; they do not mutate other instances. Shared typography
 belongs in `Theme` or a reusable `styled(...)` primitive.
 
-The [authoring reference](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a10/docs/component-bootstrap.md)
+The [authoring reference](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a11/docs/component-bootstrap.md)
 explains precedence, supported styles and named parts.
 
 ## Run in Colab or local Jupyter
@@ -146,16 +146,17 @@ Bootstrap JavaScript.
 
 The PDF registers bundled Inter explicitly. That registration does not embed
 Inter in browser HTML: the host must supply the font or use the included
-sans-serif fallback. The notebook's `@media screen` rules frame the browser
-document and map native `Flow` spacing to browser flex columns. A
-`browser_document` reuses the same component content with those additional
-host rules; the PDF document does not receive them. The
-[complete source kit](../guides/component-preview-10.md) includes an example
+sans-serif fallback. `Flow` now exports its own browser layout and gaps.
+The notebook's `@media screen` rules supply fonts and screen framing. A
+`browser_document` reuses the same component content with those host rules;
+the PDF document does not receive them. PDF-only page breaks are hidden in
+continuous styled HTML. The
+[complete source kit](../guides/component-preview-11.md) includes an example
 that writes the font file and a matching browser `@font-face` rule.
 
 ## What the checks cover
 
-The [execution record](../assets/styling-notebook-alpha10/verification.json)
+The [execution record](../assets/styling-notebook-alpha11/verification.json)
 covers six cases: default, edited text and styles, selector-only changes,
 named-part-only changes, 72 activity rows, and an empty table after the long run.
 Independent readers inspect all 23 PDF pages, including text, character bounds,
@@ -163,11 +164,11 @@ colors and finalized page totals. Repeat renders, both HTML forms and ZIP
 contents are checked. The default PDF reproduces the qualified field-notes
 specimen exactly.
 
-The [style-isolation record](../assets/styling-notebook-alpha10/style-isolation.json)
+The [style-isolation record](../assets/styling-notebook-alpha11/style-isolation.json)
 checks the rendered pixels: changing only `.folio` affects the footer on each
 page; changing only the metric value part leaves pages two and three identical.
 
-The [Jupyter browser record](../assets/styling-notebook-alpha10/browser-verification.json)
+The [Jupyter browser record](../assets/styling-notebook-alpha11/browser-verification.json)
 covers editing the controls, running cells, displaying all previews and clicking
 the actual ZIP downloads. Those downloads match the independently inspected
 files. The checks cover local Jupyter, not execution in a hosted Colab session.

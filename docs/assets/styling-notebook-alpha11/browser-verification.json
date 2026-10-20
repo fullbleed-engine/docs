@@ -1,0 +1,137 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-20T11:32:10.694244+00:00",
+  "notebook_sha256": "9fca59ea5a482560af7d936164660344eb4025b1e895b623640217991ab34494",
+  "runtime_version": "2.6.0a11",
+  "system": "Windows",
+  "python": "3.11.8",
+  "browser": "155.0.8059.40",
+  "tools": {
+    "notebook": "7.6.3",
+    "jupyter_server": "2.21.1",
+    "ipykernel": "7.4.0",
+    "playwright": "1.49.1",
+    "psutil": "7.2.2"
+  },
+  "cases": [
+    {
+      "name": "default",
+      "pages": 3,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "ba5502e74fdc81a3682d769cee3cb747a756a4293d0fb1dacc0cc3d2bb0acbbc",
+      "artifact_hashes": {
+        "field-notes.pdf": "eb8f7c2b4fb5e123feb46a99e0521a7ab04181c0847c675076fe759e2d4bbf94",
+        "field-notes.styled.html": "af5d37e44cd3e038be306e4b84c5f2efe666b9060c10a2d5aa2f5d93275349d6",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "626217670103c45188dd3c1cf96e2a82ef2add3b1bb00baa6dc19fb150eebea9",
+        "field-notes-page-2.png": "4da3c325f07434b01c455b3231e2c63de607a2b7db87a6b09f75a561b92eb925",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "edited",
+      "pages": 3,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "afc7e0c26b524f6c164a140ead83a2692991ef34e2e823757ff6aa62947c2a93",
+      "artifact_hashes": {
+        "field-notes.pdf": "8910ef4bfe885d61fc9b84dfeabd7195b65bafc658259c1f2f983e3b7ccf1a2e",
+        "field-notes.styled.html": "d620a5e4b75ff8e589e117f5baa935640d3fa8ad6f344def9dc8b46e59263f0e",
+        "field-notes.unstyled.html": "2dd7badcfd1b2cbe03523d15724b839365c71087bc694f9adbd599c172f1a486",
+        "field-notes-page-1.png": "9ab4b9593c6c140753e7df1d525e158c134dc29b4f63db5e2cdfd3d871280428",
+        "field-notes-page-2.png": "bb9924fa1ab0b8d1e3f19e7666f1f747030c66815c0c39d64d52cb9b016a3fb5",
+        "field-notes-page-3.png": "addadec6914c032749c6ef68dfd2679975447d5bcd5627721d48cf3cb8933d35"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "selector-only",
+      "pages": 3,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "0502199ceacf99f65e502601de629ced1c04aceb09a59d929061cc8555a78d4c",
+      "artifact_hashes": {
+        "field-notes.pdf": "aa2a67674965407136f6d4ede0f49731969429a60b3a0bb841f61c0870724eb8",
+        "field-notes.styled.html": "b914cceb6f56ee67823abcb3ef98ea26ecb4178d967e0e14c01874d42b4351d4",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "1d4b1926cddd469e051b4b2ab6c9d4989b3640ef5fa532723e1782d728100523",
+        "field-notes-page-2.png": "5c5ecbed1b0958200f3d5262b0fe1836e99c05416e5a876567af0ba13a07b946",
+        "field-notes-page-3.png": "29e2634c27d750c89cd81757289e33be52d7bc8e60e86e6b91f4809da282352a"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "parts-only",
+      "pages": 3,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "6cd8c7655b8c5412b9fd6a4d385e2f6cafafeb1e5ff283e909f3d532b9fee162",
+      "artifact_hashes": {
+        "field-notes.pdf": "54cbc6a1d18f99baa587b7619a74504dca9f110afe1bf6a28d99ffc8148680b9",
+        "field-notes.styled.html": "98ddf2b9e2e3660899f716d80ba5b0800b8def20441e04cc39cb90fb49ff1a9b",
+        "field-notes.unstyled.html": "7fc4b0bef4fe94eea9e54230db9bf68a17e1c1049ff8c86b23013ac6baa688ac",
+        "field-notes-page-1.png": "5967ad012098f123f26594282d0b0a8fb4e631b8b0dd195969ab6d80b8cb72bf",
+        "field-notes-page-2.png": "4da3c325f07434b01c455b3231e2c63de607a2b7db87a6b09f75a561b92eb925",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "long",
+      "pages": 8,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "8dfaf344136dd5648fdbfe66abc979aa3032ca450ea9da19df11545357341723",
+      "artifact_hashes": {
+        "field-notes.pdf": "acd62ae55466277dff26a25c79d151cc2e641bfbbb73f93ab3f74fbbbd45f46c",
+        "field-notes.styled.html": "80d3bfceca08135e21ea69634ead9f1def787b6b526d5f3b9dde1c5d14ee6c3a",
+        "field-notes.unstyled.html": "b0e68ee4983b4cbe3e791654857742bb72e1b5fc2f3e4eaef0766b9235adbd62",
+        "field-notes-page-1.png": "74c2e71cc5c4d32171b5397739d5e4e1da91fbfa15155ff1b4dc8a839cc21c82",
+        "field-notes-page-2.png": "5097d31cc63715cb87f25ddcffe84856cdc328cb0ef950f4792dea4a441d9afe",
+        "field-notes-page-3.png": "79652b15c7a888337c23562cbe0fc65263d921aae45e7755b91e86b309cc2a3e",
+        "field-notes-page-4.png": "b97c3eb1a6cd74f043f86f47cd004ecccc738f36913811ba9c1ea4671decc014",
+        "field-notes-page-5.png": "3e86dd8de2ea14e183b2bdb2aa929ca013403ed4433b1a907cc59b4e009e014a",
+        "field-notes-page-6.png": "7ded0703778250a4ae2b4eedb4bc9d27c59358854f5536cf6b9938f9fa2567ff",
+        "field-notes-page-7.png": "ce4d9ad2c5c676197f766be0952f833d219983aeb1bf93e33464e93f93fa15dd",
+        "field-notes-page-8.png": "50a71a7b28960ffc5aca3707fe4f265b065315b9dd2eab4bb9feeda73b9a6f42"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    },
+    {
+      "name": "empty-after-long",
+      "pages": 3,
+      "actual_browser_download": true,
+      "filename": "component-field-notes.zip",
+      "href_path": "/files/output/component-field-notes.zip",
+      "zip_sha256": "ff74a33651a76874c3b314234e82ec304eb753a13c5f35dafbc699db38fc5d13",
+      "artifact_hashes": {
+        "field-notes.pdf": "114f2076f53ef9e30704b94551c8c8ff6aab8ed56c3d2cb1f6e09e662897b942",
+        "field-notes.styled.html": "1b1d67bcd550c07753f5576c878c76e22a60e62b7c47fb2ff3f3fc6e9c8a4ecb",
+        "field-notes.unstyled.html": "3b93493642feb1c4770622561d0ccf1747edb9134d8e2a25a5246a2dd8b35604",
+        "field-notes-page-1.png": "626217670103c45188dd3c1cf96e2a82ef2add3b1bb00baa6dc19fb150eebea9",
+        "field-notes-page-2.png": "68578aef1e42fbe276c7225322ffd4710398456e5e13c42994b145936680e599",
+        "field-notes-page-3.png": "b3ddbd6538cf7e9f7109ca8b185dcc56f4e778808ae38ea9a18582628a432a16"
+      },
+      "matches_independent_reference": true,
+      "visible_previews_match_download": true
+    }
+  ],
+  "stale_previews_excluded": true,
+  "local_install_override": false,
+  "frontend_events": [
+    "TypeError: Cannot read properties of undefined (reading 'schema')\n    at http://127.0.0.1:12428/static/notebook/notebook_core.1038f6e3d817cc41.js?v=1038f6e3d817cc41:501:207\n    at d (http://127.0.0.1:12428/static/notebook/notebook_core.1038f6e3d817cc41.js?v=1038f6e3d817cc41:509:198736)\n    at e.emit (http://127.0.0.1:12428/static/notebook/notebook_core.1038f6e3d817cc41.js?v=1038f6e3d817cc41:509:198469)\n    at o.emit (http://127.0.0.1:12428/static/notebook/notebook_core.1038f6e3d817cc41.js?v=1038f6e3d817cc41:509:196456)\n    at _.load (http://127.0.0.1:12428/static/notebook/notebook_core.1038f6e3d817cc41.js?v=1038f6e3d817cc41:483:8831)\n    at async Promise.all (index 0)"
+  ],
+  "scope": "Local Jupyter Notebook editing, execution, finalized counters, displayed previews and actual browser ZIP downloads. The receipt identifies any local-wheel install override. Hosted Colab is not tested."
+}
