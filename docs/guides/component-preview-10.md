@@ -16,7 +16,7 @@ and data.
 
 [Download the complete source kit](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a10/fullbleed-component-showcases-2.6.0a10.zip){ .md-button .md-button--primary }
 [Open the field-notes PDF](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a10/common-ground-field-notes-pdfua2-2.6.0a10.pdf){ .md-button }
-[Try the page-band notebook](../getting-started/page-band-notebook.md){ .md-button }
+[Try the styling notebook](../getting-started/component-styling.md){ .md-button }
 
 ![Common Ground field notes: a seasonal report with reusable brand header, editorial typography, summary metrics and a finalized page count.](../assets/component-preview-9/field-notes-1.png)
 
@@ -143,8 +143,10 @@ The [paired-authoring walkthrough](showcase-authoring.md),
 [Bootstrap catalog](bootstrap-components-preview.md) retain their versioned
 examples. The [alpha 9 guide](component-preview-9.md) retains the initial
 page-band release, and the [alpha 8 guide](component-preview-8.md) retains the
-earlier package without `PageBand` or `PageNumbers`. The page-band notebook
-remains pinned to its verified alpha 9 package.
+earlier package without `PageBand` or `PageNumbers`. The
+[styling notebook](../getting-started/component-styling.md) uses alpha 10 and
+lets you edit theme, typography, root, named-part and class-selector styles.
+The earlier page-band notebook retains its verified alpha 9 package.
 
 ## Changes in alpha 10
 
