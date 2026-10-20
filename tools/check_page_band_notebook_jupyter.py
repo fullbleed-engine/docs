@@ -48,7 +48,9 @@ def check_browser(page, context, source, work, out, reference, token):
     write(out / "startup-progress.json", dict(stage="waiting-for-run-menu"))
     page.get_by_role("menuitem", name="Run", exact=True).wait_for(timeout=60000)
     write(out / "startup-progress.json", dict(stage="waiting-for-cell-editors"))
-    expect(page.get_by_role("textbox")).to_have_count(8)
+    # The notebook shell can appear before its CodeMirror editors finish
+    # initializing. Allow the same startup budget as the menu and kernel.
+    expect(page.get_by_role("textbox")).to_have_count(8, timeout=60000)
     # The editor can finish loading before its first kernel connection. The
     # observed first attempt marked cells trusted but executed none of them.
     write(out / "startup-progress.json", dict(stage="waiting-for-kernel-ready"))
