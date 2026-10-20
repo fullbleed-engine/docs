@@ -127,7 +127,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
 === "Python"
 
-    Use Python 3.10–3.14. The wheel includes the engine, CLI, and fonts.
+    Use standard-GIL CPython 3.10–3.15. The wheel includes the engine, CLI, and fonts.
 
     ```bash
     python -m pip install fullbleed

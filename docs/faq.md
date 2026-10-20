@@ -6,7 +6,7 @@ The current Fullbleed release is [MIT licensed](https://github.com/fullbleed-eng
 
 ## What do I need to install?
 
-Python 3.10–3.14 and a Fullbleed wheel for your platform. The core has no required third-party Python runtime dependencies. See [installation](getting-started/installation.md) for the published platform list.
+Standard-GIL CPython 3.10–3.15 and a Fullbleed wheel for your platform. The core has no required third-party Python runtime dependencies. See [installation](getting-started/installation.md) for the published platform list and Python 3.15 qualification.
 
 ## Can I use my existing HTML and CSS?
 
