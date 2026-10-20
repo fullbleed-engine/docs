@@ -14,6 +14,7 @@ from textwrap import dedent
 import fullbleed
 
 ROOT = Path(__file__).resolve().parents[1]
+QUICKSTART_RELEASE = "2.5.34"
 FIXTURES = [
     ("index.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
     ("getting-started/quickstart.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
@@ -34,7 +35,9 @@ def main():
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     reference = json.loads((ROOT / "docs/reference-source.json").read_text(encoding="utf-8"))
-    expected = reference["release"].removeprefix("v")
+    # First-run examples track a qualified stable package independently of the
+    # frozen API reference and the older downloadable showcase projects.
+    expected = QUICKSTART_RELEASE
     installed = version("fullbleed")
     if installed != expected:
         raise SystemExit(f"Install fullbleed=={expected} in this environment; found {installed}.")
@@ -83,8 +86,37 @@ def main():
         blocks = re.findall(r"```python\n(.*?)```", source, flags=re.S)
         # The first home-page example uses the newer component API. Its own
         # Windows/Linux gate runs it with the component starter's pinned release.
-        expected_blocks = 2 if page in ("index.md", "engine/assets.md") else 1
+        expected_blocks = 2 if page in (
+            "index.md", "engine/assets.md", "getting-started/quickstart.md"
+        ) else 1
         assert len(blocks) == expected_blocks, (page, len(blocks))
+        if page == "getting-started/quickstart.md":
+            assert f"Fullbleed **{QUICKSTART_RELEASE}**" in source
+            paired = []
+            for authoring, block in zip(("components", "html-css"), blocks):
+                folder = workspace / ("getting-started_quickstart_" + authoring)
+                folder.mkdir()
+                code = dedent(block)
+                (folder / "hello.py").write_text(code, encoding="utf-8", newline="\n")
+                run("hello", ["-I", "hello.py"], folder)
+                result = run("inspect-cli", [
+                    "-I", "-m", "fullbleed", "inspect", "pdf", "invoice.pdf", "--json"
+                ], folder)
+                assert json.loads(result.stdout)["ok"]
+                evidence = {
+                    "page": page, "authoring": authoring,
+                    "source_sha256": hashlib.sha256(code.encode()).hexdigest(),
+                    **inspect(folder / output, required, embedded_font),
+                }
+                snippets.append(evidence)
+                paired.append(evidence)
+            assert paired[0]["sha256"] == paired[1]["sha256"], (
+                "Quickstart authoring paths must produce the same PDF", paired
+            )
+            assert [p["sha256"] for p in paired[0]["previews"]] == [
+                p["sha256"] for p in paired[1]["previews"]
+            ], "Quickstart previews differ"
+            continue
         folder = workspace / page.removesuffix(".md").replace("/", "_")
         folder.mkdir()
         code = dedent(blocks[1] if page == "index.md" else blocks[0])
@@ -108,9 +140,6 @@ def main():
                 "feature": "bundled_standard_font_previews", "available": available})
         if page == "getting-started/first-pdf.md":
             assert len(list((folder / "output/preview").glob("*.png"))) == 1
-        if page == "getting-started/quickstart.md":
-            result = run("inspect-cli", ["-I", "-m", "fullbleed", "inspect", "pdf", "invoice.pdf", "--json"], folder)
-            assert json.loads(result.stdout)["ok"]
 
     project = workspace / "my-report"
     project.mkdir()
@@ -123,6 +152,8 @@ def main():
         assert (folder / "report.py").is_file(), folder
 
     result = {"ok": True, "engine": installed, "reference_commit": reference["commit"],
+              "quickstart_authoring_paths": ["components", "html-css"],
+              "quickstart_pdf_and_previews_identical": True,
               "platform": sys.platform, "python": sys.version, "snippets": snippets,
               "capability_snippets": capability_snippets,
               "scaffold": scaffold, "commands": checks,
