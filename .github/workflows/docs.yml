@@ -129,6 +129,8 @@ jobs:
           python -m pip install --only-binary=:all: -r tools/component-notebook-browser-requirements.txt
       - name: Execute the page-band notebook and inspect PDF, HTML and ZIP files
         run: python -I tools/verify_page_band_notebook.py --notebook examples/page-band-notebook-alpha9/component_page_bands.ipynb --out target/page-band-notebook
+      - name: Check private notebook process cleanup and isolation
+        run: python -I tools/test_notebook_browser_processes.py
       - name: Edit, run and download the page-band notebook in Jupyter
         run: python -I tools/check_page_band_notebook_jupyter.py --reference target/page-band-notebook --out target/page-band-notebook/browser --browser chrome
       - uses: actions/upload-artifact@v4

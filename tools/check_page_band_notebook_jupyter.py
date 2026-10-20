@@ -31,6 +31,10 @@ from zipfile import ZipFile
 
 from playwright.sync_api import expect, sync_playwright
 
+# Resolve only the checked-in helper when this tool is run with python -I.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from notebook_browser_processes import stop_process_tree
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -209,24 +213,19 @@ def main():
                     finally:
                         browser.close()
             finally:
-                if server.poll() is None:
-                    try:
-                        request = urllib.request.Request(base + "/api/shutdown", data=b"", method="POST",
-                            headers={"Authorization": "token " + token})
-                        with urllib.request.urlopen(request, timeout=10):
-                            pass
-                        server.wait(timeout=30)
-                    except (urllib.error.URLError, TimeoutError, subprocess.TimeoutExpired):
-                        server.terminate()
-                        server.wait(timeout=15)
-                write(out / "server-stopped.json", dict(stopped=server.poll() is not None, returncode=server.returncode))
+                def request_shutdown():
+                    request = urllib.request.Request(base + "/api/shutdown", data=b"", method="POST",
+                        headers={"Authorization": "token " + token})
+                    with urllib.request.urlopen(request, timeout=10):
+                        pass
+                write(out / "server-stopped.json", stop_process_tree(server, request_shutdown))
                 log.flush()
                 sanitized = (private / "server.log").read_text(encoding="utf-8", errors="replace").replace(token, "[redacted]")
                 (out / "server.log").write_text(sanitized, encoding="utf-8")
     report = dict(ok=True, checked_at=datetime.now(timezone.utc).isoformat(),
         notebook_sha256=reference["notebook_sha256"], runtime_version=importlib.metadata.version("fullbleed"),
         system=platform.system(), python=platform.python_version(), browser=browser_version,
-        tools={name: importlib.metadata.version(name) for name in ("notebook", "jupyter_server", "ipykernel", "playwright")},
+        tools={name: importlib.metadata.version(name) for name in ("notebook", "jupyter_server", "ipykernel", "playwright", "psutil")},
         cases=cases, stale_previews_excluded=True, local_install_override=reference["local_install_override"],
         scope="Local Jupyter Notebook editing, execution, finalized counters, displayed previews and actual browser ZIP downloads. The receipt identifies any local-wheel install override. Hosted Colab is not tested.")
     assert report["runtime_version"] == reference["runtime_version"]
