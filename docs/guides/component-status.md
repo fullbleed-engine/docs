@@ -23,6 +23,10 @@ tables, static Bootstrap helpers, repeating page bands, and HTML export with or
 without styles. Its [current preview guide](component-preview-11.md) includes
 installation instructions and a complete source kit.
 
+For interactive walkthroughs, [Explore the versioned component notebook](../getting-started/component-notebook.md)
+or [Try the current styling notebook](../getting-started/component-styling.md).
+Each notebook states its own package pin and includes downloadable output.
+
 ## Decision: retain the alpha
 
 The alpha is **merged into `master` and published on PyPI**. It is not an

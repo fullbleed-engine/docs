@@ -105,7 +105,7 @@ def main():
                     if "unstyled" in filename:
                         assert page.locator("style, [style], link[rel=stylesheet]").count() == 0
                 for path, label_text in (
-                    ("/", "Explore the versioned component notebook"),
+                    ("/guides/component-status/", "Explore the versioned component notebook"),
                     ("/getting-started/notebook/", "Try the component notebook"),
                     ("/guides/bootstrap-components-preview/", "Try the component notebook"),
                 ):

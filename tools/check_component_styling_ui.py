@@ -132,7 +132,7 @@ def main():
                             page.screenshot(path=str(out / f"{label}-{'styled' if styled else 'unstyled'}-html.png"),
                                             animations="disabled", full_page=True)
                         for path, title in (
-                            ("/", "Try the current styling notebook"),
+                            ("/guides/component-status/", "Try the current styling notebook"),
                             ("/guides/component-preview-11/", "Try the styling notebook"),
                             ("/guides/python-components/", "edit the styling notebook"),
                         ):
