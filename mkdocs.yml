@@ -1,6 +1,6 @@
 site_name: Fullbleed
 site_url: https://docs.fullbleed.dev/
-site_description: Build PDFs with Python, JavaScript or C# components and optional JSX, or use HTML/CSS from Python, Rust, Node.js, C#, and browsers. MIT licensed.
+site_description: Generate PDFs from HTML/CSS in Python, Rust, JavaScript, and C#. Build invoices, reports, and print documents with bundled fonts and local output. MIT licensed.
 site_author: Fullbleed Engine
 repo_url: https://github.com/fullbleed-engine/fullbleed-official
 repo_name: Fullbleed on GitHub
@@ -84,6 +84,7 @@ nav:
     - Examples and downloads: examples.md
   - Build a document:
     - Python components: guides/python-components.md
+    - Component release status: guides/component-status.md
     - One design, two authoring paths: guides/showcase-authoring.md
     - Accessible component showcase: guides/accessible-showcase.md
     - JavaScript components and JSX: guides/javascript-components.md

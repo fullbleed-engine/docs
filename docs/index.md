@@ -1,20 +1,20 @@
 ---
-title: PDF components and HTML/CSS for Python, JavaScript, Rust, and C#
-description: Build PDFs with Python, JavaScript or C# components and optional JSX, or use HTML/CSS from Python, Rust, Node.js, C#, and browsers. Reusable templates, bundled fonts, and local output.
+title: PDF generation for Python, Rust, JavaScript, and C#
+description: Generate PDFs from HTML/CSS in Python, Rust, JavaScript, and C#. Build invoices, reports, and print documents with bundled fonts, reusable templates, and local output.
 hide:
   - toc
 ---
 
 <div class="hero" markdown>
 <div markdown>
-<p class="eyebrow">Components + HTML/CSS to PDF · MIT licensed</p>
+<p class="eyebrow">HTML/CSS to PDF · MIT licensed</p>
 
 # Your data. Your design. Your PDF.
 
-<p class="lead">Compose invoices, reports, and print documents with <a href="guides/python-components/">Python components</a>, <a href="guides/javascript-components/">JavaScript and JSX</a>, <a href="guides/csharp-components/">C# components</a>, or existing HTML/CSS templates. One Rust print engine, in your application.</p>
+<p class="lead">Generate invoices, reports, and print documents from HTML/CSS. Keep your templates, fonts, and data in your application, with a deterministic Rust engine handling layout and PDF output.</p>
 
-[Try PDF components](assets/react-demo/index.html){ .md-button .md-button--primary }
-[Choose your language](#choose-your-language){ .md-button }
+[Choose your language](#choose-your-language){ .md-button .md-button--primary }
+[Try the PDF playground](playground.md){ .md-button }
 
 Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
 </div>
@@ -24,67 +24,13 @@ Python, Rust, Node.js, C#, and browser JavaScript. One print engine.
 </figure>
 </div>
 
-<p class="facts">Reusable components &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
+<p class="facts">HTML/CSS templates &nbsp; / &nbsp; Explicit fonts and assets &nbsp; / &nbsp; Repeatable output &nbsp; / &nbsp; Free for commercial use under MIT</p>
 
 Building a store? [Try the WooCommerce editor in a sample store](guides/woocommerce.md),
 then [evaluate an automated order workflow](guides/woocommerce.md#evaluate-an-automated-workflow)
 for email attachments or customer downloads.
 
 <span id="a-small-first-step"></span>
-
-## Compose PDFs with Python components
-
-Functions, props, children, lists and conditionals—familiar building blocks for
-your print documents. Use named elements and Python style mappings to build a
-complete invoice without writing HTML strings.
-The component workflow below requires Fullbleed 2.5.25 or later.
-
-```python
-from importlib.resources import files
-from pathlib import Path
-import fullbleed
-from fullbleed.ui import Document, Heading, Paragraph, Stack, Strong, component
-
-@component
-def Line(label, amount):
-    return Paragraph(Strong(label), ": ", amount)
-
-@Document(title="Invoice", styles={
-    "@page": {"size": "A4", "margin": "18mm"},
-    "body": {"font_family": "Inter"},
-})
-def Invoice():
-    return Stack(Heading("Made for you", level=1), Line("Design", "$120"), gap="12pt")
-
-font = files("fullbleed_assets").joinpath("fonts/Inter-Variable.ttf")
-engine = fullbleed.PdfEngine(font_files=[str(font)])
-Path("component-invoice.pdf").write_bytes(Invoice().render_pdf(engine))
-```
-
-[Build with Python components](guides/python-components.md){ .md-button .md-button--primary }
-[Download the designed invoice](assets/components/project.zip){ .md-button }
-
-Prefer JavaScript? [Compose the same kind of document with functions or JSX/TSX](guides/javascript-components.md).
-Named components, typed props and reusable styles work with the Node and browser
-renderers. [Try the live component invoice](assets/react-demo/index.html) or
-[connect it to your React application](guides/react-pdf.md). Ordinary JavaScript functions need no build step or React runtime.
-
-Using C#? [Compose PDFs with typed methods, LINQ and style objects](guides/csharp-components.md),
-or [download the component invoice](assets/dotnet-components/project.zip).
-
-Want to try the next Python authoring API? The
-[component alpha](guides/component-preview-11.md) includes reusable styles,
-named component parts, data tables, static Bootstrap helpers and repeating page
-bands, with PDF and styled or unstyled HTML output. [Explore the versioned component
-notebook](getting-started/component-notebook.md) in Colab or Jupyter, or download
-the current source kit from the alpha guide.
-
-[Try the current styling notebook](getting-started/component-styling.md) to
-change theme colors, named parts and `class_name` rules, then compare PDF with
-styled and unstyled HTML.
-
-Building a web application? [Render PDFs in a browser worker](guides/browser-pdf.md) with
-editable templates, previews, and downloads. [Try the live starter](assets/browser-demo/index.html).
 
 ## Choose your language
 
@@ -291,6 +237,19 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
     [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.0/samples/FullBleed.DotNet.LinqVdp)
+
+<span id="compose-pdfs-with-python-components"></span>
+
+!!! tip "Prefer to author with components?"
+    Build reusable document functions with [Python components](guides/python-components.md),
+    [JavaScript and JSX](guides/javascript-components.md), or
+    [C# components](guides/csharp-components.md). Pass data and children, attach styles,
+    and render through the same print engine.
+
+    [Try the live component invoice](assets/react-demo/index.html) or
+    [compare HTML/CSS and component versions of the showcase](guides/showcase-authoring.md).
+    The existing Python API is stable; its newer authoring API is an opt-in alpha.
+    [See the release status and remaining stabilization work](guides/component-status.md).
 
 ## Pick a document to build
 
