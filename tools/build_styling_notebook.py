@@ -80,6 +80,36 @@ FOLIO_COLOR = "#53665c"         # class_name + selector: the page numbers.''',
         'styles={".folio": style(font_size=pt(8), color=token("muted"))}',
         'styles={".folio": style(font_size=pt(8), color=FOLIO_COLOR)}',
     )
+    replace(
+        "render-export",
+        "for include_styles, filename in (",
+        '''# Reuse the same content with browser-only presentation rules.
+# Native Flow spacing needs flex-column layout in a browser. Keep those
+# host rules out of the PDF document; no HTML string rewriting is needed.
+browser_document = Document(
+    *document.children,
+    title=document.title, lang=document.lang, page=document.page, theme=document.theme,
+    styles=document.styles + """
+@media screen {
+    body, [data-fb-band-slot] { font-family: Inter, sans-serif; }
+    body { max-width: 680px; margin: 0 auto; padding: 24px; }
+    [data-fb-flow] { display: flex; flex-direction: column; }
+    main > [data-fb-flow] { margin-bottom: 40px; }
+    [data-fb-page-band] { margin: 12px 0 28px; }
+    footer[data-fb-page-band] { margin-top: 28px; }
+}
+""",
+)
+for include_styles, filename in (''',
+    )
+    replace(
+        "render-export",
+        '''    (output / filename).write_text(
+        document.to_html(include_styles=include_styles, a11y_mode="raise"),''',
+        '''    export_document = browser_document if include_styles else document
+    (output / filename).write_text(
+        export_document.to_html(include_styles=include_styles, a11y_mode="raise"),''',
+    )
     # Put the selector explanation beside the code it describes, not just in
     # the landing page. Existing markdown cell IDs remain deterministic.
     compose_index = notebook["cells"].index(cells["compose-document"])
@@ -115,6 +145,10 @@ The PDF uses explicitly registered, bundled Inter. Registering that font with
 `Renderer` does not embed it in browser HTML; the browser host must provide
 Inter or use a fallback. HTML has one header/main/footer sequence and
 `[page] / [pages]` placeholders. It does not paginate like the PDF.
+The included `@media screen` stylesheet frames the browser document, provides
+a sans-serif fallback, and maps native `Flow` spacing to browser flex columns.
+It belongs to `browser_document`, which shares the same component content.
+The PDF document does not receive these host rules.
 
 For a longer report, put 72 rows in `ACTIVITY` and rerun. Use `ACTIVITY = []`
 afterwards to check the empty state. The ZIP includes only the current PDF,
