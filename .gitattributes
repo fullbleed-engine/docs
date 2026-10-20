@@ -169,3 +169,6 @@ docs/assets/accessible-showcase-alpha7/fonts/*.ttf binary
 examples/styling-notebook-alpha10/** text eol=lf
 docs/assets/styling-notebook-alpha10/** -text whitespace=cr-at-eol
 docs/assets/styling-notebook-alpha10/*.pdf binary
+examples/styling-notebook-alpha11/** text eol=lf
+docs/assets/styling-notebook-alpha11/** -text
+docs/assets/styling-notebook-alpha11/*.pdf binary

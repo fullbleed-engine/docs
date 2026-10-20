@@ -1,4 +1,5 @@
 """Build the focused styling tutorial from the preserved field-notes notebook."""
+from argparse import ArgumentParser
 from copy import deepcopy
 import json
 from pathlib import Path
@@ -11,7 +12,8 @@ DESTINATIONS = (
 )
 
 
-def build():
+def build(channel="alpha10"):
+    assert channel in ("alpha10", "alpha11")
     notebook = deepcopy(json.loads(SOURCE.read_text(encoding="utf-8")))
     cells = {cell["id"]: cell for cell in notebook["cells"]}
 
@@ -160,6 +162,35 @@ PDF bands sit outside body reading order; essential information also belongs
 in the body.
 """.splitlines(keepends=True),
     })
+    if channel == "alpha11":
+        for cell in notebook["cells"]:
+            cell["source"] = "".join(cell["source"]).replace(
+                "2.6.0a10", "2.6.0a11").splitlines(keepends=True)
+        replace(
+            "render-export",
+            "# Native Flow spacing needs flex-column layout in a browser. Keep those\n"
+            "# host rules out of the PDF document; no HTML string rewriting is needed.",
+            "# Flow already exports its browser layout and gaps. Keep font fallbacks\n"
+            "# and screen framing out of the PDF document.",
+        )
+        replace(
+            "render-export",
+            "    [data-fb-flow] { display: flex; flex-direction: column; }\n",
+            "",
+        )
+        scope = next(cell for cell in notebook["cells"] if cell["id"] == "export-styling-scope")
+        old = ("The included `@media screen` stylesheet frames the browser document, provides\n"
+               "a sans-serif fallback, and maps native `Flow` spacing to browser flex columns.\n"
+               "It belongs to `browser_document`, which shares the same component content.\n"
+               "The PDF document does not receive these host rules.")
+        new = ("The included `@media screen` stylesheet supplies a sans-serif fallback and\n"
+               "screen framing. `Flow` exports its own browser layout and gaps; no host\n"
+               "layout rule is needed. PDF-only page breaks are hidden in styled HTML.\n"
+               "The host stylesheet belongs to `browser_document`, which shares the same\n"
+               "component content. The PDF document does not receive those host rules.")
+        text = "".join(scope["source"])
+        assert text.count(old) == 1
+        scope["source"] = text.replace(old, new).splitlines(keepends=True)
     for cell in notebook["cells"]:
         if cell["cell_type"] == "code":
             assert cell["outputs"] == [] and cell["execution_count"] is None
@@ -167,8 +198,12 @@ in the body.
 
 
 if __name__ == "__main__":
-    data = build()
-    for destination in DESTINATIONS:
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument("--channel", choices=("alpha10", "alpha11"), default="alpha10")
+    args = parser.parse_args()
+    data = build(args.channel)
+    for original in DESTINATIONS:
+        destination = Path(str(original).replace("styling-notebook-alpha10", "styling-notebook-" + args.channel))
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(data)
     print(f"Built the styling notebook and identical download ({len(data)} bytes).")

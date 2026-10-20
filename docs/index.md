@@ -73,7 +73,7 @@ Using C#? [Compose PDFs with typed methods, LINQ and style objects](guides/cshar
 or [download the component invoice](assets/dotnet-components/project.zip).
 
 Want to try the next Python authoring API? The
-[component alpha](guides/component-preview-10.md) includes reusable styles,
+[component alpha](guides/component-preview-11.md) includes reusable styles,
 named component parts, data tables, static Bootstrap helpers and repeating page
 bands, with PDF and styled or unstyled HTML output. [Explore the versioned component
 notebook](getting-started/component-notebook.md) in Colab or Jupyter, or download

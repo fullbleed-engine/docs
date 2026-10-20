@@ -205,6 +205,6 @@ The PDF uses the tagged profile and passes source structural checks. These check
 do not establish PDF/UA conformance or assistive-technology usability. For that
 separate workflow, see the [accessible component showcase](accessible-showcase.md).
 
-Continue with the [current component preview](component-preview-10.md),
+Continue with the [current component preview](component-preview-11.md),
 [reusable page-band notebook](../getting-started/page-band-notebook.md), or
 [HTML/CSS pandas report](pandas-to-pdf.md).

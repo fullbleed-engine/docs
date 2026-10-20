@@ -5,11 +5,15 @@ description: Compose invoices and reports with reusable Python components, attac
 
 # Build styled documents from Python components
 
+!!! info "Current component preview: 2.6.0a11"
+    [Get the current component source kit and HTML-export guide](component-preview-11.md).
+    This page retains the alpha 10 package and its verification record.
+
 Write a Python function once, then reuse it across invoices, reports and
 repeating page headers. Compose semantic building blocks, apply shared styles,
 and export PDF, styled HTML or unstyled HTML.
 
-**2.6.0a10** is the current experimental preview. The source kit includes the
+**2.6.0a10** is a preserved experimental release. The source kit includes the
 Northstar invoice, Common Ground reports and an accessible community guide.
 Start with the three-page field-notes report below, then edit its functions
 and data.
@@ -144,7 +148,7 @@ The [paired-authoring walkthrough](showcase-authoring.md),
 examples. The [alpha 9 guide](component-preview-9.md) retains the initial
 page-band release, and the [alpha 8 guide](component-preview-8.md) retains the
 earlier package without `PageBand` or `PageNumbers`. The
-[styling notebook](../getting-started/component-styling.md) uses alpha 10 and
+[styling notebook](../getting-started/component-styling.md) uses alpha 11 and
 lets you edit theme, typography, root, named-part and class-selector styles.
 The earlier page-band notebook retains its verified alpha 9 package.
 

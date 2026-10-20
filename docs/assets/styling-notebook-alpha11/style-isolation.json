@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "cases": {
+    "selector-only": [
+      [
+        543,
+        860,
+        567,
+        872
+      ],
+      [
+        541,
+        860,
+        567,
+        872
+      ],
+      [
+        541,
+        860,
+        567,
+        872
+      ]
+    ],
+    "parts-only": [
+      [
+        102,
+        352,
+        381,
+        391
+      ],
+      null,
+      null
+    ]
+  },
+  "scope": "Selector-only changes stay in the footer on every page; named-part-only changes leave pages 2 and 3 identical."
+}

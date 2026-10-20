@@ -17,14 +17,22 @@ def main():
     parser.add_argument("--base-url")
     parser.add_argument("--browser", choices=("chrome", "chromium"), default="chrome")
     parser.add_argument("--verify-published-source", action="store_true")
+    parser.add_argument("--allow-local-candidate", action="store_true",
+                        help="Local review only: permit evidence generated from an unpublished wheel.")
     args = parser.parse_args()
     root = args.site.resolve()
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
-    asset_path = "/assets/styling-notebook-alpha10/"
+    asset_path = "/assets/styling-notebook-alpha11/"
     assets = root / asset_path.lstrip("/")
     manifest = json.loads((assets / "verification.json").read_text(encoding="utf-8"))
     assert manifest["ok"] and not manifest["visual_review_pending"]
+    assert manifest["runtime_version"] == "2.6.0a11"
+    browser_evidence = json.loads((assets / "browser-verification.json").read_text(encoding="utf-8"))
+    assert browser_evidence["ok"] and browser_evidence["notebook_sha256"] == manifest["notebook_sha256"]
+    if not args.allow_local_candidate:
+        assert manifest["public_install_cell"] and not manifest["local_install_override"], "Public package execution is required."
+        assert not browser_evidence["local_install_override"], "Public package browser execution is required."
 
     class Handler(SimpleHTTPRequestHandler):
         def __init__(self, *a, **kw):
@@ -56,7 +64,9 @@ def main():
                         article = page.locator("article")
                         assert article.get_by_role("heading", name="Make the components your own", exact=False).is_visible()
                         text = article.inner_text()
-                        for marker in ("2.6.0a10", "class_name", "with_parts", "with_style", "to_html",
+                        if not args.allow_local_candidate:
+                            assert "Unpublished candidate" not in text
+                        for marker in ("2.6.0a11", "class_name", "with_parts", "with_style", "to_html",
                                        "ACCENT", "TITLE_SIZE", "PANEL_BACKGROUND", "METRIC_COLOR", "FOLIO_COLOR",
                                        "23 PDF pages", "local Jupyter", "component-field-notes.zip"):
                             assert marker in text, marker
@@ -123,14 +133,25 @@ def main():
                                             animations="disabled", full_page=True)
                         for path, title in (
                             ("/", "Try the current styling notebook"),
-                            ("/guides/component-preview-10/", "Try the styling notebook"),
+                            ("/guides/component-preview-11/", "Try the styling notebook"),
                             ("/guides/python-components/", "edit the styling notebook"),
                         ):
                             response = page.goto(base + path, wait_until="networkidle")
                             assert response.status == 200
+                            if not args.allow_local_candidate:
+                                assert "Unpublished candidate" not in page.locator("article").inner_text()
                             link = page.locator("article").get_by_role("link", name=title, exact=True)
                             assert link.count() == 1
                             assert urlparse(link.evaluate("a => a.href")).path == "/getting-started/component-styling/"
+                            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+                            if path == "/guides/component-preview-11/":
+                                assert page.locator("article").get_by_role(
+                                    "heading", name="One component tree, PDF and HTML", exact=False
+                                ).is_visible()
+                                assert page.locator("article img").evaluate_all(
+                                    "images => images.length > 0 && images.every(img => img.complete && img.naturalWidth > 0)"
+                                )
+                                page.screenshot(path=str(out / f"{label}-preview-guide.png"), animations="disabled")
                         assert not errors, errors
                         results.append(dict(viewport=label, width=width, colab_url=colab, source_url=source,
                             actual_notebook_download=True, notebook_sha256=manifest["notebook_sha256"],
@@ -147,6 +168,7 @@ def main():
             server.server_close()
     result = dict(ok=True, base_url=base, browser=browser_version, cases=results,
         pinned_public_source_verified=args.verify_published_source,
+        local_candidate_allowed=args.allow_local_candidate,
         visual_review_pending=True,
         scope="Three landing-page widths, actual notebook downloads, exact PDF/HTML/evidence assets, CSS selector behavior in static HTML and three discovery links. Hosted Colab execution is not covered.")
     (out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
