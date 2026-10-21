@@ -16,7 +16,7 @@ no browser, virtual DOM, hook lifecycle, or JavaScript runtime involved.
 The complete workflow below uses Fullbleed **2.5.25**.
 
 !!! tip "Help shape the next authoring model"
-    The [component alpha](component-preview-11.md) adds components
+    The [component alpha](component-preview-12.md) adds components
     that carry their styles, named customization parts, column-based tables,
     static Bootstrap helpers, and styled or unstyled HTML export. Install it
     explicitly to try the next API, or [edit the styling notebook](../getting-started/component-styling.md)

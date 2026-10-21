@@ -131,7 +131,7 @@ nav:
     - Engine architecture: engine/overview.md
   - Evaluate:
     - Component design preview: guides/component-design-preview.md
-    - Current component preview: guides/component-preview-11.md
+    - Current component preview: guides/component-preview-12.md
     - Bootstrap component alpha: guides/bootstrap-components-preview.md
     - Compare Python PDF libraries: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md
