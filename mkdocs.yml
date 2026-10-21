@@ -106,6 +106,7 @@ nav:
     - Rust and Axum PDF downloads: guides/axum-pdf.md
     - Python in Docker: guides/python-docker.md
     - Python in AWS Lambda: guides/aws-lambda-pdf.md
+    - PDFs in Cloudflare Workers: guides/cloudflare-pdf.md
     - n8n invoice workflows: guides/n8n-pdf.md
     - Laravel Blade and queues: guides/laravel-pdf.md
     - Browser PDF generation: guides/browser-pdf.md
