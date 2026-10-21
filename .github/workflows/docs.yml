@@ -872,6 +872,22 @@ jobs:
           retention-days: 14
       - name: Build and exercise the downloadable Next.js starter
         run: python tools/verify_nextjs_starter.py
+      - name: Verify the locked Workers invoice download in local workerd
+        run: |
+          python -m pip install pypdf==6.19.0 pillow==12.3.0
+          python tools/build_cloudflare_starter.py
+          git diff --exit-code -- docs/assets/cloudflare-starter/project.zip docs/assets/cloudflare-starter/source.json
+          python tools/verify_cloudflare_starter.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cloudflare-starter-verification
+          path: |
+            output/cloudflare-starter-verification/*.json
+            output/cloudflare-starter-verification/*.log
+            output/cloudflare-starter-verification/*.pdf
+            output/cloudflare-starter-verification/*.png
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:

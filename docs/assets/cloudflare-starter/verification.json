@@ -1,0 +1,185 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-21T00:20:10.418993+00:00",
+  "packageVersion": "0.8.0",
+  "engineVersion": "2.5.29",
+  "sourceCommit": "e9582e417e8cbe49e41aabd0c695524920a1840d",
+  "zipSha256": "1aa32c075f65844fba69bb0909985c60d35e40ef488c2f889bbae2e9303d9ccd",
+  "packageIntegrity": "sha512-olEU8ARb8i5ASStXX7uGAZ2RaGaKj2uL8cL81su+M46xo3AdxcGL3j8SCcaXEmTJUzKE0o5E6djykPTbC0u2FA==",
+  "platform": "win32",
+  "wrangler": "4.151.3",
+  "workerd": "1.20261019.1",
+  "commands": [
+    {
+      "name": "install",
+      "exitCode": 0
+    },
+    {
+      "name": "input-tests",
+      "exitCode": 0
+    },
+    {
+      "name": "bundle",
+      "exitCode": 0
+    },
+    {
+      "name": "http-tests",
+      "exitCode": 0
+    },
+    {
+      "name": "node-preview",
+      "exitCode": 0
+    }
+  ],
+  "records": [
+    {
+      "name": "sample",
+      "pdf": "17437a93f960b80d16bbbe92f573c7c62a9d9d39eca6899fb9b642ebfb9feca3",
+      "bytes": 103212,
+      "minPages": 1,
+      "maxPages": 1,
+      "text": [
+        "Maple & Finch",
+        "$8,100.00",
+        "01 October 2026"
+      ],
+      "trackedText": [
+        "NS-1042"
+      ],
+      "pages": 1
+    },
+    {
+      "name": "minimum",
+      "pdf": "825a084cd377f4ed6b3cfe7e378be636e2cca2675b8f1bab467966e4418ec4c8",
+      "bytes": 105334,
+      "minPages": 1,
+      "maxPages": 1,
+      "text": [
+        "$0.00",
+        "This invoice has been settled."
+      ],
+      "trackedText": [
+        "NS-1043"
+      ],
+      "pages": 1
+    },
+    {
+      "name": "maximum-total",
+      "pdf": "63c2bdd3d78a0656cff4b6919c302a4ce0385621ea28acc6fbb96426324b36ff",
+      "bytes": 102597,
+      "minPages": 1,
+      "maxPages": 1,
+      "text": [
+        "$999,999.99"
+      ],
+      "trackedText": [
+        "NS-1044"
+      ],
+      "pages": 1
+    },
+    {
+      "name": "long",
+      "pdf": "2a36293e76043cb65cb2a208c28f43c526299ed17e0972ba0e0ccbff1ff071a5",
+      "bytes": 114406,
+      "minPages": 3,
+      "maxPages": 10,
+      "text": [
+        "Work package 30:",
+        "$9,000.00"
+      ],
+      "trackedText": [
+        "NS-1045"
+      ],
+      "pages": 5
+    },
+    {
+      "name": "escaped",
+      "pdf": "6f1191f16e4f4023cc35d9426cd26ebb7ee1e37a2da6209df3105bcfd19b2fbf",
+      "bytes": 103773,
+      "minPages": 1,
+      "maxPages": 2,
+      "text": [
+        "<script>alert(1)</script> & Partners",
+        "$8,100.00"
+      ],
+      "trackedText": [
+        "NS-1046"
+      ],
+      "pages": 1
+    },
+    {
+      "name": "after-errors",
+      "pdf": "17437a93f960b80d16bbbe92f573c7c62a9d9d39eca6899fb9b642ebfb9feca3",
+      "bytes": 103212,
+      "minPages": 1,
+      "maxPages": 1,
+      "text": [
+        "Maple & Finch",
+        "$8,100.00",
+        "01 October 2026"
+      ],
+      "trackedText": [
+        "NS-1042"
+      ],
+      "pages": 1
+    }
+  ],
+  "errors": [
+    {
+      "name": "json",
+      "status": 400,
+      "code": "INVALID_JSON"
+    },
+    {
+      "name": "content-type",
+      "status": 415,
+      "code": "JSON_REQUIRED"
+    },
+    {
+      "name": "body-limit",
+      "status": 413,
+      "code": "BODY_TOO_LARGE"
+    },
+    {
+      "name": "number",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "date",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "money",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "total",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "row-limit",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "unknown",
+      "status": 400,
+      "code": "INVALID_INVOICE"
+    },
+    {
+      "name": "glyph",
+      "status": 422,
+      "code": "MISSING_GLYPHS"
+    }
+  ],
+  "recovery": true,
+  "serverStopped": true,
+  "previewMatches": true,
+  "localOnly": true,
+  "hostedVerified": false,
+  "freePlanVerified": false
+}

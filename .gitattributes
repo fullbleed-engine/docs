@@ -175,3 +175,10 @@ docs/assets/styling-notebook-alpha11/*.pdf binary
 
 # React starter baselines are verified by exact PDF bytes.
 docs/assets/react-starter/baseline/*.pdf binary
+
+# Keep the locked Workers download reproducible and preserve exact PDF/PNG bytes.
+examples/cloudflare-pdf/** text eol=lf
+docs/assets/cloudflare-starter/** -text
+docs/assets/cloudflare-starter/*.pdf binary
+docs/assets/cloudflare-starter/*.png binary
+docs/assets/cloudflare-starter/*.zip binary

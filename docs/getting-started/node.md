@@ -28,6 +28,8 @@ for an explicit face. Review appearance and line breaks when upgrading; the
 [font-family guide](../engine/font-registration.md) explains font selection.
 
 For rendering inside a web page, [use the browser entry and starter](../guides/browser-pdf.md).
+For Cloudflare Workers, [use the Workers adapter and invoice endpoint](../guides/cloudflare-pdf.md)
+introduced in package 0.8.0. This guide's invoice download remains pinned to 0.7.1.
 
 ## Create your first PDF
 
