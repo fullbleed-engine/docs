@@ -14,11 +14,12 @@ the content.
 [Download the notebook](../assets/styling-notebook-alpha11/component_styling.ipynb){ .md-button download="component_styling.ipynb" }
 [View the pinned source](https://github.com/fullbleed-engine/docs/blob/70fd19a7f292ce52bfb466ed782d4c4776a68f12/examples/styling-notebook-alpha11/component_styling.ipynb){ .md-button }
 
-!!! info "Opt-in component preview: 2.6.0a11"
+!!! info "This notebook is pinned to 2.6.0a11"
     The first cell installs `fullbleed==2.6.0a11`. The API under
     `fullbleed.ui.experimental` remains experimental. Ordinary `pip install
-    fullbleed` selects the stable channel. The [current preview guide](../guides/component-preview-11.md)
-    includes the complete source kit, API references and release evidence.
+    fullbleed` selects the stable channel. The [matching preview guide](../guides/component-preview-11.md)
+    includes its source kit and release evidence. The [current alpha 12 guide](../guides/component-preview-12.md)
+    introduces `fullbleed.components`; the notebook's earlier import path remains supported.
 
 [![The default Common Ground report, with forest-green typography, a pale metrics panel and a numbered footer.](../assets/styling-notebook-alpha11/default-page-1.png){ width="340" }](../assets/styling-notebook-alpha11/field-notes.pdf)
 [![An edited report with smaller headings, violet labels and metric values, a lavender panel and a teal page number.](../assets/styling-notebook-alpha11/edited-page-1.png){ width="340" }](../assets/styling-notebook-alpha11/edited.pdf)
