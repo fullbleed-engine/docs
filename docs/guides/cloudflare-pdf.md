@@ -9,10 +9,12 @@ bytes inside a Worker. Wrangler bundles the engine and fonts with your code.
 The renderer uses an in-memory filesystem; document content does not need to
 leave the Worker for a PDF service.
 
-The adapter is verified in **local workerd on Windows and Linux**. Hosted CPU,
-memory, startup behavior and free-plan suitability have not been qualified.
-Measure representative documents in your deployment before choosing a plan or
-workload limits. [Cloudflare's platform limits](https://developers.cloudflare.com/workers/platform/limits/)
+The adapter is verified in **local workerd on Windows and Linux**. A
+[hosted Playground smoke test](#hosted-playground-smoke-test) also reproduces the
+starter's PDFs. Production CPU, memory, startup behavior and Free-plan suitability
+remain unqualified. Measure representative documents in your deployment before
+choosing a plan or workload limits.
+[Cloudflare's platform limits](https://developers.cloudflare.com/workers/platform/limits/)
 apply to the entire isolate, including WebAssembly memory.
 
 ## Run a complete invoice endpoint
@@ -147,6 +149,24 @@ components, embedded styles, input limits, missing glyphs and failure recovery.
 The downloadable project is also installed from its lockfile and exercised over
 local HTTP. Independent readers check the retained PDF contents, and the
 sample and long-invoice layouts are visually reviewed.
+
+### Hosted Playground smoke test
+
+The released 0.8.0 starter was also exercised in Cloudflare's
+[account-free Workers Playground](https://developers.cloudflare.com/workers/playground/)
+on October 21, 2026 (UTC). Six invoices, including a five-page invoice and recovery
+after invalid requests, matched the local PDF bytes exactly. An independent
+reader checked the ten output pages and expected text. Ten invalid inputs,
+method restrictions and unknown routes returned the expected responses. The
+temporary preview was replaced with a `410` response after the checks.
+
+This establishes hosted sandbox behavior for those fixtures. CPU and memory were
+not measured, and this was not a load test or a production account deployment.
+The Playground's
+[service source at the checked revision](https://github.com/cloudflare/workers-sdk/blob/f43e2e61093b3218a48691dc76ce7f463a2123ce/packages/playground-preview-worker/src/user.do.ts#L169)
+selects an `unbound` usage model, so this result does not establish Free-plan
+suitability. The [hosted verification record](../assets/cloudflare-playground-verification.json)
+retains the module and PDF hashes and source references.
 
 [Download source manifest](../assets/cloudflare-starter/source.json) ·
 [Local verification record](../assets/cloudflare-starter/verification.json) ·
