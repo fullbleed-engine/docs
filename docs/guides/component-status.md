@@ -11,7 +11,7 @@ available today. The newer API remains an opt-in alpha.
 | Channel | Install | Authoring surface |
 | --- | --- | --- |
 | Stable **2.5.34** | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
-| Alpha **2.6.0a12** | `python -m pip install --pre "fullbleed==2.6.0a12"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
+| Alpha **2.6.0a13** | `python -m pip install --pre "fullbleed==2.6.0a13"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
 
 Start with the [Python quickstart](../getting-started/quickstart.md) for either
 HTML/CSS or stable components. Both examples produce the same invoice.
@@ -20,8 +20,12 @@ children, `class_name`, inline styles and attached stylesheets.
 
 The alpha adds component-owned styles, named customization parts, column-based
 tables, static Bootstrap helpers, repeating page bands, and HTML export with or
-without styles. Its [current preview guide](component-preview-12.md) includes
-installation instructions, explicit styling examples and a complete migration kit.
+without styles. The [namespace and migration guide](component-preview-12.md)
+includes explicit styling examples and a complete kit pinned to alpha 12.
+Those authoring paths remain supported in the current alpha.
+
+Alpha 13 fixes `::first-letter` styling in paragraphs containing styled spans
+or links, including floated initials and paragraphs that continue across pages.
 
 For interactive walkthroughs, [Explore the versioned component notebook](../getting-started/component-notebook.md)
 or [Try the current styling notebook](../getting-started/component-styling.md).
@@ -37,7 +41,7 @@ it does not make the new API a stable compatibility promise. Ordinary
 The current release has substantial rendered-output evidence, including paired
 HTML/CSS and component showcases, saved PDFs, styled/unstyled HTML, page-band
 checks, typing checks and browser layout checks. The
-[alpha 12 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a12)
+[alpha 13 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a13)
 records the exact package and fixture evidence. Passing those checks establishes
 the tested behavior; it does not settle how the API should evolve for its callers.
 
