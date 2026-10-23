@@ -1,0 +1,662 @@
+{
+  "schema": "fullbleed.component-kit-example-check.v1",
+  "at": "2026-10-23T15:52:37.437545+00:00",
+  "pdf_and_contract_checks": {
+    "ok": true,
+    "fullbleed": "2.6.0a14",
+    "zip_sha256": "d5b4c2ffe56ee9add865a51a87f4891ef73f4fffb546fa6c225e29ed60605db7",
+    "documents": [
+      {
+        "variant": "default",
+        "pages": 1,
+        "pdf_sha256": "44213d83bd9319ba25a7e3917681f78eb301c28727c75ec77f9f8cbc6436d3eb",
+        "repeated_pdf_equal": true,
+        "embedded_font": true,
+        "text_overlaps": 0,
+        "required_tokens": [
+          "impact.accent",
+          "impact.ink",
+          "impact.surface"
+        ]
+      },
+      {
+        "variant": "billing-brand",
+        "pages": 1,
+        "pdf_sha256": "c0f6f45e995103e76733aaef11d6f2231b6b128405a55571bffb27bbdc091397",
+        "repeated_pdf_equal": true,
+        "embedded_font": true,
+        "text_overlaps": 0,
+        "required_tokens": [
+          "impact.accent",
+          "impact.ink",
+          "impact.surface"
+        ]
+      },
+      {
+        "variant": "impact-brand",
+        "pages": 1,
+        "pdf_sha256": "f998bf4db8bfa77790f742d2f5388f376cc147bc68b2b44c01699a8a2d4a7053",
+        "repeated_pdf_equal": true,
+        "embedded_font": true,
+        "text_overlaps": 0,
+        "required_tokens": [
+          "impact.accent",
+          "impact.ink",
+          "impact.surface"
+        ]
+      },
+      {
+        "variant": "local-override",
+        "pages": 1,
+        "pdf_sha256": "534e2eff9012e4a31d1bb8699aa871ff1c8e19839b1df524d9f49d7f5d085fdb",
+        "repeated_pdf_equal": true,
+        "embedded_font": true,
+        "text_overlaps": 0,
+        "required_tokens": [
+          "impact.ink",
+          "impact.surface"
+        ]
+      }
+    ],
+    "pdf_pixel_isolation": [
+      {
+        "variant": "billing-brand",
+        "changed_pixels_bbox": [
+          76,
+          324,
+          435,
+          517
+        ],
+        "allowed_region": [
+          76,
+          324,
+          435,
+          517
+        ],
+        "outside_region_identical": true
+      },
+      {
+        "variant": "impact-brand",
+        "changed_pixels_bbox": [
+          457,
+          324,
+          817,
+          517
+        ],
+        "allowed_region": [
+          457,
+          324,
+          817,
+          517
+        ],
+        "outside_region_identical": true
+      },
+      {
+        "variant": "local-override",
+        "changed_pixels_bbox": [
+          488,
+          400,
+          569,
+          441
+        ],
+        "allowed_region": [
+          489,
+          401,
+          568,
+          440
+        ],
+        "outside_region_identical": true
+      }
+    ],
+    "expected_errors": {
+      "missing_theme": {
+        "code": "theme.missing",
+        "message": "Missing theme token 'impact.surface'",
+        "path": [
+          "Impact",
+          "section"
+        ]
+      },
+      "impact.accent": {
+        "code": "theme.missing",
+        "message": "Missing theme token 'impact.accent'",
+        "path": [
+          "Impact",
+          "value"
+        ]
+      },
+      "impact.surface": {
+        "code": "theme.missing",
+        "message": "Missing theme token 'impact.surface'",
+        "path": [
+          "Impact",
+          "section"
+        ]
+      },
+      "impact.ink": {
+        "code": "theme.missing",
+        "message": "Missing theme token 'impact.ink'",
+        "path": [
+          "Impact",
+          "label"
+        ]
+      },
+      "unknown_part": {
+        "code": "style.part",
+        "message": "Unknown component parts: number. Available parts: label, value, note",
+        "path": [
+          "Impact"
+        ]
+      }
+    },
+    "guide_python_blocks_executed": 3,
+    "guide_snippets_sha256": "e9e841de9c33376d35c45ae8d55bf2034fdfca63e7500de2a7b5bc74ab13e501",
+    "collision": "Document-wide name; later explicit theme value wins; original theme unchanged.",
+    "published_assets_equal": false,
+    "scope": "Maintainer-authored kit contracts; no independent-author or general conformance claim."
+  },
+  "browser_checks": {
+    "ok": true,
+    "browser": "153.0.8010.12",
+    "checks": [
+      {
+        "viewport": "desktop",
+        "variant": "default",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 327.1875,
+          "y": 260.125,
+          "width": 303.359375,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(25, 113, 94)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 649.4375,
+          "y": 260.125,
+          "width": 303.375,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "desktop",
+        "variant": "default",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 147.875,
+          "width": 1264,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 249.875,
+          "width": 1264,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "desktop",
+        "variant": "billing-brand",
+        "export": "html",
+        "billing": {
+          "background": "rgb(243, 238, 248)",
+          "colors": [
+            "rgb(72, 52, 97)",
+            "rgb(112, 71, 161)",
+            "rgb(72, 52, 97)"
+          ],
+          "x": 327.1875,
+          "y": 260.125,
+          "width": 303.359375,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(25, 113, 94)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 649.4375,
+          "y": 260.125,
+          "width": 303.375,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "desktop",
+        "variant": "billing-brand",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 147.875,
+          "width": 1264,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 249.875,
+          "width": 1264,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "desktop",
+        "variant": "impact-brand",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 327.1875,
+          "y": 260.125,
+          "width": 303.359375,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(250, 240, 232)",
+          "colors": [
+            "rgb(103, 61, 41)",
+            "rgb(163, 78, 33)",
+            "rgb(103, 61, 41)"
+          ],
+          "x": 649.4375,
+          "y": 260.125,
+          "width": 303.375,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "desktop",
+        "variant": "impact-brand",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 147.875,
+          "width": 1264,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 249.875,
+          "width": 1264,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "desktop",
+        "variant": "local-override",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 327.1875,
+          "y": 260.125,
+          "width": 303.359375,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(155, 61, 100)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 649.4375,
+          "y": 260.125,
+          "width": 303.375,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 18
+      },
+      {
+        "viewport": "desktop",
+        "variant": "local-override",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 147.875,
+          "width": 1264,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 249.875,
+          "width": 1264,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "mobile",
+        "variant": "default",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 16,
+          "y": 326.1875,
+          "width": 358,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(25, 113, 94)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 16,
+          "y": 516.25,
+          "width": 358,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "mobile",
+        "variant": "default",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 220.875,
+          "width": 374,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 322.875,
+          "width": 374,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "mobile",
+        "variant": "billing-brand",
+        "export": "html",
+        "billing": {
+          "background": "rgb(243, 238, 248)",
+          "colors": [
+            "rgb(72, 52, 97)",
+            "rgb(112, 71, 161)",
+            "rgb(72, 52, 97)"
+          ],
+          "x": 16,
+          "y": 326.1875,
+          "width": 358,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(25, 113, 94)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 16,
+          "y": 516.25,
+          "width": 358,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "mobile",
+        "variant": "billing-brand",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 220.875,
+          "width": 374,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 322.875,
+          "width": 374,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "mobile",
+        "variant": "impact-brand",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 16,
+          "y": 326.1875,
+          "width": 358,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(250, 240, 232)",
+          "colors": [
+            "rgb(103, 61, 41)",
+            "rgb(163, 78, 33)",
+            "rgb(103, 61, 41)"
+          ],
+          "x": 16,
+          "y": 516.25,
+          "width": 358,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 17
+      },
+      {
+        "viewport": "mobile",
+        "variant": "impact-brand",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 220.875,
+          "width": 374,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 322.875,
+          "width": 374,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      },
+      {
+        "viewport": "mobile",
+        "variant": "local-override",
+        "export": "html",
+        "billing": {
+          "background": "rgb(237, 242, 249)",
+          "colors": [
+            "rgb(32, 54, 77)",
+            "rgb(49, 91, 147)",
+            "rgb(32, 54, 77)"
+          ],
+          "x": 16,
+          "y": 326.1875,
+          "width": 358,
+          "height": 171.171875
+        },
+        "impact": {
+          "background": "rgb(234, 245, 239)",
+          "colors": [
+            "rgb(33, 77, 64)",
+            "rgb(155, 61, 100)",
+            "rgb(33, 77, 64)"
+          ],
+          "x": 16,
+          "y": 516.25,
+          "width": 358,
+          "height": 171.171875
+        },
+        "overflow": false,
+        "styles": 18
+      },
+      {
+        "viewport": "mobile",
+        "variant": "local-override",
+        "export": "unstyled.html",
+        "billing": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 220.875,
+          "width": 374,
+          "height": 86
+        },
+        "impact": {
+          "background": "rgba(0, 0, 0, 0)",
+          "colors": [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)"
+          ],
+          "x": 8,
+          "y": 322.875,
+          "width": 374,
+          "height": 86
+        },
+        "overflow": false,
+        "styles": 0
+      }
+    ],
+    "scope": "Actual static HTML exports; no browser/PDF pagination or pixel-parity claim."
+  },
+  "source_sha256": "02111d9a528a9c190617fc9a517a493bcdeb595aad9c1d4a30db5a7ddca2947d"
+}

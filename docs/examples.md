@@ -45,6 +45,9 @@ For the next authoring model, [try the 2.6.0a4 Bootstrap component alpha](guides
 Its report combines cards, a table and progress indicators, with PDF and
 styled/unstyled HTML exports. The alpha requires an explicit installation.
 
+For separate kit palettes and local customization, [download the two-kit report](guides/component-kits.md)
+using **2.6.0a14**.
+
 </div>
 </div>
 

@@ -90,6 +90,10 @@ explicit alpha 11 pin; the earlier import path continues to work in alpha 12.
 The [component reference](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a12/docs/component-bootstrap.md)
 covers style precedence, named parts and static Bootstrap 5.0.0 helpers.
 
+When combining reusable kits, [try the two-kit report](component-kits.md).
+It demonstrates concrete palette defaults, documented theme dependencies and
+local overrides with the current alpha 14 package.
+
 ## Export with or without styles
 
 `document.to_html(include_styles=True)` embeds component styles, the theme and attached selector
