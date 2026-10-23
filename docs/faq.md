@@ -23,6 +23,34 @@ in CSS. Fullbleed does not search system fonts. Also check that the source text
 is decoded as UTF-8. The [Chinese-font recipe](guides/chinese-pdf.md) provides a
 verified bilingual invoice, font preparation, and missing-character diagnostics.
 
+## Why are table rows or column text cut off? {#tables-cut-off}
+
+In **2.5.34** and **2.6.0a14**, clipping an auto-height table or its container can
+keep rows below the physical page instead of continuing them onto another page.
+For long tables, remove fixed `height`/`max-height` constraints and clipping from
+the table and its wrappers. Keep a `<thead>` for repeated column headings:
+
+```css
+.report-table {
+  table-layout: auto;
+  overflow: visible;
+}
+```
+
+In **2.6.0a14**, percentage column widths can also push neighboring text past the
+table edge when a label needs more than its assigned share. Remove percentage
+`width` declarations from the affected `th`, `td`, and `<col>` elements so the
+automatic layout can allocate space from the content. Remove widths from
+`style` attributes too; a normal stylesheet rule does not override inline CSS.
+
+The combined workaround was checked with an 80-row table on both versions:
+every row appears once, headings repeat, and glyphs stay within the page and
+table bounds. Review the final PDF with your actual fonts and data. Complete
+text extraction alone does not prove the text is visible on the page.
+
+Follow the fixes for [clipped-container pagination](https://github.com/fullbleed-engine/fullbleed-official/pull/127)
+and [percentage column sizing](https://github.com/fullbleed-engine/fullbleed-official/pull/128).
+
 ## Does choosing a PDF profile prove conformance?
 
 No. Profile selection configures output. Verify the final artifact and retain the validator reports. The [accessibility workflow](accessibility/overview.md) and [print-output reference](guides/print-output.md) describe the available checks and current limits.
