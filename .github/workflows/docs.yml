@@ -31,6 +31,7 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - name: Reproduce the download and verify PDF and HTML customization
         run: |
+          python -m unittest discover -s tools -p test_component_kits_png.py
           python tools/build_component_kits.py
           git diff --exit-code -- docs/assets/component-kits/project.zip docs/assets/component-kits/source.json
           python tools/verify_component_kits.py --check-published

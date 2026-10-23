@@ -3,6 +3,7 @@ import argparse
 from hashlib import sha256
 from html.parser import HTMLParser
 from importlib.metadata import version
+import io
 import json
 from pathlib import Path
 import re
@@ -59,6 +60,19 @@ def contained(inner, outer, tolerance=1):
     return (inner and outer and inner[0] >= outer[0] - tolerance
             and inner[1] >= outer[1] - tolerance and inner[2] <= outer[2] + tolerance
             and inner[3] <= outer[3] + tolerance)
+
+
+def compare_png_pixels(actual, expected):
+    """Require identical decoded images; PNG compression can differ by platform."""
+    with Image.open(io.BytesIO(actual)) as image, Image.open(io.BytesIO(expected)) as reference:
+        assert image.format == reference.format == "PNG", (image.format, reference.format)
+        assert image.mode == reference.mode, (image.mode, reference.mode)
+        assert image.size == reference.size, (image.size, reference.size)
+        assert image.info == reference.info, "PNG metadata differs"
+        pixels = image.tobytes()
+        assert pixels == reference.tobytes(), "PNG pixels differ"
+        return {"mode": image.mode, "size": list(image.size),
+                "pixels_sha256": sha256(pixels).hexdigest(), "encoding_equal": actual == expected}
 
 
 def expect_error(call, code):
@@ -141,7 +155,7 @@ def main():
     assert report().to_html(include_styles=True) == original
     assert impact.required_tokens == tuple(sorted(IMPACT_DEFAULTS))
 
-    records, images = [], {}
+    records, images, published_pngs = [], {}, {}
     expected_text = ("$24,600", "128", "November action plan", "Member workshops",
                      "Community grants", "Studio access", "SYNTHETIC EXAMPLE")
     for variant in VARIANTS:
@@ -176,8 +190,10 @@ def main():
             exports.append(content)
         assert exports[0] == exports[1]
         if args.check_published:
-            for name in (f"{variant}.pdf", f"{variant}-1.png"):
-                assert (rendered / name).read_bytes() == (ASSETS / name).read_bytes(), name
+            assert path.read_bytes() == (ASSETS / f"{variant}.pdf").read_bytes(), path.name
+            name = f"{variant}-1.png"
+            published_pngs[variant] = compare_png_pixels(
+                (rendered / name).read_bytes(), (ASSETS / name).read_bytes())
         records.append({"variant": variant, "pages": 1, "pdf_sha256": sha256(path.read_bytes()).hexdigest(),
                         "repeated_pdf_equal": True, "embedded_font": True, "text_overlaps": 0,
                         "required_tokens": list(report(variant).required_tokens)})
@@ -198,7 +214,9 @@ def main():
               "documents": records, "pdf_pixel_isolation": differences, "expected_errors": errors,
               "guide_python_blocks_executed": len(blocks), "guide_snippets_sha256": sha256(snippets.encode()).hexdigest(),
               "collision": "Document-wide name; later explicit theme value wins; original theme unchanged.",
-              "published_assets_equal": args.check_published,
+              "published_pdf_bytes_equal": True if args.check_published else None,
+              "published_png_pixels_equal": True if args.check_published else None,
+              "published_pngs": published_pngs,
               "scope": "Maintainer-authored kit contracts; no independent-author or general conformance claim."}
     (out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result))
