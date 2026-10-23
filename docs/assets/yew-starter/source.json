@@ -1,0 +1,73 @@
+{
+  "schema": "fullbleed.yew-starter.v1",
+  "prefix": "fullbleed-yew-sheet/",
+  "packages": {
+    "fullbleed": "2.5.34",
+    "yew": "0.23.0",
+    "tokio": "1.54.1"
+  },
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "bytes": 25365,
+      "sha256": "ed41ad2e25af6f936f387d41d52e02090175cf7f1c74420bffb488955e1b1183"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 456,
+      "sha256": "d0e1b775abdd443a40c42e25dd8a1a8d4a2d91db8b6f30bc92a29d24bafccdf9"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3971,
+      "sha256": "62f09f6ed13546f7f93d8deb5cd858ea1bf87ee66f970aa1e4b4b74a42dd3ee5"
+    },
+    {
+      "path": "data.json",
+      "bytes": 2035,
+      "sha256": "7044cade66216475b5ea370426513a50a6331b3f91ec4a8c45a50728281b68b2"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-OFL.txt",
+      "bytes": 4605,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    },
+    {
+      "path": "fonts/DMSerifDisplay-Regular.ttf",
+      "bytes": 76580,
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+    },
+    {
+      "path": "fonts/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "fonts/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "src/document.rs",
+      "bytes": 4425,
+      "sha256": "7e4a2abb11dc1145a8ed437ab1d92d873e7a98129bcd1c1e6f95fe4719ede928"
+    },
+    {
+      "path": "src/main.rs",
+      "bytes": 2695,
+      "sha256": "8820dcd75983f6eb3b88352d0d89681065a5eb5b92c2ea15adcbf3f5a5f3ea39"
+    },
+    {
+      "path": "style.css",
+      "bytes": 3079,
+      "sha256": "f3564d1aa13f211d46365c51a16e891b59ccc0f10bf91f7082f48492302a56d5"
+    }
+  ],
+  "zip_bytes": 1007023,
+  "zip_sha256": "b88f585df911ad274aaf13177f68a1b3eeaf11aeb81186f46a21224af01f0201"
+}

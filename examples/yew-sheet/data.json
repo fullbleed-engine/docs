@@ -1,0 +1,29 @@
+{
+  "series": "Riverstone / Community Series",
+  "title": "Saturday mixed-game rotation",
+  "subtitle": "A sample structure for an afternoon around the table.",
+  "starting_stack": "20,000 chips",
+  "table_size": "6 players",
+  "registration": "Through level 4",
+  "rows": [
+    {"kind":"level","number":1,"minutes":20,"game":"No-limit hold’em","stakes":"100 / 200","ante":"200"},
+    {"kind":"level","number":2,"minutes":20,"game":"Pot-limit Omaha","stakes":"100 / 200","ante":"—"},
+    {"kind":"level","number":3,"minutes":20,"game":"Limit hold’em","stakes":"300 / 600","ante":"—"},
+    {"kind":"level","number":4,"minutes":20,"game":"Seven-card stud","stakes":"300 / 600","ante":"75"},
+    {"kind":"break","minutes":15,"label":"First interval · registration closes"},
+    {"kind":"level","number":5,"minutes":20,"game":"No-limit hold’em","stakes":"200 / 400","ante":"400"},
+    {"kind":"level","number":6,"minutes":20,"game":"Pot-limit Omaha","stakes":"200 / 400","ante":"—"},
+    {"kind":"level","number":7,"minutes":20,"game":"Limit hold’em","stakes":"600 / 1,200","ante":"—"},
+    {"kind":"level","number":8,"minutes":20,"game":"Seven-card stud","stakes":"600 / 1,200","ante":"150"},
+    {"kind":"break","minutes":10,"label":"Second interval"},
+    {"kind":"level","number":9,"minutes":20,"game":"No-limit hold’em","stakes":"400 / 800","ante":"800"},
+    {"kind":"level","number":10,"minutes":20,"game":"Pot-limit Omaha","stakes":"400 / 800","ante":"—"},
+    {"kind":"level","number":11,"minutes":20,"game":"Limit hold’em","stakes":"1,200 / 2,400","ante":"—"},
+    {"kind":"level","number":12,"minutes":20,"game":"Seven-card stud","stakes":"1,200 / 2,400","ante":"300"}
+  ],
+  "notes": [
+    "This is fictional layout data, not an event announcement or a complete set of tournament rules.",
+    "Blinds are shown for no-limit and pot-limit games; small and big bets are shown for limit games.",
+    "Provide your own event settings, break policy and complete rules before using a structure sheet."
+  ]
+}
