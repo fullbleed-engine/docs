@@ -188,3 +188,9 @@ docs/assets/pdf-links-alpha14/** -text
 docs/assets/pdf-links-alpha14/*.pdf binary
 docs/assets/pdf-links-alpha14/*.png binary
 docs/assets/pdf-links-alpha14/*.zip binary
+
+examples/component-kits/** text eol=lf
+docs/assets/component-kits/** -text
+docs/assets/component-kits/*.pdf binary
+docs/assets/component-kits/*.png binary
+docs/assets/component-kits/*.zip binary

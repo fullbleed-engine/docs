@@ -1,0 +1,42 @@
+{
+  "schema": "fullbleed.component-kits.v1",
+  "fullbleed": "2.6.0a14",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3599,
+      "sha256": "c7233c5db4255c03057f27e40807fa389a2f2ead47cd560f0df332f6f266d82a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 20,
+      "sha256": "91731266076c657ad7eb8fbd7fbe95b69800530cfd2157a37afc15a50de5ec88"
+    },
+    {
+      "path": "requirements-check.txt",
+      "bytes": 67,
+      "sha256": "4eadc7023aba8e289cb2e9b4f46eed8c350d9c55500f98c19d938010d46add8d"
+    },
+    {
+      "path": "billing.py",
+      "bytes": 1155,
+      "sha256": "c61452605d01c81beefc4385dabee1422aa322788ec44085d934fdbe0bb3dd54"
+    },
+    {
+      "path": "impact.py",
+      "bytes": 1085,
+      "sha256": "2e8e011f1768c26f66b643a16b07cfa0c3e1cb131253c374ab378d5e025e2938"
+    },
+    {
+      "path": "report.py",
+      "bytes": 6453,
+      "sha256": "142b706f6b26812935f822258c0fec20e0cda86a29b50f43a688d025447a8738"
+    }
+  ],
+  "zip_sha256": "d5b4c2ffe56ee9add865a51a87f4891ef73f4fffb546fa6c225e29ed60605db7"
+}

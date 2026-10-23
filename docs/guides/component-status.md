@@ -58,7 +58,7 @@ Two stabilization gates remain:
 
 | Gate | Current position | What closes it |
 | --- | --- | --- |
-| Components from independent kits | Theme tokens are document-wide. Two kits using `token("accent")` share one value. Missing bindings raise `theme.missing`; explicit kit prefixes allow separate palettes. | Settle and qualify a documented kit-dependency convention with two independently authored kits: defaults, required values, conflicting names and local overrides must be clear without inspecting implementation details. A new scoping mechanism is not automatically required. |
+| Components from independent kits | The [kit-composition guide](component-kits.md) qualifies concrete palette factories, explicit prefixed dependencies and local overrides with two maintainer-authored modules. Tokens remain document-wide; the example does not supply independent-kit evidence. | Confirm the documented convention with two independently authored kits: defaults, required values, conflicting names and local overrides must be clear without inspecting implementation details. A new scoping mechanism is not automatically required. |
 | Authoring and customization feedback | Maintainer-authored fixtures cover the intended edits, but retained independent author feedback is still missing. | Have independent authors rebrand a document, reuse a component, add a table column, change page size and diagnose a layout failure. Record where internal selectors or undocumented knowledge are needed, then resolve those contract gaps. |
 
 These are bounded API decisions, not a requirement to implement every CSS feature
