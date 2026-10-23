@@ -38,6 +38,27 @@ comparison policy. They do not establish complete CSS support, arbitrary website
 rendering, or PDF standards conformance. The historical runs below keep their
 original versions and results.
 
+## Navigation alpha source comparison: 2.6.0a14
+
+The [final alpha 14 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39953154688)
+tests the tagged source tree at `0e418e174a0d1a4cfe44bc29828c48e635829d90`.
+It records **1,625 PASS, 19 FAIL and 18 REFERENCE-DISPUTED** across the same
+1,662 fixtures. The all-pass gate remains failed. Two fixtures improve against
+published alpha 13, with no new failing fixtures.
+
+All 7,467 manifest entries were verified. The 7,435 saved PDF/PNG files and
+every fixture verdict and raster metric match the qualified candidate; the
+29 remaining-failure PNGs also match published alpha 13. Inputs, references,
+comparator and thresholds are unchanged.
+
+[Complete source-run evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a14/fullbleed-css-corpus-2.6.0a14.zip)
+· [Scoped release checks](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a14)
+
+This is the final **source-built Linux wheel** comparison. The separate public
+package checks verify distribution hashes, a fresh installation and targeted
+fixtures; they are not a full-corpus run of every published wheel. The online
+explorer continues to show the stable published-wheel result above.
+
 ## Component alpha source comparison: 2.6.0a11
 
 The [alpha 11 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39403828268)

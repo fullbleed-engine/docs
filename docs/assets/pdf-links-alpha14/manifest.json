@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "at": "2026-10-23T14:23:20.103968+00:00",
+  "version": "2.6.0a14",
+  "source_commit": "0e418e174a0d1a4cfe44bc29828c48e635829d90",
+  "guide_sha256": "39282c56abfac46d68b76c9031ff56aecb62ed3b50a97e9bd4886b1d88409d37",
+  "public_pdf_identical": true,
+  "public_vs_local_native_previews_identical": true,
+  "public_vs_local_pdfium_previews_identical": true,
+  "website_preview_source": "PDFium raster of the downloadable PDF",
+  "files": {
+    "linked-report.pdf": {
+      "sha256": "1ad53b6d97dc3ad6f605e33c82325b1b0e75a805f5b06069cf0553fe1b3b1274",
+      "bytes": 160746
+    },
+    "page-1.png": {
+      "sha256": "8d6a014be2a686cc37fcea4a866dcebd5a6671dfee0520ce4b0531bbfee3ea15",
+      "bytes": 80497
+    },
+    "page-2.png": {
+      "sha256": "bf1b28c24516e2e765116558fcc6b36d9282f018fee6fe074f2185563e9467a1",
+      "bytes": 126640
+    },
+    "project.zip": {
+      "sha256": "a3ae4e0ea1a49c32d7c34788010b1757d70b99820afeaf6291f514dce2d4577a",
+      "bytes": 213884
+    },
+    "verification.json": {
+      "sha256": "62797ba48caf667be3d414f67203c3ad20ae7478f325f1880658d686d0f08d52",
+      "bytes": 4068
+    }
+  },
+  "snippets_receipt_sha256": "34a79d65ce8d82b61f970de75e94f136cd0b814f27ebf443bd9fbeda5764bdf3"
+}

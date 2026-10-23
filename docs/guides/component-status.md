@@ -5,13 +5,13 @@ description: Choose the stable Fullbleed Python component API or its opt-in 2.6 
 
 # Python component release status
 
-Reviewed **21 October 2026**. Fullbleed's released Python component API is
+Reviewed **23 October 2026**. Fullbleed's released Python component API is
 available today. The newer API remains an opt-in alpha.
 
 | Channel | Install | Authoring surface |
 | --- | --- | --- |
 | Stable **2.5.34** | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
-| Alpha **2.6.0a13** | `python -m pip install --pre "fullbleed==2.6.0a13"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
+| Alpha **2.6.0a14** | `python -m pip install --pre "fullbleed==2.6.0a14"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
 
 Start with the [Python quickstart](../getting-started/quickstart.md) for either
 HTML/CSS or stable components. Both examples produce the same invoice.
@@ -24,8 +24,9 @@ without styles. The [namespace and migration guide](component-preview-12.md)
 includes explicit styling examples and a complete kit pinned to alpha 12.
 Those authoring paths remain supported in the current alpha.
 
-Alpha 13 fixes `::first-letter` styling in paragraphs containing styled spans
-or links, including floated initials and paragraphs that continue across pages.
+Alpha 14 adds [native PDF links](pdf-links.md), including section jumps, web
+URLs and email links. It also corrects inline opacity and mixed-content table
+alignment. The earlier rich-inline initial fixes remain included.
 
 For interactive walkthroughs, [Explore the versioned component notebook](../getting-started/component-notebook.md)
 or [Try the current styling notebook](../getting-started/component-styling.md).
@@ -33,15 +34,15 @@ Each notebook states its own package pin and includes downloadable output.
 
 ## Decision: retain the alpha
 
-The alpha is **merged into `master` and published on PyPI**. It is not an
-unmerged prototype. Merging it makes the implementation available for development;
-it does not make the new API a stable compatibility promise. Ordinary
-`pip install fullbleed` continues to select the stable channel.
+The component authoring implementation is **merged into `master`**, and
+prerelease packages are published on PyPI. The alpha label describes the API
+compatibility promise; merging the implementation does not make that promise
+stable. Ordinary `pip install fullbleed` continues to select the stable channel.
 
 The current release has substantial rendered-output evidence, including paired
 HTML/CSS and component showcases, saved PDFs, styled/unstyled HTML, page-band
 checks, typing checks and browser layout checks. The
-[alpha 13 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a13)
+[alpha 14 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a14)
 records the exact package and fixture evidence. Passing those checks establishes
 the tested behavior; it does not settle how the API should evolve for its callers.
 

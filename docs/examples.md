@@ -14,8 +14,8 @@ Common Ground report, Riverton notice, and Hillside statements were generated
 with the public **Fullbleed 2.4.0** wheel; the pandas report below
 uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
 **2.5.10**. The numbered report uses **2.5.18**, and the Streamlit report uses
-**2.5.23**. All sample data and organizations
-are fictional.
+**2.5.23**. The linked project handoff uses the opt-in **2.6.0a14**
+prerelease. All sample data and organizations are fictional.
 
 [Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
 [Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
@@ -103,6 +103,28 @@ project outline a clear visual structure.
 
 [Preview page 2](assets/numbered-report/page-2.png) ·
 [Customize the report](guides/numbered-reports.md)
+
+</div>
+</div>
+
+## A connected project handoff { #linked-report }
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Cedar Field Studio's green and cream project report with a snapshot and linked contents.](assets/pdf-links-alpha14/page-1.png)](assets/pdf-links-alpha14/linked-report.pdf)
+</figure>
+<div markdown>
+
+**Two pages · Section navigation · Web and email links**
+
+Jump from the contents to either section, open a source, or return to the
+overview. The project includes the HTML, CSS, bundled-font setup and Python
+render script. Generated with the opt-in **2.6.0a14** prerelease; stable 2.5.34
+predates the native-navigation feature.
+
+[Open the linked PDF](assets/pdf-links-alpha14/linked-report.pdf){ .md-button }
+[Download the project](assets/pdf-links-alpha14/project.zip){ .md-button }
+[Add links to your PDFs](guides/pdf-links.md)
 
 </div>
 </div>
