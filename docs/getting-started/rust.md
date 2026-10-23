@@ -145,6 +145,55 @@ for (index, png) in engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?.
 This previews the finalized PDF, including its supported gradient fills. The
 designed example and downloaded playground projects use the same path.
 
+## Use Yew components
+
+If your application already uses Yew, you can author a document with typed
+props and its `html!` macro. This optional example renders a fictional event
+schedule to PDF and exports the same content as styled or plain HTML.
+
+[![Riverstone event schedule with a teal title panel, serif heading, and a table of levels and breaks.](../assets/yew-starter/document.png)](../assets/yew-starter/document.pdf)
+
+[Download the Yew project](../assets/yew-starter/project.zip){ .md-button .md-button--primary }
+[Open the PDF](../assets/yew-starter/document.pdf){ .md-button }
+
+[Styled HTML](../assets/yew-starter/preview/document.html)
+· [HTML without styles](../assets/yew-starter/preview/unstyled.html)
+· [Source checksums](../assets/yew-starter/source.json)
+
+Extract the ZIP, open a terminal in `fullbleed-yew-sheet`, and run:
+
+```bash
+cargo run --release --locked -- data.json output
+```
+
+Open `output/document.pdf`, `output/document.html`, or `output/unstyled.html`.
+Edit `data.json` for the content and `style.css` for the design. Choose a new
+output directory after edits; the program refuses to overwrite one.
+
+The public `StructureSheet` component and its `SheetData` and `ScheduleRow`
+types live in `src/document.rs`. Its `class="masthead"` attribute selects
+`.masthead` in `style.css`; styling follows ordinary CSS class rules. Text
+passed through component props is escaped by Yew. The native
+`to_html(data, true).await` helper includes a link to `style.css`;
+`to_html(data, false).await` leaves out that link and preserves the content
+and classes. Keep the CSS and bundled `fonts/` directory beside styled HTML
+when copying the export.
+
+The component module depends on Yew and Serde. `src/main.rs` handles fonts,
+files, and Fullbleed PDF rendering. The native helper is excluded from WASM
+builds, allowing the shared component to compile with Yew's `csr` feature in
+a browser application and `ssr` in the native renderer. PDF generation uses
+static HTML; it does not execute a client-side application.
+
+This separate example pins Fullbleed **2.5.34**, Yew **0.23.0**, and Tokio
+**1.54.1**. [Yew describes SSR as experimental](https://yew.rs/docs/advanced-topics/server-side-rendering).
+The downloadable project is built and run in documentation CI on Linux with
+Rust 1.85.0 and Windows with Rust 1.97.0. Checks cover the one-page fixture,
+a longer schedule, escaped text, repeated output, static HTML in Chromium,
+and compilation of the shared component with Yew's browser feature. This is
+a standalone example, not a tested integration with an existing application.
+Review browser and paginated PDF layout independently when changing a design.
+
 ## Keep building
 
 For a Rust web application, [download the Axum PDF starter](../guides/axum-pdf.md).

@@ -12,6 +12,8 @@ docs/assets/playground/project-verification.json
 docs/assets/playground/node-project-verification.json
 examples/rust/target/
 examples/rust/verification/
+examples/yew-sheet/target/
+examples/yew-sheet/output/
 /output/
 /target/
 __pycache__/

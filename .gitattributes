@@ -194,3 +194,13 @@ docs/assets/component-kits/** -text
 docs/assets/component-kits/*.pdf binary
 docs/assets/component-kits/*.png binary
 docs/assets/component-kits/*.zip binary
+
+examples/yew-sheet/** text eol=lf
+examples/yew-sheet/fonts/*.ttf binary
+examples/yew-sheet/fonts/*-OFL.txt -text -whitespace
+tools/fixtures/yew-client/** text eol=lf
+docs/assets/yew-starter/** -text
+docs/assets/yew-starter/*.pdf binary
+docs/assets/yew-starter/*.png binary
+docs/assets/yew-starter/*.zip binary
+docs/assets/yew-starter/preview/fonts/*-OFL.txt -whitespace

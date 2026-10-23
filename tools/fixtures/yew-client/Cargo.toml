@@ -1,0 +1,15 @@
+[package]
+name = "fullbleed-yew-client-check"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[dependencies]
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+yew = { version = "=0.23.0", features = ["csr"] }
+
+[profile.dev]
+debug = 0
+incremental = false
