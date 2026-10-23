@@ -13,11 +13,12 @@ tree as a PDF, styled HTML or unstyled HTML without writing HTML strings.
 It preserves both earlier import paths and adds a complete document migration
 example: two implementations produce the same A5 and Letter landscape reports.
 
-The current opt-in release is **2.6.0a13**, which fixes rich-inline initial
-styling. This guide and its downloadable kit stay pinned to alpha 12; see the
-[release status](component-status.md) for the latest install command and
-[alpha 13 release notes](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a13)
-for the rendering fix.
+The current opt-in release is **2.6.0a14**, which adds native PDF navigation
+and fixes inline opacity and table-cell alignment. This guide and its downloadable
+kit stay pinned to alpha 12. See the [release status](component-status.md) for
+the latest install command, the [PDF links guide](pdf-links.md) for a working
+report, and the [alpha 14 release notes](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.6.0a14)
+for the rendering changes.
 
 [Download the migration source kit](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.6.0a12/fullbleed-component-migration-2.6.0a12.zip){ .md-button .md-button--primary }
 [Read the migration reference](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.6.0a12/docs/component-namespace.md){ .md-button }

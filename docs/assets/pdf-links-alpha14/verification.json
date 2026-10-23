@@ -1,0 +1,121 @@
+{
+  "ok": true,
+  "at": "2026-10-23T14:23:19.622531+00:00",
+  "version": "2.6.0a14",
+  "pdf_sha256": "1ad53b6d97dc3ad6f605e33c82325b1b0e75a805f5b06069cf0553fe1b3b1274",
+  "pages": 2,
+  "authored_links": 5,
+  "annotation_fragments": 6,
+  "links": [
+    {
+      "page": 1,
+      "rect": [
+        98.352996,
+        197.929016,
+        160.666994,
+        210.029015
+      ],
+      "target_page": 2,
+      "target_y": 495.591004
+    },
+    {
+      "page": 1,
+      "rect": [
+        98.352996,
+        161.929017,
+        198.196992,
+        174.029017
+      ],
+      "target_page": 2,
+      "target_y": 226.591015
+    },
+    {
+      "page": 2,
+      "rect": [
+        55.684998,
+        183.364016,
+        227.956991,
+        195.464016
+      ],
+      "uri": "https://docs.fullbleed.dev/"
+    },
+    {
+      "page": 2,
+      "rect": [
+        55.684998,
+        162.364017,
+        160.796994,
+        174.464017
+      ],
+      "uri": "mailto:hello@example.com"
+    },
+    {
+      "page": 2,
+      "rect": [
+        39.659998,
+        105.60502,
+        60.682998,
+        116.495019
+      ],
+      "target_page": 1,
+      "target_y": 555.591002
+    },
+    {
+      "page": 2,
+      "rect": [
+        60.707998,
+        105.60502,
+        112.939995,
+        116.495019
+      ],
+      "target_page": 1,
+      "target_y": 555.591002
+    }
+  ],
+  "diagnostics_ok": true,
+  "component_snippet_verified": true,
+  "component_annotation_fragments": 3,
+  "visual_review_pending": false,
+  "source_sha256": {
+    "report.html": "532fe583e0ca173443e0bfc55d7f20712c83d04cea63072d38c088cd61760354",
+    "report.css": "c3c2d6f4d1ff17fb0604cf049ba096c7deb19bd4b0d1f9201799797e3cdb9183",
+    "render.py": "26bc3dbc4a0107cbaccda75469a57be831ffe5fc69908ad1c7ffcac6b6ce023c"
+  },
+  "files": {
+    "component-links.pdf": "d8eb3d846ca2c71a72a69bee5b806dffb74f69f643dda223b16185054b149a89",
+    "component-styled.html": "12f8304efbde609e039d08fb3aa480cde3fb85643e7b096d4050c5958497bb60",
+    "component-unstyled.html": "ace387d8d59fd5e56e09e1d1f1ceda50fbae79fdb3fa7f9aee281b415acc62d5",
+    "diagnostics.json": "63e1c38dc9bfd16e1307c69cf823387235240398d2017c6a882e5cf0395542a2",
+    "diagnostics.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pdfium-page-1.png": "8d6a014be2a686cc37fcea4a866dcebd5a6671dfee0520ce4b0531bbfee3ea15",
+    "pdfium-page-2.png": "bf1b28c24516e2e765116558fcc6b36d9282f018fee6fe074f2185563e9467a1"
+  },
+  "scope": "Actual two-page report, all five authored links in six native annotation fragments, page content and bounds, independent PDFium renders, runtime layout/font diagnostics, and the component snippet exports. The back link has two adjacent fragments with the same destination. Visual review is separate. No universal viewer or accessibility claim.",
+  "visual_review": {
+    "at": "2026-10-23T13:23:50.683692+00:00",
+    "reviewed_pages": [
+      1,
+      2
+    ],
+    "native_png_pages": [
+      1,
+      2
+    ],
+    "independent_reader": "PDFium",
+    "observations": [
+      "Two complete A5 pages; headings, metrics, index and footer fit without overlap or clipping.",
+      "All content and both page headers are present; the initial preview concern was not reproduced.",
+      "Link text is readable and underlined; both section destinations and the return link resolve to the intended pages.",
+      "Native width is 839 pixels; PDFium width is 840 at 144dpi because of page-size rounding. No pixel-parity assertion is made."
+    ],
+    "reproduced_from_public_wheel": true,
+    "matching_pdf_and_native_pngs": true,
+    "matching_independent_pdfium_pngs": true,
+    "local_receipt_sha256": "9e0eac8907af7d286afc9b4f348738ad6c1fd95e7190c038b77e28c10602d4e8"
+  },
+  "public_package": {
+    "version": "2.6.0a14",
+    "source_commit": "0e418e174a0d1a4cfe44bc29828c48e635829d90",
+    "release_verification_sha256": "e373f26fa3636e7e117d129161e31a0cb03d4e0688db1bdf6507495232b8db68"
+  }
+}

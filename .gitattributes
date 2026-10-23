@@ -182,3 +182,9 @@ docs/assets/cloudflare-starter/** -text
 docs/assets/cloudflare-starter/*.pdf binary
 docs/assets/cloudflare-starter/*.png binary
 docs/assets/cloudflare-starter/*.zip binary
+
+# Keep the linked-report downloads and verification bytes immutable.
+docs/assets/pdf-links-alpha14/** -text
+docs/assets/pdf-links-alpha14/*.pdf binary
+docs/assets/pdf-links-alpha14/*.png binary
+docs/assets/pdf-links-alpha14/*.zip binary
