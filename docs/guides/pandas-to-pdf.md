@@ -147,7 +147,8 @@ signed axis if negative categories need visual comparison. For wider tables,
 choose the useful columns and set their widths deliberately. Very long labels or
 a row taller than a page need a different layout. Review every preview after
 changing data, fonts, or CSS; the [CSS coverage](../css-coverage.md) page describes
-the engine's supported layout surface.
+the engine's supported layout surface. If rows or cell text are cut off, see
+[table troubleshooting](../faq.md#tables-cut-off).
 
 This workflow exports a DataFrame as a text table and styles it with document
 CSS. It does not promise a pixel-identical reproduction of an arbitrary pandas
