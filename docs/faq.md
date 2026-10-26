@@ -28,6 +28,8 @@ verified bilingual invoice, font preparation, and missing-character diagnostics.
 **Stable 2.5.35 fixes clipped auto-height pagination in Python and Rust.**
 Tables can continue across PDF pages while explicitly sized clipping viewports
 keep their existing behavior. See the [release and retained verification evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.35).
+For JavaScript, **npm 0.8.1** includes the same engine fix in its Node and browser
+entries; see the [JavaScript pagination checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/pagination.md).
 
 In **2.5.34** and **2.6.0a14**, clipping an auto-height table or its container can
 keep rows below the physical page instead of continuing them onto another page.

@@ -1,8 +1,8 @@
 {
   "schema": "fullbleed.node-queue-example-verification.v1",
   "ok": true,
-  "package_version": "0.4.1",
-  "engine_version": "2.5.22",
+  "package_version": "0.8.1",
+  "engine_version": "2.5.35",
   "workers": {
     "created": 6,
     "peak": 2,
@@ -32,7 +32,7 @@
       "exit_code": 0
     }
   ],
-  "project_zip_sha256": "c93fac928ef359b8c4224dc0ed524dba4466c2165978ef7e930c2bd999e0204d",
+  "project_zip_sha256": "617bd2a369bdf57a31d8e2267ba436b9f1ce8ff13e87a1ad554506db49ec7378",
   "outputs": {
     "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",

@@ -1,0 +1,96 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-26T01:40:38.500774+00:00",
+  "package": "fullbleed@0.8.1",
+  "engine": "2.5.35",
+  "sdk_source_commit": "b1349d3ac9e236dc213c58fa7337baa86c79ea4d",
+  "checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "609af5209e04b52998596a7d1ba5bedc3563566460a27cfa3c49f35076f4286b",
+      "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."
+    },
+    {
+      "name": "node-queue",
+      "ok": true,
+      "checks": 53,
+      "report_sha256": "482f3b2c7864d58b16f45703d00ccfce6003b10cd4b875d7ee7f8f864fa30e6d",
+      "scope": "This downloaded batch, guide snippet, and exact replay; no throughput or memory-capacity claim."
+    },
+    {
+      "name": "node-components",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "3dfcb2f9167297390691cddf7e0fc13785d4e107495452cb65484171e0e75275",
+      "scope": null
+    },
+    {
+      "name": "cloudflare",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "6508625b6b66a431b295da4d386230ed59cf3ecf597e364b846cd6b06a74c6bc",
+      "scope": null
+    },
+    {
+      "name": "browser-ui",
+      "ok": true,
+      "checks": 79,
+      "report_sha256": "0157196db293607a4249c9d34b4b753d424ed0f0c1cb7a2ceebfdea5284eb038",
+      "scope": "Owned browser; synthetic inputs; production build served at /nested/demo/ with no PDF server; exact source downloads including unsaved edits and failed renders."
+    },
+    {
+      "name": "react-ui",
+      "ok": true,
+      "checks": 128,
+      "report_sha256": "474e6fcba7448cb69ca1847b7cf860029028cb7d14aab19329825a5d6645be04",
+      "scope": "Synthetic inputs; real installed package; worker counts observe API handles, not native thread-exit events."
+    },
+    {
+      "name": "vue-ui",
+      "ok": true,
+      "checks": 87,
+      "report_sha256": "00aaf26e5fe82ccd222d24e81be3c032ab19214d1bdf5e2ac0ab7505527677cb",
+      "scope": "Synthetic inputs; real installed package; worker counts observe API handles, not native thread-exit events."
+    },
+    {
+      "name": "nextjs",
+      "ok": true,
+      "checks": 17,
+      "report_sha256": "f4910d9a6a2e1e0999ef8a458e18c2c12c1452e77378e580d82d85ec5fb4a960",
+      "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
+    },
+    {
+      "name": "browser-build",
+      "ok": true,
+      "report_sha256": "3bd61395379342f41f84eb3b3cf1e1dd21823b153a0a01a4afc79d63a7418309"
+    },
+    {
+      "name": "browser-launcher",
+      "ok": true,
+      "report_sha256": "6060c799f37e79117e011b95e2904bd6a33a7bf239004c41535e14a87be2514f"
+    },
+    {
+      "name": "react-build",
+      "ok": true,
+      "report_sha256": "b3e5b0cb1283ebb8317dbcb03ae9d82aef08f31b232297da036d6f641bdda8a4"
+    },
+    {
+      "name": "react-launcher",
+      "ok": true,
+      "report_sha256": "796d59ed750ed9e4734b0737e761b7eb85b870dfcb25cfa1db9a92f9a0af5db4"
+    },
+    {
+      "name": "vue-build",
+      "ok": true,
+      "report_sha256": "1682a7ada2ddca4804f892981585cbf150967ca32a422d0f88401e2d1def3616"
+    },
+    {
+      "name": "vue-launcher",
+      "ok": true,
+      "report_sha256": "9e16cf5f0bdec5032daf9d849d4ce4a14fa19d68a3f2552913fb5e1d4e4ad60b"
+    }
+  ],
+  "scope": "Actual downloadable ZIP installations and browser/HTTP downloads, online-launcher source equality, runnable guide snippets, independent PDF inspection. Cloudflare checks use local workerd; no hosted Free-plan claim."
+}

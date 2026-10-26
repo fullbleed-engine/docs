@@ -25,7 +25,7 @@ apply to the entire isolate, including WebAssembly memory.
 
 [![Northstar Studio invoice with forest-green typography, project progress bars and a dark-green total panel.](../assets/cloudflare-starter/invoice.png)](../assets/cloudflare-starter/invoice.pdf)
 
-The project uses **npm package 0.8.0**, **engine 2.5.29**, and **Wrangler 4.151.3**.
+The project uses **npm package 0.8.1**, **engine 2.5.35**, and **Wrangler 4.151.3**.
 It accepts structured invoice JSON, applies an editable template, and returns a
 PDF attachment. The sample organization and customer are fictional.
 
@@ -152,7 +152,7 @@ sample and long-invoice layouts are visually reviewed.
 
 ### Hosted Playground smoke test
 
-The released 0.8.0 starter was also exercised in Cloudflare's
+The earlier 0.8.0 starter was exercised in Cloudflare's
 [account-free Workers Playground](https://developers.cloudflare.com/workers/playground/)
 on October 21, 2026 (UTC). Six invoices, including a five-page invoice and recovery
 after invalid requests, matched the local PDF bytes exactly. An independent
@@ -170,5 +170,5 @@ retains the module and PDF hashes and source references.
 
 [Download source manifest](../assets/cloudflare-starter/source.json) ·
 [Local verification record](../assets/cloudflare-starter/verification.json) ·
-[SDK guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.0/docs/cloudflare.md) ·
-[Release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.0)
+[SDK guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/cloudflare.md) ·
+[Release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.1)

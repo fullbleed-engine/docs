@@ -1,10 +1,10 @@
 {
-  "package_version": "0.7.1",
-  "engine_version": "2.5.29",
-  "source_commit": "d00b2db6801262cb103ab4f3ca7cdcfbb98d04ca",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.7.1.tgz",
-  "package_integrity": "sha512-lCN2tzqSJwrwqObrPT0StCEKLrwvSbikejqQR3lof0pFq8TlgO1bS3fDpA1+Xh5UcRZnMKx6BfT54or93pQyGw==",
-  "package_sha256": "a1ba0ca3cff0e97d6872410775df5da4e9e63b85d993007e97455b4d09b88e9d",
+  "package_version": "0.8.1",
+  "engine_version": "2.5.35",
+  "source_commit": "e3c3ebdced0365738c63014e7dfebfd722ddba27",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.1.tgz",
+  "package_integrity": "sha512-RaOu2XPHkliyOGDlZgsLDQSxxWkATglTEMYWWRl+TAKHHcBYysyZkUvNUGj+8tujn3HQJnbbjugvzHeYSv8/Kg==",
+  "package_sha256": "24390f1ce0715a081ec8aaefa5571ae8b79eecf0b7b143763d54fe83183b8985",
   "rendered": {
     "invoice.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
@@ -17,9 +17,9 @@
   "license": "MIT",
   "verification_scope": "Reviewed invoice and quickstart, installed from the published npm package. No PDF standards certification.",
   "report": {
-    "report.pdf": "139df89824e6a73c13ff62f1237bb8eb9f71e790dcbd051b1bb713ed2bc47802",
-    "report-2.png": "c8fe5102e9219962ea068201be0a6730cb37de797649f4b5f44478433e79b018"
+    "report.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
+    "report-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe"
   },
-  "report_package_version": "0.4.1",
-  "report_engine_version": "2.5.22"
+  "report_package_version": "0.8.1",
+  "report_engine_version": "2.5.35"
 }
