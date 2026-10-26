@@ -38,7 +38,7 @@ function clearOutput() {
   el('placeholder').hidden = false;
   el('placeholder').textContent = 'Render your document to see it here.';
   el('page-count').textContent = '—';
-  el('result').textContent = 'Fullbleed 2.5.29';
+  el('result').textContent = 'Fullbleed 2.5.35';
   el('previous').disabled = el('next').disabled = true;
   setDownload(false);
 }

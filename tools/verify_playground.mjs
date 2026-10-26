@@ -105,6 +105,11 @@ const editorCases = (await Promise.all(['2.5.22', '2.5.24'].map(async version =>
 for (const item of editorCases) {
   await fixture(item.name, item.html, item.css, item.pages);
 }
+const pagination = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/pagination.json'), 'utf8'));
+for (const item of pagination.cases) {
+  await fixture(item.name, item.html, item.css, item.pages);
+}
+report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
 report.checks.push('Oversized source rejected by the Rust adapter');

@@ -14,6 +14,7 @@ import zipfile
 from playwright.sync_api import expect, sync_playwright
 from pypdf import PdfReader
 from starter_engine_fixes import verify_engine_fixes
+from playground_pagination import check_browser as check_pagination
 
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -113,7 +114,7 @@ try:
             page.goto(url + 'playground/', wait_until='domcontentloaded')
             ready()
             check('playground uses the current published engine with SVG rendering',
-                  manifest['engine']['version'] == '2.5.29' and manifest['engine']['features'] == ['svg_raster'])
+                  manifest['engine']['version'] == '2.5.35' and manifest['engine']['features'] == ['svg_raster'])
             check('playground retains its bounded runtime', manifest['limits'] ==
                   {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30})
             for name, pages in [('invoice', 1), ('report', 3), ('notice', 1)]:
@@ -143,6 +144,7 @@ try:
                                 html_selector='#pg-html', css_selector='#pg-css',
                                 render_selector='#pg-render', download_selector='#pg-download',
                                 preview_selector='#pg-preview', edit_sources=edit)
+            check_pagination(page, out, check, ready, edit, reference)
             html = page.locator('#pg-html').input_value().replace('Maple &amp; Finch', 'Cedar &amp; Stone')
             html = html.replace('</head>', '<script>window.documentScriptExecuted = true;</script></head>')
             css = page.locator('#pg-css').input_value().replace('#17382e', '#17315a')
@@ -160,7 +162,7 @@ try:
             with zipfile.ZipFile(project) as archive:
                 check('downloaded project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 check('project download preserves the actual HTML and CSS edits', archive.read('input.html').decode('utf-8') == html and archive.read('style.css').decode('utf-8') == css)
-                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.29\n')
+                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.35\n')
                 record = json.loads(archive.read('project.json'))
                 check('project manifest verifies each exported source, font and license',
                       all(hashlib.sha256(archive.read(item['path'])).hexdigest() == item['sha256']
@@ -186,7 +188,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.7.1'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.1'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}

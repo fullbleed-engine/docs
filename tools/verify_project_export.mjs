@@ -31,6 +31,7 @@ const editorCases = (await Promise.all(['2.5.22', '2.5.24'].map(async version =>
   JSON.parse(await readFile(join(root, `tools/starter-engine-${version}.json`), 'utf8')).cases))).flat();
 fixtures.push(...editorCases);
 fixtures.push(...defaultStyleFixtures);
+fixtures.push(...JSON.parse(await readFile(join(root, 'tools/playground-fixtures/pagination.json'), 'utf8')).cases);
 for (const fixture of fixtures) {
   const { name, pages } = fixture;
   const gradient = Boolean(fixture.probes);

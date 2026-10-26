@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2529-node-071">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2535-node-081">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -32,7 +32,7 @@ hide:
     <section class="pg-output" aria-label="PDF preview" aria-busy="true">
       <div class="pg-pane-top"><span class="pg-output-label">THE PRINTED PAGE</span><div class="pg-pagination"><button id="pg-previous" aria-label="Previous PDF page" disabled>←</button><span id="pg-page-count">—</span><button id="pg-next" aria-label="Next PDF page" disabled>→</button></div></div>
       <div class="pg-canvas"><p id="pg-placeholder">Preparing your first PDF…</p><img id="pg-preview" alt="" hidden></div>
-      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.29</span><a href="../examples/">Explore the full gallery ↗</a></div>
+      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.35</span><a href="../examples/">Explore the full gallery ↗</a></div>
     </section>
   </div>
   <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
@@ -60,7 +60,7 @@ terminal there, and run:
 
 === "Node.js"
 
-    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.7.1 and its dependency.
+    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.8.1 and its dependency.
 
     ```bash
     npm ci --ignore-scripts
@@ -69,7 +69,7 @@ terminal there, and run:
 
 Open `output/document.pdf`; PNG previews are in `output/preview/`. Edit
 `input.html` or `style.css`, then run the script again. The project uses Fullbleed
-engine 2.5.29 to match this demo. The Node renderer preserves your CSS with
+engine 2.5.35 to match this demo. The Node renderer preserves your CSS with
 `defaultStyles: false`. The ZIP
 is assembled on your device, using the source present when you click the button.
 It does not upload your document.
@@ -92,7 +92,7 @@ or `notice`. You can keep editing and add `--watch` to rebuild after each save.
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
 
-The playground uses the released **Fullbleed 2.5.29** Rust engine, compiled to
+The playground uses the released **Fullbleed 2.5.35** Rust engine, compiled to
 WebAssembly. Page previews are rendered from the same PDF you download, including
 the report's gradient chart fills. It accepts static
 HTML/CSS, with Inter, DM Serif Display, and Bebas Neue embedded fonts. JavaScript
@@ -112,10 +112,10 @@ fictional.
 · [Native/WASI fixture checks](assets/playground/verification.json)
 · [Project download checks](assets/playground/project-verification.json)
 · [Node project checks](assets/playground/node-project-verification.json)
-· [Release upgrade checks](assets/playground/upgrade-verification-071.json)
+· [Release upgrade checks](assets/playground/upgrade-verification-081.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=engine-2529-node-071"></script>
+<script type="module" src="../assets/playground/app.js?v=engine-2535-node-081"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.
