@@ -18,7 +18,7 @@ parser.add_argument('--node', default=shutil.which('node'))
 parser.add_argument('--out', type=Path, default=ROOT / 'output/vue-starter')
 args = parser.parse_args()
 if not args.node:
-    raise SystemExit('Node.js 22.12 or newer is required.')
+    raise SystemExit('Node.js 22.13+ on 22.x, or Node.js 23.5+ (including 24.x), is required.')
 node = Path(args.node).resolve()
 npm = next((path for path in [node.parent / 'node_modules/npm/bin/npm-cli.js',
     node.parent.parent / 'lib/node_modules/npm/bin/npm-cli.js'] if path.is_file()), None)

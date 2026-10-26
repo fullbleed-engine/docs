@@ -34,13 +34,18 @@ It opens a temporary project; save or export changes in StackBlitz to keep them.
 
 ## Run the project locally
 
-Extract the ZIP. With Node.js 22.12 or newer, open a terminal in
+Extract the ZIP. With Node.js 22.13+ on the 22.x line, or Node.js 23.5+
+(including 24.x), open a terminal in
 `fullbleed-vue-starter` and run:
 
 ```sh
 npm ci
 npm run dev
 ```
+
+Keep the supplied `package-lock.json` and `overrides` in `package.json`. They
+pin Vite's WebAssembly bundler runtime so the same project also starts in
+StackBlitz.
 
 Open the localhost URL printed by Vite. Edit the customer, reference, or ink
 color and wait for **Ready**, then choose **Download PDF**. Turn off **Update
