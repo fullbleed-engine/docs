@@ -92,6 +92,8 @@ layout_cases = [case for release in ['2.5.22', '2.5.24']
                 for case in json.loads((ROOT / f'tools/starter-engine-{release}.json').read_text(encoding='utf-8'))['cases']]
 expected_names = {'invoice', 'invoice-edited', 'report', 'notice', 'linear-gradient',
                   'translucent-gradient', 'hard-radial-gradient', 'standard-fonts'} | {case['name'] for case in layout_cases}
+pagination = json.loads((ROOT / 'tools/playground-fixtures/pagination.json').read_text(encoding='utf-8'))
+expected_names |= {case['name'] for case in pagination['cases']}
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 assert len(report['fixtures']) == len(playground['fixtures']) == len(expected_names)
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

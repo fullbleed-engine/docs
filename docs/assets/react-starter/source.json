@@ -32,5 +32,7 @@
   },
   "verification_workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/workflows/react-starter.yml",
   "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/b1349d3ac9e236dc213c58fa7337baa86c79ea4d/verification/starters-081.json",
-  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/40254951327"
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/40257897243",
+  "source_verification_commit": "5d0e7583d695d0dfd0738ddfa9dd54cdcf7c19d8",
+  "source_verification_scope": "The React starter source is identical to source_commit. The verification commit only extends the WebKit CI job timeout to allow browser dependency installation."
 }

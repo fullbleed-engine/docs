@@ -1,0 +1,606 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-26T03:01:49.021794+00:00",
+  "engine": "2.5.35",
+  "nodePackage": "0.8.1",
+  "nodeRelease": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.1",
+  "platform": "win32",
+  "node": "v22.23.3",
+  "python": "3.11.8",
+  "wasmSha256": "4086a0820066452778894d3942e7f5b0fa7340042e29eefe65b92f4fb3443f73",
+  "nativeWasiFixtures": 29,
+  "pythonExportFixtures": 35,
+  "nodeExportFixtures": 35,
+  "independentPaginationChecks": {
+    "ok": true,
+    "at": "2026-10-26T02:39:23.637719+00:00",
+    "negative_control": false,
+    "fixture_sha256": "4c17251aecf65217ade0792108ec3b40e441728a14d9e0f0c486461bf2959072",
+    "cases": [
+      {
+        "mode": "wasi",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      }
+    ],
+    "passed": 27,
+    "failed": 0
+  },
+  "previousEngineNegativeControl": {
+    "engine": "2.5.29",
+    "wasmSha256": "2944ceb9af56306633da062942a5005d0d74649373c429fd4153f84bd55f089e",
+    "result": {
+      "ok": true,
+      "at": "2026-10-26T02:22:55.222946+00:00",
+      "negative_control": true,
+      "fixture_sha256": "4c17251aecf65217ade0792108ec3b40e441728a14d9e0f0c486461bf2959072",
+      "cases": [
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-hidden",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "bbd7e159a08aefbd45ecbd9d478ea1d00bff503498877b9848ad870f7950789b"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-clip",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "bbd7e159a08aefbd45ecbd9d478ea1d00bff503498877b9848ad870f7950789b"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-hidden-visible",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "a6f44b5749271711f12d65d7cc87c70c4d9a9abd4f42c51c4f8e2aa203c9b1e0"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-visible-hidden",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "27db4b0aa6d2371741d3cfafa359a36c6da57fc297bafdd0fd7b96f4fa32b924"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-auto",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "bbd7e159a08aefbd45ecbd9d478ea1d00bff503498877b9848ad870f7950789b"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-table-scroll",
+          "pages": 2,
+          "off_page_glyphs": 1261,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "every_row_once": true,
+            "repeated_headers": true,
+            "glyphs_inside_pages": false
+          },
+          "pdf_sha256": "bbd7e159a08aefbd45ecbd9d478ea1d00bff503498877b9848ad870f7950789b"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-break-auto",
+          "pages": 1,
+          "off_page_glyphs": 0,
+          "passed": false,
+          "checks": {
+            "page_count": false,
+            "both_markers": true,
+            "break_separates_markers": false,
+            "glyphs_inside_pages": true
+          },
+          "pdf_sha256": "c0199cc534a6e7a0b0aded8e8b2463ce9e32ec436f8f352c78d9bcedbb5f715d"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-break-fixed",
+          "pages": 1,
+          "off_page_glyphs": 0,
+          "passed": true,
+          "checks": {
+            "page_count": true,
+            "both_markers": true,
+            "glyphs_inside_pages": true
+          },
+          "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+        },
+        {
+          "mode": "old-wasi",
+          "name": "pagination-footnote",
+          "pages": 2,
+          "off_page_glyphs": 0,
+          "passed": false,
+          "checks": {
+            "page_count": true,
+            "preceding_line_retained": false,
+            "footnotes_follow_call": true,
+            "glyphs_inside_pages": true
+          },
+          "pdf_sha256": "eaa957f8f6aa19135ada914539763d5cac1e4c89920e691e163285ecb9dd17da"
+        }
+      ],
+      "passed": 1,
+      "failed": 8
+    },
+    "scope": "The same nine inputs on the saved previous playground build: eight page-flow failures and one passing fixed-height clipping control."
+  },
+  "priorFixturePdfAndPreviewBytesUnchanged": [
+    "invoice",
+    "invoice-edited",
+    "notice",
+    "linear-gradient",
+    "translucent-gradient",
+    "hard-radial-gradient",
+    "standard-fonts",
+    "engine-counter-sibling-reset",
+    "engine-overflow-nested-clips",
+    "engine-border-center-zero-top-falls-back-bottom-svg",
+    "engine-first-letter-decorated-left",
+    "visibility-script-blocks",
+    "visibility-style-blocks",
+    "visibility-hidden-span-paragraph",
+    "visibility-script-revert",
+    "visibility-script-inline-paragraph",
+    "decoration-inter-40-underline-font",
+    "decoration-inter-40-underline-length",
+    "decoration-inter-40-underline-auto"
+  ],
+  "reviewedOutputChanges": [
+    {
+      "name": "report",
+      "files": [
+        "output.pdf",
+        "page-2.png",
+        "page-3.png"
+      ],
+      "pdfSha256": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
+      "review": "The Common Ground heading on pages 2 and 3 moves down 0.75 pt. Content and all other text positions are preserved. This output also matches the previously verified public Python 2.5.34 result; the change predates 2.5.35."
+    }
+  ],
+  "verificationFileSha256": {
+    "native": "ec27f5cfd5528fbc1abad71e528381ad791f412cf6698b6f77e5d6f2faa56fbb",
+    "python": "e9291f48249dda59a2610bdf64db96d6bbe91dfe0b8d1ea0c665cfc9f297f180",
+    "node": "152cb290bda33d4554d426771a80e78f34ff6c2aa43fa6097323559cee8e938e",
+    "paginationFixtures": "4c17251aecf65217ade0792108ec3b40e441728a14d9e0f0c486461bf2959072"
+  },
+  "scope": "Local retained fixture evidence using the public Rust crate, Python wheel and npm package. CI rebuilds and rechecks the deployment. No universal parity, performance or standards-conformance claim.",
+  "browser": {
+    "engine": "chrome",
+    "version": "156.0.8078.47",
+    "playwright": "1.63.0",
+    "checks": 159,
+    "paginationCases": 9,
+    "everyDisplayedPaginationPageMatchesNative": true,
+    "verificationSha256": "0e52ed967a66626b98d678995656cf99325919df1e64380f553ae4c61204e6d4"
+  },
+  "rustQuickstart": {
+    "fixtures": 29,
+    "pdfAndPreviewBytesMatchPlayground": true,
+    "verificationSha256": "2c21ebd978b6e6f8470dd8d9a2644d0b81071de1a53194d2301a0d76a8eff1d6"
+  },
+  "rustDownload": {
+    "checks": 77,
+    "fixtures": 5,
+    "zipSha256": "d69300d0c41ea4653a28231ebe925227f2bb065833dda53692f5b9f26d48be65",
+    "verificationSha256": "9dd2e6ad65fcacb2c7347c85d9d03b26082ab4eea392eeb699c2396caafd4d7a"
+  },
+  "rustMinimumVersionCheck": {
+    "ok": true,
+    "rust": "1.85.0",
+    "engine": "2.5.35",
+    "mode": "cargo check --release --locked --bins",
+    "exit_code": 0
+  }
+}

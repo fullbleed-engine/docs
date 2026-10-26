@@ -1,7 +1,7 @@
 {
   "schema": "fullbleed.rust-starter.v1",
   "repository": "https://github.com/fullbleed-engine/docs",
-  "engine": "2.5.29",
+  "engine": "2.5.35",
   "engine_features": [
     "svg_raster"
   ],
@@ -17,13 +17,13 @@
       "path": "Cargo.lock",
       "source": "examples/rust/Cargo.lock",
       "bytes": 1299,
-      "sha256": "afb215d750a56a7fcf940a7cc2ed9459416aaf83711abc5561b8b2e3de0c5e29"
+      "sha256": "198a3bb69d86992d61defc3106eeee67d78c7dad5379d660d06eae4cce7d58a8"
     },
     {
       "path": "Cargo.toml",
       "source": "examples/rust/Cargo.toml",
       "bytes": 313,
-      "sha256": "148708614b04d87483a8908e195e6420c1ddb3746dcd41a88a7454f3577257b3"
+      "sha256": "f877ffad455e02014e862681280ab3f95dbe379dada6791744d70f876fe6c817"
     },
     {
       "path": "LICENSE",
@@ -35,7 +35,7 @@
       "path": "README.md",
       "source": "examples/rust/STARTER.md",
       "bytes": 3228,
-      "sha256": "fda65197b05e1946ccaf3d84662b3767b5a86cabf2239567d145852aa739724b"
+      "sha256": "1be35b5234894204eeeac4f394a261d273b1dcf2cfbc632a52709a5694f406f5"
     },
     {
       "path": "fonts/BebasNeue-OFL.txt",
@@ -116,6 +116,6 @@
       "sha256": "46b0e975d43914c8b4492218feae09ea0ad684091a9f9ee3b18f66a87202e521"
     }
   ],
-  "zip_bytes": 587687,
-  "zip_sha256": "9d4238de2f479f137ed9624d34d2bc83c77261279439922512d5871e0c0193a0"
+  "zip_bytes": 587688,
+  "zip_sha256": "d69300d0c41ea4653a28231ebe925227f2bb065833dda53692f5b9f26d48be65"
 }
