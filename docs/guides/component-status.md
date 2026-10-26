@@ -5,12 +5,12 @@ description: Choose the stable Fullbleed Python component API or its opt-in 2.6 
 
 # Python component release status
 
-Reviewed **23 October 2026**. Fullbleed's released Python component API is
+Reviewed **26 October 2026**. Fullbleed's released Python component API is
 available today. The newer API remains an opt-in alpha.
 
 | Channel | Install | Authoring surface |
 | --- | --- | --- |
-| Stable **2.5.34** | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
+| Stable **2.5.35** | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
 | Alpha **2.6.0a14** | `python -m pip install --pre "fullbleed==2.6.0a14"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
 
 Start with the [Python quickstart](../getting-started/quickstart.md) for either

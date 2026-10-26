@@ -2,13 +2,13 @@
   "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/dotnet-accessibility",
   "framework": "net10.0",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.1.8",
-  "projectZipSha256": "9e9fe7052e0f72fc3f2be7f10ccf266472f3959047f83dfb6a5eb42576522b88",
+  "packageVersion": "0.2.1",
+  "projectZipSha256": "25fd2f46e267ef440606fd8f81c7145a384cab1d8d51be35283e4214dd0c1ec2",
   "files": [
     {
       "path": "AccessibleNotice.csproj",
       "bytes": 563,
-      "sha256": "4515e4bc201f7c299191c72dd16f415aa795e23350b83b9cd62a8d152b8e34cd"
+      "sha256": "125881f0deeb00c5710877470289028bd09a41d4a0abf6ec669450a2a1e662f7"
     },
     {
       "path": "Assets/DMSerifDisplay-OFL.txt",
@@ -68,12 +68,12 @@
     {
       "path": "packages.lock.json",
       "bytes": 305,
-      "sha256": "51b82921167a1fb1c1628ba84c1545aea15a4fab1c7920e35af60545e9c17d17"
+      "sha256": "8dd4431a220de0556b38fb756feb3e69b69a5a1023103187a8fc9ea2f37ac52e"
     }
   ],
   "outputs": {
-    "notice-ua1.pdf": "2aab47bbb10a7ff165c62c3d663e1638dc0abd37982e7bfa9501cdc7cdb091d8",
-    "notice-ua2.pdf": "20df3d1684cfc9dea142d1bf36cfb20790c9f33931979e420a4fe61c0f217fe1",
+    "notice-ua1.pdf": "ded01790e7ca340784e389e027e2a62d2a31aaecad9b0e6a351fc0a3a45b59dd",
+    "notice-ua2.pdf": "da4342010ced8817ceaa27dd67ad562d769a3177c9e3bb9b127988e3950a5318",
     "notice.png": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b"
   }
 }

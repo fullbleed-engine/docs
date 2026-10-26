@@ -1,12 +1,12 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-09T16:08:48.821128+00:00",
+  "checkedAt": "2026-10-26T05:14:20.551607+00:00",
   "sdk": "10.0.401",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.1.8",
-  "engineVersion": "2.5.22",
-  "packageSha256": "be6b6fd843d9ce3eb9a6510c22dbb7b7d1e3ab225d2f977760a7cc51d7fd5625",
-  "projectZipSha256": "9e9fe7052e0f72fc3f2be7f10ccf266472f3959047f83dfb6a5eb42576522b88",
+  "packageVersion": "0.2.1",
+  "engineVersion": "2.5.35",
+  "packageSha256": "ded49c84b7883329b09b1cafae52730fe9f1961a009135611e2b3826ae0fc7d1",
+  "projectZipSha256": "25fd2f46e267ef440606fd8f81c7145a384cab1d8d51be35283e4214dd0c1ec2",
   "freshNugetCache": true,
   "nativeLibraryOverride": false,
   "isolatedPublishedApp": true,
@@ -22,7 +22,7 @@
   "profiles": [
     {
       "profile": "ua1",
-      "pdfSha256": "2aab47bbb10a7ff165c62c3d663e1638dc0abd37982e7bfa9501cdc7cdb091d8",
+      "pdfSha256": "ded01790e7ca340784e389e027e2a62d2a31aaecad9b0e6a351fc0a3a45b59dd",
       "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
       "textSha256": "b6416f0d3b3bec1137e6d3b4bac864e1c3a3b1289283bcbd43d4cf908e8aa9da",
       "repeatPdfBytesIdentical": true,
@@ -36,7 +36,7 @@
     },
     {
       "profile": "ua2",
-      "pdfSha256": "20df3d1684cfc9dea142d1bf36cfb20790c9f33931979e420a4fe61c0f217fe1",
+      "pdfSha256": "da4342010ced8817ceaa27dd67ad562d769a3177c9e3bb9b127988e3950a5318",
       "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
       "textSha256": "b6416f0d3b3bec1137e6d3b4bac864e1c3a3b1289283bcbd43d4cf908e8aa9da",
       "repeatPdfBytesIdentical": true,
@@ -53,11 +53,11 @@
     "runtime": "10.0.12",
     "framework": ".NETCoreApp,Version=v10.0",
     "rid": "win-x64",
-    "nativeLibrarySha256": "6e0b7cfdcd5c615f3e806502e6a1a71152180e72c2ec5040657c99e358e1873a"
+    "nativeLibrarySha256": "a4a67a2b834ec77e873604e3d90fe30e8aa1c585bf088708cb2267cfb6a18db7"
   },
   "scope": "Downloaded starter, retained final PDFs and machine-verifiable PDF/UA checks. No blanket accessibility or assistive-technology claim.",
   "validatorReports": {
-    "verapdf-ua1.json": "069dafd373f415897b10ffb4b6a44c4444db1f6bd00c390246023ac8e653f062",
-    "verapdf-ua2.json": "561f6077188762416888784835d17935c4175546d60cc5bd393bbe8ad568d733"
+    "verapdf-ua1.json": "b898e80aa23aa8472b66c69b4bd6f9e0af3fcc407c5c36d420c6a7faa71e0b16",
+    "verapdf-ua2.json": "c58972ca69f89efb1b8dbfa5f74258519e91ba55c3ccff00c511a130933246f9"
   }
 }
