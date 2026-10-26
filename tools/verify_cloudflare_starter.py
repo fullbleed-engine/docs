@@ -73,8 +73,8 @@ def run(label, arguments):
 run('install', [node, npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'])
 installed = json.loads((project / 'node_modules/fullbleed/package.json').read_text())
 build = json.loads((project / 'node_modules/fullbleed/dist/build.json').read_text())
-assert installed['version'] == build['packageVersion'] == manifest['packageVersion'] == '0.8.0'
-assert build['engineVersion'] == manifest['engineVersion'] == '2.5.29'
+assert installed['version'] == build['packageVersion'] == manifest['packageVersion'] == '0.8.1'
+assert build['engineVersion'] == manifest['engineVersion'] == '2.5.35'
 assert build['files']['dist/engine.wasm']['sha256'] == manifest['wasmSha256']
 lock = json.loads((project / 'package-lock.json').read_text())
 assert lock['packages']['node_modules/fullbleed']['integrity'] == manifest['packageIntegrity']
@@ -157,5 +157,5 @@ report = dict(ok=True, checkedAt=datetime.now(timezone.utc).isoformat(), package
               workerd=json.loads((project / 'node_modules/workerd/package.json').read_text())['version'],
               commands=commands, records=checked, errors=http['errors'], recovery=True, serverStopped=True,
               previewMatches=True, localOnly=True, hostedVerified=False, freePlanVerified=False)
-(out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+(out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(json.dumps(dict(ok=True, invoices=len(checked), pages=sum(row['pages'] for row in checked), errors=len(http['errors']))))

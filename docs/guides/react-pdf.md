@@ -14,7 +14,7 @@ starter needs no PDF server or account.
 [Edit source online](../assets/react-starter/edit-online.html){ .md-button }
 [Download the React project](../assets/react-starter/project.zip){ .md-button }
 
-The project uses **fullbleed 0.7.1** with engine **2.5.29**. Its default invoice
+The project uses **fullbleed 0.8.1** with engine **2.5.35**. Its default invoice
 uses typed props, mapped rows, conditional paid text and composed style maps.
 Text is escaped by the authoring layer; amounts are calculated in integer cents.
 The form accepts up to 20 rows and whole hours, including negative rates for
@@ -76,7 +76,7 @@ color and wait for **Ready**. **Download PDF** saves the generated document.
 Turn off **Update automatically** to generate only when you choose **Generate PDF**.
 **Cancel** stops a pending preview or active render.
 
-The lockfile pins Fullbleed npm **0.7.1** / engine **2.5.29**, React **19.3.0**,
+The lockfile pins Fullbleed npm **0.8.1** / engine **2.5.35**, React **19.3.0**,
 TypeScript **7.0.2**, and Vite **8.3.2**. The ZIP includes its source and lockfile;
 the build downloads the published dependencies and copies their verified runtime.
 
@@ -123,7 +123,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your app's static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.7.1
+npm install --save-exact fullbleed@0.8.1
 npx fullbleed-browser-assets public/fullbleed
 ```
 

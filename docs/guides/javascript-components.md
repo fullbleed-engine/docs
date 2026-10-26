@@ -12,8 +12,8 @@ renderer; you do not need to write HTML strings or install React. You can also
 export the same tree as [static HTML](#export-html-with-or-without-styles), with
 its CSS included or with classes ready for a host application stylesheet.
 
-The downloadable invoice and guide use **fullbleed 0.7.1**, wrapping engine
-**2.5.29**, including the stable SVG stylesheet, inset-shadow and saved-PDF preview fixes.
+The downloadable invoice and guide use **fullbleed 0.8.1**, wrapping engine
+**2.5.35**, including the stable SVG stylesheet, inset-shadow and saved-PDF preview fixes.
 [HTML export](#export-html-with-or-without-styles) works with or without styles.
 The linked React demo uses the same package and engine versions.
 
@@ -54,7 +54,7 @@ await writeFile('invoice.pdf', result.pdf);
 await writeFile('invoice.png', result.previews[0]);
 ```
 
-Save this as `invoice.mjs`, install `fullbleed@0.7.1`, and run `node invoice.mjs`
+Save this as `invoice.mjs`, install `fullbleed@0.8.1`, and run `node invoice.mjs`
 with Node 22 or newer. Functions need no special wrapper. The optional
 `component(fn)` identity helper preserves the function and its types.
 
@@ -263,7 +263,7 @@ font defaults.
 
 ## Export HTML with or without styles
 
-Install `fullbleed@0.7.1` for explicit HTML export options. Save the example as
+Install `fullbleed@0.8.1` for explicit HTML export options. Save the example as
 `export.mjs` and run `node export.mjs` to write both HTML documents. Import only `fullbleed/ui` to use
 the authoring layer without starting the PDF engine, a worker, or a browser.
 

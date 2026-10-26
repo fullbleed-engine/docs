@@ -14,13 +14,14 @@ introduced in Node package 0.6.0. Version 0.7.0 also supports
 [static HTML export with or without styles](../guides/javascript-components.md#export-html-with-or-without-styles).
 The pinned HTML/CSS example below remains available.
 
-The quickstart and downloadable invoice use **Node package 0.7.1**, powered by
-**Fullbleed 2.5.29**. The integration and core engine have separate versions.
+The quickstart and downloadable invoice use **Node package 0.8.1**, powered by
+**Fullbleed 2.5.35**. The integration and core engine have separate versions.
 
-Version 0.7.1 brings the stable engine's SVG stylesheet and inset-shadow fixes
-to Node and browser rendering. It retains component/JSX authoring, static HTML
-export, the shared render queue, optional process isolation and bundled fonts.
-See the [focused paint checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.7.1/docs/engine-2.5.29.md)
+Version 0.8.1 fixes page flow for auto-height blocks with clipped overflow,
+including long tables. Fixed-height clipped viewports keep their bounded behavior.
+It retains component/JSX authoring, static HTML export, the shared render queue,
+optional process isolation and bundled fonts. See the
+[pagination checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/pagination.md)
 and the server guidance below for queue limits and failure handling.
 
 Use the actual family name for normal/italic CSS selection, or a PostScript name
@@ -29,7 +30,7 @@ for an explicit face. Review appearance and line breaks when upgrading; the
 
 For rendering inside a web page, [use the browser entry and starter](../guides/browser-pdf.md).
 For Cloudflare Workers, [use the Workers adapter and invoice endpoint](../guides/cloudflare-pdf.md)
-introduced in package 0.8.0. This guide's invoice download remains pinned to 0.7.1.
+introduced in package 0.8.0 and included in the same 0.8.1 package.
 
 ## Create your first PDF
 
@@ -39,7 +40,7 @@ With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/packag
 npm install fullbleed
 ```
 
-To pin this guide's version, use `npm install --save-exact fullbleed@0.7.1`.
+To pin this guide's version, use `npm install --save-exact fullbleed@0.8.1`.
 The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -109,13 +110,13 @@ The layout uses the bundled Inter, DM Serif Display, and Bebas Neue families.
 
 [![Report page with serif headings, large summary figures, gradient chart bars, and a numbered footer.](../assets/node/report-2.png)](../assets/node/report.pdf)
 
-This retained sample comes from package 0.4.1's three-page report. The chart uses CSS
+This three-page report is rendered with package 0.8.1. The chart uses CSS
 `linear-gradient(180deg, #d9bc77, #a9b884)`; the image above is a native preview
 of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing from
 these PNG previews in earlier releases.
 
 [Open the report PDF](../assets/node/report.pdf){ .md-button }
-[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.4.1/examples){ .md-button }
+[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.1/examples/browser/src){ .md-button }
 
 ## Bring fonts and image assets
 
@@ -126,14 +127,14 @@ in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
 
 The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
-[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.4.1#fonts-and-assets)
+[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.1#fonts-and-assets)
 includes a complete font and asset example.
 
 Unembedded PDF Standard 14 faces now have bundled substitutes for native PNG
 previews. The PDF keeps its original font resources, text, and advances; a PDF
 reader can use a different substitute design. Register your chosen font when
 the exact branded appearance matters. See the
-[preview comparison and font limits](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/standard-font-previews.md).
+[preview comparison and font limits](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/standard-font-previews.md).
 
 ## Use it in an application
 
@@ -187,7 +188,7 @@ Process startup adds latency and memory use. There is no process pool or
 automatic retry; keep concurrency bounded. Application startup flags and
 `NODE_OPTIONS` are not replayed in the child. This option requires a normal
 Node executable and is not an operating-system security sandbox. See the
-[process isolation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.4.1/docs/process-isolation.md)
+[process isolation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/process-isolation.md)
 for deployment details and the tested failure paths. The Next.js starter uses
 this mode for its PDF route.
 
@@ -212,21 +213,20 @@ TypeScript. Its release evidence compares retained native and WebAssembly
 fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
-The [public-install verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.4.1/npm-public-verification.json)
-records the registry tarball hash, audits npm signatures and provenance, and
-executes the queue lifecycle checks from a fresh registry install. Its queued
-PDF and PNG match the CI output. The
-[release verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.4.1/release-verification.json)
-retains 45 native/Wasm comparisons, fourteen queue checks in each of nine
-installed Node/platform combinations, and 144 checks in each of Chrome,
-Firefox, and Playwright WebKit, including browser downloads and failure
-recovery. Thirteen focused engine fixtures also pass independent text, color,
-and retained Chrome geometry expectations in Node and downloaded browser PDFs.
-The invoice and report on this page retain the reviewed PDF bytes and preview
-pixels with engine 2.5.22;
-the [download manifest](../assets/node/project.json) records their exact hashes.
+The [0.8.1 release verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.8.1/release-verification.json)
+retains native/Wasm comparisons, installed-package queue and recovery checks,
+and browser downloads in Chrome, Firefox and Playwright WebKit. Its
+[pagination checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.1/docs/pagination.md)
+use independent PDF readers to check row preservation, repeated table headings,
+page bounds and footnote placement, with the previous release as a failing control.
+
+The invoice and report on this page were rendered with package 0.8.1 / engine
+2.5.35. The [download manifest](../assets/node/project.json) records the public
+package integrity and exact PDF/preview hashes. The downloadable projects and
+this guide's runnable snippets are checked against the installed public package;
+see the [starter verification record](../assets/javascript-starters-081-verification.json).
 
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
 [npm package](https://www.npmjs.com/package/fullbleed) ·
-[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.4.1) ·
+[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.1) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)

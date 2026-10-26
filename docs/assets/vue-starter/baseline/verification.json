@@ -1,6 +1,6 @@
 {
-  "package": "0.7.1",
-  "engine": "2.5.29",
+  "package": "0.8.1",
+  "engine": "2.5.35",
   "node": "v22.23.3",
   "records": [
     {
@@ -14,11 +14,11 @@
     {
       "design": "report",
       "pages": 3,
-      "pdfSha256": "139df89824e6a73c13ff62f1237bb8eb9f71e790dcbd051b1bb713ed2bc47802",
+      "pdfSha256": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
       "previews": [
         "33ee3398d59f6836368cdab0f3c725c3cf12cbf2f9f3a3ac6a6b168f6c1886f5",
-        "c8fe5102e9219962ea068201be0a6730cb37de797649f4b5f44478433e79b018",
-        "a3e8acbc7ba4147c56d45b606d3974ec4aecbda1b5d7362451e5e8890491dc7d"
+        "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe",
+        "8c8bfdc01ef7a3c376fbe61a0736dbc5b65280b0781f0040c550e097e71a5dcd"
       ]
     }
   ]

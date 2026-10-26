@@ -24,7 +24,7 @@ the same template written with JSX and typed props. `render-tsx.mjs` compiles th
 dedicated document with esbuild before rendering it. The renderer has no React
 runtime dependency; esbuild and TypeScript are development tools.
 
-The package is pinned to `fullbleed@0.7.1`, which wraps engine 2.5.29. The
+The package is pinned to `fullbleed@0.8.1`, which wraps engine 2.5.35. The
 `upstream.json` file records the source commit and exact source-file hashes.
 
 Read the guide: https://docs.fullbleed.dev/guides/javascript-components/

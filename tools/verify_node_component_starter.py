@@ -28,7 +28,7 @@ def main():
     out = args.out.resolve(); out.mkdir(parents=True, exist_ok=True)
     env = {**os.environ, 'PATH': str(node.parent) + os.pathsep + os.environ['PATH']}
     manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
-    assert manifest['package'] == 'fullbleed@0.7.1'
+    assert manifest['package'] == 'fullbleed@0.8.1'
     assert sha256((ASSETS / 'project.zip').read_bytes()).hexdigest() == manifest['zip_sha256']
     records = []
     with tempfile.TemporaryDirectory(prefix='component consumer with spaces ', dir=out) as temporary:
@@ -49,7 +49,7 @@ def main():
 
         run('install', [npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'])
         installed = json.loads((project / 'node_modules/fullbleed/package.json').read_text(encoding='utf-8'))
-        assert installed['version'] == '0.7.1' and installed['fullbleed']['engineVersion'] == '2.5.29'
+        assert installed['version'] == '0.8.1' and installed['fullbleed']['engineVersion'] == '2.5.35'
         run('types', [npm, 'run', 'check'])
         for command in ['pdf', 'pdf:tsx']:
             run(command.replace(':', '-'), [npm, 'run', command])

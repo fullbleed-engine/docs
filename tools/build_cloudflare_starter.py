@@ -17,7 +17,7 @@ def main():
     release = json.loads((SOURCE / 'release.json').read_text(encoding='utf-8'))
     package = json.loads((SOURCE / 'package.json').read_text(encoding='utf-8'))
     lock = json.loads((SOURCE / 'package-lock.json').read_text(encoding='utf-8'))
-    assert package['dependencies']['fullbleed'] == release['packageVersion'] == '0.8.0'
+    assert package['dependencies']['fullbleed'] == release['packageVersion'] == '0.8.1'
     assert lock['packages']['node_modules/fullbleed']['integrity'] == release['packageIntegrity']
     DEST.mkdir(parents=True, exist_ok=True)
     records = []
