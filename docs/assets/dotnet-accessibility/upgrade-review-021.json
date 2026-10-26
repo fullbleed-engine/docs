@@ -1,0 +1,66 @@
+{
+  "ok": true,
+  "previousDocsCommit": "0ff865479d3084b5476973f5d7353ce48cbed4d6",
+  "previousPackage": "0.1.8",
+  "package": "0.2.1",
+  "engine": "2.5.35",
+  "profiles": [
+    {
+      "profile": "ua1",
+      "previousPdfSha256": "2aab47bbb10a7ff165c62c3d663e1638dc0abd37982e7bfa9501cdc7cdb091d8",
+      "currentPdfSha256": "ded01790e7ca340784e389e027e2a62d2a31aaecad9b0e6a351fc0a3a45b59dd",
+      "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
+      "changedObjects": [
+        [
+          0,
+          5
+        ]
+      ],
+      "correctedTableArtifactFills": 27,
+      "drawingOperatorsIdentical": true,
+      "textAndGlyphOwnershipIdentical": true,
+      "glyphGeometrySha256": "202e00a82f018dbe7330c7d9fe23a4fc4281cf72f6971edad7cf6ba8e47524b1",
+      "geometryAndTextIdentical": true,
+      "nonContentObjectsIdentical": true,
+      "previewIdentical": true,
+      "validation": {
+        "version": "1.30.2",
+        "profile": "ua1",
+        "failedChecks": 0,
+        "installerUrl": "https://software.verapdf.org/rel/1.30/verapdf-greenfield-1.30.2-installer.zip",
+        "installerSha256": "6cc6341cb1af644044054b81f00a6590a7918abb18f762243de115258bcad838"
+      }
+    },
+    {
+      "profile": "ua2",
+      "previousPdfSha256": "20df3d1684cfc9dea142d1bf36cfb20790c9f33931979e420a4fe61c0f217fe1",
+      "currentPdfSha256": "da4342010ced8817ceaa27dd67ad562d769a3177c9e3bb9b127988e3950a5318",
+      "previewSha256": "445e9b5c417399eb0ada4de06ea10fad89126f2fe8d937c64f40dd57e2c8c87b",
+      "changedObjects": [
+        [
+          0,
+          5
+        ]
+      ],
+      "correctedTableArtifactFills": 27,
+      "drawingOperatorsIdentical": true,
+      "textAndGlyphOwnershipIdentical": true,
+      "glyphGeometrySha256": "202e00a82f018dbe7330c7d9fe23a4fc4281cf72f6971edad7cf6ba8e47524b1",
+      "geometryAndTextIdentical": true,
+      "nonContentObjectsIdentical": true,
+      "previewIdentical": true,
+      "validation": {
+        "version": "1.30.2",
+        "profile": "ua2",
+        "failedChecks": 0,
+        "installerUrl": "https://software.verapdf.org/rel/1.30/verapdf-greenfield-1.30.2-installer.zip",
+        "installerSha256": "6cc6341cb1af644044054b81f00a6590a7918abb18f762243de115258bcad838"
+      }
+    }
+  ],
+  "checkerSource": "https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.1/tools/review_engine_upgrade.py",
+  "checkerSha256": "5cff1aaf47d8281841340fee4273ff414b0ec1d03436c6e0824a1b6f9a7adb11",
+  "scope": "The signed public 0.2.1 package reproduces the reviewed PDFs. Only table decoration marking and content-derived IDs change from the retained 0.1.8 notice; text, geometry and visible output stay identical.",
+  "publicPackageSha256": "ded49c84b7883329b09b1cafae52730fe9f1961a009135611e2b3826ae0fc7d1",
+  "publicPackageMatchesReviewedPdfs": true
+}

@@ -5,7 +5,7 @@ description: Build invoices and reports with ordinary C# methods, typed records 
 
 # PDFs from C# components
 
-FullBleed.DotNet 0.2.0 adds `FullBleed.DotNet.UI`: ordinary C# methods, named
+FullBleed.DotNet provides `FullBleed.DotNet.UI`: ordinary C# methods, named
 elements, LINQ, conditional children and reusable styles. No HTML strings,
 Razor compilation or application framework are needed. The authoring layer
 does not start a renderer or load fonts; you supply an explicit engine.
@@ -25,7 +25,7 @@ dotnet run -c Release --no-restore -- output
 Open `output/invoice.pdf` and `output/invoice_page1.png`. Edit the typed records
 in `InvoiceDocument.Example`, reuse `Field` and `ItemRow`, and adjust
 `BaseStyles`. `Program.cs` registers both bundled fonts explicitly.
-The download pins **FullBleed.DotNet 0.2.0** and engine **2.5.22**.
+The download pins **FullBleed.DotNet 0.2.1** and engine **2.5.35**.
 [Source and file hashes](../assets/dotnet-components/source.json) accompany it.
 
 Prefer [Python components](python-components.md) or [JavaScript and JSX](javascript-components.md)?
@@ -33,10 +33,10 @@ Each guide explains the language's component and style API.
 
 ## A component is a method
 
-Install `FullBleed.DotNet` 0.2.0 in a .NET 8, 9 or 10 console application:
+Install `FullBleed.DotNet` 0.2.1 in a .NET 8, 9 or 10 console application:
 
 ```sh
-dotnet add package FullBleed.DotNet --version 0.2.0
+dotnet add package FullBleed.DotNet --version 0.2.1
 ```
 
 ```csharp
@@ -261,7 +261,7 @@ such as `Paragraph("Invoice {{id}}")`, then call `template.Compile(engine)`.
 The existing `RenderBindings*` and `RenderReflowBindings*` APIs accept typed
 records and LINQ selectors. Use fixed bindings only when geometry is reserved;
 choose reflow when content can wrap or repaginate. See the
-[LINQ sample](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.0/samples/FullBleed.DotNet.LinqVdp) for the binding API.
+[LINQ sample](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.1/samples/FullBleed.DotNet.LinqVdp) for the binding API.
 
 `ToHtml()` exports markup and `ToCss()` exports its combined styles. The HTML
 alone carries no stylesheet. Direct engine calls must pass both:

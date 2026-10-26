@@ -34,7 +34,7 @@ PDF, and `render.json` with a SHA-256 digest, inspection and rendering
 diagnostics. The application fails on missing glyphs. Templates, fonts and
 the SVG are local assets; the document makes no network requests.
 
-The lockfile pins FullBleed.DotNet 0.1.8, containing engine 2.5.22. The
+The lockfile pins FullBleed.DotNet 0.2.1, containing engine 2.5.35. The
 [C# quickstart](../getting-started/dotnet.md) covers ordinary PDF generation;
 the [ASP.NET guide](aspnet-pdf.md) covers HTTP downloads.
 
@@ -94,6 +94,9 @@ native-library identity, repeatable PDF bytes and specimen digests. The
 file in the download. Full validator reports are retained for
 [PDF/UA-1](../assets/dotnet-accessibility/verapdf-ua1.json) and
 [PDF/UA-2](../assets/dotnet-accessibility/verapdf-ua2.json).
+
+The [0.2.1 upgrade review](../assets/dotnet-accessibility/upgrade-review-021.json)
+records the tagged-PDF changes. The notice's text and appearance are unchanged.
 
 Inspect the final pages and `render.json`, then run an independent validator
 such as [veraPDF](https://docs.verapdf.org/cli/validation/):
