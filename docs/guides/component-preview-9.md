@@ -1,12 +1,15 @@
 ---
 title: Reusable PDF headers, footers and page numbers in Python
 description: Build a complete report from Python components, including styled headers and finalized page counts. Download the Fullbleed 2.6.0a9 source kit and export PDF or HTML.
+search:
+  boost: 0.5
 ---
 
 # Reuse your design on every page
 
-!!! info "Current component preview: 2.6.0a11"
-    [Get the current components, styling guide and source kit](component-preview-11.md).
+!!! info "Archived alpha 9 preview"
+    See the [current component guide](component-preview-12.md) and
+    [release status](component-status.md) for the latest alpha and installation steps.
     This page retains the alpha 9 package and its verification record.
 
 A document's header can use the same brand component as its body. Its footer can

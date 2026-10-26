@@ -1,6 +1,8 @@
 ---
 title: Preview the next Python component authoring model
 description: Try an experimental Fullbleed component design with portable styles, reusable themes and column-based tables. Download examples with prebuilt preview wheels, real PDFs and focused editing tasks.
+search:
+  boost: 0.5
 ---
 
 # Components that carry their design

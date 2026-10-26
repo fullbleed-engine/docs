@@ -75,52 +75,70 @@ nav:
     - Node.js quickstart: getting-started/node.md
     - Rust quickstart: getting-started/rust.md
     - C# and .NET quickstart: getting-started/dotnet.md
-    - Python installation: getting-started/installation.md
-    - Python notebook: getting-started/notebook.md
-    - Component notebook: getting-started/component-notebook.md
-    - Component styling notebook: getting-started/component-styling.md
-    - Page-band notebook: getting-started/page-band-notebook.md
-    - Use WooCommerce: guides/woocommerce.md
-    - Python fonts and previews: getting-started/first-pdf.md
     - Examples and downloads: examples.md
+    - Python setup and notebooks:
+      - Python installation: getting-started/installation.md
+      - Fonts and previews: getting-started/first-pdf.md
+      - Invoice notebook: getting-started/notebook.md
   - Build a document:
-    - Python components: guides/python-components.md
-    - Component release status: guides/component-status.md
-    - One design, two authoring paths: guides/showcase-authoring.md
-    - Accessible component showcase: guides/accessible-showcase.md
-    - JavaScript components and JSX: guides/javascript-components.md
-    - C# components and styles: guides/csharp-components.md
-    - Complete HTML documents: guides/complete-html.md
-    - Clickable PDF links: guides/pdf-links.md
     - Invoices from data: guides/invoices.md
-    - Numbered reports: guides/numbered-reports.md
-    - Markdown to PDF: guides/markdown-pdf.md
-    - Chinese text and fonts: guides/chinese-pdf.md
-    - Arabic and English PDFs: guides/arabic-pdf.md
-    - pandas DataFrame to PDF: guides/pandas-to-pdf.md
-    - pandas with Python components: guides/pandas-components.md
-    - Matplotlib chart reports: guides/matplotlib-pdf.md
-    - Streamlit PDF downloads: guides/streamlit-pdf.md
-    - Rebuild as you edit: guides/render-watch.md
-    - Check PDFs in CI: guides/pdf-regression-ci.md
-    - FastAPI, Flask, and Django: guides/web-frameworks.md
-    - Rust and Axum PDF downloads: guides/axum-pdf.md
-    - Python in Docker: guides/python-docker.md
-    - Python in AWS Lambda: guides/aws-lambda-pdf.md
-    - PDFs in Cloudflare Workers: guides/cloudflare-pdf.md
-    - n8n invoice workflows: guides/n8n-pdf.md
-    - Laravel Blade and queues: guides/laravel-pdf.md
-    - Browser PDF generation: guides/browser-pdf.md
-    - React PDF previews: guides/react-pdf.md
-    - Vue PDF previews: guides/vue-pdf.md
-    - Queue Node PDF jobs: guides/node-render-queue.md
-    - Next.js PDF downloads: guides/nextjs-pdf.md
-    - ASP.NET Core PDF downloads: guides/aspnet-pdf.md
-    - Variable-data documents: guides/bank-statements.md
-    - Tagged PDF and accessibility: accessibility/overview.md
-    - Tagged PDFs in C#: guides/csharp-tagged-pdf.md
+    - Reports and data:
+      - Numbered reports: guides/numbered-reports.md
+      - Markdown to PDF: guides/markdown-pdf.md
+      - pandas DataFrame to PDF: guides/pandas-to-pdf.md
+      - Matplotlib chart reports: guides/matplotlib-pdf.md
+      - Variable-data documents: guides/bank-statements.md
+    - Complete HTML documents: guides/complete-html.md
+    - Author with components:
+      - Python components: guides/python-components.md
+      - JavaScript components and JSX: guides/javascript-components.md
+      - C# components and styles: guides/csharp-components.md
+      - pandas with Python components: guides/pandas-components.md
+      - One design, two authoring paths: guides/showcase-authoring.md
+      - Python 2.6 alpha:
+        - Release status: guides/component-status.md
+        - Component API preview: guides/component-preview-12.md
+        - Static Bootstrap helpers: guides/bootstrap-components-preview.md
+        - Component notebook: getting-started/component-notebook.md
+        - Styling notebook: getting-started/component-styling.md
+        - Page-band notebook: getting-started/page-band-notebook.md
+        - Accessible component showcase: guides/accessible-showcase.md
+        - Earlier design preview: guides/component-design-preview.md
+    - Fonts and languages:
+      - Chinese text and fonts: guides/chinese-pdf.md
+      - Arabic and English PDFs: guides/arabic-pdf.md
+    - Tagged PDFs and accessibility:
+      - Tagged PDF workflow: accessibility/overview.md
+      - Tagged PDFs in C#: guides/csharp-tagged-pdf.md
+    - Clickable PDF links (alpha): guides/pdf-links.md
     - Print output and PDF/VT: guides/print-output.md
-    - Coding agents and MCP: guides/ai-agents.md
+  - Integrate and automate:
+    - Python apps:
+      - FastAPI, Flask, and Django: guides/web-frameworks.md
+      - Streamlit PDF downloads: guides/streamlit-pdf.md
+      - Python in Docker: guides/python-docker.md
+      - Python in AWS Lambda: guides/aws-lambda-pdf.md
+    - JavaScript apps:
+      - Browser PDF generation: guides/browser-pdf.md
+      - React PDF previews: guides/react-pdf.md
+      - Vue PDF previews: guides/vue-pdf.md
+      - Next.js PDF downloads: guides/nextjs-pdf.md
+      - Queue Node PDF jobs: guides/node-render-queue.md
+      - PDFs in Cloudflare Workers: guides/cloudflare-pdf.md
+    - Rust and Axum PDF downloads: guides/axum-pdf.md
+    - ASP.NET Core PDF downloads: guides/aspnet-pdf.md
+    - Laravel Blade and queues: guides/laravel-pdf.md
+    - Workflow automation:
+      - n8n invoice workflows: guides/n8n-pdf.md
+      - Coding agents and MCP: guides/ai-agents.md
+    - Development workflow:
+      - Rebuild as you edit: guides/render-watch.md
+      - Check PDFs in CI: guides/pdf-regression-ci.md
+    - Commerce:
+      - Use WooCommerce: guides/woocommerce.md
+      - Shopify preview: commerce/shopify.md
+      - Merchant agreement: commerce/agreements/2026-10-04.md
+      - Privacy: commerce/privacy.md
   - Reference:
     - Python API: engine/pdf-engine.md
     - CLI: cli/commands.md
@@ -131,9 +149,6 @@ nav:
     - CSS coverage: css-coverage.md
     - Engine architecture: engine/overview.md
   - Evaluate:
-    - Component design preview: guides/component-design-preview.md
-    - Current component preview: guides/component-preview-12.md
-    - Bootstrap component alpha: guides/bootstrap-components-preview.md
     - Compare Python PDF libraries: guides/comparison.md
     - Three-renderer comparison: guides/renderer-comparison.md
     - Browse CSS results: guides/css-explorer.md
@@ -142,7 +157,3 @@ nav:
     - Performance evidence: guides/performance.md
     - FAQ: faq.md
   - Support Fullbleed: support.md
-  - Commerce:
-    - Shopify preview: commerce/shopify.md
-    - Merchant agreement: commerce/agreements/2026-10-04.md
-    - Privacy: commerce/privacy.md
