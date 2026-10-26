@@ -10,7 +10,7 @@ available today. The newer API remains an opt-in alpha.
 
 | Channel | Install | Authoring surface |
 | --- | --- | --- |
-| Stable **2.5.36** | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
+| [Stable release](https://pypi.org/project/fullbleed/) | `python -m pip install fullbleed` | HTML/CSS rendering and the existing `fullbleed.ui` components |
 | Alpha **2.6.0a14** | `python -m pip install --pre "fullbleed==2.6.0a14"` | New authoring values under `fullbleed.components`; earlier imports remain supported |
 
 Start with the [Python quickstart](../getting-started/quickstart.md) for either
