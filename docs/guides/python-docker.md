@@ -56,7 +56,7 @@ copied into the image; this command does not mount them from your machine.
 | Component | Included configuration |
 | --- | --- |
 | Python | Official Python 3.14.8 Debian Bookworm slim image, pinned by multi-platform digest |
-| PDF engine | Published Fullbleed 2.5.11 wheel |
+| PDF engine | Published Fullbleed 2.5.37 wheel |
 | HTTP server | FastAPI 0.142.2 and Uvicorn 0.54.0; one worker, proxy headers disabled |
 | Dependencies | Exact runtime versions in `requirements-docker.txt`; wheel URLs and hashes in `/app/pip-install.json` |
 | Fonts | Inter from the wheel; vendored DM Serif Display and Bebas Neue with their licenses |

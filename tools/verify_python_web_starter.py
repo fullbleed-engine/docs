@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=False)
     source = json.loads((ASSETS / "source.json").read_text(encoding="utf-8"))
-    assert source["engineVersion"] == "2.5.11"
+    assert source["engineVersion"] == "2.5.37"
     for item in source["assets"]:
         data = (ASSETS / item["file"]).read_bytes()
         assert len(data) == item["bytes"]
@@ -44,7 +44,7 @@ def main():
     python = venv / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
     commands = [
         ("install", [str(python), "-m", "pip", "install", "--disable-pip-version-check",
-                     "--only-binary=:all:", "fullbleed==2.5.11", "-r", "requirements-check.txt"]),
+                     "--only-binary=:all:", "fullbleed==2.5.37", "-r", "requirements-check.txt"]),
         ("verify", [str(python), "check_examples.py", "--out", str(OUT / "checks")]),
     ]
     for name, command in commands:
@@ -65,7 +65,7 @@ def main():
         for filename in ["invoice.pdf", "invoice.png"]:
             assert (OUT / "docker" / filename).read_bytes() == (ASSETS / filename).read_bytes()
     report = {"ok": True, "checkedAt": datetime.now(timezone.utc).isoformat(),
-              "sourceCommit": source["sourceCommit"], "engineVersion": "2.5.11",
+              "sourceCommit": source["sourceCommit"], "engineVersion": "2.5.37",
               "manifestFilesVerified": len(manifest["files"]),
               "frameworkClientsPassed": 3, "actualHttpServersPassed": 3,
               "pdfAndPreviewMatchPublishedAssets": True,
