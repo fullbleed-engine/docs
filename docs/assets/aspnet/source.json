@@ -2,8 +2,8 @@
   "source": "https://github.com/fullbleed-engine/docs/tree/main/examples/aspnet",
   "framework": "net10.0",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.2.1",
-  "projectZipSha256": "4170aef8969d37683220dbd02330d9620eafebfec3da842ac843a0bbfba4db42",
+  "packageVersion": "0.2.2",
+  "projectZipSha256": "b53c6192b9ac4e2fd741f37e30024be6e19610d7cbd0fbc55d9b6c6d07b8cd22",
   "files": [
     {
       "path": "Assets/fonts/BebasNeue-OFL.txt",
@@ -63,7 +63,7 @@
     {
       "path": "FullbleedWeb.csproj",
       "bytes": 534,
-      "sha256": "c29e7b950d13860a4d7ea61dc9211dcc2c6177dc7442d0a23581be7d55a7d517"
+      "sha256": "481156cb31fd19711b1015a3cfd02da70c6a5f6cd85c8d90c08d663a1b6afc76"
     },
     {
       "path": "InvoiceRenderer.cs",
@@ -83,7 +83,7 @@
     {
       "path": "README.md",
       "bytes": 2460,
-      "sha256": "4296c9d03081867461c4dcbe994b37a0933255074072a672b1828e8b55026185"
+      "sha256": "713fb92bfca43c4dba6b9cf7c258a6ba8f74ae420b09cf4fe17de16b7ef457c8"
     },
     {
       "path": "global.json",
@@ -93,7 +93,7 @@
     {
       "path": "packages.lock.json",
       "bytes": 305,
-      "sha256": "8dd4431a220de0556b38fb756feb3e69b69a5a1023103187a8fc9ea2f37ac52e"
+      "sha256": "25ee121639f13f093ae38e98cdc12e5faf32602f049bd6546833885e7d6c2f52"
     }
   ],
   "outputs": {
