@@ -25,10 +25,14 @@ verified bilingual invoice, font preparation, and missing-character diagnostics.
 
 ## Why are table rows or column text cut off? {#tables-cut-off}
 
+**Stable 2.5.35 fixes clipped auto-height pagination in Python and Rust.**
+Tables can continue across PDF pages while explicitly sized clipping viewports
+keep their existing behavior. See the [release and retained verification evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.35).
+
 In **2.5.34** and **2.6.0a14**, clipping an auto-height table or its container can
 keep rows below the physical page instead of continuing them onto another page.
-For long tables, remove fixed `height`/`max-height` constraints and clipping from
-the table and its wrappers. Keep a `<thead>` for repeated column headings:
+On those versions, remove fixed `height`/`max-height` constraints and clipping
+from long tables and their wrappers. Keep a `<thead>` for repeated column headings:
 
 ```css
 .report-table {
