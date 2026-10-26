@@ -1,12 +1,12 @@
 {
   "schema": "fullbleed.node-component-starter.v1",
-  "package": "fullbleed@0.8.1",
-  "engine": "2.5.35",
+  "package": "fullbleed@0.8.2",
+  "engine": "2.5.37",
   "files": [
     {
       "path": "README.md",
       "bytes": 1282,
-      "sha256": "c80008f234dbf3227e69c50a1e01008fd672c350481e7cb21c57af072b6d4f0b"
+      "sha256": "da3729da07a81b97ce6676f6c6b33315e7573c7513b8692bc3b04dbef5b0eea2"
     },
     {
       "path": "LICENSE",
@@ -16,12 +16,12 @@
     {
       "path": "package.json",
       "bytes": 456,
-      "sha256": "797a0b1eae5b253b7430432ee5448e7c40253a8c9730501ae29e96ef5e92cac1"
+      "sha256": "7fd25ab210da647889fa57efdfa01fc3ab86b9eded5f7b3849bd5417a31356d1"
     },
     {
       "path": "package-lock.json",
       "bytes": 28458,
-      "sha256": "3df70baa2a7fd9a790046fb4ad298fe33ee084286edc86f0151f43434fac42b7"
+      "sha256": "70bf1175d9be82149587ae27aa986aa40b664481b6ca3bc93d2fa21cf83e7f33"
     },
     {
       "path": "tsconfig.json",
@@ -61,11 +61,11 @@
     {
       "path": "upstream.json",
       "bytes": 1022,
-      "sha256": "8845f097108e9d11623a5bedbd5107b3f2b8c2363a82c93a7ea27eed1b5cfa91"
+      "sha256": "8ccf1eccade3b2103b6cd56bf911125146496aec1dfd5dd6cc9d30442885e82e"
     }
   ],
-  "zip_sha256": "2376ac4f056fe58891ca0c372fe4a0e954b73ee41bbfd39f5a91cd3bb05b7f0b",
-  "zip_bytes": 14915,
+  "zip_sha256": "6e61317855387e6225fc88572e0925f31840042c679fbeb418c87f656575b036",
+  "zip_bytes": 14910,
   "rendered": {
     "invoice.pdf": {
       "sha256": "17437a93f960b80d16bbbe92f573c7c62a9d9d39eca6899fb9b642ebfb9feca3",

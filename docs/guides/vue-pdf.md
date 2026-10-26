@@ -47,7 +47,7 @@ color and wait for **Ready**, then choose **Download PDF**. Turn off **Update
 automatically** to generate on demand. **Cancel** stops a pending preview or
 active render. **Close editor** releases its resources; reopening starts fresh.
 
-The lockfile pins Fullbleed npm **0.8.1** / engine **2.5.35**, Vue **3.5.43**,
+The lockfile pins Fullbleed npm **0.8.2** / engine **2.5.37**, Vue **3.5.43**,
 TypeScript **6.0.3**, and Vite **8.3.2**. The build downloads the published
 dependencies and copies their verified runtime. TypeScript 6 is pinned for
 compatibility with the project's `vue-tsc` type checker.
@@ -82,7 +82,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.8.1
+npm install --save-exact fullbleed@0.8.2
 npx fullbleed-browser-assets public/fullbleed
 ```
 

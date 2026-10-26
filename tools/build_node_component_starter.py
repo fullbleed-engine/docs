@@ -25,7 +25,7 @@ def build():
             info.external_attr = 0o100644 << 16
             archive.writestr(info, data, compresslevel=9)
             records.append({'path': name, 'bytes': len(data), 'sha256': sha256(data).hexdigest()})
-    manifest = {'schema': 'fullbleed.node-component-starter.v1', 'package': 'fullbleed@0.8.1', 'engine': '2.5.35',
+    manifest = {'schema': 'fullbleed.node-component-starter.v1', 'package': 'fullbleed@0.8.2', 'engine': '2.5.37',
                 'files': records, 'zip_sha256': sha256(target.read_bytes()).hexdigest(), 'zip_bytes': target.stat().st_size}
     manifest['rendered'] = {name: {'sha256': sha256((DEST / name).read_bytes()).hexdigest(), 'bytes': (DEST / name).stat().st_size}
                             for name in ['invoice.pdf', 'page-1.png']}

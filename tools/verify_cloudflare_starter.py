@@ -73,8 +73,8 @@ def run(label, arguments):
 run('install', [node, npm, 'ci', '--ignore-scripts', '--no-audit', '--no-fund'])
 installed = json.loads((project / 'node_modules/fullbleed/package.json').read_text())
 build = json.loads((project / 'node_modules/fullbleed/dist/build.json').read_text())
-assert installed['version'] == build['packageVersion'] == manifest['packageVersion'] == '0.8.1'
-assert build['engineVersion'] == manifest['engineVersion'] == '2.5.35'
+assert installed['version'] == build['packageVersion'] == manifest['packageVersion'] == '0.8.2'
+assert build['engineVersion'] == manifest['engineVersion'] == '2.5.37'
 assert build['files']['dist/engine.wasm']['sha256'] == manifest['wasmSha256']
 lock = json.loads((project / 'package-lock.json').read_text())
 assert lock['packages']['node_modules/fullbleed']['integrity'] == manifest['packageIntegrity']

@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-26T01:39:07.817632+00:00",
-  "sourceCommit": "b1349d3ac9e236dc213c58fa7337baa86c79ea4d",
+  "checkedAt": "2026-10-26T16:14:39.704930+00:00",
+  "sourceCommit": "ea5235dc6e8e03b6036563f3f88337932bd52ca4",
   "downloadFiles": 18,
-  "projectZipSha256": "fa1da1eef4419607a3785fa3d7e28501a5fe5f103ad3ff6c494669ff1edf9473",
+  "projectZipSha256": "d03ba638f5d9bb80ab894226a36bd9bf06af8a215468efde29f8cb174b128703",
   "node": "v22.23.3",
   "platform": "win32",
   "next": "16.3.8",
-  "nodePackage": "0.8.1",
-  "engineVersion": "2.5.35",
+  "nodePackage": "0.8.2",
+  "engineVersion": "2.5.37",
   "isolation": "process",
   "commands": [
     {

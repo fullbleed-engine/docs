@@ -1,0 +1,138 @@
+{
+  "ok": true,
+  "checked_at": "2026-10-26T16:17:37.277389+00:00",
+  "package": "fullbleed@0.8.2",
+  "engine": "2.5.37",
+  "sdk_source_commit": "ea5235dc6e8e03b6036563f3f88337932bd52ca4",
+  "checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "76a20d44ce9707791bcc0d85c18cb817a94e2cf65c9fda4eebecc0d724da050a",
+      "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."
+    },
+    {
+      "name": "node-queue",
+      "ok": true,
+      "checks": 53,
+      "report_sha256": "aca7b91518d191d12b42f4fad133e49877a1370f7eea3853c9b99e2fddd96296",
+      "scope": "This downloaded batch, guide snippet, and exact replay; no throughput or memory-capacity claim."
+    },
+    {
+      "name": "node-components",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "36117d96b8e37340b9918459564e93088ba2c7ec89b72ae89443e83b02d5f8da",
+      "scope": null
+    },
+    {
+      "name": "cloudflare",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "7a23a2bf411807b0e852a7c8029a9be9fe3ce9fd2655ac642e4d193e2b4a6eed",
+      "scope": null
+    },
+    {
+      "name": "browser-ui",
+      "ok": true,
+      "checks": 79,
+      "report_sha256": "258c6b520c396e01ccf08d9a1601afc6a6ed3b43352a891a87387f357cafa6e9",
+      "scope": "Owned browser; synthetic inputs; production build served at /nested/demo/ with no PDF server; exact source downloads including unsaved edits and failed renders."
+    },
+    {
+      "name": "react-ui",
+      "ok": true,
+      "checks": 128,
+      "report_sha256": "b4bd53373a8e519a98d3e408c46207023a296a265c709d840210cd57303046b4",
+      "scope": "Synthetic inputs; real installed package; worker counts observe API handles, not native thread-exit events."
+    },
+    {
+      "name": "vue-ui",
+      "ok": true,
+      "checks": 87,
+      "report_sha256": "fbd04bff163a25c148b1bedf2a063b57fc421a491cc37c4215550cba321ab8fa",
+      "scope": "Synthetic inputs; real installed package; worker counts observe API handles, not native thread-exit events."
+    },
+    {
+      "name": "nextjs",
+      "ok": true,
+      "checks": 17,
+      "report_sha256": "21d06e37a3627bb44ff35218c2bd06f320ab4d237841032aa8a1db60c236e4ef",
+      "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
+    },
+    {
+      "name": "browser-build",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "2c9ed5aee05caa040e37bda3fdbf107e36cb30b08e0911c238725595865474cc",
+      "scope": "Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files."
+    },
+    {
+      "name": "browser-launcher",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "fbc5cc5a9b28f0d576fd8b2f8137e7e1db5e078a2d08fd341bede1fd442615bf",
+      "scope": "Actual browser form serialization intercepted locally; all source fields, ZIP download, keyboard submission and responsive layout checked. Does not test StackBlitz availability or project startup."
+    },
+    {
+      "name": "react-build",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "b1932075aed7485105de89b985f3c4ff6fce558d7a0e5a6c8c235cde5f24dc9f",
+      "scope": "Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files."
+    },
+    {
+      "name": "react-launcher",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "2d31d04400af4a9cb79fca9b8d521d59d89b972c262b597d350e297c19eb1af5",
+      "scope": "Actual browser form serialization intercepted locally; all source fields, ZIP download, keyboard submission and responsive layout checked. Does not test StackBlitz availability or project startup."
+    },
+    {
+      "name": "vue-build",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "1b8b92c353175bd6f39b1206646f9d62bd311fd444d05cfa6ebe31451e1acead",
+      "scope": "Exact downloadable project installed from its registry lockfile, production build, copied runtime hashes, and online launcher generated from the same source files."
+    },
+    {
+      "name": "vue-launcher",
+      "ok": true,
+      "checks": 0,
+      "report_sha256": "b06201ae78fffbcb723abae5b6699bd028c2f9f22bf107a5c4ff8dd8bc2a56ae",
+      "scope": "Actual browser form serialization intercepted locally; all source fields, ZIP download, keyboard submission and responsive layout checked. Does not test StackBlitz availability or project startup."
+    }
+  ],
+  "report_assets": {
+    "report.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
+    "report-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe"
+  },
+  "removed_superseded_bundles": [
+    {
+      "path": "docs/assets/browser-demo/assets/index-CY9V9sWC.js",
+      "sha256": "5a641d2db6285db179654f416e9641fa17542e0747ef6822cf3d91375798c94f"
+    },
+    {
+      "path": "docs/assets/browser-demo/assets/index-gU-yFvGk.js",
+      "sha256": "f1457c1a9e5e43232f1fd25a36da88109878451e457f2a395011f3fd1cc661fb"
+    },
+    {
+      "path": "docs/assets/react-demo/assets/index-B6IZ5ckl.js",
+      "sha256": "f638d7e447ef2fecbac2f5c831e83b787e90172e26bee4a45444473aff7a388d"
+    },
+    {
+      "path": "docs/assets/react-demo/assets/index-DZHKxiX8.js",
+      "sha256": "429a442a1d3aeef4650d67817de2ced39a65cd22e6053bbe296fe35c684535f0"
+    },
+    {
+      "path": "docs/assets/vue-demo/assets/index-DabeAm5i.js",
+      "sha256": "379b3bcb2a069b849b4347efa42a8eb46a33271b49e8ec24860b45cbb46a5b60"
+    },
+    {
+      "path": "docs/assets/vue-demo/assets/index-DFyGkNbc.js",
+      "sha256": "bc71a1b5ba3de4a56a078cece7b1762eb0655a2e8ef7e75d7b8dfcbbf6258068"
+    }
+  ],
+  "scope": "Actual downloadable ZIP installations, Chrome editor/PDF checks, online-launcher source equality, runnable guide snippets, independent PDF inspection, and isolated Next.js HTTP checks on Windows. Cloudflare checks use local workerd; no hosted Free-plan claim. The homepage playground retains its separately versioned engine until its own upgrade is verified."
+}
