@@ -1,15 +1,15 @@
 {
   "schema": "fullbleed.cloudflare-starter.v1",
   "prefix": "fullbleed-cloudflare-invoice/",
-  "packageVersion": "0.8.1",
-  "engineVersion": "2.5.35",
+  "packageVersion": "0.8.2",
+  "engineVersion": "2.5.37",
   "wrangler": "4.151.3",
-  "sourceCommit": "e3c3ebdced0365738c63014e7dfebfd722ddba27",
+  "sourceCommit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "release": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.1",
-  "packageIntegrity": "sha512-RaOu2XPHkliyOGDlZgsLDQSxxWkATglTEMYWWRl+TAKHHcBYysyZkUvNUGj+8tujn3HQJnbbjugvzHeYSv8/Kg==",
-  "packageSha256": "24390f1ce0715a081ec8aaefa5571ae8b79eecf0b7b143763d54fe83183b8985",
-  "wasmSha256": "6dc2dd457d36294adcfb1d50afe02f00078005a4bf053fe7b2fbe0ebe9873555",
+  "release": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.2",
+  "packageIntegrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
+  "packageSha256": "446da9ea4a2b77f39c6df5f9c8a1a6e9475cc4ee2d4e2ee2480653f2b1d63855",
+  "wasmSha256": "08156c2e59eb43cc96058e5d1b172e55123a67761487df2a4665c94339a2fb75",
   "localOnly": true,
   "hostedVerified": false,
   "freePlanVerified": false,
@@ -33,17 +33,17 @@
     {
       "path": "package-lock.json",
       "bytes": 50461,
-      "sha256": "cf8c2597dad62d4c390eebba097c5389ecd81a0b8ae2bdbd1f29e1d6e665bf3f"
+      "sha256": "827c05a9410ec664dbcf486ed60f1dd4f707b2b05391be753dcb569a9db7ed44"
     },
     {
       "path": "package.json",
-      "bytes": 499,
-      "sha256": "3ba8cf6739dc03fb92a5c768d70011b670902fe47494ce4078e7ea1b778ed559"
+      "bytes": 517,
+      "sha256": "41813011afc9528a0566c18f55967e5314ff12e82de83ba6d1560178f5ac8651"
     },
     {
       "path": "release.json",
       "bytes": 804,
-      "sha256": "4c4831bcaa19232d93bc5453afa2a06582ebb7de6d5cf946c8b38d97d33dab6b"
+      "sha256": "40b8bff8281a4ae8001d7fce3a30b9aff31d8acf08c832681246a0c252b97602"
     },
     {
       "path": "sample.json",
@@ -91,8 +91,8 @@
       "sha256": "ddf7b4df5ae09c70ab9d3be8b1a8026b6f8951971ee9602b2dce88614200c3bf"
     }
   ],
-  "zipBytes": 25254,
-  "zipSha256": "4545596ebcf7fd4f67fcc5629c72eeefe9c5bfe72f65b5d80131de2a43f33162",
+  "zipBytes": 25250,
+  "zipSha256": "e3ea6998e7e919e076d985b6a160d50ec263e5847e7f09f3936bda8f18de987d",
   "assets": [
     {
       "file": "invoice.pdf",

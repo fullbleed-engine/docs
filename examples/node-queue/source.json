@@ -1,10 +1,10 @@
 {
-  "package_version": "0.8.1",
-  "engine_version": "2.5.35",
-  "source_commit": "e3c3ebdced0365738c63014e7dfebfd722ddba27",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.1.tgz",
-  "package_integrity": "sha512-RaOu2XPHkliyOGDlZgsLDQSxxWkATglTEMYWWRl+TAKHHcBYysyZkUvNUGj+8tujn3HQJnbbjugvzHeYSv8/Kg==",
-  "package_sha256": "24390f1ce0715a081ec8aaefa5571ae8b79eecf0b7b143763d54fe83183b8985",
+  "package_version": "0.8.2",
+  "engine_version": "2.5.37",
+  "source_commit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.2.tgz",
+  "package_integrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
+  "package_sha256": "446da9ea4a2b77f39c6df5f9c8a1a6e9475cc4ee2d4e2ee2480653f2b1d63855",
   "rendered": {
     "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",

@@ -1,10 +1,10 @@
 {
-  "package_version": "0.8.1",
-  "engine_version": "2.5.35",
-  "source_commit": "e3c3ebdced0365738c63014e7dfebfd722ddba27",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.1.tgz",
-  "package_integrity": "sha512-RaOu2XPHkliyOGDlZgsLDQSxxWkATglTEMYWWRl+TAKHHcBYysyZkUvNUGj+8tujn3HQJnbbjugvzHeYSv8/Kg==",
-  "package_sha256": "24390f1ce0715a081ec8aaefa5571ae8b79eecf0b7b143763d54fe83183b8985",
+  "package_version": "0.8.2",
+  "engine_version": "2.5.37",
+  "source_commit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.2.tgz",
+  "package_integrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
+  "package_sha256": "446da9ea4a2b77f39c6df5f9c8a1a6e9475cc4ee2d4e2ee2480653f2b1d63855",
   "rendered": {
     "invoice.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
@@ -20,8 +20,8 @@
     "report.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
     "report-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe"
   },
-  "report_package_version": "0.8.1",
-  "report_engine_version": "2.5.35",
+  "report_package_version": "0.8.2",
+  "report_engine_version": "2.5.37",
   "files": {
     "LICENSE": {
       "bytes": 1079,
@@ -29,7 +29,7 @@
     },
     "README.md": {
       "bytes": 903,
-      "sha256": "8f3d2b374107b7432eafcbb32645a7ace0e1439374032bf232be9d2f50893634"
+      "sha256": "b4161dabc054341a92ab0b538a7e4b1502544b40c3cb3f4dde2a518393a65d1f"
     },
     "invoice.css": {
       "bytes": 3546,
@@ -41,16 +41,16 @@
     },
     "package-lock.json": {
       "bytes": 1165,
-      "sha256": "c7f3b280dea928fe8937355edda6b74df65f829d3e0ab02a2d66986d8eb1ef94"
+      "sha256": "681e50281c34b02e13de2851f273e53668b54c9182816be977595786b47a037e"
     },
     "package.json": {
       "bytes": 241,
-      "sha256": "2b4642cddd451f46c8971235daeb3d0f026250423197ded08cc596c82c65bc18"
+      "sha256": "3ae694768d2e7084bf58b5ef32a4b6f57a4054c3e1abf561ecaee403bf94dfa0"
     },
     "render.mjs": {
       "bytes": 1064,
       "sha256": "dd63e83658800df2672c8c5ca1b176dbe49fc0d5c49b8c2b79af91515a68e776"
     }
   },
-  "zip_sha256": "1f841957fdd93fc06811e2f744be7525e4613d525f9e14f548cc2368db623ee1"
+  "zip_sha256": "d57e7186d9e7d606a1452f691e795b08da634cade1afce8e3d344396de1162ae"
 }

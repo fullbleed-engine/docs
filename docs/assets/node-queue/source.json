@@ -1,10 +1,10 @@
 {
-  "package_version": "0.8.1",
-  "engine_version": "2.5.35",
-  "source_commit": "e3c3ebdced0365738c63014e7dfebfd722ddba27",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.1.tgz",
-  "package_integrity": "sha512-RaOu2XPHkliyOGDlZgsLDQSxxWkATglTEMYWWRl+TAKHHcBYysyZkUvNUGj+8tujn3HQJnbbjugvzHeYSv8/Kg==",
-  "package_sha256": "24390f1ce0715a081ec8aaefa5571ae8b79eecf0b7b143763d54fe83183b8985",
+  "package_version": "0.8.2",
+  "engine_version": "2.5.37",
+  "source_commit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.2.tgz",
+  "package_integrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
+  "package_sha256": "446da9ea4a2b77f39c6df5f9c8a1a6e9475cc4ee2d4e2ee2480653f2b1d63855",
   "rendered": {
     "NS-1042.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "NS-1042.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7",
@@ -26,7 +26,7 @@
     {
       "path": "README.md",
       "bytes": 1388,
-      "sha256": "6e06597b9670189761360ad2249a4161ac63ae2793ae96f986e3f27108314333"
+      "sha256": "14de1956f335ea840007896aa18b4eaa6921b8cf5942437f83a9ea926a480def"
     },
     {
       "path": "invoice.html",
@@ -45,15 +45,15 @@
     },
     {
       "path": "package.json",
-      "bytes": 229,
-      "sha256": "ed79fc8cbade0a3d927d99f95ad6297410c657147900704c796aa82f38d04a66"
+      "bytes": 247,
+      "sha256": "8e88d4a121c32d0ed76a60bfe676c777961ee527ab06814a8949dfdb8f234773"
     },
     {
       "path": "package-lock.json",
       "bytes": 1177,
-      "sha256": "92b86dec46b629da2c4dc53cbf1c1414649865c6d0167051ab5fa33af8844e6b"
+      "sha256": "7d943099b3ecbfe8b6df597922c04e5d1a0ba9d228dfc0196aa89456ac581547"
     }
   ],
-  "zip_bytes": 6141,
-  "zip_sha256": "617bd2a369bdf57a31d8e2267ba436b9f1ce8ff13e87a1ad554506db49ec7378"
+  "zip_bytes": 6142,
+  "zip_sha256": "01fb788c17de89821575f4c7668015bf39ffd3152c49d8c44e6eec97e55ce700"
 }
