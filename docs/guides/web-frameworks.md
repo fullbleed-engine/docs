@@ -39,7 +39,7 @@ is `examples/web_frameworks`.
 
 Choose one framework below. Each requirement file installs that framework;
 `fullbleed` remains a separate package. The examples are checked with Fullbleed
-2.5.11, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
+2.5.37, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
 
 Each app serves this fictional record:
 
@@ -55,7 +55,7 @@ returns HTTP 404. Stop the server before trying another framework on the same po
 ## FastAPI
 
 ```bash
-python -m pip install fullbleed==2.5.11 -r requirements-fastapi.txt
+python -m pip install fullbleed==2.5.37 -r requirements-fastapi.txt
 python -m uvicorn fastapi_app:app --host 127.0.0.1 --port 8000
 ```
 
@@ -91,7 +91,7 @@ finishes. See [FastAPI's concurrency documentation](https://fastapi.tiangolo.com
 ## Flask
 
 ```bash
-python -m pip install fullbleed==2.5.11 -r requirements-flask.txt
+python -m pip install fullbleed==2.5.37 -r requirements-flask.txt
 python -m flask --app flask_app run --host 127.0.0.1 --port 8000
 ```
 
@@ -119,7 +119,7 @@ for response bodies, media types, and headers.
 ## Django
 
 ```bash
-python -m pip install fullbleed==2.5.11 -r requirements-django.txt
+python -m pip install fullbleed==2.5.37 -r requirements-django.txt
 python django_app.py runserver 127.0.0.1:8000 --noreload
 ```
 
