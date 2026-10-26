@@ -20,6 +20,21 @@ parser.add_argument('--out', type=Path, default=Path('output/dotnet-verification
 parser.add_argument('--update-assets', action='store_true')
 args = parser.parse_args()
 guide = (ROOT / 'docs/getting-started/dotnet.md').read_text(encoding='utf-8')
+home = (ROOT / 'docs/index.md').read_text(encoding='utf-8')
+
+
+def setup_commands(markdown, label):
+    blocks = re.findall(r'```bash\n(.*?)```', markdown, re.S)
+    setups = [dedent(block).strip() for block in blocks if 'dotnet new console' in block]
+    assert len(setups) == 1, f'{label} must have one C# setup block.'
+    commands = [line.strip() for line in setups[0].splitlines() if line.strip()]
+    assert len(commands) == 3 and commands[1] == 'cd InvoiceDemo', f'{label} C# setup shape changed.'
+    return commands
+
+
+guide_setup = setup_commands(guide, 'Guide')
+home_setup = setup_commands(home, 'Homepage')
+assert home_setup == guide_setup, 'Homepage C# setup commands differ from the executed guide.'
 framework = re.search(r'dotnet new console -n InvoiceDemo --framework (net\d+\.0)', guide).group(1)
 framework_version = framework.removeprefix('net')
 out = args.out.resolve()
@@ -53,7 +68,6 @@ assert ET.parse(project_source).find('.//TargetFramework').text == framework
 assert f'dotnet add package FullBleed.DotNet --version {version}' in guide
 blocks = re.findall(r'```csharp\n(.*?)```', guide, re.S)
 assert len(blocks) == 2
-home = (ROOT / 'docs/index.md').read_text(encoding='utf-8')
 home_code = re.findall(r'```csharp\n(.*?)```', home, re.S)
 assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage C# example differs from the executed guide.'
 
@@ -121,6 +135,8 @@ report = {
     'fresh_nuget_http_cache': True,
     'native_library_override': False,
     'homepage_snippet_matches_executed_guide': True,
+    'homepage_setup_matches_executed_guide': True,
+    'documented_setup_commands': guide_setup,
     'commands': commands,
     'outputs': outputs,
     'quickstart_pdf_sha256': hashlib.sha256(snippet_pdf.read_bytes()).hexdigest(),
