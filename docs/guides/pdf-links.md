@@ -21,7 +21,7 @@ It uses fictional project data and a font bundled with Fullbleed.
 !!! info "Requires the 2.6.0a14 prerelease"
     Use Python 3.10 or later in a virtual environment and install
     `python -m pip install fullbleed==2.6.0a14`.
-    Stable 2.5.34 predates this native-navigation feature. Ordinary
+    Stable 2.5.36 predates this native-navigation feature. Ordinary
     `pip install fullbleed` continues to select the stable channel.
 
 ## Start with an anchor

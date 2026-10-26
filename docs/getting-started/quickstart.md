@@ -21,7 +21,7 @@ python -m pip install fullbleed
 ```
 
 Choose one tab and save its complete example as `hello.py`. These examples are
-checked with Fullbleed **2.5.34**.
+checked with Fullbleed **2.5.36**.
 
 === "HTML/CSS"
 

@@ -122,7 +122,7 @@ project outline a clear visual structure.
 
 Jump from the contents to either section, open a source, or return to the
 overview. The project includes the HTML, CSS, bundled-font setup and Python
-render script. Generated with the opt-in **2.6.0a14** prerelease; stable 2.5.34
+render script. Generated with the opt-in **2.6.0a14** prerelease; stable 2.5.36
 predates the native-navigation feature.
 
 [Open the linked PDF](assets/pdf-links-alpha14/linked-report.pdf){ .md-button }

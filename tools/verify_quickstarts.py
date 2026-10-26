@@ -14,7 +14,7 @@ from textwrap import dedent
 import fullbleed
 
 ROOT = Path(__file__).resolve().parents[1]
-QUICKSTART_RELEASE = "2.5.34"
+QUICKSTART_RELEASE = "2.5.36"
 FIXTURES = [
     ("index.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
     ("getting-started/quickstart.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),

@@ -49,7 +49,7 @@ The stable-ABI wheels cover supported CPython versions. For an unsupported targe
 
 ## Python 3.15 final
 
-The public stable **Fullbleed 2.5.34** wheel is checked on **CPython 3.15.0 final**
+The retained **Fullbleed 2.5.34** qualification checks its public wheel on **CPython 3.15.0 final**
 on Windows x64, Linux x64, and Intel and Apple-silicon Macs. Use the ordinary
 installation command above.
 
