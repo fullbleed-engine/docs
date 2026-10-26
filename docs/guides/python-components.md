@@ -1,6 +1,8 @@
 ---
 title: Python PDF components inspired by React
 description: Build PDFs with Python function components, props, children, conditionals, rich text and reusable styles. Download a complete invoice without authored HTML.
+search:
+  boost: 2
 ---
 
 # Build PDFs with Python components

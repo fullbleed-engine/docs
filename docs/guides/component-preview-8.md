@@ -1,12 +1,15 @@
 ---
 title: Python component alpha 8 and source showcases
 description: Recreate the Northstar invoice, Common Ground report and accessible community guide with Fullbleed 2.6.0a8. Download the verified source and export PDF or styled and unstyled HTML.
+search:
+  boost: 0.5
 ---
 
 # Python components: make the design your own
 
-!!! info "Current component preview: 2.6.0a11"
-    [Get the current components, page bands and source kit](component-preview-11.md).
+!!! info "Archived alpha 8 preview"
+    See the [current component guide](component-preview-12.md) and
+    [release status](component-status.md) for the latest alpha and installation steps.
     This page retains the alpha 8 package and its verification record.
 
 Start with a complete invoice, report or community guide. Edit Python functions,

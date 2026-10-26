@@ -1,12 +1,15 @@
 ---
 title: Styled Python PDF components and HTML export
 description: Compose invoices and reports with reusable Python components, attached styles, tables and page bands. Try the Fullbleed 2.6.0a10 source kit and export PDF or HTML.
+search:
+  boost: 0.5
 ---
 
 # Build styled documents from Python components
 
-!!! info "Current component preview: 2.6.0a11"
-    [Get the current component source kit and HTML-export guide](component-preview-11.md).
+!!! info "Archived alpha 10 preview"
+    See the [current component guide](component-preview-12.md) and
+    [release status](component-status.md) for the latest alpha and installation steps.
     This page retains the alpha 10 package and its verification record.
 
 Write a Python function once, then reuse it across invoices, reports and
