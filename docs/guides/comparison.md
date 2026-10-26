@@ -107,8 +107,9 @@ and HTML/CSS versions of the same small invoice. `class_name` attaches literal
 CSS classes; `Document(styles=...)` supplies their rules.
 
 For components with reusable style defaults, tables defined by columns, and
-repeating page headers or footers, try the separately installed
-[2.6.0a11 preview](component-preview-11.md). Its
+repeating page headers or footers, see the [current opt-in preview and release
+status](component-status.md). The [namespace and migration guide](component-preview-12.md)
+explains the newer `fullbleed.components` surface. The
 [editable styling tutorial](../getting-started/component-styling.md) demonstrates
 reusable defaults, root overrides, classes, named parts and theme values in a
 complete report. Export the component tree as PDF, styled HTML or unstyled HTML.
