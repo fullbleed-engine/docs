@@ -1,20 +1,20 @@
 {
   "source_repository": "https://github.com/fullbleed-engine/fullbleed-node",
-  "source_commit": "ea5235dc6e8e03b6036563f3f88337932bd52ca4",
+  "source_commit": "29a3e545f1015bf5befe1839e44074e7f6dbe35e",
   "source_directory": "examples/react",
   "package_version": "0.8.2",
   "engine_version": "2.5.37",
   "react_version": "19.3.0",
   "package_integrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
-  "zip_bytes": 36323,
-  "zip_sha256": "a3b8f699b71909b3554d6c4a482a69c10e251b7d3bf371fcdd7c2b0c0182c8e3",
+  "zip_bytes": 37379,
+  "zip_sha256": "eb6413f3672f54aa6aad0dc2de8cb44e27fc1d11b8585bdde3204260ea615d86",
   "files": {
     "fullbleed-react-starter/.gitignore": "0c8c1daabb918a54d7e75061883a887e9e0039d533487324a895ebe46afe15d8",
     "fullbleed-react-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
-    "fullbleed-react-starter/README.md": "0a087e679e8a4cda2d1a7c13b21d5ea58ef4d3585b6fe104f465262f32043736",
+    "fullbleed-react-starter/README.md": "46a5fd400609dc9ed464a6ef20555b57faf745368ede5241230085c81e4cb2b7",
     "fullbleed-react-starter/index.html": "1e07a2b52074ed0add251f642fe7f06ae2ac56cc391d54c3d7cfcda0c84a7058",
-    "fullbleed-react-starter/package-lock.json": "0867e4386ab91c77829eaf5f18e7b842785505363c38fdb549b7157949ee9a85",
-    "fullbleed-react-starter/package.json": "8fa0cb5c15463d9963f305c8707f5afc91d22b360eed86949a2f3d95a68b1487",
+    "fullbleed-react-starter/package-lock.json": "5eebac9ee3a6edbf0c2358f671c5f7e3f2c40384c5eced4269f5c95f25c6be33",
+    "fullbleed-react-starter/package.json": "bb04cfe9f93ed2d0401f4ce2d16a48772ac94e15b8731a167f53168188c0a7d6",
     "fullbleed-react-starter/public/favicon.svg": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
     "fullbleed-react-starter/src/App.tsx": "be531b4b19f86fe2b56ebb652efca23c3ce5e5c0cc656951e4e6ac13aa738d7e",
     "fullbleed-react-starter/src/documents/Invoice.tsx": "6737ef4e107935cf0e66291f1ef1576d6aef37e647555e81ce875bf37a5cb589",
@@ -31,7 +31,6 @@
     "fullbleed-react-starter/vite.config.js": "2a300aafa93df7e0269d06d104960ee5ac4d64989d37d61ca482c4b88db3629c"
   },
   "verification_workflow": "https://github.com/fullbleed-engine/fullbleed-node/actions/workflows/react-starter.yml",
-  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/ea5235dc6e8e03b6036563f3f88337932bd52ca4/verification/starters-082.json",
-  "source_verification_commit": "5d0e7583d695d0dfd0738ddfa9dd54cdcf7c19d8",
-  "source_verification_scope": "The React starter source is identical to source_commit. The verification commit only extends the WebKit CI job timeout to allow browser dependency installation."
+  "local_ui_evidence": "https://github.com/fullbleed-engine/fullbleed-node/blob/29a3e545f1015bf5befe1839e44074e7f6dbe35e/verification/stackblitz-startup-20261026.json",
+  "source_verification_run": "https://github.com/fullbleed-engine/fullbleed-node/actions/runs/40383251128"
 }
