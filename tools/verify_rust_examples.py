@@ -43,7 +43,10 @@ playground = json.loads((ASSETS / "playground/verification.json").read_text())
 metadata = json.loads(run(["cargo", "metadata", "--format-version", "1", "--locked", "--manifest-path", str(EXAMPLES / "Cargo.toml")]).stdout)
 core = next(package for package in metadata["packages"] if package["name"] == "fullbleed")
 assert core["source"].startswith("registry+")
-assert playground["ok"] and playground["engine"] == core["version"]
+# The native starter and browser SDK have independent release schedules.
+# Keep the playground's engine in the evidence and require identical actual
+# fixture PDFs and PNGs below, even when the package versions differ.
+assert playground["ok"] and playground["engine"]
 features = sorted(next(node for node in metadata['resolve']['nodes'] if node['id'] == core['id'])['features'])
 assert features == ['svg_raster']
 install = f"cargo add fullbleed@={core['version']} --features svg_raster"
@@ -51,6 +54,7 @@ assert install in guide and install in home, 'Documented Cargo install must matc
 report = {
     "ok": True,
     "engine": core["version"],
+    "playground_engine": playground["engine"],
     "engine_features": features,
     "preview_source": "finalized_pdf",
     "rustc": run(["rustc", "--version"]).stdout.strip(),

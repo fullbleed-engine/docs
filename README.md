@@ -70,7 +70,7 @@ python tools/sync_reference.py --source /path/to/fullbleed-official --ref v2.5.2
 `docs/reference-source.json` records the exact source commit. Use a built, installed release wheel to rerun examples and review the final PDFs and previews before replacing downloadable artifacts. `docs/assets/examples/verification.json` records the checks performed on published examples.
 
 Run `python -I tools/verify_quickstarts.py` in an environment with
-`fullbleed==2.5.34` installed. The first-run examples are qualified against this
+`fullbleed==2.5.36` installed. The first-run examples are qualified against this
 stable package independently of the frozen API reference. The verifier executes
 the Python snippets directly from five introductory pages, checks their PDF
 text, embedded fonts and page counts, and exercises the documented project
