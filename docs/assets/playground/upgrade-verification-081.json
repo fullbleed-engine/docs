@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-26T02:41:42.272346+00:00",
+  "checkedAt": "2026-10-26T03:01:49.021794+00:00",
   "engine": "2.5.35",
   "nodePackage": "0.8.1",
   "nodeRelease": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.1",
@@ -584,5 +584,23 @@
     "paginationCases": 9,
     "everyDisplayedPaginationPageMatchesNative": true,
     "verificationSha256": "0e52ed967a66626b98d678995656cf99325919df1e64380f553ae4c61204e6d4"
+  },
+  "rustQuickstart": {
+    "fixtures": 29,
+    "pdfAndPreviewBytesMatchPlayground": true,
+    "verificationSha256": "2c21ebd978b6e6f8470dd8d9a2644d0b81071de1a53194d2301a0d76a8eff1d6"
+  },
+  "rustDownload": {
+    "checks": 77,
+    "fixtures": 5,
+    "zipSha256": "d69300d0c41ea4653a28231ebe925227f2bb065833dda53692f5b9f26d48be65",
+    "verificationSha256": "9dd2e6ad65fcacb2c7347c85d9d03b26082ab4eea392eeb699c2396caafd4d7a"
+  },
+  "rustMinimumVersionCheck": {
+    "ok": true,
+    "rust": "1.85.0",
+    "engine": "2.5.35",
+    "mode": "cargo check --release --locked --bins",
+    "exit_code": 0
   }
 }

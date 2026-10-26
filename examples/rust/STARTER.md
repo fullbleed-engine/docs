@@ -64,7 +64,7 @@ PDF bytes from your handler or write them to your storage. Use the full
 [Rust walkthrough](https://docs.fullbleed.dev/getting-started/rust/) for font
 registration and preview details.
 
-The project pins the published `fullbleed` crate to 2.5.29 with `svg_raster`
+The project pins the published `fullbleed` crate to 2.5.35 with `svg_raster`
 enabled, matching the playground. `Cargo.lock` records
 the resolved dependency versions. No local Fullbleed checkout is required.
 The code and templates are MIT licensed; the fonts are SIL OFL 1.1.
