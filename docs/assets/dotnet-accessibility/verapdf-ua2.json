@@ -11,7 +11,7 @@
   "version" : "1.30.2",
   "buildDate" : 1780502100000
 }]},"jobs":[{"itemDetails":{
-  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\bindings-wrapping-20261026\\dotnet-docs-022\\qualification\\tagged\\ua2\\notice.pdf",
+  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\bindings-wrapping-20261026\\template-overlay-guide-20261027\\dotnet-docs-023\\qualification\\tagged\\ua2\\notice.pdf",
   "size" : 115321
 },"validationResult":[ {
   "details" : {
@@ -26,38 +26,38 @@
   "statement" : "PDF file is compliant with Validation Profile requirements.",
   "compliant" : true
 } ],"processingTime":{
-  "start" : 1793034679027,
-  "finish" : 1793034680227,
-  "difference" : 1200,
-  "duration" : "00:00:01.200"
+  "start" : 1793096841241,
+  "finish" : 1793096842870,
+  "duration" : "00:00:01.629",
+  "difference" : 1629
 }}],"batchSummary":{
   "duration" : {
-    "start" : 1793034678835,
-    "finish" : 1793034680336,
-    "difference" : 1501,
-    "duration" : "00:00:01.501"
+    "start" : 1793096840933,
+    "finish" : 1793096842934,
+    "duration" : "00:00:02.001",
+    "difference" : 2001
   },
   "totalJobs" : 1,
   "outOfMemory" : 0,
   "veraExceptions" : 0,
-  "featuresSummary" : {
-    "totalJobCount" : 0,
-    "failedJobCount" : 0,
-    "successfulJobCount" : 0
-  },
-  "repairSummary" : {
-    "totalJobCount" : 0,
-    "failedJobCount" : 0,
-    "successfulJobCount" : 0
-  },
+  "failedEncryptedJobs" : 0,
+  "failedParsingJobs" : 0,
   "validationSummary" : {
-    "compliantPdfaCount" : 1,
-    "totalJobCount" : 1,
-    "failedJobCount" : 0,
     "nonCompliantPdfaCount" : 0,
+    "compliantPdfaCount" : 1,
+    "failedJobCount" : 0,
+    "totalJobCount" : 1,
     "successfulJobCount" : 1
   },
-  "failedParsingJobs" : 0,
-  "failedEncryptedJobs" : 0,
+  "repairSummary" : {
+    "failedJobCount" : 0,
+    "totalJobCount" : 0,
+    "successfulJobCount" : 0
+  },
+  "featuresSummary" : {
+    "failedJobCount" : 0,
+    "totalJobCount" : 0,
+    "successfulJobCount" : 0
+  },
   "multiJob" : false
 }}}

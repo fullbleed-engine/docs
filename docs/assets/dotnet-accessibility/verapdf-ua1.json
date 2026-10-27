@@ -11,7 +11,7 @@
   "version" : "1.30.2",
   "buildDate" : 1780502100000
 }]},"jobs":[{"itemDetails":{
-  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\bindings-wrapping-20261026\\dotnet-docs-022\\qualification\\tagged\\ua1\\notice.pdf",
+  "name" : "C:\\dev\\workbench\\fullbleed-official\\target\\growth\\bindings-wrapping-20261026\\template-overlay-guide-20261027\\dotnet-docs-023\\qualification\\tagged\\ua1\\notice.pdf",
   "size" : 115102
 },"validationResult":[ {
   "details" : {
@@ -26,29 +26,20 @@
   "statement" : "PDF file is compliant with Validation Profile requirements.",
   "compliant" : true
 } ],"processingTime":{
-  "start" : 1793034672491,
-  "finish" : 1793034673815,
-  "difference" : 1324,
-  "duration" : "00:00:01.324"
+  "start" : 1793096832440,
+  "finish" : 1793096833961,
+  "duration" : "00:00:01.521",
+  "difference" : 1521
 }}],"batchSummary":{
   "duration" : {
-    "start" : 1793034672263,
-    "finish" : 1793034673915,
-    "difference" : 1652,
-    "duration" : "00:00:01.652"
+    "start" : 1793096832192,
+    "finish" : 1793096834055,
+    "duration" : "00:00:01.863",
+    "difference" : 1863
   },
   "totalJobs" : 1,
   "outOfMemory" : 0,
   "veraExceptions" : 0,
-  "failedEncryptedJobs" : 0,
-  "failedParsingJobs" : 0,
-  "validationSummary" : {
-    "nonCompliantPdfaCount" : 0,
-    "failedJobCount" : 0,
-    "compliantPdfaCount" : 1,
-    "totalJobCount" : 1,
-    "successfulJobCount" : 1
-  },
   "featuresSummary" : {
     "failedJobCount" : 0,
     "totalJobCount" : 0,
@@ -59,5 +50,14 @@
     "totalJobCount" : 0,
     "successfulJobCount" : 0
   },
+  "failedEncryptedJobs" : 0,
+  "validationSummary" : {
+    "compliantPdfaCount" : 1,
+    "failedJobCount" : 0,
+    "totalJobCount" : 1,
+    "nonCompliantPdfaCount" : 0,
+    "successfulJobCount" : 1
+  },
+  "failedParsingJobs" : 0,
   "multiJob" : false
 }}}

@@ -1,0 +1,43 @@
+{
+  "packageVersion": "0.2.3",
+  "engineVersion": "2.5.39",
+  "packageSha256": "650b71406a40e19edd8c00f280d36f41c4cfcf5603ad86f219512e3ff0f8651a",
+  "packageCommit": "8609542e6aeb256fd57f0102c55783ecd5763cb1",
+  "templateRepository": "https://github.com/fullbleed-engine/docs",
+  "templateCommit": "641607ae65355395156989f8aaa048e25e6ee0db",
+  "assets": [
+    {
+      "path": "Assets/template.pdf",
+      "sha256": "6989c887ef994170b6248e68117fd5d795d40bb4608049fa045619cde6b5cc6f",
+      "source": "examples/pdf-template/template.pdf"
+    },
+    {
+      "path": "Assets/template.html",
+      "sha256": "390a9d7fa16ae16e2afb61b949a9f40e9d0aa89f788878ed5278fa4858a93626",
+      "source": "examples/pdf-template/template.html"
+    },
+    {
+      "path": "Assets/template.css",
+      "sha256": "e7ceacbe29fa91948b641da5eaf8590983fb6e71cc7e9d1ed05613292fada9d6",
+      "source": "examples/pdf-template/template.css"
+    },
+    {
+      "path": "Assets/overlay.css",
+      "sha256": "988a3711e43cd279dd02b1442f2f0066b0a1a105477bb4e4ca943e17d29316db",
+      "source": "examples/pdf-template/overlay.css"
+    },
+    {
+      "path": "Assets/data.json",
+      "sha256": "360160e71608a749f328062ec593e649ac8c6855b583189a9dba848ccd927223",
+      "source": "examples/pdf-template/data.json"
+    },
+    {
+      "path": "Assets/Inter-Variable.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "Assets/Inter-OFL.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    }
+  ]
+}

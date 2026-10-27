@@ -1,0 +1,100 @@
+{
+  "schema": "fullbleed.dotnet-pdf-template.v1",
+  "source": "examples/dotnet-pdf-template",
+  "package": "FullBleed.DotNet",
+  "packageVersion": "0.2.3",
+  "engineVersion": "2.5.39",
+  "packageSha256": "650b71406a40e19edd8c00f280d36f41c4cfcf5603ad86f219512e3ff0f8651a",
+  "packageCommit": "8609542e6aeb256fd57f0102c55783ecd5763cb1",
+  "framework": "net10.0",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 19,
+      "sha256": "cca84ce392bb9f5534b6f0955d6c6a341934d4e999ff9d899b9204a4aff343dd"
+    },
+    {
+      "path": "Assets/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "Assets/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "Assets/data.json",
+      "bytes": 468,
+      "sha256": "360160e71608a749f328062ec593e649ac8c6855b583189a9dba848ccd927223"
+    },
+    {
+      "path": "Assets/overlay.css",
+      "bytes": 1030,
+      "sha256": "988a3711e43cd279dd02b1442f2f0066b0a1a105477bb4e4ca943e17d29316db"
+    },
+    {
+      "path": "Assets/template.css",
+      "bytes": 1791,
+      "sha256": "e7ceacbe29fa91948b641da5eaf8590983fb6e71cc7e9d1ed05613292fada9d6"
+    },
+    {
+      "path": "Assets/template.html",
+      "bytes": 1295,
+      "sha256": "390a9d7fa16ae16e2afb61b949a9f40e9d0aa89f788878ed5278fa4858a93626"
+    },
+    {
+      "path": "Assets/template.pdf",
+      "bytes": 48371,
+      "sha256": "6989c887ef994170b6248e68117fd5d795d40bb4608049fa045619cde6b5cc6f"
+    },
+    {
+      "path": "CertificateRecords.cs",
+      "bytes": 3805,
+      "sha256": "0e0b9c4cb0193de705be28bc255ef9b859bbf6514eaa24758c6d166b495bef93"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "Program.cs",
+      "bytes": 7938,
+      "sha256": "63c4d84c7e2ecf6ca1d26d1ea5a06ba9d1dd869abf958526e57d8bcf415ed3e9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2885,
+      "sha256": "f7e98163cb0d4689dc853532b3a13af5a51f4c20adbe1bd317bb84a55cad25fc"
+    },
+    {
+      "path": "TemplateCertificates.csproj",
+      "bytes": 573,
+      "sha256": "3169269490e26d32be63f627e96edf728b025235e7ad24a3ca5d030d62e70555"
+    },
+    {
+      "path": "global.json",
+      "bytes": 111,
+      "sha256": "20c93ca7812d0a9825eef71217156f95ab2f4fe5aadfeb22ebc1c24b630018d3"
+    },
+    {
+      "path": "packages.lock.json",
+      "bytes": 306,
+      "sha256": "9d009443de84d7eed986ae395121dfa64fb4e16a62d2322e9266089523f4f27b"
+    },
+    {
+      "path": "upstream.json",
+      "bytes": 1563,
+      "sha256": "99afe2d6287b53c918775a7bbd3f695f5def3fe71471b28632667c1396679eb9"
+    }
+  ],
+  "zipBytes": 495645,
+  "zipSha256": "ec9d3f556350690af5b2db136c471e49b90c906ac34094432dd324506c0a4133",
+  "outputs": {
+    "certificates.pdf": "d9bc53a26c844a4d1d0fc67886b1b3d50fc8a9fc94dac9c429f57d1fc90b3113",
+    "page-1.png": "016b9802e1be5215c2beed5f4d054b5fddaec4bfdefb34e1175d11114100a8a4",
+    "page-2.png": "f5a63c6754a872cc68eea7eb2343b335dffc3114916892d26eaec10adc7f2200",
+    "page-3.png": "3c8ab220249dc21f1eb10d6181669cfa27eefa60132e685fe205f381574e04a5"
+  }
+}

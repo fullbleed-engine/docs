@@ -537,6 +537,41 @@ jobs:
           name: axum-verification-${{ matrix.os }}-${{ matrix.rust }}
           path: output/axum-verification
           retention-days: 14
+  dotnet-pdf-template:
+    name: C# PDF template (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install independent PDF readers
+        run: python -m pip install --only-binary=:all: pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+      - name: Verify the public-package download and editable certificate
+        run: |
+          python tools/build_dotnet_pdf_template.py
+          git diff --exit-code -- docs/assets/dotnet-pdf-template/project.zip docs/assets/dotnet-pdf-template/source.json
+          python tools/verify_dotnet_pdf_template.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dotnet-pdf-template-verification-${{ matrix.os }}
+          path: |
+            output/dotnet-pdf-template-verification/verification.json
+            output/dotnet-pdf-template-verification/*.txt
+            output/dotnet-pdf-template-verification/*-data.json
+            output/dotnet-pdf-template-verification/default/
+            output/dotnet-pdf-template-verification/edited/
+            output/dotnet-pdf-template-verification/long-values/
+            output/dotnet-pdf-template-verification/custom-background/
+          retention-days: 14
   pdf-template:
     name: Existing PDF template (${{ matrix.os }})
     strategy:
@@ -1203,7 +1238,7 @@ jobs:
           path: site
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [build, yew-starter, component-kits, accessible-showcase, showcase-authoring, component-notebook, page-band-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, pandas-components, pdf-template, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
+    needs: [build, yew-starter, component-kits, accessible-showcase, showcase-authoring, component-notebook, page-band-notebook, complete-html, component-preview, bootstrap-preview, components, node-components, dotnet-components, aspnet, chinese, arabic, markdown, tagged-notice, rust-download, matplotlib, pandas-components, pdf-template, dotnet-pdf-template, numbered-report, axum, lambda-starter, n8n-workflow, laravel-queue, laravel-platform, streamlit]
     runs-on: ubuntu-latest
     permissions:
       pages: write

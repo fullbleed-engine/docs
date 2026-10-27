@@ -4,7 +4,7 @@ description: Install FullBleed.DotNet from NuGet, compose PDFs with C# component
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.2)
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.3)
 brings Fullbleed's Rust rendering engine into a .NET process. Compose invoices
 and reports with ordinary C# methods, named components and reusable styles,
 or use existing HTML/CSS templates. Native
@@ -17,7 +17,7 @@ With the .NET 10 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.2.2
+dotnet add package FullBleed.DotNet --version 0.2.3
 ```
 
 Replace `Program.cs` with:
@@ -62,17 +62,14 @@ below embeds its fonts.
 
 The package's managed library targets `net8.0`; your application can target
 `net8.0`, `net9.0`, or `net10.0`. It contains native libraries for Windows x64,
-Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.37.
+Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.39.
 The managed assembly has no third-party NuGet runtime dependencies.
 
-Version 0.2.2 corrects text wrapping and child-element widths in narrow table
-cells. It retains the earlier pagination and footnote fixes; the component and
-HTML/CSS APIs are unchanged. The release checks 70 direct/compiled table outputs,
-18 pagination outputs and 14 component fixtures, including
-class and inline-style controls, paid/empty/credit invoices, a 40-row invoice,
-compiled bindings and batches. The same package is exercised on .NET 8, 9 and
-10 across all four native platforms.
-[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.2).
+Version 0.2.3 corrects glyphs in previews of imported PDFs with separate
+font subsets and fixes generated-quotation ordering. The component and
+HTML/CSS APIs are unchanged. The assembled package is checked on .NET 8,
+9 and 10 across all four native platforms.
+[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.3).
 
 ## Download a component invoice
 
@@ -173,8 +170,12 @@ the published application artifact.
 For tagged output, use the [C# library-notice starter](../guides/csharp-tagged-pdf.md)
 with PDF/UA profiles and independent validation.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.2/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.2/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.3/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.3/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)
+
+Use an existing certificate or letterhead PDF with the
+[PDF-template project](../guides/pdf-template.md#c). It includes a C# component
+overlay, editable CSS, JSON records, and the designed background.
