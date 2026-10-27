@@ -63,6 +63,11 @@ No. Profile selection configures output. Verify the final artifact and retain th
 
 ## Does Fullbleed edit arbitrary existing PDF content?
 
+To place new text over fixed artwork, use the [existing PDF template guide](guides/pdf-template.md).
+It includes a certificate background, JSON records, CSS-positioned fields, and
+final PDF previews. This is static overlay composition; it does not fill
+AcroForm fields or preserve digital signatures.
+
 Fullbleed supports document generation and PDF-template composition. For general changes to existing page content, choose a tool designed for that operation. See the [tool selection guide](guides/comparison.md).
 
 ## How can I help?

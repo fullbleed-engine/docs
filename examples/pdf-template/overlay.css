@@ -1,0 +1,15 @@
+/* Coordinates are measured from the top-left of this 792 x 612 point page. */
+@page { size: 792pt 612pt; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter; color: #244c40; background: transparent; }
+.certificate { position: relative; width: 792pt; height: 612pt; }
+.certificate:not(:last-child) { break-after: page; }
+p { margin: 0; }
+.name { position: absolute; left: 48pt; top: 295pt; width: 696pt; font-size: 34pt; line-height: 1.08; font-weight: 500; letter-spacing: -.8pt; overflow-wrap: anywhere; }
+.name.medium { font-size: 28pt; letter-spacing: -.4pt; }
+.name.long { font-size: 24pt; letter-spacing: 0; }
+.workshop { position: absolute; left: 48pt; top: 408pt; width: 696pt; font-size: 18pt; line-height: 1.25; font-weight: 500; overflow-wrap: anywhere; }
+.workshop.long { font-size: 14pt; }
+.date { position: absolute; left: 48pt; top: 487pt; width: 200pt; font-size: 13pt; }
+.id { position: absolute; left: 291pt; top: 487pt; width: 240pt; font-size: 13pt; }
+.id.long { font-size: 11pt; }

@@ -1,0 +1,62 @@
+{
+  "source": "examples/pdf-template",
+  "files": [
+    {
+      "path": "Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1079,
+      "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2896,
+      "sha256": "3f4cb534cd01a0c9ced4bfe0b8107c7c0f7c2b061b7cf2886230b1901125bcd3"
+    },
+    {
+      "path": "build_template.py",
+      "bytes": 1035,
+      "sha256": "fe38bcb33cf53cd1e509319124d9ab878602b88a560e0e236ec575ef5982c175"
+    },
+    {
+      "path": "data.json",
+      "bytes": 468,
+      "sha256": "360160e71608a749f328062ec593e649ac8c6855b583189a9dba848ccd927223"
+    },
+    {
+      "path": "overlay.css",
+      "bytes": 1030,
+      "sha256": "988a3711e43cd279dd02b1442f2f0066b0a1a105477bb4e4ca943e17d29316db"
+    },
+    {
+      "path": "render.py",
+      "bytes": 7263,
+      "sha256": "61e3cffc55ba511cdf2992b58fc8835d9d546dd4d88ae0fbec97db35e864d6db"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 18,
+      "sha256": "28e47d3515abd342cadf04adf5b4479d583081ed0d4c70b8ef4a49ffce97dc8a"
+    },
+    {
+      "path": "template.css",
+      "bytes": 1791,
+      "sha256": "e7ceacbe29fa91948b641da5eaf8590983fb6e71cc7e9d1ed05613292fada9d6"
+    },
+    {
+      "path": "template.html",
+      "bytes": 1295,
+      "sha256": "390a9d7fa16ae16e2afb61b949a9f40e9d0aa89f788878ed5278fa4858a93626"
+    },
+    {
+      "path": "template.pdf",
+      "bytes": 48371,
+      "sha256": "6989c887ef994170b6248e68117fd5d795d40bb4608049fa045619cde6b5cc6f"
+    }
+  ],
+  "zip_bytes": 34692,
+  "zip_sha256": "ffdcd0de662e1489988bf9b9d1828060b3e2b2ba797f4d873a82b121df81902a"
+}

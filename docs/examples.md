@@ -87,6 +87,29 @@ engine **2.5.22**, using the two explicitly registered font files in the project
 [Download the project](assets/dotnet-components/project.zip){ .md-button }
 [Learn C# components and styles](guides/csharp-components.md)
 
+## One background, many recipients { #pdf-template }
+
+<div class="showcase-entry" markdown>
+<figure markdown>
+[![Common Ground certificate with green display typography, an orange wheel motif, and personalized recipient details.](assets/pdf-template/page-1.png)](assets/pdf-template/certificates.pdf)
+</figure>
+<div markdown>
+
+**Existing PDF background · JSON records · CSS text overlays**
+
+Keep a certificate's artwork as a PDF and personalize it for each recipient.
+The project includes three fictional records, editable background source,
+positioned fields, and previews of the final composed pages.
+Rendered with **Fullbleed 2.5.39** and its bundled Inter font.
+
+[Open the three-page PDF](assets/pdf-template/certificates.pdf){ .md-button }
+[Download the project](assets/pdf-template/project.zip){ .md-button }
+
+[Use your own PDF template](guides/pdf-template.md)
+
+</div>
+</div>
+
 ## From brief to handoff { #numbered-report }
 
 <div class="showcase-entry" markdown>

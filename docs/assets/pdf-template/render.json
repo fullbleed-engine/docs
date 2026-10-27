@@ -1,0 +1,15 @@
+{
+  "version": "2.5.39",
+  "records": 3,
+  "pages": 3,
+  "template_sha256": "6989c887ef994170b6248e68117fd5d795d40bb4608049fa045619cde6b5cc6f",
+  "template_unchanged": true,
+  "overlay_sha256": "1d68b9378d6d0a5bb8a3d9e0b572644bd83aac9b5a7fad740805b0d60648d77f",
+  "pdf_sha256": "f6aedb37d9be4a5dc520f5324311c63f2c24310cddb96943db6a83214d503576",
+  "css_sha256": "988a3711e43cd279dd02b1442f2f0066b0a1a105477bb4e4ca943e17d29316db",
+  "font_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+  "missing_glyphs": [],
+  "deterministic_repeat": true,
+  "annotation_mode": "none",
+  "scope": "One static template page plus one transparent text overlay per record. These are ordinary, noninteractive PDFs; no AcroForm, signature, tagging, or PDF conformance claim."
+}

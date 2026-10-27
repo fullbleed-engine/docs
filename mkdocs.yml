@@ -82,6 +82,7 @@ nav:
       - Invoice notebook: getting-started/notebook.md
   - Build a document:
     - Invoices from data: guides/invoices.md
+    - Existing PDF templates: guides/pdf-template.md
     - Reports and data:
       - Numbered reports: guides/numbered-reports.md
       - Markdown to PDF: guides/markdown-pdf.md
