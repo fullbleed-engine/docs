@@ -28,3 +28,26 @@ only the homepage block. Verify the saved page anonymously at desktop and mobile
 widths, including real clipboard contents and linked PDF downloads. Do not paste
 this block into global code injection. Keep the copyable example synchronized
 with `homepage-example.py`.
+
+## Tagged-PDF landing page
+
+`squarespace-accessibility.json` is the maintained source for
+[www.fullbleed.dev/accessibility](https://www.fullbleed.dev/accessibility).
+It records the SEO fields, page header styling, and four native text blocks by
+their existing IDs. This page links the stable C# notice and the explicitly
+experimental Common Ground Python kit to their source and retained validation
+reports. Scanned-record transcription or OCR is a separate workflow.
+
+Back up those four blocks and the page settings before editing. Apply each
+`html` value through its corresponding text editor, and `headerCode` only to this
+page's Advanced header injection. Set the SEO title and description separately.
+Squarespace normalizes rich-text markup: it places `strong` inside links and
+wraps list-item text in paragraphs. The saved source and scoped CSS account for
+that form. Verify headings, list structure, all links, visible keyboard focus,
+and layout after saving; do not rely on a draft preview alone.
+
+The October 27, 2026 published page was checked at 1440, 390, and 320 CSS pixels,
+with no block overlap or horizontal overflow. All eight distinct destinations
+returned HTTP 200. The three linked PDFs matched the checked-in document assets
+byte for byte and contained extractable text. These website checks do not add
+an accessibility or conformance claim to the linked specimens.
