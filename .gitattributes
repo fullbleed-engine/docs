@@ -215,3 +215,13 @@ docs/assets/pdf-template/** -text
 docs/assets/pdf-template/*.pdf binary
 docs/assets/pdf-template/*.png binary
 docs/assets/pdf-template/*.zip binary
+
+# Preserve the C# PDF-template source, font license and downloadable evidence bytes.
+examples/dotnet-pdf-template/** text eol=lf
+examples/dotnet-pdf-template/Assets/*.pdf binary
+examples/dotnet-pdf-template/Assets/*.ttf binary
+examples/dotnet-pdf-template/Assets/*-OFL.txt -text -whitespace
+docs/assets/dotnet-pdf-template/** -text
+docs/assets/dotnet-pdf-template/*.pdf binary
+docs/assets/dotnet-pdf-template/*.png binary
+docs/assets/dotnet-pdf-template/*.zip binary

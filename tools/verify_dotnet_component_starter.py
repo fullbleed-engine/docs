@@ -74,7 +74,7 @@ def main():
     assets = args.assets.resolve()
     manifest = json.loads((assets/'source.json').read_text())
     package_version = manifest['packageVersion']
-    assert package_version == '0.2.2' and manifest['engineVersion'] == '2.5.37'
+    assert package_version == '0.2.3' and manifest['engineVersion'] == '2.5.39'
     archive_path = assets/'project.zip'
     assert sha256(archive_path.read_bytes()).hexdigest() == manifest['zipSha256']
     workspace = Path(tempfile.mkdtemp(prefix='fullbleed-csharp-download-')).resolve()
