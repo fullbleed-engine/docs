@@ -1067,6 +1067,8 @@ jobs:
             output/vue-starter-ui/
             output/vue-online/
           retention-days: 14
+      - name: Verify the focused React preview recipe download and source hashes
+        run: python tools/check_react_preview_recipe.py
       - run: python -m mkdocs build --strict
       - name: Materialize the verified published-wheel CSS evidence
         run: python tools/prepare_css_corpus_site.py site
