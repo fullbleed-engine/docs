@@ -1,0 +1,21 @@
+{
+  "startedUtc": "2026-10-27T16:40:30.938089+00:00",
+  "pid": 82089,
+  "command": [
+    "/tmp/fullbleed-renderer-refresh-20261027/python/bin/python",
+    "/tmp/fullbleed-renderer-refresh-20261027/source/compare.py",
+    "--out",
+    "/tmp/fullbleed-renderer-refresh-20261027/measured-current",
+    "--source-revision",
+    "1384f67e1569b551ff4a4b647e8ac78472c6f39c"
+  ],
+  "state": "completed",
+  "performanceRun": true,
+  "sourceRevision": "1384f67e1569b551ff4a4b647e8ac78472c6f39c",
+  "runtimeRequirements": "requirements-qualified.txt",
+  "runtimeRequirementsSha256": "d11c61ebc4fee9d3aa5382d6f4726113cdec07ad2c6a5fe6d3bf4085206ad3bf",
+  "notes": "The benchmark adapter, fixtures, checks and fonts are unchanged from the source revision. The isolated environment overrides the historical requirements.txt pins with the explicitly retained qualified runtime requirements.",
+  "childPid": 82090,
+  "exitCode": 0,
+  "finishedUtc": "2026-10-27T16:42:19.339226+00:00"
+}

@@ -38,7 +38,8 @@ INTRODUCTIONS = {
     ),
     "guides/performance.md": (
         "For a current shared-input example, see the "
-        "[Fullbleed 2.5.6, WeasyPrint, and Chromium comparison](renderer-comparison.md). "
+        "[Fullbleed 2.5.39, WeasyPrint, and Chromium comparison](renderer-comparison.md), "
+        "measured October 27, 2026. "
         "The historical report below uses different fixtures and measurement methods; "
         "its numbers should not be combined with that comparison."
     ),
