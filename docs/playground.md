@@ -38,6 +38,7 @@ hide:
   <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
   <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
   <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download any files you want to keep before leaving. The first render downloads the engine and bundled fonts.</p>
+  <p id="pg-feedback" class="pg-footnote"><a id="pg-report" href="https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml&amp;title=%5BBug%5D%3A+Playground+rendering&amp;version=2.5.38+%28browser+playground%29&amp;environment=WebAssembly+playground%3B+browser+and+operating+system%3A+%5Badd+yours%5D" target="_blank" rel="noopener noreferrer">Report a rendering problem</a>. Opens a public GitHub form in a new tab. Use sample data; your document is not attached.</p>
 </div>
 
 <noscript>This playground needs JavaScript to run Fullbleed on your device. You can also <a href="../examples/">download the examples</a> or <a href="../getting-started/quickstart/">render with Python</a>.</noscript>
