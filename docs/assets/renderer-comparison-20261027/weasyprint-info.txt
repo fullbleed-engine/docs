@@ -1,0 +1,9 @@
+System: Linux
+Machine: x86_64
+Version: #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026
+Release: 6.18.54.1-microsoft-standard-WSL2
+
+WeasyPrint version: 70.0
+Python version: 3.10.12
+Pydyf version: 0.12.1
+Pango version: 15006

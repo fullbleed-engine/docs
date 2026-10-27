@@ -64,26 +64,26 @@ your largest document in the first evaluation.
 
 ## Inspect the same invoice in three renderers
 
-These unmodified previews come from the retained **October 5, 2026** comparison:
-Fullbleed **2.5.6**, WeasyPrint **70.0**, and Playwright **1.63.0** with Chromium
-**153.0.8010.12**. Each received the same HTML/CSS, Inter font, and synthetic
+These unmodified previews come from the retained **October 27, 2026** comparison:
+Fullbleed **2.5.39**, WeasyPrint **70.0**, and Playwright **1.64.1** with Chromium
+**156.0.8078.4**. Each received the same HTML/CSS, Inter font, and synthetic
 records. Select an image to open its actual one-page PDF.
 
 <div class="corpus-images" markdown>
 
 <figure markdown>
-[![Invoice rendered by Fullbleed 2.5.6, showing the retained line items and total](../assets/renderer-comparison/previews/fullbleed/invoice/page-1.png)](../assets/renderer-comparison/pdfs/fullbleed/invoice.pdf)
-<figcaption markdown="span">Fullbleed 2.5.6 · [Download PDF](../assets/renderer-comparison/pdfs/fullbleed/invoice.pdf){ download="fullbleed-invoice.pdf" }</figcaption>
+[![Invoice rendered by Fullbleed 2.5.39, showing the retained line items and total](../assets/renderer-comparison-20261027/previews/fullbleed/invoice/page-1.png)](../assets/renderer-comparison-20261027/pdfs/fullbleed/invoice.pdf)
+<figcaption markdown="span">Fullbleed 2.5.39 · [Download PDF](../assets/renderer-comparison-20261027/pdfs/fullbleed/invoice.pdf){ download="fullbleed-invoice.pdf" }</figcaption>
 </figure>
 
 <figure markdown>
-[![The same invoice rendered by WeasyPrint 70.0](../assets/renderer-comparison/previews/weasyprint/invoice/page-1.png)](../assets/renderer-comparison/pdfs/weasyprint/invoice.pdf)
-<figcaption markdown="span">WeasyPrint 70.0 · [Download PDF](../assets/renderer-comparison/pdfs/weasyprint/invoice.pdf){ download="weasyprint-invoice.pdf" }</figcaption>
+[![The same invoice rendered by WeasyPrint 70.0](../assets/renderer-comparison-20261027/previews/weasyprint/invoice/page-1.png)](../assets/renderer-comparison-20261027/pdfs/weasyprint/invoice.pdf)
+<figcaption markdown="span">WeasyPrint 70.0 · [Download PDF](../assets/renderer-comparison-20261027/pdfs/weasyprint/invoice.pdf){ download="weasyprint-invoice.pdf" }</figcaption>
 </figure>
 
 <figure markdown>
-[![The same invoice printed by Chromium 153 through Playwright 1.63.0](../assets/renderer-comparison/previews/chromium/invoice/page-1.png)](../assets/renderer-comparison/pdfs/chromium/invoice.pdf)
-<figcaption markdown="span">Chromium 153 · [Download PDF](../assets/renderer-comparison/pdfs/chromium/invoice.pdf){ download="chromium-invoice.pdf" }</figcaption>
+[![The same invoice printed by Chromium 156 through Playwright 1.64.1](../assets/renderer-comparison-20261027/previews/chromium/invoice/page-1.png)](../assets/renderer-comparison-20261027/pdfs/chromium/invoice.pdf)
+<figcaption markdown="span">Chromium 156 · [Download PDF](../assets/renderer-comparison-20261027/pdfs/chromium/invoice.pdf){ download="chromium-invoice.pdf" }</figcaption>
 </figure>
 
 </div>
@@ -95,8 +95,8 @@ and four in Chromium. That difference is included in the results.
 
 The timings describe those versions and fixtures on one host. The results favor
 different tools for different measurements; they do not establish a universal
-speed or quality ranking. These previews are historical evidence, not newly
-generated samples of the latest releases.
+speed or quality ranking. These previews show the measured release versions; the date and exact pins
+remain part of the evidence.
 
 ## Author reusable documents with Python components
 

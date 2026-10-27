@@ -1,68 +1,75 @@
 ---
-title: Fullbleed, WeasyPrint, and Chromium PDF comparison
-description: Reproduce a maintainer-run comparison of three Python PDF renderers with shared HTML/CSS, validated output, raw samples, and downloadable PDFs.
+title: Fullbleed, WeasyPrint, and Playwright PDF comparison
+description: Compare current Python PDF renderers using shared HTML/CSS, downloadable PDFs, complete timing ranges, and reproducible output checks.
 ---
 # Compare the PDFs before the timings
 
-This maintainer-run comparison uses Fullbleed 2.5.6, WeasyPrint 70.0, and Playwright 1.63.0 with Chromium 153.0.8010.12. All three receive the same static HTML/CSS, font, and synthetic records. It covers an invoice, a long ledger, and a three-page report on one Linux/WSL host.
+This maintainer-run comparison measures **Fullbleed 2.5.39**, **WeasyPrint 70.0**, and **Playwright 1.64.1 with Chromium 156.0.8078.4**. All three receive the same static HTML/CSS, font, and synthetic records: an invoice, a long ledger, and a three-page report. The run started **October 27, 2026 at 16:40 UTC** on one Linux/WSL development host.
 
-**On these fixtures, Fullbleed had the lowest fresh-process median for all three jobs and the lowest warm median for the invoice and report. Chromium had the lowest warm median for the ledger. WeasyPrint produced the smallest PDFs in all three jobs.** The complete results include 315 timed PDFs, plus 99 warm-up and memory-pass PDFs; all 414 passed the declared checks.
+**On these fixtures, Fullbleed had the lowest fresh-process median for all three jobs and the lowest warm median for the invoice and report. Chromium had the lowest warm median for the ledger. WeasyPrint produced the smallest PDFs in all three jobs.** All 414 output PDFs passed the declared checks: 315 latency samples, plus 99 warm-up and memory-pass PDFs.
+
+[Inspect the PDFs](#inspect-the-files){ .md-button .md-button--primary }
+[Download the complete evidence](../assets/renderer-comparison-20261027/measured-evidence.zip){ .md-button }
 
 ## Measured latency
 
-![Median PDF latency with full observed ranges for three shared document fixtures](../assets/renderer-comparison/latency.svg)
+[![Median PDF generation time and full observed ranges for three shared document fixtures](../assets/renderer-comparison-20261027/latency.svg)](../assets/renderer-comparison-20261027/latency.svg)
 
-[Open the full-size chart](../assets/renderer-comparison/latency.svg). The same values and ranges are in the table below.
+[Open the chart](../assets/renderer-comparison-20261027/latency.svg) or [download a PNG](../assets/renderer-comparison-20261027/latency.png). The table contains the same values and full ranges.
 
-Milliseconds per complete PDF; lower is faster. Fresh-process medians use five samples, and warm medians use thirty. The ranges include every sample, with no outliers removed.
+Milliseconds per complete PDF; lower is faster. Fresh-process medians use **five samples**, and warm medians use **thirty samples**, for every renderer/document pair. No outliers were removed.
 
 | Document | Renderer | Pages | Fresh median (range), ms | Warm median (range), ms |
 | --- | --- | ---: | ---: | ---: |
-| Invoice | Fullbleed | 1 | 73.9 (60.6–92.3) | 12.9 (11.0–21.5) |
-| Invoice | WeasyPrint | 1 | 1,012.0 (890.1–1,238.1) | 78.5 (62.5–105.1) |
-| Invoice | Chromium | 1 | 784.6 (680.1–828.1) | 38.7 (34.4–48.1) |
-| Ledger | Fullbleed | 3 | 161.1 (140.3–407.5) | 87.2 (74.3–138.2) |
-| Ledger | WeasyPrint | 3 | 1,274.2 (1,151.3–1,364.9) | 290.7 (227.3–383.8) |
-| Ledger | Chromium | 4 | 909.8 (703.9–1,107.1) | 64.5 (43.7–97.4) |
-| Report | Fullbleed | 3 | 111.5 (84.0–134.5) | 27.5 (23.2–36.5) |
-| Report | WeasyPrint | 3 | 1,023.6 (996.7–1,185.3) | 164.9 (118.9–377.8) |
-| Report | Chromium | 3 | 811.3 (694.5–892.6) | 42.8 (37.6–121.0) |
+| Invoice | Fullbleed | 1 | 59.3 (56.9–98.8) | 11.4 (9.2–17.4) |
+| Invoice | WeasyPrint | 1 | 682.7 (652.4–960.9) | 73.8 (52.6–220.4) |
+| Invoice | Chromium | 1 | 591.7 (570.5–723.0) | 31.1 (24.7–46.9) |
+| Ledger | Fullbleed | 3 | 122.0 (119.1–222.1) | 75.6 (63.9–84.0) |
+| Ledger | WeasyPrint | 3 | 849.1 (798.8–1,492.2) | 220.6 (179.1–452.5) |
+| Ledger | Chromium | 4 | 641.0 (582.0–1,468.4) | 39.9 (36.2–48.3) |
+| Report | Fullbleed | 3 | 80.7 (72.7–111.9) | 24.5 (20.0–88.3) |
+| Report | WeasyPrint | 3 | 781.5 (723.8–1,347.3) | 112.9 (90.8–217.1) |
+| Report | Chromium | 3 | 673.0 (624.9–853.6) | 39.2 (28.8–66.5) |
 
-The run started October 5, 2026 at 00:22 UTC on an Intel Core i7-12700H, 20 logical CPUs, about 31.2 GiB available to WSL2, Ubuntu 22.04, Python 3.10.12, and Pango 1.50.6. The kernel was `6.18.40.1-microsoft-standard-WSL2`. This was one development host, not a dedicated benchmark machine. [Environment and package versions](../assets/renderer-comparison/environment.json) and [raw results with quartiles](../assets/renderer-comparison/summary.json) are retained.
+The host used an Intel Core i7-12700H, 20 logical CPUs, about 31.2 GiB RAM exposed to WSL2, Ubuntu 22.04, Python 3.10.12, and Pango 1.50.6. The kernel was `6.18.54.1-microsoft-standard-WSL2`. This was a development host, so the results do not predict a dedicated server, concurrent workload, or another deployment. The [environment and package versions](../assets/renderer-comparison-20261027/environment.json) and [raw summary with quartiles](../assets/renderer-comparison-20261027/summary.json) are retained.
 
 ## Output size and sampled memory
 
-PDF size is the median of the retained outputs. Memory is one separate sampled process-tree run for each pair, with the limitations described below. MiB and KiB use powers of 1024.
+PDF size is the median of the retained outputs. Memory comes from one separate sampled process-tree run for each pair. KiB and MiB use powers of 1024.
 
 | Document | Renderer | PDF, KiB | Sampled peak tree RSS, MiB |
 | --- | --- | ---: | ---: |
-| Invoice | Fullbleed | 51.3 | 27.2 |
-| Invoice | WeasyPrint | 8.7 | 60.1 |
-| Invoice | Chromium | 9.5 | 627.9 |
-| Ledger | Fullbleed | 56.2 | 28.2 |
-| Ledger | WeasyPrint | 13.1 | 67.6 |
-| Ledger | Chromium | 13.4 | 638.4 |
-| Report | Fullbleed | 56.7 | 27.7 |
-| Report | WeasyPrint | 12.9 | 61.3 |
-| Report | Chromium | 13.9 | 630.5 |
+| Invoice | Fullbleed | 11.8 | 27.5 |
+| Invoice | WeasyPrint | 8.7 | 60.0 |
+| Invoice | Chromium | 9.5 | 639.8 |
+| Ledger | Fullbleed | 16.5 | 28.4 |
+| Ledger | WeasyPrint | 13.1 | 67.4 |
+| Ledger | Chromium | 13.4 | 658.0 |
+| Report | Fullbleed | 17.2 | 28.2 |
+| Report | WeasyPrint | 12.9 | 61.4 |
+| Report | Chromium | 13.9 | 651.4 |
+
+The memory sampler adds the renderer process and its descendants. It can count shared pages more than once and miss short peaks. These numbers are sampled process-tree RSS, not memory allocated per PDF.
 
 ## Inspect the files
 
 | Document | Fullbleed PDF | WeasyPrint PDF | Chromium PDF |
 | --- | --- | --- | --- |
-| Invoice | [1 page](../assets/renderer-comparison/pdfs/fullbleed/invoice.pdf) | [1 page](../assets/renderer-comparison/pdfs/weasyprint/invoice.pdf) | [1 page](../assets/renderer-comparison/pdfs/chromium/invoice.pdf) |
-| Ledger | [3 pages](../assets/renderer-comparison/pdfs/fullbleed/ledger.pdf) | [3 pages](../assets/renderer-comparison/pdfs/weasyprint/ledger.pdf) | [4 pages](../assets/renderer-comparison/pdfs/chromium/ledger.pdf) |
-| Report | [3 pages](../assets/renderer-comparison/pdfs/fullbleed/report.pdf) | [3 pages](../assets/renderer-comparison/pdfs/weasyprint/report.pdf) | [3 pages](../assets/renderer-comparison/pdfs/chromium/report.pdf) |
+| Invoice | [1 page](../assets/renderer-comparison-20261027/pdfs/fullbleed/invoice.pdf) | [1 page](../assets/renderer-comparison-20261027/pdfs/weasyprint/invoice.pdf) | [1 page](../assets/renderer-comparison-20261027/pdfs/chromium/invoice.pdf) |
+| Ledger | [3 pages](../assets/renderer-comparison-20261027/pdfs/fullbleed/ledger.pdf) | [3 pages](../assets/renderer-comparison-20261027/pdfs/weasyprint/ledger.pdf) | [4 pages](../assets/renderer-comparison-20261027/pdfs/chromium/ledger.pdf) |
+| Report | [3 pages](../assets/renderer-comparison-20261027/pdfs/fullbleed/report.pdf) | [3 pages](../assets/renderer-comparison-20261027/pdfs/weasyprint/report.pdf) | [3 pages](../assets/renderer-comparison-20261027/pdfs/chromium/report.pdf) |
 
-[Download the measured evidence (12.9 MiB)](../assets/renderer-comparison/measured-evidence.zip): all 414 PDFs, source snapshot, raw timing and memory samples, input contracts, page previews, and validation results. [Download the initial setup diagnostics (11.7 MiB)](../assets/renderer-comparison/setup-diagnostics.zip) for the font and WSL findings. Both archives include a file manifest; [download checksums](../assets/renderer-comparison/manifest.json) are published separately.
+[Download the measured evidence (7.7 MiB)](../assets/renderer-comparison-20261027/measured-evidence.zip): all 414 PDFs, every raw sample, the source snapshot, input contracts, representative previews, validation results, and negative controls. [Download the preliminary qualification (3.8 MiB)](../assets/renderer-comparison-20261027/qualification-evidence.zip) for the separate 90-PDF setup check. Qualification timings are not part of the comparison.
+
+Both archives include file manifests. [Download checksums](../assets/renderer-comparison-20261027/manifest.json) cover the published artifacts.
 
 ## What the output checks cover
 
-Every output must contain all body-text segments, every record ID exactly once and in order, the expected row values and totals, A4 page dimensions, the declared page count, and embedded Inter fonts. PDFium checks non-whitespace character boxes against the page inset. The ledger repeats table headings; report sections start on their declared pages. Validation uses pypdf and PDFium separately from the rendering engines.
+Every output must contain all body-text segments, every record ID exactly once and in order, the expected row values and totals, A4 page dimensions, the declared page count, and embedded Inter fonts. PDFium checks non-whitespace character boxes against the page inset. Ledger pages containing rows must repeat their table headings, and report sections must start on their declared pages. Validation uses pypdf and PDFium separately from the rendering engines.
 
-The acceptance contract permits three or four ledger pages. Chromium puts the closing note on page four; Fullbleed and WeasyPrint keep it on page three. This is a layout difference, and the timing table counts each complete document. It is not a claim of pixel equality.
+The ledger contract permits three or four pages. Chromium places its closing note on page four; Fullbleed and WeasyPrint keep it on page three. Timings cover the complete document in each case. The table and invoice spacing also differ between renderers.
 
-The harness also rejects deliberately wrong record expectations, a removed final page, missing font embedding, and text shifted beyond the declared inset. Representative pages were visually inspected for clipping, overlap, and readable table transitions. These checks are not PDF/A, PDF/UA, or PDF/X certification.
+All 12 negative controls were rejected: wrong record expectations, a removed final page, missing font embedding, and text shifted beyond the declared inset, for each renderer. The [inspection record](../assets/renderer-comparison-20261027/inspection.json) also verifies that all 22 representative page images match their previously reviewed counterparts exactly. These checks do not establish PDF/A, PDF/UA, PDF/X certification, or general visual parity between engines.
 
 ## What each measurement includes
 
@@ -70,32 +77,40 @@ The harness also rejects deliberately wrong record expectations, a removed final
 
 **Warm process** reuses a Fullbleed engine, a parsed WeasyPrint stylesheet and font configuration, or a Chromium browser and page. Each render gets changed HTML with a unique fixed-length token. Timing includes HTML parsing, layout, PDF creation, and a common Python file write. Chromium waits for its fonts to load. There are two warm-ups in each of three independently started ten-sample blocks.
 
-**Memory** is a separate run that samples summed process-tree RSS every 10 milliseconds from startup through two warm-ups and three renders. It includes the Playwright driver and browser children. Shared pages can be counted more than once, and short peaks can be missed. This is neither exact peak memory nor allocation per PDF. Memory sampling does not run during latency measurement.
+**Memory** is a separate pass that samples summed process-tree RSS every 10 milliseconds from startup through two warm-ups and three renders. It includes the Playwright driver and browser children. Memory sampling does not run during latency measurement.
 
-Jobs run sequentially in seeded shuffled order. Every raw sample and output is retained, including outliers. Writes are buffered without `fsync`. No HTTP service, concurrent workload, browser JavaScript content, compiled-template API, or VDP job is measured.
+Jobs run sequentially in seeded shuffled order. Every raw sample and output is retained, including outliers. Writes are buffered without `fsync`. The run measures ordinary document APIs; it does not measure an HTTP service, concurrent workload, browser JavaScript content, compiled-template API, or VDP job.
 
-## Two setup findings worth reproducing
+## Shared fixture and environment choices
 
-Inter's contextual alternates exposed an extraction problem in this Chromium version: a hyphen in an uppercase identifier such as `RUN-000001` became a private-use character in pypdf's extracted text. A static Inter instance reproduced it. Disabling the `calt` feature preserved the IDs. The measured fixtures use the same static Inter font and `font-feature-settings: 'calt' 0` in all three engines. The initial failing outputs are retained separately.
+The HTML/CSS, contracts, and static Inter font are unchanged from the original comparison. Original qualification with Chromium 153 found an uppercase-ID hyphen extraction problem when Inter's contextual alternates were enabled. The shared fixtures disable `calt` in **all three engines** and supply the same static Inter instance. That original finding is documented in the [October 5 setup diagnostics](../assets/renderer-comparison/setup-diagnostics.zip); it is not a new finding about Chromium 156.
 
-WSL inherited 82 Windows PATH entries on this host. WeasyPrint's shared-library discovery searched them during import; an isolated diagnostic took about 11.8 seconds with that PATH and about 1 second with the standard Linux directories. Every measured worker receives the same Linux PATH policy. The initial import profiles are retained; the comparison does not present that WSL configuration penalty as renderer performance.
+Every worker receives the same Linux PATH policy. This retains the original WSL setup correction that avoids searching inherited Windows PATH entries during shared-library discovery. The installed packages, browser version, font hashes, and source hashes are recorded for this run.
 
 ## Reproduce with your own documents
 
-Start from the [source and methodology](https://github.com/fullbleed-engine/fullbleed-official/tree/4ed41e3c48f90144b21e6360464dd1d868a00085/benchmarks/pdf_renderers). Follow [WeasyPrint's installation instructions](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html) for its system libraries and [Playwright's browser setup](https://playwright.dev/python/docs/browsers) for Chromium.
+The [pinned benchmark source](https://github.com/fullbleed-engine/fullbleed-official/tree/1384f67e1569b551ff4a4b647e8ac78472c6f39c/benchmarks/pdf_renderers) contains the unchanged adapters and fixtures. This refresh installs the versions in the retained [qualified requirements](../assets/renderer-comparison-20261027/requirements-qualified.txt), with the [complete measured package list](../assets/renderer-comparison-20261027/packages.txt) as constraints. The [runtime override record](../assets/renderer-comparison-20261027/runtime-overrides.json) records that relationship to the source snapshot's historical dependency pins.
+
+Use a local Linux filesystem. Follow [WeasyPrint's system-library instructions](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html) and [Playwright's browser setup](https://playwright.dev/python/docs/browsers) for your host.
 
 ```sh
 git clone https://github.com/fullbleed-engine/fullbleed-official.git
 cd fullbleed-official
-git checkout 495850aae161826a9244cc61cd5e98302f2736a3
+git checkout 1384f67e1569b551ff4a4b647e8ac78472c6f39c
 python3 -m venv .venv
-.venv/bin/python -m pip install -r benchmarks/pdf_renderers/requirements.txt
+.venv/bin/python -m pip install --only-binary=:all: \
+  -r https://docs.fullbleed.dev/assets/renderer-comparison-20261027/requirements-qualified.txt \
+  -c https://docs.fullbleed.dev/assets/renderer-comparison-20261027/packages.txt
 .venv/bin/python -m playwright install chromium
 .venv/bin/python benchmarks/pdf_renderers/compare.py --out target/my-comparison
 ```
 
-The merged revision above contains the same benchmark files as the measured source snapshot. Run on a local Linux filesystem. `--smoke` exercises output qualification with fewer samples; it is not a performance run. Use the [recorded package list](../assets/renderer-comparison/packages.txt) as pip constraints (`-c packages.txt`) to reproduce the measured transitive dependency versions. Change the fixtures and acceptance contract to match your real documents before treating a result as relevant to your application.
+The output directory must be new. `--smoke` exercises output qualification with fewer samples; it is not a performance run. Change the fixtures and acceptance contract to match your real documents before treating the results as relevant to your application.
 
-Fullbleed is a print-document engine. A browser remains relevant when JavaScript or live browser layout is the required behavior. See [Choose a PDF library](comparison.md) for that distinction and [CSS coverage](../css-coverage.md) for Fullbleed's tested surface. Three small fixtures on one host cannot establish a universal speed, memory, or quality ranking.
+## Earlier results and other evidence
 
-For a larger fixture-level comparison, [browse the published Fullbleed 2.5.34 results on the pinned IronPress CSS corpus](css-explorer.md). That run uses different inputs, versions, and comparison rules; evaluate its results separately from these application-document timings. The [corpus evidence guide](css-corpus.md) retains the failures, disputed references, and earlier release results.
+The [October 5 comparison](renderer-comparison-20261005.md) preserves the original measurements of Fullbleed 2.5.6, WeasyPrint 70.0, and Chromium 153. Its raw evidence remains available. Different run dates and host conditions prevent attributing timing differences solely to an engine update.
+
+For a larger fixture-level comparison, [browse the published CSS corpus](css-explorer.md). Its inputs and comparison rules differ from these application-document timings; the [corpus evidence guide](css-corpus.md) retains failures and disputed references.
+
+Fullbleed is a print-document engine. A browser remains relevant when JavaScript or live browser layout is the required behavior. See [Choose a PDF library](comparison.md) and [CSS coverage](../css-coverage.md) when evaluating your own documents.

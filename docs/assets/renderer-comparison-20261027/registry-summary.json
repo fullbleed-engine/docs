@@ -1,0 +1,185 @@
+{
+  "observedUtc": "2026-10-27T16:22:09.986642+00:00",
+  "packages": [
+    {
+      "name": "fullbleed",
+      "version": "2.5.39",
+      "source": "https://pypi.org/pypi/fullbleed/json",
+      "requiresPython": ">=3.10",
+      "releaseFiles": [
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-macosx_10_12_x86_64.whl",
+          "sha256": "a801bd2280c80d522ab9b8d1731fde4df287c424e8be3f1920fe79fb557e7fe8",
+          "uploaded": "2026-10-27T07:39:35.204845Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-macosx_11_0_arm64.whl",
+          "sha256": "30c0ce71e590a023c00008c04173f8c5b58c616c33f64bb6f8abaf71a2a59c13",
+          "uploaded": "2026-10-27T07:39:37.143462Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "sha256": "d7f436719a7cbd0018030f927b926b2791dccd9df614b353f42927861c0ea3bb",
+          "uploaded": "2026-10-27T07:39:38.971911Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl",
+          "sha256": "95092db3820aa9c981d2ba088e86a3108a8f477d28c78027a3bf6827578a7f73",
+          "uploaded": "2026-10-27T07:39:40.656239Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_i686.manylinux2014_i686.whl",
+          "sha256": "b486b084bbc607c6980d393070dbf2de2e5d86e1ff551576a8f491ea191ec38d",
+          "uploaded": "2026-10-27T07:39:42.978001Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl",
+          "sha256": "95a02d919854bd44b98a0486752c8e21b5c978baae2fdc7d018733e25c89cbac",
+          "uploaded": "2026-10-27T07:39:45.072958Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl",
+          "sha256": "9735a55a8abfe2078b3c71333527d01b498dd0905198a38bd399fdd69bded1c8",
+          "uploaded": "2026-10-27T07:39:47.225905Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "40d9bd5b84fba3c43efd6cdadb73348a8151036d3071a1d65a325a0dbc527a2d",
+          "uploaded": "2026-10-27T07:39:49.025056Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-musllinux_1_2_aarch64.whl",
+          "sha256": "808535a81bf306cbed6dcd8dd86fd7c28e599a10f5de08e7b7359556c83b0501",
+          "uploaded": "2026-10-27T07:39:50.896853Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-musllinux_1_2_armv7l.whl",
+          "sha256": "c183598c0e401fb72bcbb7fe84d15eb531707be54e7d4a17fe9e7fd3ec5a0a66",
+          "uploaded": "2026-10-27T07:39:52.506476Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-musllinux_1_2_i686.whl",
+          "sha256": "558033742f1d9c579fe44662b5fa7c32f0be4d625ccb58184e01c41db5f65ade",
+          "uploaded": "2026-10-27T07:39:54.564938Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-musllinux_1_2_x86_64.whl",
+          "sha256": "cddd86e4733ef9ab16b3fc992b51e04001e8f8cb815d54465cc4093ac2d568a3",
+          "uploaded": "2026-10-27T07:39:56.885042Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-win32.whl",
+          "sha256": "23e93c50ad1954fb8ae65b5af5221be0691942de1140624631e969067d64ad89",
+          "uploaded": "2026-10-27T07:39:58.620468Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-win_amd64.whl",
+          "sha256": "62ae9360cc05b903dd2ed94070174766d7c69068a8ac4fd8d600c4b9cafdf229",
+          "uploaded": "2026-10-27T07:40:00.627133Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39-cp310-abi3-win_arm64.whl",
+          "sha256": "9f7f1759977a3f9798c944bb040c29d3fa29153584b202c68186403f01e87b57",
+          "uploaded": "2026-10-27T07:40:02.212397Z",
+          "yanked": false
+        },
+        {
+          "filename": "fullbleed-2.5.39.tar.gz",
+          "sha256": "412cb94609a7b046b5d0b1766559aff67056e7126ae7a8b9ba1a1c8781c1771e",
+          "uploaded": "2026-10-27T07:40:04.184453Z",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "weasyprint",
+      "version": "70.0",
+      "source": "https://pypi.org/pypi/weasyprint/json",
+      "requiresPython": ">=3.10",
+      "releaseFiles": [
+        {
+          "filename": "weasyprint-70.0-py3-none-any.whl",
+          "sha256": "5043e55e38d2a2af2b2b871e869697b1f65dad5f8b4a3677961d04ceacf9c5fe",
+          "uploaded": "2026-09-08T12:25:39.796742Z",
+          "yanked": false
+        },
+        {
+          "filename": "weasyprint-70.0.tar.gz",
+          "sha256": "c263abf0e86c747b12af678b67f85f4abbfb97d18a20503031e7ba94e4b8cf8c",
+          "uploaded": "2026-09-08T12:25:41.484073Z",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "name": "playwright",
+      "version": "1.64.1",
+      "source": "https://pypi.org/pypi/playwright/json",
+      "requiresPython": ">=3.10",
+      "releaseFiles": [
+        {
+          "filename": "playwright-1.64.1-py3-none-macosx_10_13_x86_64.whl",
+          "sha256": "29453ff76e25c17d0b45658cacd6b92e9eec46e8db21e134fb3b7143df50f013",
+          "uploaded": "2026-10-22T16:29:58.120316Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-macosx_11_0_arm64.whl",
+          "sha256": "59f7b041284ce8d1b72098ae50ca48a2d83692eec25154ab5ba79d4b6b4fe8a9",
+          "uploaded": "2026-10-22T16:30:02.415974Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-macosx_11_0_universal2.whl",
+          "sha256": "6a6f99adad1ae40e6ee62efe89785db861ce7ddd57651521cb31894183cc4ae3",
+          "uploaded": "2026-10-22T16:30:07.632355Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-manylinux1_x86_64.whl",
+          "sha256": "577b8d88778c245cfbd145ae17cf53044f084b1b46c55c69081d4069d56057e2",
+          "uploaded": "2026-10-22T16:30:12.831149Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "sha256": "a29fda44725e11b0b625c4bff6458a1f6dbee97b88c9788d12e18a8344458c2d",
+          "uploaded": "2026-10-22T16:30:18.297169Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-win32.whl",
+          "sha256": "d3c48b31da426c2f3562d0919cb9ea4e5415f6dbd29d7211fa4d66cca24fbd2f",
+          "uploaded": "2026-10-22T16:30:23.154069Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-win_amd64.whl",
+          "sha256": "5e240a79464434c9260957b9ef59a5808e02e96e3fcabdc717fd7485260b9730",
+          "uploaded": "2026-10-22T16:30:28.092803Z",
+          "yanked": false
+        },
+        {
+          "filename": "playwright-1.64.1-py3-none-win_arm64.whl",
+          "sha256": "983ccd085453ea5a7588193657fc349a6ffbf7bf7ba663fd58dc81e4aa3af9d9",
+          "uploaded": "2026-10-22T16:30:32.724888Z",
+          "yanked": false
+        }
+      ]
+    }
+  ]
+}
