@@ -147,7 +147,7 @@ nav:
     - Font face selection: engine/font-registration.md
     - Python components: ui/overview.md
     - PDF template composition: engine/template-composition.md
-    - CSS coverage: css-coverage.md
+    - CSS support: css-coverage.md
     - Engine architecture: engine/overview.md
   - Evaluate:
     - Compare Python PDF libraries: guides/comparison.md

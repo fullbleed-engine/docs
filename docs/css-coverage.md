@@ -1,13 +1,20 @@
-# CSS Coverage and Parity Status
+---
+title: CSS support for HTML-to-PDF
+description: Evaluate Fullbleed's CSS support for print documents with 1,662 tested fixtures, generated PDFs, reference images, and known limitations for the published 2.5.39 wheel.
+---
+# CSS support for PDF documents
 
-The [current stable published-wheel comparison](guides/css-corpus.md#current-stable-published-wheel-corpus-2534)
-tests **Fullbleed 2.5.34** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**
-across 1,662 fixtures. Its overall conclusion remains **failure**. The exact PyPI
-wheel, report, PDFs, images and manifest verification are retained.
+Fullbleed lays out static HTML/CSS as paged documents. Use the tested examples
+below to evaluate the styling and page layout your invoices and reports need.
+
+The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-2539)
+tests **Fullbleed 2.5.39** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
+Its overall conclusion remains **failure**. The exact PyPI wheel, report,
+PDFs, images, and manifest verification are retained.
 
 [Browse the actual results](guides/css-explorer.md), or read the
-[method, package identity and historical comparisons](guides/css-corpus.md).
-The [component alpha source result](guides/css-corpus.md#component-alpha-source-comparison-260a9)
+[method, package identity, and historical comparisons](guides/css-corpus.md).
+The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-source-comparison-260a14)
 is recorded separately and has different verdict totals. Earlier zero-failure
 reports below are historical; none establishes complete CSS conformance.
 

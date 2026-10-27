@@ -1,12 +1,46 @@
 ---
 title: Fullbleed CSS comparison on the IronPress corpus
-description: Browse all 1,662 fixtures tested with the published Fullbleed 2.5.34 wheel. Inspect exact package evidence, source comparisons, PDFs, failures and disputed references.
+description: Browse all 1,662 fixtures tested with the published Fullbleed 2.5.39 wheel. Inspect exact package evidence, source comparisons, PDFs, failures and disputed references.
 ---
 # Inspect the CSS comparison
 
-## Current stable published-wheel corpus: 2.5.34
+## Published-wheel comparison: 2.5.39
 
 [Browse every fixture](css-explorer.md){ .md-button .md-button--primary }
+
+The complete October 27, 2026 run tests the **published Fullbleed 2.5.39 Linux
+wheel** against all 1,662 fixtures at pinned IronPress revision
+`0d1e53b6d8174d0a5059a8696c24e62759381f6d`. It records **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**.
+The unchanged comparison gate **fails**. Failed cases, disputed references,
+original images, and generated PDFs remain visible in the explorer.
+
+The wheel was downloaded from PyPI, and its SHA-256 matches PyPI's file record.
+All **1,662 candidate PDFs** and **5,489 compared PDF/PNG files** match
+the [retained 2.5.39 source run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/40460764282)
+byte for byte. Fixture verdicts, raw and above-floor differences, reference
+metadata, and raster fingerprints also match. The summary records the complete
+manifest verification and the exact scope of that comparison.
+
+[Complete published-wheel evidence (57.4 MiB)](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.39/fullbleed-2.5.39-published-css-corpus.zip)
+· [Structured verification](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.39/fullbleed-2.5.39-published-css-summary.json)
+· [SHA-256 checksums](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.39/fullbleed-2.5.39-published-css-SHA256SUMS.txt)
+· [Workflow run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/40568838187)
+· [Explorer build pin](../assets/css-corpus/published.json)
+
+Extract the archive and open `ironpress-evidence/current/reports/index.html`
+for the offline report. The upstream report labels its candidate “ironpress”;
+the candidate renderer in this run is Fullbleed.
+
+These results apply to this exact Linux wheel, explicit assets, and pinned
+comparison policy. They do not establish complete CSS support, arbitrary website
+rendering, or PDF standards conformance. The historical records below retain
+their original package versions, results, and download URLs.
+
+<span id="current-stable-published-wheel-corpus-2534"></span>
+
+## Historical published-wheel corpus: 2.5.34
+
+[Browse the 2.5.34 fixtures](css-explorer.md?version=2.5.34)
 
 The complete October 19, 2026 run tests the **published Fullbleed 2.5.34 Linux
 wheel** against all 1,662 fixtures at pinned IronPress revision
@@ -26,7 +60,7 @@ the complete manifest verification and the exact scope of that comparison.
 · [Structured verification](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-summary.json)
 · [SHA-256 checksums](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.34/fullbleed-2.5.34-published-css-SHA256SUMS.txt)
 · [Workflow run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/39337511855)
-· [Explorer build pin](../assets/css-corpus/published.json)
+· [Historical explorer build pin](../assets/css-corpus/history/2.5.34.json)
 
 Extract the ZIP once and open `ironpress-evidence/current/reports/index.html`
 for the offline report. The upstream report calls its candidate “ironpress”;
@@ -134,7 +168,7 @@ Chrome print. These differences and the failed verdict are retained in the
 No comparator reference or threshold was changed.
 
 This is **source verification**, not a complete corpus run against a downloaded
-2.5.28 package. The current explorer shows the published 2.5.34 wheel identified
+2.5.28 package. The current explorer shows the published 2.5.39 wheel identified
 above; the historical 2.5.22 package record is retained below. Older zero-failure
 reports do not describe the current corpus result or establish complete CSS
 conformance.
@@ -163,7 +197,7 @@ also match. The downloaded wheel's SHA-256 matches PyPI's published file record.
 · [Structured verification](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-summary.json)
 · [SHA-256 checksums](https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.22/fullbleed-2.5.22-published-css-SHA256SUMS.txt)
 · [Workflow run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38600917475)
-· [Explorer build pin](../assets/css-corpus/published.json)
+· [Historical explorer build pin](../assets/css-corpus/history/2.5.22.json)
 
 For the original offline report, extract this ZIP once and open
 `ironpress-evidence/current/reports/index.html`. The upstream report labels its
