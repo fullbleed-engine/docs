@@ -15,6 +15,7 @@ from playwright.sync_api import expect, sync_playwright
 from pypdf import PdfReader
 from starter_engine_fixes import verify_engine_fixes
 from playground_pagination import check_browser as check_pagination
+from playground_quotes import check_browser as check_quotes
 
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -114,7 +115,7 @@ try:
             page.goto(url + 'playground/', wait_until='domcontentloaded')
             ready()
             check('playground uses the current published engine with SVG rendering',
-                  manifest['engine']['version'] == '2.5.37' and manifest['engine']['features'] == ['svg_raster'])
+                  manifest['engine']['version'] == '2.5.38' and manifest['engine']['features'] == ['svg_raster'])
             check('playground retains its bounded runtime', manifest['limits'] ==
                   {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30})
             for name, pages in [('invoice', 1), ('report', 3), ('notice', 1)]:
@@ -162,7 +163,7 @@ try:
             with zipfile.ZipFile(project) as archive:
                 check('downloaded project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 check('project download preserves the actual HTML and CSS edits', archive.read('input.html').decode('utf-8') == html and archive.read('style.css').decode('utf-8') == css)
-                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.37\n')
+                check('project pins the engine used in the browser', archive.read('requirements.txt').decode('utf-8') == 'fullbleed==2.5.38\n')
                 record = json.loads(archive.read('project.json'))
                 check('project manifest verifies each exported source, font and license',
                       all(hashlib.sha256(archive.read(item['path'])).hexdigest() == item['sha256']
@@ -188,7 +189,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.2'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.3'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}
@@ -237,6 +238,7 @@ try:
             # Neither endpoint accepts the editor source or any variable query.
             header_metadata = {'https://api.github.com/repos/fullbleed-engine/fullbleed-official',
                                'https://api.github.com/repos/fullbleed-engine/fullbleed-official/releases/latest'}
+            quotation_checks = check_quotes(page, out / 'quotes')
             check('document requests stay local; only fixed header metadata queries leave the site',
                   all(item['method'] == 'GET' and not item['body'] and
                       (item['url'].startswith((url, blob_origin)) or item['url'] in header_metadata)
@@ -246,6 +248,7 @@ try:
                       'browser': browser.version, 'browserEngine': args.browser, 'playwright': version('playwright'),
                       'engine': manifest['engine'], 'checks': checks, 'documents': documents,
                       'projectSha256': hashlib.sha256(project.read_bytes()).hexdigest(), 'network': network, 'errors': errors,
+                      'quotationChecks': quotation_checks,
                       'nodeProjectSha256': hashlib.sha256(node_project.read_bytes()).hexdigest(),
                       'scope': 'Owned browser, synthetic source, real built page at a nested path; downloaded PDFs and project ZIP.'}
             (out / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')

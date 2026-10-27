@@ -109,6 +109,12 @@ const pagination = JSON.parse(await readFile(join(root, 'tools/playground-fixtur
 for (const item of pagination.cases) {
   await fixture(item.name, item.html, item.css, item.pages);
 }
+const quotationFixtures = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-quotes-2.5.38.json'), 'utf8'));
+assert.equal(quotationFixtures.cases.length, 41);
+for (const item of quotationFixtures.cases) {
+  await fixture('quote-' + item.name, item.html, item.css, 1);
+}
+report.checks.push('Nested and suppressed quotation fixtures preserve native/WASI and repeat equality; independent readers check their exact text');
 report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
