@@ -32,6 +32,10 @@ const editorCases = (await Promise.all(['2.5.22', '2.5.24'].map(async version =>
 fixtures.push(...editorCases);
 fixtures.push(...defaultStyleFixtures);
 fixtures.push(...JSON.parse(await readFile(join(root, 'tools/playground-fixtures/pagination.json'), 'utf8')).cases);
+const quotations = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-quotes-2.5.38.json'), 'utf8'));
+assert.equal(quotations.cases.length, 41);
+fixtures.push(...quotations.cases.map(item => ({ ...item, name: 'quote-' + item.name, pages: 1 })));
+
 for (const fixture of fixtures) {
   const { name, pages } = fixture;
   const gradient = Boolean(fixture.probes);

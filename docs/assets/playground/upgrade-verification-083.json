@@ -1,0 +1,3153 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-27T11:57:04.949672+00:00",
+  "engine": "2.5.38",
+  "nodePackage": "0.8.3",
+  "coreRelease": "https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.38",
+  "nodeRelease": "https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.3",
+  "platform": "win32",
+  "node": "v22.23.3",
+  "python": "3.11.8",
+  "wasmSha256": "173a4bd7b53ca1e5ce57b189028dea0d80d9bbf122f32e2e927211768f8b5eee",
+  "nativeWasiFixtures": 70,
+  "pythonExportFixtures": 76,
+  "nodeExportFixtures": 76,
+  "previousPlaygroundEngine": "2.5.37",
+  "previousNodePackage": "0.8.2",
+  "priorNativePdfAndPreviewBytesUnchanged": [
+    {
+      "name": "invoice",
+      "files": {
+        "output.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "page-1.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+      }
+    },
+    {
+      "name": "invoice-edited",
+      "files": {
+        "output.pdf": "1b57751e359fdd122dfa0c6596d8b1744e1a5732a5471f6ce65aeae3ebae5a09",
+        "page-1.png": "94c57ba1bdc5f7a3e32d2a21fc902be0d881fae5400e0a1cbd95dbac254f90a9"
+      }
+    },
+    {
+      "name": "report",
+      "files": {
+        "output.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
+        "page-1.png": "33ee3398d59f6836368cdab0f3c725c3cf12cbf2f9f3a3ac6a6b168f6c1886f5",
+        "page-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe",
+        "page-3.png": "8c8bfdc01ef7a3c376fbe61a0736dbc5b65280b0781f0040c550e097e71a5dcd"
+      }
+    },
+    {
+      "name": "notice",
+      "files": {
+        "output.pdf": "135e9c1edc1e41d047ce71555e15e1d91877856e7f7b82056cf7b64479320166",
+        "page-1.png": "a37507b74abda2ebdd876a8d86b78dbca1ee389ae13156f3aedea44bb14cea6c"
+      }
+    },
+    {
+      "name": "linear-gradient",
+      "files": {
+        "output.pdf": "c8306d09eb735b9e929776a7252b09e3dafc42cc901674dd7ebc5634ea48c634",
+        "page-1.png": "f5cafd040b9ed1cdf0c6f5e410ecaf32f96d9ce175b36c7512e58ed13dd4ca51"
+      }
+    },
+    {
+      "name": "translucent-gradient",
+      "files": {
+        "output.pdf": "5ffc0ef98792e10088246413937c0cb6214695c637830956d5e67caa01585cc8",
+        "page-1.png": "0a0161ddd6edee977015158e7438fffa2437520ceb2ad92c82668955147155e1"
+      }
+    },
+    {
+      "name": "hard-radial-gradient",
+      "files": {
+        "output.pdf": "5a83f15cc7ab37c2beef850e9f4e736dd22ff948d8901280c29ec408842408b3",
+        "page-1.png": "4fb085f42a454dad30d2c8a3291f3c5a641c8cab21abed36ec1861f121a9c50c"
+      }
+    },
+    {
+      "name": "standard-fonts",
+      "files": {
+        "output.pdf": "1b8c17ab56c4dbd073b4b108528d617d272c735ffd14056cac2cd5394e988cbc",
+        "page-1.png": "40dc4face028f04b148ea5016b0c64498fbeb0847c61d09099ab9eb36107759a"
+      }
+    },
+    {
+      "name": "engine-counter-sibling-reset",
+      "files": {
+        "output.pdf": "3a353c203c5ae356f20a19e7c585229dc9e6dea3225f4a1a7960c5d943154675",
+        "page-1.png": "dbcb28771ca752a7b0e966694516ba7b121f5df3315a188387a121cc50a69747"
+      }
+    },
+    {
+      "name": "engine-overflow-nested-clips",
+      "files": {
+        "output.pdf": "3cc5f42eb90c4fe0942088f47e5f342e4f3d820b0ccf985cdf92fb0985e6ce7a",
+        "page-1.png": "bd01fd64431345e81b0a4d1bd32dc884ecd9d9f3d6c428f38fdc8d2190978382"
+      }
+    },
+    {
+      "name": "engine-border-center-zero-top-falls-back-bottom-svg",
+      "files": {
+        "output.pdf": "8e335b31a03779f8cc7cb64b0fa599fcf70345fdc6091605f899b5b3f1f732b5",
+        "page-1.png": "99bd92e17419b32bddcce649712a1fceccf6bfee2731ebdad544a99a0b4d9f11"
+      }
+    },
+    {
+      "name": "engine-first-letter-decorated-left",
+      "files": {
+        "output.pdf": "9c527d1432bd5cdb07147442551ffcd5f509aab5928c0745861d4a351ec75ec8",
+        "page-1.png": "c2a9f1a14800624a91f15ee4bae489e12f97a4173ffe861441c863c3dcdabd1e"
+      }
+    },
+    {
+      "name": "visibility-script-blocks",
+      "files": {
+        "output.pdf": "941b22bd5f30bf0f3a46faa6d749ee865eb785dfa623089f3dad0fe7d14a61f7",
+        "page-1.png": "a602dde65015c5ed2945dad9d84381e122adfc7c5577d8ea18bb68e80e471410"
+      }
+    },
+    {
+      "name": "visibility-style-blocks",
+      "files": {
+        "output.pdf": "941b22bd5f30bf0f3a46faa6d749ee865eb785dfa623089f3dad0fe7d14a61f7",
+        "page-1.png": "a602dde65015c5ed2945dad9d84381e122adfc7c5577d8ea18bb68e80e471410"
+      }
+    },
+    {
+      "name": "visibility-hidden-span-paragraph",
+      "files": {
+        "output.pdf": "17cd57e1c75e11561e6a2328aed0ec906a2e6994397cdde064ab56bc14c90f2e",
+        "page-1.png": "4deab8e90ee41a7be394e225a4b419e922f290d4501446750a892ba99aafd9a3"
+      }
+    },
+    {
+      "name": "visibility-script-revert",
+      "files": {
+        "output.pdf": "941b22bd5f30bf0f3a46faa6d749ee865eb785dfa623089f3dad0fe7d14a61f7",
+        "page-1.png": "a602dde65015c5ed2945dad9d84381e122adfc7c5577d8ea18bb68e80e471410"
+      }
+    },
+    {
+      "name": "visibility-script-inline-paragraph",
+      "files": {
+        "output.pdf": "0ff638f747481f71797696ff4b0c191b4505ca6bb9bf13fb073822d0c59f2947",
+        "page-1.png": "4c9806bbd8cc2dc9121683bdfdc761c414aad2c83d6eb0f3ff39150e631d26b7"
+      }
+    },
+    {
+      "name": "decoration-inter-40-underline-font",
+      "files": {
+        "output.pdf": "8c431024572d470f85ce6b82cec990ad7b34d3aed8e77760d5ee378a1bf1f25c",
+        "page-1.png": "7a838ab2a34d1312674ce4d5ef1f9374a9fc020d9a3095954bff7e64472b791c"
+      }
+    },
+    {
+      "name": "decoration-inter-40-underline-length",
+      "files": {
+        "output.pdf": "8c431024572d470f85ce6b82cec990ad7b34d3aed8e77760d5ee378a1bf1f25c",
+        "page-1.png": "7a838ab2a34d1312674ce4d5ef1f9374a9fc020d9a3095954bff7e64472b791c"
+      }
+    },
+    {
+      "name": "decoration-inter-40-underline-auto",
+      "files": {
+        "output.pdf": "bdf2de5e5f1a102aa2b81a931eb35517cba323136742572fae95eb134f5b13bd",
+        "page-1.png": "518c1e57ea5d88f7186aa980dedbd67ba439e6331319c4fab04fee7ce524d9d8"
+      }
+    },
+    {
+      "name": "pagination-table-hidden",
+      "files": {
+        "output.pdf": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c",
+        "page-1.png": "195b182070fb52e9777013b6c53ab6ac5021aa53294506aba257b977a3cae440",
+        "page-2.png": "7b85ccb0855bf4c720ea0e740f5e5906442a10580d86535aee012811ca971055",
+        "page-3.png": "be005ffb6e8e8269bb05fbe242cd52363b6150c569fe318f3ce4936e7b4a5480",
+        "page-4.png": "40d6cce2e38f8ac179008f73ca7d120801ac35a449934d56af644be61e299c9c",
+        "page-5.png": "841ff896f4b0d93cd23d7a04f1e53a0b43bc301d138bb4b2aec048cca4cbfbe1"
+      }
+    },
+    {
+      "name": "pagination-table-clip",
+      "files": {
+        "output.pdf": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c",
+        "page-1.png": "195b182070fb52e9777013b6c53ab6ac5021aa53294506aba257b977a3cae440",
+        "page-2.png": "7b85ccb0855bf4c720ea0e740f5e5906442a10580d86535aee012811ca971055",
+        "page-3.png": "be005ffb6e8e8269bb05fbe242cd52363b6150c569fe318f3ce4936e7b4a5480",
+        "page-4.png": "40d6cce2e38f8ac179008f73ca7d120801ac35a449934d56af644be61e299c9c",
+        "page-5.png": "841ff896f4b0d93cd23d7a04f1e53a0b43bc301d138bb4b2aec048cca4cbfbe1"
+      }
+    },
+    {
+      "name": "pagination-table-hidden-visible",
+      "files": {
+        "output.pdf": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570",
+        "page-1.png": "195b182070fb52e9777013b6c53ab6ac5021aa53294506aba257b977a3cae440",
+        "page-2.png": "7b85ccb0855bf4c720ea0e740f5e5906442a10580d86535aee012811ca971055",
+        "page-3.png": "be005ffb6e8e8269bb05fbe242cd52363b6150c569fe318f3ce4936e7b4a5480",
+        "page-4.png": "40d6cce2e38f8ac179008f73ca7d120801ac35a449934d56af644be61e299c9c",
+        "page-5.png": "136330fe11b3015bdc47c1c2bef8b2e6dfc3bb33af1614c39bee8b6667cff4ab"
+      }
+    },
+    {
+      "name": "pagination-table-visible-hidden",
+      "files": {
+        "output.pdf": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955",
+        "page-1.png": "fbb9343ed1a4541036b1aacdb552d4a0069e9928839a9b5e7c66736b0b5002d1",
+        "page-2.png": "972ac04082c80267c2782ff01f3051d54957865f4c0b26118d5b5a9e397ce3e9",
+        "page-3.png": "7801a898ab37a7bf50f27fd53c24659ab87a5e170d014e593d85992fca76c804",
+        "page-4.png": "e1e9720b11fd0f40f91c639e840f00df71eeedef0df6924b69e49d281ba3acc2",
+        "page-5.png": "f1ce9ab55bc2bd1a70736f2ca5946e715aee3b4da2efb72da4469b438da4be09"
+      }
+    },
+    {
+      "name": "pagination-table-auto",
+      "files": {
+        "output.pdf": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c",
+        "page-1.png": "195b182070fb52e9777013b6c53ab6ac5021aa53294506aba257b977a3cae440",
+        "page-2.png": "7b85ccb0855bf4c720ea0e740f5e5906442a10580d86535aee012811ca971055",
+        "page-3.png": "be005ffb6e8e8269bb05fbe242cd52363b6150c569fe318f3ce4936e7b4a5480",
+        "page-4.png": "40d6cce2e38f8ac179008f73ca7d120801ac35a449934d56af644be61e299c9c",
+        "page-5.png": "841ff896f4b0d93cd23d7a04f1e53a0b43bc301d138bb4b2aec048cca4cbfbe1"
+      }
+    },
+    {
+      "name": "pagination-table-scroll",
+      "files": {
+        "output.pdf": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c",
+        "page-1.png": "195b182070fb52e9777013b6c53ab6ac5021aa53294506aba257b977a3cae440",
+        "page-2.png": "7b85ccb0855bf4c720ea0e740f5e5906442a10580d86535aee012811ca971055",
+        "page-3.png": "be005ffb6e8e8269bb05fbe242cd52363b6150c569fe318f3ce4936e7b4a5480",
+        "page-4.png": "40d6cce2e38f8ac179008f73ca7d120801ac35a449934d56af644be61e299c9c",
+        "page-5.png": "841ff896f4b0d93cd23d7a04f1e53a0b43bc301d138bb4b2aec048cca4cbfbe1"
+      }
+    },
+    {
+      "name": "pagination-break-auto",
+      "files": {
+        "output.pdf": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24",
+        "page-1.png": "a9cd7f76722723229b4e5b1fd122de771cdee3ad489fff79f2fba600898a7e9f",
+        "page-2.png": "e4b47b4556fe7ea64d308022b888822c7110354cf2d39c0c7fa62e5f8a4c2e23"
+      }
+    },
+    {
+      "name": "pagination-break-fixed",
+      "files": {
+        "output.pdf": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee",
+        "page-1.png": "83c0cd55c24b785600790f3d39572e87d3b01c26e685521b0f97632ffb4baed9"
+      }
+    },
+    {
+      "name": "pagination-footnote",
+      "files": {
+        "output.pdf": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588",
+        "page-1.png": "a84f2b209a9c1290a04001db30db13c2af97b25c482a6de743391308af314e35",
+        "page-2.png": "5c685194cdf55caa43c72188189a7868f4154fefbb269e77f70a69c45bbec95b"
+      }
+    }
+  ],
+  "priorExportPdfBytesUnchanged": 35,
+  "liveQuotationBeforeAfter": [
+    {
+      "name": "inline-nested",
+      "before": "RecordAda[outer{inner}end]",
+      "after": "RecordAda[outer{inner}end]",
+      "beforePdfSha256": "0dd4e8e1cad03da49a74a2451d97180f5212c42262addff402e087c0796e32f9",
+      "afterPdfSha256": "0dd4e8e1cad03da49a74a2451d97180f5212c42262addff402e087c0796e32f9"
+    },
+    {
+      "name": "contents-nested",
+      "before": "RecordAda[outer[inner]end",
+      "after": "RecordAda[outer{inner}end]",
+      "beforePdfSha256": "e684ec8b4eaf46c38627f3c87bbb58eabe5095f478ee112e207d50a15d55fab2",
+      "afterPdfSha256": "658681c73d9f6cb8e942ac331a64d9e4cb7c70190b5a7d7a7258bd7028163585"
+    },
+    {
+      "name": "block-nested",
+      "before": "RecordAda[outer[inner]end",
+      "after": "RecordAda[outer{inner}end]",
+      "beforePdfSha256": "8bea79d1eaf3493291ba303acc16dbdf59cf989836408ebe7e240eccd878dfec",
+      "afterPdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7"
+    }
+  ],
+  "independentQuotationChecks": {
+    "at": "2026-10-27T11:50:16.930939+00:00",
+    "ok": true,
+    "fixtureSha256": "892cf0862fe14d639cdb1f639ce755ce9a6fe5f88622217690da3da762ff4015",
+    "cases": [
+      {
+        "name": "inline-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "0dd4e8e1cad03da49a74a2451d97180f5212c42262addff402e087c0796e32f9",
+        "pdfiumPixelSha256": [
+          "da8f4f8f9da2d718fa1517eb36c4d78a5b625acf804e10fbe093e68e7ab3563b"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "658681c73d9f6cb8e942ac331a64d9e4cb7c70190b5a7d7a7258bd7028163585",
+        "pdfiumPixelSha256": [
+          "05e5b01a7486399208bd008d9aa21618fbca435e6b54ed7f792713e9c648e9a4"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "contents-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "54efa630da91f6112dedebf359d710aad2d87e06ce85eb5b93cce63ecbc69057",
+        "pdfiumPixelSha256": [
+          "cec859b91058f27e0d39523c8e1201a4a3e34716e70b6af986419f3b9f40e1e0"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "27789fbdd71b2be45e236554ef5868b0f1bc1fd9692dfab3a766126a71b052ad",
+        "pdfiumPixelSha256": [
+          "b2a41c30f8ce275ac52b1f523bc4c569f5ba7f86ce4ed31f33cad944a82897f1"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "cf40ea083ad160fdae2d17c4c07831dbdacb61858d3beb9d15ce15ff71369b7f",
+        "pdfiumPixelSha256": [
+          "4ad6d8f1e4ee9154cbca36d5d0128cb80d3e9882db126f436e4efc3c7abe4f15"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "288c98306a8daec137124a805da585ca536a2158706537a5a7279c7ec72c578b",
+        "pdfiumPixelSha256": [
+          "d17f74cb6429ff9c1372e0360f79c3e8e55a99b5615386165c545c2b10d6bd1e"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "64891b695d21e12823183a34a6e0625bc1e5b01147765cf873ed5149a42a3ed3",
+        "pdfiumPixelSha256": [
+          "7ccb961cc171aafd9eb5e77177f987b63b805fb6acbcb7999913d588814c75e7"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "69e7b761dd73c8fe0404261af5d553f42e280ff1cba4bbff61476a89cac8a9c5",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "a2081dad97baf083e58d31a489e90cae9be3c74e0ece09994113483eaea3bd2f",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "a93389114bcca9eba77d680f67fcb406adf7e24e8766bc51e806c7c69be8b1f8",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "6b28f5c7918feb9a25db3144c3c43201293f3a88c68c8161f06503e5d9a8a6f2",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "visibility-hidden",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "d5e9d6d21c0e2179b93807bd442ec95d3714c649ca13384ba9c4c6065c7841db",
+        "pdfiumPixelSha256": [
+          "2c211721949d4ed7ea181795da92e7b9dc2205cbe8ab8b2613a13e1be3c84264"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "no-negative-depth",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "repeated-last-pair",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner{deep}}]",
+        "pdfiumText": "RecordAda[outer{inner{deep}}]",
+        "expected": "RecordAda[outer{inner{deep}}]",
+        "pdfSha256": "8b391003c29dcd76ccd050f5f32975123554bbd2e63d6b1bfe3dfa9323715ac0",
+        "pdfiumPixelSha256": [
+          "6d3ef50b9c8513943429882603772789986c6e9309e22c0537acbaa922db8a2f"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "table-cells",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one][two]",
+        "pdfiumText": "RecordAda[one][two]",
+        "expected": "RecordAda[one][two]",
+        "pdfSha256": "7cfe140fbf4d80621881fcea872bb0448f0b3c719441be99e08ce2533a6b3db6",
+        "pdfiumPixelSha256": [
+          "1e02ca4e9a8155e1940a16b8fb38ae61a84cd5ddf385d78b1d01f036037c03bc"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "literal-control",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "c73bb113a6d3e0df5f8eb53a54721a16bc4baf2c95dcab4bcb28d9ac04f817c2",
+        "pdfiumPixelSha256": [
+          "e28254b02031a606b6631df2d5d1304686318057b87d67d448bf032efe903263"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "image-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "image-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "image-contents",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "line-break-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "1bbee2cdf25ec9790713160182e49be5eab129c56b01187e62697c2509784460",
+        "pdfiumPixelSha256": [
+          "d5e06db68aed2f92de9a4e721324a0c892fa99c9735e8ffa0d7aeb9f06d9d748"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "svg-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "2e1e81e96434e0094c1dbcebd0d3551d29446e711b1b1e557f609640d23e3f6d",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "rule-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "04cd746604698712ff4e9ee29ffd6fd5726f8815791b88b4522286f99cfb95ab",
+        "pdfiumPixelSha256": [
+          "6b01ca23090cfa3d9117ecf9baf62a590adcf000b7ba563bcbb61d6a99575ae4"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "input-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "textarea-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "select-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "hidden-subtree",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "before-display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "wasi"
+      },
+      {
+        "name": "inline-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "0dd4e8e1cad03da49a74a2451d97180f5212c42262addff402e087c0796e32f9",
+        "pdfiumPixelSha256": [
+          "da8f4f8f9da2d718fa1517eb36c4d78a5b625acf804e10fbe093e68e7ab3563b"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "658681c73d9f6cb8e942ac331a64d9e4cb7c70190b5a7d7a7258bd7028163585",
+        "pdfiumPixelSha256": [
+          "05e5b01a7486399208bd008d9aa21618fbca435e6b54ed7f792713e9c648e9a4"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "contents-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "54efa630da91f6112dedebf359d710aad2d87e06ce85eb5b93cce63ecbc69057",
+        "pdfiumPixelSha256": [
+          "cec859b91058f27e0d39523c8e1201a4a3e34716e70b6af986419f3b9f40e1e0"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "27789fbdd71b2be45e236554ef5868b0f1bc1fd9692dfab3a766126a71b052ad",
+        "pdfiumPixelSha256": [
+          "b2a41c30f8ce275ac52b1f523bc4c569f5ba7f86ce4ed31f33cad944a82897f1"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "cf40ea083ad160fdae2d17c4c07831dbdacb61858d3beb9d15ce15ff71369b7f",
+        "pdfiumPixelSha256": [
+          "4ad6d8f1e4ee9154cbca36d5d0128cb80d3e9882db126f436e4efc3c7abe4f15"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "288c98306a8daec137124a805da585ca536a2158706537a5a7279c7ec72c578b",
+        "pdfiumPixelSha256": [
+          "d17f74cb6429ff9c1372e0360f79c3e8e55a99b5615386165c545c2b10d6bd1e"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "64891b695d21e12823183a34a6e0625bc1e5b01147765cf873ed5149a42a3ed3",
+        "pdfiumPixelSha256": [
+          "7ccb961cc171aafd9eb5e77177f987b63b805fb6acbcb7999913d588814c75e7"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "69e7b761dd73c8fe0404261af5d553f42e280ff1cba4bbff61476a89cac8a9c5",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "a2081dad97baf083e58d31a489e90cae9be3c74e0ece09994113483eaea3bd2f",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "a93389114bcca9eba77d680f67fcb406adf7e24e8766bc51e806c7c69be8b1f8",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "6b28f5c7918feb9a25db3144c3c43201293f3a88c68c8161f06503e5d9a8a6f2",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "visibility-hidden",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "d5e9d6d21c0e2179b93807bd442ec95d3714c649ca13384ba9c4c6065c7841db",
+        "pdfiumPixelSha256": [
+          "2c211721949d4ed7ea181795da92e7b9dc2205cbe8ab8b2613a13e1be3c84264"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "no-negative-depth",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "repeated-last-pair",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner{deep}}]",
+        "pdfiumText": "RecordAda[outer{inner{deep}}]",
+        "expected": "RecordAda[outer{inner{deep}}]",
+        "pdfSha256": "8b391003c29dcd76ccd050f5f32975123554bbd2e63d6b1bfe3dfa9323715ac0",
+        "pdfiumPixelSha256": [
+          "6d3ef50b9c8513943429882603772789986c6e9309e22c0537acbaa922db8a2f"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "table-cells",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one][two]",
+        "pdfiumText": "RecordAda[one][two]",
+        "expected": "RecordAda[one][two]",
+        "pdfSha256": "7cfe140fbf4d80621881fcea872bb0448f0b3c719441be99e08ce2533a6b3db6",
+        "pdfiumPixelSha256": [
+          "1e02ca4e9a8155e1940a16b8fb38ae61a84cd5ddf385d78b1d01f036037c03bc"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "literal-control",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "c73bb113a6d3e0df5f8eb53a54721a16bc4baf2c95dcab4bcb28d9ac04f817c2",
+        "pdfiumPixelSha256": [
+          "e28254b02031a606b6631df2d5d1304686318057b87d67d448bf032efe903263"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "image-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "image-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "image-contents",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "line-break-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "1bbee2cdf25ec9790713160182e49be5eab129c56b01187e62697c2509784460",
+        "pdfiumPixelSha256": [
+          "d5e06db68aed2f92de9a4e721324a0c892fa99c9735e8ffa0d7aeb9f06d9d748"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "svg-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "2e1e81e96434e0094c1dbcebd0d3551d29446e711b1b1e557f609640d23e3f6d",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "rule-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "04cd746604698712ff4e9ee29ffd6fd5726f8815791b88b4522286f99cfb95ab",
+        "pdfiumPixelSha256": [
+          "6b01ca23090cfa3d9117ecf9baf62a590adcf000b7ba563bcbb61d6a99575ae4"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "input-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "textarea-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "select-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "hidden-subtree",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "before-display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "python"
+      },
+      {
+        "name": "inline-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "0dd4e8e1cad03da49a74a2451d97180f5212c42262addff402e087c0796e32f9",
+        "pdfiumPixelSha256": [
+          "da8f4f8f9da2d718fa1517eb36c4d78a5b625acf804e10fbe093e68e7ab3563b"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "658681c73d9f6cb8e942ac331a64d9e4cb7c70190b5a7d7a7258bd7028163585",
+        "pdfiumPixelSha256": [
+          "05e5b01a7486399208bd008d9aa21618fbca435e6b54ed7f792713e9c648e9a4"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "b3bca4a1514bc6cbc2319cfd36ed69186b7ae4454ce468e78b747ccf0343eb7f",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "5718274ad9e6b128cc029067c6d04dffb3ece6facae252f99ef2ff280803a5eb",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "760ed86fdd3a7faa1fb9802396f72d529298ff8fa0a1785d1482c9d8ea491bca",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "contents-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "b0614e20d667da4129a9deacff518b41502cd414ecc967b2d7cf9de0f5663fb3",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "54efa630da91f6112dedebf359d710aad2d87e06ce85eb5b93cce63ecbc69057",
+        "pdfiumPixelSha256": [
+          "cec859b91058f27e0d39523c8e1201a4a3e34716e70b6af986419f3b9f40e1e0"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "27789fbdd71b2be45e236554ef5868b0f1bc1fd9692dfab3a766126a71b052ad",
+        "pdfiumPixelSha256": [
+          "b2a41c30f8ce275ac52b1f523bc4c569f5ba7f86ce4ed31f33cad944a82897f1"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "cf40ea083ad160fdae2d17c4c07831dbdacb61858d3beb9d15ce15ff71369b7f",
+        "pdfiumPixelSha256": [
+          "4ad6d8f1e4ee9154cbca36d5d0128cb80d3e9882db126f436e4efc3c7abe4f15"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "288c98306a8daec137124a805da585ca536a2158706537a5a7279c7ec72c578b",
+        "pdfiumPixelSha256": [
+          "d17f74cb6429ff9c1372e0360f79c3e8e55a99b5615386165c545c2b10d6bd1e"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "64891b695d21e12823183a34a6e0625bc1e5b01147765cf873ed5149a42a3ed3",
+        "pdfiumPixelSha256": [
+          "7ccb961cc171aafd9eb5e77177f987b63b805fb6acbcb7999913d588814c75e7"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-nested",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner}end]",
+        "pdfiumText": "RecordAda[outer{inner}end]",
+        "expected": "RecordAda[outer{inner}end]",
+        "pdfSha256": "b032ca751718d12ec90f10d4934044f1ac1024b9731ba2c72c1529fe9f44e6e7",
+        "pdfiumPixelSha256": [
+          "639015353010dcacd978f3521b5ffb5d4b2bf66ca777b91692f3eff887bd0923"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-silent-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}{two}",
+        "pdfiumText": "RecordAda{one}{two}",
+        "expected": "RecordAda{one}{two}",
+        "pdfSha256": "69e7b761dd73c8fe0404261af5d553f42e280ff1cba4bbff61476a89cac8a9c5",
+        "pdfiumPixelSha256": [
+          "7ae51ba852b0d5816d2ac2e92c7b7c1396c2a2b707586dbed8f9842daee56b19"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-silent-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]{two}",
+        "pdfiumText": "RecordAda[one]{two}",
+        "expected": "RecordAda[one]{two}",
+        "pdfSha256": "a2081dad97baf083e58d31a489e90cae9be3c74e0ece09994113483eaea3bd2f",
+        "pdfiumPixelSha256": [
+          "5043f249f45ea6aa851dc81af53614e35b6a453e70142a77f7df4995d2fcceb7"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-close-after-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-visible-close-zero-probe",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda][one]",
+        "pdfiumText": "RecordAda][one]",
+        "expected": "RecordAda][one]",
+        "pdfSha256": "a93389114bcca9eba77d680f67fcb406adf7e24e8766bc51e806c7c69be8b1f8",
+        "pdfiumPixelSha256": [
+          "e39b143b793bce14d75150cb4252a5536b4faf37993cbf1e598f86ff1bbfa4b6"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "inline-block-balanced-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{}{one}",
+        "pdfiumText": "RecordAda{}{one}",
+        "expected": "RecordAda{}{one}",
+        "pdfSha256": "6b28f5c7918feb9a25db3144c3c43201293f3a88c68c8161f06503e5d9a8a6f2",
+        "pdfiumPixelSha256": [
+          "84bfaa7ea504e1e20fee3ead574934926754cf4ef9abdecedcbf6205cc7691e8"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "visibility-hidden",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "d5e9d6d21c0e2179b93807bd442ec95d3714c649ca13384ba9c4c6065c7841db",
+        "pdfiumPixelSha256": [
+          "2c211721949d4ed7ea181795da92e7b9dc2205cbe8ab8b2613a13e1be3c84264"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "no-negative-depth",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "repeated-last-pair",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[outer{inner{deep}}]",
+        "pdfiumText": "RecordAda[outer{inner{deep}}]",
+        "expected": "RecordAda[outer{inner{deep}}]",
+        "pdfSha256": "8b391003c29dcd76ccd050f5f32975123554bbd2e63d6b1bfe3dfa9323715ac0",
+        "pdfiumPixelSha256": [
+          "6d3ef50b9c8513943429882603772789986c6e9309e22c0537acbaa922db8a2f"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "table-cells",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one][two]",
+        "pdfiumText": "RecordAda[one][two]",
+        "expected": "RecordAda[one][two]",
+        "pdfSha256": "7cfe140fbf4d80621881fcea872bb0448f0b3c719441be99e08ce2533a6b3db6",
+        "pdfiumPixelSha256": [
+          "1e02ca4e9a8155e1940a16b8fb38ae61a84cd5ddf385d78b1d01f036037c03bc"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "literal-control",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "c73bb113a6d3e0df5f8eb53a54721a16bc4baf2c95dcab4bcb28d9ac04f817c2",
+        "pdfiumPixelSha256": [
+          "e28254b02031a606b6631df2d5d1304686318057b87d67d448bf032efe903263"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "image-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "image-after",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "6a2b9f0386c0fa387541c340534c5617e51e730e4048fe5033cb3ddd20bedc3f",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "image-contents",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "line-break-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "1bbee2cdf25ec9790713160182e49be5eab129c56b01187e62697c2509784460",
+        "pdfiumPixelSha256": [
+          "d5e06db68aed2f92de9a4e721324a0c892fa99c9735e8ffa0d7aeb9f06d9d748"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "svg-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "2e1e81e96434e0094c1dbcebd0d3551d29446e711b1b1e557f609640d23e3f6d",
+        "pdfiumPixelSha256": [
+          "f0057463942a79c8712e10115a33c705d0db42feb20d38904bcdd6399c8f2258"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "rule-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda{one}",
+        "pdfiumText": "RecordAda{one}",
+        "expected": "RecordAda{one}",
+        "pdfSha256": "04cd746604698712ff4e9ee29ffd6fd5726f8815791b88b4522286f99cfb95ab",
+        "pdfiumPixelSha256": [
+          "6b01ca23090cfa3d9117ecf9baf62a590adcf000b7ba563bcbb61d6a99575ae4"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "input-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "textarea-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "select-before",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "hidden-subtree",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      },
+      {
+        "name": "before-display-none",
+        "passed": true,
+        "checks": {
+          "onePage": true,
+          "pypdfText": true,
+          "pdfiumText": true,
+          "pageGeometry": true,
+          "visibleIndependentOutput": true,
+          "matchesWasiReference": true
+        },
+        "text": "RecordAda[one]",
+        "pdfiumText": "RecordAda[one]",
+        "expected": "RecordAda[one]",
+        "pdfSha256": "4aa68302882a1b5ed56b6e9075f2ab5542992c71a2fa99d1df539110afa7c659",
+        "pdfiumPixelSha256": [
+          "381540e23a622c3f14994c67a8eec5771b35cc79a8686fa2670372ea848dc762"
+        ],
+        "mode": "node"
+      }
+    ],
+    "passed": 123,
+    "failed": 0,
+    "scope": "41 retained quotation inputs in three actual output paths; independent PDF text, page geometry, visible raster output and reference hashes."
+  },
+  "independentPaginationChecks": {
+    "ok": true,
+    "at": "2026-10-27T11:50:15.736707+00:00",
+    "negative_control": false,
+    "fixture_sha256": "4c17251aecf65217ade0792108ec3b40e441728a14d9e0f0c486461bf2959072",
+    "cases": [
+      {
+        "mode": "wasi",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "wasi",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "python",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-clip",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-hidden-visible",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "d64d72f56c3dee430f3ff0b6daab6ca77009912345d2477ce405d1d2f2a8b570"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-visible-hidden",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "c32bacd281d97fb27c3d945a04bd84121d9f1e6eeee402bc3b7079034e796955"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-auto",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-table-scroll",
+        "pages": 5,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "every_row_once": true,
+          "repeated_headers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "0f55039ff0db36e6a762eb573fe194e9abb0ca2cd7ed752886439a598002bd9c"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-break-auto",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "break_separates_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "a1ea9dfc2d1cff10bf5e6ece7423d20d216c9d201ae1f39cf85eec4cb909cb24"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-break-fixed",
+        "pages": 1,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "both_markers": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "2234e1fdef6665c9ac3bdea904d497775afb1648d48f78a1a208eb1f8379afee"
+      },
+      {
+        "mode": "node",
+        "name": "pagination-footnote",
+        "pages": 2,
+        "off_page_glyphs": 0,
+        "passed": true,
+        "checks": {
+          "page_count": true,
+          "preceding_line_retained": true,
+          "footnotes_follow_call": true,
+          "glyphs_inside_pages": true
+        },
+        "pdf_sha256": "cc75e6d147a6fd7f12d9ec4535766d5e48192acfe25fdcd880ed0afcc5158588"
+      }
+    ],
+    "passed": 27,
+    "failed": 0
+  },
+  "rustQuickstart": {
+    "engine": "2.5.38",
+    "fixtures": 70,
+    "verificationSha256": "1fd1abd8338e643ac08db0373df04ce21c598bac7a384c1ebc56b799f8efbf09"
+  },
+  "rustDownload": {
+    "engine": "2.5.38",
+    "checks": 77,
+    "fixtures": 5,
+    "zipSha256": "02ef4c72302c717c38488de1b493edbfc8b68075dc8b1164c9bea6026243cade",
+    "verificationSha256": "db955c89e3335d1ad3a6dcff340cc8edf243ecbf072336cf028855a778f3309f"
+  },
+  "scope": "Retained local output from the unchanged public crate, wheel and npm package. Two defects reproduced in the public playground are corrected; prior specimens preserve their PDF bytes. No universal rendering parity or standards-conformance claim.",
+  "browser": {
+    "engine": "chrome",
+    "version": "156.0.8078.47",
+    "playwright": "1.63.0",
+    "checks": 159,
+    "pdfDownloads": 5,
+    "quotationDownloads": 41,
+    "paginationCases": 9,
+    "verificationSha256": "0d3af8c223eabc4c7918103d1a013b16cb86a0f182c6fd8ea8fe535d1955bc95",
+    "quotationVerificationSha256": "4e7982313d466376593166fe8e3130fc9789da0f4ee1a8ad578c7c34fbeabcfc"
+  }
+}

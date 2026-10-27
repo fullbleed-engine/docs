@@ -98,6 +98,10 @@ expected_names = {'invoice', 'invoice-edited', 'report', 'notice', 'linear-gradi
                   'translucent-gradient', 'hard-radial-gradient', 'standard-fonts'} | {case['name'] for case in layout_cases}
 pagination = json.loads((ROOT / 'tools/playground-fixtures/pagination.json').read_text(encoding='utf-8'))
 expected_names |= {case['name'] for case in pagination['cases']}
+quotations = json.loads((ROOT / 'tools/playground-fixtures/generated-quotes-2.5.38.json').read_text(encoding='utf-8'))
+assert len(quotations['cases']) == 41
+expected_names |= {'quote-' + case['name'] for case in quotations['cases']}
+assert len(expected_names) == 70
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 assert len(report['fixtures']) == len(playground['fixtures']) == len(expected_names)
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

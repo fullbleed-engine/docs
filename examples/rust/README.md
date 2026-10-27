@@ -1,6 +1,6 @@
 # Fullbleed from Rust
 
-These examples use the published `fullbleed` 2.5.37 crate with `svg_raster`
+These examples use the published `fullbleed` 2.5.38 crate with `svg_raster`
 enabled to match downloaded playground projects. They require Rust
 1.85 or newer and a working native Rust toolchain; they do not require Python.
 

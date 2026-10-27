@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.37`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.38`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -37,6 +37,9 @@ centers, and a decorated floated initial; checks expected gradient colors and vi
 standard-font row; and exercises source/page limits and
 recovery. Nine page-flow cases cover long tables with six overflow settings,
 forced page breaks, and footnotes that move with their text.
+Forty-one quotation cases cover nested generated quotes, silent depth changes,
+hidden content and replaced elements. Independent PDF readers check the exact
+text in the browser download and both exported language projects.
 `tools/check_playground_ui.py` exercises the built page, checks the four
 layout cases against independent PDF text and color probes, downloads edited
 PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
@@ -51,7 +54,7 @@ or ISO conformance.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.8.2` (engine 2.5.37), uses `defaultStyles: false` to retain the
+`fullbleed@0.8.3` (engine 2.5.38), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -64,11 +67,12 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.37 pypdf==6.19.0 pypdfium2==5.14.0
+python -m pip install fullbleed==2.5.38 pypdf==6.19.0 pypdfium2==5.14.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
 python tools/verify_playground_pagination.py
+python tools/verify_playground_quotes.py
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
