@@ -125,6 +125,11 @@ through the SDK's `fonts` and `assets` options.
 
 ## Reuse the hook in an existing React app
 
+For a smaller runnable example, use
+[the focused preview and download recipe](react-pdf-preview-lifecycle.md).
+It includes a complete form, invalid-input handling, manual mode, cancellation,
+and editor cleanup, with the same styled component invoice.
+
 Install the package and copy its runtime into your app's static directory:
 
 ```sh

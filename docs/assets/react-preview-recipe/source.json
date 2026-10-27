@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-10-27T02:45:34.395109+00:00",
+  "name": "React PDF preview lifecycle recipe",
+  "package_version": "0.8.2",
+  "engine_version": "2.5.37",
+  "react_version": "19.3.0",
+  "base_starter_source_commit": "29a3e545f1015bf5befe1839e44074e7f6dbe35e",
+  "base_starter_zip_sha256": "eb6413f3672f54aa6aad0dc2de8cb44e27fc1d11b8585bdde3204260ea615d86",
+  "package_integrity": "sha512-OkqQzTbLE7JLx4nwriQEwqHiowLFx3j4AWtPYeSlP+dCdTd75oaBvS/h2VJj0WBI4zP2U9lE0Z6wH7bTASfIOA==",
+  "changes_from_base_starter": [
+    "src/App.tsx",
+    "README.md"
+  ],
+  "zip_sha256": "2aeefe89aa01940e03cf0da55a6c5b244cd3c666f3d6b60a0a156e3421ffab3d",
+  "zip_bytes": 31314,
+  "files": {
+    "fullbleed-react-starter/.gitignore": "0c8c1daabb918a54d7e75061883a887e9e0039d533487324a895ebe46afe15d8",
+    "fullbleed-react-starter/LICENSE": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9",
+    "fullbleed-react-starter/README.md": "ce2b780349f016884202a8fbb9ef9006fe262e309c82a8e3d8fe055af96cce76",
+    "fullbleed-react-starter/index.html": "1e07a2b52074ed0add251f642fe7f06ae2ac56cc391d54c3d7cfcda0c84a7058",
+    "fullbleed-react-starter/package-lock.json": "5eebac9ee3a6edbf0c2358f671c5f7e3f2c40384c5eced4269f5c95f25c6be33",
+    "fullbleed-react-starter/package.json": "bb04cfe9f93ed2d0401f4ce2d16a48772ac94e15b8731a167f53168188c0a7d6",
+    "fullbleed-react-starter/public/favicon.svg": "14e54700b07ee8762556b4fdeb1b406bfc79492bc1d6958e3f97dbd83c2cd0d0",
+    "fullbleed-react-starter/src/App.tsx": "4b9318762af276c81da39accd253a2a4db889987b2a9c3f4038595cae80ff331",
+    "fullbleed-react-starter/src/documents/Invoice.tsx": "6737ef4e107935cf0e66291f1ef1576d6aef37e647555e81ce875bf37a5cb589",
+    "fullbleed-react-starter/src/documents/data.ts": "c05c98fb07deaef2140f53df4f83670f138d6cad4a453fe09f423f7adb076f70",
+    "fullbleed-react-starter/src/documents/invoiceStyles.ts": "d9d63ef41fccae67d1a36de315b348c56ab5a680a18b0b2c43ffd63c46f18895",
+    "fullbleed-react-starter/src/invoice.css": "0b310ce0f2964fd6b9b68e4afafa9307b4ff8c6b2f1fc753367dc755620ce427",
+    "fullbleed-react-starter/src/invoice.html": "1f065ad6694021649e61b3f666cba6dc01aacdcbd8e80e97425b383e60d7d2fe",
+    "fullbleed-react-starter/src/main.tsx": "f8f523ef5fc0b1e4095830466e0caa648c01f7b42036694b800c25d43d5e2c84",
+    "fullbleed-react-starter/src/report.css": "519591ae75c239ec602324f008dd99108ebeae0b9306df7215fa5f0442905473",
+    "fullbleed-react-starter/src/report.html": "46b0e975d43914c8b4492218feae09ea0ad684091a9f9ee3b18f66a87202e521",
+    "fullbleed-react-starter/src/style.css": "ba8ab6a591cb4b0291b119275d9ea86da5d19fd94ed2b7279595f5498229b70f",
+    "fullbleed-react-starter/src/usePdfPreview.ts": "95de2c228838f2737bc5137327710a20751d5c543065f6defab44e1504ec8bdb",
+    "fullbleed-react-starter/tsconfig.json": "382c3c4a68901c016c3038c9653f1adaf145738c68de40a34821181ead2d7289",
+    "fullbleed-react-starter/vite.config.js": "2a300aafa93df7e0269d06d104960ee5ac4d64989d37d61ca482c4b88db3629c"
+  },
+  "public_files": {
+    "App.tsx": "4b9318762af276c81da39accd253a2a4db889987b2a9c3f4038595cae80ff331",
+    "editor.png": "2145c20808b0b6309437619a7ee8f49d75dcfb7259555e8f01eefcda68ccc4ea",
+    "invoice.pdf": "f2553f220e9d30e26df785a4ed251f07ff1e615afd3972a5c29c19a0c5fd3f6c",
+    "project.zip": "2aeefe89aa01940e03cf0da55a6c5b244cd3c666f3d6b60a0a156e3421ffab3d",
+    "verification.json": "7cce127ca937d557f970171d7ceccd10568a83bd1ebbb43a9d427a832cc1dd57"
+  },
+  "verification_scope": "This focused App.tsx over the public 0.8.2 React starter, Chrome, 1440/390/320px, ordinary PDFs. Worker counts are browser API handles, not native thread-exit proof."
+}

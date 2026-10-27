@@ -76,6 +76,8 @@ docs/assets/components/*.pdf binary
 examples/node-components/** text eol=lf
 docs/assets/node-components/** -text
 docs/assets/node-components/*.pdf binary
+docs/assets/react-preview-recipe/** -text whitespace=cr-at-eol
+docs/assets/react-preview-recipe/*.pdf binary
 
 examples/dotnet-components/** text eol=lf
 examples/dotnet-components/Assets/fonts/*.ttf binary

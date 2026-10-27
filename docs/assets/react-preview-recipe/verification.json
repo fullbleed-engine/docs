@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "at": "2026-10-27T02:42:39.836957+00:00",
+  "checks": [
+    "default: independent reader content",
+    "default: A4 page size",
+    "default PDF and preview have two Blob URLs",
+    "settled render releases its worker handle",
+    "1440px layout has no horizontal overflow",
+    "390px layout has no horizontal overflow",
+    "320px layout has no horizontal overflow",
+    "edit immediately hides old output",
+    "edited-paid: independent reader content",
+    "edited-paid: A4 page size",
+    "only latest PDF and preview URLs remain",
+    "cancel stops queued preview and hides download",
+    "cancel releases active worker handle",
+    "cancel-recovery: independent reader content",
+    "cancel-recovery: A4 page size",
+    "manual mode waits after edits",
+    "manual: independent reader content",
+    "manual: A4 page size",
+    "invalid input clears prior output",
+    "unmount releases resources",
+    "remount: independent reader content",
+    "remount: A4 page size",
+    "final cleanup releases all Blob URLs",
+    "no browser page errors",
+    "document inputs do not become network requests",
+    "runtime package and engine match the tutorial"
+  ],
+  "documents": [
+    {
+      "name": "default",
+      "sha256": "f2553f220e9d30e26df785a4ed251f07ff1e615afd3972a5c29c19a0c5fd3f6c",
+      "bytes": 103170,
+      "pages": 1
+    },
+    {
+      "name": "edited-paid",
+      "sha256": "0343725c5370f02d76fe32081de42dc1044e69b0c5c64f55e6fdad87abd12abc",
+      "bytes": 103405,
+      "pages": 1
+    },
+    {
+      "name": "cancel-recovery",
+      "sha256": "1299ae717d81d9ca1a5b96292f37efe3cd7f4681dceca45610ca186f1fee87b5",
+      "bytes": 103168,
+      "pages": 1
+    },
+    {
+      "name": "manual",
+      "sha256": "1ff270ddcb35d035e59c4f148b11bb8dd7e29a13ae8285f512c61ba0902f9bea",
+      "bytes": 103169,
+      "pages": 1
+    },
+    {
+      "name": "remount",
+      "sha256": "f2553f220e9d30e26df785a4ed251f07ff1e615afd3972a5c29c19a0c5fd3f6c",
+      "bytes": 103170,
+      "pages": 1
+    }
+  ],
+  "browser": "156.0.8078.47",
+  "playwright": "1.63.0",
+  "pypdf": "6.19.0",
+  "runtime_manifest": {
+    "schema": "fullbleed.browser-assets.v1",
+    "packageVersion": "0.8.2",
+    "engineVersion": "2.5.37",
+    "engineFeatures": [
+      "svg_raster"
+    ],
+    "files": {
+      "client.js": {
+        "bytes": 12639,
+        "sha256": "c7c067c1abdeeeda22aeabd1feaf9197e09d8be11e81fe7a9441a300c4978f91"
+      },
+      "worker.js": {
+        "bytes": 52165,
+        "sha256": "89172c547339d0e0e940d017392f446080fb1061c63d4a160d106235d6e71f5d"
+      },
+      "engine.wasm": {
+        "bytes": 5727917,
+        "sha256": "08156c2e59eb43cc96058e5d1b172e55123a67761487df2a4665c94339a2fb75"
+      },
+      "THIRD_PARTY_NOTICES.txt": {
+        "bytes": 81572,
+        "sha256": "3fd46ef4b49e3b8c8edbca61f1e5f8337744dd3e3c1628343f5e3e9b1e043946"
+      },
+      "LICENSE.txt": {
+        "bytes": 1079,
+        "sha256": "36a2115938f6e68cf0d87eccff7a6a3e57c17017e909cbd640d51aff1fa0c5a9"
+      },
+      "fonts/BebasNeue-OFL.txt": {
+        "bytes": 4337,
+        "sha256": "72082f6cb4d04be2ecf7cc7d9e1e7d73787f0af8a5a278a47cade70c16b78341"
+      },
+      "fonts/BebasNeue-Regular.ttf": {
+        "bytes": 61400,
+        "sha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73"
+      },
+      "fonts/DMSerifDisplay-Italic.ttf": {
+        "bytes": 71208,
+        "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+      },
+      "fonts/DMSerifDisplay-OFL.txt": {
+        "bytes": 4512,
+        "sha256": "aa49c876a28d8c0b0a3027d6c25b9c607eee8c0fb96165011d42a6ace1408fe1"
+      },
+      "fonts/DMSerifDisplay-Regular.ttf": {
+        "bytes": 76580,
+        "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+      },
+      "fonts/Inter-OFL.txt": {
+        "bytes": 4377,
+        "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+      },
+      "fonts/Inter-Variable.ttf": {
+        "bytes": 876576,
+        "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+      }
+    }
+  },
+  "lifecycle": {
+    "started": 7,
+    "terminated": 7,
+    "peak": 1,
+    "created": 10,
+    "revoked": 10,
+    "live": 0,
+    "urls": 0
+  },
+  "errors": [],
+  "source_sha256": "4b9318762af276c81da39accd253a2a4db889987b2a9c3f4038595cae80ff331",
+  "starter_zip_sha256": "eb6413f3672f54aa6aad0dc2de8cb44e27fc1d11b8585bdde3204260ea615d86",
+  "scope": "This focused App.tsx over the public 0.8.2 React starter, Chrome, 1440/390/320px, ordinary PDFs. Worker counts are browser API handles, not native thread-exit proof.",
+  "source_project_sha256": "2aeefe89aa01940e03cf0da55a6c5b244cd3c666f3d6b60a0a156e3421ffab3d",
+  "network_probe_revision": {
+    "first_run": "UI and PDF checks passed; the network assertion failed because it treated same-origin Blob reads as HTTP uploads.",
+    "second_run": "Recorded the request list, checked GET/no-body/same-origin HTTP and Blob requests, and repeated this focused example. All 26 checks passed.",
+    "request_schemes": {
+      "http": 47,
+      "https": 0,
+      "blob": 5
+    }
+  }
+}
