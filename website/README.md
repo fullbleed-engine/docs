@@ -4,10 +4,11 @@
 [www.fullbleed.dev](https://www.fullbleed.dev/). Squarespace owns the surrounding
 navigation, footer and page metadata. This directory is not deployed by MkDocs.
 
-The homepage leads with component authoring, includes a runnable stable Python
-example, and links to the component alpha notebook, paired Northstar/Common
-Ground sources, and the accessible showcase with its retained validation reports.
-The alpha is explicitly labeled; an ordinary install still selects the stable API.
+The homepage leads with the browser playground and Python quickstart, alongside
+the HTML/CSS Northstar invoice. Farther down, it highlights component authoring
+with a runnable stable Python example, an explicitly labeled alpha preview,
+paired Northstar/Common Ground sources, and the accessible showcase with its
+retained validation reports. An ordinary install still selects the stable API.
 
 `homepage-example.py` is the exact copyable example. With Python 3.10–3.14:
 
