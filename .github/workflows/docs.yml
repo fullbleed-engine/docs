@@ -553,7 +553,8 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install independent PDF readers
-        run: python -m pip install --only-binary=:all: pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+        run: |
+          python -m pip install --only-binary=:all: pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
       - name: Verify the public-package download and editable certificate
         run: |
           python tools/build_dotnet_pdf_template.py
