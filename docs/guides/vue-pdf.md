@@ -52,7 +52,7 @@ color and wait for **Ready**, then choose **Download PDF**. Turn off **Update
 automatically** to generate on demand. **Cancel** stops a pending preview or
 active render. **Close editor** releases its resources; reopening starts fresh.
 
-The lockfile pins Fullbleed npm **0.8.2** / engine **2.5.37**, Vue **3.5.43**,
+The lockfile pins Fullbleed npm **0.8.3** / engine **2.5.38**, Vue **3.5.43**,
 TypeScript **6.0.3**, and Vite **8.3.2**. The build downloads the published
 dependencies and copies their verified runtime. TypeScript 6 is pinned for
 compatibility with the project's `vue-tsc` type checker.
@@ -87,7 +87,7 @@ through the SDK's `fonts` and `assets` options.
 Install the package and copy its runtime into your static directory:
 
 ```sh
-npm install --save-exact fullbleed@0.8.2
+npm install --save-exact fullbleed@0.8.3
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -178,3 +178,8 @@ PDF/A, PDF/UA, PDF/X, or VDP options. For React, use the
 The editor checks also paste templates for sibling counter resets, nested clipping,
 SVG border-image centers, and decorated floated initials. They inspect downloaded
 PDF text and independently specified colors in both the PDF and its preview.
+
+Nested quotation checks cover inline, block, and contents layouts through the
+actual editor. They check both PDF readers, page size, and visible preview output.
+The [retained starter verification](../assets/browser-starters-083-verification.json)
+records these cases and the unchanged invoice and report downloads.
