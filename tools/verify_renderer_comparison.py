@@ -1,4 +1,5 @@
-"""Check downloadable evidence, recompute statistics, and re-read the nine PDFs."""
+"""Verify each dated renderer report against its own retained evidence."""
+import argparse
 from collections import defaultdict
 import hashlib
 import importlib.util
@@ -8,8 +9,19 @@ import statistics
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'docs/assets/renderer-comparison'
 OUT = ROOT / 'output/renderer-comparison-verification'
+REPORTS = (
+    {'date': '20261005', 'assets': 'renderer-comparison',
+     'article': 'renderer-comparison-20261005.md', 'format': 'original',
+     'source': '4ed41e3c48f90144b21e6360464dd1d868a00085',
+     'browser': '153.0.8010.12',
+     'packages': {'fullbleed': '2.5.6', 'weasyprint': '70.0', 'playwright': '1.63.0'}},
+    {'date': '20261027', 'assets': 'renderer-comparison-20261027',
+     'article': 'renderer-comparison.md', 'format': 'refresh',
+     'source': '1384f67e1569b551ff4a4b647e8ac78472c6f39c',
+     'browser': '156.0.8078.4',
+     'packages': {'fullbleed': '2.5.39', 'weasyprint': '70.0', 'playwright': '1.64.1'}},
+)
 
 
 def sha(data):
@@ -22,33 +34,67 @@ def stats(values):
             'max': max(values), 'q1': q[0], 'q3': q[2]}
 
 
-def main():
+def verify_report(report, assets, article_path, output):
+    ASSETS, OUT = assets, output
     OUT.mkdir(parents=True, exist_ok=False)
-    manifest = json.loads((ASSETS / 'manifest.json').read_text())
-    for item in manifest['files']:
+    manifest = json.loads((ASSETS / 'manifest.json').read_text(encoding='utf-8'))
+    modern = report['format'] == 'refresh'
+    if modern:
+        assert isinstance(manifest['files'], dict) and len(manifest['files']) == 45
+        files = [{'path': path, **item} for path, item in manifest['files'].items()]
+        archives = [{'file': name} for name in ['measured-evidence.zip', 'qualification-evidence.zip']]
+        assert {p.relative_to(ASSETS).as_posix() for p in ASSETS.rglob('*') if p.is_file()} == set(manifest['files']) | {'manifest.json'}
+    else:
+        assert manifest['schema'] == 'fullbleed.renderer_comparison.assets.v1'
+        assert manifest['sourceCommit'] == report['source']
+        assert (manifest['qualifiedPdfs'], manifest['timedPdfs'], manifest['representativePages']) == (414, 315, 22)
+        files, archives = manifest['files'], manifest['archives']
+    for item in files:
+        assert (ASSETS / item['path']).resolve().is_relative_to(ASSETS.resolve())
         data = (ASSETS / item['path']).read_bytes()
         assert len(data) == item['bytes'] and sha(data) == item['sha256'], item['path']
     archive_counts = {}
-    for item in manifest['archives']:
+    for item in archives:
         with zipfile.ZipFile(ASSETS / item['file']) as z:
             assert z.testzip() is None
-            listing = json.loads(z.read('MANIFEST.json'))
-            assert listing['sourceCommit'] == manifest['sourceCommit']
-            assert len(listing['files']) == item['members']
-            assert set(z.namelist()) == {'MANIFEST.json', *(f['path'] for f in listing['files'])}
-            for member in listing['files']:
+            manifest_name = 'evidence-manifest.json' if modern else 'MANIFEST.json'
+            listing = json.loads(z.read(manifest_name))
+            if modern:
+                members = [{'path': path, **value} for path, value in listing['files'].items()]
+            else:
+                assert listing['sourceCommit'] == report['source']
+                assert len(listing['files']) == item['members']
+                members = listing['files']
+            assert len(z.namelist()) == len(set(z.namelist()))
+            assert set(z.namelist()) == {manifest_name, *(f['path'] for f in members)}
+            for member in members:
                 data = z.read(member['path'])
                 assert len(data) == member['bytes'] and sha(data) == member['sha256'], member['path']
-            archive_counts[item['file']] = len(listing['files'])
+            archive_counts[item['file']] = len(members)
             if item['file'] == 'measured-evidence.zip':
                 for name in z.namelist():
                     assert (OUT / name).resolve().is_relative_to(OUT.resolve())
                 z.extractall(OUT)
-    measured = OUT / 'measured'
+    measured = OUT if modern else OUT / 'measured'
     environment = json.loads((measured / 'environment.json').read_text())
-    assert environment['source_revision'] == manifest['sourceCommit']
+    assert environment['source_revision'] == report['source']
+    assert environment == json.loads((ASSETS / 'environment.json').read_text())
+    for package, version in report['packages'].items():
+        assert environment['packages'][package] == version, package
     for name, digest in environment['source_sha256'].items():
         assert sha((measured / 'source' / name).read_bytes()) == digest
+    for name, digest in environment['input_sha256'].items():
+        assert sha((measured / 'inputs' / name).read_bytes()) == digest
+    if modern:
+        override = json.loads((measured / 'runtime-overrides.json').read_text())
+        assert override['sourceRevision'] == report['source'] and override['exitCode'] == 0
+        assert override['performanceRun'] and override['state'] == 'completed'
+        qualified = measured / override['runtimeRequirements']
+        assert sha(qualified.read_bytes()) == override['runtimeRequirementsSha256']
+        pins = dict(line.strip().split('==', 1) for line in qualified.read_text().splitlines()
+                    if line.strip() and not line.startswith('#'))
+        assert all(environment['packages'][package] == version for package, version in pins.items())
+        assert all(pins[package] == version for package, version in report['packages'].items())
     summary = json.loads((measured / 'summary.json').read_text())
     assert summary == json.loads((ASSETS / 'summary.json').read_text())
     assert summary['all_qualified'] and not summary['smoke']
@@ -62,7 +108,7 @@ def main():
         assert job['exit_code'] == 0
         key = job['engine'], job['fixture']
         if job['engine'] == 'chromium':
-            assert job['metadata']['browser_version'] == '153.0.8010.12'
+            assert job['metadata']['browser_version'] == report['browser']
         pair = collected[key]
         if job['phase'] == 'cold':
             pair['cold'].append(job['process_ms'])
@@ -83,9 +129,11 @@ def main():
                 pair['warm'].append(row['render_write_ms'])
             representatives.setdefault(key, row)
             pdf_count += 1
-    assert pdf_count == manifest['qualifiedPdfs'] == 414
-    assert sum(len(p['cold']) + len(p['warm']) for p in collected.values()) == manifest['timedPdfs'] == 315
-    article = (ROOT / 'docs/guides/renderer-comparison.md').read_text(encoding='utf-8')
+    assert pdf_count == 414
+    assert sum(len(p['cold']) + len(p['warm']) for p in collected.values()) == 315
+    article = article_path.read_text(encoding='utf-8')
+    for version in [*report['packages'].values(), report['browser']]:
+        assert version in article, f'Missing measured version {version}'
     names = {'fullbleed': 'Fullbleed', 'weasyprint': 'WeasyPrint', 'chromium': 'Chromium'}
     for result in summary['results']:
         key = result['engine'], result['fixture']
@@ -114,18 +162,34 @@ def main():
         result = validation.check_pdf(path, contract, row['token'])
         assert result['passed'], result
         page_count += result['pages']
-    assert page_count == manifest['representativePages'] == 22
+    assert page_count == 22
     controls = json.loads((measured / 'negative-controls.json').read_text())
     for control in controls.values():
         assert control['passed']
         for name in ['wrong_token', 'missing_page', 'missing_font', 'outside_page_inset']:
             assert control[name]
-    report = {'ok': True, 'sourceCommit': manifest['sourceCommit'], 'archives': archive_counts,
+    result = {'ok': True, 'sourceCommit': report['source'], 'archives': archive_counts,
               'retainedPdfsHashed': pdf_count, 'timedSamplesRecomputed': 315,
               'representativePdfsRevalidated': len(representatives), 'representativePages': page_count,
-              'publishedTableRowsVerified': 18}
-    (OUT / 'verification.json').write_text(json.dumps(report, indent=2) + '\n')
-    print(json.dumps(report, indent=2))
+              'publishedTableRowsVerified': 18, 'article': article_path.name,
+              'packages': report['packages'], 'browserVersion': report['browser']}
+    (OUT / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--out', type=Path, default=OUT)
+    args = parser.parse_args()
+    args.out.mkdir(parents=True, exist_ok=False)
+    reports = {}
+    for report in REPORTS:
+        reports[report['date']] = verify_report(
+            report, ROOT / 'docs/assets' / report['assets'],
+            ROOT / 'docs/guides' / report['article'], args.out / report['date'])
+    result = {**reports[REPORTS[-1]['date']], 'reports': reports}
+    (args.out / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    print(json.dumps(result, indent=2))
 
 
 if __name__ == '__main__':
