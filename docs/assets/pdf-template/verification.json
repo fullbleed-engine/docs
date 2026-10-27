@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "platform": "Windows",
+  "version": "2.5.39",
+  "zipSha256": "ffdcd0de662e1489988bf9b9d1828060b3e2b2ba797f4d873a82b121df81902a",
+  "templateSha256": "6989c887ef994170b6248e68117fd5d795d40bb4608049fa045619cde6b5cc6f",
+  "default": {
+    "pdfSha256": "f6aedb37d9be4a5dc520f5324311c63f2c24310cddb96943db6a83214d503576",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Samira Patel",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0142"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      },
+      {
+        "page": 2,
+        "fields": [
+          "Mateo Rivera",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0143"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      },
+      {
+        "page": 3,
+        "fields": [
+          "Avery Morgan",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0144"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      }
+    ]
+  },
+  "edited": {
+    "pdfSha256": "30dd79745efd64ffd97a61353d7cef3f1aab427ccd2d6d532c7fa5dd0dd66419",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Zo\u00eb <Workshop> & Co.",
+          "Building spaces & <stories>",
+          "29 February 2028",
+          "CG_2028.001"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      }
+    ]
+  },
+  "longValues": {
+    "pdfSha256": "6256a25ab5904153ca7903f73aabe715ced6e0ff38db752299716db76b099434",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWM",
+          "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW",
+          "24 October 2026",
+          "ZZZZZZZZZZZZZZZZZZZZ"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      }
+    ]
+  },
+  "customBackground": {
+    "pdfSha256": "ae3569059f83e372aaa623a3ef1776a90088f73aba28daef51a988a80218febb",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Samira Patel",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0142"
+        ],
+        "textWithinPage": true,
+        "annotations": 0
+      }
+    ]
+  },
+  "commands": [
+    {
+      "label": "default",
+      "exitCode": 0
+    },
+    {
+      "label": "edited",
+      "exitCode": 0
+    },
+    {
+      "label": "long-values",
+      "exitCode": 0
+    },
+    {
+      "label": "custom-background",
+      "exitCode": 0
+    },
+    {
+      "label": "empty-data",
+      "exitCode": 2
+    },
+    {
+      "label": "extra-field",
+      "exitCode": 2
+    },
+    {
+      "label": "invalid-date",
+      "exitCode": 2
+    },
+    {
+      "label": "long-name",
+      "exitCode": 2
+    },
+    {
+      "label": "invalid-id",
+      "exitCode": 2
+    },
+    {
+      "label": "control-character",
+      "exitCode": 2
+    },
+    {
+      "label": "missing-glyph",
+      "exitCode": 2
+    },
+    {
+      "label": "reject-multiple-pages",
+      "exitCode": 2
+    },
+    {
+      "label": "reject-encrypted-template",
+      "exitCode": 2
+    }
+  ],
+  "scope": "Downloaded one-page template project, edited and boundary data, independent text/page bounds and input rejection. No general geometry, accessibility, PDF standards or raster parity claim."
+}

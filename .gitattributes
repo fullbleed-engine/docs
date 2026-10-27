@@ -206,3 +206,12 @@ docs/assets/yew-starter/*.pdf binary
 docs/assets/yew-starter/*.png binary
 docs/assets/yew-starter/*.zip binary
 docs/assets/yew-starter/preview/fonts/*-OFL.txt -whitespace
+
+# Keep template downloads reproducible and preserve the upstream font license.
+examples/pdf-template/** text eol=lf
+examples/pdf-template/*.pdf binary
+examples/pdf-template/*-OFL.txt -text -whitespace
+docs/assets/pdf-template/** -text
+docs/assets/pdf-template/*.pdf binary
+docs/assets/pdf-template/*.png binary
+docs/assets/pdf-template/*.zip binary
