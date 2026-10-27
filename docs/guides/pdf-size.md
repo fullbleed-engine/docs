@@ -46,7 +46,7 @@ change, so review saved document baselines when upgrading.
 ## Before and after
 
 These are whole-PDF file sizes for fixed synthetic inputs on one Windows host.
-They are separate from the historical [three-renderer comparison](renderer-comparison.md).
+They are separate from the historical [October 5 three-renderer comparison](renderer-comparison-20261005.md).
 
 | Document | Fullbleed 2.5.6 | Fullbleed 2.5.7 |
 | --- | ---: | ---: |
