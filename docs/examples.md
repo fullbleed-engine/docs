@@ -98,12 +98,14 @@ engine **2.5.22**, using the two explicitly registered font files in the project
 **Existing PDF background · JSON records · CSS text overlays**
 
 Keep a certificate's artwork as a PDF and personalize it for each recipient.
-The project includes three fictional records, editable background source,
+The Python and C# projects include three fictional records, editable background source,
 positioned fields, and previews of the final composed pages.
-Rendered with **Fullbleed 2.5.39** and its bundled Inter font.
+Python uses **Fullbleed 2.5.39**; C# uses **FullBleed.DotNet 0.2.3** with
+the same engine. Both use the bundled Inter font.
 
 [Open the three-page PDF](assets/pdf-template/certificates.pdf){ .md-button }
-[Download the project](assets/pdf-template/project.zip){ .md-button }
+[Download Python project](assets/pdf-template/project.zip){ .md-button }
+[Download C# project](assets/dotnet-pdf-template/project.zip){ .md-button }
 
 [Use your own PDF template](guides/pdf-template.md)
 
