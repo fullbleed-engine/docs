@@ -67,7 +67,7 @@ version = ET.parse(project_source).find('.//PackageReference').attrib['Version']
 assert ET.parse(project_source).find('.//TargetFramework').text == framework
 assert f'dotnet add package FullBleed.DotNet --version {version}' in guide
 blocks = re.findall(r'```csharp\n(.*?)```', guide, re.S)
-assert len(blocks) == 2
+assert len(blocks) == 3
 home_code = re.findall(r'```csharp\n(.*?)```', home, re.S)
 assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage C# example differs from the executed guide.'
 
@@ -85,6 +85,17 @@ assert ' '.join(reader.pages[0].extract_text().split()) == (
     'Invoice INV-1042 Consulting: USD 1,200.00'
 )
 shutil.copy2(snippet_pdf, out / 'quickstart.pdf')
+quickstart_hash = hashlib.sha256(snippet_pdf.read_bytes()).hexdigest()
+
+(snippet / 'Program.cs').write_text(blocks[1], encoding='utf-8')
+run('run-component-quickstart', ['dotnet', 'run', '-c', 'Release', '--no-restore'], snippet)
+component_reader = PdfReader(snippet_pdf, strict=True)
+assert len(component_reader.pages) == 1
+assert ' '.join(component_reader.pages[0].extract_text().split()) == (
+    'Invoice INV-1042 Consulting: USD 1,200.00'
+)
+shutil.copy2(snippet_pdf, out / 'quickstart-components.pdf')
+component_quickstart_hash = hashlib.sha256(snippet_pdf.read_bytes()).hexdigest()
 
 sample = workspace / 'examples/dotnet'
 sample.mkdir(parents=True)
@@ -139,8 +150,9 @@ report = {
     'documented_setup_commands': guide_setup,
     'commands': commands,
     'outputs': outputs,
-    'quickstart_pdf_sha256': hashlib.sha256(snippet_pdf.read_bytes()).hexdigest(),
-    'scope': 'The guide snippet and exact sample sources consume the NuGet package outside the checkout.',
+    'quickstart_pdf_sha256': quickstart_hash,
+    'component_quickstart_pdf_sha256': component_quickstart_hash,
+    'scope': 'Both guide quickstarts and the exact sample sources consume the NuGet package outside the checkout.',
 }
 (out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({'ok': True, 'package': version, 'engine': engine['version'],

@@ -204,26 +204,21 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     ```csharp
     using FullBleed.DotNet;
-    using FullBleed.DotNet.UI;
-    using static FullBleed.DotNet.UI.Components;
 
-    var invoice = new Document(
-        Heading(1, "Invoice INV-1042").WithClass("invoice-title"),
-        Paragraph("Consulting: USD 1,200.00")
-    )
-    {
-        Styles = new StyleSheet
-        {
-            ["@page"] = new Style { ["size"] = "A4", ["margin"] = "20mm" },
-            [".invoice-title"] = new Style { ["color"] = "#175c52" },
-        },
-    };
+    const string html = """
+        <h1 class="invoice-title">Invoice INV-1042</h1>
+        <p>Consulting: USD 1,200.00</p>
+        """;
+    const string css = """
+        @page { size: A4; margin: 20mm; }
+        .invoice-title { color: #175c52; }
+        """;
     using var engine = new FullBleedEngine(new FullBleedEngineOptions
     {
         DocumentLanguage = "en-US",
         DocumentTitle = "Invoice INV-1042",
     });
-    invoice.RenderPdfToFile(engine, "invoice.pdf");
+    engine.RenderPdfToFile(html, css, "invoice.pdf");
     var inspection = FullBleedEngine.InspectPdf("invoice.pdf");
     Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
     ```

@@ -186,7 +186,10 @@ styledNotice.RenderPdfToFile(engine, "output/notice.pdf");
     assert 18 in guide_cases['payment']['fontSizes'] and has_color(guide_cases['payment'],(49/255,93/255,155/255))
     assert 14 in guide_cases['notice']['fontSizes'] and has_color(guide_cases['notice'],(166/255,66/255,50/255))
     quickstart = (ROOT/'docs/getting-started/dotnet.md').read_text(encoding='utf-8')
-    font_block = re.findall(r'```csharp\n(.*?)```', quickstart, re.S)[1]
+    font_section = quickstart.split('## Register fonts and inspect the result\n', 1)[1].split('\n## ', 1)[0]
+    font_blocks = re.findall(r'```csharp\n(.*?)```', font_section, re.S)
+    assert len(font_blocks) == 1
+    font_block = font_blocks[0]
     (project/'Program.cs').write_text(font_block, encoding='utf-8')
     (out/'register-fonts.cs').write_text(font_block, encoding='utf-8')
     run('run-font-guide', ['dotnet','run','-c','Release','--no-restore'])
