@@ -7,6 +7,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
 from pathlib import Path, PurePosixPath
+import platform
 import re
 import shutil
 import subprocess
@@ -32,12 +33,13 @@ def main():
     parser.add_argument('--python', default=sys.executable)
     parser.add_argument('--node', default=shutil.which('node'))
     parser.add_argument('--npm-cli', type=Path)
+    parser.add_argument('--browser-executable', type=Path, help='Optional Chrome executable for an isolated local reproduction')
     args = parser.parse_args()
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
     specimen = fixture(out / 'selected files')
     selected = out / 'selected files'
-    checks, requests, errors, exports = [], [], [], []
+    checks, requests, errors, exports, console = [], [], [], [], []
     server = None
     url = args.url
     if args.site:
@@ -97,11 +99,28 @@ def main():
 
     try:
         with sync_playwright() as pw:
-            browser = pw.chromium.launch(channel='chrome')
+            browser = (pw.chromium.launch(executable_path=str(args.browser_executable))
+                       if args.browser_executable else pw.chromium.launch(channel='chrome'))
+            browser_version = browser.version
             context = browser.new_context(viewport={'width': 1440, 'height': 1000}, accept_downloads=True)
             page = context.new_page()
             page.on('pageerror', lambda error: errors.append(str(error)))
+            page.on('console', lambda message: console.append(dict(type=message.type, text=message.text)))
             page.on('request', lambda request: requests.append(dict(url=request.url, method=request.method, body=request.post_data)))
+            # Observe activation without injecting a user gesture or changing handlers.
+            page.add_init_script('''(() => {
+              window.__localFilePickerEvents = [];
+              for (const type of ['focusin', 'keydown', 'keyup', 'click']) {
+                document.addEventListener(type, event => {
+                  if (!['pg-open-files', 'pg-files'].includes(event.target.id)) return;
+                  const record = {type, key: event.key, target: event.target.id,
+                    trusted: event.isTrusted, active: document.activeElement.id,
+                    activation: navigator.userActivation.isActive};
+                  window.__localFilePickerEvents.push(record);
+                  queueMicrotask(() => { record.prevented = event.defaultPrevented; });
+                }, true);
+              }
+            })();''')
 
             def ready():
                 expect(page.locator('#pg-download')).to_have_attribute('href', re.compile(r'^blob:'), timeout=120000)
@@ -118,12 +137,22 @@ def main():
                 print('Initial example is ready', flush=True)
                 invoice = page.locator('#pg-html').input_value() + '\n<!-- retained invoice edit -->'
                 page.locator('#pg-html').fill(invoice)
-                # Exercise the visible button and actual file chooser, not an application hook.
-                page.locator('#pg-open-files').focus()
+                # Each activation must open the actual chooser; no retry or direct-input fallback.
+                button = page.locator('#pg-open-files')
+                expect(button).to_be_enabled()
+                expect(button).to_be_visible()
+                for key in ['Enter', 'Space']:
+                    button.focus()
+                    expect(button).to_be_focused()
+                    with page.expect_file_chooser() as chooser:
+                        button.press(key)
+                    chooser.value.set_files([])
+                    check(key + ' opens the local-file chooser from the focused button', True)
                 with page.expect_file_chooser() as chooser:
-                    page.keyboard.press('Enter')
+                    button.click()
                 chooser.value.set_files([str(selected / 'document.html'), str(selected / 'brand.css')]
                                         + [str(selected / 'assets' / asset['name']) for asset in specimen['assets']])
+                check('Click opens the local-file chooser and accepts the selected files', True)
                 expect(page.locator('#pg-open-files')).to_be_enabled()
                 expect(page.locator('#pg-example')).to_have_value('custom')
                 expect(page.locator('#pg-asset-count')).to_have_text('5 local assets')
@@ -250,14 +279,21 @@ def main():
                 try:
                     page.screenshot(path=str(out / 'final-browser-state.png'), full_page=True, timeout=10000)
                     (out / 'final-browser-state.json').write_text(json.dumps(dict(url=page.url,
-                        status=page.locator('#pg-status').text_content(timeout=5000)), indent=2) + '\n', encoding='utf-8')
+                        browser=browser_version, platform=platform.platform(),
+                        status=page.locator('#pg-status').text_content(timeout=5000),
+                        picker=page.evaluate('''() => ({events: window.__localFilePickerEvents,
+                            active: document.activeElement.id,
+                            disabled: document.querySelector('#pg-open-files').disabled})''')),
+                        indent=2) + '\n', encoding='utf-8')
                 except Exception as error:
                     (out / 'state-capture-error.txt').write_text(str(error), encoding='utf-8')
                 (out / 'network.json').write_text(json.dumps(requests, indent=2) + '\n', encoding='utf-8')
                 (out / 'browser-errors.json').write_text(json.dumps(errors, indent=2) + '\n', encoding='utf-8')
+                (out / 'console.json').write_text(json.dumps(console, indent=2) + '\n', encoding='utf-8')
                 context.close()
                 browser.close()
         result = dict(ok=True, checkedAt=datetime.now(timezone.utc).isoformat(), url=url,
+                      browser=browser_version, platform=platform.platform(),
                       source_revision=os.environ.get('GITHUB_SHA'), ci_run_id=os.environ.get('GITHUB_RUN_ID'),
                       checks=checks, pdf=pdf_record, exports=exports,
                       scope='This selected-file specimen and its two project downloads; no universal parity or conformance claim.')
