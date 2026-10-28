@@ -16,7 +16,7 @@ to lay out the resulting HTML and CSS.
 [![An engineering brief with large green typography, a three-stage publishing diagram, a warm quotation panel, and a styled table.](../assets/markdown-starter/page-1.png)](../assets/markdown-starter/document.pdf)
 
 The two-page brief is fictional. Its previews come from the actual PDF, rendered
-with **Fullbleed 2.5.10**, `markdown-it-py` 4.2.0, and explicit Inter and IBM Plex
+with **Fullbleed 2.5.41**, `markdown-it-py` 4.2.0, and explicit Inter and IBM Plex
 Mono fonts. [Preview page 2](../assets/markdown-starter/page-2.png).
 
 ## Run the project
@@ -67,6 +67,28 @@ th { background: #243c69; color: #ffffff; }
 The script uses static [print CSS](../css-coverage.md). It does not execute
 JavaScript or code fences. Code is printed in the included monospace font,
 without syntax highlighting. Use `--no-preview` when you only need the PDF.
+
+### Wrap long code lines
+
+The starter preserves indentation and line breaks while allowing long URLs or
+tokens to wrap. Its stylesheet applies these rules to fenced code:
+
+```css
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+```
+
+Use `white-space: pre` when each authored line must stay on one line; ensure the
+text fits your chosen page width. For prose that should retain line breaks but
+collapse extra spaces, use `white-space: pre-line`. Additional wrapping can
+increase the page count.
+
+The download pins 2.5.41, which fixes these authored policies for preformatted
+blocks. Its verification includes a code token spanning several pages and checks
+visible glyph positions and the complete text in the saved PDF.
+[See the engine release and evidence](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.41).
 
 ## Local images and fonts
 

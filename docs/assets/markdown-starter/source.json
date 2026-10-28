@@ -8,8 +8,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4173,
-      "sha256": "2dcb5deb71f1a0b715386945f62bf2419156c0e51f41073228762d81b8f04201"
+      "bytes": 4596,
+      "sha256": "eb3fc226a132163633b3fe30702acae0f9981bd76de98902bd0e5c2b781858c9"
     },
     {
       "path": "brief.md",
@@ -49,9 +49,9 @@
     {
       "path": "requirements.txt",
       "bytes": 53,
-      "sha256": "c904efab74b0eb982cadd14a964be13aa7bcdbc8ce692be8d25003b295e2d916"
+      "sha256": "a4f0dee909cdfe13b17333a0d1168e1479a1982db955ffdd99fdfc55ef5c73ee"
     }
   ],
-  "zip_bytes": 68567,
-  "zip_sha256": "395427d7e66fbe1e922f9a5a6f852dbdef0711e9487e9bbf5a3d87790183f0d8"
+  "zip_bytes": 68767,
+  "zip_sha256": "43510d4decc14d0e485b33feb39a334807acab5e3e7e925f393a3b38777e4bf8"
 }

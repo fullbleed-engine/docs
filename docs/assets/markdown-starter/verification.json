@@ -2,7 +2,7 @@
   "ok": true,
   "platform": "Windows",
   "versions": {
-    "fullbleed": "2.5.10",
+    "fullbleed": "2.5.41",
     "markdown-it-py": "4.2.0",
     "pypdf": "6.19.0",
     "pypdfium2": "5.14.0",
@@ -40,6 +40,13 @@
     "repeat exit status",
     "repeat PDF bytes match",
     "repeat preview bytes match",
+    "long-code exit status",
+    "long code wraps onto multiple pages",
+    "long code retains every character in order",
+    "long code embeds its intended monospace face",
+    "long code page 1 stays within the print area",
+    "long code page 2 stays within the print area",
+    "long code page 3 stays within the print area",
     "edited exit status",
     "content and CSS customization",
     "code and raw HTML are inert text",
@@ -87,6 +94,10 @@
     },
     {
       "label": "repeat",
+      "exit": 0
+    },
+    {
+      "label": "long-code",
       "exit": 0
     },
     {
@@ -162,19 +173,41 @@
       "exit": 0
     }
   ],
-  "sample_pdf_sha256": "a763c32dd59112ca8b51e259663dce9abe7caf0d5c7a6d1f4269b42e4f097b66",
+  "longCode": {
+    "pages": [
+      {
+        "page": 1,
+        "glyphs": 4514,
+        "withinPrintArea": true
+      },
+      {
+        "page": 2,
+        "glyphs": 5130,
+        "withinPrintArea": true
+      },
+      {
+        "page": 3,
+        "glyphs": 2376,
+        "withinPrintArea": true
+      }
+    ],
+    "pdfSha256": "4db20991bb2e7bf6e5607a87470c8359faa3d55ec8d317d6ce0e961c5915fb41",
+    "inputSha256": "53842013861a7e3b4bee49aef44dadf143401132ac8ab548d354942562c49e28",
+    "completeOrderedText": true
+  },
+  "sample_pdf_sha256": "8393649b112637ddd8fd2e7a4370d6d60c8db5ca6920d65d90f9bb380298eb14",
   "sample_pages": 2,
   "embedded_faces": [
     "IBMPlexMono-Regular",
     "Inter-Regular"
   ],
   "sample_render": {
-    "fullbleed": "2.5.10",
+    "fullbleed": "2.5.41",
     "markdown_it_py": "4.2.0",
     "input_sha256": "bcfb958cdad4fd82117776258de5c440fe911ae13d501b54ddc34c697e15f6dd",
     "css_sha256": "36e7e2e0af982d43b3e4a9912c3a941c1cef4690776e9fb8c946e5d77c362178",
-    "pdf_sha256": "a763c32dd59112ca8b51e259663dce9abe7caf0d5c7a6d1f4269b42e4f097b66",
-    "pdf_bytes": 146237,
+    "pdf_sha256": "8393649b112637ddd8fd2e7a4370d6d60c8db5ca6920d65d90f9bb380298eb14",
+    "pdf_bytes": 146297,
     "missing_glyphs": [],
     "fonts": [
       {
@@ -195,8 +228,8 @@
       }
     ],
     "previews": [
-      "preview-a763c32dd591/page_page1.png",
-      "preview-a763c32dd591/page_page2.png"
+      "preview-8393649b1126/page_page1.png",
+      "preview-8393649b1126/page_page2.png"
     ]
   }
 }
