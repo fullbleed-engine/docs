@@ -35,6 +35,10 @@ fixtures.push(...JSON.parse(await readFile(join(root, 'tools/playground-fixtures
 const quotations = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-quotes-2.5.38.json'), 'utf8'));
 assert.equal(quotations.cases.length, 41);
 fixtures.push(...quotations.cases.map(item => ({ ...item, name: 'quote-' + item.name, pages: 1 })));
+const decorations = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/text-decorations-2.5.40.json'), 'utf8'));
+assert.equal(decorations.cases.length, 16);
+fixtures.push(...decorations.cases.map(item => ({ ...item, name: 'decoration-' + item.name, pages: 1 })));
+
 
 for (const fixture of fixtures) {
   const { name, pages } = fixture;

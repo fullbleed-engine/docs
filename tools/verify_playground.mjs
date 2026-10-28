@@ -115,6 +115,12 @@ for (const item of quotationFixtures.cases) {
   await fixture('quote-' + item.name, item.html, item.css, 1);
 }
 report.checks.push('Nested and suppressed quotation fixtures preserve native/WASI and repeat equality; independent readers check their exact text');
+const decorations = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/text-decorations-2.5.40.json'), 'utf8'));
+assert.equal(decorations.cases.length, 16);
+for (const item of decorations.cases) {
+  await fixture('decoration-' + item.name, item.html, item.css, 1);
+}
+report.checks.push('Text decoration fixtures preserve native/WASI and repeat equality; independent readers check geometry and pixels');
 report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);

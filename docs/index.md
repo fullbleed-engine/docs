@@ -159,7 +159,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     cargo new invoice-demo
     cd invoice-demo
-    cargo add fullbleed@=2.5.38 --features svg_raster
+    cargo add fullbleed@=2.5.40 --features svg_raster
     ```
 
     Replace `src/main.rs` with:
@@ -299,7 +299,7 @@ Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](c
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.38 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.38) links the published engine packages and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.40 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.40) links the published engine packages and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
 
 [Browse the CSS comparison](guides/css-explorer.md) to inspect printed pages and
 download PDFs from all 1,662 fixtures, including failures and disputed references.

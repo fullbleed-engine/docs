@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2538-node-083">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2540-node-084">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -32,13 +32,13 @@ hide:
     <section class="pg-output" aria-label="PDF preview" aria-busy="true">
       <div class="pg-pane-top"><span class="pg-output-label">THE PRINTED PAGE</span><div class="pg-pagination"><button id="pg-previous" aria-label="Previous PDF page" disabled>←</button><span id="pg-page-count">—</span><button id="pg-next" aria-label="Next PDF page" disabled>→</button></div></div>
       <div class="pg-canvas"><p id="pg-placeholder">Preparing your first PDF…</p><img id="pg-preview" alt="" hidden></div>
-      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.38</span><a href="../examples/">Explore the full gallery ↗</a></div>
+      <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.40</span><a href="../examples/">Explore the full gallery ↗</a></div>
     </section>
   </div>
   <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
   <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
   <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download any files you want to keep before leaving. The first render downloads the engine and bundled fonts.</p>
-  <p id="pg-feedback" class="pg-footnote"><a id="pg-report" href="https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml&amp;title=%5BBug%5D%3A+Playground+rendering&amp;version=2.5.38+%28browser+playground%29&amp;environment=WebAssembly+playground%3B+browser+and+operating+system%3A+%5Badd+yours%5D" target="_blank" rel="noopener noreferrer">Report a rendering problem</a>. Opens a public GitHub form in a new tab. Use sample data; your document is not attached.</p>
+  <p id="pg-feedback" class="pg-footnote"><a id="pg-report" href="https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml&amp;title=%5BBug%5D%3A+Playground+rendering&amp;version=2.5.40+%28browser+playground%29&amp;environment=WebAssembly+playground%3B+browser+and+operating+system%3A+%5Badd+yours%5D" target="_blank" rel="noopener noreferrer">Report a rendering problem</a>. Opens a public GitHub form in a new tab. Use sample data; your document is not attached.</p>
 </div>
 
 <noscript>This playground needs JavaScript to run Fullbleed on your device. You can also <a href="../examples/">download the examples</a> or <a href="../getting-started/quickstart/">render with Python</a>.</noscript>
@@ -61,7 +61,7 @@ terminal there, and run:
 
 === "Node.js"
 
-    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.8.3 and its dependency.
+    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.8.4 and its dependency.
 
     ```bash
     npm ci --ignore-scripts
@@ -70,7 +70,7 @@ terminal there, and run:
 
 Open `output/document.pdf`; PNG previews are in `output/preview/`. Edit
 `input.html` or `style.css`, then run the script again. The project uses Fullbleed
-engine 2.5.38 to match this demo. The Node renderer preserves your CSS with
+engine 2.5.40 to match this demo. The Node renderer preserves your CSS with
 `defaultStyles: false`. The ZIP
 is assembled on your device, using the source present when you click the button.
 It does not upload your document.
@@ -93,7 +93,7 @@ or `notice`. You can keep editing and add `--watch` to rebuild after each save.
 [Run the Python notebook](getting-started/notebook.md){ .md-button }
 [CSS support](css-coverage.md){ .md-button }
 
-The playground uses the released **Fullbleed 2.5.38** Rust engine, compiled to
+The playground uses the released **Fullbleed 2.5.40** Rust engine, compiled to
 WebAssembly. Page previews are rendered from the same PDF you download, including
 the report's gradient chart fills. It accepts static
 HTML/CSS, with Inter, DM Serif Display, and Bebas Neue embedded fonts. JavaScript
@@ -113,10 +113,10 @@ fictional.
 · [Native/WASI fixture checks](assets/playground/verification.json)
 · [Project download checks](assets/playground/project-verification.json)
 · [Node project checks](assets/playground/node-project-verification.json)
-· [Release upgrade checks](assets/playground/upgrade-verification-083.json)
+· [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=engine-2538-node-083"></script>
+<script type="module" src="../assets/playground/app.js?v=engine-2540-node-084"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.

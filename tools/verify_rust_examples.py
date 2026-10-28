@@ -101,7 +101,10 @@ expected_names |= {case['name'] for case in pagination['cases']}
 quotations = json.loads((ROOT / 'tools/playground-fixtures/generated-quotes-2.5.38.json').read_text(encoding='utf-8'))
 assert len(quotations['cases']) == 41
 expected_names |= {'quote-' + case['name'] for case in quotations['cases']}
-assert len(expected_names) == 70
+decorations = json.loads((ROOT / 'tools/playground-fixtures/text-decorations-2.5.40.json').read_text(encoding='utf-8'))
+assert len(decorations['cases']) == 16
+expected_names |= {'decoration-' + case['name'] for case in decorations['cases']}
+assert len(expected_names) == 86
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 assert len(report['fixtures']) == len(playground['fixtures']) == len(expected_names)
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
