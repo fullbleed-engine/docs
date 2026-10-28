@@ -147,7 +147,7 @@
     "invoice text: 5,400.00",
     "invoice glyph bounds on every page",
     "ready duplicate is 200",
-    "private path unavailable /storage/documents/35cc5961-f2e6-49f3-bc02-f04c39fcb7f9.pdf",
+    "private path unavailable /storage/documents/5be5cffb-57ad-46a0-9515-a51e9a951687.pdf",
     "private path unavailable /.env",
     "private path unavailable /database/database.sqlite",
     "completed-replay exit status",
@@ -207,8 +207,7 @@
     "browser stores no service key",
     "blade-render exit status",
     "native preview produced",
-    "application logs exclude service keys and invoice customer",
-    "matches published sample PDF"
+    "application logs exclude service keys and invoice customer"
   ],
   "pdfs": [
     {
@@ -359,34 +358,34 @@
     "Pillow": "12.3.0",
     "php": "8.4.26",
     "laravel": "Laravel Framework 13.35.0",
-    "browser": "155.0.8059.40"
+    "browser": "153.0.8010.12"
   },
-  "archive_sha256": "a875ac4ac915594b6328806c50414b5c017064dd9e04a71133482eba98ea136a",
+  "archive_sha256": "9501e7c76fd7fdd1b03fac0cded753ce1caca1ec5af16fa5a759483a18cca35a",
   "concurrent_responses": [
     {
       "status": 202,
-      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "id": "f542e2fa-25bd-4600-866d-9c659a5a5ea6",
       "state": "queued",
       "retry_after": "2"
     },
     {
       "status": 202,
-      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "id": "f542e2fa-25bd-4600-866d-9c659a5a5ea6",
       "state": "queued",
       "retry_after": "2"
     },
     {
       "status": 202,
-      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "id": "f542e2fa-25bd-4600-866d-9c659a5a5ea6",
       "state": "queued",
       "retry_after": "2"
     },
     {
       "status": 202,
-      "id": "0cece5a2-486b-41fd-9eca-6754b740be45",
+      "id": "f542e2fa-25bd-4600-866d-9c659a5a5ea6",
       "state": "queued",
       "retry_after": "2"
     }
   ],
-  "check_count": 206
+  "check_count": 205
 }
