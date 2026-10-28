@@ -33,7 +33,7 @@ def build():
             archive.writestr(info, data, compresslevel=9)
             records.append({'path': name, 'bytes': len(data), 'sha256': sha256(data).hexdigest()})
     manifest = {'schema': 'fullbleed.dotnet-component-starter.v1', 'package': 'FullBleed.DotNet',
-                'packageVersion': version, 'engineVersion': '2.5.39', 'framework': 'net10.0',
+                'packageVersion': version, 'engineVersion': '2.5.40', 'framework': 'net10.0',
                 'upstreamCommit': upstream['commit'], 'files': records,
                 'zipSha256': sha256(target.read_bytes()).hexdigest(), 'zipBytes': target.stat().st_size,
                 'outputs': {name: sha256((ASSETS / name).read_bytes()).hexdigest()

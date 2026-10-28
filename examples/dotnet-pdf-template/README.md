@@ -14,7 +14,7 @@ dotnet run -c Release --no-restore -- --out output
 Open `output/certificates.pdf` and the three `page-*.png` previews. These show
 the final composed PDF. `render.json` records the package version, input and
 output hashes, missing-glyph check, repeated output, and preserved template.
-The project pins FullBleed.DotNet 0.2.3. Native rendering needs no Python,
+The project pins FullBleed.DotNet 0.2.4. Native rendering needs no Python,
 browser, rendering service, or system-font installation.
 
 ## Change the records and styling

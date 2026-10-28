@@ -227,3 +227,4 @@ docs/assets/dotnet-pdf-template/** -text
 docs/assets/dotnet-pdf-template/*.pdf binary
 docs/assets/dotnet-pdf-template/*.png binary
 docs/assets/dotnet-pdf-template/*.zip binary
+docs/assets/dotnet-pdf-template/verification.json whitespace=cr-at-eol

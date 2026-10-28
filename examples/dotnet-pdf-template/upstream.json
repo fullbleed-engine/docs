@@ -1,8 +1,8 @@
 {
-  "packageVersion": "0.2.3",
-  "engineVersion": "2.5.39",
-  "packageSha256": "650b71406a40e19edd8c00f280d36f41c4cfcf5603ad86f219512e3ff0f8651a",
-  "packageCommit": "8609542e6aeb256fd57f0102c55783ecd5763cb1",
+  "packageVersion": "0.2.4",
+  "engineVersion": "2.5.40",
+  "packageSha256": "99cee937390550e6785279b5115f4bdf0fb49ac663a305cee1a26b35b9653f31",
+  "packageCommit": "cb3d83c73824e07a85fa89d7b1c98d5ed962411c",
   "templateRepository": "https://github.com/fullbleed-engine/docs",
   "templateCommit": "641607ae65355395156989f8aaa048e25e6ee0db",
   "assets": [

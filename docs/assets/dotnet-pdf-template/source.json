@@ -2,10 +2,10 @@
   "schema": "fullbleed.dotnet-pdf-template.v1",
   "source": "examples/dotnet-pdf-template",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.2.3",
-  "engineVersion": "2.5.39",
-  "packageSha256": "650b71406a40e19edd8c00f280d36f41c4cfcf5603ad86f219512e3ff0f8651a",
-  "packageCommit": "8609542e6aeb256fd57f0102c55783ecd5763cb1",
+  "packageVersion": "0.2.4",
+  "engineVersion": "2.5.40",
+  "packageSha256": "99cee937390550e6785279b5115f4bdf0fb49ac663a305cee1a26b35b9653f31",
+  "packageCommit": "cb3d83c73824e07a85fa89d7b1c98d5ed962411c",
   "framework": "net10.0",
   "files": [
     {
@@ -66,12 +66,12 @@
     {
       "path": "README.md",
       "bytes": 2885,
-      "sha256": "f7e98163cb0d4689dc853532b3a13af5a51f4c20adbe1bd317bb84a55cad25fc"
+      "sha256": "98148bf5f764dc9e996309b0148ea7e763e39e64f8a9f4019a5284b255081e30"
     },
     {
       "path": "TemplateCertificates.csproj",
       "bytes": 573,
-      "sha256": "3169269490e26d32be63f627e96edf728b025235e7ad24a3ca5d030d62e70555"
+      "sha256": "b525112eaaffff1da7c28feffbeaf6a43367dec2347ca41493175643e15fe1be"
     },
     {
       "path": "global.json",
@@ -80,17 +80,17 @@
     },
     {
       "path": "packages.lock.json",
-      "bytes": 306,
-      "sha256": "9d009443de84d7eed986ae395121dfa64fb4e16a62d2322e9266089523f4f27b"
+      "bytes": 305,
+      "sha256": "132d1d071f3d856fafb683ec5dc840a6aaea755735d04bd07760c0420a5fa636"
     },
     {
       "path": "upstream.json",
       "bytes": 1563,
-      "sha256": "99afe2d6287b53c918775a7bbd3f695f5def3fe71471b28632667c1396679eb9"
+      "sha256": "c74848d729b96dfefe578304088c5956899b0eb77b6748f5d7b6c918f57a9dfb"
     }
   ],
-  "zipBytes": 495645,
-  "zipSha256": "ec9d3f556350690af5b2db136c471e49b90c906ac34094432dd324506c0a4133",
+  "zipBytes": 495646,
+  "zipSha256": "a42cc2fb54f5ae1c69bd8250fb8b1fc2e4ea9eb55004f93ebea0295dd6c4f68f",
   "outputs": {
     "certificates.pdf": "d9bc53a26c844a4d1d0fc67886b1b3d50fc8a9fc94dac9c429f57d1fc90b3113",
     "page-1.png": "016b9802e1be5215c2beed5f4d054b5fddaec4bfdefb34e1175d11114100a8a4",
