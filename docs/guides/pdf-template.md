@@ -20,7 +20,7 @@ the background's HTML/CSS source as well as its ready-to-use PDF.
 [![Common Ground certificate with large green typography, a warm orange wheel motif, and personalized recipient and workshop details.](../assets/pdf-template/page-1.png)](../assets/pdf-template/certificates.pdf)
 
 The fictional sample uses **Fullbleed 2.5.39** in Python and
-**FullBleed.DotNet 0.2.3** in C#, with a bundled Inter font. Both projects
+**FullBleed.DotNet 0.2.4** in C#, with a bundled Inter font. Both projects
 use the same artwork and records. The previews show the final composed PDF,
 including the background and overlay.
 

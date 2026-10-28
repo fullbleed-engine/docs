@@ -23,7 +23,7 @@ dotnet = Path(args.dotnet)
 source = root / 'examples/dotnet-pdf-template'
 assets = root / 'docs/assets/dotnet-pdf-template'
 manifest = json.loads((assets / 'source.json').read_text(encoding='utf-8'))
-assert manifest['packageVersion'] == '0.2.3' and manifest['engineVersion'] == '2.5.39'
+assert manifest['packageVersion'] == '0.2.4' and manifest['engineVersion'] == '2.5.40'
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=False)
 project = out / 'project with spaces/fullbleed-csharp-pdf-template'
@@ -95,7 +95,7 @@ def render(label, data=None, supplied_template=None, expected=0, raw=None):
         assert not (destination / 'certificates.pdf').exists()
         return None
     report = json.loads((destination / 'render.json').read_text(encoding='utf-8'))
-    assert report['packageVersion'] == '0.2.3' and report['templateUnchanged'] and report['deterministicRepeat']
+    assert report['packageVersion'] == '0.2.4' and report['templateUnchanged'] and report['deterministicRepeat']
     assert report['missingGlyphs'] == 0 and report['annotationMode'] == 'none'
     assert report['pdfSha256'] == digest(destination / 'certificates.pdf')
     assert (destination / 'certificates.pdf').read_bytes() == (destination / 'certificates-repeat.pdf').read_bytes()
@@ -144,7 +144,7 @@ def inspect(folder, expected_records, heading='CERTIFICATE OF PARTICIPATION'):
 
 try:
     invoke('restore', [dotnet, 'restore', 'TemplateCertificates.csproj', '--locked-mode', '--configfile', 'NuGet.Config'])
-    restored = out / 'package-cache/fullbleed.dotnet/0.2.3/fullbleed.dotnet.0.2.3.nupkg'
+    restored = out / 'package-cache/fullbleed.dotnet/0.2.4/fullbleed.dotnet.0.2.4.nupkg'
     assert digest(restored) == manifest['packageSha256']
     with zipfile.ZipFile(restored) as package:
         assert '.signature.p7s' in package.namelist()
@@ -210,7 +210,7 @@ try:
     assert digest(template) == template_hash
     for name, expected in preparation['sourceSha256'].items():
         assert digest(source / name) == expected, name
-    record.update(status='passed', package='0.2.3', engine='2.5.39', default=baseline, edited=edited,
+    record.update(status='passed', package='0.2.4', engine='2.5.40', default=baseline, edited=edited,
         longValues=long_values, customBackground=custom, renderedPages=6, invalidInputsRejected=12,
         existingPathsPreserved=2, unchangedAuthoringSource=True,
         scope='Exact downloadable source restored only from public NuGet into empty caches, using a path with spaces. Four rendered cases, Unicode normalization/escaping, independent field geometry, rejected inputs and preserved paths. The default native previews match the Python example; this is not universal raster parity or a conformance claim.')

@@ -1,0 +1,215 @@
+{
+  "status": "passed",
+  "startedAt": "2026-10-28T03:29:18.352865+00:00",
+  "commands": [
+    {
+      "label": "restore",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "build",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "default",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "edited",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "long-values",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "rebuild-template",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "custom-background",
+      "exitCode": 0,
+      "expected": 0
+    },
+    {
+      "label": "empty-data",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "extra-field",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "invalid-date",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "long-name",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "invalid-id",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "control-character",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "missing-glyph",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "numeric-name",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "missing-field",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "duplicate-field",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "reject-multiple-pages",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "reject-encrypted-template",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "preserve-existing-output",
+      "exitCode": 2,
+      "expected": 2
+    },
+    {
+      "label": "preserve-template-path",
+      "exitCode": 2,
+      "expected": 2
+    }
+  ],
+  "platform": "Windows",
+  "zipSha256": "a42cc2fb54f5ae1c69bd8250fb8b1fc2e4ea9eb55004f93ebea0295dd6c4f68f",
+  "updatedAt": "2026-10-28T03:29:35.831950+00:00",
+  "packageSha256": "99cee937390550e6785279b5115f4bdf0fb49ac663a305cee1a26b35b9653f31",
+  "defaultPreviewsMatchPythonExample": true,
+  "package": "0.2.4",
+  "engine": "2.5.40",
+  "default": {
+    "pdfSha256": "d9bc53a26c844a4d1d0fc67886b1b3d50fc8a9fc94dac9c429f57d1fc90b3113",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Samira Patel",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0142"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "292a9edafc4f84ec95daa37cc2332bd26c7e1ae9e5c8b32e36232dd4133e3751"
+      },
+      {
+        "page": 2,
+        "fields": [
+          "Mateo Rivera",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0143"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "25291817ca845ab1c97e4ab35574d5addc12e52ed30d1a03925ac7e22351f928"
+      },
+      {
+        "page": 3,
+        "fields": [
+          "Avery Morgan",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0144"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "ed33e1bb35daac318b1af0831dcf446b2f11138543829a5c3014ccf1d801a888"
+      }
+    ]
+  },
+  "edited": {
+    "pdfSha256": "30dd79745efd64ffd97a61353d7cef3f1aab427ccd2d6d532c7fa5dd0dd66419",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Zo\u00eb <Workshop> & Co.",
+          "Building spaces & <stories>",
+          "29 February 2028",
+          "CG_2028.001"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "07771113ed7a324e7d2edf36dfd345fdb16628cca8a8ad143a8f27a33b3b4d1a"
+      }
+    ]
+  },
+  "longValues": {
+    "pdfSha256": "6256a25ab5904153ca7903f73aabe715ced6e0ff38db752299716db76b099434",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWM",
+          "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW",
+          "24 October 2026",
+          "ZZZZZZZZZZZZZZZZZZZZ"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "10695ddd7e62d53032a7623fe1afe3c3433af277a90f32157dc897195e45522a"
+      }
+    ]
+  },
+  "customBackground": {
+    "pdfSha256": "ae3569059f83e372aaa623a3ef1776a90088f73aba28daef51a988a80218febb",
+    "pages": [
+      {
+        "page": 1,
+        "fields": [
+          "Samira Patel",
+          "Designing places for people",
+          "24 October 2026",
+          "CG-2026-0142"
+        ],
+        "textWithinPage": true,
+        "annotations": 0,
+        "pdfiumPixelsSha256": "27c677d21c59d955482a804610621f1a693d38a6a19afbe9574fae79adede370"
+      }
+    ]
+  },
+  "renderedPages": 6,
+  "invalidInputsRejected": 12,
+  "existingPathsPreserved": 2,
+  "unchangedAuthoringSource": true,
+  "scope": "Exact downloadable source restored only from public NuGet into empty caches, using a path with spaces. Four rendered cases, Unicode normalization/escaping, independent field geometry, rejected inputs and preserved paths. The default native previews match the Python example; this is not universal raster parity or a conformance claim."
+}
