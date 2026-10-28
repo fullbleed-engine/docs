@@ -1,7 +1,7 @@
 YOUR FULLBLEED PROJECT
 
 This ZIP contains the HTML and CSS that were in the playground when you clicked
-Download project, the bundled fonts and licenses, and a Python renderer.
+Download project, the bundled fonts and licenses, selected local assets, and a Python renderer.
 
 RUN IT
 
@@ -17,8 +17,10 @@ Edit input.html or style.css, then run python render.py again.
 The requirement pins Fullbleed {{ENGINE_VERSION}}, matching the browser demo.
 Installing it needs an internet connection. Rendering with these bundled assets
 runs locally; your HTML and CSS are not uploaded. No browser or system fonts are
-needed by this Python project. Additional assets you reference must be supplied
-separately. The local package can handle jobs beyond the browser demo's limits.
+needed by this Python project. Files you selected in the playground are in assets/;
+reference them with paths such as assets/logo.png. Selected TTF/OTF fonts are
+registered by the runner. Other assets you reference must be supplied separately.
+The local package can handle jobs beyond the browser demo's limits.
 
 KEEP BUILDING
 
@@ -38,3 +40,5 @@ LICENSES
 Starter templates and render.py: MIT (LICENSE.txt).
 Fonts: SIL Open Font License 1.1 (the *-OFL.txt files in fonts/).
 Font attribution and exact source revisions: fonts/font-sources.json.
+Imported documents and assets keep their original licenses. Selected TXT license
+files are preserved in assets/. The starter's MIT license does not relicense them.

@@ -1,10 +1,16 @@
 // SPDX-License-Identifier: MIT
-import { WASI, File, OpenFile, ConsoleStdout, PreopenDirectory } from './wasi/index.js';
+import { WASI, File, Directory, OpenFile, ConsoleStdout, PreopenDirectory } from './wasi/index.js';
 
 export async function render(module, files) {
   const messages = [];
   const collect = line => { if (messages.join('\n').length < 4000) messages.push(line); };
-  const root = new PreopenDirectory('.', new Map(Object.entries(files).map(([name, bytes]) => [name, new File(bytes)])));
+  const entries = new Map(), assets = new Map();
+  for (const [name, bytes] of Object.entries(files)) {
+    if (name.startsWith('assets/')) assets.set(name.slice(7), new File(bytes));
+    else entries.set(name, new File(bytes));
+  }
+  if (assets.size) entries.set('assets', new Directory(assets));
+  const root = new PreopenDirectory('.', entries);
   const wasi = new WASI(['fullbleed'], [], [
     new OpenFile(new File([])),
     ConsoleStdout.lineBuffered(collect),

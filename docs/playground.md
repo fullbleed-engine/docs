@@ -1,22 +1,29 @@
 ---
 title: HTML/CSS to PDF playground
-description: Edit HTML and CSS and generate a real Fullbleed PDF directly in your browser. Free, no sign-in, and no document upload. Start with a designed invoice or illustrated report.
+description: Open local HTML, CSS, images, and fonts to generate a Fullbleed PDF in your browser. Free, no sign-in, and no upload. Download a matching Python or Node.js project.
 hide:
   - navigation
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=engine-2540-node-084">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=local-files-2540">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
     <p class="pg-eyebrow">A little code. A finished page.</p>
     <h1>Make it your own.</h1>
-    <p>Edit the HTML or CSS. Render a real PDF. Everything runs on your device.</p>
+    <p>Edit an example or open your own HTML, CSS, images, and fonts. Everything runs on your device.</p>
   </div>
   <div class="pg-toolbar">
     <div class="pg-picker"><label for="pg-example">Start with</label><select id="pg-example" disabled><option value="invoice">Northstar invoice</option><option value="report">Common Ground report</option><option value="notice">Riverton notice</option></select></div>
     <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a></div>
+  </div>
+  <div class="pg-local-files">
+    <div class="pg-local-top"><button id="pg-open-files" disabled>Open local files</button><span id="pg-asset-count">0 local assets</span></div>
+    <input id="pg-files" class="pg-sr" type="file" multiple accept=".html,.htm,.css,.png,.jpg,.jpeg,.svg,.ttf,.otf,.txt" tabindex="-1" aria-label="Choose local document files">
+    <p>Choose HTML/CSS, PNG, JPEG, SVG, TTF, or OTF files. Opening HTML starts a new document. Your files stay in this tab.</p>
+    <p id="pg-asset-help" hidden>Use the paths below in your HTML or CSS. Assets stay available when switching examples and are included in Download project. Optional TXT license files are included too.</p>
+    <ul id="pg-assets" aria-label="Local document assets"></ul>
   </div>
   <div class="pg-export">
     <div class="pg-picker"><label for="pg-project-language">Project language</label><select id="pg-project-language" disabled><option value="python">Python</option><option value="node">Node.js</option></select></div>
@@ -43,6 +50,36 @@ hide:
 
 <noscript>This playground needs JavaScript to run Fullbleed on your device. You can also <a href="../examples/">download the examples</a> or <a href="../getting-started/quickstart/">render with Python</a>.</noscript>
 
+## Try your own document
+
+Choose **Open local files** to select HTML, CSS, images, and fonts from your device.
+Opening HTML starts **Your document** and clears the separate stylesheet unless
+you select a CSS file at the same time. Opening CSS alone keeps the current HTML.
+Your edited examples remain in the **Start with** menu.
+
+Use the displayed asset paths in your source. For example:
+
+```html
+<img src="assets/logo.png" alt="Company logo" width="120">
+```
+
+Give an imported font a convenient CSS family name:
+
+```css
+@font-face { font-family: Brand; src: url("assets/brand.ttf"); }
+body { font-family: Brand; }
+```
+
+Assets stay available when switching examples. Remove an asset before adding a
+replacement with the same filename. The demo accepts up to **16 assets**, **8 MiB
+per asset**, and **20 MiB combined**, plus **200 KB of HTML/CSS**. Use filenames
+without folders; update references such as `images/logo.png` to the displayed
+`assets/logo.png`. Remote files and linked external stylesheets are not fetched.
+
+**Download project** includes the source, selected assets, and their hashes for
+Python or Node.js. Optional TXT license files are included as assets. Files stay
+in this tab until you download them; closing the tab clears them.
+
 ## Keep building
 
 Choose **Python** or **Node.js** under **Project language**, then **Download
@@ -61,7 +98,7 @@ terminal there, and run:
 
 === "Node.js"
 
-    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.8.4 and its dependency.
+    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.8.5 and its dependency.
 
     ```bash
     npm ci --ignore-scripts
@@ -97,7 +134,8 @@ The playground uses the released **Fullbleed 2.5.40** Rust engine, compiled to
 WebAssembly. Page previews are rendered from the same PDF you download, including
 the report's gradient chart fills. It accepts static
 HTML/CSS, with Inter, DM Serif Display, and Bebas Neue embedded fonts. JavaScript
-inside your document is not executed, and remote assets are not loaded. Use inline SVG for artwork.
+inside your document is not executed, and remote assets are not loaded. Open local
+images and fonts or use inline SVG for artwork.
 
 Unembedded Helvetica, Times, and Courier variants also produce visible previews.
 The [font-preview guide](engine/assets.md#standard-14-native-previews) explains
@@ -116,7 +154,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=engine-2540-node-084"></script>
+<script type="module" src="../assets/playground/app.js?v=local-files-2540"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.

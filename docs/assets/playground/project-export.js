@@ -3,7 +3,8 @@ import { storeZip } from './zip-store.js';
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
-const examples = new Set(['invoice', 'report', 'notice']);
+const examples = new Set(['invoice', 'report', 'notice', 'custom']);
+const { validateAssets, isFont } = await import(`./local-files.js${new URL(import.meta.url).search}`);
 
 async function fetchBytes(path) {
   let response;
@@ -20,11 +21,14 @@ async function sha256(bytes) {
   return Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, '0')).join('');
 }
 
-export async function buildProject({ name, html, css, language = 'python' }, load = fetchBytes) {
+export async function buildProject({ name, html, css, language = 'python', assets = [] }, load = fetchBytes) {
   if (!examples.has(name) || typeof html !== 'string' || typeof css !== 'string') {
     throw new Error('Choose a playground example before downloading a project.');
   }
   if (!['python', 'node'].includes(language)) throw new Error('Choose Python or Node.js for your project.');
+  validateAssets(assets);
+  // Snapshot before awaiting downloads so callers can keep editing their document.
+  assets = assets.map(asset => ({ name: asset.name, bytes: asset.bytes.slice() }));
   const node = language === 'node';
   const [buildBytes, fontBytes, runner, readme, license] = await Promise.all([
     load('build.json'), load('font-sources.json'), load(node ? 'project/node/render.mjs' : 'project/render.py'),
@@ -64,6 +68,7 @@ export async function buildProject({ name, html, css, language = 'python' }, loa
     { name: 'LICENSE.txt', bytes: license },
     { name: 'fonts/font-sources.json', bytes: fontBytes },
     ...fonts,
+    ...assets.map(asset => ({ name: `assets/${asset.name}`, bytes: asset.bytes })),
   ];
   const manifest = {
     format: 1, source: 'https://docs.fullbleed.dev/playground/', example: name,
@@ -71,6 +76,7 @@ export async function buildProject({ name, html, css, language = 'python' }, loa
     files: await Promise.all(files.map(async file => ({ path: file.name, bytes: file.bytes.length, sha256: await sha256(file.bytes) }))),
   };
   if (node) manifest.runtime = { name: 'node', minimumVersion: '22', package: { name: 'fullbleed', version: packageVersion } };
+  if (assets.length) manifest.localAssets = assets.map(asset => ({ path: `assets/${asset.name}`, font: isFont(asset.name) }));
   files.push({ name: 'project.json', bytes: encoder.encode(JSON.stringify(manifest, null, 2) + '\n') });
   return storeZip(files);
 }

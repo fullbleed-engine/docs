@@ -118,7 +118,8 @@ try:
             check('playground uses the current published engine with SVG rendering',
                   manifest['engine']['version'] == '2.5.40' and manifest['engine']['features'] == ['svg_raster'])
             check('playground retains its bounded runtime', manifest['limits'] ==
-                  {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30})
+                  {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30,
+                   'local_assets': 16, 'local_asset_bytes': 8388608, 'local_assets_total_bytes': 20971520})
             for name, pages in [('invoice', 1), ('report', 3), ('notice', 1)]:
                 if name != 'invoice':
                     page.locator('#pg-example').select_option(name)
@@ -190,7 +191,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.4'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.5'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}

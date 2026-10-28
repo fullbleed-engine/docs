@@ -10,7 +10,7 @@
     "node": ">=22"
   },
   "dependencies": {
-    "fullbleed": "0.8.4"
+    "fullbleed": "0.8.5"
   },
   "fullbleed": {
     "engineVersion": "2.5.40"

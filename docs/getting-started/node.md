@@ -70,10 +70,11 @@ TypeScript declarations are included for both module styles.
 
 ## Export a design from the playground
 
-[Open the playground](../playground.md), edit an invoice, report, or notice,
-choose **Node.js** under **Project language**, and select **Download project**.
-The ZIP contains your current HTML/CSS, font files and licenses, a locked npm
-dependency, and `render.mjs`. Extract it and run:
+[Open the playground](../playground.md), edit an example or open your own HTML,
+CSS, images, and fonts. Choose **Node.js** under **Project language**, then select
+**Download project**. The ZIP contains your current source, selected assets,
+bundled fonts and licenses, a locked npm dependency, and `render.mjs`. Extract it
+and run:
 
 ```bash
 npm ci --ignore-scripts
@@ -82,8 +83,8 @@ npm run render
 
 Open `output/document.pdf` and the previews in `output/preview/`. Edit
 `input.html` or `style.css` and run the renderer again. These playground exports
-use **Node package 0.5.0** with the same **2.5.22** engine. Their renderer sets
-[`defaultStyles: false`](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.5.0/docs/default-styles.md)
+use **Node package 0.8.5** with the same **2.5.40** engine. Their renderer sets
+[`defaultStyles: false`](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.5/docs/default-styles.md)
 to preserve font inheritance and CSS layers exactly as entered in the playground.
 
 ## Start with a designed invoice
@@ -130,6 +131,25 @@ The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
 [package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.2#fonts-and-assets)
 includes a complete font and asset example.
+
+With **package 0.8.5 or newer**, you can preserve the filename used by a CSS
+`@font-face` rule. Supply the font as `{ name, data }`:
+
+```javascript
+import { readFile } from 'node:fs/promises';
+import { renderPdf } from 'fullbleed';
+
+const result = await renderPdf({
+  html: '<p class="brand">Your document, your typography.</p>',
+  css: '@font-face { font-family: Brand; src: url("Brand.ttf"); } .brand { font-family: Brand; }',
+  fonts: [{ name: 'Brand.ttf', data: await readFile('Brand.ttf') }],
+  defaultStyles: false,
+});
+```
+
+Use a `.ttf` or `.otf` filename without folders. Filenames must be unique;
+existing font-byte inputs remain supported. Playground exports preserve these
+names automatically.
 
 Unembedded PDF Standard 14 faces now have bundled substitutes for native PNG
 previews. The PDF keeps its original font resources, text, and advances; a PDF
