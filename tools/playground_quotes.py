@@ -71,7 +71,7 @@ def check_browser(page, out, expected=None):
             page.locator('#pg-render').click()
             expect(page.locator('#pg-download')).to_have_attribute('href', re.compile(r'^blob:'), timeout=120000)
             expect(page.locator('#pg-status')).to_contain_text('Your PDF is ready.')
-            expect(page.locator('#pg-result')).to_contain_text('Fullbleed 2.5.38')
+            expect(page.locator('#pg-result')).to_contain_text('Fullbleed 2.5.40')
             with page.expect_download() as event:
                 page.locator('#pg-download').click()
             pdf = folder / 'document.pdf'
