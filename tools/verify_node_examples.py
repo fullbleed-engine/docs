@@ -10,6 +10,8 @@ import subprocess
 import tempfile
 import zipfile
 from textwrap import dedent
+from pypdf import PdfReader
+import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
@@ -69,13 +71,14 @@ for name, relative in [("invoice.pdf", "output/invoice/invoice.pdf"), ("invoice.
 
 source = (ROOT / "docs/getting-started/node.md").read_text(encoding="utf8")
 blocks = re.findall(r"```javascript\n(.*?)```", source, re.S)
-assert len(blocks) == 2
+assert len(blocks) == 3
+quickstart_code, named_font_code, process_code = blocks
 home = (ROOT / 'docs/index.md').read_text(encoding='utf8')
 home_code = re.findall(r'```javascript\n(.*?)```', home, re.S)
-assert len(home_code) == 1 and dedent(home_code[0]).strip() == blocks[0].strip(), 'Homepage Node example differs from the executed guide.'
+assert len(home_code) == 1 and dedent(home_code[0]).strip() == quickstart_code.strip(), 'Homepage Node example differs from the executed guide.'
 snippet = workspace / "guide-snippet"
 snippet.mkdir()
-(snippet / "invoice.mjs").write_text(blocks[0], encoding="utf8", newline="\n")
+(snippet / "invoice.mjs").write_text(quickstart_code, encoding="utf8", newline="\n")
 stdout = run("guide-snippet", ["invoice.mjs"], snippet)
 assert "1 page; engine " + manifest["engine_version"] in stdout
 for name in ["invoice.pdf", "invoice.png"]:
@@ -84,7 +87,7 @@ for name in ["invoice.pdf", "invoice.png"]:
 process_script = """import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
 import { renderPdf } from 'fullbleed';
-""" + blocks[1] + """
+""" + process_code + """
 assert.equal(result.pages, 1);
 assert.equal(result.missingGlyphs, 0);
 assert.equal(result.pdf.subarray(0, 5).toString(), '%PDF-');
@@ -94,6 +97,42 @@ await writeFile('process-statement.pdf', result.pdf);
 run("process-snippet", ["process-snippet.mjs"], snippet)
 process_pdf = (snippet / "process-statement.pdf").read_bytes()
 (out / "process-statement.pdf").write_bytes(process_pdf)
+# The named-font API is newer than the deliberately pinned invoice download.
+# Execute that exact guide block with the public version used by the playground.
+named = workspace / "named-font-guide"
+named.mkdir()
+for name in ["package.json", "package-lock.json"]:
+    shutil.copyfile(ROOT / "docs/assets/playground/project/node" / name, named / name)
+named_spec = json.loads((named / "package.json").read_text(encoding="utf8"))
+assert named_spec["dependencies"]["fullbleed"] == "0.8.5"
+assert named_spec["fullbleed"]["engineVersion"] == "2.5.40"
+font_source = ROOT / "examples/markdown/fonts/IBMPlexMono-Regular.ttf"
+shutil.copyfile(font_source, named / "Brand.ttf")
+shutil.copyfile(font_source.with_name("OFL.txt"), named / "OFL.txt")
+run("named-font-install", [npm, "ci", "--ignore-scripts", "--no-audit", "--no-fund"], named)
+named_installed = json.loads((named / "node_modules/fullbleed/package.json").read_text(encoding="utf8"))
+assert named_installed["version"] == "0.8.5" and named_installed["fullbleed"]["engineVersion"] == "2.5.40"
+named_script = """import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+""" + named_font_code + """
+assert.equal(result.pages, 1);
+assert.equal(result.missingGlyphs, 0);
+await writeFile('named-font-guide.pdf', result.pdf);
+"""
+(named / "named-font-guide.mjs").write_text(named_script, encoding="utf8", newline="\n")
+run("named-font-snippet", ["named-font-guide.mjs"], named)
+named_pdf = out / "named-font-guide.pdf"
+shutil.copyfile(named / named_pdf.name, named_pdf)
+reader = PdfReader(named_pdf)
+assert len(reader.pages) == 1 and reader.pages[0].extract_text().strip() == "Your document, your typography."
+fonts = [font.get_object() for font in reader.pages[0]["/Resources"]["/Font"].values()]
+assert fonts and all("IBMPlexMono" in str(font["/BaseFont"]) for font in fonts), "The guide font alias fell back to another font."
+assert all("/FontFile2" in font["/DescendantFonts"][0].get_object()["/FontDescriptor"].get_object() for font in fonts)
+named_preview = out / "named-font-guide.pdfium.png"
+with pdfium.PdfDocument(named_pdf) as document:
+    page = document[0]
+    page.render(scale=96 / 72).to_pil().save(named_preview)
+    page.close()
 report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], text=True).strip(),
           "platform": os.name, "package_version": installed["version"], "engine_version": installed["fullbleed"]["engineVersion"],
           "installed_package_matches_manifest": True,
@@ -101,6 +140,11 @@ report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], 
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
           "homepage_snippet_matches_executed_guide": True,
           "process_snippet": {"ok": True, "pdf_sha256": digest(process_pdf)},
+          "named_font_snippet": {"ok": True, "package_version": "0.8.5", "engine_version": "2.5.40",
+                                 "source_sha256": digest(named_font_code.encode("utf8")),
+                                 "font_sha256": digest(font_source.read_bytes()),
+                                 "pdf_sha256": digest(named_pdf.read_bytes()), "preview_sha256": digest(named_preview.read_bytes()),
+                                 "embedded_fonts": [str(font["/BaseFont"]) for font in fonts]},
           "workspace": workspace.name, "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."}
 (out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
 print(json.dumps({"ok": True, "node": report["node"], "files": report["download_files"], "commands": len(commands)}))

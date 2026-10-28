@@ -5,16 +5,25 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { renderPdf, version, engineVersion } from 'fullbleed';
 
-const file = name => new URL(name, import.meta.url);
+const file = name => new URL(name.split('/').map(encodeURIComponent).join('/'), import.meta.url);
 const manifest = JSON.parse(await readFile(file('project.json'), 'utf8'));
 if (version !== manifest.runtime.package.version || engineVersion !== manifest.engine.version) {
   throw new Error('The installed Fullbleed version differs from this project. Run npm ci --ignore-scripts.');
 }
 const fontNames = ['Inter-Variable.ttf', 'DMSerifDisplay-Regular.ttf', 'DMSerifDisplay-Italic.ttf', 'BebasNeue-Regular.ttf'];
+const local = manifest.localAssets ?? [];
+for (const asset of local) {
+  if (!/^assets\/[^/\\:\x00-\x1f]+$/.test(asset.path) || ['.', '..'].includes(asset.path.slice(7))) {
+    throw new Error('Invalid local asset path in project.json');
+  }
+}
+const localBytes = await Promise.all(local.map(async asset => ({ ...asset, bytes: await readFile(file(asset.path)) })));
 const result = await renderPdf({
   html: await readFile(file('input.html'), 'utf8'),
   css: await readFile(file('style.css'), 'utf8'),
-  fonts: await Promise.all(fontNames.map(name => readFile(file('fonts/' + name)))),
+  fonts: [...await Promise.all(fontNames.map(name => readFile(file('fonts/' + name)))),
+    ...localBytes.filter(asset => asset.font).map(asset => ({ name: asset.path.slice(7), data: asset.bytes }))],
+  assets: Object.fromEntries(localBytes.map(asset => [asset.path.slice(7), asset.bytes])),
   defaultStyles: false,
   previewDpi: 96,
 });

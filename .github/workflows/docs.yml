@@ -923,6 +923,7 @@ jobs:
       - name: Verify downloadable playground projects
         run: |
           python -m pip install fullbleed==2.5.40 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          node tools/test_playground_local_files.mjs
           node tools/verify_project_export.mjs
           python -I tools/verify_project_export.py
           python -I tools/verify_node_project_export.py
@@ -1214,6 +1215,16 @@ jobs:
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
+      - name: Import local assets and replay both downloaded projects
+        run: python tools/check_playground_local_files.py --site site --out output/playground-local-files
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-local-files-verification
+          path: |
+            output/playground-local-files/
+            !output/playground-local-files/**/node_modules/**
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:

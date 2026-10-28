@@ -3,6 +3,7 @@ import { prepareExample } from './examples.js';
 
 const assetGeneration = new URL(import.meta.url).search;
 const { buildProject } = await import(`./project-export.js${assetGeneration}`);
+const { readSelection, validateSource } = await import(`./local-files.js${assetGeneration}`);
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
@@ -10,6 +11,7 @@ const projectLanguage = el('project-language');
 const originals = new Map(), edits = new Map();
 let current = 'invoice', worker = null, deadline = null, pageIndex = 0, pages = [], pdfUrl = null;
 let renderedSource = null;
+let localAssets = [], assetVersion = 0;
 
 function status(message, error = false) {
   el('status').textContent = message;
@@ -17,7 +19,8 @@ function status(message, error = false) {
 }
 
 function changedSinceRender() {
-  return !renderedSource || renderedSource.html !== html.value || renderedSource.css !== css.value;
+  return !renderedSource || renderedSource.html !== html.value || renderedSource.css !== css.value
+    || renderedSource.assetVersion !== assetVersion;
 }
 
 function setDownload(enabled) {
@@ -71,7 +74,7 @@ function fail(message) {
 
 function startRender() {
   if (worker) finish();
-  const source = { html: html.value, css: css.value };
+  const source = { html: html.value, css: css.value, assets: localAssets, assetVersion };
   if (new TextEncoder().encode(source.html + source.css).length > 200000) {
     status('This playground accepts up to 200 KB of HTML and CSS combined.', true);
     return;
@@ -113,7 +116,7 @@ function startRender() {
       finish();
       setDownload(!changedSinceRender());
       if (changedSinceRender()) status('Source changed during rendering. Render again to update the PDF.');
-      else if (data.report.missing_glyphs) status(`PDF created, but ${data.report.missing_glyphs} character(s) have no glyph in the bundled fonts. Review the output before using it.`, true);
+      else if (data.report.missing_glyphs) status(`PDF created, but ${data.report.missing_glyphs} character(s) have no glyph in the available fonts. Review the output before using it.`, true);
       else status('Your PDF is ready. Change the design, or download it and keep building.');
     };
     worker.postMessage(source);
@@ -137,6 +140,70 @@ function saveText(name, content, type) {
   document.body.append(link); link.click(); link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+
+function showAssets() {
+  const list = el('assets');
+  list.replaceChildren();
+  el('asset-count').textContent = `${localAssets.length} local ${localAssets.length === 1 ? 'asset' : 'assets'}`;
+  el('asset-help').hidden = localAssets.length === 0;
+  for (const asset of localAssets) {
+    const row = document.createElement('li'), name = document.createElement('code'), remove = document.createElement('button');
+    name.textContent = `assets/${asset.name}`;
+    remove.textContent = 'Remove';
+    remove.setAttribute('aria-label', `Remove ${asset.name}`);
+    remove.addEventListener('click', () => {
+      localAssets = localAssets.filter(item => item !== asset);
+      assetVersion++;
+      showAssets();
+      setDownload(!changedSinceRender());
+      status('Asset removed. Render again to update the PDF.');
+      el('open-files').focus();
+    });
+    row.append(name, remove);
+    list.append(row);
+  }
+}
+
+el('open-files').addEventListener('click', () => el('files').click());
+el('files').addEventListener('change', async () => {
+  const files = Array.from(el('files').files);
+  if (!files.length) return;
+  const snapshot = { current, html: html.value, css: css.value, assetVersion };
+  el('open-files').disabled = true;
+  status('Opening selected files on your device…');
+  try {
+    const selected = await readSelection(files, localAssets);
+    if (current !== snapshot.current || html.value !== snapshot.html || css.value !== snapshot.css || assetVersion !== snapshot.assetVersion) {
+      throw new Error('Your document changed while the files were opening. Choose the files again to apply them.');
+    }
+    const hasSource = selected.html !== null || selected.css !== null;
+    const nextHtml = selected.html ?? html.value;
+    const nextCss = selected.css ?? (selected.html !== null ? '' : css.value);
+    if (hasSource) validateSource(nextHtml, nextCss);
+    if (worker) finish();
+    if (hasSource) {
+      edits.set(current, { html: html.value, css: css.value });
+      current = 'custom';
+      originals.set(current, { html: nextHtml, css: nextCss });
+      edits.delete(current);
+      if (!picker.querySelector('option[value="custom"]')) picker.add(new Option('Your document', 'custom'));
+      picker.value = current;
+      html.value = nextHtml; css.value = nextCss;
+      el('reset').textContent = 'Reset document';
+      selectTab(selected.html !== null ? 'html' : 'css');
+    }
+    localAssets = [...localAssets, ...selected.assets];
+    assetVersion++;
+    showAssets();
+    clearOutput();
+    status('Files opened locally. Use assets/filename for images and font files, then Render PDF.');
+  } catch (error) {
+    status(error.message || 'Could not open the selected files.', true);
+  } finally {
+    el('files').value = '';
+    el('open-files').disabled = false;
+  }
+});
 
 for (const language of ['html', 'css']) {
   el(`${language}-tab`).addEventListener('click', () => selectTab(language));
@@ -168,7 +235,7 @@ el('next').addEventListener('click', () => showPage(pageIndex + 1));
 el('project').addEventListener('click', async () => {
   const button = el('project'), message = el('project-status');
   // Capture edits before downloading assets, even if the user keeps typing or switches examples.
-  const snapshot = { name: current, html: html.value, css: css.value, language: projectLanguage?.value ?? 'python' };
+  const snapshot = { name: current, html: html.value, css: css.value, language: projectLanguage?.value ?? 'python', assets: localAssets, assetVersion };
   button.disabled = true;
   button.textContent = 'Preparing project…';
   message.hidden = false;
@@ -177,7 +244,8 @@ el('project').addEventListener('click', async () => {
   try {
     const bytes = await buildProject(snapshot);
     saveText(`fullbleed-${snapshot.name}-${snapshot.language === 'node' ? 'node-' : ''}project.zip`, bytes, 'application/zip');
-    const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css || (projectLanguage?.value ?? 'python') !== snapshot.language;
+    const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css
+      || assetVersion !== snapshot.assetVersion || (projectLanguage?.value ?? 'python') !== snapshot.language;
     message.textContent = newerEdits
       ? 'Project downloaded with the source and language from when you clicked. Download again to include newer changes.'
       : 'Project downloaded. Extract the ZIP and follow its README to render locally.';
@@ -199,6 +267,7 @@ picker.addEventListener('change', () => {
   if (worker) finish();
   edits.set(current, { html: html.value, css: css.value });
   current = picker.value;
+  el('reset').textContent = current === 'custom' ? 'Reset document' : 'Reset example';
   const source = edits.get(current) || originals.get(current);
   html.value = source.html; css.value = source.css;
   clearOutput(); startRender();
@@ -218,7 +287,7 @@ try {
   if (originals.has(hashExample)) current = hashExample;
   picker.value = current;
   html.value = originals.get(current).html; css.value = originals.get(current).css;
-  for (const control of [html, css, picker, el('reset'), el('render'), el('project'), projectLanguage].filter(Boolean)) control.disabled = false;
+  for (const control of [html, css, picker, el('reset'), el('render'), el('project'), el('open-files'), projectLanguage].filter(Boolean)) control.disabled = false;
   for (const language of ['html', 'css']) { el(`save-${language}`).href = '#'; el(`save-${language}`).setAttribute('aria-disabled', 'false'); }
   startRender();
 } catch (error) { status(error.message, true); document.querySelector('.pg-output').setAttribute('aria-busy', 'false'); }

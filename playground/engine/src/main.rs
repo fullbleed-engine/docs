@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // An optional website adapter around the unchanged published Rust crate.
-use fullbleed::FullBleed;
+use fullbleed::{Asset, AssetBundle, AssetKind, FullBleed};
 
 fn render() -> Result<(), Box<dyn std::error::Error>> {
     let html = std::fs::read_to_string("input.html")?;
@@ -16,6 +16,30 @@ fn render() -> Result<(), Box<dyn std::error::Error>> {
         "BebasNeue-Regular.ttf",
     ] {
         builder = builder.register_font_file(name);
+    }
+    match std::fs::read_to_string("local-fonts.txt") {
+        Ok(paths) => {
+            let names: Vec<_> = paths.lines().collect();
+            let mut local_fonts = AssetBundle::default();
+            if names.len() > 16 {
+                return Err("This playground accepts up to 16 local assets.".into());
+            }
+            for path in names {
+                let name = path.strip_prefix("assets/").ok_or("Invalid local font path.")?;
+                let lower = name.to_ascii_lowercase();
+                if name.is_empty() || name.contains(['/', '\\', ':'])
+                    || name.chars().any(char::is_control)
+                    || !(lower.ends_with(".ttf") || lower.ends_with(".otf"))
+                {
+                    return Err("Invalid local font path.".into());
+                }
+                local_fonts.add(Asset::new(path.to_string(), AssetKind::Font,
+                    std::fs::read(path)?, None, true));
+            }
+            builder = builder.register_bundle(local_fonts);
+        }
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+        Err(error) => return Err(error.into()),
     }
     let engine = builder.build()?;
     let (pdf, glyphs, document) = engine.render_with_glyph_report_and_document(&html, &css)?;

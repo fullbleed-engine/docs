@@ -64,7 +64,8 @@ record = {
     'preview_source': 'finalized_pdf',
     'rustc': subprocess.check_output(['rustc', '--version'], text=True).strip(),
     'wasi_shim': {'name': '@bjorn3/browser_wasi_shim', 'version': '0.4.2'},
-    'limits': {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30},
+    'limits': {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30,
+               'local_assets': 16, 'local_asset_bytes': 8 * 1024 * 1024, 'local_assets_total_bytes': 20 * 1024 * 1024},
     'artifacts': {},
 }
 for path in sorted([ASSETS / 'fullbleed.wasm', ASSETS / 'fonts.zip', ASSETS / 'LICENSES.txt', *ASSETS.glob('fonts/*.ttf')]):

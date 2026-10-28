@@ -8,9 +8,16 @@ from that finalized file. Downloaded Python and Node.js projects use the same pr
 
 The browser fetches fixed engine/font/example assets from the docs site. User
 HTML/CSS is passed to a worker and an in-memory filesystem; it is never inserted
-into the page DOM or submitted to a server. Only the sample fonts are exposed
-to WASI. No file-system, network, process, or system-font capabilities are passed
+into the page DOM or submitted to a server. Bundled fonts and explicitly selected
+local assets are exposed to WASI in memory. No host file-system, network, process, or system-font capabilities are passed
 through to the host machine. Sources are kept in tab memory, without localStorage.
+
+The local file picker accepts one HTML and one CSS file per selection, plus PNG,
+JPEG, SVG, TTF, OTF, and optional TXT license files. Assets use `assets/filename`
+paths, with 16 assets, 8 MiB per file, and 20 MiB total as the demo limits. File
+validation completes before source or asset state changes. Importing HTML starts
+the Your document entry; existing example edits remain available. Assets stay in
+the tab when switching documents and are copied into downloaded projects.
 
 ## Reproduce
 
@@ -77,6 +84,8 @@ python -I tools/verify_node_project_export.py
 python tools/verify_playground_pagination.py
 python tools/verify_playground_quotes.py
 python tools/verify_playground_decorations.py
+node tools/test_playground_local_files.mjs
+python tools/check_playground_local_files.py --site site --out output/playground-local-files
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
@@ -92,6 +101,14 @@ changing the source and selected language, then verifies that the downloaded ZIP
 retains the original snapshot. It also simulates an asset failure and recovers.
 Results are retained in
 `playground/project-verification`.
+
+The local-file browser check imports a licensed IBM Plex Mono font, its license,
+and synthetic PNG, JPEG, and SVG images. It checks UTF-8 filenames and sources,
+font embedding and image pixels with independent PDF readers, then replays both
+actual project downloads from directories with spaces and another working directory.
+It also checks rejected imports, asset removal, document switching, mobile layouts,
+and the absence of document uploads. The JavaScript checks cover limits before file
+reads, equivalent duplicate filenames, and byte snapshots during project export.
 
 The adapter limits sources to 200,000 UTF-8 bytes, documents to six pages, WASM
 linear memory to 256 MiB, and each render to 30 seconds. The browser terminates
