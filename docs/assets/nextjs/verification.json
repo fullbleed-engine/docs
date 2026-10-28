@@ -1,14 +1,14 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-26T16:14:39.704930+00:00",
-  "sourceCommit": "ea5235dc6e8e03b6036563f3f88337932bd52ca4",
+  "checkedAt": "2026-10-28T01:01:50.224417+00:00",
+  "sourceCommit": "6e266eadca484b826c67d0bf75d7a042c3f159a3",
   "downloadFiles": 18,
-  "projectZipSha256": "d03ba638f5d9bb80ab894226a36bd9bf06af8a215468efde29f8cb174b128703",
+  "projectZipSha256": "cc7bf70bd719efde41e85320a46639c19e8ba350104cae9f265286277db7d4a4",
   "node": "v22.23.3",
   "platform": "win32",
   "next": "16.3.8",
-  "nodePackage": "0.8.2",
-  "engineVersion": "2.5.37",
+  "nodePackage": "0.8.4",
+  "engineVersion": "2.5.40",
   "isolation": "process",
   "commands": [
     {
@@ -100,5 +100,79 @@
       "passed": true
     }
   ],
-  "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim."
+  "scope": "Fresh public ZIP installation, production build, isolated standalone HTTP server, and exact sample-asset comparison. No application authentication or hosted-provider claim.",
+  "sourceCi": [
+    {
+      "name": "nextjs-ubuntu-latest-22",
+      "id": 12783150883,
+      "run": 40610440049,
+      "sha256": "ccac7a1b6bbe62d6b688a2b3bed81093755091ec82de55189a853fa19dd7a2c8",
+      "bytes": 151457,
+      "checks": 17,
+      "node": "v22.23.3",
+      "platform": "linux",
+      "reportSha256": "487589530712b055625481d7bae94409ace01efb866a4bddd966ff8476af594e",
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+    },
+    {
+      "name": "nextjs-ubuntu-latest-24",
+      "id": 12783520319,
+      "run": 40610440049,
+      "sha256": "c8442823352b8799b18673aa82c4f90dd18dc1af786786922a91432209fd3bbb",
+      "bytes": 151457,
+      "checks": 17,
+      "node": "v24.21.0",
+      "platform": "linux",
+      "reportSha256": "247ea0437238a8c52b1d7402bacec5ecb0a6f95df2a6d5036cf53faea3aac7f4",
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+    },
+    {
+      "name": "nextjs-windows-latest-24",
+      "id": 12782751451,
+      "run": 40610440049,
+      "sha256": "ebd7be54a51f7277fe7976c4b14ebca20a69747e78c4a5703bb801be5b0841d9",
+      "bytes": 151491,
+      "checks": 17,
+      "node": "v24.22.1",
+      "platform": "win32",
+      "reportSha256": "e6c676dc3c6d1b451cbb847032d1c1aae1a3dac8c022cc218d5f740eda332b9a",
+      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "previewSha256": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+    }
+  ],
+  "localBrowser": {
+    "ok": true,
+    "checkedAt": "2026-10-28T00:58:32.793836+00:00",
+    "browser": "156.0.8078.47",
+    "package": "0.8.4",
+    "engine": "2.5.40",
+    "downloads": [
+      {
+        "width": 1440,
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "keyboard": false,
+        "horizontalOverflow": false,
+        "previewLoaded": true
+      },
+      {
+        "width": 390,
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "keyboard": false,
+        "horizontalOverflow": false,
+        "previewLoaded": true
+      },
+      {
+        "width": 320,
+        "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+        "keyboard": true,
+        "horizontalOverflow": false,
+        "previewLoaded": true
+      }
+    ],
+    "pageErrors": []
+  },
+  "installedPackageFiles": 47,
+  "installedFilesMatchPublicTarball": true
 }
