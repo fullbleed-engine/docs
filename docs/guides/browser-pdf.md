@@ -20,21 +20,22 @@ Use **Save HTML** and **Save CSS** beneath the editor to keep your template edit
 The **Download starter** link in the demo opens the complete application project.
 All sample names, organizations, and amounts are fictional.
 
-The downloadable starter uses **npm package 0.8.3**, wrapping **Fullbleed engine 2.5.38**.
+The downloadable starter uses **npm package 0.8.4**, wrapping **Fullbleed engine 2.5.40**.
 The browser and Node entries share the pinned engine and bundled fonts.
 
 Unembedded Helvetica, Times, and Courier faces produce visible PNG previews,
 including in templates pasted into the starter.
-The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.3/docs/standard-font-previews.md)
+The [font-preview guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.4/docs/standard-font-previews.md)
 explains the substitute designs and upgrade checks. Run the asset-copy command
 again after upgrading so the browser receives the matching runtime and notices.
 
-Package **0.8.3** uses engine **2.5.38**. Nested generated quotation marks
-retain their nesting and closing marks, including in block and contents layouts.
-See the [quotation checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.3/docs/generated-quotes.md).
-This release also includes the earlier table-wrapping and pagination fixes.
+Package **0.8.4** uses engine **2.5.40**. Underlines, overlines and
+strikethroughs continue across collapsed word spaces and retain inherited
+decorations through nested spans. See the
+[text-decoration checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.4/docs/text-decorations.md).
+It also includes the earlier quotation, table-wrapping and pagination fixes.
 For an existing project, follow the
-[current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.3/docs/browser.md)
+[current browser installation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.4/docs/browser.md)
 and recopy the browser runtime after upgrading.
 
 ## Edit the project online
@@ -80,7 +81,7 @@ Install the package and copy its runtime into the directory your framework
 serves as static files:
 
 ```sh
-npm install --save-exact fullbleed@0.8.3
+npm install --save-exact fullbleed@0.8.4
 npx fullbleed-browser-assets public/fullbleed
 ```
 
@@ -144,7 +145,7 @@ completion or cancellation requests worker termination before the promise settle
 Browsers do not expose a native thread-exit promise. Keep concurrent jobs bounded
 for the devices you support, especially when generating page previews.
 
-The [0.8.3 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.3)
+The [0.8.4 release evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.4)
 retains checks in Chrome, Firefox, and Playwright WebKit, including PDF/PNG
 comparison with the installed Node package, independent PDF text checks,
 cancellation, damaged assets, and recovery. Playwright WebKit is not branded
@@ -168,5 +169,5 @@ PDF text and independently specified colors in both the PDF and its preview.
 
 Nested quotation checks cover inline, block, and contents layouts through the
 actual editor. They check both PDF readers, page size, and visible preview output.
-The [retained starter verification](../assets/browser-starters-083-verification.json)
+The [retained starter verification](../assets/browser-starters-084-verification.json)
 records these cases and the unchanged invoice and report downloads.
