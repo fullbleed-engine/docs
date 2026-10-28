@@ -83,7 +83,7 @@
     {
       "path": "composer.lock",
       "bytes": 220872,
-      "sha256": "f42d7e2270b5c9f416e16232f6aa6311c724626aaa88a05fb941a4b25c78b8b9"
+      "sha256": "b74e1b1c95a2b60e8a99f261fd0b5aac5d765ddfc10cd3cad03a4057df1fa5f7"
     },
     {
       "path": "config/app.php",
@@ -221,6 +221,6 @@
       "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d"
     }
   ],
-  "zip_bytes": 81252,
-  "zip_sha256": "a875ac4ac915594b6328806c50414b5c017064dd9e04a71133482eba98ea136a"
+  "zip_bytes": 81272,
+  "zip_sha256": "9501e7c76fd7fdd1b03fac0cded753ce1caca1ec5af16fa5a759483a18cca35a"
 }

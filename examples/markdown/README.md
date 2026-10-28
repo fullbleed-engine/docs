@@ -41,6 +41,13 @@ Code fences are printed as text without syntax highlighting. Raw HTML is
 escaped. This preset does not add task lists, footnotes, front matter, math,
 Mermaid execution, or full GitHub Markdown compatibility.
 
+Fenced code keeps indentation and line breaks. The included stylesheet uses
+`white-space: pre-wrap` with `overflow-wrap: anywhere` so long URLs and tokens
+can wrap inside the page. This project pins Fullbleed 2.5.41, which fixes those
+policies for preformatted blocks. Use `white-space: pre` if each authored line
+must remain on one line, and size the text and page accordingly. Wrapping can
+increase the number of pages.
+
 ## Images and fonts
 
 Use PNG, JPEG, or SVG files beneath the Markdown file's own directory:

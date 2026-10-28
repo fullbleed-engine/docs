@@ -800,6 +800,7 @@ jobs:
             output/markdown-verification/edited/
             output/markdown-verification/images/
             output/markdown-verification/extra-font/
+            output/markdown-verification/long-code/
           retention-days: 14
   chinese:
     name: Chinese-font example (${{ matrix.os }})

@@ -68,7 +68,7 @@ def main():
         return result
 
     try:
-        check('pinned engine and parser', metadata.version('fullbleed') == '2.5.10'
+        check('pinned engine and parser', metadata.version('fullbleed') == '2.5.41'
               and metadata.version('markdown-it-py') == '4.2.0')
         manifest = json.loads((ASSETS / 'source.json').read_text(encoding='utf-8'))
         archive_path = ASSETS / 'project.zip'
@@ -87,7 +87,7 @@ def main():
             'python render.py brief.md --out output --title "Release notes that travel"' in text
             for text in [guide, (project / 'README.md').read_text(encoding='utf-8')]))
         check('dependencies remain an explicit optional starter', (project / 'requirements.txt').read_text(encoding='utf-8').splitlines()
-              == ['fullbleed==2.5.10', 'markdown-it-py==4.2.0', 'mdurl==0.1.2'])
+              == ['fullbleed==2.5.41', 'markdown-it-py==4.2.0', 'mdurl==0.1.2'])
         sample = out / 'render'
         run('sample', [project / 'brief.md', '--out', sample, '--title', 'Release notes that travel'])
         reader = PdfReader(sample / 'document.pdf')
@@ -135,6 +135,35 @@ def main():
         repeated = json.loads((out / 'repeat/render.json').read_text(encoding='utf-8'))
         check('repeat preview bytes match', all((sample / first).read_bytes() == (out / 'repeat' / second).read_bytes()
               for first, second in zip(render['previews'], repeated['previews'])))
+
+        long_code = project / 'long-code.md'
+        token = 'abcdefghij' * 1200
+        long_code.write_text('# Long code\n\n```text\n    PREFIX ' + token + '\n    SUFFIX\n```\n', encoding='utf-8')
+        code_out = out / 'long-code'
+        run('long-code', [long_code, '--out', code_out, '--title', 'Long code'])
+        code_reader = PdfReader(code_out / 'document.pdf')
+        check('long code wraps onto multiple pages', len(code_reader.pages) >= 2)
+        check('long code retains every character in order',
+              compact(''.join(page.extract_text() for page in code_reader.pages)) == 'LongcodePREFIX' + token + 'SUFFIX')
+        check('long code embeds its intended monospace face', 'IBMPlexMono-Regular' in faces(code_reader))
+        code_pages = []
+        with pdfium.PdfDocument(code_out / 'document.pdf') as document:
+            for index in range(len(document)):
+                page = document[index]
+                textpage = page.get_textpage()
+                width, height = page.get_size()
+                boxes = [textpage.get_charbox(i) for i in range(textpage.count_chars())
+                         if textpage.get_text_range(i, 1).strip()]
+                check(f'long code page {index + 1} stays within the print area', bool(boxes) and all(
+                    left >= 20 * 72 / 25.4 - 0.5 and right <= width - 20 * 72 / 25.4 + 0.5
+                    and bottom >= -0.5 and top <= height + 0.5 for left, bottom, right, top in boxes))
+                bitmap = page.render(scale=110 / 72)
+                image = bitmap.to_pil()
+                image.save(code_out / f'pdfium-{index + 1}.png')
+                code_pages.append({'page': index + 1, 'glyphs': len(boxes), 'withinPrintArea': True})
+                image.close(); bitmap.close(); textpage.close(); page.close()
+        report['longCode'] = {'pages': code_pages, 'pdfSha256': sha256((code_out / 'document.pdf').read_bytes()).hexdigest(),
+                              'inputSha256': sha256(long_code.read_bytes()).hexdigest(), 'completeOrderedText': True}
 
         edited = project / 'edited.md'
         edited.write_text('# Edited field note\n\n**Bold** and *italic* and ~~old~~ and `inline code`.\n\n'
