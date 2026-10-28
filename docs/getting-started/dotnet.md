@@ -1,13 +1,13 @@
 ---
-title: Generate PDFs from C# components and .NET
-description: Install FullBleed.DotNet from NuGet, compose PDFs with C# components and styles, and run a designed invoice with explicit fonts and PNG previews. No browser or Python runtime is needed for native rendering.
+title: HTML/CSS to PDF in C# and .NET
+description: Install FullBleed.DotNet from NuGet, generate PDFs from HTML/CSS or C# components, and run a designed invoice with explicit fonts and PNG previews. No browser or Python runtime is needed for native rendering.
 ---
 # Generate PDFs from C# and .NET
 
 [`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.4)
-brings Fullbleed's Rust rendering engine into a .NET process. Compose invoices
-and reports with ordinary C# methods, named components and reusable styles,
-or use existing HTML/CSS templates. Native
+brings Fullbleed's Rust rendering engine into a .NET process. Generate invoices
+and reports from HTML/CSS templates, or compose them with ordinary C# methods,
+named components and reusable styles. Native
 rendering needs neither Python nor a browser.
 
 ## Install and render your first PDF
@@ -20,7 +20,43 @@ cd InvoiceDemo
 dotnet add package FullBleed.DotNet --version 0.2.4
 ```
 
-Replace `Program.cs` with:
+### Render HTML/CSS
+
+Replace `Program.cs` with this complete example:
+
+```csharp
+using FullBleed.DotNet;
+
+const string html = """
+    <h1 class="invoice-title">Invoice INV-1042</h1>
+    <p>Consulting: USD 1,200.00</p>
+    """;
+const string css = """
+    @page { size: A4; margin: 20mm; }
+    .invoice-title { color: #175c52; }
+    """;
+using var engine = new FullBleedEngine(new FullBleedEngineOptions
+{
+    DocumentLanguage = "en-US",
+    DocumentTitle = "Invoice INV-1042",
+});
+engine.RenderPdfToFile(html, css, "invoice.pdf");
+var inspection = FullBleedEngine.InspectPdf("invoice.pdf");
+Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
+```
+
+Run `dotnet run` and open `invoice.pdf` in the project directory. For existing
+files, pass strings from `File.ReadAllText("invoice.html")` and
+`File.ReadAllText("invoice.css")`. `engine.RenderPdf(html, css)` returns bytes
+for an HTTP response or your own storage.
+
+The renderer accepts static HTML/CSS. Render any Razor templates before passing
+them in; JavaScript execution and live webpage capture require a browser.
+
+### Author with C# components
+
+To build the document with C# methods and reusable styles, replace `Program.cs`
+with this alternative:
 
 ```csharp
 using FullBleed.DotNet;
@@ -53,9 +89,8 @@ Console.WriteLine($"Created invoice.pdf: {inspection.PageCount} page(s).");
 Read [class names and styles](../guides/csharp-components.md#class-names-and-styles)
 for shared stylesheets, reusable components and inline overrides.
 
-Run `dotnet run` and open `invoice.pdf` in the project directory. You can also
-return the bytes from an HTTP handler or write them to your own storage.
-The first example uses standard PDF fonts. Their PNG previews now use bundled
+Run it with the same `dotnet run` command. Both examples use standard PDF fonts.
+Their PNG previews use bundled
 outline substitutes, so they work without system fonts. Register explicit font
 files for your chosen type design and character coverage; the designed example
 below embeds its fonts.
