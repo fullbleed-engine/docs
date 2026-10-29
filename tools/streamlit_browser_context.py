@@ -18,8 +18,16 @@ def _capture_failure(page, out, attempt, stage, error, events):
 
     if page is not None:
         record["url"] = capture("url", lambda: page.url)
-        capture("screenshot", lambda: page.screenshot(path=str(stem.with_suffix(".png")), timeout=5000))
+        screenshot = capture("screenshot", lambda: page.screenshot(path=str(stem.with_suffix(".png")), timeout=5000))
         capture("DOM", lambda: stem.with_suffix(".html").write_text(page.content(), encoding="utf-8"))
+        # Chromium can reject the first capture while a failed navigation is
+        # leaving about:blank. The DOM request gives the renderer another turn.
+        # Retry that specific capture once, retaining the original capture error.
+        if screenshot is None and stage == "navigation" and any(
+            item["artifact"] == "screenshot" and "Unable to capture screenshot" in item["error"]
+            for item in record["capture_errors"]
+        ):
+            capture("screenshot-retry", lambda: page.screenshot(path=str(stem.with_suffix(".png")), timeout=5000))
     stem.with_suffix(".json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
 
 
