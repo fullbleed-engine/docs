@@ -12,6 +12,7 @@ const originals = new Map(), edits = new Map();
 let current = 'invoice', worker = null, deadline = null, pageIndex = 0, pages = [], pdfUrl = null;
 let renderedSource = null;
 let localAssets = [], assetVersion = 0;
+const loadFailureMessage = 'The rendering engine could not load. Check your connection, then choose Render PDF again.';
 
 function status(message, error = false) {
   el('status').textContent = message;
@@ -69,7 +70,7 @@ function showPage(index) {
 function fail(message) {
   finish();
   status(message, true);
-  if (!pages.length) el('placeholder').textContent = 'Adjust your source, then render again.';
+  if (!pages.length) el('placeholder').textContent = 'Your edits and local files are still here.';
 }
 
 function startRender() {
@@ -93,8 +94,8 @@ function startRender() {
     workerUrl.search = assetGeneration;
     worker = new Worker(workerUrl, { type: 'module' });
     // Asset downloads have a separate allowance from the 30-second render limit.
-    deadline = setTimeout(() => fail('The engine download took too long. Check your connection and retry.'), 90000);
-    worker.onerror = () => fail('The playground could not start. Reload this page or use the Python quickstart below.');
+    deadline = setTimeout(() => fail('The engine download took too long. Check your connection, then choose Render PDF again.'), 90000);
+    worker.onerror = () => fail(loadFailureMessage);
     worker.onmessage = ({ data }) => {
       if (data.type === 'progress') {
         status(data.message);
@@ -104,7 +105,7 @@ function startRender() {
         }
         return;
       }
-      if (data.type === 'error') { fail(data.message); return; }
+      if (data.type === 'error') { fail(data.phase === 'loading' ? loadFailureMessage : data.message); return; }
       if (data.type !== 'complete') return;
       clearOutput();
       pdfUrl = URL.createObjectURL(new Blob([data.pdf], { type: 'application/pdf' }));

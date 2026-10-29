@@ -41,6 +41,7 @@ python -m mkdocs build --strict
 python tools/check_site.py site
 python -m playwright install chrome
 python tools/check_playground_ui.py --site site --out output/playground-ui
+python tools/check_playground_recovery.py --site site --out output/playground-recovery
 ```
 
 The build uses both lockfiles, publishes a toolchain/hash record, and retains
@@ -72,6 +73,11 @@ browser editor downloads and both exported language projects run these cases.
 layout cases against independent PDF text and color probes, downloads edited
 PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
 recovery, and 1440/390/320px layouts. CI retains the PDFs, previews, and screenshots.
+The recovery check returns HTTP 503 for the worker script, renderer module,
+engine, and a bundled font. It checks the retry guidance, preserves edited
+HTML/CSS and imported assets, and retries on the same page. Every recovered
+PDF and displayed preview must match the successful baseline, and the final
+project ZIP must retain the edited source and original asset bytes.
 The page-flow checks inspect downloaded PDF text and glyph positions with
 independent readers and compare every displayed page with the native preview.
 These checks establish the recorded fixtures only, not universal platform parity

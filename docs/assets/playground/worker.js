@@ -12,17 +12,20 @@ async function bytes(path) {
 }
 
 self.onmessage = async ({ data }) => {
+  let phase = 'loading';
   try {
     // Install the message handler synchronously. Top-level await can let the
     // browser deliver the first render request before onmessage is registered.
     const [{ render }, { validateAssets, validateSource, isFont }] = await Promise.all([
       import(`./renderer.js${generation}`), import(`./local-files.js${generation}`),
     ]);
+    phase = 'validating';
     const encoder = new TextEncoder();
     const html = encoder.encode(data.html);
     const css = encoder.encode(data.css);
     validateSource(data.html, data.css);
     const assets = validateAssets(data.assets ?? []);
+    phase = 'loading';
     self.postMessage({ type: 'progress', message: 'Loading the engine and fonts…' });
     const names = ['Inter-Variable.ttf', 'DMSerifDisplay-Regular.ttf', 'DMSerifDisplay-Italic.ttf', 'BebasNeue-Regular.ttf'];
     const [wasm, fonts] = await Promise.all([
@@ -30,6 +33,7 @@ self.onmessage = async ({ data }) => {
       Promise.all(names.map(async name => [name, await bytes(`fonts/${name}`)])),
     ]);
     const module = await WebAssembly.compile(wasm);
+    phase = 'rendering';
     self.postMessage({ type: 'progress', message: 'Rendering your PDF…' });
     const started = performance.now();
     const local = Object.fromEntries(assets.map(asset => [`assets/${asset.name}`, asset.bytes]));
@@ -47,6 +51,6 @@ self.onmessage = async ({ data }) => {
     const message = error instanceof WebAssembly.RuntimeError || error instanceof RangeError
       ? 'This document exceeded the browser demo’s limits. Try fewer pages or a smaller page size, or render it locally.'
       : error.message || String(error);
-    self.postMessage({ type: 'error', message });
+    self.postMessage({ type: 'error', message, phase });
   }
 };
