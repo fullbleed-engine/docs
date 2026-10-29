@@ -1,6 +1,6 @@
 ---
 title: Browse Fullbleed's CSS comparison results
-description: Search all 1,662 CSS fixtures tested with the published Fullbleed 2.5.39 wheel. Inspect original verdicts, reference images and generated PDFs, including failures and disputed references.
+description: Search all 1,662 CSS fixtures tested with the published Fullbleed 2.5.43 wheel. Inspect original verdicts, reference images and generated PDFs, including failures and disputed references.
 hide:
   - toc
 ---
@@ -9,10 +9,11 @@ hide:
 
 Find a layout or CSS feature, compare the printed pages, and download the actual
 Fullbleed PDF. The default view shows a maintainer-run comparison of the **published Fullbleed
-2.5.39 Linux wheel** against the pinned, independent IronPress corpus.
+2.5.43 Linux wheel** against the pinned, independent IronPress corpus.
 
 Choose a package version to inspect its own results. Shared case links keep the
-selected version, filters and fixture. Earlier [2.5.34 results](css-explorer.md?version=2.5.34)
+selected version, filters and fixture. Earlier [2.5.39 results](css-explorer.md?version=2.5.39),
+[2.5.34 results](css-explorer.md?version=2.5.34),
 and [2.5.22 results](css-explorer.md?version=2.5.22) remain available with their
 [evidence records](css-corpus.md).
 
@@ -21,8 +22,12 @@ they do not establish complete CSS support or pixel-identical output. Failures
 and disputed references retain their original labels. [Read the method and
 limits](css-corpus.md).
 
+The description labeled “Upstream fixture” is the corpus author’s original text.
+Its support notes describe upstream test context; use the selected Fullbleed
+result and saved document to assess this version.
+
 <link rel="stylesheet" href="../../assets/css-corpus/explorer-v2.css?v=27dbf42a99ab">
-<div id="css-explorer" class="css-explorer" data-index="../../assets/css-corpus/2.5.39/index.json" data-versions="../../assets/css-corpus/versions.json?v=2.5.39">
+<div id="css-explorer" class="css-explorer" data-index="../../assets/css-corpus/2.5.43/index.json" data-versions="../../assets/css-corpus/versions.json?v=2.5.43">
   <p id="ce-loading" role="status">Loading the fixture index…</p>
   <div id="ce-controls" hidden>
     <p id="ce-provenance" class="ce-links"></p>
@@ -39,7 +44,7 @@ limits](css-corpus.md).
     <nav class="ce-pagination" aria-label="Fixture result pages"><button id="ce-previous" type="button">Previous</button><span id="ce-page"></span><button id="ce-next" type="button">Next</button></nav>
   </div>
 </div>
-<script src="../../assets/css-corpus/explorer-v2.js?v=208c9fae54c1"></script>
+<script src="../../assets/css-corpus/explorer-v2.js?v=c1a53f848720"></script>
 
 <noscript>The interactive filters require JavaScript. The <a href="../css-corpus/">evidence guide</a> also links to the complete downloadable report.</noscript>
 

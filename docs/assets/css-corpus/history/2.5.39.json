@@ -1,0 +1,21 @@
+{
+  "schema": "fullbleed.css-corpus-publication.v1",
+  "packageSource": "published",
+  "version": "2.5.39",
+  "archiveUrl": "https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.39/fullbleed-2.5.39-published-css-corpus.zip",
+  "archiveSha256": "e640e9e7bdfb77a3f6611097d14cac926e7cd76a6293ffca4b40c070b2386989",
+  "archiveBytes": 60238506,
+  "wheelSha256": "40d9bd5b84fba3c43efd6cdadb73348a8151036d3071a1d65a325a0dbc527a2d",
+  "wheelFilename": "fullbleed-2.5.39-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+  "upstreamCommit": "0d1e53b6d8174d0a5059a8696c24e62759381f6d",
+  "invocationId": "fullbleed-1be30662511f4a0f9d6e1f86a7bdd952",
+  "overall": {
+    "score_pct": 98.54,
+    "pass": 1620,
+    "fail": 24,
+    "reference_disputed": 18,
+    "total": 1662
+  },
+  "gatePassed": false,
+  "runUrl": "https://github.com/fullbleed-engine/fullbleed-official/actions/runs/40568838187"
+}
