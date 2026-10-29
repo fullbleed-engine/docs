@@ -8,27 +8,8 @@ Fullbleed's optional Node package renders static HTML/CSS into PDFs using a
 bundled WebAssembly build of the Rust engine. It includes fonts and runs locally;
 you do not need Python, Rust, or a browser to use the installed package.
 
-To compose documents without HTML strings, use the
-[JavaScript component and JSX workflow](../guides/javascript-components.md),
-introduced in Node package 0.6.0. Version 0.7.0 also supports
-[static HTML export with or without styles](../guides/javascript-components.md#export-html-with-or-without-styles).
-The pinned HTML/CSS example below remains available.
-
-The quickstart and downloadable invoice use **Node package 0.8.6**, powered by
-**Fullbleed 2.5.41**. The integration and core engine have separate versions.
-
-This version includes long-code wrapping and `pre-line` whitespace fixes,
-with explicit no-wrap controls preserved. See the
-[preformatted-text checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.6/docs/preformatted-whitespace.md)
-for the tested cases. The server guidance below covers queues and failure handling.
-
-Use the actual family name for normal/italic CSS selection, or a PostScript name
-for an explicit face. Review appearance and line breaks when upgrading; the
-[font-family guide](../engine/font-registration.md) explains font selection.
-
-For rendering inside a web page, [use the browser entry and starter](../guides/browser-pdf.md).
-For Cloudflare Workers, [use the Workers adapter and invoice endpoint](../guides/cloudflare-pdf.md)
-introduced in package 0.8.0 and included in the same 0.8.6 package.
+The quickstart and downloadable invoice use **Node package 0.8.7**, powered by
+**Fullbleed 2.5.43**. The integration and core engine have separate versions.
 
 ## Create your first PDF
 
@@ -38,7 +19,7 @@ With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/packag
 npm install fullbleed
 ```
 
-To pin this guide's version, use `npm install --save-exact fullbleed@0.8.6`.
+To pin this guide's version, use `npm install --save-exact fullbleed@0.8.7`.
 The npm package contains the same verified bytes as the GitHub release.
 
 Save this as `invoice.mjs` and run `node invoice.mjs`:
@@ -64,6 +45,13 @@ from an HTTP handler or write to your storage.
 
 CommonJS applications can use `const { renderPdf } = require('fullbleed')`.
 TypeScript declarations are included for both module styles.
+
+You can also author documents with [JavaScript components and JSX](../guides/javascript-components.md)
+and [export HTML with or without styles](../guides/javascript-components.md#export-html-with-or-without-styles).
+
+For rendering inside a web page, [use the browser entry and starter](../guides/browser-pdf.md).
+For Cloudflare Workers, [use the Workers adapter and invoice endpoint](../guides/cloudflare-pdf.md)
+introduced in package 0.8.0 and included in the same 0.8.7 package.
 
 ## Export a design from the playground
 
@@ -123,9 +111,13 @@ of the finalized PDF. Fullbleed 2.5.5 fixes gradient fills that were missing fro
 these PNG previews in earlier releases.
 
 [Open the report PDF](../assets/node/report.pdf){ .md-button }
-[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.6/examples/browser/src){ .md-button }
+[Explore its HTML and CSS](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.7/examples/browser/src){ .md-button }
 
 ## Bring fonts and image assets
+
+Use the actual family name for normal/italic CSS selection, or a PostScript name
+for an explicit face. Review appearance and line breaks when upgrading; the
+[font-family guide](../engine/font-registration.md) explains font selection.
 
 Pass additional font bytes through `fonts`, and use their actual family names
 in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
@@ -134,7 +126,7 @@ in CSS. Pass images through `assets`, mapping relative names to `Buffer` or
 
 The engine uses an in-memory filesystem for the supplied inputs and does not
 fetch remote URLs. Data URIs also work for document images. The
-[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.6#fonts-and-assets)
+[package API reference](https://github.com/fullbleed-engine/fullbleed-node/tree/v0.8.7#fonts-and-assets)
 includes a complete font and asset example.
 
 With **package 0.8.5 or newer**, you can preserve the filename used by a CSS
@@ -160,7 +152,7 @@ Unembedded PDF Standard 14 faces now have bundled substitutes for native PNG
 previews. The PDF keeps its original font resources, text, and advances; a PDF
 reader can use a different substitute design. Register your chosen font when
 the exact branded appearance matters. See the
-[preview comparison and font limits](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.6/docs/standard-font-previews.md).
+[preview comparison and font limits](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.7/docs/standard-font-previews.md).
 
 ## Use it in an application
 
@@ -214,7 +206,7 @@ Process startup adds latency and memory use. There is no process pool or
 automatic retry; keep concurrency bounded. Application startup flags and
 `NODE_OPTIONS` are not replayed in the child. This option requires a normal
 Node executable and is not an operating-system security sandbox. See the
-[process isolation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.6/docs/process-isolation.md)
+[process isolation guide](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.7/docs/process-isolation.md)
 for deployment details and the tested failure paths. The Next.js starter uses
 this mode for its PDF route.
 
@@ -239,20 +231,26 @@ TypeScript. Its release evidence compares retained native and WebAssembly
 fixtures and installs the same tarball across Node 22, 24, and 26 on Windows,
 Linux, and macOS. These are scoped engineering checks, not PDF standards certification.
 
-The [0.8.6 release verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.8.6/release-verification.json)
+Version 0.8.7 fixes radial gradients that change color or opacity at the final
+stop. Earlier long-code wrapping and `pre-line` whitespace fixes remain included,
+with explicit no-wrap controls preserved. See the
+[preformatted-text checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.7/docs/preformatted-whitespace.md)
+for the tested cases.
+
+The [0.8.7 release verification](https://github.com/fullbleed-engine/fullbleed-node/releases/download/v0.8.7/release-verification.json)
 retains native/Wasm comparisons, installed-package queue and recovery checks,
 and browser downloads in Chrome, Firefox and Playwright WebKit. Its
-[pagination checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.6/docs/pagination.md)
+[pagination checks](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.8.7/docs/pagination.md)
 use independent PDF readers to check row preservation, repeated table headings,
 page bounds and footnote placement, with the previous release as a failing control.
 
-The invoice and report on this page were rendered with package 0.8.6 / engine
-2.5.41. The [download manifest](../assets/node/project.json) records the public
+The invoice and report on this page were rendered with package 0.8.7 / engine
+2.5.43. The [download manifest](../assets/node/project.json) records the public
 package integrity and exact PDF/preview hashes. The downloadable projects and
 this guide's runnable snippets are checked against the installed public package;
 see the [current guide verification](../assets/node/guide-verification.json).
 
 [Package source and API](https://github.com/fullbleed-engine/fullbleed-node) ·
 [npm package](https://www.npmjs.com/package/fullbleed) ·
-[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.6) ·
+[Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.7) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)
