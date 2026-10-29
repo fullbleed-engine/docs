@@ -196,6 +196,13 @@ Review browser and paginated PDF layout independently when changing a design.
 
 ## Keep building
 
+For an external application example, read [Davis's schema-document generator](https://github.com/bin-utokyo/davis/blob/343d4d27537b7809638140df082901a1d9c7dab9/crates/davis-document/src/lib.rs).
+It registers bundled Inter and Japanese fonts, shares an engine through
+`OnceLock`, and renders English and Japanese dataset documentation. Its source
+also includes a repeated-output test and a helper that writes only changed PDF
+bytes. That pinned source snapshot uses Fullbleed 2.3.1; the examples on this
+page retain their separately verified versions.
+
 For a Rust web application, [download the Axum PDF starter](../guides/axum-pdf.md).
 It turns invoice JSON into a styled download with editable HTML/CSS, bundled
 fonts, a browser form, and bounded rendering work.
