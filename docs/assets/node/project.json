@@ -1,10 +1,10 @@
 {
-  "package_version": "0.8.6",
-  "engine_version": "2.5.41",
+  "package_version": "0.8.7",
+  "engine_version": "2.5.43",
   "source_commit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.6.tgz",
-  "package_integrity": "sha512-m2ZVJq9mhxqRhEkwQPnHR4G9APyrmDurVS/q7c5bss6+aNIakpcBAbtNUBlphXVMQMBrDVQAjE8sDnrvWma53w==",
-  "package_sha256": "d80f7153789dba301da5588a170e19b744c077fb749acadd80f8f1f62d18f704",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.7.tgz",
+  "package_integrity": "sha512-aC0HGlGeGvPaTSjLwdRcfihy8q3iOXNYfOOweKjj5FwZ398bclKUoaDIdywnsZ45/s+Lpc69wVBhwORxI4A+xQ==",
+  "package_sha256": "6f02cbb78b94d26d08619d3af5cba6dc0523453865e01dec26182e9cff2d2a0b",
   "rendered": {
     "invoice.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
@@ -20,12 +20,12 @@
     "report.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
     "report-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe"
   },
-  "report_package_version": "0.8.6",
-  "report_engine_version": "2.5.41",
-  "package_source_commit": "61c9e4152dc557b678db9ddde96c1e26bd9d3911",
+  "report_package_version": "0.8.7",
+  "report_engine_version": "2.5.43",
+  "package_source_commit": "f4690ce0eeaee16c19bcadbcc55e3a43b1a56bd5",
   "report_source": {
     "repository": "https://github.com/fullbleed-engine/fullbleed-node",
-    "commit": "61c9e4152dc557b678db9ddde96c1e26bd9d3911",
+    "commit": "f4690ce0eeaee16c19bcadbcc55e3a43b1a56bd5",
     "files": {
       "report.html": {
         "upstreamPath": "examples/browser/src/report.html",
@@ -44,7 +44,7 @@
     },
     "README.md": {
       "bytes": 1200,
-      "sha256": "f1210be7f212023dcf9365ab821f479c3abbcc12ddc69419ae5f2be57ea9f5e8"
+      "sha256": "13cd27021a84b87860988f636394a9a8faccb4d0fde6762a491b4a5913e9d6b0"
     },
     "invoice.css": {
       "bytes": 3546,
@@ -56,11 +56,11 @@
     },
     "package-lock.json": {
       "bytes": 1165,
-      "sha256": "01499ff6ab2c0d41d84a2f9676ff4e50c595dce0ecc0917994b5bee276d727fb"
+      "sha256": "07796ce6e56c3ba560e925c46fd26d566a98e48d90c6cd8eca232268bbb3a313"
     },
     "package.json": {
       "bytes": 288,
-      "sha256": "c50a6807c115049f64765f7d6eb668e691d2f996ef9dc1892af310488c3259ce"
+      "sha256": "5e4d99e84458d875631e6bea2caf79093b24da5b346a655229b5ba5b2b4affa7"
     },
     "render.mjs": {
       "bytes": 1064,
@@ -79,5 +79,5 @@
       "sha256": "9b7dc35c1dd3a5562c3e86ccad114bc11803ac69eccf606bd8b857367a5579b8"
     }
   },
-  "zip_sha256": "40be3089e51436b1d8514b8ac81fd9678a021c6f7e07f81b8eedf46373a5a174"
+  "zip_sha256": "54dd111bba9c76999a1fac21cf3018219c73184a8a5192029ceca09878918526"
 }
