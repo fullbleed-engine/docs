@@ -1,14 +1,14 @@
 ---
 title: CSS support for HTML-to-PDF
-description: Evaluate Fullbleed's CSS support for print documents with 1,662 tested fixtures, generated PDFs, reference images, and known limitations for the published 2.5.39 wheel.
+description: Evaluate Fullbleed's CSS support for print documents with 1,662 tested fixtures, generated PDFs, reference images, and known limitations for the published 2.5.43 wheel.
 ---
 # CSS support for PDF documents
 
 Fullbleed lays out static HTML/CSS as paged documents. Use the tested examples
 below to evaluate the styling and page layout your invoices and reports need.
 
-The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-2539)
-tests **Fullbleed 2.5.39** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
+The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-2543)
+tests **Fullbleed 2.5.43** and reports **1,624 PASS, 20 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
 Its overall conclusion remains **failure**. The exact PyPI wheel, report,
 PDFs, images, and manifest verification are retained.
 

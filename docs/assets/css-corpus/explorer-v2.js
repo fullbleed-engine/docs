@@ -54,7 +54,7 @@
     detail.hidden = false;
     const title = create('h2', fixture.id);
     title.id = 'ce-detail-title';
-    detail.append(title, badge(fixture.status), create('p', fixture.description));
+    detail.append(title, badge(fixture.status), create('p', 'Upstream fixture: ' + fixture.description));
     const difference = Number(fixture.differencePercent).toFixed(4);
     detail.append(create('p', `${fixture.category} · ${fixture.feature} · Above-floor page difference: ${difference}%`));
     detail.append(create('p', `Reference renderer: ${fixture.referenceRenderer}. Reference metadata: ${fixture.referenceStatus}.`));
@@ -119,7 +119,7 @@
       button.addEventListener('click', () => { selected = fixture.key; saveUrl(true); showDetail(fixture.key, true); });
       const metadata = create('p', undefined, 'ce-meta');
       metadata.append(badge(fixture.status), create('span', fixture.category), create('span', `${fixture.pages.length} page${fixture.pages.length === 1 ? '' : 's'}`));
-      article.append(button, metadata, create('p', fixture.description));
+      article.append(button, metadata, create('p', 'Upstream fixture: ' + fixture.description));
       results.append(article);
     }
     find('previous').disabled = pageNumber === 0;

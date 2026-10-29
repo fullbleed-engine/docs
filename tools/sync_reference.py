@@ -28,14 +28,6 @@ LINK_TARGETS = {
     "examples/components/README.md": "guides/python-components.md",
 }
 
-HEADINGS = {
-    "css-coverage.md": """---
-title: CSS support for HTML-to-PDF
-description: Evaluate Fullbleed's CSS support for print documents with 1,662 tested fixtures, generated PDFs, reference images, and known limitations for the published 2.5.39 wheel.
----
-# CSS support for PDF documents""",
-}
-
 # Site-only context must survive later imports of the historical report.
 INTRODUCTIONS = {
     "engine/font-registration.md": (
@@ -45,19 +37,6 @@ INTRODUCTIONS = {
         "[Arabic and English invoice](../guides/arabic-pdf.md) includes static "
         "regular and bold Noto Sans Arabic files with a font manifest and glyph checks."
     ),
-    "css-coverage.md": """Fullbleed lays out static HTML/CSS as paged documents. Use the tested examples
-below to evaluate the styling and page layout your invoices and reports need.
-
-The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-2539)
-tests **Fullbleed 2.5.39** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
-Its overall conclusion remains **failure**. The exact PyPI wheel, report,
-PDFs, images, and manifest verification are retained.
-
-[Browse the actual results](guides/css-explorer.md), or read the
-[method, package identity, and historical comparisons](guides/css-corpus.md).
-The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-source-comparison-260a14)
-is recorded separately and has different verdict totals. Earlier zero-failure
-reports below are historical; none establishes complete CSS conformance.""",
     "ui/overview.md": (
         "For `class_name`, selectors and attached styles, see the "
         "[worked styling examples](../guides/python-components.md#class-names-and-styles). "
@@ -98,12 +77,53 @@ BODY_REPLACEMENTS = {
 }
 
 
+def published_css_context(docs: Path) -> tuple[str, str]:
+    """Use the same publication pin as the evidence explorer, including its failed gate."""
+    publication = json.loads((docs / "assets/css-corpus/published.json").read_text(encoding="utf-8"))
+    if (publication.get("schema") != "fullbleed.css-corpus-publication.v1"
+            or publication.get("packageSource") != "published"
+            or not re.fullmatch(r"\d+\.\d+\.\d+", publication.get("version", ""))):
+        raise ValueError("CSS context requires a published stable-wheel evidence manifest")
+    overall = publication["overall"]
+    counts = [overall[key] for key in ("pass", "fail", "reference_disputed", "total")]
+    if any(type(value) is not int or value < 0 for value in counts) or sum(counts[:3]) != counts[3] or counts[3] == 0:
+        raise ValueError("CSS evidence fixture counts are inconsistent")
+    if type(publication.get("gatePassed")) is not bool:
+        raise ValueError("CSS evidence must record its comparison gate")
+    if publication["gatePassed"] and overall["fail"]:
+        raise ValueError("CSS evidence cannot pass its gate with failed fixtures")
+    version, total = publication["version"], overall["total"]
+    conclusion = "is **success**" if publication["gatePassed"] else "remains **failure**"
+    heading = f"""---
+title: CSS support for HTML-to-PDF
+description: Evaluate Fullbleed's CSS support for print documents with {total:,} tested fixtures, generated PDFs, reference images, and known limitations for the published {version} wheel.
+---
+# CSS support for PDF documents"""
+    introduction = f"""Fullbleed lays out static HTML/CSS as paged documents. Use the tested examples
+below to evaluate the styling and page layout your invoices and reports need.
+
+The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-{version.replace('.', '')})
+tests **Fullbleed {version}** and reports **{overall['pass']:,} PASS, {overall['fail']} FAIL and {overall['reference_disputed']} REFERENCE-DISPUTED** across {total:,} fixtures.
+Its overall conclusion {conclusion}. The exact PyPI wheel, report,
+PDFs, images, and manifest verification are retained.
+
+[Browse the actual results](guides/css-explorer.md), or read the
+[method, package identity, and historical comparisons](guides/css-corpus.md).
+The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-source-comparison-260a14)
+is recorded separately and has different verdict totals. Earlier zero-failure
+reports below are historical; none establishes complete CSS conformance."""
+    return heading, introduction
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--ref", required=True, help="Verified release tag or commit to import")
     args = parser.parse_args()
     docs = Path(__file__).resolve().parents[1] / "docs"
+    css_heading, css_introduction = published_css_context(docs)
+    headings = {"css-coverage.md": css_heading}
+    introductions = {**INTRODUCTIONS, "css-coverage.md": css_introduction}
     commit = subprocess.check_output(
         ["git", "-C", str(args.source), "rev-parse", args.ref + "^{commit}"], text=True
     ).strip()
@@ -127,12 +147,12 @@ def main() -> None:
 
         content = re.sub(r"\]\(([^\s)]+)\)", link, content)
         heading, separator, body = content.partition("\n")
-        heading = HEADINGS.get(target, heading)
+        heading = headings.get(target, heading)
         for before, after in BODY_REPLACEMENTS.get(target, ()):
             body = body.replace(before, after)
         note = f"\nReference imported from [{args.ref}]({repo}{source}). Check the installed runtime for your exact version.\n"
-        if target in INTRODUCTIONS:
-            note = "\n" + INTRODUCTIONS[target] + "\n" + note
+        if target in introductions:
+            note = "\n" + introductions[target] + "\n" + note
         path = docs / target
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
