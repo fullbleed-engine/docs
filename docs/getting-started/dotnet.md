@@ -215,3 +215,5 @@ with PDF/UA profiles and independent validation.
 Use an existing certificate or letterhead PDF with the
 [PDF-template project](../guides/pdf-template.md#c). It includes a C# component
 overlay, editable CSS, JSON records, and the designed background.
+
+Ask a question or share a document in [GitHub Discussions](https://github.com/fullbleed-engine/fullbleed-official/discussions/6).

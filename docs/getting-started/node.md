@@ -254,3 +254,5 @@ see the [current guide verification](../assets/node/guide-verification.json).
 [npm package](https://www.npmjs.com/package/fullbleed) ·
 [Versioned release and evidence](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.8.7) ·
 [CSS coverage](../css-coverage.md) · [Examples](../examples.md)
+
+Ask a question or share a document in [GitHub Discussions](https://github.com/fullbleed-engine/fullbleed-official/discussions/6).
