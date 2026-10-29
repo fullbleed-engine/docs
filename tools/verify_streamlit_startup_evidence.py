@@ -10,7 +10,7 @@ import json
 import socket
 
 from playwright.sync_api import Error, TimeoutError, sync_playwright
-from streamlit_browser_context import open_app_context
+from streamlit_browser_context import _capture_failure, open_app_context
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -110,8 +110,49 @@ def verify(args):
                 failure = json.loads((out/"startup-3.json").read_text(encoding="utf-8"))
                 assert failure["stage"] == "navigation" and failure["error"] == str(error)
                 assert failure["events"]["failed_requests"]
-                assert (out/"startup-3.html").exists() and (out/"startup-3.png").exists()
+                assert (out/"startup-3.html").exists()
+                assert (out/"startup-3.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
                 record["controls"].append({"name": "navigation failure retains its original error and browser evidence", "passed": True})
+
+                class ScreenshotFailurePage:
+                    def __init__(self, page, persistent):
+                        self.page, self.persistent, self.calls = page, persistent, 0
+
+                    def __getattr__(self, name):
+                        return getattr(self.page, name)
+
+                    def screenshot(self, **kwargs):
+                        self.calls += 1
+                        if self.persistent or self.calls == 1:
+                            raise Error("Protocol error (Page.captureScreenshot): Unable to capture screenshot")
+                        return self.page.screenshot(**kwargs)
+
+                # Exercise both recovery and permanent capture failure without
+                # relying on the timing of Chromium's connection-refused page.
+                Fixture.ready = True
+                ctx, page = open_app_context(browser, origin, out=out, attempt=8,
+                                            browser_errors=[], external_requests=[])
+                try:
+                    for attempt, persistent in [(6, False), (7, True)]:
+                        proxy = ScreenshotFailurePage(page, persistent)
+                        original = Error("Original navigation failure")
+                        _capture_failure(proxy, out, attempt, "navigation", original,
+                                         {"console": [], "page_errors": [], "failed_requests": []})
+                        failure = json.loads((out/f"startup-{attempt}.json").read_text(encoding="utf-8"))
+                        assert failure["error"] == str(original) and failure["stage"] == "navigation"
+                        assert proxy.calls == 2 and (out/f"startup-{attempt}.html").exists()
+                        assert len(failure["capture_errors"]) == (2 if persistent else 1)
+                        assert failure["capture_errors"][0]["artifact"] == "screenshot"
+                        if persistent:
+                            assert failure["capture_errors"][1]["artifact"] == "screenshot-retry"
+                            assert not (out/f"startup-{attempt}.png").exists()
+                        else:
+                            assert (out/f"startup-{attempt}.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+                    record["controls"].append({"name": "one screenshot retry recovers a transient capture error without erasing it", "passed": True})
+                    record["controls"].append({"name": "persistent screenshot failure retains both errors and stops after two attempts", "passed": True})
+                finally:
+                    ctx.close()
+                    Fixture.ready = False
 
                 unwritable = out/"not-a-directory"
                 unwritable.write_text("Deliberate diagnostic-write failure control", encoding="utf-8")
