@@ -70,6 +70,9 @@ for (const fixture of fixtures) {
   const files = { ...fonts, ...(name.startsWith('preformatted-') ? preformattedFiles : {}),
     'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
   const result = await render(module, files);
+  if (fixture.referencePdfSha256) {
+    assert.equal(hash(result.outputs['output.pdf']), fixture.referencePdfSha256, name + ': released core PDF reference');
+  }
   let repeat_equal = null;
   if (name.startsWith('preformatted-')) {
     const repeated = await render(module, files);

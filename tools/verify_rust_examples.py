@@ -111,7 +111,10 @@ expected_names |= {'quote-' + case['name'] for case in quotations['cases']}
 decorations = json.loads((ROOT / 'tools/playground-fixtures/text-decorations-2.5.40.json').read_text(encoding='utf-8'))
 assert len(decorations['cases']) == 16
 expected_names |= {'decoration-' + case['name'] for case in decorations['cases']}
-assert len(expected_names) == 86
+radial = json.loads((ROOT / 'tools/playground-fixtures/radial-gradient-endpoints-2.5.43.json').read_text(encoding='utf-8'))
+assert radial['referenceVersion'] == '2.5.43' and len(radial['cases']) == 12
+expected_names |= {'radial-endpoint-' + case['name'] for case in radial['cases']}
+assert len(expected_names) == 98
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 preformatted = json.loads((ROOT / 'tools/playground-fixtures/preformatted-whitespace-2.5.41.json').read_text(encoding='utf-8'))
 excluded_names = {'preformatted-' + case['name'] for case in preformatted['cases']}
