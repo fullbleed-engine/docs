@@ -12,6 +12,7 @@ import { prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 import { defaultStyleFixtures } from './playground-fixtures/default-styles.mjs';
+import { preformattedFixtures, preformattedFiles } from './playground-fixtures/preformatted.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const assets = join(root, 'docs/assets/playground');
@@ -38,6 +39,7 @@ fixtures.push(...quotations.cases.map(item => ({ ...item, name: 'quote-' + item.
 const decorations = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/text-decorations-2.5.40.json'), 'utf8'));
 assert.equal(decorations.cases.length, 16);
 fixtures.push(...decorations.cases.map(item => ({ ...item, name: 'decoration-' + item.name, pages: 1 })));
+fixtures.push(...preformattedFixtures);
 
 
 for (const fixture of fixtures) {
@@ -53,7 +55,8 @@ for (const fixture of fixtures) {
     html = html.replace('Maple &amp; Finch', 'Cedar &amp; Stone café') + '\n<!-- Saved UTF-8: München & <draft> 😀 -->\n';
     css = css.replaceAll('#17382e', '#17315a');
   }
-  const snapshot = { name: example, html, css };
+  const localAssets = fixture.assets || [];
+  const snapshot = { name: example, html, css, assets: localAssets };
   const zip = await buildProject(snapshot, load);
   assert.deepEqual(zip, await buildProject(snapshot, load), `${name}: identical sources changed the ZIP`);
   await writeFile(join(output, `${name}.zip`), zip);
@@ -64,14 +67,23 @@ for (const fixture of fixtures) {
   await mkdir(expected, { recursive: true });
   await writeFile(join(expected, 'input.html'), html);
   await writeFile(join(expected, 'style.css'), css);
-  const result = await render(module, { ...fonts, 'input.html': Buffer.from(html), 'style.css': Buffer.from(css) });
+  const files = { ...fonts, ...(name.startsWith('preformatted-') ? preformattedFiles : {}),
+    'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
+  const result = await render(module, files);
+  let repeat_equal = null;
+  if (name.startsWith('preformatted-')) {
+    const repeated = await render(module, files);
+    assert.deepEqual(repeated.outputs, result.outputs, `${name}: repeated WASI outputs changed`);
+    repeat_equal = true;
+  }
   const inspection = JSON.parse(Buffer.from(result.outputs['result.json']).toString());
   assert.equal(inspection.pages, pages);
   assert.equal(inspection.missing_glyphs, 0, `${name}: missing glyphs`);
   const color_probes = gradient ? checkGradient(fixture, result.outputs['page-1.png']) : [];
   const standard_font_rows = standardFonts ? checkStandardFonts(result.outputs['page-1.png']) : [];
   for (const [file, bytes] of Object.entries(result.outputs)) await writeFile(join(expected, file), bytes);
-  cases.push({ name, pages, missing_glyphs: 0, color_probes, standard_font_rows, zip_sha256: hash(zip), node_zip_sha256: hash(nodeZip), pdf_sha256: hash(result.outputs['output.pdf']) });
+  cases.push({ name, pages, missing_glyphs: 0, color_probes, standard_font_rows, zip_sha256: hash(zip), node_zip_sha256: hash(nodeZip), pdf_sha256: hash(result.outputs['output.pdf']),
+    repeat_equal, local_assets: localAssets.map(item => ({ path: 'assets/' + item.name, bytes: item.bytes.length, sha256: hash(item.bytes) })) });
 }
 
 for (const name of ['../escape', '/absolute', 'C:/drive', 'fonts/../escape', 'fonts\\escape', 'bad\0name']) {

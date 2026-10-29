@@ -104,14 +104,16 @@ named.mkdir()
 for name in ["package.json", "package-lock.json"]:
     shutil.copyfile(ROOT / "docs/assets/playground/project/node" / name, named / name)
 named_spec = json.loads((named / "package.json").read_text(encoding="utf8"))
-assert named_spec["dependencies"]["fullbleed"] == "0.8.5"
-assert named_spec["fullbleed"]["engineVersion"] == "2.5.40"
+named_version = named_spec["dependencies"]["fullbleed"]
+named_engine = named_spec["fullbleed"]["engineVersion"]
+assert named_engine == json.loads((ROOT / "docs/assets/playground/build.json").read_text(encoding="utf8"))["engine"]["version"]
+assert f"use **Node package {named_version}** with the same **{named_engine}** engine." in source, "Update the guide's playground export versions."
 font_source = ROOT / "examples/markdown/fonts/IBMPlexMono-Regular.ttf"
 shutil.copyfile(font_source, named / "Brand.ttf")
 shutil.copyfile(font_source.with_name("OFL.txt"), named / "OFL.txt")
 run("named-font-install", [npm, "ci", "--ignore-scripts", "--no-audit", "--no-fund"], named)
 named_installed = json.loads((named / "node_modules/fullbleed/package.json").read_text(encoding="utf8"))
-assert named_installed["version"] == "0.8.5" and named_installed["fullbleed"]["engineVersion"] == "2.5.40"
+assert named_installed["version"] == named_version and named_installed["fullbleed"]["engineVersion"] == named_engine
 named_script = """import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
 """ + named_font_code + """
@@ -119,6 +121,7 @@ assert.equal(result.pages, 1);
 assert.equal(result.missingGlyphs, 0);
 await writeFile('named-font-guide.pdf', result.pdf);
 """
+named_script += f"\nassert.equal(result.engineVersion, {json.dumps(named_engine)});\n"
 (named / "named-font-guide.mjs").write_text(named_script, encoding="utf8", newline="\n")
 run("named-font-snippet", ["named-font-guide.mjs"], named)
 named_pdf = out / "named-font-guide.pdf"
@@ -140,7 +143,7 @@ report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], 
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
           "homepage_snippet_matches_executed_guide": True,
           "process_snippet": {"ok": True, "pdf_sha256": digest(process_pdf)},
-          "named_font_snippet": {"ok": True, "package_version": "0.8.5", "engine_version": "2.5.40",
+          "named_font_snippet": {"ok": True, "package_version": named_version, "engine_version": named_engine,
                                  "source_sha256": digest(named_font_code.encode("utf8")),
                                  "font_sha256": digest(font_source.read_bytes()),
                                  "pdf_sha256": digest(named_pdf.read_bytes()), "preview_sha256": digest(named_preview.read_bytes()),

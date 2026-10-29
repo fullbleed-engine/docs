@@ -9,6 +9,7 @@ import pypdfium2 as pdfium
 from playground_decoration_inspection import check_image, glyph_geometry
 
 ROOT = Path(__file__).resolve().parents[1]
+ENGINE_VERSION = json.loads((ROOT / 'docs/assets/playground/build.json').read_text(encoding='utf-8'))['engine']['version']
 FIXTURES = ROOT / 'tools/playground-fixtures/text-decorations-2.5.40.json'
 EXPECTATIONS = ROOT / 'tools/playground-fixtures/text-decoration-expectations-2.5.40.json'
 
@@ -67,7 +68,7 @@ def check_browser(page, out, expected=None):
             page.locator('#pg-render').click()
             expect(page.locator('#pg-download')).to_have_attribute('href', re.compile('^blob:'), timeout=120000)
             expect(page.locator('#pg-status')).to_contain_text('Your PDF is ready.')
-            expect(page.locator('#pg-result')).to_contain_text('Fullbleed 2.5.40')
+            expect(page.locator('#pg-result')).to_contain_text('Fullbleed ' + ENGINE_VERSION)
             with page.expect_download() as event:
                 page.locator('#pg-download').click()
             pdf = folder / 'document.pdf'

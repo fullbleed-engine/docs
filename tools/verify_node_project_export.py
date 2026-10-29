@@ -36,13 +36,15 @@ package_version = None
 engine_version = json.loads((assets / 'build.json').read_text())['engine']['version']
 for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
     name = case['name']
+    local_assets = case.get('local_assets', [])
+    case_required = required | {item['path'] for item in local_assets}
     project = OUT / 'extracted node projects with spaces' / name
     expected = OUT / (name + '-expected')
     archive_path = OUT / (name + '-node.zip')
     assert hashlib.sha256(archive_path.read_bytes()).hexdigest() == case['node_zip_sha256']
     with zipfile.ZipFile(archive_path) as archive:
         assert archive.testzip() is None
-        assert set(archive.namelist()) == required and len(archive.namelist()) == len(required)
+        assert set(archive.namelist()) == case_required and len(archive.namelist()) == len(case_required)
         for path in archive.namelist():
             assert not PurePosixPath(path).is_absolute() and '..' not in PurePosixPath(path).parts
             assert '\\' not in path and ':' not in path
@@ -52,7 +54,11 @@ for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
     manifest = json.loads((project / 'project.json').read_text(encoding='utf-8'))
     assert manifest['engine']['version'] == engine_version
     assert manifest['runtime']['name'] == 'node'
-    assert {f['path'] for f in manifest['files']} == required - {'project.json'}
+    assert {f['path'] for f in manifest['files']} == case_required - {'project.json'}
+    assert {f['path'] for f in manifest.get('localAssets', [])} == {f['path'] for f in local_assets}
+    for item in local_assets:
+        data = (project / item['path']).read_bytes()
+        assert len(data) == item['bytes'] and hashlib.sha256(data).hexdigest() == item['sha256']
     for item in manifest['files']:
         data = (project / item['path']).read_bytes()
         assert len(data) == item['bytes'] and hashlib.sha256(data).hexdigest() == item['sha256']
@@ -89,10 +95,22 @@ for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
     assert len(PdfReader(pdf).pages) == case['pages']
     for number, preview in enumerate(rendered['previews'], 1):
         assert Path(preview).read_bytes() == (expected / f'page-{number}.png').read_bytes(), name + ': PNG mismatch'
-    records.append(dict(name=name, pages=case['pages'], files=len(required), zip_crc_valid=True,
+    assert len(rendered['previews']) == case['pages']
+    repeat_equal = None
+    if name.startswith('preformatted-'):
+        first = [pdf.read_bytes(), *[Path(path).read_bytes() for path in rendered['previews']]]
+        repeated = subprocess.run([node, str(project / 'render.mjs')], cwd=ROOT, env=env,
+                                  capture_output=True, text=True, encoding='utf-8', timeout=90)
+        (project / 'repeat.log').write_text(repeated.stdout + repeated.stderr, encoding='utf-8')
+        assert repeated.returncode == 0, repeated.stderr
+        assert json.loads((project / 'output/render.json').read_text()) == rendered
+        assert first == [pdf.read_bytes(), *[Path(path).read_bytes() for path in rendered['previews']]]
+        repeat_equal = True
+    records.append(dict(name=name, pages=case['pages'], files=len(case_required), zip_crc_valid=True,
                         sources_preserved=True, manifest_hashes_valid=True, fonts_and_licenses_match=True,
                         lock_unchanged=True, offline_install=bool(records), node_wasi_pdf_equal=True,
-                        node_wasi_png_equal=True, pdf_sha256=rendered['sha256']))
+                        node_wasi_png_equal=True, pdf_sha256=rendered['sha256'],
+                        local_assets=local_assets, repeat_equal=repeat_equal))
 result = dict(ok=True, checkedAt=datetime.now(timezone.utc).isoformat(), platform=sys.platform,
               node=node_version, package=package_version, engine=engine_version, cases=records,
               source_revision=os.environ.get('GITHUB_SHA'), ci_run_id=os.environ.get('GITHUB_RUN_ID'),
