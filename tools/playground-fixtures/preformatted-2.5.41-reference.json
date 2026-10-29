@@ -1,0 +1,32 @@
+{
+  "inputSha256": "f4849066be9641e893f20ff7d8acac69514f5dcc26eef5bf2cbccf89dceeb900",
+  "fontSha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
+  "sourceCommit": "c09539ffef7d7903dd95b2f033f038f580d321b7",
+  "referenceEngine": "2.5.41",
+  "referencePackage": "FullBleed.DotNet 0.2.6",
+  "referenceReleaseUrl": "https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.6",
+  "referenceMode": "direct",
+  "referenceRenderSha256": "da91de1fdf6e212050f51085e424ee5bf84b40a44ec339793f0bae912e5a0611",
+  "inspectorSourceSha256": "d44167a70df9e307b00ecd5f051298e518598bbebd46ee766e0f6c5f7d4516d1",
+  "inspectorChange": "Allow the caller to specify preview dimensions; semantic PDF checks are unchanged.",
+  "pages": {
+    "wrap-anywhere": 4,
+    "wrap-break-word": 4,
+    "wrap-break-all": 4,
+    "wrap-pre-line": 4,
+    "wrap-break-spaces": 4,
+    "wrap-normal": 4,
+    "wrap-words": 4,
+    "no-wrap-default": 1,
+    "no-wrap-pre": 1,
+    "no-wrap-nowrap": 1,
+    "no-wrap-text-wrap": 1,
+    "whitespace-pre": 1,
+    "whitespace-pre-wrap": 1,
+    "whitespace-break-spaces": 1,
+    "whitespace-pre-line": 1,
+    "whitespace-normal": 1,
+    "whitespace-nowrap": 1
+  },
+  "scope": "Explicit embedded-font synthetic cases; no broad CSS parity or conformance claim."
+}

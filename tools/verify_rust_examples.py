@@ -63,9 +63,16 @@ report = {
     "documented_hello_matches_source": True,
     "homepage_snippet_matches_compiled_source": True,
     "fixtures": [],
+    "excluded_local_asset_fixtures": [],
 }
 for fixture in playground["fixtures"]:
     name = fixture["name"]
+    if fixture["source_files"].get("local_assets"):
+        # This quickstart replays bundled-font examples. Imported-asset cases
+        # are checked by the playground's native adapter and exported projects.
+        report["excluded_local_asset_fixtures"].append({
+            "name": name, "reason": "Requires imported assets outside this bundled-font quickstart's inputs"})
+        continue
     output = EVIDENCE / name
     # Replay the actual playground inputs, including its ordinary-output notice label.
     prepared = ROOT / "playground/verification"
@@ -106,6 +113,11 @@ assert len(decorations['cases']) == 16
 expected_names |= {'decoration-' + case['name'] for case in decorations['cases']}
 assert len(expected_names) == 86
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
-assert len(report['fixtures']) == len(playground['fixtures']) == len(expected_names)
+preformatted = json.loads((ROOT / 'tools/playground-fixtures/preformatted-whitespace-2.5.41.json').read_text(encoding='utf-8'))
+excluded_names = {'preformatted-' + case['name'] for case in preformatted['cases']}
+assert len(excluded_names) == 17
+assert {fixture['name'] for fixture in report['excluded_local_asset_fixtures']} == excluded_names
+assert len(report['fixtures']) == len(expected_names)
+assert len(playground['fixtures']) == len(expected_names) + len(excluded_names)
 (EVIDENCE / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

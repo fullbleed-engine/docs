@@ -21,22 +21,30 @@ required.update('fonts/' + item['file'] for item in font_sources['files'])
 records = []
 for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
     name = case['name']
+    local_assets = case.get('local_assets', [])
+    case_required = required | {item['path'] for item in local_assets}
     project = OUT / 'extracted projects with spaces' / name
     expected = OUT / (name + '-expected')
     archive_path = OUT / (name + '.zip')
+    assert hashlib.sha256(archive_path.read_bytes()).hexdigest() == case['zip_sha256']
     with zipfile.ZipFile(archive_path) as archive:
         assert archive.testzip() is None, 'Invalid ZIP CRC'
-        assert set(archive.namelist()) == required
-        assert len(archive.namelist()) == len(required), 'Duplicate ZIP names'
+        assert set(archive.namelist()) == case_required
+        assert len(archive.namelist()) == len(case_required), 'Duplicate ZIP names'
         for path in archive.namelist():
             assert not PurePosixPath(path).is_absolute() and '..' not in PurePosixPath(path).parts
+            assert '\\' not in path and ':' not in path
         archive.extractall(project)
     for source in ['input.html', 'style.css']:
         assert (project / source).read_bytes() == (expected / source).read_bytes(), 'Source bytes changed'
     assert (project / 'requirements.txt').read_text() == f'fullbleed=={metadata.version("fullbleed")}\n'
     assert b'{{ENGINE_VERSION}}' not in (project / 'README.txt').read_bytes()
     manifest = json.loads((project / 'project.json').read_text(encoding='utf-8'))
-    assert {f['path'] for f in manifest['files']} == required - {'project.json'}
+    assert {f['path'] for f in manifest['files']} == case_required - {'project.json'}
+    assert {f['path'] for f in manifest.get('localAssets', [])} == {f['path'] for f in local_assets}
+    for item in local_assets:
+        raw = (project / item['path']).read_bytes()
+        assert len(raw) == item['bytes'] and hashlib.sha256(raw).hexdigest() == item['sha256']
     for item in manifest['files']:
         raw = (project / item['path']).read_bytes()
         assert len(raw) == item['bytes'] and hashlib.sha256(raw).hexdigest() == item['sha256']
@@ -44,7 +52,7 @@ for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
         assert hashlib.sha256((project / 'fonts' / item['file']).read_bytes()).hexdigest() == item['sha256']
     # Use a different working directory to check that the runner resolves its own assets.
     run = subprocess.run([sys.executable, '-I', str(project / 'render.py')], cwd=ROOT,
-                         capture_output=True, text=True, encoding='utf-8', check=True)
+                         capture_output=True, text=True, encoding='utf-8', check=True, timeout=90)
     (project / 'run.log').write_text(run.stdout + run.stderr, encoding='utf-8')
     rendered = json.loads((project / 'output/render.json').read_text())
     assert rendered['pages'] == case['pages']
@@ -70,10 +78,20 @@ for case in json.loads((OUT / 'export-verification.json').read_text())['cases']:
         assert all(face + ' preview' in reader.pages[0].extract_text() for face in expected_faces)
     for number, preview in enumerate(rendered['previews'], 1):
         assert Path(preview).read_bytes() == (expected / f'page-{number}.png').read_bytes(), name + ': PNG mismatch'
-    records.append(dict(name=name, pages=case['pages'], files=len(required),
+    assert len(rendered['previews']) == case['pages']
+    repeat_equal = None
+    if name.startswith('preformatted-'):
+        first = [pdf.read_bytes(), *[Path(path).read_bytes() for path in rendered['previews']]]
+        repeated = subprocess.run([sys.executable, '-I', str(project / 'render.py')], cwd=ROOT,
+                                  capture_output=True, text=True, encoding='utf-8', check=True, timeout=90)
+        (project / 'repeat.log').write_text(repeated.stdout + repeated.stderr, encoding='utf-8')
+        assert json.loads((project / 'output/render.json').read_text()) == rendered
+        assert first == [pdf.read_bytes(), *[Path(path).read_bytes() for path in rendered['previews']]]
+        repeat_equal = True
+    records.append(dict(name=name, pages=case['pages'], files=len(case_required),
                         zip_crc_valid=True, sources_preserved=True, manifest_hashes_valid=True,
                         fonts_and_licenses_match=True, python_wasi_pdf_equal=True, python_wasi_png_equal=True,
-                        standard_font_faces=standard_font_faces,
+                        standard_font_faces=standard_font_faces, local_assets=local_assets, repeat_equal=repeat_equal,
                         pdf_sha256=rendered['sha256']))
 result = dict(ok=True, platform=sys.platform, python=sys.version.split()[0],
               engine=metadata.version('fullbleed'), cases=records,

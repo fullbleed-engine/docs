@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.40`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.41`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -50,6 +50,11 @@ text in the browser download and both exported language projects.
 Sixteen decoration cases check continuous lines through spaces, inherited and
 raised spans, wrapping, atomic isolation, and shadows. Independent PDFium
 geometry and pixels must match the retained public 2.5.40 reference.
+Seventeen preformatted-block cases use an imported, licensed Noto Sans font:
+seven wrapping policies, four no-wrap controls, and six whitespace policies.
+Independent PDF readers inspect all authored text, font embedding, page bounds,
+indentation, and newline placement in WASI, Python, Node, and browser downloads.
+The test font is not added to the playground's runtime bundle.
 `tools/check_playground_ui.py` exercises the built page, checks the four
 layout cases against independent PDF text and color probes, downloads edited
 PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
@@ -64,7 +69,7 @@ or ISO conformance.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.8.4` (engine 2.5.40), uses `defaultStyles: false` to retain the
+`fullbleed@0.8.6` (engine 2.5.41), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -77,15 +82,18 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.40 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+python -m pip install fullbleed==2.5.41 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
 python tools/verify_playground_pagination.py
 python tools/verify_playground_quotes.py
 python tools/verify_playground_decorations.py
+python tools/verify_playground_preformatted.py
 node tools/test_playground_local_files.mjs
 python tools/check_playground_local_files.py --site site --out output/playground-local-files
+python -m playwright install chromium
+python tools/check_playground_preformatted.py --site site --out output/playground-preformatted
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
@@ -109,6 +117,14 @@ actual project downloads from directories with spaces and another working direct
 It also checks rejected imports, asset removal, document switching, mobile layouts,
 and the absence of document uploads. The JavaScript checks cover limits before file
 reads, equivalent duplicate filenames, and byte snapshots during project export.
+
+The preformatted browser check uses a fresh anonymous headless Chromium context,
+the real file picker and editor, two PDF downloads for every case, every displayed
+page preview, and six actual Python/Node project downloads. Those six projects
+run from paths with spaces and must reproduce the browser PDF and PNG bytes.
+The exported-project gate also repeats all seventeen cases in each runtime.
+The separate Rust quickstart retains its bundled-font fixture scope; its report
+lists the imported-asset cases excluded from that quickstart replay.
 
 The adapter limits sources to 200,000 UTF-8 bytes, documents to six pages, WASM
 linear memory to 256 MiB, and each render to 30 seconds. The browser terminates
