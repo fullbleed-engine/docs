@@ -13,6 +13,7 @@ SOURCES = {
     'Cargo.lock': 'examples/rust/Cargo.lock',
     'src/hello.rs': 'examples/rust/src/hello.rs',
     'src/from_files.rs': 'examples/rust/src/from_files.rs',
+    'src/embedded.rs': 'examples/rust/src/embedded.rs',
     'LICENSE': 'examples/rust/LICENSE',
     'README.md': 'examples/rust/STARTER.md',
 }

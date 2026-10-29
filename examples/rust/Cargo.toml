@@ -6,6 +6,9 @@ rust-version = "1.85"
 license = "MIT"
 publish = false
 
+[features]
+embedded-assets = []
+
 [dependencies]
 fullbleed = { version = "=2.5.43", features = ["svg_raster"] }
 
@@ -16,3 +19,8 @@ path = "src/hello.rs"
 [[bin]]
 name = "from-files"
 path = "src/from_files.rs"
+
+[[bin]]
+name = "embedded"
+path = "src/embedded.rs"
+required-features = ["embedded-assets"]

@@ -7,6 +7,10 @@ enabled to match downloaded playground projects. They require Rust
 For a standalone project with the templates, fonts, and license notices, use the
 [Rust starter ZIP](https://docs.fullbleed.dev/assets/rust-starter/project.zip).
 Its [README](STARTER.md) contains commands that run from the extracted directory.
+It also includes an optional `embedded` program that compiles the fonts and
+templates into the executable. Build that example from the extracted ZIP with
+`cargo build --release --locked --features embedded-assets --bin embedded`;
+its assets are assembled by the download builder rather than duplicated here.
 
 From the root of this documentation repository:
 
