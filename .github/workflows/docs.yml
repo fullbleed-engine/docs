@@ -1226,6 +1226,14 @@ jobs:
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
+      - name: Verify render recovery after asset loading failures
+        run: python tools/check_playground_recovery.py --site site --out output/playground-recovery
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-recovery-verification
+          path: output/playground-recovery/
+          retention-days: 14
       - name: Import local assets and replay both downloaded projects
         run: python tools/check_playground_local_files.py --site site --out output/playground-local-files
       - name: Verify code wrapping and replay actual browser project downloads

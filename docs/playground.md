@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=gradients-2543">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=recovery-2543">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -171,7 +171,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=gradients-2543"></script>
+<script type="module" src="../assets/playground/app.js?v=recovery-2543"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.
