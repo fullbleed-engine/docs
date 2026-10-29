@@ -10,7 +10,7 @@ publish = false
 embedded-assets = []
 
 [dependencies]
-fullbleed = { version = "=2.5.43", features = ["svg_raster"] }
+fullbleed = { version = "=2.5.44", features = ["svg_raster"] }
 
 [[bin]]
 name = "hello"
