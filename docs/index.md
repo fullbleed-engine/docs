@@ -159,7 +159,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     cargo new invoice-demo
     cd invoice-demo
-    cargo add fullbleed@=2.5.40 --features svg_raster
+    cargo add fullbleed@=2.5.41 --features svg_raster
     ```
 
     Replace `src/main.rs` with:
@@ -197,7 +197,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.2.4
+    dotnet add package FullBleed.DotNet --version 0.2.6
     ```
 
     Replace `Program.cs` with:
@@ -231,7 +231,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.4/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.6/samples/FullBleed.DotNet.LinqVdp)
 
 <span id="compose-pdfs-with-python-components"></span>
 
@@ -294,7 +294,7 @@ Fullbleed uses static HTML/CSS as its layout language. Read the [CSS coverage](c
 
 ## Open source, with inspectable evidence
 
-Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.40 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.40) links the published engine packages and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
+Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-official/blob/master/LICENSE). The [2.5.41 release](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.41) links the published engine packages and retained engineering evidence. See the [smaller-PDF before/after check](guides/pdf-size.md) and the [performance report](guides/performance.md) for specific measured workloads and their limits.
 
 [Browse the CSS comparison](guides/css-explorer.md) to inspect printed pages and
 download PDFs from all 1,662 fixtures, including failures and disputed references.

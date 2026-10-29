@@ -74,7 +74,6 @@ def main():
     assets = args.assets.resolve()
     manifest = json.loads((assets/'source.json').read_text())
     package_version = manifest['packageVersion']
-    assert package_version == '0.2.4' and manifest['engineVersion'] == '2.5.40'
     archive_path = assets/'project.zip'
     assert sha256(archive_path.read_bytes()).hexdigest() == manifest['zipSha256']
     workspace = Path(tempfile.mkdtemp(prefix='fullbleed-csharp-download-')).resolve()
@@ -91,6 +90,8 @@ def main():
             target.parent.mkdir(parents=True, exist_ok=True); target.write_bytes(data)
     project = workspace/'fullbleed-csharp-components'
     upstream = json.loads((project/'upstream.json').read_text())
+    assert package_version == upstream['renderer']['version']
+    assert manifest['engineVersion'] == upstream['renderer']['engineVersion']
     for record in upstream['files']:
         assert sha256((project/record['path']).read_bytes()).hexdigest() == record['sha256']
     env = {**os.environ, 'NUGET_PACKAGES':str(workspace/'packages'),
@@ -166,6 +167,8 @@ File.WriteAllText(Path.Combine(output, "runtime.json"), JsonSerializer.Serialize
     assert runtime['Features']['BindingVersion']==package_version
 
     guide=(ROOT/'docs/guides/csharp-components.md').read_text(encoding='utf-8')
+    assert f'FullBleed.DotNet {package_version}' in guide
+    assert f'engine **{manifest["engineVersion"]}**' in guide
     blocks=re.findall(r'```csharp\n(.*?)```',guide,re.S)
     assert len(blocks)==6
     actual='\n'.join(blocks)+'''

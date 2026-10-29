@@ -38,5 +38,10 @@
       "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
     }
   ],
-  "adaptation": "C# sources, fonts and licenses are exact committed bytes. The standalone project uses NuGet 0.2.0 instead of a source ProjectReference and targets .NET 10."
+  "adaptation": "C# sources, fonts and licenses are exact committed bytes. The standalone project uses the pinned NuGet package instead of a source ProjectReference and targets .NET 10.",
+  "renderer": {
+    "package": "FullBleed.DotNet",
+    "version": "0.2.6",
+    "engineVersion": "2.5.41"
+  }
 }

@@ -971,7 +971,7 @@ jobs:
           python -m venv output/reference-env
           output/reference-env/bin/python -m pip install --only-binary=:all: fullbleed==2.5.36
           output/reference-env/bin/python -I tools/verify_quickstarts.py
-      - name: Verify the downloadable Node invoice and guide
+      - name: Verify the downloadable Node invoice, report and guide
         run: python tools/verify_node_examples.py
       - name: Verify the Node queue download and guide
         run: |
@@ -1140,6 +1140,14 @@ jobs:
       - name: Materialize the verified published-wheel CSS evidence
         run: python tools/prepare_css_corpus_site.py site
       - run: python tools/check_site.py site
+      - name: Verify first-use language guides and actual project downloads
+        run: python tools/check_entry_guides.py --site site --out output/entry-guides-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: entry-guides-browser-verification
+          path: output/entry-guides-browser/
+          retention-days: 14
       - name: Verify pandas component downloads and both standalone HTML exports
         run: python tools/check_pandas_components_browser.py --site site --out output/pandas-components-browser
       - uses: actions/upload-artifact@v4

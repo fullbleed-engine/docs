@@ -1,4 +1,4 @@
-"""Bundle the checked Node invoice project reproducibly."""
+"""Bundle the checked Node invoice and report project reproducibly."""
 import hashlib
 import json
 from pathlib import Path
@@ -7,7 +7,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "examples/node"
 OUTPUT = ROOT / "docs/assets/node"
-NAMES = ["LICENSE", "README.md", "invoice.css", "invoice.html", "package-lock.json", "package.json", "render.mjs"]
+NAMES = ["LICENSE", "README.md", "invoice.css", "invoice.html", "package-lock.json", "package.json", "render.mjs", "report.html", "report.css", "render-report.mjs"]
 record = json.loads((SOURCE / "source.json").read_text(encoding="utf8"))
 files = {}
 OUTPUT.mkdir(parents=True, exist_ok=True)

@@ -1,4 +1,4 @@
-"""Install and render the actual downloadable Node project and guide snippet."""
+"""Install and render the actual Node invoice/report download and guide snippets."""
 import argparse
 import hashlib
 import json
@@ -57,7 +57,7 @@ assert installed["version"] == manifest["package_version"], "Installed package v
 assert installed["fullbleed"]["engineVersion"] == manifest["engine_version"]
 lock = json.loads((workspace / "package-lock.json").read_text(encoding="utf8"))
 assert lock["packages"]["node_modules/fullbleed"]["integrity"] == manifest["package_integrity"]
-result = json.loads(run("render", ["render.mjs"]))
+result = json.loads(run("render", [npm, "run", "--silent", "render"]))
 assert result["pages"] == 1 and result["missingGlyphs"] == 0 and result["engine"] == manifest["engine_version"]
 outputs = {}
 for name, relative in [("invoice.pdf", "output/invoice/invoice.pdf"), ("invoice.png", "output/invoice/page-1.png")]:
@@ -69,7 +69,39 @@ for name, relative in [("invoice.pdf", "output/invoice/invoice.pdf"), ("invoice.
     else:
         assert (assets / name).read_bytes() == data, name
 
+report_result = json.loads(run("render-report", [npm, "run", "--silent", "render:report"]))
+assert report_result["pages"] == 3 and report_result["missingGlyphs"] == 0
+assert report_result["engine"] == manifest["report_engine_version"] == manifest["engine_version"]
+assert installed["version"] == manifest["report_package_version"]
+report_pdf = workspace / "output/report/report.pdf"
+report_reader = PdfReader(report_pdf, strict=True)
+assert len(report_reader.pages) == 3
+report_text = ''.join(page.extract_text() for page in report_reader.pages)
+for expected in ["COMMON", "GROUND", "1,240", "4,860", "$420,000.00"]:
+    assert expected in report_text, expected
+report_outputs = {}
+for name, relative in [("report.pdf", "output/report/report.pdf"), ("report-2.png", "output/report/page-2.png")]:
+    data = (workspace / relative).read_bytes()
+    assert digest(data) == manifest["report"][name], name
+    report_outputs[name] = digest(data)
+    if args.update_assets:
+        (assets / name).write_bytes(data)
+    else:
+        assert (assets / name).read_bytes() == data, name
+with pdfium.PdfDocument(report_pdf) as document:
+    report_independent_text = []
+    for page in document:
+        textpage = page.get_textpage()
+        report_independent_text.append(textpage.get_text_range())
+        textpage.close()
+        page.close()
+assert all(text.strip() for text in report_independent_text)
+assert '$420,000.00' in ''.join(report_independent_text)
+
 source = (ROOT / "docs/getting-started/node.md").read_text(encoding="utf8")
+assert f'**Node package {installed["version"]}**' in source
+assert f'**Fullbleed {installed["fullbleed"]["engineVersion"]}**' in source
+assert 'npm run render:report' in source and 'npm run render:report' in (workspace / 'README.md').read_text(encoding='utf8')
 blocks = re.findall(r"```javascript\n(.*?)```", source, re.S)
 assert len(blocks) == 3
 quickstart_code, named_font_code, process_code = blocks
@@ -97,8 +129,7 @@ await writeFile('process-statement.pdf', result.pdf);
 run("process-snippet", ["process-snippet.mjs"], snippet)
 process_pdf = (snippet / "process-statement.pdf").read_bytes()
 (out / "process-statement.pdf").write_bytes(process_pdf)
-# The named-font API is newer than the deliberately pinned invoice download.
-# Execute that exact guide block with the public version used by the playground.
+# Execute the named-font guide block with the public version used by the playground.
 named = workspace / "named-font-guide"
 named.mkdir()
 for name in ["package.json", "package-lock.json"]:
@@ -141,6 +172,7 @@ report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], 
           "installed_package_matches_manifest": True,
           "source_commit": manifest["source_commit"], "commands": commands, "download_files": len(manifest["files"]),
           "project_zip_sha256": manifest["zip_sha256"], "outputs": outputs, "quickstart": manifest["quickstart"],
+          "report": {"pages": 3, "outputs": report_outputs, "pdfiumText": report_independent_text},
           "homepage_snippet_matches_executed_guide": True,
           "process_snippet": {"ok": True, "pdf_sha256": digest(process_pdf)},
           "named_font_snippet": {"ok": True, "package_version": named_version, "engine_version": named_engine,
@@ -150,4 +182,11 @@ report = {"ok": True, "node": subprocess.check_output([str(node), "--version"], 
                                  "embedded_fonts": [str(font["/BaseFont"]) for font in fonts]},
           "workspace": workspace.name, "scope": "Actual public package installation, downloadable project, and documentation snippet; reviewed output hashes."}
 (out / "verification.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf8")
+public = {key: value for key, value in report.items() if key != 'workspace'}
+public.update(schema='fullbleed.node-guide-verification.v1',
+              source_revision=os.environ.get('GITHUB_SHA'), ci_run_id=os.environ.get('GITHUB_RUN_ID'),
+              input_sha256={name: digest((ROOT / name).read_bytes()) for name in [
+                  'docs/getting-started/node.md', 'docs/index.md', 'tools/verify_node_examples.py',
+                  'examples/node/render.mjs', 'examples/node/render-report.mjs', 'examples/node/source.json']})
+(assets / 'guide-verification.json').write_text(json.dumps(public, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(json.dumps({"ok": True, "node": report["node"], "files": report["download_files"], "commands": len(commands)}))
