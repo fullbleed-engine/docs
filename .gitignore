@@ -10,6 +10,7 @@ docs/assets/playground/build.json
 docs/assets/playground/verification.json
 docs/assets/playground/project-verification.json
 docs/assets/playground/node-project-verification.json
+docs/assets/playground/radial-gradient-verification.json
 examples/rust/target/
 examples/rust/verification/
 examples/yew-sheet/target/

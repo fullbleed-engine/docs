@@ -923,7 +923,7 @@ jobs:
           retention-days: 7
       - name: Verify downloadable playground projects
         run: |
-          python -m pip install fullbleed==2.5.41 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python -m pip install fullbleed==2.5.43 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
           node tools/test_playground_local_files.mjs
           node tools/verify_project_export.mjs
           python -I tools/verify_project_export.py
@@ -932,6 +932,7 @@ jobs:
           python tools/verify_playground_quotes.py
           python tools/verify_playground_decorations.py
           python tools/verify_playground_preformatted.py
+          python tools/verify_playground_radial_gradients.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -1249,7 +1250,10 @@ jobs:
         if: always()
         with:
           name: playground-browser-verification
-          path: output/playground-ui/
+          path: |
+            output/playground-ui/
+            !output/playground-ui/**/node_modules/**
+            !output/playground-ui/**/npm-cache/**
           retention-days: 14
       - name: Include search notification ownership file
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

@@ -17,6 +17,7 @@ from starter_engine_fixes import verify_engine_fixes
 from playground_pagination import check_browser as check_pagination
 from playground_quotes import check_browser as check_quotes
 from playground_decorations import check_browser as check_decorations
+from playground_radial_gradients import check_browser as check_radial_gradients
 
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -116,7 +117,7 @@ try:
             page.goto(url + 'playground/', wait_until='domcontentloaded')
             ready()
             check('playground uses the current published engine with SVG rendering',
-                  manifest['engine']['version'] == '2.5.41' and manifest['engine']['features'] == ['svg_raster'])
+                  manifest['engine']['version'] == '2.5.43' and manifest['engine']['features'] == ['svg_raster'])
             check('playground retains its bounded runtime', manifest['limits'] ==
                   {'source_bytes': 200000, 'pages': 6, 'wasm_memory_bytes': 268435456, 'render_seconds': 30,
                    'local_assets': 16, 'local_asset_bytes': 8388608, 'local_assets_total_bytes': 20971520})
@@ -191,7 +192,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.6'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.8.7'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}
@@ -242,6 +243,7 @@ try:
                                'https://api.github.com/repos/fullbleed-engine/fullbleed-official/releases/latest'}
             quotation_checks = check_quotes(page, out / 'quotes')
             decoration_checks = check_decorations(page, out / 'decorations')
+            radial_gradient_checks = check_radial_gradients(page, out / 'radial-gradients')
             check('document requests stay local; only fixed header metadata queries leave the site',
                   all(item['method'] == 'GET' and not item['body'] and
                       (item['url'].startswith((url, blob_origin)) or item['url'] in header_metadata)
@@ -252,6 +254,7 @@ try:
                       'engine': manifest['engine'], 'checks': checks, 'documents': documents,
                       'projectSha256': hashlib.sha256(project.read_bytes()).hexdigest(), 'network': network, 'errors': errors,
                       'quotationChecks': quotation_checks, 'decorationChecks': decoration_checks,
+                      'radialGradientChecks': radial_gradient_checks,
                       'nodeProjectSha256': hashlib.sha256(node_project.read_bytes()).hexdigest(),
                       'scope': 'Owned browser, synthetic source, real built page at a nested path; downloaded PDFs and project ZIP.'}
             (out / 'verification.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')

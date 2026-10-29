@@ -73,6 +73,9 @@ async function fixture(name, html, css, expectedPages, gradient, standardFonts =
     hashes[file] = hash(data);
   }
   const pdf = result.outputs['output.pdf'];
+  if (gradient?.referencePdfSha256) {
+    assert.equal(hash(pdf), gradient.referencePdfSha256, name + ': released core PDF reference');
+  }
   assert.equal(new TextDecoder().decode(pdf.slice(0, 5)), '%PDF-');
   const rerun = await render(module, files);
   for (const [file, expectedHash] of Object.entries(hashes)) {
@@ -105,6 +108,7 @@ for (const gradient of gradientFixtures) {
   await fixture(gradient.name, gradient.html, gradient.css, gradient.pages, gradient);
 }
 report.checks.push('Linear, translucent, and hard radial gradient interiors match expected colors');
+report.checks.push('Twelve radial endpoint cases match released core PDF bytes and native outer-color probes');
 await fixture(standardFontFixture.name, standardFontFixture.html, standardFontFixture.css, 1, null, true);
 report.checks.push('All 12 unembedded Latin standard font faces have visible preview text');
 const editorCases = (await Promise.all(['2.5.22', '2.5.24'].map(async version =>

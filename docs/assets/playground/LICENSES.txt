@@ -1,4 +1,4 @@
-fullbleed 2.5.41 / LICENSE
+fullbleed 2.5.43 / LICENSE
 
 MIT License
 
@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-fullbleed 2.5.41 / THIRD_PARTY_LICENSES.md
+fullbleed 2.5.43 / THIRD_PARTY_LICENSES.md
 
 <!-- SPDX-License-Identifier: MIT -->
 # Third-Party Licenses
@@ -826,7 +826,7 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 
 
-fullbleed 2.5.41 / src/preview_fonts/LICENSE-Liberation.txt
+fullbleed 2.5.43 / src/preview_fonts/LICENSE-Liberation.txt
 
 Digitized data copyright (c) 2010 Google Corporation
 	with Reserved Font Arimo, Tinos and Cousine.
@@ -932,7 +932,7 @@ DEALINGS IN THE FONT SOFTWARE.
 
 
 
-fullbleed 2.5.41 / src/preview_fonts/LICENSE-NotoSans.txt
+fullbleed 2.5.43 / src/preview_fonts/LICENSE-NotoSans.txt
 
 Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
 
@@ -1031,7 +1031,7 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-fullbleed 2.5.41 / src/preview_fonts/LICENSE-NotoSansMath.txt
+fullbleed 2.5.43 / src/preview_fonts/LICENSE-NotoSansMath.txt
 
 Copyright 2018 Google LLC. All Rights Reserved.
 
@@ -1130,7 +1130,7 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-fullbleed 2.5.41 / src/preview_fonts/LICENSE-NotoSansSymbols.txt
+fullbleed 2.5.43 / src/preview_fonts/LICENSE-NotoSansSymbols.txt
 
 Copyright 2016 Google LLC. All Rights Reserved.
 
@@ -1229,7 +1229,7 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-fullbleed 2.5.41 / src/preview_fonts/LICENSE-NotoSansSymbols2.txt
+fullbleed 2.5.43 / src/preview_fonts/LICENSE-NotoSansSymbols2.txt
 
 Copyright 2017 Google Inc. All Rights Reserved.
 

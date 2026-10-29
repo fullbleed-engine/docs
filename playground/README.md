@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.41`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.43`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -28,9 +28,17 @@ root documentation requirements. Then from the repository root:
 rustup target add wasm32-wasip1
 python tools/build_playground.py
 node tools/verify_playground.mjs
+python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.43
+node tools/verify_project_export.mjs
+python -I tools/verify_project_export.py
+python -I tools/verify_node_project_export.py
+python tools/verify_playground_pagination.py
+python tools/verify_playground_quotes.py
+python tools/verify_playground_decorations.py
+python tools/verify_playground_preformatted.py
+python tools/verify_playground_radial_gradients.py
 python -m mkdocs build --strict
 python tools/check_site.py site
-python -m pip install -r tools/browser-requirements.txt
 python -m playwright install chrome
 python tools/check_playground_ui.py --site site --out output/playground-ui
 ```
@@ -38,7 +46,7 @@ python tools/check_playground_ui.py --site site --out output/playground-ui
 The build uses both lockfiles, publishes a toolchain/hash record, and retains
 the generated verification report next to the browser assets. The verification
 script compares native and WASI PDF and PNG bytes for the invoice, report, and
-notice, an edited invoice, three gradient cases, and all 12 unembedded Latin
+notice, an edited invoice, fifteen gradient cases, and all 12 unembedded Latin
 standard font faces, plus sibling counter resets, nested clipping, SVG border-image
 centers, and a decorated floated initial; checks expected gradient colors and visible text in every
 standard-font row; and exercises source/page limits and
@@ -55,6 +63,11 @@ seven wrapping policies, four no-wrap controls, and six whitespace policies.
 Independent PDF readers inspect all authored text, font embedding, page bounds,
 indentation, and newline placement in WASI, Python, Node, and browser downloads.
 The test font is not added to the playground's runtime bundle.
+Twelve radial endpoint cases include coincident final stops, transparency,
+ellipses, offset centers, and three controls. Their PDFs must match retained
+public 2.5.43 outputs, with valid stitching-function bounds and checked outer
+colors in both native previews and independent PDFium rendering. The actual
+browser editor downloads and both exported language projects run these cases.
 `tools/check_playground_ui.py` exercises the built page, checks the four
 layout cases against independent PDF text and color probes, downloads edited
 PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
@@ -69,7 +82,7 @@ or ISO conformance.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.8.6` (engine 2.5.41), uses `defaultStyles: false` to retain the
+`fullbleed@0.8.7` (engine 2.5.43), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -82,7 +95,7 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.41 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+python -m pip install fullbleed==2.5.43 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -90,6 +103,7 @@ python tools/verify_playground_pagination.py
 python tools/verify_playground_quotes.py
 python tools/verify_playground_decorations.py
 python tools/verify_playground_preformatted.py
+python tools/verify_playground_radial_gradients.py
 node tools/test_playground_local_files.mjs
 python tools/check_playground_local_files.py --site site --out output/playground-local-files
 python -m playwright install chromium
@@ -98,7 +112,7 @@ python tools/check_playground_preformatted.py --site site --out output/playgroun
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
 replay, failure recovery, and Python/Node/WASI PDF and PNG equality for the invoice,
-report, notice, an edited invoice, three gradient cases, and the standard-font
+report, notice, an edited invoice, fifteen gradient cases, and the standard-font
 fixture, plus the four layout cases above and six font-cascade cases covering
 defaults, inheritance, specificity, and layers. An independent PDF reader verifies that all 12 font faces remain
 unembedded and their text is intact. Extracted projects run from paths with
