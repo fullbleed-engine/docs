@@ -1,6 +1,6 @@
 # Python API Reference
 
-Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/python-api.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/python-api.md). Check the installed runtime for your exact version.
 
 Primary import:
 
@@ -13,7 +13,16 @@ import fullbleed
 `compiled_flow_compression_modes` so long-lived services can inspect this surface without compiling
 a probe document.
 
+`build_features().get("embedded_stylesheets", False)` reports whether the installed
+engine applies static `<style>` elements in HTML. See
+[embedded stylesheets](../guides/complete-html.md) for a complete-document example,
+stylesheet precedence, print media, and compiled rendering boundaries.
+
 ## `fullbleed.ui` (component-first authoring)
+
+Start with [Build PDFs with Python components](../guides/python-components.md) for named
+elements, rich text, functions, Python styles and direct PDF/PNG rendering. The
+[designed invoice](../guides/python-components.md) needs no authored HTML.
 
 Secondary import surface for component/document authoring:
 

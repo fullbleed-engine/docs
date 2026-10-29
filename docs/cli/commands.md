@@ -1,6 +1,6 @@
 # CLI Reference
 
-Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/cli.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/cli.md). Check the installed runtime for your exact version.
 
 Executable entrypoint:
 
@@ -103,7 +103,7 @@ High-value options:
 - image artifacts: `--emit-image`, `--image-dpi`
 - policy: `--profile`, `--fail-on`, `--allow-fallbacks`, budget flags
 - reproducibility: `--deterministic-hash`, `--repro-record`, `--repro-check`
-- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/render-watch.md)
+- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/render-watch.md)
 
 Template auto-compose notes:
 - When `--templates` is set on `render`, CLI renders overlay, resolves template bindings, and finalizes via Rust compose in one command.
