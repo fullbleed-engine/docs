@@ -145,6 +145,50 @@ for (index, png) in engine.render_finalized_pdf_image_pages("invoice.pdf", 96)?.
 This previews the finalized PDF, including its supported gradient fills. The
 designed example and downloaded playground projects use the same path.
 
+## Compile fonts and templates into your executable
+
+If fonts and templates should travel with your application, the
+[same Rust download](../assets/rust-starter/project.zip) includes an optional
+`embedded` program. Build it from the extracted `fullbleed-rust-starter`
+directory:
+
+```bash
+cargo build --release --locked --features embedded-assets --bin embedded
+```
+
+Run the compiled program directly:
+
+```bash
+./target/release/embedded invoice output/embedded-invoice
+```
+
+On Windows, use:
+
+```powershell
+.\target\release\embedded.exe invoice output\embedded-invoice
+```
+
+Replace `invoice` with `report` for Common Ground. The program writes
+`document.pdf` and one `page-*.png` preview per page. Choose a new output
+directory; an existing directory is rejected.
+
+You can copy the executable elsewhere and run it without adjacent font or
+template files. Keep the font license notices with distributions of the
+executable. Changes to its fonts, HTML or CSS require rebuilding; use
+`from-files` when templates should stay editable at runtime.
+
+In your own program, pass
+`include_bytes!("../fonts/Inter-Variable.ttf").to_vec()` to `Asset::new` where
+the registration example above reads a file. Use `include_str!` to embed HTML
+or CSS. These macro paths are relative to the Rust source file at compile
+time, rather than the program's working directory. The included
+`src/embedded.rs` shows all four fonts, both designs, and missing-glyph handling.
+
+The download check copies the executable to an otherwise empty directory,
+runs both designs, and compares its PDFs and finalized previews with the
+file-based example. It also checks repeated output and rejects overwriting
+an existing output directory.
+
 ## Use Yew components
 
 If your application already uses Yew, you can author a document with typed

@@ -150,6 +150,48 @@ def main():
             hello = PdfReader(out / 'invoice.pdf')
             check('minimal API example produces its documented PDF', len(hello.pages) == 1
                   and 'INV-1042' in hello.pages[0].extract_text())
+
+            build_embedded = 'cargo build --release --locked --features embedded-assets --bin embedded'
+            check('embedded build command appears in README and guide',
+                  build_embedded in readme and build_embedded in guide)
+            run('build-embedded', build_embedded.split(), project)
+            standalone = (workspace / 'standalone run with spaces').resolve()
+            check('standalone directory is within the owned temporary workspace', standalone.is_relative_to(workspace))
+            standalone.mkdir()
+            executable = standalone / ('embedded' + suffix)
+            shutil.copy2(target / executable.name, executable)
+            check('standalone directory contains only the copied executable', list(standalone.iterdir()) == [executable])
+            report['embeddedExecutable'] = {'sha256': digest(executable), 'bytes': executable.stat().st_size}
+            run('standalone-files-control', [render, 'templates/invoice.html', 'templates/invoice.css',
+                                             'fonts', out / 'standalone-files-control'], standalone, expected=1)
+            check('file-based control cannot render without its runtime assets',
+                  not (out / 'standalone-files-control').exists())
+            for name, pages, markers, reference in [
+                ('invoice', 1, ['Northstar', 'Maple & Finch', 'NS-1042', '$1,870.00'], fixtures[0]['files']),
+                ('report', 3, ['Common Ground', 'Small actions.', 'Clear allocations.', '$420,000.00'], fixtures[1]['files']),
+            ]:
+                label = 'embedded-' + name
+                destination = Path('rendered PDFs') / label if name == 'invoice' else out / label
+                result = run(label, [executable, name, destination], standalone)
+                if not destination.is_absolute():
+                    shutil.copytree(standalone / destination, out / label)
+                check(label + ' renderer confirms page count', f'Rendered {pages} page(s)' in result.stdout)
+                _, rendered = inspect(label, pages, markers)
+                check(label + ' PDF and finalized previews match file-based output', rendered == reference)
+            run('embedded-repeat', [executable, 'invoice', out / 'embedded-repeat'], standalone)
+            _, repeated = inspect('embedded-repeat', 1)
+            check('embedded repeat PDF and preview bytes match', repeated == fixtures[0]['files'])
+            before = {p.name: digest(p) for p in (out / 'embedded-report').iterdir()}
+            existing = run('embedded-existing', [executable, 'invoice', out / 'embedded-report'], standalone, expected=1)
+            check('existing output directory is rejected clearly', 'already exists' in existing.stderr)
+            check('existing output files remain unchanged', before == {p.name: digest(p) for p in (out / 'embedded-report').iterdir()})
+            run('embedded-usage', [executable], standalone, expected=1)
+            choice = run('embedded-choice', [executable, 'unknown', out / 'embedded-unknown'], standalone, expected=1)
+            check('unknown design is rejected before creating output',
+                  'Choose invoice or report' in choice.stderr and not (out / 'embedded-unknown').exists())
+            check('standalone directory contains only the executable and generated output',
+                  {p.name for p in standalone.iterdir()} == {executable.name, 'rendered PDFs'})
+            check('embedded build retains the original Cargo lockfile', digest(project / 'Cargo.lock') == lock_hash)
         report['ok'] = True
     finally:
         (out / 'verification.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')

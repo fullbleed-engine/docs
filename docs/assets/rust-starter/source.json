@@ -22,8 +22,8 @@
     {
       "path": "Cargo.toml",
       "source": "examples/rust/Cargo.toml",
-      "bytes": 313,
-      "sha256": "84326bdc550d2839512d4346fb98eff86ef07a238b39189315d2975de63e4f4f"
+      "bytes": 438,
+      "sha256": "36daea8146075dcbaa0e9931577ff533412f4d4d15176a42e8dfe06685b35663"
     },
     {
       "path": "LICENSE",
@@ -34,8 +34,8 @@
     {
       "path": "README.md",
       "source": "examples/rust/STARTER.md",
-      "bytes": 3253,
-      "sha256": "1979de9d079529248b96c13b2b800641f8ac50288f39a2cb7425a63a92fecd2e"
+      "bytes": 4504,
+      "sha256": "d89d995b040f6fccb6141109c53ee347a0a765be0655b616d0a6a920be703fae"
     },
     {
       "path": "fonts/BebasNeue-OFL.txt",
@@ -80,6 +80,12 @@
       "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
     },
     {
+      "path": "src/embedded.rs",
+      "source": "examples/rust/src/embedded.rs",
+      "bytes": 2405,
+      "sha256": "d7ab8629b2ab0a0997db8bb2280f0575336212b681a376258eb167850ec32dd8"
+    },
+    {
       "path": "src/from_files.rs",
       "source": "examples/rust/src/from_files.rs",
       "bytes": 1462,
@@ -116,6 +122,6 @@
       "sha256": "46b0e975d43914c8b4492218feae09ea0ad684091a9f9ee3b18f66a87202e521"
     }
   ],
-  "zip_bytes": 587696,
-  "zip_sha256": "8dbc26c623021c6db5c53cf45e9082400543c388a4488244bea646e56b810ecd"
+  "zip_bytes": 589302,
+  "zip_sha256": "bd7236dbc5b5baaa02100ce406a8b963c6758a257e344b633e84c21cfabe822c"
 }

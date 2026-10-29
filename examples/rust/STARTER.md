@@ -50,6 +50,41 @@ The renderer takes trusted local paths and static HTML/CSS; it is not an HTTP
 server or a sandbox. It does not execute document JavaScript. These examples
 produce ordinary PDFs and do not select an accessibility or archival profile.
 
+## Compile fonts and templates into the executable
+
+The optional `embedded` program uses `include_bytes!` for the four fonts and
+`include_str!` for the invoice and report templates. Build it from this extracted
+project, which contains those assets:
+
+```sh
+cargo build --release --locked --features embedded-assets --bin embedded
+```
+
+Run the compiled program directly:
+
+```sh
+./target/release/embedded invoice output/embedded-invoice
+```
+
+On Windows, use:
+
+```powershell
+.\target\release\embedded.exe invoice output\embedded-invoice
+```
+
+Replace `invoice` with `report` for the three-page report. Open `document.pdf`
+and the `page-*.png` previews in your chosen output directory. Choose a new
+directory each time; this program refuses to overwrite an existing directory.
+
+You can copy the executable to another directory and run it there. It needs
+no adjacent font or template files at runtime. Keep the font license notices
+with distributions of the executable. Edit the fonts, HTML or CSS in this
+project and rebuild to change the compiled assets; use `from-files` for templates
+that should remain editable without recompiling.
+
+`src/embedded.rs` registers the embedded bytes in an `AssetBundle` and checks
+the glyph report before writing the PDF.
+
 ## Reuse the Rust API
 
 `src/hello.rs` contains the smaller `FullBleed::builder()` and
