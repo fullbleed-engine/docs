@@ -299,4 +299,4 @@ Fullbleed is [MIT licensed](https://github.com/fullbleed-engine/fullbleed-offici
 [Browse the CSS comparison](guides/css-explorer.md) to inspect printed pages and
 download PDFs from all 1,662 fixtures, including failures and disputed references.
 
-[Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues) · [Support Fullbleed](support.md)
+[Read the Python API](engine/pdf-engine.md) · [Set up a coding agent](guides/ai-agents.md) · [Report an issue](https://github.com/fullbleed-engine/fullbleed-official/issues/new/choose) · [Questions and examples](https://github.com/fullbleed-engine/fullbleed-official/discussions/6) · [Support Fullbleed](support.md)

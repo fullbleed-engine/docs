@@ -125,3 +125,5 @@ If your HTML already contains `<style>` elements, see
 adds embedded stylesheet support, including print-media rules and page settings.
 
 [Examples and generated PDFs](../examples.md) · [Web framework examples](../guides/web-frameworks.md) · [Python API](../engine/pdf-engine.md) · [CLI reference](../cli/commands.md)
+
+Ask a question or share a document in [GitHub Discussions](https://github.com/fullbleed-engine/fullbleed-official/discussions/6).

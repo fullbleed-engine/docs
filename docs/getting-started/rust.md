@@ -277,3 +277,5 @@ also extracts the actual ZIP, compiles it outside the source tree, and checks
 the invoice, report, edited HTML/CSS, failure handling, and repeated output.
 See the [example verification source](https://github.com/fullbleed-engine/docs/blob/main/tools/verify_rust_examples.py)
 for the playground comparisons and their scope.
+
+Ask a question or share a document in [GitHub Discussions](https://github.com/fullbleed-engine/fullbleed-official/discussions/6).
