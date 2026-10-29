@@ -18,7 +18,7 @@ The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-sourc
 is recorded separately and has different verdict totals. Earlier zero-failure
 reports below are historical; none establishes complete CSS conformance.
 
-Reference imported from [v2.5.22](https://github.com/fullbleed-engine/fullbleed-official/blob/e41c1b4b4395c9bd3c024935c926ba46cb791440/docs/css-coverage.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/css-coverage.md). Check the installed runtime for your exact version.
 
 The imported report below preserves earlier version-specific coverage claims.
 Use the dated comparison evidence above for the current verified result.
@@ -26,6 +26,28 @@ Use the dated comparison evidence above for the current verified result.
 Scope baseline: static, paged document rendering (transactional/report workflows), not a live browser runtime.
 
 Source taxonomy: https://developer.mozilla.org/en-US/docs/Web/CSS
+
+## Historical source comparison
+
+The source carried into 2.5.28 was checked against all 1,662 fixtures at pinned
+IronPress revision `0d1e53b6d8174d0a5059a8696c24e62759381f6d`. The
+[October 16 run](https://github.com/fullbleed-engine/fullbleed-official/actions/runs/38992175451)
+reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED**. Its overall conclusion
+remains **failure**. The tested source head is
+`ba4ed7a827f97f5af7863b3f70fada02b03d9b61`, merged with the same tree at
+`77baef2919e848fdfab30ed321a00a7745de42a0`.
+
+The signed inset-shadow fixes change two cases from FAIL to PASS and one clipping
+interaction from PASS to FAIL relative to the 1,619/25/18 baseline. The clipping
+image improves despite its changed classification; rounded blur remains a known
+difference from Chrome print. All changed PDFs preserve text and page counts.
+See the [2.5.28 runbook](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/release/2.5.28-runbook.md) for the review and retained
+evidence. Comparator references, thresholds and verdicts are unchanged.
+
+This source-based check does not by itself verify a downloaded release package.
+Use the matching release's distribution and public-consumer evidence for that
+claim. Earlier dated closeouts below remain historical records; they do not
+describe the current full-corpus gate or establish complete CSS conformance.
 
 ## Historical validation basis
 

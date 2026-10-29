@@ -20,6 +20,22 @@ PAGES = {
     "docs/performance-pass-2026-08-04.md": "guides/performance.md",
 }
 
+# Route these source references to the existing runnable guides on this site.
+LINK_TARGETS = {
+    **PAGES,
+    "docs/embedded-stylesheets.md": "guides/complete-html.md",
+    "docs/component-authoring.md": "guides/python-components.md",
+    "examples/components/README.md": "guides/python-components.md",
+}
+
+HEADINGS = {
+    "css-coverage.md": """---
+title: CSS support for HTML-to-PDF
+description: Evaluate Fullbleed's CSS support for print documents with 1,662 tested fixtures, generated PDFs, reference images, and known limitations for the published 2.5.39 wheel.
+---
+# CSS support for PDF documents""",
+}
+
 # Site-only context must survive later imports of the historical report.
 INTRODUCTIONS = {
     "engine/font-registration.md": (
@@ -29,12 +45,23 @@ INTRODUCTIONS = {
         "[Arabic and English invoice](../guides/arabic-pdf.md) includes static "
         "regular and bold Noto Sans Arabic files with a font manifest and glyph checks."
     ),
-    "css-coverage.md": (
-        "See the [current published-wheel comparison and release follow-ups]"
-        "(guides/css-corpus.md), or [browse every fixture](guides/css-explorer.md). "
-        "Those pages identify the exact tested package, remaining failures, disputed "
-        "references, PDFs, images, and hashes. "
-        "The imported reference below preserves earlier version-specific reports."
+    "css-coverage.md": """Fullbleed lays out static HTML/CSS as paged documents. Use the tested examples
+below to evaluate the styling and page layout your invoices and reports need.
+
+The [published-wheel comparison](guides/css-corpus.md#published-wheel-comparison-2539)
+tests **Fullbleed 2.5.39** and reports **1,620 PASS, 24 FAIL and 18 REFERENCE-DISPUTED** across 1,662 fixtures.
+Its overall conclusion remains **failure**. The exact PyPI wheel, report,
+PDFs, images, and manifest verification are retained.
+
+[Browse the actual results](guides/css-explorer.md), or read the
+[method, package identity, and historical comparisons](guides/css-corpus.md).
+The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-source-comparison-260a14)
+is recorded separately and has different verdict totals. Earlier zero-failure
+reports below are historical; none establishes complete CSS conformance.""",
+    "ui/overview.md": (
+        "For `class_name`, selectors and attached styles, see the "
+        "[worked styling examples](../guides/python-components.md#class-names-and-styles). "
+        "The reference below focuses on the accessibility authoring layer."
     ),
     "guides/performance.md": (
         "For a current shared-input example, see the "
@@ -56,6 +83,17 @@ APPENDICES = {
         "(https://github.com/fullbleed-engine/fullbleed-official/releases/download/v2.5.16/fullbleed-2.5.16-verification.json) "
         "retain the original Windows and Linux checks for the named synthesis controls. "
         "They do not establish complete CSS Fonts conformance.\n"
+    ),
+}
+
+BODY_REPLACEMENTS = {
+    "css-coverage.md": (
+        (
+            "This document is the canonical statement of validated CSS coverage for Fullbleed's deterministic HTML/CSS-to-PDF engine.",
+            "The imported report below preserves earlier version-specific coverage claims.\n"
+            "Use the dated comparison evidence above for the current verified result.",
+        ),
+        ("## Latest retained full-corpus result", "## Historical source comparison"),
     ),
 }
 
@@ -81,14 +119,17 @@ def main() -> None:
                 return match.group(0)
             path, marker, anchor = url.partition("#")
             resolved = posixpath.normpath(posixpath.join(posixpath.dirname(source), path))
-            if resolved in PAGES:
-                dest = posixpath.relpath(PAGES[resolved], posixpath.dirname(target) or ".")
+            if resolved in LINK_TARGETS:
+                dest = posixpath.relpath(LINK_TARGETS[resolved], posixpath.dirname(target) or ".")
             else:
                 dest = repo + resolved
             return "](" + dest + (marker + anchor if marker else "") + ")"
 
         content = re.sub(r"\]\(([^\s)]+)\)", link, content)
         heading, separator, body = content.partition("\n")
+        heading = HEADINGS.get(target, heading)
+        for before, after in BODY_REPLACEMENTS.get(target, ()):
+            body = body.replace(before, after)
         note = f"\nReference imported from [{args.ref}]({repo}{source}). Check the installed runtime for your exact version.\n"
         if target in INTRODUCTIONS:
             note = "\n" + INTRODUCTIONS[target] + "\n" + note
