@@ -117,6 +117,7 @@ nav:
     - Python apps:
       - FastAPI, Flask, and Django: guides/web-frameworks.md
       - Streamlit PDF downloads: guides/streamlit-pdf.md
+      - Batch PDFs and record checks: guides/compiled-batches.md
       - Python in Docker: guides/python-docker.md
       - Python in AWS Lambda: guides/aws-lambda-pdf.md
     - JavaScript apps:
