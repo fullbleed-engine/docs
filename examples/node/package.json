@@ -11,6 +11,6 @@
     "node": ">=22"
   },
   "dependencies": {
-    "fullbleed": "0.8.7"
+    "fullbleed": "0.9.0"
   }
 }

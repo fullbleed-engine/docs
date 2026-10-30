@@ -126,6 +126,7 @@ nav:
       - Vue PDF previews: guides/vue-pdf.md
       - Next.js PDF downloads: guides/nextjs-pdf.md
       - Queue Node PDF jobs: guides/node-render-queue.md
+      - Batch PDFs from records: guides/node-pdf-batches.md
       - PDFs in Cloudflare Workers: guides/cloudflare-pdf.md
     - Rust and Axum PDF downloads: guides/axum-pdf.md
     - ASP.NET Core PDF downloads: guides/aspnet-pdf.md

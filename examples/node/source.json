@@ -1,10 +1,10 @@
 {
-  "package_version": "0.8.7",
-  "engine_version": "2.5.43",
+  "package_version": "0.9.0",
+  "engine_version": "2.5.46",
   "source_commit": "c5513fe4f7d0c82cfef084d76ff6df7ab3b0c710",
-  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.8.7.tgz",
-  "package_integrity": "sha512-aC0HGlGeGvPaTSjLwdRcfihy8q3iOXNYfOOweKjj5FwZ398bclKUoaDIdywnsZ45/s+Lpc69wVBhwORxI4A+xQ==",
-  "package_sha256": "6f02cbb78b94d26d08619d3af5cba6dc0523453865e01dec26182e9cff2d2a0b",
+  "package_url": "https://registry.npmjs.org/fullbleed/-/fullbleed-0.9.0.tgz",
+  "package_integrity": "sha512-2gzzGjTTW5O4eWmwU2Gek8VcJ/pR9yT0+Ujsk61ISKGuRL4IeDwq8m0QvqXBiKicfXyFmfABAXCOXxHOpG+G5g==",
+  "package_sha256": "83aed411499affbeef0a4401dff09b254c532f5f970403836e82e72f8e10d472",
   "rendered": {
     "invoice.pdf": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
     "invoice.png": "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
@@ -20,12 +20,12 @@
     "report.pdf": "80fc4306db1898688d846cfea4fb1b4ef5bf07713fe9301662143619441205b5",
     "report-2.png": "9e883a04ab32392aa87ef5931761285b8dc15f8fd642b4f9bbea582c044bcdbe"
   },
-  "report_package_version": "0.8.7",
-  "report_engine_version": "2.5.43",
-  "package_source_commit": "f4690ce0eeaee16c19bcadbcc55e3a43b1a56bd5",
+  "report_package_version": "0.9.0",
+  "report_engine_version": "2.5.46",
+  "package_source_commit": "4f94363b7de7bf46f037c779809ad8bfd4d4bf15",
   "report_source": {
     "repository": "https://github.com/fullbleed-engine/fullbleed-node",
-    "commit": "f4690ce0eeaee16c19bcadbcc55e3a43b1a56bd5",
+    "commit": "4f94363b7de7bf46f037c779809ad8bfd4d4bf15",
     "files": {
       "report.html": {
         "upstreamPath": "examples/browser/src/report.html",
