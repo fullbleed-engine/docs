@@ -38,6 +38,13 @@ The reflow lane retains the template tree and compiles encountered flow variants
 
 Read the [CompiledDocument reference](../engine/pdf-engine.md#compileddocument) for the binding contract, trusted structural slots, compression modes, and examples. The larger [compiled reflow project](https://github.com/fullbleed-engine/fullbleed-official/tree/v2.4.0/examples/compiled_reflow) includes table rows, running strings, and per-record page distributions.
 
+## Check each record before delivery
+
+From Fullbleed 2.5.46, the optional compiled-batch report returns each record's
+page range and missing characters in its selected registered fonts. Use the
+[batch PDF guide](compiled-batches.md) to render variable-length notices and
+apply your own acceptance policy before saving or delivering the result.
+
 ## Measure your own workload
 
 The [performance report](performance.md) retains timings and correctness checks for specified historical fixtures. Compile time, first-seen structures, font shaping, compression, I/O, and record length affect your results. Compare complete, equivalent jobs with output verification enabled.

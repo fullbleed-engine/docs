@@ -120,3 +120,7 @@ python verify.py --out output/verification
 Use [watch mode](render-watch.md) for quick feedback while editing, then run this
 one-shot check for review. The [CLI reference](../cli/commands.md) describes the
 underlying render and reproducibility options.
+
+For batch jobs, you can also [check each record's selected-font coverage and page
+range](compiled-batches.md) before delivery. That report API requires Fullbleed
+2.5.46 or later; the downloadable regression starter retains its tested 2.5.3 pin.
