@@ -1,7 +1,7 @@
 # Designed invoices and reports from Node.js
 
-This fictional Northstar Studio invoice uses Fullbleed's Node package 0.8.7,
-which bundles the Fullbleed 2.5.43 engine and Inter, DM Serif Display, and Bebas
+This fictional Northstar Studio invoice uses Fullbleed's Node package 0.9.0,
+which bundles the Fullbleed 2.5.46 engine and Inter, DM Serif Display, and Bebas
 Neue fonts. You need Node.js 22 or newer; no Python or Rust installation is needed.
 
 ```bash
@@ -23,7 +23,7 @@ Open `output/report/report.pdf` and its `page-1.png` through `page-3.png` previe
 Edit `report.html` and `report.css` to use your own layout and data. Both designs
 use fictional data.
 
-The lockfile pins Fullbleed 0.8.7 from npm and its integrity hash.
+The lockfile pins Fullbleed 0.9.0 from npm and its integrity hash.
 The package renders locally; it does not upload documents to a service.
 
 The sample and engine are MIT licensed. The package retains the bundled font

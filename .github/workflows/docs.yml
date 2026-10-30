@@ -974,6 +974,19 @@ jobs:
           output/reference-env/bin/python -I tools/verify_quickstarts.py
       - name: Verify the downloadable Node invoice, report and guide
         run: python tools/verify_node_examples.py
+      - name: Verify the Node batch guide against the public package
+        run: python tools/verify_node_batches.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: node-batch-guide-verification
+          path: |
+            output/node-batch-verification/*.json
+            output/node-batch-verification/*.log
+            output/node-batch-verification/*.mjs
+            output/node-batch-verification/*.pdf
+            output/node-batch-verification/pages/*.png
+          retention-days: 14
       - name: Verify the Node queue download and guide
         run: |
           python -m pip install pypdf==6.19.0 pypdfium2==5.14.0

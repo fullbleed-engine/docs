@@ -14,6 +14,8 @@ The optional report API requires **Fullbleed 2.5.46 or later**. It returns page
 ranges and registered-font character checks alongside the PDF, so your application
 can inspect the result before saving or delivering it.
 
+For a JavaScript application, use the [Node.js batch guide](node-pdf-batches.md).
+
 Install the version used by this example with `python -m pip install fullbleed==2.5.46`.
 Save the code below as `notices.py`, then run `python notices.py`.
 
