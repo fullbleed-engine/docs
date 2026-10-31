@@ -18,7 +18,7 @@ The [navigation alpha source result](guides/css-corpus.md#navigation-alpha-sourc
 is recorded separately and has different verdict totals. Earlier zero-failure
 reports below are historical; none establishes complete CSS conformance.
 
-Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/css-coverage.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.48](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/docs/css-coverage.md). Check the installed runtime for your exact version.
 
 The imported report below preserves earlier version-specific coverage claims.
 Use the dated comparison evidence above for the current verified result.
@@ -41,7 +41,7 @@ The signed inset-shadow fixes change two cases from FAIL to PASS and one clippin
 interaction from PASS to FAIL relative to the 1,619/25/18 baseline. The clipping
 image improves despite its changed classification; rounded blur remains a known
 difference from Chrome print. All changed PDFs preserve text and page counts.
-See the [2.5.28 runbook](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/release/2.5.28-runbook.md) for the review and retained
+See the [2.5.28 runbook](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/docs/release/2.5.28-runbook.md) for the review and retained
 evidence. Comparator references, thresholds and verdicts are unchanged.
 
 This source-based check does not by itself verify a downloaded release package.
