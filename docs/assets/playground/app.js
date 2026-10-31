@@ -3,7 +3,9 @@ import { prepareExample } from './examples.js';
 
 const assetGeneration = new URL(import.meta.url).search;
 const { buildProject } = await import(`./project-export.js${assetGeneration}`);
+const { readProject } = await import(`./project-import.js${assetGeneration}`);
 const { readSelection, validateSource } = await import(`./local-files.js${assetGeneration}`);
+const engineVersion = '2.5.43';
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
@@ -42,7 +44,7 @@ function clearOutput() {
   el('placeholder').hidden = false;
   el('placeholder').textContent = 'Render your document to see it here.';
   el('page-count').textContent = '—';
-  el('result').textContent = 'Fullbleed 2.5.43';
+  el('result').textContent = `Fullbleed ${engineVersion}`;
   el('previous').disabled = el('next').disabled = true;
   setDownload(false);
 }
@@ -171,6 +173,7 @@ el('files').addEventListener('change', async () => {
   if (!files.length) return;
   const snapshot = { current, html: html.value, css: css.value, assetVersion };
   el('open-files').disabled = true;
+  el('open-project').disabled = true;
   status('Opening selected files on your device…');
   try {
     const selected = await readSelection(files, localAssets);
@@ -203,6 +206,47 @@ el('files').addEventListener('change', async () => {
   } finally {
     el('files').value = '';
     el('open-files').disabled = false;
+    el('open-project').disabled = false;
+  }
+});
+
+el('open-project').addEventListener('click', () => el('project-file').click());
+el('project-file').addEventListener('change', async () => {
+  const file = el('project-file').files[0];
+  if (!file) return;
+  const snapshot = { current, html: html.value, css: css.value, assetVersion, language: projectLanguage.value };
+  el('open-project').disabled = el('open-files').disabled = true;
+  status('Checking the saved project on your device…');
+  try {
+    const project = await readProject(file);
+    if (current !== snapshot.current || html.value !== snapshot.html || css.value !== snapshot.css
+        || assetVersion !== snapshot.assetVersion || projectLanguage.value !== snapshot.language) {
+      throw new Error('Your document changed while the project was opening. Choose the ZIP again to apply it.');
+    }
+    if (worker) finish();
+    edits.set(current, { html: html.value, css: css.value });
+    current = 'custom';
+    originals.set(current, { html: project.html, css: project.css });
+    edits.delete(current);
+    if (!picker.querySelector('option[value="custom"]')) picker.add(new Option('Your document', 'custom'));
+    picker.value = current;
+    html.value = project.html; css.value = project.css;
+    projectLanguage.value = project.language;
+    localAssets = project.assets;
+    assetVersion++;
+    el('reset').textContent = 'Reset document';
+    el('project-status').hidden = true;
+    selectTab('html');
+    showAssets();
+    clearOutput();
+    const versionNote = project.engineVersion === engineVersion ? ''
+      : ` This project was saved with Fullbleed ${project.engineVersion}; this playground uses ${engineVersion}.`;
+    status(`Project opened locally.${versionNote} Choose Render PDF to preview with this playground’s engine and bundled fonts.`);
+  } catch (error) {
+    status(error.message || 'Could not open the saved project.', true);
+  } finally {
+    el('project-file').value = '';
+    el('open-project').disabled = el('open-files').disabled = false;
   }
 });
 
@@ -249,7 +293,7 @@ el('project').addEventListener('click', async () => {
       || assetVersion !== snapshot.assetVersion || (projectLanguage?.value ?? 'python') !== snapshot.language;
     message.textContent = newerEdits
       ? 'Project downloaded with the source and language from when you clicked. Download again to include newer changes.'
-      : 'Project downloaded. Extract the ZIP and follow its README to render locally.';
+      : 'Project downloaded. Reopen it here with Open saved project, or extract the ZIP and follow its README to render locally.';
   } catch (error) {
     message.textContent = error.message || 'Could not download the project. Try again.';
     message.dataset.error = 'true';
@@ -288,7 +332,7 @@ try {
   if (originals.has(hashExample)) current = hashExample;
   picker.value = current;
   html.value = originals.get(current).html; css.value = originals.get(current).css;
-  for (const control of [html, css, picker, el('reset'), el('render'), el('project'), el('open-files'), projectLanguage].filter(Boolean)) control.disabled = false;
+  for (const control of [html, css, picker, el('reset'), el('render'), el('project'), el('open-files'), el('open-project'), projectLanguage].filter(Boolean)) control.disabled = false;
   for (const language of ['html', 'css']) { el(`save-${language}`).href = '#'; el(`save-${language}`).setAttribute('aria-disabled', 'false'); }
   startRender();
 } catch (error) { status(error.message, true); document.querySelector('.pg-output').setAttribute('aria-busy', 'false'); }

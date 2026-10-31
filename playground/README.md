@@ -19,6 +19,15 @@ validation completes before source or asset state changes. Importing HTML starts
 the Your document entry; existing example edits remain available. Assets stay in
 the tab when switching documents and are copied into downloaded projects.
 
+**Open saved project** restores an unchanged playground ZIP's source, custom
+assets, and language in a new tab. It replaces the current document and assets
+only after validating the entire archive. The importer accepts the exporter's
+stored ZIP format, up to 24 MiB and 64 entries, with matching local/directory
+records, CRCs, manifest hashes, and the usual source/asset limits. It does not
+execute archived runners or use archived engine binaries. Previewing uses the
+current engine and bundled fonts; a different saved engine version is reported
+before rendering. These integrity checks do not authenticate a ZIP's author.
+
 ## Reproduce
 
 Install Rust with the `wasm32-wasip1` target, Node 22 or newer, Python, and the
@@ -111,9 +120,14 @@ python tools/verify_playground_decorations.py
 python tools/verify_playground_preformatted.py
 python tools/verify_playground_radial_gradients.py
 node tools/test_playground_local_files.mjs
+node tools/test_playground_project_import.mjs
 python tools/check_playground_local_files.py --site site --out output/playground-local-files
 python -m playwright install chromium
 python tools/check_playground_preformatted.py --site site --out output/playground-preformatted
+python -m playwright install --with-deps chrome firefox webkit
+python tools/check_playground_project_import.py --site site --out output/project-import/chrome --browser chrome
+python tools/check_playground_project_import.py --site site --out output/project-import/firefox --browser firefox
+python tools/check_playground_project_import.py --site site --out output/project-import/webkit --browser webkit
 ```
 
 The verifier checks ZIP integrity, exact source and font/license bytes, export
@@ -137,6 +151,14 @@ actual project downloads from directories with spaces and another working direct
 It also checks rejected imports, asset removal, document switching, mobile layouts,
 and the absence of document uploads. The JavaScript checks cover limits before file
 reads, equivalent duplicate filenames, and byte snapshots during project export.
+
+The saved-project browser check closes the original context, reopens each actual
+Python/Node download through the file picker, and requires byte-identical PDFs
+and reexported ZIPs. It also checks damaged archives, edits during import, older
+engine notices, keyboard activation, 1440/390/320px layouts, and no document
+uploads. CI runs this check in Chromium, Firefox, and Playwright WebKit; the latter
+is not a Safari certification. Unit checks reject unsupported ZIP features and
+malformed manifests before the editor can change.
 
 The preformatted browser check uses a fresh anonymous headless Chromium context,
 the real file picker and editor, two PDF downloads for every case, every displayed
