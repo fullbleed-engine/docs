@@ -119,6 +119,25 @@ assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 preformatted = json.loads((ROOT / 'tools/playground-fixtures/preformatted-whitespace-2.5.41.json').read_text(encoding='utf-8'))
 excluded_names = {'preformatted-' + case['name'] for case in preformatted['cases']}
 assert len(excluded_names) == 17
+page_font_path = ROOT / 'tools/playground-fixtures/page-margin-fonts-2.5.48.json'
+page_fonts = json.loads(page_font_path.read_text(encoding='utf-8'))
+assert len(page_fonts['cases']) == 8
+page_font_names = {f'page-font-{case["name"]}-{kind}' for case in page_fonts['cases'] for kind in ['control', 'alias']}
+assert len(page_font_names) == 16
+excluded_names |= page_font_names
+# This older quickstart registers only its four bundled fonts. Require the
+# separate native/WASI and actual exported-project checks for imported fonts.
+font_checks = json.loads((ASSETS / 'playground/page-font-verification.json').read_text(encoding='utf-8'))
+assert font_checks['ok'] and font_checks['engine'] == playground['engine']
+assert font_checks['fixtureSha256'] == sha256(page_font_path)
+required_pairs = {(mode, case['name']) for mode in ['wasi', 'python', 'node'] for case in page_fonts['cases']}
+assert len(font_checks['pairs']) == 24
+assert {(pair['mode'], pair['name']) for pair in font_checks['pairs']} == required_pairs
+playground_fonts = {fixture['name']: fixture for fixture in playground['fixtures'] if fixture['name'] in page_font_names}
+assert set(playground_fonts) == page_font_names
+for pair in font_checks['pairs']:
+    for kind in ['control', 'alias']:
+        assert pair['pdfSha256'] == playground_fonts[f'page-font-{pair["name"]}-{kind}']['hashes']['output.pdf']
 assert {fixture['name'] for fixture in report['excluded_local_asset_fixtures']} == excluded_names
 assert len(report['fixtures']) == len(expected_names)
 assert len(playground['fixtures']) == len(expected_names) + len(excluded_names)
