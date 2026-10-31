@@ -26,6 +26,25 @@ Register your own font files or directories through the [Python API](pdf-engine.
 Regular and italic faces can share a family name. For exact face mappings and
 upgrade guidance, see [Font face selection](font-registration.md).
 
+## Use a bundled font from the CLI
+
+With Fullbleed **2.5.47 or newer**, create a PDF using the Inter font already in
+the package:
+
+```bash
+python -m fullbleed render --html-str "<h1>Quarterly statement</h1>" --css-str "body { font-family: Inter; }" --asset "@inter" --out statement.pdf
+```
+
+`--asset "@inter"` registers the font; `font-family: Inter` selects it in your
+stylesheet. This command needs no font download or system-font installation.
+Quote `@` references in PowerShell.
+
+Use `python -m fullbleed assets list --json` to discover bundled `render_refs`.
+To copy Inter and its complete OFL license into a project, run
+`python -m fullbleed assets install inter --vendor vendor`. See the
+[CLI reference](../cli/commands.md#use-the-bundled-inter-font) for existing
+HTML/CSS templates, versioned references and asset lockfiles.
+
 ## Standard 14 native previews
 
 Starting with engine 2.5.11, Fullbleed bundles fixed, OFL-licensed outline

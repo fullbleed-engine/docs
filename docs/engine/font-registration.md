@@ -2,7 +2,7 @@
 
 The [Chinese-text guide](../guides/chinese-pdf.md) includes a runnable bilingual invoice, pinned font preparation, and the current variable-font weight and glyph-report limitations. The [Arabic and English invoice](../guides/arabic-pdf.md) includes static regular and bold Noto Sans Arabic files with a font manifest and glyph checks.
 
-Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/font-registration.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/font-registration.md). Check the installed runtime for your exact version.
 
 Register the font files your document uses with `PdfEngine(font_files=[...])`,
 `font_dirs=[...]`, or an `AssetBundle`. Fullbleed reads these assets directly;
@@ -16,7 +16,7 @@ and typographic family names are recognized.
 
 For example, after registering `DMSerifDisplay-Regular.ttf` and
 `DMSerifDisplay-Italic.ttf` from this repository's
-[`design_showcase/fonts`](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/examples/design_showcase/fonts):
+[`design_showcase/fonts`](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/examples/design_showcase/fonts):
 
 ```css
 body { font-family: "DM Serif Display"; font-style: normal; }
@@ -53,7 +53,7 @@ default can change appearance and line breaks when the regular face is also
 registered. Review existing PDF baselines when upgrading. To intentionally use
 italics, set `font-style: italic` or map the exact face with `@font-face`.
 
-The installed-wheel [family smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/tools/smoke_font_families.py)
+The installed-wheel [family smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/tools/smoke_font_families.py)
 compares embedded face names, extracted text, and native/PDFium previews against
 explicit-face controls for file, directory, bundle, fixed-template, and reflow
 rendering. This is a focused regression check, not a claim of complete CSS font
@@ -95,7 +95,7 @@ The finalized-PDF preview reader can also omit the synthetic-bold stroke on
 fixed binding slots; inspect the emitted PDF in an independent viewer when
 using that combination.
 
-The [synthesis smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/tools/smoke_font_synthesis.py) registers a known
+The [synthesis smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/tools/smoke_font_synthesis.py) registers a known
 regular font and compares each combination with explicit style controls in
 ordinary, fixed, and reflow output. It retains PDFs, extracted text, and native,
 finalized, and PDFium previews; small-cap positive controls cover ordinary and

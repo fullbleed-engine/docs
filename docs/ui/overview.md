@@ -2,7 +2,7 @@
 
 For `class_name`, selectors and attached styles, see the [worked styling examples](../guides/python-components.md#class-names-and-styles). The reference below focuses on the accessibility authoring layer.
 
-Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/ui-accessibility.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/ui-accessibility.md). Check the installed runtime for your exact version.
 
 For general document creation, start with [Build PDFs with Python components](../guides/python-components.md).
 It covers named elements, props, children, rich text, Python styles and direct rendering.
