@@ -142,6 +142,8 @@ try:
                 page.set_viewport_size({'width': width, 'height': height})
                 check(f'{width}px: page fits the viewport', page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
                 page.screenshot(path=str(out / f'width-{width}.png'), full_page=True)
+                if not page.locator('#pg-tools').evaluate('tools => tools.open'):
+                    page.locator('#pg-tools > summary').click()
                 page.locator('.pg-export').screenshot(path=str(out / f'export-controls-{width}.png'))
             page.set_viewport_size({'width': 1440, 'height': 1000})
             verify_engine_fixes(page, out, check, ready, manual=True,

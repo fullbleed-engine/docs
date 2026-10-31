@@ -1284,6 +1284,17 @@ jobs:
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
+      - name: Verify mobile editing, preview and project downloads
+        run: |
+          python tools/check_playground_mobile.py --site site --out output/playground-mobile/chrome --browser chrome
+          python tools/check_playground_mobile.py --site site --out output/playground-mobile/firefox --browser firefox
+          python tools/check_playground_mobile.py --site site --out output/playground-mobile/webkit --browser webkit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-mobile-verification
+          path: output/playground-mobile/
+          retention-days: 14
       - name: Verify registered page fonts and actual project downloads
         run: python tools/check_playground_fonts.py --site site --out output/playground-fonts
       - uses: actions/upload-artifact@v4

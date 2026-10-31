@@ -6,7 +6,7 @@ hide:
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=page-fonts-2548">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=mobile-views-2548">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -18,6 +18,9 @@ hide:
     <div class="pg-picker"><label for="pg-example">Start with</label><select id="pg-example" disabled><option value="invoice">Northstar invoice</option><option value="report">Common Ground report</option><option value="notice">Riverton notice</option></select></div>
     <div class="pg-actions"><button id="pg-render" class="pg-primary" disabled>Render PDF <span aria-hidden="true">↗</span></button><button id="pg-cancel" hidden>Cancel</button><a id="pg-download" aria-disabled="true">Download PDF</a></div>
   </div>
+  <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
+  <details class="pg-tools" id="pg-tools" open>
+  <summary>Files and projects <span class="pg-tools-marker" aria-hidden="true">+</span></summary>
   <div class="pg-local-files">
     <div class="pg-local-top"><button id="pg-open-files" disabled>Open local files</button><span id="pg-asset-count">0 local assets</span></div>
     <input id="pg-files" class="pg-sr" type="file" multiple accept=".html,.htm,.css,.png,.jpg,.jpeg,.svg,.ttf,.otf,.txt" tabindex="-1" aria-label="Choose local document files">
@@ -31,21 +34,25 @@ hide:
     <button id="pg-open-project" aria-describedby="pg-project-help" disabled>Open saved project</button>
     <input id="pg-project-file" class="pg-sr" type="file" accept=".zip" tabindex="-1" aria-label="Choose a saved playground project ZIP">
   </div>
+  <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
+  </details>
+  <div class="pg-view" id="pg-view" role="group" aria-label="Workspace view" hidden>
+    <button id="pg-view-source" aria-controls="pg-editor" aria-pressed="false">Edit source</button>
+    <button id="pg-view-preview" aria-controls="pg-output" aria-pressed="true">PDF preview</button>
+  </div>
   <div class="pg-workspace">
-    <section class="pg-editor" aria-label="Document source">
+    <section class="pg-editor" id="pg-editor" aria-label="Document source" tabindex="-1">
       <div class="pg-pane-top"><div role="tablist" aria-label="Source language"><button role="tab" id="pg-html-tab" aria-controls="pg-html-panel" aria-selected="true">HTML</button><button role="tab" id="pg-css-tab" aria-controls="pg-css-panel" aria-selected="false" tabindex="-1">CSS</button></div><button id="pg-reset" disabled>Reset example</button></div>
       <div id="pg-html-panel" role="tabpanel" aria-labelledby="pg-html-tab"><label class="pg-sr" for="pg-html">HTML source</label><textarea id="pg-html" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="pg-editor-tip" disabled></textarea></div>
       <div id="pg-css-panel" role="tabpanel" aria-labelledby="pg-css-tab" hidden><label class="pg-sr" for="pg-css">CSS source</label><textarea id="pg-css" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="pg-editor-tip" disabled></textarea></div>
       <div class="pg-editor-foot"><span id="pg-editor-tip">Change a heading or color, then render. Ctrl/⌘ + Enter also works.</span><div><a id="pg-save-html" aria-disabled="true">Save HTML</a><a id="pg-save-css" aria-disabled="true">Save CSS</a></div></div>
     </section>
-    <section class="pg-output" aria-label="PDF preview" aria-busy="true">
+    <section class="pg-output" id="pg-output" aria-label="PDF preview" aria-busy="true" tabindex="-1">
       <div class="pg-pane-top"><span class="pg-output-label">THE PRINTED PAGE</span><div class="pg-pagination"><button id="pg-previous" aria-label="Previous PDF page" disabled>←</button><span id="pg-page-count">—</span><button id="pg-next" aria-label="Next PDF page" disabled>→</button></div></div>
       <div class="pg-canvas"><p id="pg-placeholder">Preparing your first PDF…</p><img id="pg-preview" alt="" hidden></div>
       <div class="pg-output-foot"><span id="pg-result">Fullbleed 2.5.48</span><a href="../examples/">Explore the full gallery ↗</a></div>
     </section>
   </div>
-  <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
-  <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
   <p id="pg-project-help" class="pg-footnote">Download project saves your source and assets in a ZIP you can reopen here. Opening a saved project replaces the current document and local assets.</p>
   <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download your project before leaving. The first render downloads the engine and bundled fonts.</p>
   <p id="pg-feedback" class="pg-footnote"><a id="pg-report" href="https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml&amp;title=%5BBug%5D%3A+Playground+rendering&amp;version=2.5.48+%28browser+playground%29&amp;environment=WebAssembly+playground%3B+browser+and+operating+system%3A+%5Badd+yours%5D" target="_blank" rel="noopener noreferrer">Report a rendering problem</a>. Opens a public GitHub form in a new tab. Use sample data; your document is not attached.</p>
@@ -55,7 +62,12 @@ hide:
 
 ## Try your own document
 
-Choose **Open local files** to select HTML, CSS, images, and fonts from your device.
+On smaller screens, use **Edit source** and **PDF preview** to switch views.
+**Render PDF** opens the preview; **Ctrl/⌘ + Enter** renders while keeping you in
+the editor. Switching views preserves your edits.
+
+Expand **Files and projects**, then choose **Open local files** to select HTML,
+CSS, images, and fonts from your device.
 Opening HTML starts **Your document** and clears the separate stylesheet unless
 you select a CSS file at the same time. Opening CSS alone keeps the current HTML.
 Your edited examples remain in the **Start with** menu.
@@ -214,7 +226,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=page-fonts-2548"></script>
+<script type="module" src="../assets/playground/app.js?v=mobile-views-2548"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.
