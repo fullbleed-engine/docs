@@ -1,8 +1,20 @@
 {
   "schema": "fullbleed.python-web-starter.v1",
-  "engineVersion": "2.5.37",
+  "engineVersion": "2.5.47",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "sourceCommit": "66e207bd2a3ee81b72b7497a195029cbbd6576fe",
+  "sourceCommit": "a30fcc3bd240506fbb2780ebcb71eea3b1f4d99e",
+  "samples": [
+    {
+      "invoiceId": "INV-1042",
+      "pages": 1,
+      "file": "invoice.pdf"
+    },
+    {
+      "invoiceId": "INV-1043",
+      "pages": 3,
+      "file": "invoice-long.pdf"
+    }
+  ],
   "files": [
     {
       "path": ".dockerignore",
@@ -26,23 +38,28 @@
     },
     {
       "path": "README.md",
-      "bytes": 9587,
-      "sha256": "4118fb2bf2549e86d4388408965d333d0a85439bbc55a94754081da7c82d6bdd"
+      "bytes": 10662,
+      "sha256": "ea64a0a74768bad457a4d555a2d301d668ce02dac8b7342ad8a8aaf062b38623"
     },
     {
       "path": "check_docker.py",
-      "bytes": 14261,
-      "sha256": "cecc0119ac6295b0637624ce23b73474dd31b0fe86136d18d5648f872157650d"
+      "bytes": 15649,
+      "sha256": "a0da15f669602a2fdc1b320e649ab49484401508a7408cd5cf889db8c711d1ee"
     },
     {
       "path": "check_examples.py",
-      "bytes": 6543,
-      "sha256": "9532e6a005b8797a0b32cec7c53139b222872c088cc76775a2bd2381a17377d0"
+      "bytes": 7418,
+      "sha256": "ab96bcae1eaee8a03d61067bc1f2b3e86922b014d17f703dd63490d9c2c455cc"
     },
     {
       "path": "check_http.py",
-      "bytes": 4405,
-      "sha256": "350cfe0e22ecd3920996b7554b25fb747dc7218aae9d7684d0ef9ed22aa06d19"
+      "bytes": 4963,
+      "sha256": "e0f1def948dcace6b2e3a702e988e90cf398c96c8ec8bb49db0b1ed8dc83ccb8"
+    },
+    {
+      "path": "check_layout.py",
+      "bytes": 6555,
+      "sha256": "1fb8f5c146124eb50218bb5dd03400dde59531cb84c91d8adce71c8536c1132c"
     },
     {
       "path": "demo.py",
@@ -101,13 +118,13 @@
     },
     {
       "path": "invoice.py",
-      "bytes": 2868,
-      "sha256": "45b7ca7f4fd9aa4201aacb295d9b8f03b772244325d0935bb6205806d6b862d6"
+      "bytes": 3666,
+      "sha256": "606d80eba50661a4383844017c3629da4a3736043f502f3b91535f17042036e6"
     },
     {
       "path": "requirements-check.txt",
-      "bytes": 183,
-      "sha256": "cbfe62b7f173711ea4ba4c165a684ddb2c70c9f7954ab7dac3980977e0a59659"
+      "bytes": 201,
+      "sha256": "d1828568af28bd481d355533076096ae048ba5c3143b5d8d66be988bdd48a9e7"
     },
     {
       "path": "requirements-django.txt",
@@ -117,7 +134,7 @@
     {
       "path": "requirements-docker.txt",
       "bytes": 406,
-      "sha256": "dd21e64e6240681901fd675af2553485e5de04102911edda3f768aec051695ff"
+      "sha256": "39d6e6498b46524ee2ea742187cd4dac9832a7071fdcf3e2e062489dd508de2d"
     },
     {
       "path": "requirements-fastapi.txt",
@@ -131,8 +148,8 @@
     },
     {
       "path": "static/index.html",
-      "bytes": 4187,
-      "sha256": "acfd0db1efab50b1229ad937e7bd3075a3b7146de0dfddb33247d0b85bc429a3"
+      "bytes": 4372,
+      "sha256": "c5d326da5b68050a0d43de9380c20274c78a746c6b3aea0b48fe1648399dee36"
     },
     {
       "path": "static/invoice-2.6.0a10.png",
@@ -156,8 +173,8 @@
     },
     {
       "path": "static/invoice-2.6.0a14.png",
-      "bytes": 130867,
-      "sha256": "41439fac20c37f85a76fd5d232c0b14170526c282d3a7e6eeea55684fd59bd4a"
+      "bytes": 129057,
+      "sha256": "f0f44fa2f121902419bcc60fc7d412077281e307766908c953f456c20836ebc9"
     },
     {
       "path": "static/invoice-2.6.0a5.png",
@@ -186,36 +203,46 @@
     },
     {
       "path": "static/invoice.png",
-      "bytes": 129914,
-      "sha256": "acb15ac236a84a98c460fb0b55115093e64ab44ce7cd232e58b7b621cad731fa"
+      "bytes": 128466,
+      "sha256": "c6f160a3de5baa794bf0c3d4f4b0cb03f6e736b84947e81795b5b811b43d922b"
     },
     {
       "path": "templates/invoice.css",
-      "bytes": 3546,
-      "sha256": "cda22b39ab1f7a1eeac7cd76d162b05cd3568c2430c099123ba30a2fbd58a296"
+      "bytes": 3562,
+      "sha256": "1a50ff6aba3a1f45edd98d9cd9249bc73d093d44ddca5bdb27ed33efe5303881"
     },
     {
       "path": "templates/invoice.html",
-      "bytes": 2299,
-      "sha256": "c8c522d0f983c9917587083e5472af39c515c447b33ebf3edf2fafcf2f21673e"
+      "bytes": 2210,
+      "sha256": "02582b9cb11a32f158c237b1ccb9f9f799f74bcc228601a38915de6cd6317a6c"
     }
   ],
-  "checkedAt": "2026-10-26T20:54:44.479469+00:00",
+  "checkedAt": "2026-10-31T04:17:25.465613+00:00",
   "assets": [
     {
       "file": "project.zip",
-      "bytes": 1199992,
-      "sha256": "6ca5f2f5b948c03763b085278e16d93b1ef8fd380254a54dab2c5d80c0e591dc"
+      "bytes": 1201054,
+      "sha256": "d3d23b965f1b9c8c40fdb9d8d15b6703cb06db8056120d5cbbfd72621355535c"
     },
     {
       "file": "invoice.pdf",
-      "bytes": 40277,
-      "sha256": "3c70915599a7e88b93203f1e64e269231621a0105db90ee31f5f762e1b138057"
+      "bytes": 39782,
+      "sha256": "04884fd6dc0665e264572c0337ecbc4494e44874cadbceff7017ae4b698b9f8e"
     },
     {
       "file": "invoice.png",
-      "bytes": 129914,
-      "sha256": "acb15ac236a84a98c460fb0b55115093e64ab44ce7cd232e58b7b621cad731fa"
+      "bytes": 128466,
+      "sha256": "c6f160a3de5baa794bf0c3d4f4b0cb03f6e736b84947e81795b5b811b43d922b"
+    },
+    {
+      "file": "invoice-long.pdf",
+      "bytes": 43595,
+      "sha256": "c8ff70c2c6be09c4258a4395159986fb4b50b66945b3621ba5b4289354b0d6aa"
+    },
+    {
+      "file": "invoice-long.png",
+      "bytes": 125142,
+      "sha256": "b346a8c7d3c90b73132f29dec66ea393633d96063b5d4fa5c0f5a43f0f7b4b10"
     }
   ]
 }
