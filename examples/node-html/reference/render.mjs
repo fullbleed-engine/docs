@@ -58,7 +58,12 @@ try {
         totalCents: input.totalCents, items: input.record.items.length, assetsLoaded: loaded, requests });
     } finally {
       await page.close();
-      await new Promise(accept => server.close(accept));
+      await new Promise((accept, reject) => {
+        server.close(error => error ? reject(error) : accept());
+        // Rendering is finished. Release unused browser connections as well;
+        // Node 22's server.close() can otherwise keep waiting on preconnections.
+        server.closeAllConnections();
+      });
     }
   }
   const record = { node: process.version, browserVersion: await browser.version(), documents };
