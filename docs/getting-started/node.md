@@ -1,6 +1,8 @@
 ---
 title: Generate PDFs in Node.js from HTML and CSS
 description: Create PDF invoices and reports in Node.js with the Fullbleed Rust engine, bundled fonts, and PNG previews. Includes a runnable designed invoice project.
+search:
+  boost: 2
 ---
 # Generate PDFs in Node.js
 

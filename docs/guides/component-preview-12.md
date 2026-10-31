@@ -1,6 +1,8 @@
 ---
 title: Compose styled PDF and HTML with Python components
 description: Use Python functions, reusable styles and explicit class names to author PDF and HTML. Try the Fullbleed 2.6.0a12 component namespace and complete migration kit.
+search:
+  boost: 1.5
 ---
 
 # Compose documents with Python components

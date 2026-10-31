@@ -1,11 +1,11 @@
 ---
-title: Reusable PDF headers, footers and page numbers in Python
+title: "Alpha 9 archive: Reuse your design on every page"
 description: Build a complete report from Python components, including styled headers and finalized page counts. Download the Fullbleed 2.6.0a9 source kit and export PDF or HTML.
 search:
-  boost: 0.5
+  boost: 0.25
 ---
 
-# Reuse your design on every page
+# Alpha 9 archive: Reuse your design on every page {#reuse-your-design-on-every-page}
 
 !!! info "Archived alpha 9 preview"
     See the [current component guide](component-preview-12.md) and

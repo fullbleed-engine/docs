@@ -140,7 +140,7 @@ See [semantic authoring](../ui/overview.md) for structural validation and
 accessibility workflows. `el(...)` remains a lower-level escape hatch; the
 complete invoice example does not need it.
 
-## Class names and styles
+## Class names and styles (`class_name`) {#class-names-and-styles}
 
 `class_name` labels an element so stylesheet selectors can match it. It does
 not create or load a style. Put the declarations in a `StyleSheet`, then attach

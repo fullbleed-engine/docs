@@ -1,11 +1,11 @@
 ---
-title: Author styled PDF and HTML with Python components
+title: "Alpha 11 archive: One component tree, PDF and HTML"
 description: Compose rich documents with Python functions, reusable styles and Bootstrap helpers. Export PDF, styled HTML or unstyled HTML with the Fullbleed 2.6.0a11 preview.
 search:
-  boost: 0.5
+  boost: 0.25
 ---
 
-# One component tree, PDF and HTML
+# Alpha 11 archive: One component tree, PDF and HTML {#one-component-tree-pdf-and-html}
 
 !!! info "Archived alpha 11 preview"
     See the [current component guide](component-preview-12.md) and

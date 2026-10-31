@@ -1,7 +1,10 @@
 ---
 description: Author semantic documents, generate tagged PDF output, and retain accessibility checks with Fullbleed.
 ---
-# Tagged PDFs and accessibility checks
+# Tagged PDFs and PDF/UA accessibility {#tagged-pdfs-and-accessibility-checks}
+
+UA means Universal Accessibility. [PDF/UA](https://pdfa.org/techniques-for-accessible-pdf-background/)
+defines requirements for accessible PDF documents.
 
 Fullbleed provides semantic Python components, tagged PDF output profiles, inspection, and accessibility verification tools. Start with clear headings, logical reading order, meaningful table headers, document language, and appropriate alternative text.
 

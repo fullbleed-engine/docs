@@ -1,6 +1,8 @@
 ---
 title: Generate PDFs in Python with HTML/CSS or components
 description: Create your first PDF from HTML/CSS or Python components. Copy either complete example, use bundled fonts, and render the same invoice.
+search:
+  boost: 2
 ---
 # Create your first PDF in Python
 

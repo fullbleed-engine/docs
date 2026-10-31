@@ -1,17 +1,20 @@
 ---
-title: Preview the next Python component authoring model
+title: "Prototype archive: Components that carry their design"
 description: Try an experimental Fullbleed component design with portable styles, reusable themes and column-based tables. Download examples with prebuilt preview wheels, real PDFs and focused editing tasks.
 search:
-  boost: 0.5
+  boost: 0.25
 ---
 
-# Components that carry their design
+# Prototype archive: Components that carry their design {#components-that-carry-their-design}
 
 An experimental Python authoring model for importing a component together with
 its appearance, customizing it without knowing its internal selectors, and
 describing a table column once.
 
-!!! warning "Experimental API"
+!!! warning "Archived design prototype"
+    See the [current component guide](component-preview-12.md) and
+    [release status](component-status.md) for the current alpha.
+
     This page shows the draft at source commit
     [`f88cced`](https://github.com/fullbleed-engine/fullbleed-official/tree/f88cced0fd44cba2e4a0ff74ee1c33f3477fe469).
     `fullbleed.ui.experimental` is **not included in the published 2.5.26 wheel** on PyPI.

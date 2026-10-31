@@ -1,6 +1,8 @@
 ---
 title: Generate PDFs from Rust with HTML and CSS
 description: Use the published Fullbleed Rust crate to render HTML/CSS into a PDF, register explicit fonts, and generate PNG previews. Includes runnable invoice and report examples.
+search:
+  boost: 2
 ---
 # Generate PDFs from Rust with HTML and CSS
 

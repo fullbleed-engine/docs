@@ -1,6 +1,8 @@
 ---
 title: HTML/CSS to PDF in C# and .NET
 description: Install FullBleed.DotNet from NuGet, generate PDFs from HTML/CSS or C# components, and run a designed invoice with explicit fonts and PNG previews. No browser or Python runtime is needed for native rendering.
+search:
+  boost: 2
 ---
 # Generate PDFs from C# and .NET
 
