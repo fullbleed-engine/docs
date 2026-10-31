@@ -1,169 +1,48 @@
 ---
 title: PDF examples and downloads
-description: Explore designed PDF invoices, illustrated reports, tagged notices, and member statements made with Fullbleed. Download the PDFs, HTML/CSS, data, and fonts.
+description: Find a PDF invoice, report, notice, statement or certificate to build on. Preview real Fullbleed output and download editable source projects.
+hide:
+  - toc
 ---
 
-# Made for the printed page.
+<span id="made-for-the-printed-page"></span>
 
-Designed invoices, reports, notices, and statements. These examples use Fullbleed's
-embedded typography, grids, tables, color, and vector graphics to turn structured
-data into finished pages.
+# PDFs to build on. { .example-title }
 
-Every preview comes from the actual downloadable PDF. The Northstar invoice,
-Common Ground report, Riverton notice, and Hillside statements were generated
-with the public **Fullbleed 2.4.0** wheel; the pandas report below
-uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
-**2.5.10**. The numbered report uses **2.5.18**, and the Streamlit report uses
-**2.5.23**. The linked project handoff uses the opt-in **2.6.0a14**
-prerelease. All sample data and organizations are fictional.
+Preview real PDFs and download editable sources. All examples use fictional data.
 
-[Download showcase sources](assets/showcase/source.zip){ .md-button .md-button--primary }
-[Browse the source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase){ .md-button }
-
-[Edit these designs in your browser](playground.md){ .md-button }
-
-## Functions into finished pages { #python-components }
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![A Python component-authored invoice with bold green typography, reusable table rows, progress bars and an amount-due panel.](assets/components/page-1.png)](assets/components/invoice.pdf)
-</figure>
-<div markdown>
-
-**Python components · Props and children · No authored HTML**
-
-A complete invoice composed from `Field`, `WorkRow`, `WorkTable`, `PaymentNote`
-and `Total` functions. Change data, switch paid/unpaid content, or reuse the
-components in another document. Styles are Python mappings. Generated with
-Fullbleed **2.5.25**.
-
-[Open the PDF](assets/components/invoice.pdf){ .md-button }
-[Download the project](assets/components/project.zip){ .md-button }
-[Learn component authoring](guides/python-components.md)
-
-For the next authoring model, [try the 2.6.0a4 Bootstrap component alpha](guides/bootstrap-components-preview.md).
-Its report combines cards, a table and progress indicators, with PDF and
-styled/unstyled HTML exports. The alpha requires an explicit installation.
-
-For separate kit palettes and local customization, [download the two-kit report](guides/component-kits.md)
-using **2.6.0a14**.
-
-</div>
+<div class="example-filters" role="group" aria-label="Filter examples by document type" hidden>
+<button type="button" data-example-filter="all" aria-pressed="true" aria-controls="example-catalog">All examples</button>
+<button type="button" data-example-filter="invoices" aria-pressed="false" aria-controls="example-catalog">Invoices</button>
+<button type="button" data-example-filter="reports" aria-pressed="false" aria-controls="example-catalog">Reports &amp; guides</button>
+<button type="button" data-example-filter="notices" aria-pressed="false" aria-controls="example-catalog">Notices</button>
+<button type="button" data-example-filter="statements" aria-pressed="false" aria-controls="example-catalog">Statements</button>
+<button type="button" data-example-filter="templates" aria-pressed="false" aria-controls="example-catalog">PDF templates</button>
 </div>
 
-## Designed for clear reading { #accessible-components }
+<p class="example-count" role="status" aria-live="polite" aria-atomic="true">16 examples</p>
 
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Common Ground community guide with large green type, a garden illustration and reusable program cards.](assets/accessible-showcase/page-1.png)](assets/accessible-showcase/common-ground-guide.pdf)
-</figure>
-<div markdown>
+<div class="example-catalog" id="example-catalog" markdown="1">
 
-**Two pages · Python components · Retained PDF/UA-1 validation**
-
-An illustrated community-program guide with semantic headings, lists, a captioned
-schedule and an image description. Its actual PDF tags and reading order were
-inspected, and the specimen passed veraPDF's PDF/UA-1 machine checks. Built with
-the explicitly pinned **2.6.0a4 component alpha**.
-
-[Open the PDF](assets/accessible-showcase/common-ground-guide.pdf){ .md-button }
-[Source and validation evidence](guides/accessible-showcase.md){ .md-button }
-[Responsive HTML](assets/accessible-showcase/guide.html) ·
-[Unstyled HTML](assets/accessible-showcase/guide-unstyled.html)
-
-</div>
-</div>
-
-## Typed C# components { #csharp-components }
-
-[![A C# component invoice with blue display typography, reusable detail fields and an amount-due panel.](assets/dotnet-components/page-1.png)](assets/dotnet-components/invoice.pdf)
-
-Ordinary methods, typed records, LINQ children and reusable style objects produce
-this invoice without authored HTML. Change line items, switch paid/unpaid states,
-or reuse its fields and table rows. Generated with **FullBleed.DotNet 0.2.0**,
-engine **2.5.22**, using the two explicitly registered font files in the project.
-
-[Open the PDF](assets/dotnet-components/invoice.pdf){ .md-button }
-[Download the project](assets/dotnet-components/project.zip){ .md-button }
-[Learn C# components and styles](guides/csharp-components.md)
-
-## One background, many recipients { #pdf-template }
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Common Ground certificate with green display typography, an orange wheel motif, and personalized recipient details.](assets/pdf-template/page-1.png)](assets/pdf-template/certificates.pdf)
-</figure>
-<div markdown>
-
-**Existing PDF background · JSON records · CSS text overlays**
-
-Keep a certificate's artwork as a PDF and personalize it for each recipient.
-The Python and C# projects include three fictional records, editable background source,
-positioned fields, and previews of the final composed pages.
-Python uses **Fullbleed 2.5.39**; C# uses **FullBleed.DotNet 0.2.3** with
-the same engine. Both use the bundled Inter font.
-
-[Open the three-page PDF](assets/pdf-template/certificates.pdf){ .md-button }
-[Download Python project](assets/pdf-template/project.zip){ .md-button }
-[Download C# project](assets/dotnet-pdf-template/project.zip){ .md-button }
-
-[Use your own PDF template](guides/pdf-template.md)
-
-</div>
-</div>
-
-## From brief to handoff { #numbered-report }
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![A two-page project outline with a cream title panel, green display typography, numbered headings, and an automatically numbered table.](assets/numbered-report/page-1.png)](assets/numbered-report/numbered-report.pdf)
-</figure>
-<div markdown>
-
-**Two pages · Editable HTML/CSS · Automatic numbering**
-
-CSS assigns chapter, section, table-row, and page numbers. A warm cover panel,
-large Inter headings, green decision cards, and orange accents give a short
-project outline a clear visual structure.
-
-[Open the PDF](assets/numbered-report/numbered-report.pdf){ .md-button }
-[Download the project](assets/numbered-report/project.zip){ .md-button }
-
-[Preview page 2](assets/numbered-report/page-2.png) ·
-[Customize the report](guides/numbered-reports.md)
-
-</div>
-</div>
-
-## A connected project handoff { #linked-report }
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Cedar Field Studio's green and cream project report with a snapshot and linked contents.](assets/pdf-links-alpha14/page-1.png)](assets/pdf-links-alpha14/linked-report.pdf)
-</figure>
-<div markdown>
-
-**Two pages · Section navigation · Web and email links**
-
-Jump from the contents to either section, open a source, or return to the
-overview. The project includes the HTML, CSS, bundled-font setup and Python
-render script. Generated with the opt-in **2.6.0a14** prerelease; stable 2.5.36
-predates the native-navigation feature.
-
-[Open the linked PDF](assets/pdf-links-alpha14/linked-report.pdf){ .md-button }
-[Download the project](assets/pdf-links-alpha14/project.zip){ .md-button }
-[Add links to your PDFs](guides/pdf-links.md)
-
-</div>
-</div>
+<section class="example-card" data-example-kind="invoices" markdown="1">
 
 ## Northstar Studio invoice { #styled-invoice }
 
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Northstar Studio invoice with a condensed headline, forest-green total panel, and serif typography.](assets/showcase/invoice-1.png)](assets/showcase/invoice.pdf)
+<figure markdown="1">
+[![Northstar Studio invoice with a condensed headline, forest-green total panel, and serif typography.](assets/showcase/invoice-1.png){ loading="eager" decoding="async" width="992" height="1403" }](assets/showcase/invoice.pdf)
 </figure>
-<div markdown>
+
+<p class="example-label">Python · HTML/CSS</p>
+
+Editorial typography, itemized work and a clear amount due.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/showcase/invoice.pdf){ .md-button .example-pdf }
+[Download source](assets/showcase/source.zip){ .md-button .example-source download="fullbleed-styled-invoice.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
 
 **One page · Editorial typography · Decimal totals**
 
@@ -192,16 +71,29 @@ with automatic rendering, private downloads, retries and expiry cleanup.
 For a tagged document, use the [editable C# library notice](guides/csharp-tagged-pdf.md)
 with PDF/UA profiles, embedded fonts and retained validation reports.
 
-</div>
-</div>
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
 
 ## Common Ground community report { #business-report }
 
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Common Ground report cover with oversized forest-green type and a vector landscape in green and burnt orange.](assets/showcase/report-1.png)](assets/showcase/report.pdf)
+<figure markdown="1">
+[![Common Ground report cover with oversized forest-green type and a vector landscape in green and burnt orange.](assets/showcase/report-1.png){ loading="lazy" decoding="async" width="992" height="1403" }](assets/showcase/report.pdf)
 </figure>
-<div markdown>
+
+<p class="example-label">Python · HTML/CSS</p>
+
+An illustrated cover, participation metrics and data-driven charts.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/showcase/report.pdf){ .md-button .example-pdf }
+[Download source](assets/showcase/source.zip){ .md-button .example-source download="fullbleed-business-report.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
 
 **Three pages · Native SVG · Data-driven charts**
 
@@ -219,16 +111,104 @@ typographic hierarchy.
 
 [Preview page 2](assets/showcase/report-2.png) · [Preview page 3](assets/showcase/report-3.png)
 
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="templates" markdown="1">
+
+## One background, many recipients { #pdf-template }
+
+<figure markdown="1">
+[![Common Ground certificate with green display typography, an orange wheel motif, and personalized recipient details.](assets/pdf-template/page-1.png){ loading="lazy" decoding="async" width="1210" height="935" }](assets/pdf-template/certificates.pdf)
+</figure>
+
+<p class="example-label">Python + C# · PDF overlays</p>
+
+Personalize an existing certificate PDF from structured records.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/pdf-template/certificates.pdf){ .md-button .example-pdf }
+[Python source](assets/pdf-template/project.zip){ .md-button .example-source download="fullbleed-pdf-template.zip" }
+[C# source](assets/dotnet-pdf-template/project.zip){ .md-button .example-source download="fullbleed-pdf-template-csharp.zip" }
 </div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Existing PDF background · JSON records · CSS text overlays**
+
+Keep a certificate's artwork as a PDF and personalize it for each recipient.
+The Python and C# projects include three fictional records, editable background source,
+positioned fields, and previews of the final composed pages.
+Python uses **Fullbleed 2.5.39**; C# uses **FullBleed.DotNet 0.2.3** with
+the same engine. Both use the bundled Inter font.
+
+[Open the three-page PDF](assets/pdf-template/certificates.pdf){ .md-button }
+[Download Python project](assets/pdf-template/project.zip){ .md-button }
+[Download C# project](assets/dotnet-pdf-template/project.zip){ .md-button }
+
+[Use your own PDF template](guides/pdf-template.md)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## From brief to handoff { #numbered-report }
+
+<figure markdown="1">
+[![A two-page project outline with a cream title panel, green display typography, numbered headings, and an automatically numbered table.](assets/numbered-report/page-1.png){ loading="lazy" decoding="async" width="909" height="1286" }](assets/numbered-report/numbered-report.pdf)
+</figure>
+
+<p class="example-label">Python · HTML/CSS</p>
+
+A project outline with numbered headings, tables and pages.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/numbered-report/numbered-report.pdf){ .md-button .example-pdf }
+[Download source](assets/numbered-report/project.zip){ .md-button .example-source download="fullbleed-numbered-report.zip" }
 </div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Editable HTML/CSS · Automatic numbering**
+
+CSS assigns chapter, section, table-row, and page numbers. A warm cover panel,
+large Inter headings, green decision cards, and orange accents give a short
+project outline a clear visual structure.
+
+[Open the PDF](assets/numbered-report/numbered-report.pdf){ .md-button }
+[Download the project](assets/numbered-report/project.zip){ .md-button }
+
+[Preview page 2](assets/numbered-report/page-2.png) ·
+[Customize the report](guides/numbered-reports.md)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="notices" markdown="1">
 
 ## Riverton service notice { #tagged-service-notice }
 
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Riverton service notice with cobalt headings, a large maintenance date, an alert panel, and a three-step schedule.](assets/showcase/notice-1.png)](assets/showcase/notice.pdf)
+<figure markdown="1">
+[![Riverton service notice with cobalt headings, a large maintenance date, an alert panel, and a three-step schedule.](assets/showcase/notice-1.png){ loading="lazy" decoding="async" width="992" height="1403" }](assets/showcase/notice.pdf)
 </figure>
-<div markdown>
+
+<p class="example-label">Python · Tagged output</p>
+
+A service schedule with a prominent date and clear reading order.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/showcase/notice.pdf){ .md-button .example-pdf }
+[Download source](assets/showcase/source.zip){ .md-button .example-source download="fullbleed-tagged-service-notice.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
 
 **One page · Clear information hierarchy · Tagged output**
 
@@ -244,16 +224,29 @@ Generated with the `pdfua1` profile. Internal inspection confirms tags, language
 and profile metadata; this is not a complete accessibility or independent
 conformance assessment. See the [accessibility workflow](accessibility/overview.md).
 
-</div>
-</div>
+</details>
+</section>
 
-## Hillside member statements
 
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Hillside member statement with plum serif typography, a lilac balance panel, and contribution bars.](assets/showcase/statements-1.png)](assets/showcase/statements.pdf)
+<section class="example-card" data-example-kind="statements" markdown="1">
+
+## Hillside member statements { #hillside-member-statements }
+
+<figure markdown="1">
+[![Hillside member statement with plum serif typography, a lilac balance panel, and contribution bars.](assets/showcase/statements-1.png){ loading="lazy" decoding="async" width="992" height="1403" }](assets/showcase/statements.pdf)
 </figure>
-<div markdown>
+
+<p class="example-label">Python · Variable data</p>
+
+One reusable layout, three member statements and personal balances.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/showcase/statements.pdf){ .md-button .example-pdf }
+[Download source](assets/showcase/source.zip){ .md-button .example-source download="fullbleed-hillside-member-statements.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
 
 **Three records · Three pages · Compiled reflow bindings**
 
@@ -272,8 +265,402 @@ member records through reflow bindings.
 
 [Choose a variable-data rendering lane](guides/bank-statements.md).
 
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="invoices" markdown="1">
+
+## Functions into finished pages { #python-components }
+
+<figure markdown="1">
+[![A Python component-authored invoice with bold green typography, reusable table rows, progress bars and an amount-due panel.](assets/components/page-1.png){ loading="lazy" decoding="async" width="794" height="1123" }](assets/components/invoice.pdf)
+</figure>
+
+<p class="example-label">Python · Components</p>
+
+Reusable fields, table rows and paid/unpaid states without authored HTML.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/components/invoice.pdf){ .md-button .example-pdf }
+[Download source](assets/components/project.zip){ .md-button .example-source download="fullbleed-python-components.zip" }
 </div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Python components · Props and children · No authored HTML**
+
+A complete invoice composed from `Field`, `WorkRow`, `WorkTable`, `PaymentNote`
+and `Total` functions. Change data, switch paid/unpaid content, or reuse the
+components in another document. Styles are Python mappings. Generated with
+Fullbleed **2.5.25**.
+
+[Open the PDF](assets/components/invoice.pdf){ .md-button }
+[Download the project](assets/components/project.zip){ .md-button }
+[Learn component authoring](guides/python-components.md)
+
+For the next authoring model, [try the 2.6.0a4 Bootstrap component alpha](guides/bootstrap-components-preview.md).
+Its report combines cards, a table and progress indicators, with PDF and
+styled/unstyled HTML exports. The alpha requires an explicit installation.
+
+For separate kit palettes and local customization, [download the two-kit report](guides/component-kits.md)
+using **2.6.0a14**.
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="invoices" markdown="1">
+
+## Typed C# components { #csharp-components }
+
+<figure markdown="1">
+[![A C# component invoice with blue display typography, reusable detail fields and an amount-due panel.](assets/dotnet-components/page-1.png){ loading="lazy" decoding="async" width="794" height="1123" }](assets/dotnet-components/invoice.pdf)
+</figure>
+
+<p class="example-label">C# · Components</p>
+
+Typed records, LINQ children and reusable styles in ordinary methods.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/dotnet-components/invoice.pdf){ .md-button .example-pdf }
+[Download source](assets/dotnet-components/project.zip){ .md-button .example-source download="fullbleed-csharp-components.zip" }
 </div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+Ordinary methods, typed records, LINQ children and reusable style objects produce
+this invoice without authored HTML. Change line items, switch paid/unpaid states,
+or reuse its fields and table rows. Generated with **FullBleed.DotNet 0.2.0**,
+engine **2.5.22**, using the two explicitly registered font files in the project.
+
+[Open the PDF](assets/dotnet-components/invoice.pdf){ .md-button }
+[Download the project](assets/dotnet-components/project.zip){ .md-button }
+[Learn C# components and styles](guides/csharp-components.md)
+
+The current project download uses **FullBleed.DotNet 0.2.8 / engine 2.5.48** and reproduces the same published PDF and preview. See the [current C# guide](guides/csharp-components.md).
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## Gridline product report from pandas { #gridline-product-report-from-pandas }
+
+<figure markdown="1">
+[![Gridline product report with summary metrics, orange SVG category bars, and a striped product ledger.](assets/pandas-report/report-1.png){ loading="lazy" decoding="async" width="1584" height="1224" }](assets/pandas-report/report.pdf)
+</figure>
+
+<p class="example-label">Python · pandas</p>
+
+A DataFrame becomes a product ledger with metrics and category bars.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/pandas-report/report.pdf){ .md-button .example-pdf }
+[Download source](assets/pandas-report/source.zip){ .md-button .example-source download="fullbleed-gridline-product-report-from-pandas.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+For a component-authored design using the same data, try the
+[pandas component report](guides/pandas-components.md): three pages, reusable
+metrics, finalized page totals, and styled or unstyled HTML export, pinned to
+Fullbleed **2.6.0a9**.
+
+**Two pages · 40 DataFrame rows · Repeated table headers**
+
+Turn a pandas DataFrame or CSV into a landscape report with a large headline,
+summary panels, category comparisons, and a paginated product ledger. Integer
+cents become formatted amounts; missing dates become em dashes. Page numbers
+and repeated headers keep the ledger readable across pages.
+
+Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample data.
+
+[Open the PDF](assets/pandas-report/report.pdf){ .md-button }
+[Build this report](guides/pandas-to-pdf.md){ .md-button }
+
+[Complete source](assets/pandas-report/source.zip) · [Preview page 2](assets/pandas-report/report-2.png)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## Northstar sales brief from Streamlit { #northstar-sales-brief-from-streamlit }
+
+<figure markdown="1">
+[![Northstar sales brief with green serif typography, exact revenue totals and regional and channel bars.](assets/streamlit-report/page-1.png){ loading="lazy" decoding="async" width="794" height="1123" }](assets/streamlit-report/report.pdf)
+</figure>
+
+<p class="example-label">Python · Streamlit</p>
+
+Filter sales data, then download the matching brief and complete ledger.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/streamlit-report/report.pdf){ .md-button .example-pdf }
+[Download source](assets/streamlit-report/project.zip){ .md-button .example-source download="fullbleed-northstar-sales-brief-from-streamlit.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Interactive filters · Editable HTML/CSS**
+
+Turn a filtered Streamlit view into a designed report. Upload a sales CSV,
+choose dates and groups, then prepare a PDF with summary figures and a complete
+ledger. The prepared selection stays attached to the download; changed inputs
+clear it so a new selection gets a new report.
+
+The fictional sample contains 36 records and USD 222,099.30 in revenue.
+
+[Open the PDF](assets/streamlit-report/report.pdf){ .md-button }
+[Run the Streamlit app](guides/streamlit-pdf.md){ .md-button }
+
+[Complete project](assets/streamlit-report/project.zip) ·
+[Preview the ledger](assets/streamlit-report/page-2.png)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## Fieldnote report with Matplotlib { #fieldnote-report-with-matplotlib }
+
+<figure markdown="1">
+[![Fieldnote operations brief with navy typography, summary metrics, a teal line chart and a lime callout.](assets/matplotlib-report/report-1.png){ loading="lazy" decoding="async" width="909" height="1286" }](assets/matplotlib-report/report.pdf)
+</figure>
+
+<p class="example-label">Python · Matplotlib</p>
+
+Vector charts, editable print CSS and selectable data tables.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/matplotlib-report/report.pdf){ .md-button .example-pdf }
+[Download source](assets/matplotlib-report/project.zip){ .md-button .example-source download="fullbleed-fieldnote-report-with-matplotlib.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Matplotlib SVG figures · Selectable data tables**
+
+Compose line and bar charts with editable HTML/CSS, period metrics, a monthly
+ledger and page numbers. The sample charts stay vector artwork; the report
+repeats their values as selectable text. Both renderers use an explicit bundled
+font, and the complete project reads local JSON.
+
+Rendered with Fullbleed **2.5.14** and Matplotlib **3.11.2**, using fictional data.
+
+[Open the PDF](assets/matplotlib-report/report.pdf){ .md-button }
+[Build this report](guides/matplotlib-pdf.md){ .md-button }
+
+[Complete project](assets/matplotlib-report/project.zip) · [Preview page 2](assets/matplotlib-report/report-2.png)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="invoices" markdown="1">
+
+## Yunshan bilingual invoice { #yunshan-bilingual-invoice }
+
+<figure markdown="1">
+[![Yunshan invoice with Simplified Chinese and English text, a green title panel, and orange accents.](assets/chinese-invoice/invoice.png){ loading="lazy" decoding="async" width="909" height="1286" }](assets/chinese-invoice/invoice.pdf)
+</figure>
+
+<p class="example-label">Python · Chinese + English</p>
+
+A bilingual invoice with an explicit Chinese font and UTF-8 source data.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/chinese-invoice/invoice.pdf){ .md-button .example-pdf }
+[Download source](assets/chinese-invoice/project.zip){ .md-button .example-source download="fullbleed-yunshan-bilingual-invoice.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**One page · Chinese and English · Explicit font coverage**
+
+A one-page Simplified Chinese/English invoice using an explicitly registered
+regular-weight Noto Sans SC font. The project includes UTF-8 data, HTML/CSS,
+pinned font preparation, and a missing-character gate. Rendered with Fullbleed
+**2.5.8**; all details are fictional.
+
+[Open the PDF](assets/chinese-invoice/invoice.pdf) ·
+[Build this invoice](guides/chinese-pdf.md) ·
+[Download the project](assets/chinese-invoice/project.zip)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="invoices" markdown="1">
+
+## Nawa Studio Arabic and English invoice { #nawa-studio-arabic-and-english-invoice }
+
+<figure markdown="1">
+[![Nawa Studio invoice with Arabic and English text, a dark green title panel, coral accent, and USD 1,390.00 total.](assets/arabic-invoice/invoice.png){ loading="lazy" decoding="async" width="909" height="1286" }](assets/arabic-invoice/invoice.pdf)
+</figure>
+
+<p class="example-label">Python · Arabic + English</p>
+
+RTL text, itemized services and bundled Arabic fonts.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/arabic-invoice/invoice.pdf){ .md-button .example-pdf }
+[Download source](assets/arabic-invoice/project.zip){ .md-button .example-source download="fullbleed-nawa-studio-arabic-and-english-invoice.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**One page · Arabic and English · Fonts included**
+
+An editable invoice with RTL Arabic blocks, isolated dates and references,
+regular and bold Arabic fonts, and an itemized service table. Change the JSON
+data, CSS, or HTML structure and render locally. The ZIP includes its exact
+font files and licenses. Rendered with Fullbleed **2.5.14**; all details are
+fictional.
+
+[Open the PDF](assets/arabic-invoice/invoice.pdf) ·
+[Build this invoice](guides/arabic-pdf.md) ·
+[Download the project](assets/arabic-invoice/project.zip)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## Northstar Engineering Markdown brief { #northstar-engineering-markdown-brief }
+
+<figure markdown="1">
+[![A two-page engineering brief with large green typography, a publishing diagram, warm code panels, and a styled table.](assets/markdown-starter/page-1.png){ loading="lazy" decoding="async" width="909" height="1286" }](assets/markdown-starter/document.pdf)
+</figure>
+
+<p class="example-label">Python · Markdown</p>
+
+An engineering brief with code, tables and local illustrations.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/markdown-starter/document.pdf){ .md-button .example-pdf }
+[Download source](assets/markdown-starter/project.zip){ .md-button .example-source download="fullbleed-northstar-engineering-markdown-brief.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Editable print CSS · Local images and fonts**
+
+Keep the source in Markdown and give the PDF its own page design. This fictional
+brief combines headings, emphasis, strikethrough, a table, lists, code, and a
+local SVG. The project includes its stylesheet, monospace font and license,
+glyph checks, and finalized-PDF previews. Rendered with Fullbleed **2.5.10**.
+
+[Open the PDF](assets/markdown-starter/document.pdf) ·
+[Build this brief](guides/markdown-pdf.md) ·
+[Download the project](assets/markdown-starter/project.zip) ·
+[Preview page 2](assets/markdown-starter/page-2.png)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## Designed for clear reading { #accessible-components }
+
+<figure markdown="1">
+[![Common Ground community guide with large green type, a garden illustration and reusable program cards.](assets/accessible-showcase/page-1.png){ loading="lazy" decoding="async" width="1191" height="1684" }](assets/accessible-showcase/common-ground-guide.pdf)
+</figure>
+
+<p class="example-label">Python alpha · Components</p>
+
+An illustrated community guide with retained PDF/UA-1 validation evidence.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/accessible-showcase/common-ground-guide.pdf){ .md-button .example-pdf }
+[Download source](assets/accessible-showcase/project.zip){ .md-button .example-source download="fullbleed-accessible-components.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Python components · Retained PDF/UA-1 validation**
+
+An illustrated community-program guide with semantic headings, lists, a captioned
+schedule and an image description. Its actual PDF tags and reading order were
+inspected, and the specimen passed veraPDF's PDF/UA-1 machine checks. Built with
+the explicitly pinned **2.6.0a4 component alpha**.
+
+[Open the PDF](assets/accessible-showcase/common-ground-guide.pdf){ .md-button }
+[Source and validation evidence](guides/accessible-showcase.md){ .md-button }
+[Responsive HTML](assets/accessible-showcase/guide.html) ·
+[Unstyled HTML](assets/accessible-showcase/guide-unstyled.html)
+
+</details>
+</section>
+
+
+<section class="example-card" data-example-kind="reports" markdown="1">
+
+## A connected project handoff { #linked-report }
+
+<figure markdown="1">
+[![Cedar Field Studio's green and cream project report with a snapshot and linked contents.](assets/pdf-links-alpha14/page-1.png){ loading="lazy" decoding="async" width="840" height="1191" }](assets/pdf-links-alpha14/linked-report.pdf)
+</figure>
+
+<p class="example-label">Python alpha · PDF links</p>
+
+A project handoff with section navigation, web links and email links.
+
+<div class="example-actions" markdown="1">
+[Open PDF](assets/pdf-links-alpha14/linked-report.pdf){ .md-button .example-pdf }
+[Download source](assets/pdf-links-alpha14/project.zip){ .md-button .example-source download="fullbleed-linked-report.zip" }
+</div>
+
+<details class="example-details" markdown="1">
+<summary>Customization and verification</summary>
+
+**Two pages · Section navigation · Web and email links**
+
+Jump from the contents to either section, open a source, or return to the
+overview. The project includes the HTML, CSS, bundled-font setup and Python
+render script. Generated with the opt-in **2.6.0a14** prerelease; stable 2.5.36
+predates the native-navigation feature.
+
+[Open the linked PDF](assets/pdf-links-alpha14/linked-report.pdf){ .md-button }
+[Download the project](assets/pdf-links-alpha14/project.zip){ .md-button }
+[Add links to your PDFs](guides/pdf-links.md)
+
+</details>
+</section>
+
+</div>
+
+[Edit a design in your browser](playground.md){ .md-button }
+
+<details markdown="1">
+<summary>Rendering versions and source history</summary>
+
+Every preview comes from the actual downloadable PDF. The Northstar invoice,
+Common Ground report, Riverton notice, and Hillside statements were generated
+with the public **Fullbleed 2.4.0** wheel; the pandas report below
+uses **2.5.2**, the bilingual invoice uses **2.5.8**, and the Markdown brief uses
+**2.5.10**. The numbered report uses **2.5.18**, and the Streamlit report uses
+**2.5.23**. The linked project handoff uses the opt-in **2.6.0a14**
+prerelease. All sample data and organizations are fictional.
+
+[Browse the original showcase source](https://github.com/fullbleed-engine/fullbleed-official/tree/b57e8ea5bb8315f04f7daac41a3489d21a2be158/examples/design_showcase).
+
+</details>
 
 ## Run the showcase
 
@@ -300,155 +687,6 @@ visually reviewed.
 
 These templates have deliberate page budgets. Review the rendered pages after
 changing content, fonts, or row counts.
-
-## Gridline product report from pandas
-
-For a component-authored design using the same data, try the
-[pandas component report](guides/pandas-components.md): three pages, reusable
-metrics, finalized page totals, and styled or unstyled HTML export, pinned to
-Fullbleed **2.6.0a9**.
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Gridline product report with summary metrics, orange SVG category bars, and a striped product ledger.](assets/pandas-report/report-1.png)](assets/pandas-report/report.pdf)
-</figure>
-<div markdown>
-
-**Two pages · 40 DataFrame rows · Repeated table headers**
-
-Turn a pandas DataFrame or CSV into a landscape report with a large headline,
-summary panels, category comparisons, and a paginated product ledger. Integer
-cents become formatted amounts; missing dates become em dashes. Page numbers
-and repeated headers keep the ledger readable across pages.
-
-Rendered with Fullbleed **2.5.2** and pandas **3.0.6**, using fictional sample data.
-
-[Open the PDF](assets/pandas-report/report.pdf){ .md-button }
-[Build this report](guides/pandas-to-pdf.md){ .md-button }
-
-[Complete source](assets/pandas-report/source.zip) · [Preview page 2](assets/pandas-report/report-2.png)
-
-</div>
-</div>
-
-## Northstar sales brief from Streamlit
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Northstar sales brief with green serif typography, exact revenue totals and regional and channel bars.](assets/streamlit-report/page-1.png)](assets/streamlit-report/report.pdf)
-</figure>
-<div markdown>
-
-**Two pages · Interactive filters · Editable HTML/CSS**
-
-Turn a filtered Streamlit view into a designed report. Upload a sales CSV,
-choose dates and groups, then prepare a PDF with summary figures and a complete
-ledger. The prepared selection stays attached to the download; changed inputs
-clear it so a new selection gets a new report.
-
-The fictional sample contains 36 records and USD 222,099.30 in revenue.
-
-[Open the PDF](assets/streamlit-report/report.pdf){ .md-button }
-[Run the Streamlit app](guides/streamlit-pdf.md){ .md-button }
-
-[Complete project](assets/streamlit-report/project.zip) ·
-[Preview the ledger](assets/streamlit-report/page-2.png)
-
-</div>
-</div>
-
-## Fieldnote report with Matplotlib
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Fieldnote operations brief with navy typography, summary metrics, a teal line chart and a lime callout.](assets/matplotlib-report/report-1.png)](assets/matplotlib-report/report.pdf)
-</figure>
-<div markdown>
-
-**Two pages · Matplotlib SVG figures · Selectable data tables**
-
-Compose line and bar charts with editable HTML/CSS, period metrics, a monthly
-ledger and page numbers. The sample charts stay vector artwork; the report
-repeats their values as selectable text. Both renderers use an explicit bundled
-font, and the complete project reads local JSON.
-
-Rendered with Fullbleed **2.5.14** and Matplotlib **3.11.2**, using fictional data.
-
-[Open the PDF](assets/matplotlib-report/report.pdf){ .md-button }
-[Build this report](guides/matplotlib-pdf.md){ .md-button }
-
-[Complete project](assets/matplotlib-report/project.zip) · [Preview page 2](assets/matplotlib-report/report-2.png)
-
-</div>
-</div>
-
-## Yunshan bilingual invoice
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Yunshan invoice with Simplified Chinese and English text, a green title panel, and orange accents.](assets/chinese-invoice/invoice.png)](assets/chinese-invoice/invoice.pdf)
-</figure>
-<div markdown>
-
-**One page · Chinese and English · Explicit font coverage**
-
-A one-page Simplified Chinese/English invoice using an explicitly registered
-regular-weight Noto Sans SC font. The project includes UTF-8 data, HTML/CSS,
-pinned font preparation, and a missing-character gate. Rendered with Fullbleed
-**2.5.8**; all details are fictional.
-
-[Open the PDF](assets/chinese-invoice/invoice.pdf) ·
-[Build this invoice](guides/chinese-pdf.md) ·
-[Download the project](assets/chinese-invoice/project.zip)
-
-</div>
-</div>
-
-## Nawa Studio Arabic and English invoice
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![Nawa Studio invoice with Arabic and English text, a dark green title panel, coral accent, and USD 1,390.00 total.](assets/arabic-invoice/invoice.png)](assets/arabic-invoice/invoice.pdf)
-</figure>
-<div markdown>
-
-**One page · Arabic and English · Fonts included**
-
-An editable invoice with RTL Arabic blocks, isolated dates and references,
-regular and bold Arabic fonts, and an itemized service table. Change the JSON
-data, CSS, or HTML structure and render locally. The ZIP includes its exact
-font files and licenses. Rendered with Fullbleed **2.5.14**; all details are
-fictional.
-
-[Open the PDF](assets/arabic-invoice/invoice.pdf) ·
-[Build this invoice](guides/arabic-pdf.md) ·
-[Download the project](assets/arabic-invoice/project.zip)
-
-</div>
-</div>
-
-## Northstar Engineering Markdown brief
-
-<div class="showcase-entry" markdown>
-<figure markdown>
-[![A two-page engineering brief with large green typography, a publishing diagram, warm code panels, and a styled table.](assets/markdown-starter/page-1.png)](assets/markdown-starter/document.pdf)
-</figure>
-<div markdown>
-
-**Two pages · Editable print CSS · Local images and fonts**
-
-Keep the source in Markdown and give the PDF its own page design. This fictional
-brief combines headings, emphasis, strikethrough, a table, lists, code, and a
-local SVG. The project includes its stylesheet, monospace font and license,
-glyph checks, and finalized-PDF previews. Rendered with Fullbleed **2.5.10**.
-
-[Open the PDF](assets/markdown-starter/document.pdf) ·
-[Build this brief](guides/markdown-pdf.md) ·
-[Download the project](assets/markdown-starter/project.zip) ·
-[Preview page 2](assets/markdown-starter/page-2.png)
-
-</div>
-</div>
 
 ## Smaller starting points
 

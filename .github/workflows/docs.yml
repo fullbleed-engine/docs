@@ -1191,6 +1191,14 @@ jobs:
       - name: Materialize the verified published-wheel CSS evidence
         run: python tools/prepare_css_corpus_site.py site
       - run: python tools/check_site.py site
+      - name: Verify the example catalog, shared filters and real source downloads
+        run: python tools/check_examples_gallery.py --site site --out output/examples-gallery-browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: examples-gallery-browser-verification
+          path: output/examples-gallery-browser/
+          retention-days: 14
       - name: Verify first-use language guides and actual project downloads
         run: python tools/check_entry_guides.py --site site --out output/entry-guides-browser
       - uses: actions/upload-artifact@v4
