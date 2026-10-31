@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fieldnote Supply — {{reference}}</title>
+  <style>{{css}}</style>
+</head>
+<body>
+  <header class="brand">
+    <div class="brand-name"><img src="assets/logo.svg" width="38" height="38" alt=""><span>FIELDNOTE<br><b>SUPPLY CO.</b></span></div>
+    <p class="brand-note">Tools for thoughtful work.<br>Portland, Oregon</p>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Your order, confirmed</p>
+      <h1>Good things.<br>On their way.</h1>
+      <p class="lede">Thanks for making room for a little more care in the everyday.</p>
+    </section>
+    <section class="details">
+      <div><span class="label">Prepared for</span><p><strong>{{customer}}</strong><br>{{address}}</p></div>
+      <div><span class="label">Order reference</span><p><strong>{{reference}}</strong><br>{{date}}</p></div>
+    </section>
+    <table>
+      <colgroup><col class="item"><col class="qty"><col class="unit"><col class="amount"></colgroup>
+      <thead><tr><th scope="col">The good stuff</th><th scope="col" class="number">Qty</th><th scope="col" class="number">Unit</th><th scope="col" class="number">Amount</th></tr></thead>
+      <tbody>{{rows}}</tbody>
+    </table>
+    <section class="closing">
+      <div class="summary"><p>{{count}} line items<br><span class="muted">All amounts in USD</span></p><p><span class="label">Order total</span><strong class="total">{{total}}</strong></p></div>
+      <div class="delivery"><span class="label">A note about delivery</span><p>We’ll send the tracking details when your order leaves the studio. Keep reference <strong>{{reference}}</strong> handy if you need us.</p></div>
+      <p class="sample-note">Fictional order for demonstration. No payment is requested.</p>
+    </section>
+  </main>
+</body>
+</html>

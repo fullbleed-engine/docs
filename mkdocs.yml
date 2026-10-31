@@ -122,6 +122,7 @@ nav:
       - Python in Docker: guides/python-docker.md
       - Python in AWS Lambda: guides/aws-lambda-pdf.md
     - JavaScript apps:
+      - HTML to PDF without Puppeteer: guides/node-html-to-pdf.md
       - Browser PDF generation: guides/browser-pdf.md
       - React PDF previews: guides/react-pdf.md
       - Vue PDF previews: guides/vue-pdf.md

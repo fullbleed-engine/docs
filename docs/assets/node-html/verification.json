@@ -1,0 +1,167 @@
+{
+  "schema": "fullbleed.node-html-verification.v1",
+  "ok": true,
+  "packageVersion": "0.9.0",
+  "engineVersion": "2.5.46",
+  "puppeteerVersion": "25.16.0",
+  "browserVersion": "Chrome/156.0.8078.47",
+  "node": "v26.10.0",
+  "platform": "nt",
+  "projectZipSha256": "ae0d02fda9fdd5bf2572b9b6637de9dd8c59dcbd84ddc1a033d42fe4784df603",
+  "sameHtmlAndAssets": true,
+  "guideSnippetMatchesLongPdf": true,
+  "guideSnippetSha256": "8eb9e767b76a357904eab1afc1c078b39a630f0a7ad9a6bed52321bd9f4cbc3d",
+  "commands": [
+    {
+      "name": "fullbleed-install",
+      "exitCode": 0
+    },
+    {
+      "name": "fullbleed-render",
+      "exitCode": 0
+    },
+    {
+      "name": "reference-install",
+      "exitCode": 0
+    },
+    {
+      "name": "reference-render",
+      "exitCode": 0
+    },
+    {
+      "name": "guide-snippet",
+      "exitCode": 0
+    }
+  ],
+  "checked": {
+    "fullbleed": {
+      "short": {
+        "ok": true,
+        "pages": 1,
+        "items": 3,
+        "totalCents": 8550,
+        "pdfSha256": "23590f6169d2d4f782909b8ddb7cd95df24501a8c8f028b9d56352f881aeb9ea",
+        "fonts": [
+          "/IYXXAB+SourceSans3-Regular",
+          "/RKEVUK+SourceSans3-Bold"
+        ],
+        "embeddedBrandFont": true,
+        "localLogoVisible": true,
+        "lineItemsOnceAndInOrder": true,
+        "closingTogetherOnFinalPage": true,
+        "pageChecks": [
+          {
+            "page": 1,
+            "characters": 718,
+            "allTextWithinPage": true,
+            "previewSha256": "756388a4cbbf6f8543726de4fbedd10d0e9cf5300ad3e7c67dbbb267f320d931"
+          }
+        ],
+        "nativePreviewSha256": [
+          "a58b4157b74a3ca197c106172ca6eb0efe260b22f914fd8082ab2b1bd81b630b"
+        ]
+      },
+      "long": {
+        "ok": true,
+        "pages": 3,
+        "items": 24,
+        "totalCents": 89600,
+        "pdfSha256": "c7c0bceff4d0cc73f773b79d2dd143791e868c8c6cc2557711f75c41798ca710",
+        "fonts": [
+          "/QHSCJO+SourceSans3-Regular",
+          "/RHWGPM+SourceSans3-Bold"
+        ],
+        "embeddedBrandFont": true,
+        "localLogoVisible": true,
+        "lineItemsOnceAndInOrder": true,
+        "closingTogetherOnFinalPage": true,
+        "pageChecks": [
+          {
+            "page": 1,
+            "characters": 934,
+            "allTextWithinPage": true,
+            "previewSha256": "ce9f629d53c493f39d6261f235456dbf9420202beedddd95e539756f22945e8e"
+          },
+          {
+            "page": 2,
+            "characters": 1432,
+            "allTextWithinPage": true,
+            "previewSha256": "7dfdc8f1bb31a5eab2708883c36e7a19c54d80b55c2b1c5415098aea3a6a3836"
+          },
+          {
+            "page": 3,
+            "characters": 523,
+            "allTextWithinPage": true,
+            "previewSha256": "1bf1685733840ca33ddfb1c467cdb05075a878be4830742b4de0a43bb65be897"
+          }
+        ],
+        "nativePreviewSha256": [
+          "06abcafd5919965421eb85334a365612f3a46325f8dcc26f3479976d3f7a30db",
+          "6d45f55e493b4bc2f3bfc9d1096e1dbed103485b29d730d96494972c349a1626",
+          "e8238ff34d98b38b4ead5bf183973b128d48bd916d460a17f11caffd15dfc04d"
+        ]
+      }
+    },
+    "chromium": {
+      "short": {
+        "ok": true,
+        "pages": 1,
+        "items": 3,
+        "totalCents": 8550,
+        "pdfSha256": "7f818d6be1f2dceffac01b2ba8e5e323e81f4d222bf11545487144a91fdb4898",
+        "fonts": [
+          "/AAAAAA+SourceSans3-Regular",
+          "/BAAAAA+SourceSans3-Bold"
+        ],
+        "embeddedBrandFont": true,
+        "localLogoVisible": true,
+        "lineItemsOnceAndInOrder": true,
+        "closingTogetherOnFinalPage": true,
+        "pageChecks": [
+          {
+            "page": 1,
+            "characters": 718,
+            "allTextWithinPage": true,
+            "previewSha256": "85f54b1fb4325b8b04cef510b106922d71e02b4aa9fec5617973b0abfc6d6895"
+          }
+        ]
+      },
+      "long": {
+        "ok": true,
+        "pages": 3,
+        "items": 24,
+        "totalCents": 89600,
+        "pdfSha256": "8b01c9173a27accb869e8a21bfa6e6c648db6a37a135dd19a66b73ec7511b2a2",
+        "fonts": [
+          "/AAAAAA+SourceSans3-Regular",
+          "/BAAAAA+SourceSans3-Bold"
+        ],
+        "embeddedBrandFont": true,
+        "localLogoVisible": true,
+        "lineItemsOnceAndInOrder": true,
+        "closingTogetherOnFinalPage": true,
+        "pageChecks": [
+          {
+            "page": 1,
+            "characters": 934,
+            "allTextWithinPage": true,
+            "previewSha256": "7607fd4ab436fb2f0cf9bee92cefd3f0d1f260f07b8a6cf91e4a31f5cb59159a"
+          },
+          {
+            "page": 2,
+            "characters": 1343,
+            "allTextWithinPage": true,
+            "previewSha256": "b8f469775141f7f6f9fd5d47a6f1a36cbfa95ff0dcc24a394c2c835cd57baf7a"
+          },
+          {
+            "page": 3,
+            "characters": 612,
+            "allTextWithinPage": true,
+            "previewSha256": "edfed432ea42da695cf23f0086be54cbaee1219f0c0e83eadef38d6f2a343f79"
+          }
+        ]
+      }
+    }
+  },
+  "scope": "Two fictional static-HTML fixtures. No general layout parity, performance or PDF conformance claim."
+}

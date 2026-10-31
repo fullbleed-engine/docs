@@ -21,6 +21,9 @@ tradeoffs on your own documents.
 [Compare actual PDFs](#inspect-the-same-invoice-in-three-renderers){ .md-button }
 [Run a Fullbleed invoice example](invoices.md){ .md-button .md-button--primary }
 
+Using Node.js? [Render an existing HTML template with Fullbleed](node-html-to-pdf.md)
+and compare the same input with the included Puppeteer reference.
+
 ## Choose by the job
 
 | Your main task | Tools to evaluate | What to check |

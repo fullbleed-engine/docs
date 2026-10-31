@@ -1,0 +1,213 @@
+{
+  "short": {
+    "reference": "FN-1042",
+    "customer": "Maple & Finch",
+    "address": [
+      "42 Cedar Avenue",
+      "Portland, OR 97205"
+    ],
+    "date": "31 October 2026",
+    "items": [
+      {
+        "code": "FN-001",
+        "name": "Field notebook",
+        "description": "A lay-flat notebook for the ideas worth keeping.",
+        "quantity": 3,
+        "unitCents": 1800
+      },
+      {
+        "code": "FN-002",
+        "name": "Archive pencil pack",
+        "description": "Six cedar pencils, ready for a fresh page.",
+        "quantity": 2,
+        "unitCents": 950
+      },
+      {
+        "code": "FN-003",
+        "name": "Studio clips",
+        "description": "A small set of brass clips for the work in progress.",
+        "quantity": 1,
+        "unitCents": 1250
+      }
+    ]
+  },
+  "long": {
+    "reference": "FN-1043",
+    "customer": "Maple & Finch / Research Studio",
+    "address": [
+      "42 Cedar Avenue",
+      "Portland, OR 97205"
+    ],
+    "date": "31 October 2026",
+    "items": [
+      {
+        "code": "FN-001",
+        "name": "Stationery set 01",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 1300
+      },
+      {
+        "code": "FN-002",
+        "name": "Stationery set 02",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 1350
+      },
+      {
+        "code": "FN-003",
+        "name": "Stationery set 03",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 1400
+      },
+      {
+        "code": "FN-004",
+        "name": "Stationery set 04",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 1450
+      },
+      {
+        "code": "FN-005",
+        "name": "Stationery set 05",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 1500
+      },
+      {
+        "code": "FN-006",
+        "name": "Stationery set 06",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 1550
+      },
+      {
+        "code": "FN-007",
+        "name": "Stationery set 07",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 1600
+      },
+      {
+        "code": "FN-008",
+        "name": "Stationery set 08",
+        "description": "A larger collection for the shared studio: recycled-paper notebooks, cedar pencils, brass clips and a reusable document folder. Keep the pieces together for workshops, field notes and the next round of ideas.",
+        "quantity": 3,
+        "unitCents": 1650
+      },
+      {
+        "code": "FN-009",
+        "name": "Stationery set 09",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 1700
+      },
+      {
+        "code": "FN-010",
+        "name": "Stationery set 10",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 1750
+      },
+      {
+        "code": "FN-011",
+        "name": "Stationery set 11",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 1800
+      },
+      {
+        "code": "FN-012",
+        "name": "Stationery set 12",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 1850
+      },
+      {
+        "code": "FN-013",
+        "name": "Stationery set 13",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 1900
+      },
+      {
+        "code": "FN-014",
+        "name": "Stationery set 14",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 1950
+      },
+      {
+        "code": "FN-015",
+        "name": "Stationery set 15",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 2000
+      },
+      {
+        "code": "FN-016",
+        "name": "Stationery set 16",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 2050
+      },
+      {
+        "code": "FN-017",
+        "name": "Stationery set 17",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 2100
+      },
+      {
+        "code": "FN-018",
+        "name": "Stationery set 18",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 2150
+      },
+      {
+        "code": "FN-019",
+        "name": "Stationery set 19",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 2200
+      },
+      {
+        "code": "FN-020",
+        "name": "Stationery set 20",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 2250
+      },
+      {
+        "code": "FN-021",
+        "name": "Stationery set 21",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 1,
+        "unitCents": 2300
+      },
+      {
+        "code": "FN-022",
+        "name": "Stationery set 22",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 2,
+        "unitCents": 2350
+      },
+      {
+        "code": "FN-023",
+        "name": "Stationery set 23",
+        "description": "Recycled-paper notebooks and cedar pencils, packed with care.",
+        "quantity": 3,
+        "unitCents": 2400
+      },
+      {
+        "code": "FN-024",
+        "name": "R&D <Kit>",
+        "description": "Crème paper, careful details, and room for another idea.",
+        "quantity": 1,
+        "unitCents": 2450
+      }
+    ]
+  }
+}
