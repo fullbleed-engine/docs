@@ -18,14 +18,15 @@ import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / 'tools/playground-fixtures/radial-gradient-endpoints-2.5.43.json'
-ENGINE_VERSION = '2.5.43'
-NODE_VERSION = '0.8.7'
+REFERENCE_ENGINE_VERSION = '2.5.43'
+ENGINE_VERSION = '2.5.48'
+NODE_VERSION = '0.9.1'
 
 
 def cases():
     source = json.loads(FIXTURES.read_bytes())
     assert source['schema'] == 'fullbleed.radial_gradient_endpoints.v1'
-    assert source['referenceVersion'] == ENGINE_VERSION
+    assert source['referenceVersion'] == REFERENCE_ENGINE_VERSION
     assert len(source['cases']) == 12 and sum(row['affected'] for row in source['cases']) == 9
     assert len({row['name'] for row in source['cases']}) == 12
     for case in source['cases']:

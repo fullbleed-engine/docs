@@ -10,6 +10,7 @@ import { exampleSourcePath, prepareExample } from '../docs/assets/playground/exa
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 import { preformattedFixtures, preformattedFiles } from './playground-fixtures/preformatted.mjs';
+import { pageFontSource, pageFontFixtures, pageFontFiles } from './playground-fixtures/page-margin-fonts.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const engine = join(root, 'playground/engine');
@@ -88,7 +89,7 @@ async function fixture(name, html, css, expectedPages, gradient, standardFonts =
     source_files: { html: `${name}.html`, css: `${name}.css`, html_sha256: hash(Buffer.from(html)), css_sha256: hash(Buffer.from(css)),
       local_assets: Object.entries(extraFiles).filter(([name]) => name.startsWith('assets/'))
         .map(([path, bytes]) => ({ path, bytes: bytes.length, sha256: hash(bytes) })) } });
-  return { files, pdfHash: hash(pdf), memory: result.memory };
+  return { files, pdfHash: hash(pdf), memory: result.memory, hashes };
 }
 
 let invoice;
@@ -136,6 +137,15 @@ for (const item of preformattedFixtures) {
   await fixture(item.name, item.html, item.css, item.pages, null, false, preformattedFiles);
 }
 report.checks.push('Seventeen imported-font wrapping, no-wrap and whitespace cases preserve native/WASI and repeat equality');
+for (const specimen of pageFontSource.cases) {
+  const pair = [];
+  for (const kind of ['control', 'alias']) {
+    const item = pageFontFixtures.find(row => row.name === `page-font-${specimen.name}-${kind}`);
+    pair.push(await fixture(item.name, item.html, item.css, item.pages, null, false, pageFontFiles));
+  }
+  assert.deepEqual(pair[0].hashes, pair[1].hashes, `${specimen.name}: alias changed the PDF or page previews`);
+}
+report.checks.push('Eight registered page-font alias/control pairs match in PDF and preview bytes, including inherited weights and named pages');
 report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);

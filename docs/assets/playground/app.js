@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-import { exampleSourcePath, prepareExample } from './examples.js?v=flowing-invoice-2543';
+import { exampleSourcePath, prepareExample } from './examples.js?v=page-fonts-2548';
 
 const assetGeneration = new URL(import.meta.url).search;
 const { buildProject } = await import(`./project-export.js${assetGeneration}`);
 const { readProject } = await import(`./project-import.js${assetGeneration}`);
 const { readSelection, validateSource } = await import(`./local-files.js${assetGeneration}`);
-const engineVersion = '2.5.43';
+const engineVersion = '2.5.48';
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');

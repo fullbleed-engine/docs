@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.43`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.48`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -42,7 +42,7 @@ root documentation requirements. Then from the repository root:
 rustup target add wasm32-wasip1
 python tools/build_playground.py
 node tools/verify_playground.mjs
-python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.43
+python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.48
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -51,6 +51,7 @@ python tools/verify_playground_quotes.py
 python tools/verify_playground_decorations.py
 python tools/verify_playground_preformatted.py
 python tools/verify_playground_radial_gradients.py
+python tools/verify_playground_fonts.py
 python -m mkdocs build --strict
 python tools/check_site.py site
 python -m playwright install chrome
@@ -84,6 +85,12 @@ ellipses, offset centers, and three controls. Their PDFs must match retained
 public 2.5.43 outputs, with valid stitching-function bounds and checked outer
 colors in both native previews and independent PDFium rendering. The actual
 browser editor downloads and both exported language projects run these cases.
+Eight page-font alias/control pairs cover local and imported sources, inherited
+weight selection, fallback lists, quoted family names, `size-adjust`, and named
+pages. The alias must reproduce the explicit face's PDF and native preview bytes;
+independent readers verify embedded footer faces, sizes, text, and pixels. The
+real browser editor runs the same pairs and replays its actual Python and Node
+project downloads for the two-page named-page case.
 `tools/check_playground_ui.py` exercises the built page, checks the four
 layout cases against independent PDF text and color probes, downloads edited
 PDFs and both project ZIPs, and verifies pagination, source/page limits, cancellation,
@@ -111,7 +118,7 @@ and long documents in Firefox and Playwright WebKit with the full Chrome run.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.8.7` (engine 2.5.43), uses `defaultStyles: false` to retain the
+`fullbleed@0.9.1` (engine 2.5.48), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -124,7 +131,7 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.43 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+python -m pip install fullbleed==2.5.48 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -133,9 +140,11 @@ python tools/verify_playground_quotes.py
 python tools/verify_playground_decorations.py
 python tools/verify_playground_preformatted.py
 python tools/verify_playground_radial_gradients.py
+python tools/verify_playground_fonts.py
 node tools/test_playground_local_files.mjs
 node tools/test_playground_project_import.mjs
 python tools/check_playground_local_files.py --site site --out output/playground-local-files
+python tools/check_playground_fonts.py --site site --out output/playground-fonts
 python -m playwright install chromium
 python tools/check_playground_preformatted.py --site site --out output/playground-preformatted
 python -m playwright install --with-deps chrome firefox webkit
