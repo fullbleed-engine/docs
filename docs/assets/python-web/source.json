@@ -2,7 +2,7 @@
   "schema": "fullbleed.python-web-starter.v1",
   "engineVersion": "2.5.47",
   "sourceRepository": "https://github.com/fullbleed-engine/fullbleed-official",
-  "sourceCommit": "bf6d9793b9a13188298c0da09f0afef97a8c7dad",
+  "sourceCommit": "a30fcc3bd240506fbb2780ebcb71eea3b1f4d99e",
   "samples": [
     {
       "invoiceId": "INV-1042",
@@ -38,8 +38,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10469,
-      "sha256": "0f19e459bad231216429457341f31bd2be222295c60bc7e146bf479b42402526"
+      "bytes": 10662,
+      "sha256": "ea64a0a74768bad457a4d555a2d301d668ce02dac8b7342ad8a8aaf062b38623"
     },
     {
       "path": "check_docker.py",
@@ -58,8 +58,8 @@
     },
     {
       "path": "check_layout.py",
-      "bytes": 6192,
-      "sha256": "56e4fc89d931431a267b3ed4a9aa3646e38a4b975a9d6b576ffc1fccd50ace5a"
+      "bytes": 6555,
+      "sha256": "1fb8f5c146124eb50218bb5dd03400dde59531cb84c91d8adce71c8536c1132c"
     },
     {
       "path": "demo.py",
@@ -208,21 +208,21 @@
     },
     {
       "path": "templates/invoice.css",
-      "bytes": 3519,
-      "sha256": "65770cae2d30585601cc3c8f46af8dc132558246b15ead25b613e6e8e946a179"
+      "bytes": 3562,
+      "sha256": "1a50ff6aba3a1f45edd98d9cd9249bc73d093d44ddca5bdb27ed33efe5303881"
     },
     {
       "path": "templates/invoice.html",
-      "bytes": 2177,
-      "sha256": "2093594a7d6f7b749e0ded00f9175d55cb606185a5fb273e432693aef7630fd6"
+      "bytes": 2210,
+      "sha256": "02582b9cb11a32f158c237b1ccb9f9f799f74bcc228601a38915de6cd6317a6c"
     }
   ],
-  "checkedAt": "2026-10-31T03:49:56.532301+00:00",
+  "checkedAt": "2026-10-31T04:17:25.465613+00:00",
   "assets": [
     {
       "file": "project.zip",
-      "bytes": 1200815,
-      "sha256": "23515aff0f1c8ae69d7a316b86448da99065b2a99f84f70e146659e8ce379a15"
+      "bytes": 1201054,
+      "sha256": "d3d23b965f1b9c8c40fdb9d8d15b6703cb06db8056120d5cbbfd72621355535c"
     },
     {
       "file": "invoice.pdf",

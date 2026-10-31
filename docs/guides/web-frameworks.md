@@ -174,7 +174,8 @@ Text values are escaped before substitution and are not interpreted again as
 template markup.
 
 The A4 layout uses automatic content height so longer tables continue across
-pages. Its `@page` margins reserve footer space, and `invoice.py` supplies the
+pages. Its `.closing` wrapper keeps totals and payment instructions together.
+The `@page` margins reserve footer space, and `invoice.py` supplies the
 engine's `{page}` / `{pages}` counters. Keep that automatic height when adapting
 the design; a fixed page-height container can put later rows outside the visible
 PDF page. Review your longest records after changing fonts, widths or spacing.
@@ -217,9 +218,10 @@ local servers in turn. It verifies actual HTTP downloads, an independent PDF
 reader's text and totals, page count, embedded fonts, headers, 404/405 responses,
 and matching simultaneous downloads. It also checks font/license hashes,
 literal markup and placeholder-like customer text, and the saved preview.
-Servers stop when the checks finish. Layout fixtures cover 0, 3, 24 and 80 items
-plus wrapped descriptions. They check row order, repeated headings, page
-counters, the final total and payment text. PDFium also checks every text
+Servers stop when the checks finish. Layout fixtures cover 0, 3, 24 and 80 items,
+wrapped descriptions, and page-break boundaries at 4, 5, 16 and 17 items. They
+check row order, repeated headings, page counters, and that totals and payment
+text stay together on the final page. PDFium also checks every text
 character's position in the final PDFs: text extraction alone can find text
 outside the visible page. These inspection packages are development dependencies,
 separate from the invoice renderer.
