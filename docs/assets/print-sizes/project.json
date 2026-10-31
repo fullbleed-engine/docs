@@ -1,0 +1,33 @@
+{
+  "version": "2.5.46",
+  "sources": {
+    "LICENSE": "d11eb692c79896cec045b95b1459e4d25e156a5dc13e0bb6b41f911b2690da5f",
+    "README.md": "c82cc2625471d1e949b0bc17c6916ad6f4cc5f5da7d52933f83f452841bb8d52",
+    "render.py": "17388d6255259f258b235df6612e875119813ff95b1ec659c610e506c3f1e07b",
+    "requirements.txt": "c1a5f66a16c4e13e6a9287a21dc9ae899a15e98c71b0a08bc3b2661722bcdc78",
+    "shelf-card.html": "9143e633767093966c35e31fe79abb374ed9173a2a84334d70947d8fa51f27c4"
+  },
+  "assets": {
+    "inch-card.pdf": {
+      "sha256": "d5ebb24c2f0611b55354650cd339fd670340a9052882b89b0b0c59bd3be53ffd",
+      "bytes": 60189
+    },
+    "inch-card.png": {
+      "sha256": "8a2e7742ddeb4457246f8a4e41c21ed85af0bd7f6d319a068e8e3b47dd9b18d2",
+      "bytes": 56531
+    },
+    "metric-card.pdf": {
+      "sha256": "b871e51ce792c85fc6a021c6a5e1cc8b111dc2256318a154bbbea435c17d0a35",
+      "bytes": 60199
+    },
+    "metric-card.png": {
+      "sha256": "c7eb4945cec3467af81a7c09bde57439f5b8c949e1ccf3880185684868b9b2dd",
+      "bytes": 56375
+    },
+    "project.zip": {
+      "sha256": "71e1889fd2287226c9fd23243ce03c9ae9db8de0d86a66ba88b44da257436dd2",
+      "bytes": 3859
+    }
+  },
+  "scope": "Source and asset integrity; rendered-output checks are recorded separately."
+}

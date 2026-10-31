@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "at": "2026-10-31T00:06:10.132960+00:00",
+  "version": "2.5.46",
+  "guideSnippetMatchesDownload": true,
+  "downloadedProjectExecuted": true,
+  "sourceFiles": 5,
+  "projectZipSha256": "71e1889fd2287226c9fd23243ce03c9ae9db8de0d86a66ba88b44da257436dd2",
+  "guideSha256": "1552c581637264af1ab4206e3047a9e82472a4e712e5040e1a0b4336689d6d94",
+  "embeddedFont": "Inter",
+  "screenTextExcluded": true,
+  "printScaleTextPresent": true,
+  "allVisibleGlyphBoxesInsidePaper": true,
+  "repeatedPdfBytesEqual": true,
+  "cases": [
+    {
+      "file": "metric-card.pdf",
+      "pages": 1,
+      "points": [
+        283.465,
+        425.197
+      ],
+      "sha256": "b871e51ce792c85fc6a021c6a5e1cc8b111dc2256318a154bbbea435c17d0a35",
+      "missingGlyphs": [],
+      "nativePreviewSha256": "c7eb4945cec3467af81a7c09bde57439f5b8c949e1ccf3880185684868b9b2dd",
+      "independentPreview": "metric-card-pdfium.png",
+      "independentPreviewSha256": "4d7d94342b1545a16fa860322a5569a8fce5efb1b751f029fd6f7bcbd0cf140e"
+    },
+    {
+      "file": "inch-card.pdf",
+      "pages": 1,
+      "points": [
+        288.0,
+        432.0
+      ],
+      "sha256": "d5ebb24c2f0611b55354650cd339fd670340a9052882b89b0b0c59bd3be53ffd",
+      "missingGlyphs": [],
+      "nativePreviewSha256": "8a2e7742ddeb4457246f8a4e41c21ed85af0bd7f6d319a068e8e3b47dd9b18d2",
+      "independentPreview": "inch-card-pdfium.png",
+      "independentPreviewSha256": "6cd83f704b2cac0e4b124136b08fe4da921bdd96952ed422f97e5b2e12c1a675"
+    }
+  ],
+  "readers": {
+    "pypdf": "6.19.0",
+    "pypdfium2": "5.14.0",
+    "Pillow": "12.3.0"
+  },
+  "scope": "Exact guide/download execution, PDF page sizes, text/media filtering, embedded fonts, glyph coverage and repeated output. Visual review is separate. No printer, PDF/X or general CSS conformance claim.",
+  "visualReview": {
+    "imagesViewed": 4,
+    "observations": [
+      "Both paper variants contain one complete card with readable title, product copy, price and scale footer.",
+      "The cup remains vector artwork in the PDF; both native and PDFium previews show its full shape.",
+      "The edition and price detail align to the right after explicit block display on their grid items.",
+      "No visible overlaps, clipped text or missing glyphs in the two tested layouts.",
+      "The screen-only instruction is absent; the small scale footer is present.",
+      "Native and PDFium text rasterization differs; no pixel-parity claim is made."
+    ]
+  }
+}

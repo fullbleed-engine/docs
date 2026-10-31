@@ -226,11 +226,17 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install fullbleed==2.5.26 pypdf==6.19.0
       - run: python -I tools/verify_complete_html.py
+      - name: Verify custom paper sizes with the published package
+        run: |
+          python -m pip install fullbleed==2.5.46 pypdfium2==5.14.0 Pillow==12.3.0
+          python -I tools/verify_print_sizes.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: complete-html-${{ matrix.os }}
-          path: target/complete-html/
+          path: |
+            target/complete-html/
+            target/print-sizes/
           retention-days: 14
   component-preview:
     name: Experimental component preview (${{ matrix.os }})

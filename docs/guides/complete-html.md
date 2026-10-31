@@ -43,6 +43,10 @@ the bundled Inter font and the A5 paper size declared inside the HTML.
 Fonts, images, and other assets remain explicit inputs; see
 [fonts and assets](../engine/assets.md).
 
+For custom stock, the [shelf-card project](custom-paper-sizes.md) uses CSS to
+render 100 × 150 mm and 4 × 6 inch PDFs, with print-only styles and independent
+checks of the resulting paper dimensions.
+
 Prefer composing documents without HTML strings? Start with
 [Python components](python-components.md).
 
