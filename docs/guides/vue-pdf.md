@@ -76,6 +76,18 @@ The app escapes customer text before inserting it and validates the hex color.
 Line items, totals, addresses, and dates are fixed samples: replace them with
 your data and calculations.
 
+### Add rows to the HTML invoice
+
+Add `<tr>` rows inside `src/invoice.html`'s `<tbody>` and update both sample
+totals. The HTML template does not calculate amounts. It can continue onto new
+pages with repeated column headings and `Page N of M` footers. Keep the `@page`
+margins and `.closing` group in `src/invoice.css`; that group holds the totals
+and payment details together, moving them to a new page when needed.
+
+The [invoice checks](../assets/vue-starter/invoice-verification.json) cover
+the short sample, 24 rows, wrapped descriptions, empty rows and page boundaries.
+The 24-row sample produces three pages, with all text inside the PDF page bounds.
+
 Print templates are separate from Vue component templates. Fullbleed consumes
 static HTML/CSS and does not capture the Vue page. Use
 [supported print CSS](../css-coverage.md). Document scripts do not execute, and
@@ -182,4 +194,5 @@ PDF text and independently specified colors in both the PDF and its preview.
 Nested quotation checks cover inline, block, and contents layouts through the
 actual editor. They check both PDF readers, page size, and visible preview output.
 The [retained starter verification](../assets/browser-starters-084-verification.json)
-records these cases and the unchanged invoice and report downloads.
+records the earlier editor cases and their original invoice and report downloads.
+The invoice checks above cover the flowing template in the current download.
