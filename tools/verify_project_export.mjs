@@ -8,7 +8,7 @@ import { join, relative } from 'node:path';
 import { buildProject } from '../docs/assets/playground/project-export.js';
 import { storeZip } from '../docs/assets/playground/zip-store.js';
 import { render } from '../docs/assets/playground/renderer.js';
-import { prepareExample } from '../docs/assets/playground/examples.js';
+import { exampleSourcePath, prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 import { defaultStyleFixtures } from './playground-fixtures/default-styles.mjs';
@@ -49,8 +49,8 @@ for (const fixture of fixtures) {
   const custom = typeof fixture.html === 'string';
   const example = gradient ? 'report' : (name === 'invoice-edited' || custom) ? 'invoice' : name;
   let { html, css } = custom ? fixture : prepareExample(example,
-    await readFile(join(root, `docs/assets/showcase/${example}.html`), 'utf8'),
-    await readFile(join(root, `docs/assets/showcase/${example}.css`), 'utf8'));
+    await readFile(join(assets, exampleSourcePath(example, 'html')), 'utf8'),
+    await readFile(join(assets, exampleSourcePath(example, 'css')), 'utf8'));
   if (name === 'invoice-edited') {
     html = html.replace('Maple &amp; Finch', 'Cedar &amp; Stone café') + '\n<!-- Saved UTF-8: München & <draft> 😀 -->\n';
     css = css.replaceAll('#17382e', '#17315a');

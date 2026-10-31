@@ -6,7 +6,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
 import { render } from '../docs/assets/playground/renderer.js';
-import { prepareExample } from '../docs/assets/playground/examples.js';
+import { exampleSourcePath, prepareExample } from '../docs/assets/playground/examples.js';
 import { gradientFixtures, checkGradient } from './playground-fixtures/gradients.mjs';
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 import { preformattedFixtures, preformattedFiles } from './playground-fixtures/preformatted.mjs';
@@ -94,8 +94,8 @@ async function fixture(name, html, css, expectedPages, gradient, standardFonts =
 let invoice;
 for (const [name, pages] of [['invoice', 1], ['report', 3], ['notice', 1]]) {
   const { html, css } = prepareExample(name,
-    await readFile(join(root, `docs/assets/showcase/${name}.html`), 'utf-8'),
-    await readFile(join(root, `docs/assets/showcase/${name}.css`), 'utf-8'));
+    await readFile(join(assets, exampleSourcePath(name, 'html')), 'utf-8'),
+    await readFile(join(assets, exampleSourcePath(name, 'css')), 'utf-8'));
   const result = await fixture(name, html, css, pages);
   if (name === 'invoice') {
     invoice = { ...result, html, css };

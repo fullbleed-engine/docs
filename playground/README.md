@@ -6,6 +6,11 @@ Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and run
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
 from that finalized file. Downloaded Python and Node.js projects use the same preview path.
 
+The editable invoice uses `docs/assets/playground/invoice.html` and `invoice.css`
+for automatic table pagination, page-margin counters, and grouped totals/payment
+details. `examples.js` supplies source paths to the browser and verification tools;
+the report and notice sources live in `docs/assets/showcase`.
+
 The browser fetches fixed engine/font/example assets from the docs site. User
 HTML/CSS is passed to a worker and an in-memory filesystem; it is never inserted
 into the page DOM or submitted to a server. Bundled fonts and explicitly selected
@@ -50,6 +55,7 @@ python -m mkdocs build --strict
 python tools/check_site.py site
 python -m playwright install chrome
 python tools/check_playground_ui.py --site site --out output/playground-ui
+python tools/check_playground_invoice.py --site site --out output/playground-invoice
 python tools/check_playground_recovery.py --site site --out output/playground-recovery
 ```
 
@@ -91,6 +97,14 @@ The page-flow checks inspect downloaded PDF text and glyph positions with
 independent readers and compare every displayed page with the native preview.
 These checks establish the recorded fixtures only, not universal platform parity
 or ISO conformance.
+
+The invoice browser check covers the short design, 24 line items, wrapped
+descriptions, an empty table, and four pagination boundaries. Independent readers
+check item order, repeated headings, final page counters, totals/payment grouping,
+and every visible glyph box. The long and wrapped invoices are downloaded as real
+Python and Node.js projects; their PDF and preview bytes must match the browser.
+The long project is also reopened through the file picker. CI compares the short
+and long documents in Firefox and Playwright WebKit with the full Chrome run.
 
 ## Continue locally
 
