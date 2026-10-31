@@ -931,6 +931,7 @@ jobs:
         run: |
           python -m pip install fullbleed==2.5.43 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
           node tools/test_playground_local_files.mjs
+          node tools/test_playground_project_import.mjs
           node tools/verify_project_export.mjs
           python -I tools/verify_project_export.py
           python -I tools/verify_node_project_export.py
@@ -1110,7 +1111,7 @@ jobs:
                   path.write_text('\n'.join(line for line in lines if 'azure.archive.ubuntu.com' not in line) + '\n')
           PY
           python -m pip install -r tools/browser-requirements.txt
-          python -m playwright install --with-deps chrome chromium
+          python -m playwright install --with-deps chrome chromium firefox webkit
           python tools/build_browser_starter.py
           python tools/check_online_starter.py browser
           python tools/check_browser_starter.py --dist docs/assets/browser-demo --out output/browser-starter-ui --browser chrome
@@ -1255,6 +1256,17 @@ jobs:
           retention-days: 14
       - name: Import local assets and replay both downloaded projects
         run: python tools/check_playground_local_files.py --site site --out output/playground-local-files
+      - name: Reopen saved projects in Chromium, Firefox and WebKit
+        run: |
+          python tools/check_playground_project_import.py --site site --out output/playground-project-import/chrome --browser chrome
+          python tools/check_playground_project_import.py --site site --out output/playground-project-import/firefox --browser firefox
+          python tools/check_playground_project_import.py --site site --out output/playground-project-import/webkit --browser webkit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-project-import-verification
+          path: output/playground-project-import/
+          retention-days: 14
       - name: Verify code wrapping and replay actual browser project downloads
         run: python tools/check_playground_preformatted.py --site site --out output/playground-preformatted
       - uses: actions/upload-artifact@v4

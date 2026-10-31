@@ -1,12 +1,12 @@
 ---
 title: HTML/CSS to PDF playground
-description: Open local HTML, CSS, images, and fonts to generate a Fullbleed PDF in your browser. Free, no sign-in, and no upload. Download a matching Python or Node.js project.
+description: Generate a PDF from local HTML, CSS, images, and fonts. Save and reopen Python or Node.js projects in your browser. Free, no account, and no document upload.
 hide:
   - navigation
   - toc
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=recovery-2543">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=project-import-2543">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
@@ -28,6 +28,8 @@ hide:
   <div class="pg-export">
     <div class="pg-picker"><label for="pg-project-language">Project language</label><select id="pg-project-language" disabled><option value="python">Python</option><option value="node">Node.js</option></select></div>
     <button id="pg-project" disabled>Download project</button>
+    <button id="pg-open-project" aria-describedby="pg-project-help" disabled>Open saved project</button>
+    <input id="pg-project-file" class="pg-sr" type="file" accept=".zip" tabindex="-1" aria-label="Choose a saved playground project ZIP">
   </div>
   <div class="pg-workspace">
     <section class="pg-editor" aria-label="Document source">
@@ -44,7 +46,8 @@ hide:
   </div>
   <p id="pg-status" class="pg-status" role="status" aria-live="polite">Loading the examples…</p>
   <p id="pg-project-status" class="pg-project-status" role="status" aria-live="polite" hidden></p>
-  <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download any files you want to keep before leaving. The first render downloads the engine and bundled fonts.</p>
+  <p id="pg-project-help" class="pg-footnote">Download project saves your source and assets in a ZIP you can reopen here. Opening a saved project replaces the current document and local assets.</p>
+  <p class="pg-footnote">Free. No account. Your source stays in this tab and is not uploaded. Download your project before leaving. The first render downloads the engine and bundled fonts.</p>
   <p id="pg-feedback" class="pg-footnote"><a id="pg-report" href="https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml&amp;title=%5BBug%5D%3A+Playground+rendering&amp;version=2.5.43+%28browser+playground%29&amp;environment=WebAssembly+playground%3B+browser+and+operating+system%3A+%5Badd+yours%5D" target="_blank" rel="noopener noreferrer">Report a rendering problem</a>. Opens a public GitHub form in a new tab. Use sample data; your document is not attached.</p>
 </div>
 
@@ -79,6 +82,24 @@ without folders; update references such as `images/logo.png` to the displayed
 **Download project** includes the source, selected assets, and their hashes for
 Python or Node.js. Optional TXT license files are included as assets. Files stay
 in this tab until you download them; closing the tab clears them.
+
+## Save a project and come back later
+
+Choose Python or Node.js, then **Download project**. Keep the ZIP unchanged.
+On your next visit, choose **Open saved project** and select that ZIP to restore
+your HTML, CSS, custom assets, and project language. Choose **Render PDF** to
+preview it, or keep editing. This works without an account or document upload.
+
+Opening a project replaces the current document and assets; download your current
+project first if you want to keep it. Invalid projects leave your current work
+intact. The browser accepts project ZIPs up to **24 MiB**, with the same source and
+asset limits listed above. Larger exports remain usable with their local renderer.
+
+The preview uses this playground’s engine and bundled fonts. If the saved engine
+version differs, the editor tells you before you render. To use the project’s
+original pinned version, follow the README inside its ZIP. Archived Python and
+JavaScript files are never run by the playground. For source edited after
+extraction, use **Open local files** instead of repackaging the ZIP.
 
 ## Wrap long code lines
 
@@ -171,7 +192,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=recovery-2543"></script>
+<script type="module" src="../assets/playground/app.js?v=project-import-2543"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.
