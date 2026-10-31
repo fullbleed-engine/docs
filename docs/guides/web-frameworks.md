@@ -6,12 +6,14 @@ description: Serve downloadable PDF invoices from FastAPI, Flask, or Django with
 
 Fullbleed returns PDF bytes from Python data and HTML/CSS. Pass those bytes to
 your framework's response object to serve an invoice, report, or statement.
-The starter below generates a designed one-page invoice and sends it as a
-download. It includes a browser page, editable HTML/CSS, and the same document
-renderer behind three small framework adapters.
+The starter below sends a designed invoice as a download. It includes a browser
+page, editable HTML/CSS, and the same document renderer behind three small
+framework adapters. A short invoice fits on one page; a 24-line sample continues
+across three pages with repeated table headings and page numbers.
 
 [Download the Python starter](../assets/python-web/project.zip){ .md-button .md-button--primary }
 [Open the sample PDF](../assets/python-web/invoice.pdf){ .md-button }
+[Open the 24-line PDF](../assets/python-web/invoice-long.pdf){ .md-button }
 
 [![Northstar Studio invoice with large green typography, three line items, and an orange-accented total panel.](../assets/python-web/invoice.png)](../assets/python-web/invoice.pdf)
 
@@ -39,23 +41,26 @@ is `examples/web_frameworks`.
 
 Choose one framework below. Each requirement file installs that framework;
 `fullbleed` remains a separate package. The examples are checked with Fullbleed
-2.5.37, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
+2.5.47, FastAPI 0.142.2, Flask 3.1.3, and Django 5.2.17.
 
-Each app serves this fictional record:
+Each app serves two fictional records:
 
 ```text
 http://127.0.0.1:8000/invoices/INV-1042.pdf
+http://127.0.0.1:8000/invoices/INV-1043.pdf
 ```
 
 Open `http://127.0.0.1:8000/` after starting the app and select **Download invoice**.
 The browser downloads `invoice.pdf`, which
-contains three line items and a total of **USD 1,870.00**. An unknown invoice ID
-returns HTTP 404. Stop the server before trying another framework on the same port.
+contains three line items and a total of **USD 1,870.00**. The **Download the
+24-line invoice** link renders `INV-1043`, with a total of **USD 600.00** across
+three pages. An unknown invoice ID returns HTTP 404. Stop the server before
+trying another framework on the same port.
 
 ## FastAPI
 
 ```bash
-python -m pip install fullbleed==2.5.37 -r requirements-fastapi.txt
+python -m pip install fullbleed==2.5.47 -r requirements-fastapi.txt
 python -m uvicorn fastapi_app:app --host 127.0.0.1 --port 8000
 ```
 
@@ -91,7 +96,7 @@ finishes. See [FastAPI's concurrency documentation](https://fastapi.tiangolo.com
 ## Flask
 
 ```bash
-python -m pip install fullbleed==2.5.37 -r requirements-flask.txt
+python -m pip install fullbleed==2.5.47 -r requirements-flask.txt
 python -m flask --app flask_app run --host 127.0.0.1 --port 8000
 ```
 
@@ -119,7 +124,7 @@ for response bodies, media types, and headers.
 ## Django
 
 ```bash
-python -m pip install fullbleed==2.5.37 -r requirements-django.txt
+python -m pip install fullbleed==2.5.47 -r requirements-django.txt
 python django_app.py runserver 127.0.0.1:8000 --noreload
 ```
 
@@ -168,9 +173,13 @@ restarting the server. Its Python `string.Template` placeholders include
 Text values are escaped before substitution and are not interpreted again as
 template markup.
 
-The included layout is a fixed one-page A4 sample for three line items. Adapt
-its geometry and pagination before using longer records, and review the final
-PDF. This starter leaves tax, discounts, invoice numbering, payment collection,
+The A4 layout uses automatic content height so longer tables continue across
+pages. Its `@page` margins reserve footer space, and `invoice.py` supplies the
+engine's `{page}` / `{pages}` counters. Keep that automatic height when adapting
+the design; a fixed page-height container can put later rows outside the visible
+PDF page. Review your longest records after changing fonts, widths or spacing.
+
+This starter leaves tax, discounts, invoice numbering, payment collection,
 and application authentication to your application. `static/index.html` is the
 local demo page; replace it with your application's interface when integrating.
 
@@ -208,7 +217,12 @@ local servers in turn. It verifies actual HTTP downloads, an independent PDF
 reader's text and totals, page count, embedded fonts, headers, 404/405 responses,
 and matching simultaneous downloads. It also checks font/license hashes,
 literal markup and placeholder-like customer text, and the saved preview.
-Servers stop when the checks finish.
+Servers stop when the checks finish. Layout fixtures cover 0, 3, 24 and 80 items
+plus wrapped descriptions. They check row order, repeated headings, page
+counters, the final total and payment text. PDFium also checks every text
+character's position in the final PDFs: text extraction alone can find text
+outside the visible page. These inspection packages are development dependencies,
+separate from the invoice renderer.
 
 Review `output/check/verification.json`, its PDFs, and the PNG preview after a
 layout change. To refresh the download page's saved preview, run:

@@ -41,6 +41,10 @@ These single-line commands work in PowerShell too. Open
 
 [![Northstar Studio invoice with large green typography, a three-item table, and a total of USD 1,870.00.](../assets/python-web/invoice.png)](../assets/python-web/invoice.pdf)
 
+The same local page offers **Download the 24-line invoice**. It uses the same
+template across three pages, with repeated table headings and actual page
+numbers. [Inspect that PDF](../assets/python-web/invoice-long.pdf).
+
 Stop it from another terminal:
 
 ```bash
@@ -56,7 +60,7 @@ copied into the image; this command does not mount them from your machine.
 | Component | Included configuration |
 | --- | --- |
 | Python | Official Python 3.14.8 Debian Bookworm slim image, pinned by multi-platform digest |
-| PDF engine | Published Fullbleed 2.5.37 wheel |
+| PDF engine | Published Fullbleed 2.5.47 wheel |
 | HTTP server | FastAPI 0.142.2 and Uvicorn 0.54.0; one worker, proxy headers disabled |
 | Dependencies | Exact runtime versions in `requirements-docker.txt`; wheel URLs and hashes in `/app/pip-install.json` |
 | Fonts | Inter from the wheel; vendored DM Serif Display and Bebas Neue with their licenses |
@@ -94,8 +98,9 @@ downloads, four simultaneous responses, HTTP 404/405 behavior, independently
 extracted PDF text and embedded fonts, the native preview, and normal server
 shutdown. A build-context check plants dummy secret files at the root and inside
 asset directories, then verifies that Docker excludes them. It also renders in a
-separate container with networking disabled.
-All four resulting PDFs and previews must match.
+separate container with networking disabled. Both the short invoice and the
+24-line invoice are checked over HTTP and offline. Their PDF bytes, plus the
+short invoice's preview, must match across all four containers.
 
 Each run retains the PDF, PNG, build/server logs, resolved packages, wheel hashes,
 image ID, and runtime settings. The documentation workflow additionally builds
@@ -125,8 +130,9 @@ Replace the fictional `load_invoice()` with your application's authorized record
 lookup. Configure TLS, trusted reverse proxies, request limits, monitoring, and
 worker or job-queue capacity in your hosting setup. The example's resource limits
 are test settings, not a throughput or sizing recommendation. The route has no
-authentication, and the fixed one-page layout needs pagination work for long
-invoices.
+authentication. The included layout flows across pages; review your longest
+records and run the [layout checks](web-frameworks.md#verify-and-deploy-your-workflow)
+after adapting its fonts, spacing or columns.
 
 Update the pinned image and dependency versions periodically, then rebuild and
 rerun the checks. These checks establish the behavior of the included container
