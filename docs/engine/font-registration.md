@@ -2,7 +2,7 @@
 
 The [Chinese-text guide](../guides/chinese-pdf.md) includes a runnable bilingual invoice, pinned font preparation, and the current variable-font weight and glyph-report limitations. The [Arabic and English invoice](../guides/arabic-pdf.md) includes static regular and bold Noto Sans Arabic files with a font manifest and glyph checks.
 
-Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/font-registration.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.48](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/docs/font-registration.md). Check the installed runtime for your exact version.
 
 Register the font files your document uses with `PdfEngine(font_files=[...])`,
 `font_dirs=[...]`, or an `AssetBundle`. Fullbleed reads these assets directly;
@@ -16,7 +16,7 @@ and typographic family names are recognized.
 
 For example, after registering `DMSerifDisplay-Regular.ttf` and
 `DMSerifDisplay-Italic.ttf` from this repository's
-[`design_showcase/fonts`](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/examples/design_showcase/fonts):
+[`design_showcase/fonts`](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/examples/design_showcase/fonts):
 
 ```css
 body { font-family: "DM Serif Display"; font-style: normal; }
@@ -53,11 +53,36 @@ default can change appearance and line breaks when the regular face is also
 registered. Review existing PDF baselines when upgrading. To intentionally use
 italics, set `font-style: italic` or map the exact face with `@font-face`.
 
-The installed-wheel [family smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/tools/smoke_font_families.py)
+The installed-wheel [family smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/tools/smoke_font_families.py)
 compares embedded face names, extracted text, and native/PDFium previews against
 explicit-face controls for file, directory, bundle, fixed-template, and reflow
 rendering. This is a focused regression check, not a claim of complete CSS font
 matching conformance.
+
+## Fonts in page headers and footers
+
+Starting with 2.5.48, page-margin text uses registered `@font-face` aliases too:
+
+```css
+@page {
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: "Brand", "Noto Sans";
+    font-size: 10pt;
+  }
+}
+```
+
+The `Brand` mapping above selects the supplied display face. Register any
+fallback fonts you want to use as well. A page inherits its typography from
+`html`; `@page` overrides that root style, and each margin box can override
+the page. A family set only on `body` does not set the page's family.
+An inherited alias is matched again when a page or margin box changes
+`font-weight`, so its corresponding registered source can be selected.
+
+The [margin-font check](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/tools/smoke_page_margin_fonts.py) compares aliases
+with explicit-face controls in ordinary, fixed-template and reflow PDFs,
+including fallback lists, named pages and font-face `size-adjust`.
 
 ## Controlling synthetic styles
 
@@ -95,7 +120,7 @@ The finalized-PDF preview reader can also omit the synthetic-bold stroke on
 fixed binding slots; inspect the emitted PDF in an independent viewer when
 using that combination.
 
-The [synthesis smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/tools/smoke_font_synthesis.py) registers a known
+The [synthesis smoke check](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/tools/smoke_font_synthesis.py) registers a known
 regular font and compares each combination with explicit style controls in
 ordinary, fixed, and reflow output. It retains PDFs, extracted text, and native,
 finalized, and PDFium previews; small-cap positive controls cover ordinary and

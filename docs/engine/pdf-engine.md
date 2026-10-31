@@ -1,6 +1,6 @@
 # Python API Reference
 
-Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/python-api.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.48](https://github.com/fullbleed-engine/fullbleed-official/blob/0997487693615434e8f3d45422ab5a89e67f4d71/docs/python-api.md). Check the installed runtime for your exact version.
 
 Primary import:
 

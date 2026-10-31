@@ -112,10 +112,12 @@ body { font-family: "Source Sans 3"; font-synthesis: none; }
 b, strong, th { font-weight: 700; }
 ```
 
-Use the font's actual family name consistently in the body and page margin boxes,
-as this example does. Supply separate faces for the weights and styles your
-template needs, and review [font face selection](../engine/font-registration.md)
-when changing them.
+This downloadable project uses the font's actual family name consistently in
+the body and page margin boxes. For a custom alias such as `Brand` in a header
+or footer, upgrade to **Node 0.9.1 / engine 2.5.48** and follow the
+[page-font guidance](../getting-started/node.md#fonts-in-page-headers-and-footers).
+Supply separate faces for the weights and styles your template needs, and review
+[font face selection](../engine/font-registration.md) when changing them.
 
 The HTML's `assets/logo.svg` resolves to the `logo.svg` entry in Fullbleed's asset
 map. Both font files and the image are passed as bytes. Download remote assets

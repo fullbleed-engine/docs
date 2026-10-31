@@ -154,6 +154,26 @@ Use a `.ttf` or `.otf` filename without folders. Filenames must be unique;
 existing font-byte inputs remain supported. Playground exports preserve these
 names automatically.
 
+### Fonts in page headers and footers
+
+Use **Node package 0.9.1 or newer** (engine **2.5.48**) when a page header or
+footer uses a custom `@font-face` alias such as `Brand`:
+
+```sh
+npm install --save-exact fullbleed@0.9.1
+```
+
+Register the named font bytes as above, then use `font-family: Brand` in a
+margin box or in `@page`. To share the font with the document, set it on `html`
+and use `defaultStyles: false`. Page typography inherits from `html` through
+`@page` to each margin box; a family set only on `body` does not set the page font.
+The [font registration guide](../engine/font-registration.md#fonts-in-page-headers-and-footers)
+shows the CSS and explains fallback families and weight selection.
+
+The [0.9.1 release](https://github.com/fullbleed-engine/fullbleed-node/releases/tag/v0.9.1)
+retains the font comparisons. The invoice and report downloads above keep their
+tested 0.9.0 dependency pins and use explicit family names.
+
 Unembedded PDF Standard 14 faces now have bundled substitutes for native PNG
 previews. The PDF keeps its original font resources, text, and advances; a PDF
 reader can use a different substitute design. Register your chosen font when
