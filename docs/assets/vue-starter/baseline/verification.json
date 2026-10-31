@@ -1,14 +1,14 @@
 {
-  "package": "0.8.1",
-  "engine": "2.5.35",
-  "node": "v22.23.3",
+  "package": "0.8.4",
+  "engine": "2.5.40",
+  "node": "v22.23.4",
   "records": [
     {
       "design": "invoice",
       "pages": 1,
-      "pdfSha256": "3078d155f30536f5ad721f7be3c241cd78661ae41249131fc0fd65f37f23e408",
+      "pdfSha256": "85c991aff1d8c5f846e7a7ec218e26c2a9c818f2436aba218f7eb665d6120db0",
       "previews": [
-        "72420749ccc3deaa8025daf7baffcdf79be716b6e8e93ed605effebed01e86c7"
+        "06a968aee07f77fa11a8d8f417953fb62eeecee2eb76c43b246ae1a5aff75894"
       ]
     },
     {
@@ -21,5 +21,7 @@
         "8c8bfdc01ef7a3c376fbe61a0736dbc5b65280b0781f0040c550e097e71a5dcd"
       ]
     }
-  ]
+  ],
+  "source_commit": "400f362841ed7482c5afc05efc3a2446888f5285",
+  "verification_run": 41185271823
 }

@@ -1115,6 +1115,7 @@ jobs:
           python tools/build_browser_starter.py
           python tools/check_online_starter.py browser
           python tools/check_browser_starter.py --dist docs/assets/browser-demo --out output/browser-starter-ui --browser chrome
+          python tools/check_starter_invoices.py --kind browser --dist docs/assets/browser-demo --archive docs/assets/browser-starter/project.zip --out output/browser-starter-ui/invoices --reference docs/assets/browser-starter/invoice-verification.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -1130,6 +1131,7 @@ jobs:
           python tools/build_react_starter.py
           python tools/check_online_starter.py react
           python tools/check_react_starter.py --dist docs/assets/react-demo --out output/react-starter-ui --browser chrome
+          python tools/check_starter_invoices.py --kind react --dist docs/assets/react-demo --archive docs/assets/react-starter/project.zip --out output/react-starter-ui/invoices --reference docs/assets/react-starter/invoice-verification.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -1145,6 +1147,7 @@ jobs:
           python tools/build_vue_starter.py
           python tools/check_online_starter.py vue
           python tools/check_vue_starter.py --dist docs/assets/vue-demo --out output/vue-starter-ui --browser chrome
+          python tools/check_starter_invoices.py --kind vue --dist docs/assets/vue-demo --archive docs/assets/vue-starter/project.zip --out output/vue-starter-ui/invoices --reference docs/assets/vue-starter/invoice-verification.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

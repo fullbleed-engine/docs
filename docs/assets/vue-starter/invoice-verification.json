@@ -1,0 +1,339 @@
+{
+  "ok": true,
+  "at": "2026-10-31T08:32:09.635550+00:00",
+  "kind": "vue",
+  "browser": "chrome",
+  "browserVersion": "156.0.8078.47",
+  "cases": [
+    {
+      "name": "short",
+      "pages": 1,
+      "items": 3,
+      "pdfSha256": "85c991aff1d8c5f846e7a7ec218e26c2a9c818f2436aba218f7eb665d6120db0",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 979,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        }
+      ],
+      "previewSha256": [
+        "06a968aee07f77fa11a8d8f417953fb62eeecee2eb76c43b246ae1a5aff75894"
+      ]
+    },
+    {
+      "name": "long",
+      "pages": 3,
+      "items": 24,
+      "pdfSha256": "9ab155fb46cc991e71de731c710c1b1236247a0fe129aafe719b6e807a639af7",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 914,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 963,
+          "textBox": [
+            45.80999755859375,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        },
+        {
+          "page": 3,
+          "characters": 638,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        }
+      ],
+      "previewSha256": [
+        "2163f992bd3945fd611c8b60353ea0504e9e3ba9ec36add1121481d9a83debdd",
+        "f239a2115cdc284232941e87768400a79eb40842b5622995428eaf0211d5eb74",
+        "835f8f28eac1b957b92b5c4818fe67f3a1ed0762bc8046d930ea5af76511b589"
+      ],
+      "repeatPdfBytesMatch": true
+    },
+    {
+      "name": "empty",
+      "pages": 1,
+      "items": 0,
+      "pdfSha256": "fda9fadbcf60e4ac4ddf549d5ebe71e1f9b3fa65098166dd14e63950c7b1402f",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 723,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        }
+      ],
+      "previewSha256": [
+        "63090086db7abaf17e990f6b946d2466be2da18d48f8ad2c20b4978a0f0e9a7f"
+      ]
+    },
+    {
+      "name": "wrapped",
+      "pages": 3,
+      "items": 12,
+      "pdfSha256": "3964a30443701c291cbba814653b54b7072c0c1ae21df97b7a58bb95653345fe",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 1559,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 2040,
+          "textBox": [
+            45.705997467041016,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        },
+        {
+          "page": 3,
+          "characters": 644,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        }
+      ],
+      "previewSha256": [
+        "4d76aade737f3e3088c6d32fd20dbd18cf6a181da7e80897570a3cf793ff0fe3",
+        "41955e0e7565ca9f2b49d6f05d16c95557d83f7692e3c778b6b8f77e3cd08f72",
+        "ac0c8b36d140f481401245bafb06ec5f4df98a756483c0ff32e4cf27ac5eed0b"
+      ]
+    },
+    {
+      "name": "boundary-4",
+      "pages": 2,
+      "items": 4,
+      "pdfSha256": "9574eb156a927b8e81a086ce6ebba9e09294368086410cdb2ea22e6c0c69a189",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 707,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 336,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.428955078125,
+            769.406494140625
+          ]
+        }
+      ],
+      "previewSha256": [
+        "008eb10f532151cb311dc2fb139bb22da33c69cb69e208daa9fdb26209210d9f",
+        "60bf7ff29dfe9eb6564e2eb5d266339fb068153e5fd7b4da54d8aca769d6119e"
+      ]
+    },
+    {
+      "name": "boundary-5",
+      "pages": 2,
+      "items": 5,
+      "pdfSha256": "902d130eceb3a3102b90bee459ff3f23f4a3e45d0c288e6c73fc2d206888e1bd",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 776,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 336,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.428955078125,
+            769.406494140625
+          ]
+        }
+      ],
+      "previewSha256": [
+        "5eeba8c80fd061365bf894765b2d6455feba877bc332e426a34172270e4e0ea5",
+        "fa227c93cda219eff4f2df7f4ed765c7576d309a1ae0cc820b92c313fe3aa1d3"
+      ]
+    },
+    {
+      "name": "boundary-16",
+      "pages": 3,
+      "items": 16,
+      "pdfSha256": "63252296fb4efc1c15207ca570425c8da496a95929574e5460d881a77cf1e4a5",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 914,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 687,
+          "textBox": [
+            45.80999755859375,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        },
+        {
+          "page": 3,
+          "characters": 336,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5040893554688,
+            769.406494140625
+          ]
+        }
+      ],
+      "previewSha256": [
+        "2163f992bd3945fd611c8b60353ea0504e9e3ba9ec36add1121481d9a83debdd",
+        "5ec48a902be0577baee96b518108ce86dc4521e1ea195e423c743e945236ebc0",
+        "0c3e44c85d619aec5184628b392bb128656525ae2b0ab351d92e216b8edc256b"
+      ]
+    },
+    {
+      "name": "boundary-17",
+      "pages": 3,
+      "items": 17,
+      "pdfSha256": "89639fcb94d3c98d70546df833e8ff6bb6bbefa35fbbf250632535c6c1446e2b",
+      "allTextWithinPage": true,
+      "orderedItemsOnce": true,
+      "repeatedTableHeadings": true,
+      "pageCounters": true,
+      "totalAndPaymentTogether": true,
+      "pageBounds": [
+        {
+          "page": 1,
+          "characters": 914,
+          "textBox": [
+            45.558998107910156,
+            24.677032470703125,
+            549.5474243164062,
+            795.6810302734375
+          ]
+        },
+        {
+          "page": 2,
+          "characters": 756,
+          "textBox": [
+            45.80999755859375,
+            24.677032470703125,
+            549.5474243164062,
+            786.72998046875
+          ]
+        },
+        {
+          "page": 3,
+          "characters": 336,
+          "textBox": [
+            44.89199447631836,
+            24.677032470703125,
+            549.5040893554688,
+            769.406494140625
+          ]
+        }
+      ],
+      "previewSha256": [
+        "2163f992bd3945fd611c8b60353ea0504e9e3ba9ec36add1121481d9a83debdd",
+        "c2f4069f46d8c9ad8f37549ce27358ae88223d530e5b99da4779b321c700e9c9",
+        "68207462f4a24363b264ad22bee0cdef9b1c0507ed9fbf809c82dd5852ad29ce"
+      ]
+    }
+  ],
+  "sourceSha256": {
+    "html": "15829aaf6c698acc36c10111d657c84d346109e5196abc3381616de7c54ffe66",
+    "css": "3697ea678ffdb56cd438d7ea9fcedd83b7d0d48c40c3c4755ef6091fa7a12cb8"
+  },
+  "errors": [],
+  "nonGetRequests": 0,
+  "scope": "These synthetic invoice records, actual PDF downloads and displayed previews. No universal layout, accessibility, conformance or adoption claim.",
+  "source_commit": "400f362841ed7482c5afc05efc3a2446888f5285",
+  "package_version": "0.8.4",
+  "engine_version": "2.5.40",
+  "zip_sha256": "ed77cac828c017dbd94e943b4364ff91f8e88458a6769e0028346ca3a1106ffe"
+}

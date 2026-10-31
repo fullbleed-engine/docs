@@ -75,6 +75,18 @@ also edit those project files directly. The invoice uses `{{customer}}` and `{{r
 in HTML and `{{ink}}` in CSS; `src/main.js` fills those values and escapes text.
 Replace the fictional line items and calculations when building your application.
 
+### Add rows to the HTML invoice
+
+Add `<tr>` rows inside `src/invoice.html`'s `<tbody>` and update both sample
+totals. The HTML template does not calculate amounts. It can continue onto new
+pages with repeated column headings and `Page N of M` footers. Keep the `@page`
+margins and `.closing` group in `src/invoice.css`; that group holds the totals
+and payment details together, moving them to a new page when needed.
+
+The [invoice checks](../assets/browser-starter/invoice-verification.json) cover
+the short sample, 24 rows, wrapped descriptions, empty rows and page boundaries.
+The 24-row sample produces three pages, with all text inside the PDF page bounds.
+
 ## Add the browser SDK to an existing app
 
 Install the package and copy its runtime into the directory your framework
@@ -170,4 +182,5 @@ PDF text and independently specified colors in both the PDF and its preview.
 Nested quotation checks cover inline, block, and contents layouts through the
 actual editor. They check both PDF readers, page size, and visible preview output.
 The [retained starter verification](../assets/browser-starters-084-verification.json)
-records these cases and the unchanged invoice and report downloads.
+records the earlier editor cases and their original invoice and report downloads.
+The invoice checks above cover the flowing template in the current download.
