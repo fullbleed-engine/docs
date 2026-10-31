@@ -83,6 +83,19 @@ without folders; update references such as `images/logo.png` to the displayed
 Python or Node.js. Optional TXT license files are included as assets. Files stay
 in this tab until you download them; closing the tab clears them.
 
+## Let an invoice grow
+
+The Northstar invoice flows onto additional pages when you add line items.
+Its table headings repeat, the footer shows the actual page count, and the total
+stays with the payment details. Edit the rows inside `<tbody>` in the HTML panel.
+The sample amounts are plain text, so update the subtotal and total when you change
+the rows. For calculated amounts from application data, use the
+[Python invoice starter](guides/web-frameworks.md).
+
+Page size, margins, and footer text are in the stylesheet's `@page` rule.
+The `.closing` block groups the totals and payment details. These same HTML/CSS
+files are included when you download a Python or Node.js project.
+
 ## Save a project and come back later
 
 Choose Python or Node.js, then **Download project**. Keep the ZIP unchanged.
@@ -192,7 +205,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=project-import-2543"></script>
+<script type="module" src="../assets/playground/app.js?v=flowing-invoice-2543"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.

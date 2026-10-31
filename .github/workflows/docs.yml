@@ -1246,6 +1246,20 @@ jobs:
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
+      - name: Verify flowing invoices and replay saved projects
+        run: |
+          python tools/check_playground_invoice.py --site site --out output/playground-invoice/chrome
+          python tools/check_playground_invoice.py --site site --out output/playground-invoice/firefox --browser firefox --quick --skip-replay --reference output/playground-invoice/chrome/verification.json
+          python tools/check_playground_invoice.py --site site --out output/playground-invoice/webkit --browser webkit --quick --skip-replay --reference output/playground-invoice/chrome/verification.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-invoice-verification
+          path: |
+            output/playground-invoice/
+            !output/playground-invoice/**/node_modules/**
+            !output/playground-invoice/**/npm-cache/**
+          retention-days: 14
       - name: Verify render recovery after asset loading failures
         run: python tools/check_playground_recovery.py --site site --out output/playground-recovery
       - uses: actions/upload-artifact@v4

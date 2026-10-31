@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-import { prepareExample } from './examples.js';
+import { exampleSourcePath, prepareExample } from './examples.js?v=flowing-invoice-2543';
 
 const assetGeneration = new URL(import.meta.url).search;
 const { buildProject } = await import(`./project-export.js${assetGeneration}`);
@@ -322,7 +322,7 @@ window.addEventListener('pagehide', () => { if (worker) finish(); });
 try {
   await Promise.all(['invoice', 'report', 'notice'].map(async name => {
     const parts = await Promise.all(['html', 'css'].map(async extension => {
-      const response = await fetch(new URL(`../showcase/${name}.${extension}`, import.meta.url));
+      const response = await fetch(new URL(exampleSourcePath(name, extension), import.meta.url));
       if (!response.ok) throw new Error('Could not load the examples. Reload this page to try again.');
       return response.text();
     }));
