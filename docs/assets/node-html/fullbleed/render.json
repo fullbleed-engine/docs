@@ -1,0 +1,34 @@
+{
+  "packageVersion": "0.9.0",
+  "node": "v26.10.0",
+  "documents": [
+    {
+      "name": "short",
+      "pages": 1,
+      "missingGlyphs": 0,
+      "engineVersion": "2.5.46",
+      "inputSha256": "98023b2926d8c58df0b541c42dca03c69b3cd8ebb980808d1189d72820e1e3d6",
+      "pdfSha256": "23590f6169d2d4f782909b8ddb7cd95df24501a8c8f028b9d56352f881aeb9ea",
+      "previewSha256": [
+        "a58b4157b74a3ca197c106172ca6eb0efe260b22f914fd8082ab2b1bd81b630b"
+      ],
+      "totalCents": 8550,
+      "items": 3
+    },
+    {
+      "name": "long",
+      "pages": 3,
+      "missingGlyphs": 0,
+      "engineVersion": "2.5.46",
+      "inputSha256": "a7e2090fe7dccef1757caeeece4512fc715e194fd74b0437a64075823b74baf4",
+      "pdfSha256": "c7c0bceff4d0cc73f773b79d2dd143791e868c8c6cc2557711f75c41798ca710",
+      "previewSha256": [
+        "06abcafd5919965421eb85334a365612f3a46325f8dcc26f3479976d3f7a30db",
+        "6d45f55e493b4bc2f3bfc9d1096e1dbed103485b29d730d96494972c349a1626",
+        "e8238ff34d98b38b4ead5bf183973b128d48bd916d460a17f11caffd15dfc04d"
+      ],
+      "totalCents": 89600,
+      "items": 24
+    }
+  ]
+}

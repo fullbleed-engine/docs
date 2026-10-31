@@ -1,0 +1,10 @@
+{
+  "name": "fullbleed-static-html-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.12" },
+  "scripts": { "render": "node render.mjs" },
+  "dependencies": { "fullbleed": "0.9.0" }
+}

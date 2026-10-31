@@ -1,0 +1,41 @@
+@font-face { font-family: "Source Sans 3"; src: url("Brand-Regular.ttf"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Source Sans 3"; src: url("Brand-Bold.ttf"); font-weight: 700; font-style: normal; }
+@page {
+  size: A4;
+  margin: 17mm 18mm 20mm;
+  @bottom-left { content: "FIELDNOTE SUPPLY / FICTIONAL ORDER"; font-family: "Source Sans 3"; font-size: 6.5pt; color: #53685f; }
+  @bottom-right { content: "Page " counter(page) " of " counter(pages); font-family: "Source Sans 3"; font-size: 6.5pt; color: #53685f; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: "Source Sans 3"; font-size: 10pt; line-height: 1.45; color: #203d35; font-synthesis: none; }
+h1, p { margin: 0; }
+b, strong, th { font-weight: 700; }
+.brand { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-bottom: 18pt; border-bottom: 2pt solid #203d35; }
+.brand-name { display: flex; align-items: center; gap: 11pt; font-size: 9pt; line-height: 1.2; letter-spacing: 2pt; }
+.brand-name img { width: 29pt; height: 29pt; }
+.brand-name b { font-size: 13pt; letter-spacing: 1pt; }
+.brand-note { text-align: right; font-size: 8pt; color: #53685f; }
+.intro { padding: 25pt 0 22pt; }
+.eyebrow { font-size: 8pt; font-weight: 700; letter-spacing: 1.8pt; text-transform: uppercase; color: #ba4f30; }
+h1 { font-size: 34pt; font-weight: 700; line-height: 1.1; letter-spacing: -1.5pt; margin: 9pt 0 12pt; }
+.lede { font-size: 10pt; color: #53685f; }
+.details { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; border-top: 0.7pt solid #b8c7be; padding-top: 13pt; margin-bottom: 25pt; }
+.label { display: block; font-size: 7pt; text-transform: uppercase; letter-spacing: 1.3pt; margin-bottom: 5pt; color: #53685f; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.item { width: 58%; } .qty { width: 8%; } .unit { width: 16%; } .amount { width: 18%; }
+thead { display: table-header-group; }
+th { font-size: 7pt; text-align: left; text-transform: uppercase; letter-spacing: 0.5pt; padding: 9pt 0; border-top: 1pt solid #203d35; border-bottom: 1pt solid #203d35; }
+td { vertical-align: top; padding: 10pt 0; border-bottom: 0.6pt solid #cfdbd4; }
+td:first-child { padding-right: 14pt; }
+td strong { font-size: 9pt; font-weight: 700; }
+.number { text-align: right; font-variant-numeric: tabular-nums; }
+.detail { margin-top: 3pt; font-size: 8pt; color: #53685f; }
+tr, .details, .closing { break-inside: avoid; }
+.closing { margin-top: 23pt; }
+.summary { display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; padding: 17pt 20pt; background: #edf0e4; border-left: 4pt solid #c66542; }
+.summary > p:last-child { text-align: right; }
+.total { display: block; font-size: 25pt; line-height: 1.15; letter-spacing: -1pt; }
+.muted { color: #53685f; font-size: 8pt; }
+.delivery { padding: 17pt 0 10pt; font-size: 9pt; }
+.sample-note { font-size: 7pt; color: #53685f; }

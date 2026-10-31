@@ -1,0 +1,72 @@
+{
+  "node": "v26.10.0",
+  "browserVersion": "Chrome/156.0.8078.47",
+  "documents": [
+    {
+      "name": "short",
+      "inputSha256": "98023b2926d8c58df0b541c42dca03c69b3cd8ebb980808d1189d72820e1e3d6",
+      "pdfSha256": "7f818d6be1f2dceffac01b2ba8e5e323e81f4d222bf11545487144a91fdb4898",
+      "totalCents": 8550,
+      "items": 3,
+      "assetsLoaded": {
+        "font": true,
+        "images": true
+      },
+      "requests": [
+        {
+          "path": "/document",
+          "allowed": true
+        },
+        {
+          "path": "/assets/logo.svg",
+          "allowed": true
+        },
+        {
+          "path": "/Brand-Regular.ttf",
+          "allowed": true
+        },
+        {
+          "path": "/Brand-Bold.ttf",
+          "allowed": true
+        },
+        {
+          "path": "/favicon.ico",
+          "allowed": true
+        }
+      ]
+    },
+    {
+      "name": "long",
+      "inputSha256": "a7e2090fe7dccef1757caeeece4512fc715e194fd74b0437a64075823b74baf4",
+      "pdfSha256": "8b01c9173a27accb869e8a21bfa6e6c648db6a37a135dd19a66b73ec7511b2a2",
+      "totalCents": 89600,
+      "items": 24,
+      "assetsLoaded": {
+        "font": true,
+        "images": true
+      },
+      "requests": [
+        {
+          "path": "/document",
+          "allowed": true
+        },
+        {
+          "path": "/assets/logo.svg",
+          "allowed": true
+        },
+        {
+          "path": "/Brand-Regular.ttf",
+          "allowed": true
+        },
+        {
+          "path": "/Brand-Bold.ttf",
+          "allowed": true
+        },
+        {
+          "path": "/favicon.ico",
+          "allowed": true
+        }
+      ]
+    }
+  ]
+}

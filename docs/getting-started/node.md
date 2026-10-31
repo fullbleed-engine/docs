@@ -11,6 +11,9 @@ you do not need Python, Rust, or a browser to use the installed package.
 The quickstart and downloadable invoice use **Node package 0.9.0**, powered by
 **Fullbleed 2.5.46**. The integration and core engine have separate versions.
 
+Already have an HTML template? [Try the static HTML migration project](../guides/node-html-to-pdf.md),
+including local fonts, a flowing table and an optional Puppeteer reference.
+
 ## Create your first PDF
 
 With Node.js 22 or newer, install the [npm package](https://www.npmjs.com/package/fullbleed):
