@@ -1,6 +1,6 @@
 # CLI Reference
 
-Reference imported from [v2.5.43](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/cli.md). Check the installed runtime for your exact version.
+Reference imported from [v2.5.47](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/cli.md). Check the installed runtime for your exact version.
 
 Executable entrypoint:
 
@@ -103,13 +103,35 @@ High-value options:
 - image artifacts: `--emit-image`, `--image-dpi`
 - policy: `--profile`, `--fail-on`, `--allow-fallbacks`, budget flags
 - reproducibility: `--deterministic-hash`, `--repro-record`, `--repro-check`
-- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](https://github.com/fullbleed-engine/fullbleed-official/blob/0ae5ae42a9f2bf29a20659bf3719bc8e06ef19b4/docs/render-watch.md)
+- development (2.5.0+): `--watch`, repeatable `--watch-path`, `--watch-interval`, `--watch-debounce`; see [automatic rebuilds](https://github.com/fullbleed-engine/fullbleed-official/blob/ee5524d02b98458f40d521196408f5e7ded0bc0c/docs/render-watch.md)
 
 Template auto-compose notes:
 - When `--templates` is set on `render`, CLI renders overlay, resolves template bindings, and finalizes via Rust compose in one command.
 - Requires `--template-binding` and file output (`--out` cannot be `-`).
 - When `--emit-image` is used with template auto-compose, image artifacts are emitted from the finalized composed PDF (not overlay-only preview) via native Rust rasterization in the engine.
 - `--deterministic-hash` writes PDF SHA-256 by default; when `--emit-image` is set, it writes an artifact-set digest (`fullbleed.artifact_digest.v1`) computed from PDF SHA-256 plus ordered page-image SHA-256 values.
+
+### Use the bundled Inter font
+
+Render an existing HTML/CSS template without locating or downloading a font:
+
+```bash
+python -m fullbleed render --html invoice.html --css invoice.css --asset "@inter" --out invoice.pdf
+```
+
+Use `font-family: Inter` in the stylesheet. `--asset "@inter"` registers the
+font already inside the installed package; it does not consult a system font
+directory or fetch a remote asset. Quote `@` references in PowerShell.
+
+`python -m fullbleed assets list --json` lists built-in `render_refs` and
+`install_refs`. To copy Inter and its OFL license into a project, use
+`python -m fullbleed assets install inter --vendor vendor`. The `info`, `verify`,
+and `lock --add inter` commands use the same bundled font bytes. Explicit
+built-in versions must match an included version, such as `"@inter@4.0"`;
+an unavailable version fails instead of relabeling the bundled file.
+Installing a bundled asset also rejects an existing destination file with
+different contents. Choose another vendor directory to retain a customized
+font or stylesheet; matching files can be installed again.
 
 ### Reproducibility checks
 
