@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fieldwork — the daily cup</title>
+  <style>
+    @page { size: 100mm 150mm; margin: 8mm; }
+    body { margin: 0; font-family: Inter; color: #183c32; font-size: 9pt; }
+    p, h1 { margin: 0; }
+    .brand { display: grid; grid-template-columns: 1fr auto; align-items: center; font-size: 8pt; font-weight: 750; letter-spacing: 1.4pt; }
+    .edition { display: block; font-size: 6pt; letter-spacing: .4pt; color: #5d7067; text-align: right; }
+    h1 { font-size: 27pt; font-weight: 750; line-height: 1.04; letter-spacing: -1pt; margin: 13pt 0 12pt; }
+    .art { display: block; width: 100%; height: 76pt; margin-bottom: 13pt; }
+    .product { font-size: 8pt; font-weight: 750; letter-spacing: 1pt; }
+    .description { margin-top: 6pt; line-height: 1.4; color: #5d7067; }
+    .price { display: grid; grid-template-columns: 75pt 1fr; align-items: center; margin: 12pt 0; padding: 10pt 0; border-top: 1pt solid #b8c4b8; border-bottom: 1pt solid #b8c4b8; }
+    .amount { font-size: 27pt; font-weight: 650; line-height: 1; }
+    .detail { display: block; font-size: 8pt; line-height: 1.5; text-align: right; }
+    .footer { font-size: 7pt; line-height: 1.5; color: #5d7067; }
+    .screen-only { display: none; }
+    .print-only { display: none; }
+    @media print {
+      .print-only { display: block; }
+      .scale { width: 20mm; border-top: .6pt solid #183c32; margin-top: 12pt; padding-top: 3pt; font-size: 6pt; }
+    }
+  </style>
+  <style media="screen">
+    body { max-width: 320px; margin: 24px auto; padding: 24px; }
+    .screen-only { display: block; margin-bottom: 16px; color: #5d7067; }
+    .print-only { display: none; }
+    @page { size: Letter; margin: 1in; }
+  </style>
+</head>
+<body>
+  <p class="screen-only">Screen preview. Render the PDF for the final paper size.</p>
+  <main>
+    <div class="brand"><span>FIELDWORK</span><span class="edition">OBJECT NO. 04</span></div>
+    <h1>Good days.<br>Good coffee.</h1>
+    <svg class="art" width="320" height="102" viewBox="0 0 320 102" role="img" aria-label="A stoneware cup in warm chalk with a rust-colored handle">
+      <rect width="320" height="102" fill="#eee9da" />
+      <path d="M0 87 Q80 63 154 80 T320 70 L320 102 H0Z" fill="#d9dfcf" />
+      <ellipse cx="164" cy="83" rx="75" ry="8" fill="#b5c1ab" />
+      <path d="M197 29 C243 19 243 75 201 69" fill="none" stroke="#b84a28" stroke-width="9" />
+      <path d="M103 24 L110 68 Q113 85 153 85 Q192 85 197 68 L204 24Z" fill="#d0b892" />
+      <path d="M103 24 L110 68 Q113 85 153 85 L153 24Z" fill="#e5d7b9" />
+      <ellipse cx="153.5" cy="24" rx="50.5" ry="12" fill="#f5eedb" />
+      <ellipse cx="153.5" cy="26" rx="43" ry="7" fill="#6c4a32" />
+      <path d="M127 47 L130 62" stroke="#f5eedb" stroke-width="4" />
+      <circle cx="282" cy="23" r="11" fill="#b84a28" />
+    </svg>
+    <p class="product">THE DAILY CUP</p>
+    <p class="description">Hand-finished stoneware.<br>Warm chalk glaze. Made in small batches.</p>
+    <div class="price"><span class="amount">$24</span><span class="detail">250 ml<br>One good everyday object.</span></div>
+    <p class="footer">Fieldwork Goods · Fictional product and price.</p>
+    <p class="print-only scale">20 mm · check at actual size</p>
+  </main>
+</body>
+</html>

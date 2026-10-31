@@ -90,6 +90,7 @@ nav:
       - Matplotlib chart reports: guides/matplotlib-pdf.md
       - Variable-data documents: guides/bank-statements.md
     - Complete HTML documents: guides/complete-html.md
+    - Custom paper sizes and print CSS: guides/custom-paper-sizes.md
     - Author with components:
       - Python components: guides/python-components.md
       - JavaScript components and JSX: guides/javascript-components.md
