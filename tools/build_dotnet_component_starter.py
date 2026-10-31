@@ -27,6 +27,9 @@ def build():
     with zipfile.ZipFile(target, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name in sorted(names):
             data = (SOURCE / name).read_bytes()
+            # NuGet rewrites this file with platform line endings; Git stores LF.
+            if name == 'packages.lock.json':
+                data = data.replace(b'\r\n', b'\n')
             info = zipfile.ZipInfo('fullbleed-csharp-components/' + name, date_time=(2026, 10, 15, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3
