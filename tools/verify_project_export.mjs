@@ -13,6 +13,7 @@ import { gradientFixtures, checkGradient } from './playground-fixtures/gradients
 import { standardFontFixture, checkStandardFonts } from './playground-fixtures/standard-fonts.mjs';
 import { defaultStyleFixtures } from './playground-fixtures/default-styles.mjs';
 import { preformattedFixtures, preformattedFiles } from './playground-fixtures/preformatted.mjs';
+import { pageFontFixtures, pageFontFiles } from './playground-fixtures/page-margin-fonts.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const assets = join(root, 'docs/assets/playground');
@@ -40,6 +41,7 @@ const decorations = JSON.parse(await readFile(join(root, 'tools/playground-fixtu
 assert.equal(decorations.cases.length, 16);
 fixtures.push(...decorations.cases.map(item => ({ ...item, name: 'decoration-' + item.name, pages: 1 })));
 fixtures.push(...preformattedFixtures);
+fixtures.push(...pageFontFixtures);
 
 
 for (const fixture of fixtures) {
@@ -68,6 +70,7 @@ for (const fixture of fixtures) {
   await writeFile(join(expected, 'input.html'), html);
   await writeFile(join(expected, 'style.css'), css);
   const files = { ...fonts, ...(name.startsWith('preformatted-') ? preformattedFiles : {}),
+    ...(name.startsWith('page-font-') ? pageFontFiles : {}),
     'input.html': Buffer.from(html), 'style.css': Buffer.from(css) };
   const result = await render(module, files);
   if (fixture.referencePdfSha256) {
