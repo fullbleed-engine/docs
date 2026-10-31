@@ -1,6 +1,8 @@
 ---
 title: Python component release status and stabilization
 description: Choose the stable Fullbleed Python component API or its opt-in 2.6 alpha. See what is verified and what remains before the new API becomes stable.
+search:
+  boost: 2
 ---
 
 # Python component release status

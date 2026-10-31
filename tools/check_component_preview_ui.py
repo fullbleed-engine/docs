@@ -51,7 +51,9 @@ def main():
                 response = page.goto(base + '/guides/component-design-preview/', wait_until='networkidle')
                 assert response.status == 200
                 assert page.get_by_role('heading', name='Components that carry their design', exact=False).is_visible()
-                assert page.get_by_text('Experimental API', exact=True).is_visible()
+                assert page.get_by_text('Archived design prototype', exact=True).is_visible()
+                assert page.get_by_role('link', name='current component guide', exact=True).get_attribute('href') == '../component-preview-12/'
+                assert page.get_by_role('link', name='release status', exact=True).get_attribute('href') == '../component-status/'
                 article = page.locator('article').inner_text()
                 assert 'not included in the published 2.5.26 wheel' in article
                 assert source['source_commit'][:7] in article and 'with_values' in article and 'required_tokens' in article

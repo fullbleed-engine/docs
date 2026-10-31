@@ -4,6 +4,8 @@ description: Generate a PDF from local HTML, CSS, images, and fonts. Save and re
 hide:
   - navigation
   - toc
+search:
+  boost: 2
 ---
 
 <link rel="stylesheet" href="../assets/playground/playground.css?v=mobile-views-2548">

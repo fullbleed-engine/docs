@@ -9,7 +9,9 @@ from pypdf.generic import ContentStream
 
 
 def styling_blocks(source, language):
-    section = source.split('## Class names and styles\n', 1)[1].split('\n## ', 1)[0]
+    match = re.search(r'^## Class names and styles[^\n]*\n(.*?)(?=^## |\Z)', source, re.M | re.S)
+    assert match is not None, 'Missing class names and styles section'
+    section = match.group(1)
     blocks = re.findall(r'```' + language + r'\n(.*?)```', section, re.S)
     assert len(blocks) == 2
     return blocks
