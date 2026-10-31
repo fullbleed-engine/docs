@@ -64,8 +64,8 @@
       "sha256": "77a447dcd4d063e6cda5394e7220715d8c085c4a4487b5562c1247ecafd7f32c"
     },
     "reference/render.mjs": {
-      "bytes": 3591,
-      "sha256": "f19cb233d47409de64fd910034438f45897d5c14864c139eafbe5d5d85cc6ed6"
+      "bytes": 3853,
+      "sha256": "1fbec4c519c2edc7f291a0950c1351db687890d81979cf5304384811c14dae32"
     },
     "render.mjs": {
       "bytes": 1489,
@@ -76,6 +76,6 @@
       "sha256": "f0983c3c2e38e56f15cc78abc34998d8ab73fcd81ab08c691bee65b526cff4e3"
     }
   },
-  "zip_bytes": 420977,
-  "zip_sha256": "ae0d02fda9fdd5bf2572b9b6637de9dd8c59dcbd84ddc1a033d42fe4784df603"
+  "zip_bytes": 421075,
+  "zip_sha256": "efafc63b07bec99ce64e96a08aa833fd0229ac6cbf38e4fe9289f8cd568f47be"
 }

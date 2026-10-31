@@ -55,10 +55,10 @@ else:
     env.pop('PUPPETEER_SKIP_DOWNLOAD', None)
 commands = []
 
-def run(label, arguments, cwd=workspace, timeout=180):
+def run(label, arguments, cwd=workspace, timeout=180, extra_env=None):
     with (out / (label + '.stdout.log')).open('w', encoding='utf8') as stdout, \
             (out / (label + '.stderr.log')).open('w', encoding='utf8') as stderr:
-        process = subprocess.Popen([str(node), *map(str, arguments)], cwd=cwd, env=env,
+        process = subprocess.Popen([str(node), *map(str, arguments)], cwd=cwd, env={**env, **(extra_env or {})},
                                    stdout=stdout, stderr=stderr, start_new_session=os.name != 'nt')
         try:
             code = process.wait(timeout=timeout)
@@ -84,6 +84,31 @@ run('reference-install', [npm, 'ci', '--no-audit', '--no-fund'], workspace / 're
 puppeteer = json.loads((workspace / 'reference/node_modules/puppeteer/package.json').read_text(encoding='utf8'))
 assert puppeteer['version'] == manifest['puppeteer_version']
 run('reference-render', [npm, 'run', '--silent', 'render'], workspace / 'reference')
+
+# Run the downloaded renderer with connections that outlive its final page.
+# The preload rescues its own fixture after two seconds if shutdown stalls,
+# marks the child as failed, and records the cause without an unbounded wait.
+connection_checks = []
+for mode in ['unused', 'partial']:
+    label = 'reference-connections-' + mode
+    report_path = out / (label + '.json')
+    case_output = out / 'connection-cases' / mode / 'output'
+    run(label, ['--import', Path(__file__).resolve().with_name('check_node_html_reference_connections.mjs').as_uri(),
+                'render.mjs', 'all', case_output], workspace / 'reference',
+        extra_env={'FULLBLEED_REFERENCE_CONNECTION_CASE': mode,
+                   'FULLBLEED_REFERENCE_CONNECTION_REPORT': str(report_path)})
+    report = json.loads(report_path.read_text(encoding='utf8'))
+    assert report['ok'] and not report['rescueNeeded'], report
+    rendered = json.loads((case_output / 'render.json').read_text(encoding='utf8'))
+    assert [result['name'] for result in rendered['documents']] == ['short', 'long']
+    for result in rendered['documents']:
+        name = result['name']
+        ordinary = workspace / 'output/chromium' / name
+        assert (case_output / name / 'input.html').read_bytes() == (ordinary / 'input.html').read_bytes()
+        assert result['pdfSha256'] == digest((case_output / name / 'document.pdf').read_bytes())
+        assert result['assetsLoaded'] == {'font': True, 'images': True}
+        assert all(request['allowed'] for request in result['requests'])
+    connection_checks.append(report)
 
 guide = (ROOT / 'docs/guides/node-html-to-pdf.md').read_text(encoding='utf8')
 blocks = re.findall(r'```javascript\n(.*?)```', guide, re.S)
@@ -142,7 +167,7 @@ record = {'schema': 'fullbleed.node-html-verification.v1', 'ok': True,
           'node': render_records['fullbleed']['node'], 'platform': os.name,
           'projectZipSha256': manifest['zip_sha256'], 'sameHtmlAndAssets': True,
           'guideSnippetMatchesLongPdf': True, 'guideSnippetSha256': digest(blocks[0].encode('utf8')),
-          'commands': commands, 'checked': checked,
+          'commands': commands, 'checked': checked, 'referenceConnectionChecks': connection_checks,
           'scope': 'Two fictional static-HTML fixtures. No general layout parity, performance or PDF conformance claim.'}
 (out / 'verification.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf8', newline='\n')
 if args.update_assets:
