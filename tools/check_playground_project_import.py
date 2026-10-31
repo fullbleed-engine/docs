@@ -218,6 +218,8 @@ def main():
                 check(language + ': older project uses the current preview engine', record_pdf(page, language + '-older-preview') == original_pdf)
                 for width in [1440, 390, 320]:
                     page.set_viewport_size({'width': width, 'height': 1000})
+                    if not page.locator('#pg-tools').evaluate('tools => tools.open'):
+                        page.locator('#pg-tools > summary').click()
                     check(f'{language}: no horizontal overflow at {width}px', page.evaluate('document.documentElement.scrollWidth <= innerWidth'))
                     expect(page.locator('#pg-open-project')).to_be_visible()
                     page.locator('#playground').screenshot(path=str(out / f'{language}-{width}.png'))

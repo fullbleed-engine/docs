@@ -220,6 +220,9 @@ def main():
 
                 for width in [1440, 390, 320]:
                     page.set_viewport_size({'width': width, 'height': 1000})
+                    if not page.locator('#pg-tools').evaluate('tools => tools.open'):
+                        page.locator('#pg-tools > summary').click()
+                    expect(page.locator('#pg-assets')).to_be_visible()
                     page.evaluate('window.scrollTo(0, 0)')
                     check(str(width) + 'px: imported asset list does not overflow',
                           page.evaluate('document.documentElement.scrollWidth <= innerWidth'))

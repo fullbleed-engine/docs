@@ -15,6 +15,34 @@ let current = 'invoice', worker = null, deadline = null, pageIndex = 0, pages = 
 let renderedSource = null;
 let localAssets = [], assetVersion = 0;
 const loadFailureMessage = 'The rendering engine could not load. Check your connection, then choose Render PDF again.';
+const narrowWorkspace = window.matchMedia('(max-width: 850px)');
+let workspaceView = 'preview';
+
+function selectView(name) {
+  workspaceView = name;
+  for (const view of ['source', 'preview']) {
+    el(`view-${view}`).setAttribute('aria-pressed', String(view === name));
+  }
+  el('editor').hidden = narrowWorkspace.matches && name !== 'source';
+  el('output').hidden = narrowWorkspace.matches && name !== 'preview';
+}
+
+function resizeWorkspace() {
+  const focused = document.activeElement;
+  // Keep a focused editor or preview control available across a breakpoint.
+  if (el('editor').contains(focused)) workspaceView = 'source';
+  else if (el('output').contains(focused)) workspaceView = 'preview';
+  el('view').hidden = !narrowWorkspace.matches;
+  el('tools').open = !narrowWorkspace.matches || el('tools').contains(focused);
+  selectView(workspaceView);
+  if (!narrowWorkspace.matches && el('view').contains(focused)) {
+    el(workspaceView === 'source' ? 'editor' : 'output').focus({ preventScroll: true });
+  }
+}
+
+for (const view of ['source', 'preview']) el(`view-${view}`).addEventListener('click', () => selectView(view));
+narrowWorkspace.addEventListener('change', resizeWorkspace);
+resizeWorkspace();
 
 function status(message, error = false) {
   el('status').textContent = message;
@@ -75,7 +103,7 @@ function fail(message) {
   if (!pages.length) el('placeholder').textContent = 'Your edits and local files are still here.';
 }
 
-function startRender() {
+function startRender({ preview = false } = {}) {
   if (worker) finish();
   const source = { html: html.value, css: css.value, assets: localAssets, assetVersion };
   if (new TextEncoder().encode(source.html + source.css).length > 200000) {
@@ -85,6 +113,10 @@ function startRender() {
   if (typeof Worker === 'undefined' || typeof WebAssembly === 'undefined') {
     status('This browser cannot run the playground. Use the Python quickstart below.', true);
     return;
+  }
+  if (preview && narrowWorkspace.matches) {
+    selectView('preview');
+    el('tools').open = false;
   }
   setDownload(false);
   el('render').disabled = true;
@@ -120,7 +152,7 @@ function startRender() {
       setDownload(!changedSinceRender());
       if (changedSinceRender()) status('Source changed during rendering. Render again to update the PDF.');
       else if (data.report.missing_glyphs) status(`PDF created, but ${data.report.missing_glyphs} character(s) have no glyph in the available fonts. Review the output before using it.`, true);
-      else status('Your PDF is ready. Change the design, or download it and keep building.');
+      else status('Your PDF is ready.');
     };
     worker.postMessage(source);
   } catch (error) { fail(error.message); }
@@ -195,6 +227,7 @@ el('files').addEventListener('change', async () => {
       html.value = nextHtml; css.value = nextCss;
       el('reset').textContent = 'Reset document';
       selectTab(selected.html !== null ? 'html' : 'css');
+      selectView('source');
     }
     localAssets = [...localAssets, ...selected.assets];
     assetVersion++;
@@ -237,6 +270,7 @@ el('project-file').addEventListener('change', async () => {
     el('reset').textContent = 'Reset document';
     el('project-status').hidden = true;
     selectTab('html');
+    selectView('source');
     showAssets();
     clearOutput();
     const versionNote = project.engineVersion === engineVersion ? ''
@@ -273,7 +307,7 @@ for (const language of ['html', 'css']) {
     saveText(`fullbleed-${current}.${language}`, el(language).value, language === 'html' ? 'text/html;charset=utf-8' : 'text/css;charset=utf-8');
   });
 }
-el('render').addEventListener('click', startRender);
+el('render').addEventListener('click', () => startRender({ preview: true }));
 el('cancel').addEventListener('click', () => { finish(); status('Rendering canceled. Your source is still here.'); setDownload(!changedSinceRender()); });
 el('previous').addEventListener('click', () => showPage(pageIndex - 1));
 el('next').addEventListener('click', () => showPage(pageIndex + 1));
