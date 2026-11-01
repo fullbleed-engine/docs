@@ -9,7 +9,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FullBleed.DotNet" Version="0.2.8" />
+    <PackageReference Include="FullBleed.DotNet" Version="0.2.9" />
     <None Update="Assets/fonts/*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
