@@ -67,6 +67,35 @@ when editing the sample: wrapping headings in additional containers changes
 counter scope. The second chapter's `.next-page` class forces a page break;
 the numbers continue from the document structure.
 
+## Count items in a closing label
+
+In **Fullbleed 2.5.49**, a container's `::after` label includes the increments
+from its children. This can print a count at the end of a list:
+
+```html
+<section class="lines">
+  <p class="line">Design review</p>
+  <p class="line">Print preparation</p>
+</section>
+```
+
+```css
+.lines { counter-reset: item; }
+.line { counter-increment: item; }
+.line::before { content: counter(item) ". "; }
+.lines::after { content: counter(item) " line items"; }
+```
+
+The items receive labels `1.` and `2.`, followed by `2 line items`.
+Counter changes in `::before` and `::after` also affect later labels in the
+same counter scope. The downloadable report above remains pinned to 2.5.18;
+use 2.5.49 for this closing-label behavior.
+
+The [generated-content guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.49/docs/generated-content.md)
+covers nested counters and the remaining `display: contents` and implicit
+list/footnote limitations. [Release verification](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.49)
+includes saved PDFs from ordinary, fixed compiled, repeated and reflow paths.
+
 ## Table rows and page footers
 
 The first page's table resets a separate counter on `tbody`, increments it on
