@@ -11,9 +11,10 @@ dotnet run -c Release --no-restore -- output
 ```
 
 Open `output/invoice.pdf` and `output/invoice_page1.png`. The program also writes
-diagnostics and separate generated HTML/CSS. FullBleed.DotNet is pinned to 0.2.8,
-using engine 2.5.48. Native libraries support Windows x64, Linux x64, Intel macOS
+diagnostics and separate generated HTML/CSS. FullBleed.DotNet is pinned to 0.2.9,
+using engine 2.5.49. Native libraries support Windows x64, Linux x64, Intel macOS
 and Apple Silicon macOS. The library also supports .NET 8 and 9.
+Component authoring is alpha.
 
 Edit the records in `InvoiceDocument.Example`, reuse `Field` and `ItemRow`, or
 change `BaseStyles`. In `Program.cs`, try
