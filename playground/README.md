@@ -17,6 +17,13 @@ into the page DOM or submitted to a server. Bundled fonts and explicitly selecte
 local assets are exposed to WASI in memory. No host file-system, network, process, or system-font capabilities are passed
 through to the host machine. Sources are kept in tab memory, without localStorage.
 
+A native `beforeunload` prompt guards unsaved source and asset changes. It is
+attached only while the tab contains unsaved work, including edits in other examples.
+Saving one source file or example does not mark other edits as saved; an export
+that finishes after newer edits only marks its captured snapshot as saved.
+Reset explicitly discards source edits. Browser prompts are not reliable backups,
+particularly on mobile; users must keep their downloaded project ZIPs.
+
 The local file picker accepts one HTML and one CSS file per selection, plus PNG,
 JPEG, SVG, TTF, OTF, and optional TXT license files. Assets use `assets/filename`
 paths, with 16 assets, 8 MiB per file, and 20 MiB total as the demo limits. File
@@ -58,6 +65,8 @@ python -m playwright install chrome
 python tools/check_playground_ui.py --site site --out output/playground-ui
 python tools/check_playground_invoice.py --site site --out output/playground-invoice
 python tools/check_playground_recovery.py --site site --out output/playground-recovery
+python tools/check_playground_unsaved.py --site site --out output/playground-unsaved/chrome --browser chrome
+python tools/check_playground_unsaved.py --site site --out output/playground-unsaved/firefox --browser firefox
 ```
 
 The build uses both lockfiles, publishes a toolchain/hash record, and retains

@@ -11,9 +11,11 @@ const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
 const projectLanguage = el('project-language');
 const originals = new Map(), edits = new Map();
+const savedSources = new Map();
 let current = 'invoice', worker = null, deadline = null, pageIndex = 0, pages = [], pdfUrl = null;
 let renderedSource = null;
 let localAssets = [], assetVersion = 0;
+let savedAssets = localAssets;
 const loadFailureMessage = 'The rendering engine could not load. Check your connection, then choose Render PDF again.';
 const narrowWorkspace = window.matchMedia('(max-width: 850px)');
 let workspaceView = 'preview';
@@ -52,6 +54,41 @@ function status(message, error = false) {
 function changedSinceRender() {
   return !renderedSource || renderedSource.html !== html.value || renderedSource.css !== css.value
     || renderedSource.assetVersion !== assetVersion;
+}
+
+function beforeUnload(event) {
+  event.preventDefault();
+  event.returnValue = true;
+}
+
+// Textareas normalize CRLF and CR to LF without a user edit.
+const sourceValue = value => value.replace(/\r\n?/g, '\n');
+
+function sourceSaves(name) {
+  return savedSources.get(name) || {
+    html: new Set([sourceValue(originals.get(name).html)]),
+    css: new Set([sourceValue(originals.get(name).css)]),
+  };
+}
+
+function rememberSource(name, source) {
+  const saved = sourceSaves(name);
+  for (const [language, value] of Object.entries(source)) saved[language].add(sourceValue(value));
+  savedSources.set(name, saved);
+}
+
+function updateLeaveGuard() {
+  const changedAssets = localAssets.length !== savedAssets.length
+    || localAssets.some((asset, index) => asset !== savedAssets[index]);
+  const changedSource = [...originals].some(([name, original]) => {
+    const source = name === current
+      ? { html: html.value, css: css.value }
+      : edits.get(name) || original;
+    const saved = sourceSaves(name);
+    return !saved.html.has(sourceValue(source.html)) || !saved.css.has(sourceValue(source.css));
+  });
+  if (changedAssets || changedSource) window.addEventListener('beforeunload', beforeUnload);
+  else window.removeEventListener('beforeunload', beforeUnload);
 }
 
 function setDownload(enabled) {
@@ -190,6 +227,7 @@ function showAssets() {
       localAssets = localAssets.filter(item => item !== asset);
       assetVersion++;
       showAssets();
+      updateLeaveGuard();
       setDownload(!changedSinceRender());
       status('Asset removed. Render again to update the PDF.');
       el('open-files').focus();
@@ -218,9 +256,15 @@ el('files').addEventListener('change', async () => {
     if (hasSource) validateSource(nextHtml, nextCss);
     if (worker) finish();
     if (hasSource) {
+      const previousSaved = sourceSaves(current);
       edits.set(current, { html: html.value, css: css.value });
       current = 'custom';
       originals.set(current, { html: nextHtml, css: nextCss });
+      // A CSS-only import must not mark retained, edited HTML as saved.
+      savedSources.set(current, {
+        html: selected.html !== null ? new Set([sourceValue(nextHtml)]) : new Set(previousSaved.html),
+        css: new Set([sourceValue(nextCss)]),
+      });
       edits.delete(current);
       if (!picker.querySelector('option[value="custom"]')) picker.add(new Option('Your document', 'custom'));
       picker.value = current;
@@ -232,6 +276,7 @@ el('files').addEventListener('change', async () => {
     localAssets = [...localAssets, ...selected.assets];
     assetVersion++;
     showAssets();
+    updateLeaveGuard();
     clearOutput();
     status('Files opened locally. Use assets/filename for images and font files, then Render PDF.');
   } catch (error) {
@@ -260,18 +305,21 @@ el('project-file').addEventListener('change', async () => {
     edits.set(current, { html: html.value, css: css.value });
     current = 'custom';
     originals.set(current, { html: project.html, css: project.css });
+    savedSources.delete(current);
     edits.delete(current);
     if (!picker.querySelector('option[value="custom"]')) picker.add(new Option('Your document', 'custom'));
     picker.value = current;
     html.value = project.html; css.value = project.css;
     projectLanguage.value = project.language;
     localAssets = project.assets;
+    savedAssets = localAssets;
     assetVersion++;
     el('reset').textContent = 'Reset document';
     el('project-status').hidden = true;
     selectTab('html');
     selectView('source');
     showAssets();
+    updateLeaveGuard();
     clearOutput();
     const versionNote = project.engineVersion === engineVersion ? ''
       : ` This project was saved with Fullbleed ${project.engineVersion}; this playground uses ${engineVersion}.`;
@@ -294,6 +342,7 @@ for (const language of ['html', 'css']) {
   });
   el(language).addEventListener('input', () => {
     edits.set(current, { html: html.value, css: css.value });
+    updateLeaveGuard();
     setDownload(!changedSinceRender());
     if (!worker) status(changedSinceRender() ? 'You have changes. Render to update the PDF.' : 'Your PDF matches the current source.');
   });
@@ -305,6 +354,8 @@ for (const language of ['html', 'css']) {
   el(`save-${language}`).addEventListener('click', event => {
     event.preventDefault();
     saveText(`fullbleed-${current}.${language}`, el(language).value, language === 'html' ? 'text/html;charset=utf-8' : 'text/css;charset=utf-8');
+    rememberSource(current, { [language]: el(language).value });
+    updateLeaveGuard();
   });
 }
 el('render').addEventListener('click', () => startRender({ preview: true }));
@@ -323,6 +374,9 @@ el('project').addEventListener('click', async () => {
   try {
     const bytes = await buildProject(snapshot);
     saveText(`fullbleed-${snapshot.name}-${snapshot.language === 'node' ? 'node-' : ''}project.zip`, bytes, 'application/zip');
+    rememberSource(snapshot.name, { html: snapshot.html, css: snapshot.css });
+    savedAssets = snapshot.assets;
+    updateLeaveGuard();
     const newerEdits = current !== snapshot.name || html.value !== snapshot.html || css.value !== snapshot.css
       || assetVersion !== snapshot.assetVersion || (projectLanguage?.value ?? 'python') !== snapshot.language;
     message.textContent = newerEdits
@@ -340,6 +394,7 @@ el('reset').addEventListener('click', () => {
   if (worker) finish();
   edits.delete(current);
   html.value = originals.get(current).html; css.value = originals.get(current).css;
+  updateLeaveGuard();
   clearOutput(); startRender();
 });
 picker.addEventListener('change', () => {
@@ -349,6 +404,7 @@ picker.addEventListener('change', () => {
   el('reset').textContent = current === 'custom' ? 'Reset document' : 'Reset example';
   const source = edits.get(current) || originals.get(current);
   html.value = source.html; css.value = source.css;
+  updateLeaveGuard();
   clearOutput(); startRender();
 });
 window.addEventListener('pagehide', () => { if (worker) finish(); });
