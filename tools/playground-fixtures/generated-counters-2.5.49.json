@@ -1,0 +1,28 @@
+{
+  "engine": "2.5.49",
+  "source": "https://github.com/fullbleed-engine/fullbleed-node/blob/058b13b23b8bd0a8de874a7975a52874164d3fac/test/fixtures/generated-counters-2.5.49.json",
+  "scope": "The documented closing label and two pseudo-element mutation/scope witnesses. No complete CSS counter claim.",
+  "cases": [
+    {
+      "name": "counter-guide-closing-label",
+      "html": "<section class=\"lines\">\n  <p class=\"line\">Design review</p>\n  <p class=\"line\">Print preparation</p>\n</section>\n",
+      "css": ".lines { counter-reset: item; }\n.line { counter-increment: item; }\n.line::before { content: counter(item) \". \"; }\n.lines::after { content: counter(item) \" line items\"; }\n",
+      "pages": 1,
+      "expectedText": "1.Designreview2.Printpreparation2lineitems"
+    },
+    {
+      "name": "counter-block-after-increment",
+      "html": "<html><body><p>Record Ada</p><div class=\"root\"><span class=\"item\">First</span><span class=\"item\">Second</span></div><div class=\"tail\">Tail</div></body></html>",
+      "css": "@page { size: 600px 400px; margin: 12px }\n* { margin: 0; padding: 0 }\nbody { font: 18px Inter; line-height: 1.5; counter-reset: n; quotes: \"{\" \"}\" }\n.root::before { content: 'B[' counter(n) ']' }\n.root::after { content: 'A[' counter(n) ']' }\n.item { counter-increment: n }\n.item::before { content: 'I[' counter(n) ']' }\n.tail::before { content: 'T[' counter(n) ']' }\n.root { display: block }.root::after { counter-increment: n 3 }",
+      "pages": 1,
+      "expectedText": "RecordAdaB[0]I[1]FirstI[2]SecondA[5]T[5]Tail"
+    },
+    {
+      "name": "counter-block-before-reset",
+      "html": "<html><body><p>Record Ada</p><div class=\"root\"><span class=\"item\">First</span><span class=\"item\">Second</span></div><div class=\"tail\">Tail</div></body></html>",
+      "css": "@page { size: 600px 400px; margin: 12px }\n* { margin: 0; padding: 0 }\nbody { font: 18px Inter; line-height: 1.5; counter-reset: n; quotes: \"{\" \"}\" }\n.root::before { content: 'B[' counter(n) ']' }\n.root::after { content: 'A[' counter(n) ']' }\n.item { counter-increment: n }\n.item::before { content: 'I[' counter(n) ']' }\n.tail::before { content: 'T[' counter(n) ']' }\n.root { display: block }.root::before { counter-reset: n 5 }",
+      "pages": 1,
+      "expectedText": "RecordAdaB[5]I[1]FirstI[2]SecondA[2]T[2]Tail"
+    }
+  ]
+}

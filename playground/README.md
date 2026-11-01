@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.48`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.49`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -42,7 +42,7 @@ root documentation requirements. Then from the repository root:
 rustup target add wasm32-wasip1
 python tools/build_playground.py
 node tools/verify_playground.mjs
-python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.48
+python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.49
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -118,7 +118,7 @@ and long documents in Firefox and Playwright WebKit with the full Chrome run.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.9.1` (engine 2.5.48), uses `defaultStyles: false` to retain the
+`fullbleed@0.9.2` (engine 2.5.49), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -131,7 +131,7 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.48 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+python -m pip install fullbleed==2.5.49 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
