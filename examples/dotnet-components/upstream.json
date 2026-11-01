@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/fullbleed-engine/fullbleed-dotnet",
-  "commit": "e855809d32e9746f78f22e43b53fbe666eeb5189",
+  "commit": "f6c6c36dbdb981a909011d50c97b7918a68596de",
   "files": [
     {
       "path": "Program.cs",
@@ -41,7 +41,7 @@
   "adaptation": "C# sources, fonts and licenses are exact committed bytes. The standalone project uses the pinned NuGet package instead of a source ProjectReference and targets .NET 10.",
   "renderer": {
     "package": "FullBleed.DotNet",
-    "version": "0.2.9",
-    "engineVersion": "2.5.49"
+    "version": "0.2.10",
+    "engineVersion": "2.5.50"
   }
 }

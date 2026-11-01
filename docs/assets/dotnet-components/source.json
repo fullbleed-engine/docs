@@ -1,10 +1,10 @@
 {
   "schema": "fullbleed.dotnet-component-starter.v1",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.2.9",
-  "engineVersion": "2.5.49",
+  "packageVersion": "0.2.10",
+  "engineVersion": "2.5.50",
   "framework": "net10.0",
-  "upstreamCommit": "e855809d32e9746f78f22e43b53fbe666eeb5189",
+  "upstreamCommit": "f6c6c36dbdb981a909011d50c97b7918a68596de",
   "files": [
     {
       "path": ".gitignore",
@@ -33,8 +33,8 @@
     },
     {
       "path": "ComponentInvoice.csproj",
-      "bytes": 578,
-      "sha256": "9636eb651a65c56de473b177f239e90467cf79a34aad3cd594566361335a7354"
+      "bytes": 579,
+      "sha256": "cb3454b8a6adea017e6bae69b6e9c959ed982b675e7c688e947e21121f2bc2f1"
     },
     {
       "path": "InvoiceDocument.cs",
@@ -53,8 +53,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 1653,
-      "sha256": "ede77000811e36d2f186ed266ffda97a88ad9cbe8b541bc563a6102c82a9f986"
+      "bytes": 1654,
+      "sha256": "c37a413fcf7af5b3566dea206e3b8b6353e58348ed81595201a87f051584413e"
     },
     {
       "path": "global.json",
@@ -63,17 +63,17 @@
     },
     {
       "path": "packages.lock.json",
-      "bytes": 305,
-      "sha256": "ff681f90838d9dcf4dbdfc5c90c41ff2d845fc179a074f7e8f963751ca29bcf5"
+      "bytes": 307,
+      "sha256": "ae7bd5655d3ebd284aa0dda6fd22c9aa20efc3b3c6ac45dcffb9897517428010"
     },
     {
       "path": "upstream.json",
-      "bytes": 1973,
-      "sha256": "20489138f385525909389619b4fa7d3a68a6058bbada9627cd6573de25f34c21"
+      "bytes": 1974,
+      "sha256": "cce2c8cc89fc753cf9e272d49fd6b86f2f836afc6f9a94fade61194db46aafba"
     }
   ],
-  "zipSha256": "9a6a33f70e144e0cb28c0ee7fd358f6298747c481a6c80d835dd2bd7cb3fa8d4",
-  "zipBytes": 511623,
+  "zipSha256": "981dfd2ded4da5d8fdd7604f10a4ca1a84c9a7d5fd367d1499177ce070a8f415",
+  "zipBytes": 511621,
   "outputs": {
     "invoice.pdf": "b3069d341d9c81b1cc099a2f32e0d364597057d998520e5beb476976bc9626e7",
     "page-1.png": "b111980fa0ea3462ac626a79b72147a2e315358c98d052f3a8c8a880a34882bc"
