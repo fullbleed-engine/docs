@@ -23,7 +23,7 @@ python -m pip install fullbleed
 ```
 
 Choose one tab and save its complete example as `hello.py`. These examples are
-checked with Fullbleed **2.5.36**.
+checked with Fullbleed **2.5.51**.
 
 === "HTML/CSS"
 
@@ -107,12 +107,32 @@ python report.py
 
 Open `output/report.pdf`. The project includes Python components, CSS, bundled Inter, Bootstrap assets, a PNG preview, and structured diagnostics. Read its `SCAFFOLDING.md` before reorganizing the project.
 
-For a task-specific starter:
+For an invoice with editable sample data:
 
 ```bash
 python -m fullbleed new local invoice my-invoice
-python -m fullbleed new local accessible my-accessible-document
+python my-invoice/report.py
 ```
+
+Open `my-invoice/output/invoice.pdf`. Edit `my-invoice/data.json` to change the
+company, customer, dates, and line items, then rerun the script. Edit the HTML
+and CSS in `my-invoice/templates` to change the design. The starter calculates
+amounts, embeds Inter, and writes PNG previews. Its README explains decimal
+rounding and the standard-library `${placeholder}` template syntax.
+
+For an account statement or an accessibility-first document:
+
+```bash
+python -m fullbleed new local statement my-statement
+python my-statement/report.py
+python -m fullbleed new local accessible my-accessible-document
+python my-accessible-document/report.py
+```
+
+The statement also has editable `data.json`. The accessible starter uses Python
+components and writes its PDF, previews, and internal validation reports into
+`my-accessible-document/output`. Those checks support authoring and debugging;
+they do not establish independent PDF/UA certification.
 
 ## Bring your own HTML and CSS
 
