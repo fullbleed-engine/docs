@@ -197,7 +197,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
     ```bash
     dotnet new console -n InvoiceDemo --framework net10.0
     cd InvoiceDemo
-    dotnet add package FullBleed.DotNet --version 0.2.9
+    dotnet add package FullBleed.DotNet --version 0.2.10
     ```
 
     Replace `Program.cs` with:
@@ -231,7 +231,7 @@ Pick your application stack. Generate a PDF locally or download one from the bro
 
     Open `invoice.pdf`. This first example uses standard PDF fonts. Existing .NET 8 and 9 applications can use the same package; see the guide for platform support and explicit fonts.
 
-    [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.9/samples/FullBleed.DotNet.LinqVdp)
+    [C# and .NET quickstart →](getting-started/dotnet.md) · [Components and styles](guides/csharp-components.md) · [LINQ and variable data](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.10/samples/FullBleed.DotNet.LinqVdp)
 
 <span id="compose-pdfs-with-python-components"></span>
 
