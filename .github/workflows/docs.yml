@@ -931,7 +931,7 @@ jobs:
           retention-days: 7
       - name: Verify downloadable playground projects
         run: |
-          python -m pip install fullbleed==2.5.49 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python -m pip install fullbleed==2.5.50 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
           node tools/test_playground_local_files.mjs
           node tools/test_playground_project_import.mjs
           node tools/verify_project_export.mjs

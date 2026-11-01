@@ -91,9 +91,39 @@ Counter changes in `::before` and `::after` also affect later labels in the
 same counter scope. The downloadable report above remains pinned to 2.5.18;
 use 2.5.49 for this closing-label behavior.
 
-The [generated-content guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.49/docs/generated-content.md)
-covers nested counters and the remaining `display: contents` and implicit
-list/footnote limitations. [Release verification](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.49)
+## Keep numbering through layout-only wrappers
+
+In **Fullbleed 2.5.50**, a counter first created inside a `display: contents`
+wrapper continues into the next wrapper. This lets you group source elements
+without restarting the visible numbering:
+
+```html
+<article>
+  <div class="group"><p class="step">Discovery</p></div>
+  <div class="group"><p class="step">Design</p></div>
+  <div class="group"><p class="step">Delivery</p></div>
+</article>
+```
+
+```css
+.group { display: contents; }
+.step { counter-increment: step; }
+.step::before { content: counter(step) ". "; }
+```
+
+The labels are `1. Discovery`, `2. Design`, and `3. Delivery`. The first increment
+creates the counter. The wrapper still participates in CSS selectors and style
+inheritance; its own counter reset, set, and increment declarations have no
+effect because it generates no box. An ordinary containing box keeps its own
+counter scope.
+
+Try these snippets in the [browser playground](../playground.md), or use
+Fullbleed 2.5.50 in your Python or Rust project. Node package 0.9.3 embeds the
+same engine. The downloadable report above retains its verified 2.5.18 pin.
+
+The [generated-content guide](https://github.com/fullbleed-engine/fullbleed-official/blob/v2.5.50/docs/generated-content.md)
+covers nested counters and the remaining implicit list/footnote limitations.
+[Release verification](https://github.com/fullbleed-engine/fullbleed-official/releases/tag/v2.5.50)
 includes saved PDFs from ordinary, fixed compiled, repeated and reflow paths.
 
 ## Table rows and page footers

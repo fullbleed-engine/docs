@@ -1,0 +1,42 @@
+{
+  "engine": "2.5.50",
+  "source": "https://github.com/fullbleed-engine/fullbleed-node/blob/38f5962df4e106ca1c70589d944f170ea25aaf6e/test/fixtures/generated-counters-2.5.50.json",
+  "scope": "Three unchanged closing-label/pseudo-element cases, the documented display-contents example and a published binding witness. No complete CSS counter claim.",
+  "cases": [
+    {
+      "name": "counter-guide-closing-label",
+      "html": "<section class=\"lines\">\n  <p class=\"line\">Design review</p>\n  <p class=\"line\">Print preparation</p>\n</section>\n",
+      "css": ".lines { counter-reset: item; }\n.line { counter-increment: item; }\n.line::before { content: counter(item) \". \"; }\n.lines::after { content: counter(item) \" line items\"; }\n",
+      "pages": 1,
+      "expectedText": "1.Designreview2.Printpreparation2lineitems"
+    },
+    {
+      "name": "counter-block-after-increment",
+      "html": "<html><body><p>Record Ada</p><div class=\"root\"><span class=\"item\">First</span><span class=\"item\">Second</span></div><div class=\"tail\">Tail</div></body></html>",
+      "css": "@page { size: 600px 400px; margin: 12px }\n* { margin: 0; padding: 0 }\nbody { font: 18px Inter; line-height: 1.5; counter-reset: n; quotes: \"{\" \"}\" }\n.root::before { content: 'B[' counter(n) ']' }\n.root::after { content: 'A[' counter(n) ']' }\n.item { counter-increment: n }\n.item::before { content: 'I[' counter(n) ']' }\n.tail::before { content: 'T[' counter(n) ']' }\n.root { display: block }.root::after { counter-increment: n 3 }",
+      "pages": 1,
+      "expectedText": "RecordAdaB[0]I[1]FirstI[2]SecondA[5]T[5]Tail"
+    },
+    {
+      "name": "counter-block-before-reset",
+      "html": "<html><body><p>Record Ada</p><div class=\"root\"><span class=\"item\">First</span><span class=\"item\">Second</span></div><div class=\"tail\">Tail</div></body></html>",
+      "css": "@page { size: 600px 400px; margin: 12px }\n* { margin: 0; padding: 0 }\nbody { font: 18px Inter; line-height: 1.5; counter-reset: n; quotes: \"{\" \"}\" }\n.root::before { content: 'B[' counter(n) ']' }\n.root::after { content: 'A[' counter(n) ']' }\n.item { counter-increment: n }\n.item::before { content: 'I[' counter(n) ']' }\n.tail::before { content: 'T[' counter(n) ']' }\n.root { display: block }.root::before { counter-reset: n 5 }",
+      "pages": 1,
+      "expectedText": "RecordAdaB[5]I[1]FirstI[2]SecondA[2]T[2]Tail"
+    },
+    {
+      "name": "counter-guide-contents-wrappers",
+      "html": "<article>\n  <div class=\"group\"><p class=\"step\">Discovery</p></div>\n  <div class=\"group\"><p class=\"step\">Design</p></div>\n  <div class=\"group\"><p class=\"step\">Delivery</p></div>\n</article>\n",
+      "css": ".group { display: contents; }\n.step { counter-increment: step; }\n.step::before { content: counter(step) \". \"; }\n",
+      "pages": 1,
+      "expectedText": "1.Discovery2.Design3.Delivery"
+    },
+    {
+      "name": "counter-contents-counter-order",
+      "html": "<html><body><p>Record Ada</p><div class=\"contents\"><p class=\"count\">One</p></div><div class=\"contents\"><p class=\"count\">Two</p></div><div class=\"contents\"><p class=\"count\">Three</p></div></body></html>",
+      "css": "@page { size: 600px 400px; margin: 12px }\n* { margin: 0; padding: 0 }\nbody { font: 18px Inter; line-height: 1.5; counter-reset: n; quotes: \"{\" \"}\" }\n.root::before { content: 'B[' counter(n) ']' }\n.root::after { content: 'A[' counter(n) ']' }\n.item { counter-increment: n }\n.item::before { content: 'I[' counter(n) ']' }\n.tail::before { content: 'T[' counter(n) ']' }\nbody { counter-reset: none }\n.contents { display: contents }\n.count { counter-increment: n }\n.count::before { content: 'C=' counter(n) }\n",
+      "pages": 1,
+      "expectedText": "RecordAdaC=1OneC=2TwoC=3Three"
+    }
+  ]
+}

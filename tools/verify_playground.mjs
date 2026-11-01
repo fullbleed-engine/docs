@@ -146,10 +146,10 @@ for (const specimen of pageFontSource.cases) {
   assert.deepEqual(pair[0].hashes, pair[1].hashes, `${specimen.name}: alias changed the PDF or page previews`);
 }
 report.checks.push('Eight registered page-font alias/control pairs match in PDF and preview bytes, including inherited weights and named pages');
-const counters = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-counters-2.5.49.json'), 'utf8'));
-assert.equal(counters.cases.length, 3);
+const counters = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-counters-2.5.50.json'), 'utf8'));
+assert.equal(counters.cases.length, 5);
 for (const item of counters.cases) await fixture(item.name, item.html, item.css, item.pages);
-report.checks.push('Three generated-counter witnesses preserve native/WASI and repeat equality; independent readers check the saved text');
+report.checks.push('Five generated-counter witnesses preserve native/WASI and repeat equality; independent readers check the saved text');
 report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);
