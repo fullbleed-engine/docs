@@ -249,6 +249,9 @@ also includes a repeated-output test and a helper that writes only changed PDF
 bytes. That pinned source snapshot uses Fullbleed 2.3.1; the examples on this
 page retain their separately verified versions.
 
+Explore [more community integrations](../guides/community-projects.md), including
+workflow automation, binary-analysis reports, and independent Ruby bindings.
+
 For a Rust web application, [download the Axum PDF starter](../guides/axum-pdf.md).
 It turns invoice JSON into a styled download with editable HTML/CSS, bundled
 fonts, a browser form, and bounded rendering work.
