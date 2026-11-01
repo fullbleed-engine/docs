@@ -13,6 +13,7 @@ docs/assets/playground/node-project-verification.json
 docs/assets/playground/radial-gradient-verification.json
 docs/assets/playground/page-font-verification.json
 docs/assets/playground/counter-verification.json
+docs/assets/playground/font-cascade-verification.json
 examples/rust/target/
 examples/rust/verification/
 examples/yew-sheet/target/
