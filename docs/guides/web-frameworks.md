@@ -22,6 +22,11 @@ the exact source files, fonts, package version, and generated sample. This is a
 fictional integration example; connect your application's authorized record
 lookup before serving real invoices.
 
+To try a layout before starting a server, [open the browser playground](../playground.md),
+change the sample customer name, and select **Render PDF**. It runs on your
+device without an account or installation. The starter on this page adds
+Python data, calculated totals, and an HTTP download route.
+
 Want a container? The same download includes a [tested Docker path](python-docker.md)
 for the FastAPI app, using Debian slim or Alpine.
 
@@ -245,4 +250,8 @@ store the finished PDF for download. The [variable-data guide](bank-statements.m
 covers compiled document families when many records share a template.
 
 [Invoice data examples](invoices.md) · [Python API](../engine/pdf-engine.md) ·
-[Ask a question](https://github.com/fullbleed-engine/fullbleed-official/discussions)
+[Ask a usage question in Q&A](https://github.com/fullbleed-engine/fullbleed-official/discussions/new?category=q-a)
+
+For help with an integration, include your framework, Fullbleed version, the
+command or request you tried, and the expected response. Use a small fictional
+record and include the response status or error text.

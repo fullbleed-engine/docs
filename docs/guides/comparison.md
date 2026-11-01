@@ -19,7 +19,17 @@ documentation and to our retained comparison files, so you can evaluate the
 tradeoffs on your own documents.
 
 [Compare actual PDFs](#inspect-the-same-invoice-in-three-renderers){ .md-button }
-[Run a Fullbleed invoice example](invoices.md){ .md-button .md-button--primary }
+[Try Fullbleed in your browser](../playground.md){ .md-button .md-button--primary }
+
+The playground needs no installation or account. Change the sample's customer
+name in the HTML editor, select **Render PDF**, then **Download PDF**. On a phone,
+select **Edit source** first. Under **Files and projects**, choose Python or
+Node.js, then **Download project** to keep your edited HTML/CSS, fonts, and a
+local renderer in a ZIP.
+
+For amounts calculated from application data, use the
+[Python invoice examples](invoices.md) or the
+[FastAPI, Flask, and Django starter](web-frameworks.md).
 
 Using Node.js? [Render an existing HTML template with Fullbleed](node-html-to-pdf.md)
 and compare the same input with the included Puppeteer reference.
@@ -158,3 +168,15 @@ Consult each project's current documentation and license before adopting it.
 Use the [shared-input comparison harness](renderer-comparison.md#reproduce-with-your-own-documents)
 as a starting point for your own acceptance contract. For Fullbleed projects,
 the [PDF regression starter](pdf-regression-ci.md) provides a runnable CI example.
+
+## Get help with your first document
+
+[Ask a usage question in Q&A](https://github.com/fullbleed-engine/fullbleed-official/discussions/new?category=q-a).
+Describe the document, your language or framework, and the edit or integration
+step you tried. Include the expected result and what happened instead. A small
+example with fictional data is enough to start.
+
+For a reproducible rendering error, [open a bug report](https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml)
+with the input, package version, and platform. The playground's **Report a
+rendering problem** link fills in its engine version; your document is not
+attached automatically.

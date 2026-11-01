@@ -3,12 +3,24 @@ description: Generate PDF invoices from JSON or CSV in Python with Fullbleed. Do
 ---
 # Generate PDF invoices from Python data
 
-Choose the smallest example that matches your application.
+Start by editing a layout, or connect a renderer to your application's data.
 
-For an interactive introduction, [try the invoice notebook](../getting-started/notebook.md).
-Edit the sample data, render a preview, and download the PDF in Colab or local Jupyter.
+[Try an invoice in your browser](../playground.md){ .md-button .md-button--primary }
+[Download the Python web starter](../assets/python-web/project.zip){ .md-button }
 
-To return an invoice from your app, see the [FastAPI, Flask, and Django examples](web-frameworks.md).
+In the playground, change the sample customer name in the HTML editor, select
+**Render PDF**, and download the result. It needs no account or installation.
+On a phone, select **Edit source** first. Under **Files and projects**, choose
+Python or Node.js, then **Download project** to save the edited HTML/CSS, fonts,
+and a renderer so you can continue locally.
+
+The playground's sample amounts are static text. For calculated totals and a
+PDF response from your application, follow the
+[Python starter's FastAPI, Flask, or Django setup](web-frameworks.md#set-up-the-examples).
+That download includes the source, templates, fonts, and fictional records.
+
+To change Python data in a notebook, [try the invoice notebook](../getting-started/notebook.md)
+in Colab or local Jupyter. For JSON and CSV input, use the examples below.
 
 For a bilingual layout, download the [Arabic and English invoice](arabic-pdf.md)
 with its fonts included, or the [Chinese and English example](chinese-pdf.md).
@@ -50,3 +62,11 @@ Open `output/acme_sample_invoice.pdf`. Edit `data/invoice.csv`, then inspect the
 ## Scale to multiple invoices
 
 Use ordinary rendering when document structure changes substantially. Use [compiled bindings](bank-statements.md) when you have a family of documents with repeatable structure. Choose the reflow API if text or table length can change pagination.
+
+## Ask about your invoice
+
+[Ask a usage question in Q&A](https://github.com/fullbleed-engine/fullbleed-official/discussions/new?category=q-a)
+with your data source, language or framework, and the change you are trying to
+make. Include a small fictional example and the expected result. For a rendering
+error, [open a bug report](https://github.com/fullbleed-engine/fullbleed-official/issues/new?template=bug_report.yml)
+with the package version and platform.
