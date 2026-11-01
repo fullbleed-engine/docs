@@ -14,7 +14,7 @@ from textwrap import dedent
 import fullbleed
 
 ROOT = Path(__file__).resolve().parents[1]
-QUICKSTART_RELEASE = "2.5.36"
+QUICKSTART_RELEASE = "2.5.51"
 FIXTURES = [
     ("index.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
     ("getting-started/quickstart.md", "invoice.pdf", [("Invoice INV-1042", "USD 1,200.00")], True),
@@ -150,17 +150,30 @@ def main():
     run("init-project", ["-I", "-m", "fullbleed", "init", "."], project)
     run("render-project", ["report.py"], project)
     scaffold = inspect(project / "output/report.pdf")
-    for template in ["invoice", "accessible"]:
+    starters = []
+    for template, stem, markers in [
+        ("invoice", "invoice", ("Northstar Studio", "Jordan Lee", "1,284.50")),
+        ("statement", "statement", ("Northstar Studio", "Jordan Lee", "1,268.00")),
+        ("accessible", "accessibility_scaffold", ("Accessibility Scaffold", "Account Summary", "Signature Evidence")),
+    ]:
         folder = workspace / ("my-" + template)
         run("new-" + template, ["-I", "-m", "fullbleed", "new", "local", template, str(folder)], workspace)
-        assert (folder / "report.py").is_file(), folder
+        run("render-" + template, ["-I", folder / "report.py"], workspace)
+        pdf = folder / "output" / (stem + ".pdf")
+        evidence = inspect(pdf, embedded_font=True)
+        text = " ".join(page["text"] for page in fullbleed.extract_pdf_page_texts(str(pdf))["pages"])
+        assert all(compact(marker) in compact(text) for marker in markers), (template, text)
+        assert not any(token in text for token in ("{{", "{%", "${")), (template, text)
+        report = json.loads((pdf.parent / (stem + "_run_report.json")).read_bytes())
+        assert report["ok"], (template, report)
+        starters.append({"template": template, **evidence})
 
     result = {"ok": True, "engine": installed, "reference_commit": reference["commit"],
               "quickstart_authoring_paths": ["html-css", "components"],
               "quickstart_pdf_and_previews_identical": True,
               "platform": sys.platform, "python": sys.version, "snippets": snippets,
               "capability_snippets": capability_snippets,
-              "scaffold": scaffold, "commands": checks,
+              "scaffold": scaffold, "starters": starters, "commands": checks,
               "scope": "Introductory snippets and scaffold commands; text, page counts, fonts, and previews. No general visual or standards certification."}
     (out / "verification.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"ok": True, "engine": installed, "snippets": len(snippets), "commands": len(checks)}))
