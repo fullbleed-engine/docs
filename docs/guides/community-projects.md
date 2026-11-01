@@ -56,7 +56,9 @@ Rust engine as a Ruby native extension using Magnus. Its rendering methods call
 Fullbleed to produce PDF bytes or write a PDF file.
 
 This is an independent binding, separate from the packages maintained in the
-Fullbleed organization. Use its repository for the Ruby API and build instructions.
+Fullbleed organization. Its RubyGems installation instructions have an
+[open clarification request](https://github.com/mitsuru/fullbleed-ruby/issues/1).
+Check that issue for installation status before following the wrapper's README.
 
 - [Ruby API documentation](https://github.com/mitsuru/fullbleed-ruby/blob/3c57bb9d6b83e80ec98f17d246ff565431e74a8b/README.md)
 - [Native rendering bridge](https://github.com/mitsuru/fullbleed-ruby/blob/3c57bb9d6b83e80ec98f17d246ff565431e74a8b/ext/fullbleed/src/engine.rs)
