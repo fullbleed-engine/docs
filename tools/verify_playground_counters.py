@@ -20,7 +20,7 @@ for mode, path_for in [
         row['checks']['matchesWasiReference'] = row['pdfSha256'] == exports[fixture['name']]['pdf_sha256']
         row['passed'] = all(row['checks'].values())
         records.append(row)
-report = dict(ok=all(row['passed'] for row in records), engine='2.5.50', nodePackage='0.9.3',
+report = dict(ok=all(row['passed'] for row in records), engine='2.5.51', nodePackage='0.9.4',
               fixtureSha256=sha256(FIXTURES.read_bytes()).hexdigest(), cases=records,
               scope='Five counter witnesses in WASI and actual Python/Node downloads; independently read text, visible output and equal PDF bytes. No general CSS counter claim.')
 raw = json.dumps(report, indent=2) + '\n'

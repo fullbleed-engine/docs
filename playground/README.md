@@ -1,6 +1,6 @@
 # Fullbleed browser playground
 
-An optional static website adapter for the unchanged published `fullbleed = 2.5.50`
+An optional static website adapter for the unchanged published `fullbleed = 2.5.51`
 Rust crate with the `svg_raster` feature. It compiles to `wasm32-wasip1` and runs inside a Web Worker using
 `@bjorn3/browser_wasi_shim` 0.4.2. It adds no dependencies to the Python wheel or
 the core Rust crate. The engine produces the PDF, then renders PNG page previews
@@ -49,7 +49,7 @@ root documentation requirements. Then from the repository root:
 rustup target add wasm32-wasip1
 python tools/build_playground.py
 node tools/verify_playground.mjs
-python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.50
+python -m pip install -r tools/browser-requirements.txt fullbleed==2.5.51
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -127,7 +127,7 @@ and long documents in Firefox and Playwright WebKit with the full Chrome run.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.9.3` (engine 2.5.50), uses `defaultStyles: false` to retain the
+`fullbleed@0.9.4` (engine 2.5.51), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
@@ -140,7 +140,7 @@ are checked against the existing attribution manifest before export. After
 building the playground, verify the complete handoff with:
 
 ```sh
-python -m pip install fullbleed==2.5.50 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+python -m pip install fullbleed==2.5.51 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
 node tools/verify_project_export.mjs
 python -I tools/verify_project_export.py
 python -I tools/verify_node_project_export.py
@@ -165,7 +165,7 @@ python tools/check_playground_project_import.py --site site --out output/project
 The verifier checks ZIP integrity, exact source and font/license bytes, export
 replay, failure recovery, and Python/Node/WASI PDF and PNG equality for the invoice,
 report, notice, an edited invoice, fifteen gradient cases, and the standard-font
-fixture, plus the four layout cases above and six font-cascade cases covering
+fixture, plus thirteen font-selection cases for source order, specificity, inline styles, inheritance and variable fallbacks; the four layout cases above; and six default-style cases covering
 defaults, inheritance, specificity, and layers. An independent PDF reader verifies that all 12 font faces remain
 unembedded and their text is intact. Extracted projects run from paths with
 spaces and a different current working directory. Node dependencies are installed

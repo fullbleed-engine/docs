@@ -43,6 +43,9 @@ fixtures.push(...decorations.cases.map(item => ({ ...item, name: 'decoration-' +
 fixtures.push(...preformattedFixtures);
 fixtures.push(...pageFontFixtures);
 fixtures.push(...JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-counters-2.5.50.json'), 'utf8')).cases);
+const fontCascade = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/font-cascade-2.5.51.json'), 'utf8'));
+assert.equal(fontCascade.cases.length, 13);
+fixtures.push(...fontCascade.cases);
 
 
 for (const fixture of fixtures) {

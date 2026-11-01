@@ -5,7 +5,7 @@ const assetGeneration = new URL(import.meta.url).search;
 const { buildProject } = await import(`./project-export.js${assetGeneration}`);
 const { readProject } = await import(`./project-import.js${assetGeneration}`);
 const { readSelection, validateSource } = await import(`./local-files.js${assetGeneration}`);
-const engineVersion = '2.5.50';
+const engineVersion = '2.5.51';
 
 const el = id => document.getElementById(`pg-${id}`);
 const html = el('html'), css = el('css'), picker = el('example');
