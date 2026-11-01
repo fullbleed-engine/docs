@@ -42,6 +42,7 @@ assert.equal(decorations.cases.length, 16);
 fixtures.push(...decorations.cases.map(item => ({ ...item, name: 'decoration-' + item.name, pages: 1 })));
 fixtures.push(...preformattedFixtures);
 fixtures.push(...pageFontFixtures);
+fixtures.push(...JSON.parse(await readFile(join(root, 'tools/playground-fixtures/generated-counters-2.5.49.json'), 'utf8')).cases);
 
 
 for (const fixture of fixtures) {

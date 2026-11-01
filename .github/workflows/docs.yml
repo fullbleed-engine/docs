@@ -931,7 +931,7 @@ jobs:
           retention-days: 7
       - name: Verify downloadable playground projects
         run: |
-          python -m pip install fullbleed==2.5.48 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
+          python -m pip install fullbleed==2.5.49 pypdf==6.19.0 pypdfium2==5.14.0 Pillow==12.3.0
           node tools/test_playground_local_files.mjs
           node tools/test_playground_project_import.mjs
           node tools/verify_project_export.mjs
@@ -943,6 +943,7 @@ jobs:
           python tools/verify_playground_preformatted.py
           python tools/verify_playground_radial_gradients.py
           python tools/verify_playground_fonts.py
+          python tools/verify_playground_counters.py
       - name: Retain the verified playground runtime
         uses: actions/upload-artifact@v4
         with:

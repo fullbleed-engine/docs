@@ -8,8 +8,8 @@ import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_PATH = ROOT / 'tools/playground-fixtures/page-margin-fonts-2.5.48.json'
-ENGINE = '2.5.48'
-NODE = '0.9.1'
+ENGINE = '2.5.49'
+NODE = '0.9.2'
 
 
 def fixtures():

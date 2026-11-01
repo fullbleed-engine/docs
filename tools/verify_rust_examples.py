@@ -115,6 +115,10 @@ radial = json.loads((ROOT / 'tools/playground-fixtures/radial-gradient-endpoints
 assert radial['referenceVersion'] == '2.5.43' and len(radial['cases']) == 12
 expected_names |= {'radial-endpoint-' + case['name'] for case in radial['cases']}
 assert len(expected_names) == 98
+counters = json.loads((ROOT / 'tools/playground-fixtures/generated-counters-2.5.49.json').read_text(encoding='utf-8'))
+assert len(counters['cases']) == 3
+expected_names |= {case['name'] for case in counters['cases']}
+assert len(expected_names) == 101
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 preformatted = json.loads((ROOT / 'tools/playground-fixtures/preformatted-whitespace-2.5.41.json').read_text(encoding='utf-8'))
 excluded_names = {'preformatted-' + case['name'] for case in preformatted['cases']}
