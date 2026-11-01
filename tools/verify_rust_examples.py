@@ -119,6 +119,10 @@ counters = json.loads((ROOT / 'tools/playground-fixtures/generated-counters-2.5.
 assert len(counters['cases']) == 5
 expected_names |= {case['name'] for case in counters['cases']}
 assert len(expected_names) == 103
+font_cascade = json.loads((ROOT / 'tools/playground-fixtures/font-cascade-2.5.51.json').read_bytes())
+assert len(font_cascade['cases']) == 13
+expected_names |= {case['name'] for case in font_cascade['cases']}
+assert len(expected_names) == 116
 assert {fixture['name'] for fixture in report['fixtures']} == expected_names
 preformatted = json.loads((ROOT / 'tools/playground-fixtures/preformatted-whitespace-2.5.41.json').read_text(encoding='utf-8'))
 excluded_names = {'preformatted-' + case['name'] for case in preformatted['cases']}

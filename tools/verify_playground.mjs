@@ -150,6 +150,10 @@ const counters = JSON.parse(await readFile(join(root, 'tools/playground-fixtures
 assert.equal(counters.cases.length, 5);
 for (const item of counters.cases) await fixture(item.name, item.html, item.css, item.pages);
 report.checks.push('Five generated-counter witnesses preserve native/WASI and repeat equality; independent readers check the saved text');
+const fontCascade = JSON.parse(await readFile(join(root, 'tools/playground-fixtures/font-cascade-2.5.51.json'), 'utf8'));
+assert.equal(fontCascade.cases.length, 13);
+for (const item of fontCascade.cases) await fixture(item.name, item.html, item.css, item.pages);
+report.checks.push('Thirteen font-cascade witnesses preserve native/WASI and repeat equality; independent readers check actual text-font selections');
 report.checks.push('Clipped tables, forced page breaks and moving footnotes preserve native/WASI and repeat equality');
 report.checks.push('Released layout and visibility cases preserve native/WASI and repeat equality; independent PDF/preview checks run in the browser gate');
 await assert.rejects(render(module, { ...fonts, 'input.html': Buffer.from('x'.repeat(200001)), 'style.css': Buffer.from('') }), /200 KB/);

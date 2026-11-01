@@ -60,7 +60,7 @@ fn render() -> Result<(), Box<dyn std::error::Error>> {
     std::fs::write(
         "result.json",
         format!(
-            "{{\"engine\":\"2.5.50\",\"pages\":{},\"missing_glyphs\":{}}}",
+            "{{\"engine\":\"2.5.51\",\"pages\":{},\"missing_glyphs\":{}}}",
             pages.len(),
             glyphs.missing().len()
         ),

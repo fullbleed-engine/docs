@@ -19,8 +19,8 @@ import pypdfium2 as pdfium
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / 'tools/playground-fixtures/radial-gradient-endpoints-2.5.43.json'
 REFERENCE_ENGINE_VERSION = '2.5.43'
-ENGINE_VERSION = '2.5.50'
-NODE_VERSION = '0.9.3'
+ENGINE_VERSION = '2.5.51'
+NODE_VERSION = '0.9.4'
 
 
 def cases():
