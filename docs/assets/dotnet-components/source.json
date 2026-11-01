@@ -1,10 +1,10 @@
 {
   "schema": "fullbleed.dotnet-component-starter.v1",
   "package": "FullBleed.DotNet",
-  "packageVersion": "0.2.10",
-  "engineVersion": "2.5.50",
+  "packageVersion": "0.2.11",
+  "engineVersion": "2.5.51",
   "framework": "net10.0",
-  "upstreamCommit": "f6c6c36dbdb981a909011d50c97b7918a68596de",
+  "upstreamCommit": "9e2bb5ed90b3f5925f56881b7eb8b1444f938ac8",
   "files": [
     {
       "path": ".gitignore",
@@ -34,7 +34,7 @@
     {
       "path": "ComponentInvoice.csproj",
       "bytes": 579,
-      "sha256": "cb3454b8a6adea017e6bae69b6e9c959ed982b675e7c688e947e21121f2bc2f1"
+      "sha256": "d67f68037d3a5580bb9499cd931e6a541c2d431e4b93baccd3f119099c752779"
     },
     {
       "path": "InvoiceDocument.cs",
@@ -54,7 +54,7 @@
     {
       "path": "README.md",
       "bytes": 1654,
-      "sha256": "c37a413fcf7af5b3566dea206e3b8b6353e58348ed81595201a87f051584413e"
+      "sha256": "1aab7582c9acd2aba83bf62380fd8e4120d28940e34f4362f5d7490cbc772f4e"
     },
     {
       "path": "global.json",
@@ -63,17 +63,17 @@
     },
     {
       "path": "packages.lock.json",
-      "bytes": 307,
-      "sha256": "ae7bd5655d3ebd284aa0dda6fd22c9aa20efc3b3c6ac45dcffb9897517428010"
+      "bytes": 308,
+      "sha256": "248f4713ca49128be9b88d85c12cd38fa1a72bf8886efa2dfae6dad10339d776"
     },
     {
       "path": "upstream.json",
       "bytes": 1974,
-      "sha256": "cce2c8cc89fc753cf9e272d49fd6b86f2f836afc6f9a94fade61194db46aafba"
+      "sha256": "beace270f8dac330cebe5267d61712e0d730cd5a8d1f1e43f064c99c6126a2ea"
     }
   ],
-  "zipSha256": "981dfd2ded4da5d8fdd7604f10a4ca1a84c9a7d5fd367d1499177ce070a8f415",
-  "zipBytes": 511621,
+  "zipSha256": "41a3b24a90be6eb069a39bd496bddd922fa20fb2fe5aa6a029afbcba6887f9d3",
+  "zipBytes": 511622,
   "outputs": {
     "invoice.pdf": "b3069d341d9c81b1cc099a2f32e0d364597057d998520e5beb476976bc9626e7",
     "page-1.png": "b111980fa0ea3462ac626a79b72147a2e315358c98d052f3a8c8a880a34882bc"
