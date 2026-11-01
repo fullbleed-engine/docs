@@ -6,7 +6,7 @@ search:
 ---
 # Generate PDFs from C# and .NET
 
-[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.10)
+[`FullBleed.DotNet`](https://www.nuget.org/packages/FullBleed.DotNet/0.2.11)
 brings Fullbleed's Rust rendering engine into a .NET process. Generate invoices
 and reports from HTML/CSS templates, or compose them with ordinary C# methods,
 named components and reusable styles. Native
@@ -19,7 +19,7 @@ With the .NET 10 SDK installed:
 ```bash
 dotnet new console -n InvoiceDemo --framework net10.0
 cd InvoiceDemo
-dotnet add package FullBleed.DotNet --version 0.2.10
+dotnet add package FullBleed.DotNet --version 0.2.11
 ```
 
 ### Render HTML/CSS
@@ -99,8 +99,12 @@ below embeds its fonts.
 
 The package's managed library targets `net8.0`; your application can target
 `net8.0`, `net9.0`, or `net10.0`. It contains native libraries for Windows x64,
-Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.50.
+Linux x64, Intel macOS, and Apple Silicon macOS. It pins Fullbleed 2.5.51.
 The managed assembly has no third-party NuGet runtime dependencies.
+
+Version 0.2.11 fixes font selection when concrete `font-family` rules compete
+with values supplied by CSS custom properties. An unresolved winning variable
+inherits the parent font.
 
 Version 0.2.10 keeps numbering continuous when a counter is first created
 inside successive `display: contents` wrappers. The
@@ -111,11 +115,11 @@ remains included.
 
 Earlier page-font inheritance, radial-gradient, long-code wrapping and `pre-line`
 fixes remain included. See the
-[complete C# page-font example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.10#fonts-in-page-headers-and-footers)
+[complete C# page-font example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.11#fonts-in-page-headers-and-footers)
 for registered fonts in headers and footers. The component and HTML/CSS APIs are
 unchanged. The assembled package is checked on .NET 8, 9 and 10 across all four
 native platforms.
-[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.10).
+[Inspect the release evidence](https://github.com/fullbleed-engine/fullbleed-dotnet/releases/tag/v0.2.11).
 
 ## Download a component invoice
 
@@ -216,8 +220,8 @@ the published application artifact.
 For tagged output, use the [C# library-notice starter](../guides/csharp-tagged-pdf.md)
 with PDF/UA profiles and independent validation.
 
-[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.10/docs/api.md)
-· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.10/samples/FullBleed.DotNet.LinqVdp)
+[.NET API reference](https://github.com/fullbleed-engine/fullbleed-dotnet/blob/v0.2.11/docs/api.md)
+· [LINQ and variable-data example](https://github.com/fullbleed-engine/fullbleed-dotnet/tree/v0.2.11/samples/FullBleed.DotNet.LinqVdp)
 · [CSS coverage](../css-coverage.md)
 · [More document designs](../examples.md)
 · [Report a .NET issue](https://github.com/fullbleed-engine/fullbleed-dotnet/issues)
