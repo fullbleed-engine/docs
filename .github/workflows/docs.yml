@@ -1285,6 +1285,16 @@ jobs:
           retention-days: 14
       - name: Verify the built playground PDF and project downloads
         run: python tools/check_playground_ui.py --site site --out output/playground-ui --browser chrome
+      - name: Guard unsaved playground work in Chrome and Firefox
+        run: |
+          python tools/check_playground_unsaved.py --site site --out output/playground-unsaved/chrome --browser chrome
+          python tools/check_playground_unsaved.py --site site --out output/playground-unsaved/firefox --browser firefox
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-unsaved-verification
+          path: output/playground-unsaved/
+          retention-days: 14
       - name: Verify mobile editing, preview and project downloads
         run: |
           python tools/check_playground_mobile.py --site site --out output/playground-mobile/chrome --browser chrome

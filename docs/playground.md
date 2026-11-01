@@ -126,6 +126,15 @@ On your next visit, choose **Open saved project** and select that ZIP to restore
 your HTML, CSS, custom assets, and project language. Choose **Render PDF** to
 preview it, or keep editing. This works without an account or document upload.
 
+Supported browsers ask before leaving or reloading when you have unsaved source
+edits or asset changes. Choose **Stay** to keep editing and download a project
+first. Downloading one example does not save edits in the others. **Save HTML**
+and **Save CSS** each save only that source file; a PDF download does not save the
+editable project. Resetting an example discards its source edits.
+
+This browser prompt is a safeguard, not a backup. Some browsers, especially on
+mobile, can close a tab without showing it. Keep your project ZIP before leaving.
+
 Opening a project replaces the current document and assets; download your current
 project first if you want to keep it. Invalid projects leave your current work
 intact. The browser accepts project ZIPs up to **24 MiB**, with the same source and
@@ -228,7 +237,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=contents-counters-2550"></script>
+<script type="module" src="../assets/playground/app.js?v=unsaved-projects-2550"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.
