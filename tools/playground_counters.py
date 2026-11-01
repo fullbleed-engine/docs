@@ -8,12 +8,12 @@ from pypdf import PdfReader
 import pypdfium2 as pdfium
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURES = ROOT / 'tools/playground-fixtures/generated-counters-2.5.49.json'
+FIXTURES = ROOT / 'tools/playground-fixtures/generated-counters-2.5.50.json'
 
 
 def cases():
     rows = json.loads(FIXTURES.read_bytes())['cases']
-    assert len(rows) == len({row['name'] for row in rows}) == 3
+    assert len(rows) == len({row['name'] for row in rows}) == 5
     return rows
 
 

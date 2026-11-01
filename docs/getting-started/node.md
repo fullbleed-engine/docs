@@ -76,8 +76,8 @@ npm run render
 
 Open `output/document.pdf` and the previews in `output/preview/`. Edit
 `input.html` or `style.css` and run the renderer again. These playground exports
-use **Node package 0.9.2** with the same **2.5.49** engine. Their renderer sets
-[`defaultStyles: false`](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.9.2/docs/default-styles.md)
+use **Node package 0.9.3** with the same **2.5.50** engine. Their renderer sets
+[`defaultStyles: false`](https://github.com/fullbleed-engine/fullbleed-node/blob/v0.9.3/docs/default-styles.md)
 to preserve font inheritance and CSS layers exactly as entered in the playground.
 
 ## Start with a designed invoice
