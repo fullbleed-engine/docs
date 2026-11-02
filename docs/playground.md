@@ -180,7 +180,7 @@ terminal there, and run:
 
 === "Node.js"
 
-    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.9.4 and its dependency.
+    Use Node.js 22 or newer. The lockfile pins Fullbleed 0.9.5 and its dependency.
 
     ```bash
     npm ci --ignore-scripts
@@ -237,7 +237,7 @@ fictional.
 · [Release upgrade checks](assets/playground/upgrade-verification-084.json)
 · [Third-party licenses](assets/playground/LICENSES.txt)
 
-<script type="module" src="../assets/playground/app.js?v=font-cascade-2551"></script>
+<script type="module" src="../assets/playground/app.js?v=node-startup-095"></script>
 
 Build this into your own web app: [download the browser SDK starter](guides/browser-pdf.md),
 with editable templates and local PDF downloads.

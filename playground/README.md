@@ -127,7 +127,7 @@ and long documents in Firefox and Playwright WebKit with the full Chrome run.
 **Download project** captures the current editor values into a ZIP with the
 fonts and their licenses, dependencies pinned to the built engine version, a
 Python or Node.js runner, and a file-hash manifest. The Node project locks
-`fullbleed@0.9.4` (engine 2.5.51), uses `defaultStyles: false` to retain the
+`fullbleed@0.9.5` (engine 2.5.51), uses `defaultStyles: false` to retain the
 template's CSS cascade, and runs with `npm ci --ignore-scripts` followed by
 `npm run render`. Exporting uses only static GET requests
 for bundled assets; the document stays in the browser. It captures source at the
