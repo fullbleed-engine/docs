@@ -73,6 +73,7 @@ nav:
   - Home: index.md
   - Get started:
     - Try in your browser: playground.md
+    - Watch the walkthrough: guides/playground-walkthrough.md
     - Python quickstart: getting-started/quickstart.md
     - Node.js quickstart: getting-started/node.md
     - Rust quickstart: getting-started/rust.md

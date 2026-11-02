@@ -1,0 +1,33 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Customize an invoice in Fullbleed's free
+HTML and CSS playground.
+
+00:00:04.000 --> 00:00:07.760
+Open the playground. Choose Northstar
+invoice.
+
+00:00:07.760 --> 00:00:14.480
+Change the recipient from Maple & Finch to
+Willow & Finch.
+
+00:00:14.480 --> 00:00:22.200
+Add a CSS rule to change the invoice
+heading color.
+
+00:00:22.200 --> 00:00:30.240
+Choose Render PDF to preview the new
+recipient and heading color.
+
+00:00:30.240 --> 00:00:34.600
+Choose Download PDF to save the finished
+invoice.
+
+00:00:34.600 --> 00:00:42.240
+Choose Node.js, then Download project to
+keep the editable source.
+
+00:00:42.240 --> 00:00:50.240
+Extract the Node.js ZIP. Run npm ci
+--ignore-scripts, then npm run render.
