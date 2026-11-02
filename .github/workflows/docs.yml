@@ -1190,6 +1190,14 @@ jobs:
       - name: Verify the focused React preview recipe download and source hashes
         run: python tools/check_react_preview_recipe.py
       - run: python -m mkdocs build --strict
+      - name: Verify the invoice walkthrough and preserve playground edits
+        run: python tools/check_walkthrough_page.py --site site --out output/playground-walkthrough --browser chrome
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playground-walkthrough-verification
+          path: output/playground-walkthrough/
+          retention-days: 14
       - name: Materialize the verified published-wheel CSS evidence
         run: python tools/prepare_css_corpus_site.py site
       - run: python tools/check_site.py site

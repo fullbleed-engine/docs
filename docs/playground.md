@@ -8,13 +8,13 @@ search:
   boost: 2
 ---
 
-<link rel="stylesheet" href="../assets/playground/playground.css?v=font-cascade-2551">
+<link rel="stylesheet" href="../assets/playground/playground.css?v=walkthrough-20261102">
 
 <div class="fb-playground" id="playground">
   <div class="pg-intro">
     <p class="pg-eyebrow">A little code. A finished page.</p>
     <h1>Make it your own.</h1>
-    <p>Edit an example or open your own HTML, CSS, images, and fonts. Everything runs on your device.</p>
+    <p>Edit an example or open your own files. Runs on your device. <a id="pg-walkthrough-link" href="../guides/playground-walkthrough/" target="_blank" rel="noopener" aria-label="Watch a short walkthrough (opens in a new tab)">Watch a short walkthrough ↗</a></p>
   </div>
   <div class="pg-toolbar">
     <div class="pg-picker"><label for="pg-example">Start with</label><select id="pg-example" disabled><option value="invoice">Northstar invoice</option><option value="report">Common Ground report</option><option value="notice">Riverton notice</option></select></div>
