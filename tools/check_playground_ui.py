@@ -196,7 +196,7 @@ try:
                 check('Node project has a valid ZIP CRC and unique paths', archive.testzip() is None and len(archive.namelist()) == len(set(archive.namelist())))
                 pkg, lock, record = [json.loads(archive.read(name)) for name in ['package.json', 'package-lock.json', 'project.json']]
                 check('Node package and lock use the matching published engine',
-                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.9.4'
+                      pkg['dependencies']['fullbleed'] == lock['packages']['node_modules/fullbleed']['version'] == '0.9.5'
                       and pkg['fullbleed']['engineVersion'] == record['engine']['version'] == manifest['engine']['version'])
                 check('Node manifest verifies every source, font, license and dependency file',
                       {item['path'] for item in record['files']} == set(archive.namelist()) - {'project.json'}
